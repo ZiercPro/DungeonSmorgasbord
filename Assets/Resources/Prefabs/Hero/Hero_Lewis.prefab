@@ -17,12 +17,13 @@ GameObject:
   - component: {fileID: 7676014067779993774}
   - component: {fileID: 1035837962143427144}
   - component: {fileID: 4605838071213516601}
-  - component: {fileID: 7032251624863716901}
   - component: {fileID: 6262629404899212936}
   - component: {fileID: 6664480362858052325}
   - component: {fileID: 7313946861486673487}
   - component: {fileID: 8962218401074913994}
   - component: {fileID: 4860067538032032267}
+  - component: {fileID: 7032251624863716901}
+  - component: {fileID: 6903971427401375828}
   m_Layer: 3
   m_Name: Hero_Lewis
   m_TagString: Player
@@ -230,20 +231,6 @@ MonoBehaviour:
   dashParticle: {fileID: 7803808135997141566, guid: b97c5f9d4c57f5f44b937212f6dea57e, type: 3}
   dashCoolDown: 1
   dashTime: 0.3
---- !u!114 &7032251624863716901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3299815134350897790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61ca5dd0ad74122438153f1eed2f7185, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backMoveTime: 0.15
-  force: 5
 --- !u!114 &6262629404899212936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +301,35 @@ MonoBehaviour:
   Health: {fileID: 6262629404899212936}
   Animator: {fileID: 1448311870630047478}
   InputManager: {fileID: 1035837962143427144}
+--- !u!114 &7032251624863716901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299815134350897790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ca5dd0ad74122438153f1eed2f7185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backMoveTime: 0.15
+  force: 10
+--- !u!114 &6903971427401375828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299815134350897790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d08d96fd68039af44a4f02843696133b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensity: 2
+  frequence: 1.5
+  duration: 0.5
 --- !u!1 &4322705567087781510
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +463,7 @@ MonoBehaviour:
   - {x: 0.25, y: 0.05, z: 0}
   m_ShapePathHash: 334015429
   m_Mesh: {fileID: 0}
-  m_InstanceId: 41510
+  m_InstanceId: 39674
   m_LocalBounds:
     m_Center: {x: -0.025000006, y: 0.175, z: 0}
     m_Extent: {x: 0.275, y: 0.125, z: 0}

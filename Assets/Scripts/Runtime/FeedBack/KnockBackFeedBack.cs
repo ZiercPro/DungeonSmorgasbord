@@ -5,8 +5,9 @@ namespace Runtime.FeedBack
 {
     public class KnockBackFeedBack : MonoBehaviour
     {
-        [SerializeField] private float backMoveTime;
-        [SerializeField] private float force;
+        [SerializeField] private float backMoveTime = 0.15f;
+        [SerializeField] private float force = 10f;
+        private Coroutine _backMoveCoroutinel;
         private Rigidbody2D _rb2d;
         private Movement _moveC;
 
@@ -22,10 +23,10 @@ namespace Runtime.FeedBack
             switch (_moveC == null)
             {
                 case true:
-                    StartCoroutine(BackMove(damager));
+                    _backMoveCoroutinel = StartCoroutine(BackMove(damager));
                     break;
                 case false:
-                    StartCoroutine(BackMoveWithMoveController(damager));
+                    _backMoveCoroutinel = StartCoroutine(BackMoveWithMoveController(damager));
                     break;
             }
         }

@@ -1,3 +1,4 @@
+using Runtime.FeedBack;
 using Runtime.Weapon.Base;
 using System;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class Hero : MonoBehaviour, IDamageable
 {
     private HeroAnimationController _heroAnimationController;
+    private CameraShakeFeedback _cameraShakeFeedback;
+    private KnockBackFeedBack _knockBackFeedBack;
     private HeroWeaponHandler _heroWeaponHandler;
     private InteractHandler _interactHandler;
     private FlipController _flipController;
@@ -31,6 +34,8 @@ public class Hero : MonoBehaviour, IDamageable
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _interactHandler = GetComponentInChildren<InteractHandler>();
         _heroWeaponHandler = GetComponentInChildren<HeroWeaponHandler>();
+        _knockBackFeedBack = GetComponentInChildren<KnockBackFeedBack>();
+        _cameraShakeFeedback = GetComponentInChildren<CameraShakeFeedback>();
         _heroAnimationController = GetComponentInChildren<HeroAnimationController>();
     }
 
@@ -38,7 +43,7 @@ public class Hero : MonoBehaviour, IDamageable
     {
         //让gamepanel显示金币数量
         CoinPack.GetCoins(0);
-        
+
         _attribute.Initialize();
         _heroWeaponHandler.GetDefualtWeapon();
         _health.Initialize(_attribute.maxHealth);
@@ -55,7 +60,6 @@ public class Hero : MonoBehaviour, IDamageable
         OnTakeDamage += damageInfo => { _heroAnimationController.HitAnimation(); };
         _health.Dead += _heroAnimationController.DeadAnimation;
         _health.Dead += Dead;
-        
     }
 
     public HeroAttribute GetAttribute()
@@ -73,10 +77,14 @@ public class Hero : MonoBehaviour, IDamageable
             current -= info.damageAmount;
             return current;
         });
+        //听觉反馈
+        
+        //视觉反馈
+        _cameraShakeFeedback.StartShake();
+        _knockBackFeedBack.StartBackMove(info);
     }
 
-    
-    
+
     public void Dead()
     {
         enabled = false;

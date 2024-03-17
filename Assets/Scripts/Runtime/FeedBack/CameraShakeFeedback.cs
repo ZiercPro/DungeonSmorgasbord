@@ -4,9 +4,9 @@ using System.Collections;
 
 public class CameraShakeFeedback : MonoBehaviour
 {
-    [SerializeField] private float intensity; //强度
-    [SerializeField] private float frequence; //频率
-    [SerializeField] private float duration; //持续时间
+    [SerializeField] private float intensity = 1f; //强度
+    [SerializeField] private float frequence = 1f; //频率
+    [SerializeField] private float duration = 0.2f; //持续时间
 
     private CinemachineVirtualCamera _virtualCamera;
 
