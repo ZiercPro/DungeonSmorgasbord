@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb1345f53f04b24a8b6d62249f2e4d2, type: 3}
+  m_Name: Enemy_Baby
+  m_EditorClassIdentifier: 
+  maxHealth: 6
+  moveSpeed: 4
+  difficulty: 2
+  damageAmount: 2
+  attackSpeed: 2
+  attackRange: 0.3
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 8

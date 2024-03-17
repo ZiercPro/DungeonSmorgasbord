@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e3bcd31409d5340b0610634bd1e5b2, type: 3}
+  m_Name: CardTextTable
+  m_EditorClassIdentifier: 
+  customTextTableFile: {fileID: 4900000, guid: df53ce0e22062d8489344450003d3a3e, type: 3}
+  customTextTable:
+    _keyList: e8030000e9030000ea030000eb030000ec030000
+    _valueList:
+    - Chinese: "\u8FD1\u6218\u653B\u51FB\u4F24\u5BB3+6%"
+      English: "Melee attack damage+6%\r"
+    - Chinese: "\u8FDC\u7A0B\u653B\u51FB\u4F24\u5BB3+6%"
+      English: "Remotely attack damage+6%\r"
+    - Chinese: "\u79FB\u52A8\u901F\u5EA6+2%"
+      English: "Move Speed+2%\r"
+    - Chinese: "\u6700\u5927\u751F\u547D\u503C+2"
+      English: "Max Health+2\r"
+    - Chinese: "\u66B4\u51FB\u51E0\u7387+4%"
+      English: "Critical hit chance+4%\r"

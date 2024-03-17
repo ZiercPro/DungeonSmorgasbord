@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - VirtualCamera
+  - Item
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Hero
+  - Water
+  - UI
+  - Enemy
+  - Ground
+  - Wall
+  - NPC
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 2187904195
+    locked: 0
+  - name: Ground
+    uniqueID: 3326102633
+    locked: 0
+  - name: Wall
+    uniqueID: 3739508289
+    locked: 0
+  - name: Object
+    uniqueID: 404507155
+    locked: 0
+  - name: UI
+    uniqueID: 3740840663
+    locked: 0
