@@ -1,4 +1,5 @@
 using UnityEngine;
+using Runtime.FeedBack;
 
 public class Enemy_Baby : Enemy
 {
@@ -43,6 +44,6 @@ public class Enemy_Baby : Enemy
         });
         _knockBackFeedBack.StartBackMove(info);
         _flashWhiteFeedBack.Flash();
-        DamagePopupSpawner.Instance.InitDamagePopup(this.transform, Color.blue, info.damageAmount);
+        TextPopupSpawner.Instance.InitPopupText(this.transform, Color.blue, info.damageAmount);
     }
 }

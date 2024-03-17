@@ -2,63 +2,67 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TextChange : MonoBehaviour
+namespace Runtime.FeedBack
 {
-    private TextMeshProUGUI text;
-    private string originalT;
-    private string targetT;
-    //ÐÞÊÎÓÃµÄ×Ö·û
-    private readonly static string s_modifier = "-";
-
-    private void Awake()
+    public class TextChange : MonoBehaviour
     {
-        UpdateText();
-    }
-
-    private void ToggleState()
-    {
-        if (TryGetComponent(out Toggle tgl))
+        private TextMeshProUGUI text;
+        private string originalT;
+        private string targetT;
+        //ä¿®é¥°ç”¨çš„å­—ç¬¦
+        private readonly static string s_modifier = "-";
+    
+        private void Awake()
         {
-            if (tgl.isOn)
+            UpdateText();
+        }
+    
+        private void ToggleState()
+        {
+            if (TryGetComponent(out Toggle tgl))
             {
-                Change();
-            }
-            else
-            {
-                Recover();
+                if (tgl.isOn)
+                {
+                    Change();
+                }
+                else
+                {
+                    Recover();
+                }
             }
         }
-    }
-    private void OnDisable()
-    {
-        Recover();
-        ToggleState();
-    }
-    public void Change()
-    {
-        text.text = targetT;
-    }
-    public void Recover()
-    {
-        text.text = originalT;
-    }
-    public void TextSwitch(bool tigger)
-    {
-        if (tigger) Change();
-        else Recover();
-    }
-    //ÓïÑÔ¸üÐÂÊ±µ÷ÓÃ
-    public void UpdateText()
-    {
-        text = GetComponentInChildren<TextMeshProUGUI>();
-        originalT = text.text;
-        if (originalT.Contains(s_modifier))
+        private void OnDisable()
         {
-            string[] temp = originalT.Split(s_modifier);
-            originalT = temp[1];
+            Recover();
+            ToggleState();
         }
-        targetT = s_modifier + originalT + s_modifier;
-
-        ToggleState();
+        public void Change()
+        {
+            text.text = targetT;
+        }
+        public void Recover()
+        {
+            text.text = originalT;
+        }
+        public void TextSwitch(bool tigger)
+        {
+            if (tigger) Change();
+            else Recover();
+        }
+        //è¯­è¨€æ›´æ–°æ—¶è°ƒç”¨
+        public void UpdateText()
+        {
+            text = GetComponentInChildren<TextMeshProUGUI>();
+            originalT = text.text;
+            if (originalT.Contains(s_modifier))
+            {
+                string[] temp = originalT.Split(s_modifier);
+                originalT = temp[1];
+            }
+            targetT = s_modifier + originalT + s_modifier;
+    
+            ToggleState();
+        }
     }
 }
+

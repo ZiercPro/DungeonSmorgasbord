@@ -185,4 +185,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.5
+  moveduration: 0.2
   punch: {x: 1, y: 2}

@@ -1,46 +1,49 @@
 using System.Collections;
 using UnityEngine;
 
-public class KnockBackFeedBack : MonoBehaviour
+namespace Runtime.FeedBack
 {
-    [SerializeField] private float backMoveTime;
-    [SerializeField] private float force;
-    private Rigidbody2D _rb2d;
-    private Movement _moveC;
-
-    private void Awake()
+    public class KnockBackFeedBack : MonoBehaviour
     {
-        _moveC = GetComponent<Movement>();
-        _rb2d = GetComponent<Rigidbody2D>();
-    }
+        [SerializeField] private float backMoveTime;
+        [SerializeField] private float force;
+        private Rigidbody2D _rb2d;
+        private Movement _moveC;
 
-    public void StartBackMove(DamageInfo info)
-    {
-        Transform damager = info.owner;
-        switch (_moveC == null)
+        private void Awake()
         {
-            case true:
-                StartCoroutine(BackMove(damager));
-                break;
-            case false:
-                StartCoroutine(BackMoveWithMoveController(damager));
-                break;
+            _moveC = GetComponent<Movement>();
+            _rb2d = GetComponent<Rigidbody2D>();
         }
-    }
 
-    private IEnumerator BackMove(Transform attackerTransform)
-    {
-        Vector2 backMoveDir = (transform.position - attackerTransform.position).normalized;
-        _rb2d.AddForce(backMoveDir * force, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(backMoveTime);
-    }
+        public void StartBackMove(DamageInfo info)
+        {
+            Transform damager = info.owner;
+            switch (_moveC == null)
+            {
+                case true:
+                    StartCoroutine(BackMove(damager));
+                    break;
+                case false:
+                    StartCoroutine(BackMoveWithMoveController(damager));
+                    break;
+            }
+        }
 
-    private IEnumerator BackMoveWithMoveController(Transform attackerTransform)
-    {
-        _moveC.canMove = false;
-        Vector2 backMoveDir = (transform.position - attackerTransform.position).normalized;
-        _rb2d.AddForce(backMoveDir * force, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(backMoveTime);
-        _moveC.canMove = true;
+        private IEnumerator BackMove(Transform attackerTransform)
+        {
+            Vector2 backMoveDir = (transform.position - attackerTransform.position).normalized;
+            _rb2d.AddForce(backMoveDir * force, ForceMode2D.Impulse);
+            yield return new WaitForSeconds(backMoveTime);
+        }
+
+        private IEnumerator BackMoveWithMoveController(Transform attackerTransform)
+        {
+            _moveC.canMove = false;
+            Vector2 backMoveDir = (transform.position - attackerTransform.position).normalized;
+            _rb2d.AddForce(backMoveDir * force, ForceMode2D.Impulse);
+            yield return new WaitForSeconds(backMoveTime);
+            _moveC.canMove = true;
+        }
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Runtime.FeedBack;
 
 public class Enemy_BigMouse : Enemy
 {
@@ -46,6 +47,6 @@ public class Enemy_BigMouse : Enemy
             current -= info.damageAmount;
             return current;
         });
-        DamagePopupSpawner.Instance.InitDamagePopup(this.transform, Color.blue, info.damageAmount);
+        TextPopupSpawner.Instance.InitPopupText(this.transform, Color.blue, info.damageAmount);
     }
 }
