@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 374477211409069075}
   - component: {fileID: 5417867317326553159}
   - component: {fileID: 2128747106723904120}
+  - component: {fileID: 2177417096687788655}
   m_Layer: 6
   m_Name: Baby
   m_TagString: Untagged
@@ -277,17 +278,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6c641725bb4a70bd0725e5fe57f674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  moveSpeed: 0
+  maxHealth: 6
+  moveSpeed: 4
   attributeData: {fileID: 11400000, guid: 975e63cfc57ff5246ab12dee01abe5c2, type: 2}
   attackLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   damageType: 0
-  attackSpeed: 0
-  attackRange: 0
-  damageAmount: 0
-  difficulty: 0
+  attackSpeed: 2
+  attackRange: 0.3
+  damageAmount: 2
+--- !u!114 &2177417096687788655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149073930474505641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522186a3f3793eb4289f669b02326dac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burstForce: 6
+  droppedItems:
+  - dropChance: 100
+    droppedItemTemp: {fileID: 7068155551797058394, guid: f6f8761a45f28f1469031403d72dc037, type: 3}
+    haveItemNumRange: 1
+    itemNum: 0
+    minNum: 1
+    maxNum: 4
 --- !u!1 &6365258972828138985
 GameObject:
   m_ObjectHideFlags: 0

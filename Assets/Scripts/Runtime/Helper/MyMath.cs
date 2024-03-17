@@ -39,7 +39,7 @@ public static class MyMath
     /// <param name="max">最大范围</param>
     /// <param name="num">随机数数量</param>
     /// <returns></returns>
-    public static int[] GetRandomRange(int min, int max, int num)
+    public static int[] GetRandomInts(int min, int max, int num)
     {
         int[] result;
         int temp;
@@ -100,7 +100,7 @@ public static class MyMath
     }
 
     /// <summary>
-    /// 获取范围内随机整数数
+    /// 获取范围内随机整数
     /// 包括最小值，不包括最大值
     /// </summary>
     /// <param name="min">最小值</param>

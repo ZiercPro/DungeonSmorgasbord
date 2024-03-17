@@ -22,7 +22,7 @@ public class CardPanel : BasePanel
         cGroup.DOFade(1f, 1.5f).SetUpdate(true).OnComplete(() =>
         {
             GameRoot.Instance.Pause();
-            int[] cardIndex = MyMath.GetRandomRange(0, Cards.GetCards().Count - 1, 3);
+            int[] cardIndex = MyMath.GetRandomInts(0, Cards.GetCards().Count - 1, 3);
             for (int i = 0; i < 3; i++)
             {
                 int temp = cardIndex[i];
