@@ -9,8 +9,7 @@ public class LanguageManager : MonoBehaviour
     [SerializeField] private LocalsDataSO _localsID;
 
     //卡片文本数据
-    [FormerlySerializedAs("_cardTextData")] [SerializeField]
-    private CustomTextDataSO cardTextDataSo;
+    [SerializeField] private CustomTextDataSO cardTextDataSo;
 
     public void SetLanguage(int language)
     {
@@ -28,9 +27,23 @@ public class LanguageManager : MonoBehaviour
         return _localsID;
     }
 
-    public CustomTextDataSO GetCardTextData()
+    public string GetCardText(int itemId)
     {
-        return cardTextDataSo;
+        int languageIDd = GetSelectedLocalID();
+        switch (languageIDd)
+        {
+            case 0:
+                //中文
+                return cardTextDataSo.customTextTable[itemId].Chinese;
+            case 1:
+                //English
+                return cardTextDataSo.customTextTable[itemId].English;
+            default:
+                Debug.LogError("id不存在");
+                break;
+        }
+        Debug.LogError("无法获取文本!");
+        return null;
     }
 
     private IEnumerator SetLocal(int languageID)

@@ -9,11 +9,11 @@ public class CardPanel : BasePanel
     public static readonly string path = "Prefabs/UI/Panel/CardPanel";
     public CardPanel() : base(new UIType(path)) { }
 
-    private Coroutine _timeSlowCor;
+    private Coroutine _timeSlowCoroutine;
 
     public override void OnEnter()
     {
-        _timeSlowCor = MyCoroutineTool.Instance.StartCoroutine(TimeSlow());
+        _timeSlowCoroutine = MyCoroutineTool.Instance.StartCoroutine(TimeSlow());
         float start = 0f;
         CanvasGroup cGroup = UITool.GetOrAddComponent<CanvasGroup>();
         cGroup.interactable = true;
@@ -38,38 +38,23 @@ public class CardPanel : BasePanel
                 });
                 //卡片文本
                 LocalizeStringEvent text = newCard.GetComponent<LocalizeStringEvent>();
-                switch (GameRoot.Instance.settingsData.Language)
+                text.StringReference.Arguments = new object[]
                 {
-                    case 0: //中文
-                        text.StringReference.Arguments = new object[]
-                        {
-                            GameRoot.Instance.LanguageManager.GetCardTextData()
-                                .customTextTable[Cards.GetCards()[temp].id].Chinese
-                        };
-                        text.StringReference.RefreshString();
-                        break;
-                    case 1: //English
-                        text.StringReference.Arguments = new object[]
-                        {
-                            GameRoot.Instance.LanguageManager.GetCardTextData()
-                                .customTextTable[Cards.GetCards()[temp].id].English
-                        };
-                        text.StringReference.RefreshString();
-                        break;
-                    default: break;
-                }
+                    GameRoot.Instance.LanguageManager.GetCardText(Cards.GetCards()[cardIndex[i]].id)
+                };
+                text.StringReference.RefreshString();
             }
         });
     }
 
     public override void OnPause()
     {
-        MyCoroutineTool.Instance.StopCoroutine(_timeSlowCor);
+        MyCoroutineTool.Instance.StopCoroutine(_timeSlowCoroutine);
     }
 
     public override void OnExit()
     {
-        MyCoroutineTool.Instance.StopCoroutine(_timeSlowCor);
+        MyCoroutineTool.Instance.StopCoroutine(_timeSlowCoroutine);
         GameRoot.Instance.Play();
         CanvasGroup cGroup = UITool.GetOrAddComponent<CanvasGroup>();
         cGroup.interactable = false;

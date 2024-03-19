@@ -58,7 +58,6 @@ public class BattleManager : SingletonIns<BattleManager>
                 currentState = BattleState.Card;
                 break;
             case BattleState.Card:
-
                 break;
         }
     }
@@ -82,6 +81,13 @@ public class BattleManager : SingletonIns<BattleManager>
     public void BattleEntry()
     {
         BattleStart();
+    }
+
+    //结束战斗(玩家死亡
+    public void BattleEixt()
+    {
+        Enemy.EnemyClear();
+        currentState = BattleState.Before;
     }
 
     //获取当前波的总难度值
@@ -118,7 +124,7 @@ public class BattleManager : SingletonIns<BattleManager>
         es.enemyTemp = enemyTemps[index];
     }
 
-    private void Enemys()
+    private void SpawnEnemy()
     {
         StartCoroutine(EnemySpawn());
     }
@@ -155,7 +161,7 @@ public class BattleManager : SingletonIns<BattleManager>
         OnBattleStart?.Invoke();
         GetCurrentDifficulty(_currentLevel);
         GetHash(_currentDifficulty);
-        Enemys();
+        SpawnEnemy();
     }
 
     private void BattleEnd()

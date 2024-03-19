@@ -31,20 +31,23 @@ public class BabyNormalState : EnemyState
 
     public override void FrameUpdate()
     {
-        base.FrameUpdate();
-        if (enemyBase.attackCheck.isEnter)
+        if (GameManager.playerTans != null && GameManager.playerTans.gameObject.activeInHierarchy)
         {
-            if (_timer <= 0)
+            if (enemyBase.attackCheck.isEnter)
             {
-                DamageInfo info = new DamageInfo(_enemy.attribute.damageAmount, _enemy.attribute.damageType,
-                    _enemy.transform);
-                IDamageable damageable = _enemy.attackCheck.collier.GetComponent(typeof(IDamageable)) as IDamageable;
-                damageable.TakeDamage(info);
-                _timer = _attackInterval;
-            }
-            else
-            {
-                _timer -= Time.deltaTime;
+                if (_timer <= 0)
+                {
+                    DamageInfo info = new DamageInfo(_enemy.attribute.damageAmount, _enemy.attribute.damageType,
+                        _enemy.transform);
+                    IDamageable damageable =
+                        _enemy.attackCheck.collier.GetComponent(typeof(IDamageable)) as IDamageable;
+                    damageable.TakeDamage(info);
+                    _timer = _attackInterval;
+                }
+                else
+                {
+                    _timer -= Time.deltaTime;
+                }
             }
         }
     }

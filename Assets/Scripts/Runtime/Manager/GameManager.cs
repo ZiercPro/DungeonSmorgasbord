@@ -11,14 +11,17 @@ public class GameManager : MonoBehaviour
 
     public static Transform playerTans { get; private set; } //角色的transform组件
 
-    private IDataService jsonDataService;
-    private Heros heros; //角色资源信息
+    private IDataService _jsonDataService;
+    private PanelManager _panelManager;
+    private HeroList _heroList; //角色资源信息
 
     private void Awake()
     {
-        jsonDataService = new JsonDataService();
-        heros = new Heros();
+        _jsonDataService = new JsonDataService();
+        _panelManager = new PanelManager();
+        _heroList = new HeroList();
         HeroBorn();
+        GameSet();
         SceneInit();
         CameraSet();
     }
@@ -26,6 +29,7 @@ public class GameManager : MonoBehaviour
     private void OnDestroy()
     {
         playerTans = null;
+        _panelManager.PopAll();
     }
 
     //场景初始化
@@ -37,7 +41,7 @@ public class GameManager : MonoBehaviour
     //角色生成
     private void HeroBorn()
     {
-        GameObject newHero = Instantiate(Resources.Load<GameObject>(heros.Lewis), heroSpawnPos.position,
+        GameObject newHero = Instantiate(Resources.Load<GameObject>(_heroList.Lewis), heroSpawnPos.position,
             Quaternion.identity);
         playerTans = newHero.transform;
 
@@ -49,6 +53,14 @@ public class GameManager : MonoBehaviour
         cameraT.SetTarget(playerTans);
         cameraT.Follow();
     }
-    
+
+    private void GameSet()
+    {
+        playerTans.GetComponent<Health>().Dead += () =>
+        {
+            _panelManager.Push(new DeadPanel());
+            BattleManager.Instance.BattleEixt();
+        };
+    }
     //////////////////////////////////////////////////
 }

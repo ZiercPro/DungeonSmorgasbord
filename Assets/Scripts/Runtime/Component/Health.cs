@@ -41,6 +41,8 @@ public class Health : MonoBehaviour
 
     private void HealthCheck()
     {
+        if (isDead) return;
+        
         if (maxHealth <= 0)
         {
             maxHealth = 0;

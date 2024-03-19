@@ -8,7 +8,8 @@ public class CustomTextDataSO : ScriptableObject
 {
     public TextAsset customTextTableFile;
     public SerDictionary<int, CustomTextTable> customTextTable;
-
+    
+    
     private void OnValidate()
     {
         if (customTextTableFile == null) return;

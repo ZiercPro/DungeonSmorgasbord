@@ -1,12 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
 /// <summary>
-/// ´¢´æËùÓĞUIĞÅÏ¢ ²¢¿ÉÒÔ´´½¨»òÏú»ÙUI
+/// å‚¨å­˜æ‰€æœ‰UIä¿¡æ¯ å¹¶å¯ä»¥åˆ›å»ºæˆ–é”€æ¯UI
 /// </summary>
 public class UIManager
 {
     /// <summary>
-    /// ´¢´æËùÓĞUIĞÅÏ¢µÄ×Öµä£¬Ã¿Ò»¸öUIĞÅÏ¢¶¼»á¶ÔÓ¦Ò»¸öGameObject
+    /// å‚¨å­˜æ‰€æœ‰UIä¿¡æ¯çš„å­—å…¸ï¼Œæ¯ä¸€ä¸ªUIä¿¡æ¯éƒ½ä¼šå¯¹åº”ä¸€ä¸ªGameObject
     /// </summary>
     private Dictionary<UIType, GameObject> uiDic;
 
@@ -18,16 +18,16 @@ public class UIManager
     }
 
     /// <summary>
-    /// »ñÈ¡Ò»¸öUI¶ÔÏó
+    /// è·å–ä¸€ä¸ªUIå¯¹è±¡
     /// </summary>
-    /// <param name="type"> UIĞÅÏ¢ </param>
+    /// <param name="type"> UIä¿¡æ¯ </param>
     /// <returns></returns>
     public GameObject GetSingleUI(UIType type)
     {
         GameObject parent = GameObject.Find("Canvas");
         if (!parent)
         {
-            Debug.LogError("Canvas²»´æÔÚ!");
+            Debug.LogError("Canvasä¸å­˜åœ¨!");
             return null;
         }
 
@@ -43,7 +43,7 @@ public class UIManager
     }
 
     /// <summary>
-    /// Ïú»ÙÒ»¸öUI¶ÔÏó
+    /// é”€æ¯ä¸€ä¸ªUIå¯¹è±¡
     /// </summary>
     public void DestroyUI(UIType type)
     {

@@ -78,7 +78,7 @@ public class Hero : MonoBehaviour, IDamageable
             return current;
         });
         //听觉反馈
-        
+
         //视觉反馈
         _cameraShakeFeedback.StartShake();
         _knockBackFeedBack.StartBackMove(info);
@@ -87,6 +87,9 @@ public class Hero : MonoBehaviour, IDamageable
 
     public void Dead()
     {
-        enabled = false;
+        _knockBackFeedBack.enabled = false;
+        _inputManager.enabled = false;
+        _movement.StopMovePerform();
+        // enabled = false;
     }
 }

@@ -135,6 +135,14 @@ MonoBehaviour:
     m_Key: Coin
     m_Metadata:
       m_Items: []
+  - m_Id: 21394827122827264
+    m_Key: DeadTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21395092538384384
+    m_Key: ReStartButton
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

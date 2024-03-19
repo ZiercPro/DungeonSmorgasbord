@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 public class GameScene : SceneState
 {
     private readonly string name = "Game";
-    private PanelManager panelManager;
+    public PanelManager panelManager { get; private set; }
+
     public override void OnEnter()
     {
         panelManager = new PanelManager();
@@ -20,6 +21,7 @@ public class GameScene : SceneState
             AudioPlayerManager.Instance.PlayAudio(Audios.gameidleBgm);
         }
     }
+
     public override void OnExit()
     {
         AudioPlayerManager.Instance.StopAudio(Audios.gameidleBgm);
@@ -34,6 +36,5 @@ public class GameScene : SceneState
         BattleManager.Instance.OnBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
         GameRoot.Instance.OnTab.AddListener(() => { panelManager.Push(new HeroAttributesPanel()); });
         AudioPlayerManager.Instance.PlayAudio(Audios.gameidleBgm);
-
     }
 }

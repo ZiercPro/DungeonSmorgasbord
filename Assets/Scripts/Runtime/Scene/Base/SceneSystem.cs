@@ -6,7 +6,7 @@ public class SceneSystem
     /// <summary>
     /// 当前运行的场景
     /// </summary>
-    private SceneState currentS;
+    public SceneState currentS { get; private set; }
 
     /// <summary>
     /// 设置并进入当前场景 

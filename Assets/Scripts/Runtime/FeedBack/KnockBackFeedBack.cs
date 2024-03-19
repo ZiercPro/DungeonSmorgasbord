@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -17,6 +18,13 @@ namespace Runtime.FeedBack
             _rb2d = GetComponent<Rigidbody2D>();
         }
 
+        private void OnDisable()
+        {
+            if (_backMoveCoroutinel != null)
+                StopCoroutine(_backMoveCoroutinel);
+            _moveC.StopMovePerform();
+        }
+
         public void StartBackMove(DamageInfo info)
         {
             Transform damager = info.owner;
@@ -33,9 +41,11 @@ namespace Runtime.FeedBack
 
         private IEnumerator BackMove(Transform attackerTransform)
         {
+            _moveC.canMove = false;
             Vector2 backMoveDir = (transform.position - attackerTransform.position).normalized;
             _rb2d.AddForce(backMoveDir * force, ForceMode2D.Impulse);
             yield return new WaitForSeconds(backMoveTime);
+            _moveC.canMove = true;
         }
 
         private IEnumerator BackMoveWithMoveController(Transform attackerTransform)
