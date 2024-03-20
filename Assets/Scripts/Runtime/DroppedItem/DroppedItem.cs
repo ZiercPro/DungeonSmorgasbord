@@ -28,7 +28,7 @@ public class DroppedItem : MonoBehaviour
         {
             if (item != null)
             {
-                Debug.Log(item.name);
+                //Debug.Log(item.name);
                 _items.Remove(item);
                 Destroy(item.gameObject);
             }
