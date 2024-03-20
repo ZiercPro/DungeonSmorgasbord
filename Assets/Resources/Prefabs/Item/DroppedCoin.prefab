@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3511452795249691846}
   - component: {fileID: 841563488836678938}
   - component: {fileID: 2423839515796706044}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3675677970403380244}
   - component: {fileID: 8956199110796041990}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: EntityCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 4654945825972880980}
   - component: {fileID: 4456829289561166160}
   - component: {fileID: 8209068306881884882}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: DroppedCoin
   m_TagString: Item
   m_Icon: {fileID: 0}

@@ -30,6 +30,5 @@ public class DroppedWeapon : DroppedItem
                 weaponInstance.transform.localRotation = Quaternion.identity;
             }
         }
-        base.GetItem();
     }
 }
