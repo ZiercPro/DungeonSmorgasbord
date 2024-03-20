@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ÒôÆµ×ÊÔ´Àà°üº¬ÒôÆµÇĞÆ¬µÄÃû³ÆºÍ×ÊÔ´Î»ÖÃĞÅÏ¢
+/// éŸ³é¢‘èµ„æºç±»åŒ…å«éŸ³é¢‘åˆ‡ç‰‡çš„åç§°å’Œèµ„æºä½ç½®ä¿¡æ¯
 /// </summary>
 public class AudioType
 {

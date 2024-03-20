@@ -15,6 +15,9 @@ public class AudioPlayerManager : UnitySingleton<AudioPlayerManager>
 
     private AudioManager AM;
 
+    private AudioBase _currentMusic;
+    private bool _isMusicPlaying;
+
     protected override void Awake()
     {
         base.Awake();
@@ -29,7 +32,14 @@ public class AudioPlayerManager : UnitySingleton<AudioPlayerManager>
             if (audioBase.outputGroup == sfx)
                 PlaySFX(player, player.clip);
             else
+            {
                 PlayMusic(player);
+                if (audioBase.outputGroup == music)
+                {
+                    _currentMusic = audioBase;
+                    _isMusicPlaying = true;
+                }
+            }
         }
         else
         {
@@ -49,6 +59,8 @@ public class AudioPlayerManager : UnitySingleton<AudioPlayerManager>
         AudioSource player = AM.GetAudioSource(audio);
         if (player)
         {
+            if (audio == _currentMusic)
+                _isMusicPlaying = false;
             player.Stop();
         }
         else
@@ -60,7 +72,11 @@ public class AudioPlayerManager : UnitySingleton<AudioPlayerManager>
     private void PlayMusic(AudioSource player)
     {
         if (!player.isPlaying)
+        {
+            if (_isMusicPlaying)
+                StopAudio(_currentMusic);
             player.Play();
+        }
     }
 
     private void PlaySFX(AudioSource player, AudioClip clip)
@@ -70,57 +86,57 @@ public class AudioPlayerManager : UnitySingleton<AudioPlayerManager>
 
     #region 弃用
 
-    ////淡入淡出
-    //public void PlayMusicWithFade(AudioClip music, float duration = 2f)
-    //{
-    //    StopAllCoroutines();
-    //    float halfduration = duration / 2;
-    //    StartCoroutine(FadeTransiton(music, halfduration));
-    //}
-    //IEnumerator FadeTransiton(AudioClip music, float duration)
-    //{
-    //    AudioSource player = GetCurrentPlayer();
-    //    if (!player.isPlaying) player.Play();
-    //    for (float i = 0; i < duration; i += Time.deltaTime)
-    //    {
-    //        player.volume = 1 - (i / duration);
-    //        yield return null;
-    //    }
-    //    player.volume = 0f;
-    //    player.clip = music;
-    //    for (float i = 0; i < duration; i += Time.deltaTime)
-    //    {
-    //        player.volume = i / duration;
-    //        yield return null;
-    //    }
-    //    player.volume = 1f;
-    //}
-    ////交叉
-    //public void PlayMusicWithCross(AudioClip music, float duration = 2f)
-    //{
-    //    StopAllCoroutines();
-    //    float halfduration = duration / 2;
-    //    StartCoroutine(CrossTransion(music, halfduration));
-    //}
-    //IEnumerator CrossTransion(AudioClip music, float duration)
-    //{
-    //    AudioSource currentPlayer = GetCurrentPlayer();
-    //    AudioSource nextPlayer = GetAnotherPlayer();
-    //    if (currentPlayer == null || nextPlayer == null) Debug.LogErrorFormat("player reference is null!");
-    //    nextPlayer.clip = music;
-    //    if (!currentPlayer.isPlaying) currentPlayer.Play();
-    //    nextPlayer.volume = 0f;
-    //    nextPlayer.Play();
-    //    for (float i = 0; i < duration; i += Time.deltaTime)
-    //    {
-    //        currentPlayer.volume = 1 - (i / duration);
-    //        nextPlayer.volume = i / duration;
-    //        yield return null;
-    //    }
-    //    nextPlayer.volume = 1f;
-    //    currentPlayer.volume = 0f;
-    //    currentPlayer.Stop();
-    //}
+////淡入淡出
+//public void PlayMusicWithFade(AudioClip music, float duration = 2f)
+//{
+//    StopAllCoroutines();
+//    float halfduration = duration / 2;
+//    StartCoroutine(FadeTransiton(music, halfduration));
+//}
+//IEnumerator FadeTransiton(AudioClip music, float duration)
+//{
+//    AudioSource player = GetCurrentPlayer();
+//    if (!player.isPlaying) player.Play();
+//    for (float i = 0; i < duration; i += Time.deltaTime)
+//    {
+//        player.volume = 1 - (i / duration);
+//        yield return null;
+//    }
+//    player.volume = 0f;
+//    player.clip = music;
+//    for (float i = 0; i < duration; i += Time.deltaTime)
+//    {
+//        player.volume = i / duration;
+//        yield return null;
+//    }
+//    player.volume = 1f;
+//}
+////交叉
+//public void PlayMusicWithCross(AudioClip music, float duration = 2f)
+//{
+//    StopAllCoroutines();
+//    float halfduration = duration / 2;
+//    StartCoroutine(CrossTransion(music, halfduration));
+//}
+//IEnumerator CrossTransion(AudioClip music, float duration)
+//{
+//    AudioSource currentPlayer = GetCurrentPlayer();
+//    AudioSource nextPlayer = GetAnotherPlayer();
+//    if (currentPlayer == null || nextPlayer == null) Debug.LogErrorFormat("player reference is null!");
+//    nextPlayer.clip = music;
+//    if (!currentPlayer.isPlaying) currentPlayer.Play();
+//    nextPlayer.volume = 0f;
+//    nextPlayer.Play();
+//    for (float i = 0; i < duration; i += Time.deltaTime)
+//    {
+//        currentPlayer.volume = 1 - (i / duration);
+//        nextPlayer.volume = i / duration;
+//        yield return null;
+//    }
+//    nextPlayer.volume = 1f;
+//    currentPlayer.volume = 0f;
+//    currentPlayer.Stop();
+//}
 
     #endregion
 

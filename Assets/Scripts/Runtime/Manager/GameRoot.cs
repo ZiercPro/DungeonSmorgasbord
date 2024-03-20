@@ -8,8 +8,9 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class GameRoot : UnitySingleton<GameRoot>
 {
-    public PlayerInputAction _playerInputAction { get;private set; }
+    public PlayerInputAction _playerInputAction { get; private set; }
     public LanguageManager LanguageManager { get; private set; }
+    public AudioList AudioList { get; private set; }
     public UnityEvent OnEsc { get; private set; }
     public UnityEvent OnTab { get; private set; }
     public SceneSystem SceneSystem { get; private set; }
@@ -43,6 +44,7 @@ public class GameRoot : UnitySingleton<GameRoot>
         base.Awake();
         OnEsc = new UnityEvent();
         OnTab = new UnityEvent();
+        AudioList = new AudioList();
         SceneSystem = new SceneSystem();
         jsonService = new JsonDataService();
         _playerInputAction = new PlayerInputAction();

@@ -82,7 +82,7 @@ public class BattleManager : SingletonIns<BattleManager>
     {
         BattleStart();
         DroppedItem.ClearAllItem();
-        AudioPlayerManager.Instance.PlayAudio(Audios.battleBgm_normal);
+        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.battleBgm_normal);
     }
 
     //结束战斗(玩家死亡

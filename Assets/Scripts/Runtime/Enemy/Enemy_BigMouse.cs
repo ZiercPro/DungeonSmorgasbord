@@ -26,13 +26,13 @@ public class Enemy_BigMouse : Enemy
         base.Start();
         stateMachine.Initialize(idleState);
         attackCheck.SetRadius(attribute.attackRange);
-        AudioPlayerManager.Instance.PlayAudio(Audios.bigMouthSpawn_1);
+        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.bigMouthSpawn_1);
     }
 
     public override void Dead(bool dropItem=true)
     {
         Instantiate(deadParticle, transform.position, Quaternion.identity);
-        AudioPlayerManager.Instance.PlayAudio(Audios.enemyDead_4);
+        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.enemyDead_4);
         if (dropItem)
             _canDropItems.DropItems();
         Destroy(gameObject);

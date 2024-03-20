@@ -24,9 +24,9 @@ namespace Runtime.Weapon.Weapons
             AnimationEventHandler.AnimationTriggeredPerform += OnColliderCheckStart;
             AnimationEventHandler.AnimationTriggeredEnd += OnColliderCheckEnd;
             AnimationEventHandler.AnimationEnded += OnAttackEnd;
-            _waveAudios.Add(Audios.weaponWave_3);
-            _waveAudios.Add(Audios.weaponWave_4);
-            _waveAudios.Add(Audios.weaponWave_5);
+            _waveAudios.Add(GameRoot.Instance.AudioList.weaponWave_3);
+            _waveAudios.Add(GameRoot.Instance.AudioList.weaponWave_4);
+            _waveAudios.Add(GameRoot.Instance.AudioList.weaponWave_5);
         }
 
         public override void Initialize(SerDictionary<WeaponType, float> weaponDamageRate, float criticalChance,

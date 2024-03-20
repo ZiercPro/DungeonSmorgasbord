@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameScene : SceneState
@@ -18,13 +19,13 @@ public class GameScene : SceneState
             panelManager.Push(new GamePanel());
             BattleManager.Instance.OnBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
             GameRoot.Instance.OnTab.AddListener(() => { panelManager.Push(new HeroAttributesPanel()); });
-            AudioPlayerManager.Instance.PlayAudio(Audios.gameidleBgm);
+            AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.idleBgm);
         }
     }
 
     public override void OnExit()
     {
-        AudioPlayerManager.Instance.StopAudio(Audios.gameidleBgm);
+        AudioPlayerManager.Instance.StopAudio(GameRoot.Instance.AudioList.idleBgm);
         SceneManager.sceneLoaded -= OnSceneLoaded;
         BattleManager.Instance.OnBattleEnd.RemoveAllListeners();
         panelManager.PopAll();
@@ -35,6 +36,6 @@ public class GameScene : SceneState
         panelManager.Push(new GamePanel());
         BattleManager.Instance.OnBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
         GameRoot.Instance.OnTab.AddListener(() => { panelManager.Push(new HeroAttributesPanel()); });
-        AudioPlayerManager.Instance.PlayAudio(Audios.gameidleBgm);
+        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.idleBgm);
     }
 }

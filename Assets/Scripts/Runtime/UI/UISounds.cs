@@ -10,19 +10,19 @@ public class UISounds : MonoBehaviour
     //private bool playing = false;
     public void ButtonClick()
     {
-        AudioPlayerManager.Instance.PlayAudio(Audios.buttonClick);
+        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.buttonClick);
     }
     public void ButtonEnter()
     {
-        AudioPlayerManager.Instance.PlayAudio(Audios.buttonEnter);
+        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.buttonEnter);
     }
     public void CardClick()
     {
-        AudioPlayerManager.Instance.PlayAudio(Audios.cardClick);
+        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.cardClick);
     }
     public void CardEnter()
     {
-        AudioPlayerManager.Instance.PlayAudio(Audios.cardEnter);
+        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.cardEnter);
     }
 
 }

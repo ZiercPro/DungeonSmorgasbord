@@ -20,13 +20,13 @@ public class StartScene : SceneState
         {
             //执行第一次进入该场景后应该做的事情
             panelManager.Push(new StartPanel());
-            AudioPlayerManager.Instance.PlayAudio(Audios.menuBgm);
+            AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.menuBgm);
         }
     }
 
     public override void OnExit()
     {
-        AudioPlayerManager.Instance.StopAudio(Audios.menuBgm);
+        AudioPlayerManager.Instance.StopAudio(GameRoot.Instance.AudioList.menuBgm);
         SceneManager.sceneLoaded -= OnSceneLoaded;
         panelManager.PopAll();
     }
@@ -38,6 +38,6 @@ public class StartScene : SceneState
     private void OnSceneLoaded(Scene scene,LoadSceneMode mode)
     {
         panelManager.Push(new StartPanel());
-        AudioPlayerManager.Instance.PlayAudio(Audios.menuBgm);
+        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.menuBgm);
     }
 }

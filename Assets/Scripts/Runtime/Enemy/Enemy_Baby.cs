@@ -26,13 +26,13 @@ public class Enemy_Baby : Enemy
         base.Start();
         stateMachine.Initialize(idleState);
         attackCheck.SetRadius(attribute.attackRange);
-        AudioPlayerManager.Instance.PlayAudio(Audios.babySpawn_1);
+        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.babySpawn_1);
     }
 
     public override void Dead(bool dropItem = true)
     {
         Instantiate(deadParticle, transform.position, Quaternion.identity);
-        AudioPlayerManager.Instance.PlayAudio(Audios.enemyDead_3);
+        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.enemyDead_3);
         if (dropItem)
             _canDropItems.DropItems();
         Destroy(gameObject);
