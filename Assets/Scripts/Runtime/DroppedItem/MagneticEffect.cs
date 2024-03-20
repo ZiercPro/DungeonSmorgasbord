@@ -30,9 +30,12 @@ public class MagneticEffect : MonoBehaviour
 
     private void Magnetize()
     {
-        force += Time.deltaTime;
-        if (!_tweener.IsActive())
-            _tweener = transform.DOMove(_targetTransform.position, 1 / force).SetAutoKill(true);
+        if (_tweener.IsActive()) return;
+        _tweener = transform.DOMove(_targetTransform.position, 1 / force).SetAutoKill(true).OnUpdate(() =>
+        {
+            force += Time.deltaTime;
+            transform.DOMove(_targetTransform.position, 1 / force).SetEase(Ease.OutFlash);
+        });
     }
 
     private void Update()
