@@ -73,4 +73,7 @@ public static class Audios
 
     public static AudioBase weaponWave_5 = new AudioBase(new AudioType("Audio/Weapon/weaponWave_5"), 1, false, false,
         AudioPlayerManager.Instance.SFX());
+
+    public static AudioBase battleBgm_normal = new AudioBase(new AudioType("Audio/8Bit Music Album - 051321/BattleBgm_normal"), 1, true, false,
+        AudioPlayerManager.Instance.Music());
 }
