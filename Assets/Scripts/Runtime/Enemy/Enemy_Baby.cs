@@ -7,6 +7,7 @@ public class Enemy_Baby : Enemy
     public BabyIdleState idleState { get; private set; }
     public BabyMoveState moveState { get; private set; }
 
+    private CanDropItems _canDropItems;
     private KnockBackFeedBack _knockBackFeedBack;
     private FlashWhiteFeedBack _flashWhiteFeedBack;
 
@@ -15,6 +16,7 @@ public class Enemy_Baby : Enemy
         base.Awake();
         idleState = new BabyIdleState(this, stateMachine, this);
         moveState = new BabyMoveState(this, stateMachine, this);
+        _canDropItems = GetComponent<CanDropItems>();
         _knockBackFeedBack = GetComponent<KnockBackFeedBack>();
         _flashWhiteFeedBack = GetComponent<FlashWhiteFeedBack>();
     }
@@ -27,12 +29,15 @@ public class Enemy_Baby : Enemy
         AudioPlayerManager.Instance.PlayAudio(Audios.babySpawn_1);
     }
 
-    public override void Dead()
+    public override void Dead(bool dropItem = true)
     {
         Instantiate(deadParticle, transform.position, Quaternion.identity);
         AudioPlayerManager.Instance.PlayAudio(Audios.enemyDead_3);
+        if (dropItem)
+            _canDropItems.DropItems();
         Destroy(gameObject);
     }
+
 
     public override void TakeDamage(DamageInfo info)
     {

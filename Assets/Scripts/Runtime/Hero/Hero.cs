@@ -80,6 +80,7 @@ public class Hero : MonoBehaviour, IDamageable
         //听觉反馈
 
         //视觉反馈
+        TextPopupSpawner.Instance.InitPopupText(transform, Color.red, "-" + info.damageAmount);
         _cameraShakeFeedback.StartShake();
         _knockBackFeedBack.StartBackMove(info);
     }

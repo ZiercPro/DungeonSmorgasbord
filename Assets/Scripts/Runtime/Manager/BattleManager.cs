@@ -81,6 +81,7 @@ public class BattleManager : SingletonIns<BattleManager>
     public void BattleEntry()
     {
         BattleStart();
+        DroppedItem.ClearAllItem();
     }
 
     //结束战斗(玩家死亡

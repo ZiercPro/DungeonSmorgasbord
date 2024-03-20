@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
         {
             _panelManager.Push(new DeadPanel());
             BattleManager.Instance.BattleEixt();
+            DroppedItem.ClearAllItem();
         };
     }
     //////////////////////////////////////////////////

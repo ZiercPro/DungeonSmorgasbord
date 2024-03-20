@@ -65,8 +65,7 @@ public class AudioPlayerManager : UnitySingleton<AudioPlayerManager>
 
     private void PlaySFX(AudioSource player, AudioClip clip)
     {
-        if (!player.isPlaying)
-            player.PlayOneShot(clip);
+        player.PlayOneShot(clip);
     }
 
     #region 弃用

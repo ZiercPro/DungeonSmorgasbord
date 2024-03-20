@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 /// <summary>
 /// 自己的数学类，用来进行数值的处理
@@ -121,5 +124,25 @@ public static class MyMath
         float y = Random.Range(-1f, 1f);
         Vector2 result = new Vector2(x, y).normalized;
         return result;
+    }
+
+    /// <summary>
+    /// 从后向前遍历，并对链表进行操作，主要是应用于在遍历时，需要对链表进行调整的操作
+    /// </summary>
+    /// <param name="list">操作链表</param>
+    /// <param name="action">操作</param>
+    /// <typeparam name="T">链表储存对象</typeparam>
+    public static void ForeachList<T>(List<T> list, Action<T> action)
+    {
+        if (list == null || list.Count <= 0)
+        {
+            Debug.LogWarning("链表为空");
+            return;
+        }
+
+        for (int i = list.Count - 1; i > -1; i--)
+        {
+            action?.Invoke(list[i]);
+        }
     }
 }

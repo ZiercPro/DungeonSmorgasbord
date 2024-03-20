@@ -7,6 +7,8 @@ public class MagneticEffect : MonoBehaviour
     [Header("磁力半径")] [SerializeField] private float radius;
     [Header("磁力大小")] [SerializeField] private float force;
 
+    [SerializeField] private Collider2D _entityCollider2D;
+
     private Transform _targetTransform;
     private Tweener _tweener;
     private bool _getTarget;
@@ -20,6 +22,7 @@ public class MagneticEffect : MonoBehaviour
             {
                 _targetTransform = target.transform;
                 _getTarget = true;
+                if (_entityCollider2D != null) _entityCollider2D.enabled = false;
                 //Debug.Log($"find you!{tag}");
             }
         }

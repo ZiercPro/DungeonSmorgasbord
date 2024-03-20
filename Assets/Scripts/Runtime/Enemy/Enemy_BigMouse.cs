@@ -29,13 +29,15 @@ public class Enemy_BigMouse : Enemy
         AudioPlayerManager.Instance.PlayAudio(Audios.bigMouthSpawn_1);
     }
 
-    public override void Dead()
+    public override void Dead(bool dropItem=true)
     {
         Instantiate(deadParticle, transform.position, Quaternion.identity);
         AudioPlayerManager.Instance.PlayAudio(Audios.enemyDead_4);
-        _canDropItems.DropItems();
+        if (dropItem)
+            _canDropItems.DropItems();
         Destroy(gameObject);
     }
+
 
     public override void TakeDamage(DamageInfo info)
     {

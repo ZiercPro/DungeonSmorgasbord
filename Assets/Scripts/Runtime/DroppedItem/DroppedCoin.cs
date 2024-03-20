@@ -1,11 +1,13 @@
+using System;
 using UnityEngine;
 
 public class DroppedCoin : DroppedItem
 {
-    public void GetItem(CoinPack pack)
+    private void GetItem(CoinPack pack)
     {
         pack.GetCoins(num);
         AudioPlayerManager.Instance.PlayAudio(Audios.coinCollected);
+        base.GetItem();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -32,8 +32,10 @@ public class GamePanel : BasePanel
             LocalizeStringEvent coinText = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("Coin");
             coinText.StringReference.Arguments = new object[] { coin };
             coinText.StringReference.RefreshString();
-            if (coin != 0)
-                _coinGetShake = coinText.transform.DOShakePosition(1f, 20f).SetAutoKill(true);
+            if (coin != 0 && (_coinGetShake == null || !_coinGetShake.IsActive()))
+            {
+                _coinGetShake = coinText.transform.DOShakePosition(0.8f, 20f, 20).SetAutoKill(true);
+            }
         };
         _healthBarInitAction = () =>
         {
