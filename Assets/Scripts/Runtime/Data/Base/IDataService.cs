@@ -1,23 +1,23 @@
 /// <summary>
-/// Êı¾İ·şÎñ½Ó¿Ú Ìá¹©Êı¾İ·şÎñµÄÀà½ÓÈë
+/// æ•°æ®æœåŠ¡æ¥å£ æä¾›æ•°æ®æœåŠ¡çš„ç±»æ¥å…¥
 /// </summary>
 public interface IDataService
 {
     /// <summary>
-    /// ±£´æÊı¾İ
+    /// ä¿å­˜æ•°æ®
     /// </summary>
-    /// <typeparam name="T">±£´æµÄÊı¾İÀàĞÍ</typeparam>
-    /// <param name="relativePath">Ïà¶ÔÂ·¾¶</param>
-    /// <param name="data">Êı¾İ¶ÔÏó</param>
-    /// <param name="encrypted">ÊÇ·ñ¼ÓÃÜ</param>
+    /// <typeparam name="T">ä¿å­˜çš„æ•°æ®ç±»å‹</typeparam>
+    /// <param name="relativePath">ç›¸å¯¹è·¯å¾„</param>
+    /// <param name="data">æ•°æ®å¯¹è±¡</param>
+    /// <param name="encrypted">æ˜¯å¦åŠ å¯†</param>
     public bool SaveData<T>(string relativePath,T data, bool encrypted);
 
     /// <summary>
-    /// ¼ÓÔØÊı¾İ json×ªÎª¶ÔÏó
+    /// åŠ è½½æ•°æ® jsonè½¬ä¸ºå¯¹è±¡
     /// </summary>
-    /// <typeparam name="T">Êı¾İÀàĞÍ</typeparam>
-    /// <param name="relativePath">Ïà¶ÔÂ·¾¶</param>
-    /// <param name="encrypted">ÊÇ·ñ¼ÓÃÜ</param>
+    /// <typeparam name="T">æ•°æ®ç±»å‹</typeparam>
+    /// <param name="relativePath">ç›¸å¯¹è·¯å¾„</param>
+    /// <param name="encrypted">æ˜¯å¦åŠ å¯†</param>
     /// <returns></returns>
     public T LoadData<T>(string relativePath,bool encrypted);
 }

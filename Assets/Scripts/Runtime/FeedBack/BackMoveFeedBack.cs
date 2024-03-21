@@ -13,15 +13,15 @@ public class BackMoveFeedBack : MonoBehaviour
     private bool canMove;
     private void Awake()
     {
-        _camera = Camera.main;
         startPos = transform.position;
     }
     private void OnDisable()
     {
         StopCoroutine(Move());
     }
-    public void OnMove()
+    public void OnMove(Camera parent)
     {
+        _camera = parent;
         transform.SetParent(_camera.transform);
         canMove = true;
         StartCoroutine(Move());

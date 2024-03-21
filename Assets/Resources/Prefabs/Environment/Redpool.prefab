@@ -328,11 +328,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316ab5d342ebb01409c863213b9ed3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeRudius: 1.5
-  ButtonUITemp: {fileID: 7942347267266228082, guid: 2189bb9c5ce4fbe49857de5824676bbb, type: 3}
-  OnPressed:
+  uiPosition: {x: 0, y: -1.5, z: 0}
+  activeRadius: 1.5
+  buttonUITemp: {fileID: 7942347267266228082, guid: 2189bb9c5ce4fbe49857de5824676bbb, type: 3}
+  onActive:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: BattleManager, Assembly-CSharp
+        m_MethodName: BattleEntry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6819858875503488060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +467,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
