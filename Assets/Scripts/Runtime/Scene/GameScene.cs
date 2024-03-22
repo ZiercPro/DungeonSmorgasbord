@@ -19,7 +19,6 @@ public class GameScene : SceneState
             panelManager.Push(new GamePanel());
             BattleManager.Instance.OnBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
             GameRoot.Instance.OnTab.AddListener(() => { panelManager.Push(new HeroAttributesPanel()); });
-            AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.idleBgm);
         }
     }
 
@@ -36,6 +35,5 @@ public class GameScene : SceneState
         panelManager.Push(new GamePanel());
         BattleManager.Instance.OnBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
         GameRoot.Instance.OnTab.AddListener(() => { panelManager.Push(new HeroAttributesPanel()); });
-        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.idleBgm);
     }
 }
