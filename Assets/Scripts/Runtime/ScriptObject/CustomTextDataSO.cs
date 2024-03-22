@@ -8,13 +8,13 @@ public class CustomTextDataSO : ScriptableObject
 {
     public TextAsset customTextTableFile;
     public SerDictionary<int, CustomTextTable> customTextTable;
-    
-    
+
+
     private void OnValidate()
     {
         if (customTextTableFile == null) return;
 
-        if (customTextTable != null) customTextTable.Clear();
+        customTextTable = new SerDictionary<int, CustomTextTable>();
 
         string[] lines = customTextTableFile.text.Split('\n');
         for (int i = 1; i < lines.Length; i++)

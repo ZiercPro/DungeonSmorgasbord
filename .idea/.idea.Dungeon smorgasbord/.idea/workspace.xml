@@ -5,39 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd36c1ef-bee6-41a4-b2ce-922eadf5c2c5" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-Chinese (Simplified).asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-Chinese (Simplified).asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-English.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-English.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Localization-String-Tables-Chinese (Simplified)_BundledAssetGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Localization-String-Tables-Chinese (Simplified)_BundledAssetGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Localization-String-Tables-Chinese (Simplified)_ContentUpdateGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Localization-String-Tables-Chinese (Simplified)_ContentUpdateGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Localization-String-Tables-English_BundledAssetGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Localization-String-Tables-English_BundledAssetGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Localization-String-Tables-English_ContentUpdateGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Localization-String-Tables-English_ContentUpdateGroupSchema.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.changes" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.changes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.wktree" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.wktree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-Locales.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-Locales.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-Chinese (Simplified) (zh-Hans).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-Chinese (Simplified) (zh-Hans).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-Chinese (Simplified).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-Chinese (Simplified).asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-English (en).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-English (en).asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/link.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/link.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-English.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-English.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Font/TMP/LanaPixel SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Font/TMP/LanaPixel SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/LocalSetting/Localization Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LocalSetting/Localization Settings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Managers/BattleManager.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Managers/BattleManager.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Managers/DamagePopupManager.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Managers/DamagePopupManager.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Managers/EnvironmentManager.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Managers/EnvironmentManager.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Managers/GameManager.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Managers/GameManager.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Managers/LanguageManager.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Managers/LanguageManager.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scenes/Start.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scenes/Start.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/Panel/SettingMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/Panel/SettingMenu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObj/LocalIDTable.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObj/LocalIDTable.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/FeedBack/TextChange.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/FeedBack/TextChange.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/LanguageManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/LanguageManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/BattleDifficultyDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/BattleDifficultyDataSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/CustomTextDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/CustomTextDataSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/EnemyDiffiultyDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/EnemyDiffiultyDataSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/HeroAttributeSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/HeroAttributeSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/LocalsDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/LocalsDataSO.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/LocalizationSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/LocalizationSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,6 +63,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Test/InputTest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Test/InputTest_2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Test/MoveTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.19/Editor/Settings/AddressableAssetEntry.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.19/Editor/Settings/AddressableAssetSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.19/Runtime/AddressablesImpl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Runtime/Behaviours/CinemachineVirtualCamera.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.collab-proxy@2.2.0/Editor/PlasticSCM/Inspector/DrawInspectorOperations.cs" root0="SKIP_HIGHLIGHTING" />
@@ -224,6 +212,7 @@
       <workItem from="1710898409379" duration="10922000" />
       <workItem from="1710914199972" duration="4964000" />
       <workItem from="1711014743056" duration="4056000" />
+      <workItem from="1711082765433" duration="5062000" />
     </task>
     <servers />
   </component>

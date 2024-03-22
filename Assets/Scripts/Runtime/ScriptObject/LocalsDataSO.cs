@@ -1,20 +1,20 @@
+using System;
 using UnityEngine;
+
 /// <summary>
 /// 储存语言对应编号
 /// </summary>
-
 [CreateAssetMenu(menuName = "ScriptObj/LocalID", fileName = "LocalID")]
 public class LocalsDataSO : ScriptableObject
 {
-    public TextAsset LanguageIndexData;
-    public SerDictionary<string, int> localsIDTable;
+    [field: SerializeField] public TextAsset LanguageIndexData { get; private set; }
+    [field: SerializeField] public SerDictionary<string, int> localsIDTable { get; private set; }
 
     private void OnValidate()
     {
         if (LanguageIndexData == null) return;
 
-        if (localsIDTable != null) localsIDTable.Clear();
-
+        localsIDTable = new SerDictionary<string, int>();
         string[] lines = LanguageIndexData.text.Split('\n');
         for (int i = 0; i < lines.Length - 1; i++)
         {

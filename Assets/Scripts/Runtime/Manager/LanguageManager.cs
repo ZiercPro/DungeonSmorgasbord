@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 
 public class LanguageManager : MonoBehaviour
@@ -9,6 +11,13 @@ public class LanguageManager : MonoBehaviour
 
     //卡片文本数据
     [SerializeField] private CustomTextDataSO cardTextDataSo;
+
+
+    private void Awake()
+    {
+        Debug.Log(_localsID.localsIDTable.Count);
+        Debug.Log(_localsID.LanguageIndexData);
+    }
 
     public void SetLanguage(int language)
     {
@@ -41,6 +50,7 @@ public class LanguageManager : MonoBehaviour
                 Debug.LogError("id不存在");
                 break;
         }
+
         Debug.LogError("无法获取文本!");
         return null;
     }
@@ -49,10 +59,14 @@ public class LanguageManager : MonoBehaviour
     {
         if (LocalizationSettings.Instance.GetSelectedLocale() ==
             LocalizationSettings.AvailableLocales.Locales[languageID])
+        {
+           // Debug.Log("已经选择该语言");
             yield break;
+        }
 
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[languageID];
+       // Debug.Log("语言切换完毕");
     }
 
     /// <summary>
@@ -62,9 +76,9 @@ public class LanguageManager : MonoBehaviour
     public static int GetSelectedLocalID()
     {
         int result = 0;
-        foreach (var local in LocalizationSettings.AvailableLocales.Locales)
+        foreach (Locale locale in LocalizationSettings.AvailableLocales.Locales)
         {
-            if (LocalizationSettings.Instance.GetSelectedLocale() == local)
+            if (LocalizationSettings.Instance.GetSelectedLocale() == locale)
                 break;
             else result++;
         }

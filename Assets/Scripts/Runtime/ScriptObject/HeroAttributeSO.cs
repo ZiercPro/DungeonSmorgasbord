@@ -4,7 +4,6 @@ using UnityEngine;
 /// <summary>
 /// 英雄属性 为了方便初始化 利用了可编辑物品
 /// </summary>
-
 [CreateAssetMenu(menuName = "ScriptObj/Attributes/Hero", fileName = "Hero")]
 public class HeroAttributeSO : AttributesBaseSO
 {
@@ -17,8 +16,8 @@ public class HeroAttributeSO : AttributesBaseSO
     private void OnValidate()
     {
         if (!weaponDamageDataFile) return;
-
-        weaponDamageRate.Clear();
+        
+        weaponDamageRate = new SerDictionary<WeaponType, float>();
         //按行分割 会多出一行空串
         string[] allLines = weaponDamageDataFile.text.Split('\n');
         //每行按照 , 分割
@@ -32,4 +31,3 @@ public class HeroAttributeSO : AttributesBaseSO
         }
     }
 }
-

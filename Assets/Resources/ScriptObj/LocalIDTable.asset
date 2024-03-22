@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20248bfff53ddf94ebd121770bd10ec7, type: 3}
   m_Name: LocalIDTable
   m_EditorClassIdentifier: 
-  LanguageIndexData: {fileID: 4900000, guid: 3409010932427f4499077d541ca2f80b, type: 3}
-  localsIDTable:
+  <LanguageIndexData>k__BackingField: {fileID: 4900000, guid: 3409010932427f4499077d541ca2f80b, type: 3}
+  <localsIDTable>k__BackingField:
     _keyList:
     - Chinese
     - English

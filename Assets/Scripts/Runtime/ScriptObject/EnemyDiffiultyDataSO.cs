@@ -14,7 +14,7 @@ namespace ScriptObject
         private void OnValidate()
         {
             if (enemyDiffiultyDataFile == null) return;
-            if (enemyDiffiultyDic != null) enemyDiffiultyDic.Clear();
+            enemyDiffiultyDic = new SerDictionary<string, int>();
 
             string[] lines = enemyDiffiultyDataFile.text.Split('\n');
             for (int i = 0; i < lines.Length; i++)

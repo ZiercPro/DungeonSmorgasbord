@@ -20,14 +20,9 @@ public class BattleDifficultyDataSO : ScriptableObject
     {
         if (difDataFile == null) return;
 
-        if (difOfLevel != null)
-            difOfLevel.Clear();
-
-        if (wavesOfLevel != null)
-            wavesOfLevel.Clear();
-
-        if (intervalOfLevel != null)
-            intervalOfLevel.Clear();
+        difOfLevel = new SerDictionary<int, int>();
+        wavesOfLevel = new List<int>();
+        intervalOfLevel = new List<float>();
 
         string[] lines = difDataFile.text.Split('\n');
 

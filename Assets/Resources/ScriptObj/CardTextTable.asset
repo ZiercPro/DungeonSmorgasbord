@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customTextTableFile: {fileID: 4900000, guid: df53ce0e22062d8489344450003d3a3e, type: 3}
   customTextTable:
-    _keyList: e8030000e9030000ea030000eb030000ec030000
+    _keyList: e8030000e9030000ea030000eb030000ec030000ed030000
     _valueList:
     - Chinese: "\u8FD1\u6218\u653B\u51FB\u4F24\u5BB3+6%"
       English: "Melee attack damage+6%\r"
@@ -26,3 +26,5 @@ MonoBehaviour:
       English: "Max Health+2\r"
     - Chinese: "\u66B4\u51FB\u51E0\u7387+4%"
       English: "Critical hit chance+4%\r"
+    - Chinese: "\u9B54\u6CD5\u653B\u51FB\u4F24\u5BB3+6%"
+      English: Magic attack damage +6%
