@@ -133,7 +133,7 @@ MonoBehaviour:
   - {x: 0.35, y: 0.3, z: 0}
   m_ShapePathHash: -1093780895
   m_Mesh: {fileID: 0}
-  m_InstanceId: 36480
+  m_InstanceId: 36514
   m_LocalBounds:
     m_Center: {x: 0, y: 0.90000004, z: 0}
     m_Extent: {x: 0.35, y: 0.6, z: 0}
@@ -499,15 +499,15 @@ MonoBehaviour:
     haveItemNumRange: 1
     itemNum: 0
     minNum: 2
-    maxNum: 10
+    maxNum: 6
   - dropChance: 15
-    droppedItemTemp: {fileID: 8362093171354650220, guid: 0e703903725702d4c879498b75bc2406, type: 3}
+    droppedItemTemp: {fileID: 8362093171354650220, guid: 8300d574006018040a26f7b2ffeadfd2, type: 3}
     haveItemNumRange: 0
     itemNum: 1
     minNum: 0
     maxNum: 0
   - dropChance: 50
-    droppedItemTemp: {fileID: 8362093171354650220, guid: 8300d574006018040a26f7b2ffeadfd2, type: 3}
+    droppedItemTemp: {fileID: 8362093171354650220, guid: 0e703903725702d4c879498b75bc2406, type: 3}
     haveItemNumRange: 0
     itemNum: 1
     minNum: 0

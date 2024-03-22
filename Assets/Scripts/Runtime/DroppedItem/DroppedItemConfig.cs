@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 [System.Serializable]
@@ -6,9 +7,15 @@ public class DroppedItemConfig
     [SerializeField] [Range(0, 100)] private int dropChance;
     [SerializeField] private GameObject droppedItemTemp;
     [SerializeField] private bool haveItemNumRange;
-    [SerializeField] private int itemNum;
-    [SerializeField] private int minNum;
-    [SerializeField] private int maxNum;
+
+    [HideIf("haveItemNumRange")] [AllowNesting] [SerializeField]
+    private int itemNum;
+
+    [ShowIf("haveItemNumRange")] [AllowNesting] [SerializeField]
+    private int minNum;
+
+    [ShowIf("haveItemNumRange")] [AllowNesting] [SerializeField]
+    private int maxNum;
 
     /// <summary>
     /// 生成掉落物

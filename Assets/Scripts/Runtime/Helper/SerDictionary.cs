@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+
 /// <summary>
 /// 可序列化字典
 /// 通过能够序列化的链表帮助字典序列化
@@ -13,12 +14,13 @@ public class SerDictionary<Tkey, Tvalue> : Dictionary<Tkey, Tvalue>, ISerializat
     //反序列化之后，把链表的值重新存到字典中
     public void OnAfterDeserialize()
     {
-        base.Clear();
+        Clear();
         for (int i = 0; i < Count; i++)
         {
-            base.Add(_keyList[i], _valueList[i]);
+            Add(_keyList[i], _valueList[i]);
         }
     }
+
     //序列化之前，将字典的值存入到链表中
     public void OnBeforeSerialize()
     {

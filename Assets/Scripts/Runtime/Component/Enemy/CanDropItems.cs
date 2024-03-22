@@ -1,8 +1,27 @@
+using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CanDropItems : MonoBehaviour
 {
+    [Button("Add")]
+    private void AddDrop()
+    {
+        if (droppedItems == null) droppedItems = new List<DroppedItemConfig>();
+        DroppedItemConfig newDrop = new DroppedItemConfig();
+        droppedItems.Add(newDrop);
+    }
+
+    [Button("Delete")]
+    private void DeleteDrop()
+    {
+        if (droppedItems != null && droppedItems.Count > 0)
+        {
+            int last = droppedItems.Count - 1;
+            droppedItems.RemoveAt(last);
+        }
+    }
+
     [SerializeField] private float burstForce = 6f;
     [SerializeField] private List<DroppedItemConfig> droppedItems;
 
@@ -21,6 +40,7 @@ public class CanDropItems : MonoBehaviour
             // }
         }
     }
+
 
     public float BurstForce => burstForce;
     public List<DroppedItemConfig> DroppedItems => droppedItems;
