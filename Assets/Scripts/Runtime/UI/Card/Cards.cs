@@ -24,7 +24,6 @@ public static class Cards
                 card6
             };
         }
-
         return cards;
     }
 

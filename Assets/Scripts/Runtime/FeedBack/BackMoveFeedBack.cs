@@ -5,6 +5,7 @@ using UnityEngine;
 /// </summary>
 public class BackMoveFeedBack : MonoBehaviour
 {
+    [Tooltip("越小，离屏幕越近，越大,离屏幕越远")][Range(0,1)]
     [SerializeField] private float moveOffSet;
 
     private Camera _camera;
