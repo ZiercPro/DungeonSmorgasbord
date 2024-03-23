@@ -1,0 +1,23 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Resources/UiToolKit/StyleSheets/Editor.uss?fileID=7433441132597879392&amp;guid=10c172ea8a2ccb146ae2a6b356747833&amp;type=3#Editor" />
+    <ui:VisualElement name="Buttons" focusable="false" class="section" style="margin-top: 10px; margin-right: 0; margin-bottom: 10px; margin-left: 0; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; background-color: rgba(91, 91, 91, 0.36); padding-bottom: 15px;">
+        <ui:Label tabindex="-1" text="Add and Delete Object" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="margin-top: 2px; margin-bottom: 2px; -unity-font-style: bold; font-size: 14px; -unity-text-align: upper-center;" />
+        <ui:VisualElement name="AddButton" style="flex-grow: 1; margin-top: 2px; margin-bottom: 2px; border-top-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0;">
+            <ui:Button text="Add" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Add" binding-path="Add" class="NormalButton" style="border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="DeleteButton" style="flex-grow: 1; margin-top: 2px;">
+            <ui:Button text="Delete" parse-escape-sequences="false" display-tooltip-when-elided="true" name="Delete" focusable="true" binding-path="Delete" class="NormalButton" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="List" class="section">
+        <uie:PropertyField binding-path="moveBackgrounds" />
+    </ui:VisualElement>
+    <ui:VisualElement name="OtherParameter" class="section" style="flex-grow: 1; justify-content: flex-start; padding-top: 10px; padding-right: 15px; padding-bottom: 10px; padding-left: 15px; margin-top: 10px; margin-right: 0; margin-bottom: 10px; margin-left: 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;">
+        <ui:VisualElement name="TuturialObject" style="flex-grow: 1;">
+            <uie:ObjectField label="TuturialObject" name="ObjectField" binding-path="optionTutorialTemp" style="margin-top: 2px; margin-right: 0; margin-bottom: 2px; margin-left: 0;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="MainCamera" style="flex-grow: 1;">
+            <uie:ObjectField label="MainCamera" binding-path="mainCamera" style="margin-top: 2px; margin-right: 0; margin-bottom: 2px; margin-left: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

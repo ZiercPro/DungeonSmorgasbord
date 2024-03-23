@@ -1,0 +1,35 @@
+.NormalButton {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    height: 30px;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out-bounce;
+    -unity-font-style: bold;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    -unity-text-outline-width: 0;
+    letter-spacing: 10px;
+}
+
+.NormalButton:hover {
+    transition-duration: 0.2s;
+    scale: 1.05 1.05;
+    transition-timing-function: ease-out-elastic;
+}
+
+.section {
+    flex-grow: 1;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgba(91, 91, 91, 0.36);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+}

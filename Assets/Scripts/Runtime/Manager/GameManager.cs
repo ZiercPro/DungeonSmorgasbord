@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     //场景初始化
     public void SceneInit()
     {
-        EnvironmentManager.Instance.BackGroundMove();
+        ParallaxMoveManager.Instance.BackGroundMove();
         AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.idleBgm);
     }
 

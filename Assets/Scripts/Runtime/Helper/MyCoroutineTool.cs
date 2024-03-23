@@ -2,48 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+
 /// <summary>
-/// °ïÃ¦¿ªÆôĞ­³ÌµÄµ¥Àı
+/// å¸®å¿™å¼€å¯åç¨‹çš„å•ä¾‹
 /// </summary>
 public class MyCoroutineTool : SingletonIns<MyCoroutineTool>
 {
-    private List<Coroutine> m_Coroutines;
+    private List<Coroutine> _myCoroutines;
 
     private void Awake()
     {
-        m_Coroutines = new List<Coroutine>();
+        _myCoroutines = new List<Coroutine>();
     }
+
     private void OnDisable()
     {
         StopAllCor();
     }
+
     /// <summary>
-    /// ¿ªÆôÒ»¸öĞ­³Ì
+    /// å¼€å¯ä¸€ä¸ªåç¨‹
     /// </summary>
     public Coroutine StartMyCor(IEnumerator cor)
     {
         Coroutine newCor = StartCoroutine(cor);
-        m_Coroutines.Add(newCor);
+        _myCoroutines.Add(newCor);
         return newCor;
     }
 
     /// <summary>
-    /// ¹Ø±ÕÒ»¸öĞ­³Ì
+    /// å…³é—­ä¸€ä¸ªåç¨‹
     /// </summary>
     public void StopMyCor(Coroutine cor)
     {
-        m_Coroutines.Remove(cor);
+        _myCoroutines.Remove(cor);
         StopCoroutine(cor);
     }
 
     /// <summary>
-    /// ¹Ø±ÕËùÓĞĞ­³Ì
+    /// å…³é—­æ‰€æœ‰åç¨‹
     /// </summary>
     public void StopAllCor()
     {
-        foreach (Coroutine cor in m_Coroutines)
-        {
-            StopCoroutine(cor);
-        }
+        MyMath.ForeachList(_myCoroutines, StopCoroutine);
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 /// 自定义分割线属性
 /// </summary>
 [System.AttributeUsage(System.AttributeTargets.Field,AllowMultiple = true)]
-public class Separator : PropertyAttribute
+public class MySeparator : PropertyAttribute
 {
     public readonly float Thickness;
     public readonly float Spacing;
@@ -14,7 +14,7 @@ public class Separator : PropertyAttribute
     /// <param name="thickness">分割线厚度</param>
     /// <param name="spacing">分割线间距</param>
     /// <param name="color">分割线颜色</param>
-    public Separator(float thickness=2f,float spacing=5f)
+    public MySeparator(float thickness=2f,float spacing=5f)
     {
         // if (color.r==0f&& color.g==0f&& color.b==0f)
         // {

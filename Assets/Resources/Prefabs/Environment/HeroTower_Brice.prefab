@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7094092903599501654}
   - component: {fileID: 7097534285577911871}
-  - component: {fileID: -4721359247182773847}
   m_Layer: 0
   m_Name: HeroTower_Brice
   m_TagString: Untagged
@@ -47,19 +46,6 @@ SortingGroup:
   m_SortingLayer: 1
   m_SortingOrder: 5
   m_SortAtRoot: 0
---- !u!114 &-4721359247182773847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5916122348523917789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94f46945863fba248bfa986f0c98761e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveOffSet: 0.3
 --- !u!1 &7616352162803076049
 GameObject:
   m_ObjectHideFlags: 0

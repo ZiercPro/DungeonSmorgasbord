@@ -178,7 +178,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1999692446589130688}
   - component: {fileID: 7976517868410257296}
-  - component: {fileID: 8237772523047235563}
   m_Layer: 0
   m_Name: HeroTower_Lewis
   m_TagString: Untagged
@@ -215,16 +214,3 @@ SortingGroup:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_SortAtRoot: 0
---- !u!114 &8237772523047235563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5852917719708302208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94f46945863fba248bfa986f0c98761e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveOffSet: 0.3
