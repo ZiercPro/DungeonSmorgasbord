@@ -5,59 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd36c1ef-bee6-41a4-b2ce-922eadf5c2c5" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/ParallaxMoveFeedBack.uxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/ParallaxMoveFeedBack.uxml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/ParallaxMoveManagerEditor.uxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/ParallaxMoveManagerEditor.uxml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/StyleSheets.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/StyleSheets/Editor.uss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/StyleSheets/Editor.uss.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/ParallaxMoveFeedBackDrawer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/ParallaxMoveFeedBackDrawer.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Inspector/ParallaxMoveManagerEditor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Inspector/ParallaxMoveManagerEditor.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/FeedBack/ParallaxMoveFeedBack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UnityDefaultRuntimeTheme.tss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/UnityDefaultRuntimeTheme.tss.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/GlobalNamespace.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UIElements.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.Profiling.Editor.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/Unity.UI.Builder.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.AddressableAssets.GUIElements.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Experimental.GraphView.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Localization.UI.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Overlays.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.PackageManager.UI.Internal.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Rendering.LookDev.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Search.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.ShaderGraph.Drawing.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.ShortcutManagement.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.Tilemaps.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.U2D.Animation.SpriteLibraryEditor.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.U2D.Animation.Upgrading.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.U2D.Animation.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.U2D.Layout.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.Debugger.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEditor.UIElements.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UIElementsSchema/UnityEngine.UIElements.xsd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.plastic/plastic.changes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/ParallaxMoveFeedBackDrawer.uxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/ParallaxMoveFeedBackDrawer.uxml.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.plastic/plastic.changes" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.changes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.wktree" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.wktree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/HeroTower_Brice.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/HeroTower_Brice.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/HeroTower_Lewis.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Environment/HeroTower_Lewis.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Particle/BackGround_Stars.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Particle/BackGround_Stars.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/DroppedItemConfigDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/DroppedItemConfigDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/SeparatorDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/MySeparatorDrawer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/SeparatorDrawer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/MySeparatorDrawer.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/Inspector/CanDropItemsEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Inspector/CanDropItemsEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/CustomAttribute/Separator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/CustomAttribute/MySeparator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/CustomAttribute/Separator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/CustomAttribute/MySeparator.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/FeedBack/BackMoveFeedBack.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/FeedBack/BackMoveFeedBack.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/FeedBack/ParallaxMoveFeedBack.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/ParallaxMoveFeedBackDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/ParallaxMoveFeedBackDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/Inspector/ParallaxMoveManagerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Inspector/ParallaxMoveManagerEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/FeedBack/ParallaxMoveFeedBack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/FeedBack/ParallaxMoveFeedBack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Helper/MyCoroutineTool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Helper/MyCoroutineTool.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/EnvironmentManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/ParallaxMoveManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/EnvironmentManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/ParallaxMoveManager.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/GameManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,16 +34,19 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44c555c8e7704b01b3778d8db4ae902827800/62/8b85531d/Animator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/e2/e6e5235d/Action`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/68/3290bc2b/EditorGUILayout.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/bc/f6d82297/SerializedProperty.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/bf/512d20c5/Editor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/e9/308800a6/EditorPrefs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ccd50d4d0a8d48d2b2e3375fbcee285f175a00/d5/70f9858d/VisualElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cffc46fa8b1e4ee1a0e1b35a8d9980612d400/dd/0efb1f99/GUILayout.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fcc0bbf6bf4e430c91d4aa05736fc5c62ac00/9d/661a600e/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/SeparatorDrawer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/MySeparatorDrawer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Basic/UnitySingleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Attribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Enemy/CanDropItems.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Hero/CoinPack.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/CustomAttribute/Separator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/CustomAttribute/MySeparator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/DroppedItem/DroppedItemConfig.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/DroppedItem/DroppedWeapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/DroppedItem/MagneticEffect.cs" root0="FORCE_HIGHLIGHTING" />
@@ -248,7 +209,7 @@
       <workItem from="1711014743056" duration="4056000" />
       <workItem from="1711082765433" duration="7134000" />
       <workItem from="1711092365437" duration="5779000" />
-      <workItem from="1711172112841" duration="7021000" />
+      <workItem from="1711172112841" duration="13376000" />
     </task>
     <servers />
   </component>

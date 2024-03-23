@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7698366867080200597}
   - component: {fileID: 6605436920950317684}
   - component: {fileID: 3552497796631396665}
-  - component: {fileID: 7347345810195544998}
   m_Layer: 0
   m_Name: BackGround_Stars
   m_TagString: Untagged
@@ -4831,16 +4830,3 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &7347345810195544998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3542805654698434005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94f46945863fba248bfa986f0c98761e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveOffSet: 0.9

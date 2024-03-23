@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine.Serialization;
-using UnityEngine.UIElements;
+﻿using UnityEngine.UIElements;
 
 namespace Editor.Inspector
 {

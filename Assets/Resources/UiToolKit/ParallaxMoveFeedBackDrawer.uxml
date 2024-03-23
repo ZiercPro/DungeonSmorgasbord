@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Resources/UiToolKit/StyleSheets/Editor.uss?fileID=7433441132597879392&amp;guid=10c172ea8a2ccb146ae2a6b356747833&amp;type=3#Editor" />
+    <ui:VisualElement name="MoveOffset" class="section" style="flex-grow: 1;">
+        <uie:PropertyField binding-path="moveOffSet" />
+    </ui:VisualElement>
+    <ui:VisualElement name="GameObject" class="section" style="flex-grow: 1;">
+        <uie:ObjectField label="Object" binding-path="objectInstance" />
+    </ui:VisualElement>
+</ui:UXML>

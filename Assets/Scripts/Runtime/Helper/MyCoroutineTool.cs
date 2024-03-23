@@ -44,6 +44,7 @@ public class MyCoroutineTool : SingletonIns<MyCoroutineTool>
     /// </summary>
     public void StopAllCor()
     {
-        MyMath.ForeachList(_myCoroutines, StopCoroutine);
+        if (_myCoroutines != null && _myCoroutines.Count > 0)
+            MyMath.ForeachList(_myCoroutines, StopCoroutine);
     }
 }

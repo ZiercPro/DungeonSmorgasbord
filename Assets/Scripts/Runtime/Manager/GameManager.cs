@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 /// <summary>
@@ -30,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         playerTans = null;
         _panelManager.PopAll();
+        ParallaxMoveManager.Instance.BackGroundStop();
     }
 
     //场景初始化
