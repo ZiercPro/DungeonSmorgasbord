@@ -1,6 +1,6 @@
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.AddressableAssets;
 using AudioType = Runtime.Audio.Base.AudioType;
 
 /// <summary>
@@ -44,7 +44,12 @@ public class AudioManager
             newClip = clips[audiobase.AudioType];
         else
         {
-            newClip = AssetDatabase.LoadAssetAtPath<AudioClip>(audiobase.AudioType.Path);
+            // Addressables.LoadAssetAsync<AudioClip>(audiobase.AudioType.Path).Completed += handle =>
+            // {
+            //     AudioClip prefab = handle.Result;
+            //     newClip = Object.Instantiate(prefab);
+            // };
+            newClip = GameObject.Instantiate(Resources.Load<AudioClip>(audiobase.AudioType.Path));
             clips.Add(audiobase.AudioType, newClip);
         }
 

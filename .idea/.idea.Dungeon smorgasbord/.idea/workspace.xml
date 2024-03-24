@@ -8,6 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.changes" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.changes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.wktree" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.wktree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/Base/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/Base/AudioManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/LanguageManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/LanguageManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test/PathFindingTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Test/PathFindingTest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,6 +213,7 @@
       <workItem from="1711172112841" duration="20609000" />
       <workItem from="1711248601865" duration="21174000" />
       <workItem from="1711273843114" duration="1125000" />
+      <workItem from="1711274992824" duration="1295000" />
     </task>
     <servers />
   </component>

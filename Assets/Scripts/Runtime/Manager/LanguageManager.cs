@@ -1,5 +1,3 @@
-using NaughtyAttributes;
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -61,13 +59,13 @@ public class LanguageManager : MonoBehaviour
         if (LocalizationSettings.Instance.GetSelectedLocale() ==
             LocalizationSettings.AvailableLocales.Locales[languageID])
         {
-           // Debug.Log("已经选择该语言");
+            // Debug.Log("已经选择该语言");
             yield break;
         }
 
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[languageID];
-       // Debug.Log("语言切换完毕");
+        // Debug.Log("语言切换完毕");
     }
 
     /// <summary>
