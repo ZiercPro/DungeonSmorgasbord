@@ -30,7 +30,6 @@ public class ParallaxMoveFeedBack
     public void OnStop()
     {
         _canMove = false;
-        objectInstance.SetParent(ParallaxMoveManager.Instance.environmentRoot);
         MyCoroutineTool.Instance.StopMyCor(_backMoveCoroutine);
     }
 

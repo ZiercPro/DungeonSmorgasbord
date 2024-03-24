@@ -483,8 +483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3439bbe3df99847bcc333f73b2adee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioList: {fileID: 11400000, guid: 31b22b2047bf4f14d971d75108f5cc0b, type: 2}
   audioMixer: {fileID: 24100000, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-  master: {fileID: 24300002, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
   music: {fileID: -3317887495917381630, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
   sfx: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
   environment: {fileID: 4881828055443737567, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
