@@ -6,7 +6,7 @@ public class DroppedCoin : DroppedItem
     private void GetItem(CoinPack pack)
     {
         pack.GetCoins(num);
-        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.coinCollected);
+        AudioPlayerManager.Instance.PlayAudio(AudioName.CoinCollected);
         base.GetItem();
     }
 

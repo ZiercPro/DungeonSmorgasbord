@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using AudioType = Runtime.Audio.Base.AudioType;
 
 /// <summary>
 /// 音频管理器
@@ -8,7 +10,7 @@ using UnityEngine;
 public class AudioManager
 {
     /// <summary>
-    ///储存已经读取过的音频
+    ///储存已经读取过的音频资源
     /// </summary>
     public Dictionary<AudioType, AudioSource> audioDic { get; private set; }
 
@@ -22,12 +24,13 @@ public class AudioManager
         audioDic = new Dictionary<AudioType, AudioSource>();
         clips = new Dictionary<AudioType, AudioClip>();
     }
+
     /// <summary>
     /// 通过audiobase创建新的音频
     /// </summary>
-    /// <param name="audiosource"></param>
+    /// <param name="audiobase"></param>
     /// <returns></returns>
-    public AudioSource GetAudioSource(AudioBase audiosource)
+    public AudioSource GetAudioSource(AudioBase audiobase)
     {
         GameObject parent = GameObject.Find("Audios");
         if (parent == null)
@@ -37,52 +40,52 @@ public class AudioManager
         AudioClip newClip = null;
         AudioSource newComponent = null;
 
-        if (clips.ContainsKey(audiosource.audioType))
-            newClip = clips[audiosource.audioType];
+        if (clips.ContainsKey(audiobase.AudioType))
+            newClip = clips[audiobase.AudioType];
         else
         {
-            newClip = GameObject.Instantiate(Resources.Load<AudioClip>(audiosource.audioType.Path));
-            clips.Add(audiosource.audioType, newClip);
+            newClip = AssetDatabase.LoadAssetAtPath<AudioClip>(audiobase.AudioType.Path);
+            clips.Add(audiobase.AudioType, newClip);
         }
 
         if (newClip == null)
         {
-            Debug.LogError($"资源 {audiosource.audioType.Name} 加载失败");
+            Debug.LogError($"资源 {audiobase.AudioType.Name} 加载失败");
             return null;
         }
 
-        if (audioDic.ContainsKey(audiosource.audioType))
+        if (audioDic.ContainsKey(audiobase.AudioType))
         {
-            if (audioDic[audiosource.audioType] == null)
+            if (audioDic[audiobase.AudioType] == null)
             {
-                newAudioS = new GameObject(audiosource.audioType.Name);
+                newAudioS = new GameObject(audiobase.AudioType.Name);
                 newAudioS.transform.SetParent(parent.transform);
                 newComponent = newAudioS.AddComponent<AudioSource>();
 
                 newComponent.clip = newClip;
-                newComponent.playOnAwake = audiosource.isPlayAwake;
-                newComponent.loop = audiosource.isLoop;
-                newComponent.volume = audiosource.volume;
-                newComponent.outputAudioMixerGroup = audiosource.outputGroup;
+                newComponent.playOnAwake = audiobase.isPlayAwake;
+                newComponent.loop = audiobase.isLoop;
+                newComponent.volume = audiobase.volume;
+                newComponent.outputAudioMixerGroup = audiobase.outputGroup;
 
-                audioDic[audiosource.audioType] = newComponent;
+                audioDic[audiobase.AudioType] = newComponent;
             }
-            return audioDic[audiosource.audioType];
+
+            return audioDic[audiobase.AudioType];
         }
 
-        newAudioS = new GameObject(audiosource.audioType.Name);
+        newAudioS = new GameObject(audiobase.AudioType.Name);
         newAudioS.transform.SetParent(parent.transform);
         newComponent = newAudioS.AddComponent<AudioSource>();
 
         newComponent.clip = newClip;
-        newComponent.playOnAwake = audiosource.isPlayAwake;
-        newComponent.loop = audiosource.isLoop;
-        newComponent.volume = audiosource.volume;
-        newComponent.outputAudioMixerGroup = audiosource.outputGroup;
+        newComponent.playOnAwake = audiobase.isPlayAwake;
+        newComponent.loop = audiobase.isLoop;
+        newComponent.volume = audiobase.volume;
+        newComponent.outputAudioMixerGroup = audiobase.outputGroup;
 
-        audioDic.Add(audiosource.audioType, newComponent);
+        audioDic.Add(audiobase.AudioType, newComponent);
 
         return newComponent;
     }
-
 }

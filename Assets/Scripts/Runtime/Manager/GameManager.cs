@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     public void SceneInit()
     {
         ParallaxMoveManager.Instance.BackGroundMove();
-        AudioPlayerManager.Instance.PlayAudio(GameRoot.Instance.AudioList.idleBgm);
+        AudioPlayerManager.Instance.PlayAudio(AudioName.IdleBgm);
     }
 
     //角色生成

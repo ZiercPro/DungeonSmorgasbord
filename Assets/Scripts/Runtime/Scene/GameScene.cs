@@ -24,7 +24,7 @@ public class GameScene : SceneState
 
     public override void OnExit()
     {
-        AudioPlayerManager.Instance.StopAudio(GameRoot.Instance.AudioList.idleBgm);
+        AudioPlayerManager.Instance.StopAudio(AudioName.IdleBgm);
         SceneManager.sceneLoaded -= OnSceneLoaded;
         BattleManager.Instance.OnBattleEnd.RemoveAllListeners();
         panelManager.PopAll();

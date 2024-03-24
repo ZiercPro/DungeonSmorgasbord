@@ -1,3 +1,4 @@
+using Runtime.ScriptObject;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -7,26 +8,25 @@ using UnityEngine.Audio;
 /// </summary>
 public class AudioPlayerManager : UnitySingleton<AudioPlayerManager>
 {
-    [SerializeField] private AudioMixer audioMixer;
-    [SerializeField] private AudioMixerGroup master;
+    [SerializeField] private AudioListSo audioList;
+    [Space] [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private AudioMixerGroup music;
     [SerializeField] private AudioMixerGroup sfx;
     [SerializeField] private AudioMixerGroup environment;
 
-    private AudioManager AM;
-
+    private AudioManager _audioManager;
     private AudioBase _currentMusic;
     private bool _isMusicPlaying;
 
     protected override void Awake()
     {
         base.Awake();
-        AM = new AudioManager();
+        _audioManager = new AudioManager();
     }
 
-    public void PlayAudio(AudioBase audioBase)
+    private void PlayAudio(AudioBase audioBase)
     {
-        AudioSource player = AM.GetAudioSource(audioBase);
+        AudioSource player = _audioManager.GetAudioSource(audioBase);
         if (player)
         {
             if (audioBase.outputGroup == sfx)
@@ -43,29 +43,76 @@ public class AudioPlayerManager : UnitySingleton<AudioPlayerManager>
         }
         else
         {
-            Debug.LogError($"音频{audioBase.audioType.Name}组件缺失!");
+            Debug.LogError($"音频{audioBase.AudioType.Name}组件缺失!");
         }
     }
 
-    public void PlayAudiosRandom(List<AudioBase> audioBases)
+    public void PlayAudio(AudioName audioName)
+    {
+        AudioBase audioBase = audioList.Audios[audioName];
+        AudioSource player = _audioManager.GetAudioSource(audioBase);
+        if (player)
+        {
+            if (audioBase.outputGroup == sfx)
+                PlaySFX(player, player.clip);
+            else
+            {
+                PlayMusic(player);
+                if (audioBase.outputGroup == music)
+                {
+                    _currentMusic = audioBase;
+                    _isMusicPlaying = true;
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError($"音频{audioBase.AudioType.Name}组件缺失!");
+        }
+    }
+
+    private void PlayAudiosRandom(List<AudioBase> audioBases)
     {
         int length = audioBases.Count;
         int temp = MyMath.GetRandom(0, length);
         PlayAudio(audioBases[temp]);
     }
 
-    public void StopAudio(AudioBase audio)
+    public void PlayAudiosRandom(List<AudioName> audioNames)
     {
-        AudioSource player = AM.GetAudioSource(audio);
+        int length = audioNames.Count;
+        int temp = MyMath.GetRandom(0, length);
+        PlayAudio(audioNames[temp]);
+    }
+
+    private void StopAudio(AudioBase audioBase)
+    {
+        AudioSource player = _audioManager.GetAudioSource(audioBase);
         if (player)
         {
-            if (audio == _currentMusic)
+            if (audioBase == _currentMusic)
                 _isMusicPlaying = false;
             player.Stop();
         }
         else
         {
-            Debug.LogError($"音频{audio.audioType.Name}组件缺失!");
+            Debug.LogError($"音频{audioBase.AudioType.Name}组件缺失!");
+        }
+    }
+
+    public void StopAudio(AudioName audioName)
+    {
+        AudioBase audioBase = audioList.Audios[audioName];
+        AudioSource player = _audioManager.GetAudioSource(audioBase);
+        if (player)
+        {
+            if (audioBase == _currentMusic)
+                _isMusicPlaying = false;
+            player.Stop();
+        }
+        else
+        {
+            Debug.LogError($"音频{audioBase.AudioType.Name}组件缺失!");
         }
     }
 
@@ -162,20 +209,9 @@ public class AudioPlayerManager : UnitySingleton<AudioPlayerManager>
         audioMixer.SetFloat("environmentVolume", amount);
     }
 
-    public AudioMixerGroup Music()
-    {
-        return music;
-    }
-
-    public AudioMixerGroup SFX()
-    {
-        return sfx;
-    }
-
-    public AudioMixerGroup Environment()
-    {
-        return environment;
-    }
+    public AudioMixerGroup Music => music;
+    public AudioMixerGroup SFX => sfx;
+    public AudioMixerGroup Environment => environment;
 
     #endregion
 }

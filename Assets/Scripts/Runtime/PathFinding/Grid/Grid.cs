@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 namespace Runtime.PathFinding.Grid
 {
     public class Grid<TGridNode>
     {
+        public event EventHandler<OnGridValueChangedEventArgs> OnValueChanged;
+
         private int _width;
         private int _height;
         private float _cellSize;
@@ -19,9 +22,11 @@ namespace Runtime.PathFinding.Grid
             _originPosition = originPosition;
 
             _gridArray = new TGridNode[width, height];
+
+            Debug.DrawLine(_originPosition, GetWorldPosition(_width, _height),Color.red,20f);
         }
 
-        private Vector3 GetWorldPosition(int x, int y)
+        public Vector3 GetWorldPosition(int x, int y)
         {
             return new Vector3(x, y) * _cellSize + _originPosition;
         }
@@ -49,6 +54,8 @@ namespace Runtime.PathFinding.Grid
             {
                 Debug.LogWarning("超出数组范围");
             }
+
+            OnValueChanged?.Invoke(this, new OnGridValueChangedEventArgs { X = x, Y = y });
         }
 
         public TGridNode GetValue(int x, int y)

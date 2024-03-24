@@ -1,49 +1,56 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using AudioType = Runtime.Audio.Base.AudioType;
+
 /// <summary>
-/// »ù´¡µÄÒôÆµÀà ´¢´æÒôÆµµÄ»ù±¾ĞÅÏ¢
+/// åŸºç¡€çš„éŸ³é¢‘ç±» å‚¨å­˜éŸ³é¢‘çš„åŸºæœ¬ä¿¡æ¯
 /// </summary>
+[System.Serializable]
 public class AudioBase
 {
     /// <summary>
-    /// ÒôÆµ×ÊÔ´
+    /// éŸ³é¢‘èµ„æº
     /// </summary>
-    public AudioType audioType { private set; get; }
+    [field: SerializeField]
+    public AudioType AudioType { private set; get; }
 
     /// <summary>
-    /// ÒôÆµÒôÁ¿ Ä¬ÈÏÎª1
+    /// éŸ³é¢‘éŸ³é‡ é»˜è®¤ä¸º1
     /// </summary>
-    [Range(0, 1)]
-    public float volume = 1;
+    [field: SerializeField] [Range(0, 1)] public float volume = 1;
 
     /// <summary>
-    /// ÊÇ·ñÑ­»·
+    /// æ˜¯å¦å¾ªç¯
     /// </summary>
+    [field: SerializeField]
     public bool isLoop { private set; get; }
 
     /// <summary>
-    /// ÊÇ·ñÁ¢¼´²¥·Å
+    /// æ˜¯å¦ç«‹å³æ’­æ”¾
     /// </summary>
+    [field: SerializeField]
     public bool isPlayAwake { private set; get; }
 
     /// <summary>
-    /// Êä³öÀàĞÍ
+    /// è¾“å‡ºç±»å‹
     /// </summary>
+    [field: SerializeField]
     public AudioMixerGroup outputGroup { private set; get; }
+
     /// <summary>
-    /// ¹¹Ôìº¯Êı
+    /// æ„é€ å‡½æ•°
     /// </summary>
-    /// <param name="type"></param>
-    public AudioBase(AudioType type, float volume, bool isLoop, bool isplayawake, AudioMixerGroup group)
+    /// <param name="clipSource">audioç±»å‹</param>
+    /// <param name="volume">é»˜è®¤éŸ³é‡</param>
+    /// <param name="isLoop">æ˜¯å¦å¾ªç¯</param>
+    /// <param name="isplayawake">æ˜¯å¦åœ¨åˆå§‹æ—¶æ’­æ”¾</param>
+    /// <param name="group">éŸ³é¢‘åˆ†ç»„</param>
+    public AudioBase(AudioType audioType, float volume, bool isLoop, bool isplayawake, AudioMixerGroup group)
     {
-        audioType = type;
+        outputGroup = group;
         this.volume = volume;
         this.isLoop = isLoop;
-        outputGroup = group;
+        AudioType = audioType;
         isPlayAwake = isplayawake;
     }
 }
-
-
-
-

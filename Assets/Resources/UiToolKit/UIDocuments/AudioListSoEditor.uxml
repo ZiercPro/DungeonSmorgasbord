@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Resources/UiToolKit/StyleSheets/Editor.uss?fileID=7433441132597879392&amp;guid=10c172ea8a2ccb146ae2a6b356747833&amp;type=3#Editor" />
+    <ui:VisualElement name="Buttons" class="section" style="flex-grow: 1;">
+        <ui:Button text="AddAudio" parse-escape-sequences="true" display-tooltip-when-elided="true" name="addAudioButton" class="NormalButton" />
+        <ui:Button text="DeleteAudio" parse-escape-sequences="true" display-tooltip-when-elided="true" name="deleteAudioButton" class="NormalButton" />
+    </ui:VisualElement>
+    <ui:VisualElement name="List" class="section" style="flex-grow: 1;">
+        <uie:PropertyField binding-path="AudioList" name="PropertyField" style="font-size: 15px; -unity-font-style: bold;" />
+    </ui:VisualElement>
+</ui:UXML>

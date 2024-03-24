@@ -1,20 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 音频资源类包含音频切片的名称和资源位置信息
-/// </summary>
-public class AudioType
+namespace Runtime.Audio.Base
 {
-    public string Name { get; private set; }
-    public string Path { get; private set; }
-
-    public AudioType(string path)
+    /// <summary>
+    /// 音频资源类包含音频切片的名称和资源位置信息
+    /// </summary>
+    [System.Serializable]
+    public class AudioType
     {
-        Path = path;
-        Name = path.Substring(path.LastIndexOf('/') + 1);
+        public string Name => System.IO.Path.GetFileNameWithoutExtension(Path);
+
+        [field: SerializeField, TextArea(2, 6)]
+        public string Path { get; private set; }
+
+        public AudioType(string path)
+        {
+            Path = path;
+        }
     }
-
 }
-

@@ -9,12 +9,12 @@ namespace Runtime.Weapon.Weapons
         private CameraShakeFeedback _cameraShakeFeedback;
         private WeaponColliderCheck _colliderCheck;
         private bool _isAttackBlocked;
-        private List<AudioBase> _waveAudios;
+        private List<AudioName> _waveAudios;
 
         protected override void Awake()
         {
             base.Awake();
-            _waveAudios = new List<AudioBase>();
+            _waveAudios = new List<AudioName>();
             _cameraShakeFeedback = GetComponent<CameraShakeFeedback>();
             _colliderCheck = GetComponentInChildren<WeaponColliderCheck>();
         }
@@ -24,9 +24,9 @@ namespace Runtime.Weapon.Weapons
             AnimationEventHandler.AnimationTriggeredPerform += OnColliderCheckStart;
             AnimationEventHandler.AnimationTriggeredEnd += OnColliderCheckEnd;
             AnimationEventHandler.AnimationEnded += OnAttackEnd;
-            _waveAudios.Add(GameRoot.Instance.AudioList.weaponWave_3);
-            _waveAudios.Add(GameRoot.Instance.AudioList.weaponWave_4);
-            _waveAudios.Add(GameRoot.Instance.AudioList.weaponWave_5);
+            _waveAudios.Add(AudioName.WeaponWave3);
+            _waveAudios.Add(AudioName.WeaponWave4);
+            _waveAudios.Add(AudioName.WeaponWave5);
         }
 
         public override void Initialize(SerDictionary<WeaponType, float> weaponDamageRate, float criticalChance,

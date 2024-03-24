@@ -25,8 +25,8 @@ namespace Editor.Inspector
 
             treeAsset.CloneTree(root); //将自定义的内容绘制出来
 
-            _addButton = root.Q<Button>("Add");
-            _deleteButton = root.Q<Button>("Delete");
+            _addButton = root.Q<Button>("addObjectButton");
+            _deleteButton = root.Q<Button>("deleteObjectButton");
 
             _addButton.RegisterCallback<ClickEvent>(Add);
             _deleteButton.RegisterCallback<ClickEvent>(Delete);
