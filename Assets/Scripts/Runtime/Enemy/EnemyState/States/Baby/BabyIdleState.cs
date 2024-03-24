@@ -1,7 +1,11 @@
+using UnityEngine;
+
 public class BabyIdleState : BabyNormalState
 {
+    private static readonly int Idle = Animator.StringToHash("idle");
 
-    public BabyIdleState(Enemy enemyBase, EnemyStateMachine stateMachine, Enemy_Baby enemy) : base(enemyBase, stateMachine, enemy)
+    public BabyIdleState(Enemy enemyBase, EnemyStateMachine stateMachine, Enemy_Baby enemy) : base(enemyBase,
+        stateMachine, enemy)
     {
     }
 
@@ -13,13 +17,13 @@ public class BabyIdleState : BabyNormalState
     public override void EntryState()
     {
         base.EntryState();
-        _enemy.animator.SetBool("idle", true);
+        _enemy.animator.SetBool(Idle, true);
     }
 
     public override void ExitState()
     {
         base.ExitState();
-        _enemy.animator.SetBool("idle", false);
+        _enemy.animator.SetBool(Idle, false);
     }
 
     public override void FrameUpdate()

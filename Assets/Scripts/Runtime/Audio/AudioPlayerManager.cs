@@ -210,7 +210,7 @@ public class AudioPlayerManager : UnitySingleton<AudioPlayerManager>
     }
 
     public AudioMixerGroup Music => music;
-    public AudioMixerGroup SFX => sfx;
+    public AudioMixerGroup Sfx => sfx;
     public AudioMixerGroup Environment => environment;
 
     #endregion

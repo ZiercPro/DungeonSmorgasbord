@@ -1,5 +1,9 @@
+using UnityEngine;
+
 public class BigMouthIdleState : BigMouthNormalState
 {
+    private static readonly int Idle = Animator.StringToHash("idle");
+
     public BigMouthIdleState(Enemy enemyBase, EnemyStateMachine stateMachine, Enemy_BigMouse enemy) : base(enemyBase,
         stateMachine, enemy)
     {
@@ -13,13 +17,13 @@ public class BigMouthIdleState : BigMouthNormalState
     public override void EntryState()
     {
         base.EntryState();
-        _enemy.animator.SetBool("idle", true);
+        _enemy.animator.SetBool(Idle, true);
     }
 
     public override void ExitState()
     {
         base.ExitState();
-        _enemy.animator.SetBool("idle", false);
+        _enemy.animator.SetBool(Idle, false);
     }
 
     public override void FrameUpdate()

@@ -13,7 +13,6 @@ public class PathFindingTest : MonoBehaviour
     {
         _startPosition = new Vector3(-9, -5);
         _grid = new Grid<int>(20, 20, 1f, _startPosition);
-        AudioPlayerManager.Instance.PlayAudio(AudioName.MenuBgm);
     }
 
     private void Update()

@@ -20,7 +20,7 @@ public class ParallaxMoveManager : SingletonIns<ParallaxMoveManager>
     {
         foreach (var feedback in moveBackgrounds)
         {
-            feedback.OnStop();
+            feedback?.OnStop();
         }
     }
 
