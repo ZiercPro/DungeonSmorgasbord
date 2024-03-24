@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 namespace Runtime.PathFinding.Grid
@@ -14,7 +15,8 @@ namespace Runtime.PathFinding.Grid
 
         private TGridNode[,] _gridArray;
 
-        public Grid(int width, int height, float cellSize, Vector3 originPosition = default)
+        public Grid(int width, int height, float cellSize, Func<Grid<TGridNode>, int, int, TGridNode> createGridObject,
+            Vector3 originPosition = default)
         {
             _width = width;
             _height = height;
@@ -22,8 +24,15 @@ namespace Runtime.PathFinding.Grid
             _originPosition = originPosition;
 
             _gridArray = new TGridNode[width, height];
+            for (int i = 0; i < _gridArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < _gridArray.GetLength(1); j++)
+                {
+                    _gridArray[i, j] = createGridObject(this, i, j);
+                }
+            }
 
-            Debug.DrawLine(_originPosition, GetWorldPosition(_width, _height),Color.red,20f);
+            Debug.DrawLine(_originPosition, GetWorldPosition(_width, _height), Color.red, 20f);
         }
 
         public Vector3 GetWorldPosition(int x, int y)
@@ -37,14 +46,14 @@ namespace Runtime.PathFinding.Grid
             y = Mathf.FloorToInt((worldPostion - _originPosition).y / _cellSize);
         }
 
-        public void SetValue(Vector3 worldPosition, TGridNode value)
+        public void SetGridObject(Vector3 worldPosition, TGridNode value)
         {
             int x, y;
             GetXY(worldPosition, out x, out y);
-            SetValue(x, y, value);
+            SetGridObject(x, y, value);
         }
 
-        public void SetValue(int x, int y, TGridNode value)
+        public void SetGridObject(int x, int y, TGridNode value)
         {
             if (x >= 0 && y >= 0 && x < _width && y < _height)
             {
@@ -58,7 +67,7 @@ namespace Runtime.PathFinding.Grid
             OnValueChanged?.Invoke(this, new OnGridValueChangedEventArgs { X = x, Y = y });
         }
 
-        public TGridNode GetValue(int x, int y)
+        public TGridNode GetGridObject(int x, int y)
         {
             if (x > 0 && y > 0 && x < _width && y < _height)
             {
@@ -70,11 +79,11 @@ namespace Runtime.PathFinding.Grid
             }
         }
 
-        public TGridNode GetValue(Vector3 worldPosition)
+        public TGridNode GetGridObject(Vector3 worldPosition)
         {
             int x, y;
             GetXY(worldPosition, out x, out y);
-            return GetValue(x, y);
+            return GetGridObject(x, y);
         }
     }
 }

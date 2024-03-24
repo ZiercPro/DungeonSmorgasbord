@@ -12,7 +12,7 @@ public class PathFindingTest : MonoBehaviour
     private void Awake()
     {
         _startPosition = new Vector3(-9, -5);
-        _grid = new Grid<int>(20, 20, 1f, _startPosition);
+      //  _grid = new Grid<int>(20, 20, 1f, _startPosition);
         AudioPlayerManager.Instance.PlayAudio(AudioName.MenuBgm);
     }
 
@@ -21,7 +21,7 @@ public class PathFindingTest : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            _grid.SetValue(mousePosition, 10);
+            _grid.SetGridObject(mousePosition, 10);
         }
     }
 }
