@@ -9,10 +9,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public EnemyAttribute attribute { get; private set; }
     public AttackCheck attackCheck { get; private set; }
     public Movement movement { get; private set; }
-    public Health health { get; private set; }
     public Animator animator { get; private set; }
+    public Health health { get; private set; }
 
-
+    public GameObject attackTarget { get; private set; }
+# if UNITY_EDITOR
+    [SerializeField] private bool active;
+#endif
     private static List<Enemy> s_enemys;
 
     public event Action<DamageInfo> OnTakeDamage;
@@ -41,6 +44,10 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         animator = GetComponentInChildren<Animator>();
         health = GetComponentInChildren<Health>();
         stateMachine = new EnemyStateMachine();
+        if (active)
+        {
+            attackTarget = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     protected virtual void Start()
@@ -62,6 +69,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected virtual void FixedUpdate()
     {
         stateMachine.currentState.PhysicsUpdate();
+    }
+
+    public void ChangeTarget(GameObject target)
+    {
+        attackTarget = target;
     }
 
     public virtual void Dead(bool dropItem = true)

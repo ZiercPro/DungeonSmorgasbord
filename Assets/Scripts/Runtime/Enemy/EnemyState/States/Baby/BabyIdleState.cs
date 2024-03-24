@@ -25,7 +25,7 @@ public class BabyIdleState : BabyNormalState
     public override void FrameUpdate()
     {
         base.FrameUpdate();
-        if (GameManager.playerTans != null)
+        if (_enemy.attackTarget)
         {
             stateMachine.ChangeState(_enemy.moveState);
         }

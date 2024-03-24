@@ -1,9 +1,11 @@
 using UnityEngine;
 using Runtime.FeedBack;
+using UnityEngine.Serialization;
 
 public class Enemy_BigMouse : Enemy
 {
     [SerializeField] private GameObject deadParticle;
+
     public BigMouthIdleState idleState { get; private set; }
     public BigMouthMoveState moveState { get; private set; }
 
@@ -29,7 +31,7 @@ public class Enemy_BigMouse : Enemy
         AudioPlayerManager.Instance.PlayAudio(AudioName.BigMouthSpawn1);
     }
 
-    public override void Dead(bool dropItem=true)
+    public override void Dead(bool dropItem = true)
     {
         Instantiate(deadParticle, transform.position, Quaternion.identity);
         AudioPlayerManager.Instance.PlayAudio(AudioName.EnemyDead4);
@@ -51,4 +53,5 @@ public class Enemy_BigMouse : Enemy
         });
         TextPopupSpawner.Instance.InitPopupText(this.transform, Color.blue, info.damageAmount);
     }
+
 }

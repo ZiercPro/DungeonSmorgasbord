@@ -85,13 +85,13 @@ public class InputManager : MonoBehaviour
 
         GameRoot.OnGamePaues -= OnPause;
         GameRoot.OnGameResume -= OnResume;
-        
+
         _playerInputAction.PlayerInput.Disable();
     }
 
     private void Awake()
     {
-        _playerInputAction = GameRoot.Instance._playerInputAction;
+        _playerInputAction = new PlayerInputAction();
         _mianCamera = Camera.main;
     }
 

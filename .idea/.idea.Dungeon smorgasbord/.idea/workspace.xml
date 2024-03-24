@@ -5,54 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd36c1ef-bee6-41a4-b2ce-922eadf5c2c5" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObj/AudioList.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObj/AudioList.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/UIDocuments.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/UIDocuments/AudioListSoEditor.uxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/UIDocuments/AudioListSoEditor.uxml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/UIDocuments/ParallaxMoveFeedBackDrawer.uxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/UIDocuments/ParallaxMoveFeedBackDrawer.uxml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/UIDocuments/ParallaxMoveManagerEditor.uxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/UiToolKit/UIDocuments/ParallaxMoveManagerEditor.uxml.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Inspector/AudioListSoEditor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Inspector/AudioListSoEditor.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/AudioName.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Helper/EditableDictionary.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Helper/EditableDictionary.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Helper/EditableDictionaryItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Helper/EditableDictionaryItem.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/PathFinding/Grid/OnGridValueChangedEventArgs.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/AudioListSo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/AudioListSo.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.plastic/plastic.changes" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.changes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.plastic/plastic.wktree" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.wktree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scenes/Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UiToolKit/ParallaxMoveFeedBackDrawer.uxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UiToolKit/ParallaxMoveFeedBackDrawer.uxml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UiToolKit/ParallaxMoveManagerEditor.uxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/UiToolKit/ParallaxMoveManagerEditor.uxml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/DroppedItemConfigDrawer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/Drawer/DroppedItemConfigDrawer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/AudioName.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/Inspector/ParallaxMoveManagerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/Inspector/ParallaxMoveManagerEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/AudioList.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/AudioList.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/AudioPlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/AudioPlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/Base/AudioBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/Base/AudioBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/Base/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/Base/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/Base/AudioType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/Base/AudioType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/DroppedItem/DroppedCoin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/DroppedItem/DroppedCoin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/Enemy_Baby.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/Enemy_Baby.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObj/AudioList.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObj/AudioList.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/EnemyState/States/Baby/BabyIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/EnemyState/States/Baby/BabyIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/EnemyState/States/Baby/BabyMoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/EnemyState/States/Baby/BabyMoveState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/EnemyState/States/Baby/BabyNormalState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/EnemyState/States/Baby/BabyNormalState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/EnemyState/States/BigMouse/BigMouthIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/EnemyState/States/BigMouse/BigMouthIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/EnemyState/States/BigMouse/BigMouthMoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/EnemyState/States/BigMouse/BigMouthMoveState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/EnemyState/States/BigMouse/BigMouthNormalState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/EnemyState/States/BigMouse/BigMouthNormalState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/Enemy_BigMouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/Enemy_BigMouse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/BattleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/BattleManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/GameRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/GameRoot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/PathFinding/Grid/Grid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/PathFinding/Grid/Grid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Scene/GameScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Scene/GameScene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Scene/StartScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Scene/StartScene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/UISounds.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/UISounds.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Weapon/Weapons/Weapon_DiamondGreatSword.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Weapon/Weapons/Weapon_DiamondGreatSword.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test/PathFindingTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Test/PathFindingTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Player/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Player/InputManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +216,7 @@
       <workItem from="1711082765433" duration="7134000" />
       <workItem from="1711092365437" duration="5779000" />
       <workItem from="1711172112841" duration="20609000" />
-      <workItem from="1711248601865" duration="18017000" />
+      <workItem from="1711248601865" duration="19232000" />
     </task>
     <servers />
   </component>

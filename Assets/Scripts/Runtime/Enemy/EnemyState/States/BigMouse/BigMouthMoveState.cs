@@ -1,10 +1,14 @@
 using UnityEngine;
+
 public class BigMouthMoveState : BigMouthNormalState
 {
     private Vector2 _moveDir;
-    public BigMouthMoveState(Enemy enemyBase, EnemyStateMachine stateMachine, Enemy_BigMouse enemy) : base(enemyBase, stateMachine, enemy)
+
+    public BigMouthMoveState(Enemy enemyBase, EnemyStateMachine stateMachine, Enemy_BigMouse enemy) : base(enemyBase,
+        stateMachine, enemy)
     {
     }
+
     public override void AnimationTriggerEvent()
     {
         base.AnimationTriggerEvent();
@@ -27,7 +31,7 @@ public class BigMouthMoveState : BigMouthNormalState
     {
         base.FrameUpdate();
         _moveDir = ((Vector2)(GameManager.playerTans.position - _enemy.transform.position)).normalized;
-        if (GameManager.playerTans == null)
+        if (!_enemy.attackTarget)
         {
             stateMachine.ChangeState(_enemy.idleState);
         }

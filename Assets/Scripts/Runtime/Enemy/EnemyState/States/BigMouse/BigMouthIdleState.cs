@@ -1,6 +1,7 @@
 public class BigMouthIdleState : BigMouthNormalState
 {
-    public BigMouthIdleState(Enemy enemyBase, EnemyStateMachine stateMachine, Enemy_BigMouse enemy) : base(enemyBase, stateMachine, enemy)
+    public BigMouthIdleState(Enemy enemyBase, EnemyStateMachine stateMachine, Enemy_BigMouse enemy) : base(enemyBase,
+        stateMachine, enemy)
     {
     }
 
@@ -12,7 +13,7 @@ public class BigMouthIdleState : BigMouthNormalState
     public override void EntryState()
     {
         base.EntryState();
-        _enemy.animator.SetBool("idle",true);
+        _enemy.animator.SetBool("idle", true);
     }
 
     public override void ExitState()
@@ -24,7 +25,7 @@ public class BigMouthIdleState : BigMouthNormalState
     public override void FrameUpdate()
     {
         base.FrameUpdate();
-        if (GameManager.playerTans != null)
+        if (_enemy.attackTarget)
         {
             stateMachine.ChangeState(_enemy.moveState);
         }

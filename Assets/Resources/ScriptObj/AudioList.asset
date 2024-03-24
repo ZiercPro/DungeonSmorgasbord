@@ -19,6 +19,175 @@ MonoBehaviour:
         <AudioType>k__BackingField:
           <Path>k__BackingField: Assets/Resources/Audio/8Bit Music Album - 051321/MenuBgm.wav
         volume: 1
-        <isLoop>k__BackingField: 0
+        <isLoop>k__BackingField: 1
         <isPlayAwake>k__BackingField: 0
         <outputGroup>k__BackingField: {fileID: -3317887495917381630, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 2
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/8Bit Music Album - 051321/IdleBgm.wav
+        volume: 1
+        <isLoop>k__BackingField: 1
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -3317887495917381630, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 3
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/8Bit Music Album - 051321/BattleBgm_normal.wav
+        volume: 1
+        <isLoop>k__BackingField: 1
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -3317887495917381630, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 4
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Free UI Click Sound Effects
+            Pack/AUDIO/Liquid/Click.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 5
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Free UI Click Sound Effects
+            Pack/AUDIO/Crispy/Enter.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 6
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Free UI Click Sound Effects
+            Pack/AUDIO/Plastic/CardEnter.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 7
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Free UI Click Sound Effects
+            Pack/AUDIO/Plastic/CardClick.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 8
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Weapon/weaponWave_1.mp3
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 9
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Fantasy Sfx/Mp3/Dragon_Growl_00.mp3
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 10
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Fantasy Sfx/Mp3/Goblin_00.mp3
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 11
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Free UI Click Sound Effects
+            Pack/AUDIO/Liquid/active_1.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 12
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Self/explosion_1.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 13
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Free UI Click Sound Effects
+            Pack/AUDIO/Crispy/enemydead_1.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 14
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Free UI Click Sound Effects
+            Pack/AUDIO/Liquid/enemydead_2.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 15
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Free UI Click Sound Effects
+            Pack/AUDIO/Pop/enemydead_3.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 16
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Free UI Click Sound Effects
+            Pack/AUDIO/Pop/enemydead_4.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 17
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Item/CoinCollected.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 18
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Weapon/weaponWave_2.flac
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 19
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Weapon/weaponWave_3.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 20
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Weapon/weaponWave_4.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - keyValue: 21
+      objectValue:
+        <AudioType>k__BackingField:
+          <Path>k__BackingField: Assets/Resources/Audio/Weapon/weaponWave_5.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}

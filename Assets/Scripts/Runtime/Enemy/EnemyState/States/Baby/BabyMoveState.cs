@@ -29,7 +29,7 @@ public class BabyMoveState : BabyNormalState
     {
         base.FrameUpdate();
         _moveDir = ((Vector2)(GameManager.playerTans.position - _enemy.transform.position)).normalized;
-        if (GameManager.playerTans == null)
+        if (!_enemy.attackTarget)
         {
             stateMachine.ChangeState(_enemy.idleState);
         }

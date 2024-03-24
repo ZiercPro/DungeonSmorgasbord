@@ -31,7 +31,7 @@ public class BabyNormalState : EnemyState
 
     public override void FrameUpdate()
     {
-        if (GameManager.playerTans != null && GameManager.playerTans.gameObject.activeInHierarchy)
+        if (_enemy.attackTarget && _enemy.attackTarget.activeInHierarchy)
         {
             if (enemyBase.attackCheck.isEnter)
             {
