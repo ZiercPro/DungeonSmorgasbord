@@ -94,7 +94,7 @@ namespace Runtime.PathFinding.PathFinding
             //下
             if (node.Y - 1 >= 0) result.Add(_grid.GetGridObject(node.X, node.Y - 1));
             //上
-            if (node.Y + 1 < _grid.Height) result.Add(_grid.GetGridObject(node.X, node.Y - 1));
+            if (node.Y + 1 < _grid.Height) result.Add(_grid.GetGridObject(node.X, node.Y + 1));
             if (node.X + 1 < _grid.Width)
             {
                 //右下
@@ -113,12 +113,12 @@ namespace Runtime.PathFinding.PathFinding
         {
             List<PathNode> pathList = new List<PathNode>();
             PathNode currentNode = endNode;
+            pathList.Add(endNode);
             while (currentNode.lastNode != null)
             {
-                pathList.Add(currentNode);
+                pathList.Add(currentNode.lastNode);
                 currentNode = currentNode.lastNode;
             }
-
             return pathList;
         }
 

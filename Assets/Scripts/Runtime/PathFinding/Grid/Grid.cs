@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Runtime.PathFinding.Grid
 {
@@ -17,6 +18,7 @@ namespace Runtime.PathFinding.Grid
 
         public int Width => _width;
         public int Height => _height;
+        public float CellSize => _cellSize;
 
         public Grid(int width, int height, float cellSize, Func<Grid<TGridNode>, int, int, TGridNode> createGridObject,
             Vector3 originPosition = default)
@@ -87,15 +89,18 @@ namespace Runtime.PathFinding.Grid
             return GetGridObject(x, y);
         }
 #if UNITY_EDITOR
-        public void DebugDrawLine(Color color)
+        public void DebugDrawLine(Color color, Object debugObject = null)
         {
             for (int i = 0; i < _gridArray.GetLength(0); i++)
             {
                 for (int j = 0; j < _gridArray.GetLength(1); j++)
                 {
-                    Debug.DrawLine(GetWorldPosition(i, j), GetWorldPosition(i + 1, j), color,
+                    if (debugObject) Object.Instantiate(debugObject, GetWorldPosition(i, j), Quaternion.identity);
+                    Debug.DrawLine(GetWorldPosition(i, j),
+                        GetWorldPosition(i + 1, j), color,
                         Single.PositiveInfinity);
-                    Debug.DrawLine(GetWorldPosition(i, j), GetWorldPosition(i, j + 1), color,
+                    Debug.DrawLine(GetWorldPosition(i, j),
+                        GetWorldPosition(i, j + 1), color,
                         Single.PositiveInfinity);
                 }
             }

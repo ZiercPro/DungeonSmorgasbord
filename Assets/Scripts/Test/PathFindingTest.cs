@@ -4,10 +4,12 @@ using UnityEngine;
 using Runtime.PathFinding.Grid;
 using Runtime.PathFinding.PathFinding;
 using System.Collections.Generic;
+using System.IO;
 using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 public class PathFindingTest : MonoBehaviour
 {
+    [SerializeField] private Sprite debugSprite;
     private PathFinding _pathFinding;
     private PathNode _startNode;
     private PathNode _endNode;
@@ -16,7 +18,7 @@ public class PathFindingTest : MonoBehaviour
 
     private void Awake()
     {
-        _pathFinding = new PathFinding(20, 20, 1f, new Vector3(-8, -4));
+        _pathFinding = new PathFinding(20, 20, 0.5f, new Vector3(-8, -4));
         //AudioPlayerManager.Instance.PlayAudio(AudioName.MenuBgm);
     }
 
@@ -34,7 +36,6 @@ public class PathFindingTest : MonoBehaviour
             if (_startNode != null)
             {
                 _endNode = _pathFinding.Grid.GetGridObject(_mousePosition);
-                Debug.Log(_startNode + " | " + _endNode);
                 _path = _pathFinding.FindPath(_startNode, _endNode);
             }
             else
@@ -42,13 +43,18 @@ public class PathFindingTest : MonoBehaviour
                 Debug.Log("no startPosition");
             }
 
+            Debug.Log(_endNode);
+            Debug.Log(_pathFinding.Grid.GetWorldPosition(_endNode.X, _endNode.Y));
 
             if (_path is { Count: > 0 })
             {
-                foreach (PathNode node in _path)
+                for (int i = 0; i < _path.Count - 1; i++)
                 {
-                    TextPopupSpawner.Instance.InitPopupText(_pathFinding.Grid.GetWorldPosition(node.X, node.Y),
-                        Color.green, node.FCost);
+                    Debug.DrawLine(
+                        _pathFinding.Grid.GetWorldPosition(_path[i].X, _path[i].Y) +
+                        (Vector3.right + Vector3.up) * (_pathFinding.Grid.CellSize * 0.5f),
+                        _pathFinding.Grid.GetWorldPosition(_path[i + 1].X, _path[i + 1].Y) +
+                        (Vector3.right + Vector3.up) * (_pathFinding.Grid.CellSize * 0.5f), Color.green, 2f);
                 }
             }
         }
