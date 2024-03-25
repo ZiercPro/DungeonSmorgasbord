@@ -49,6 +49,6 @@ public class Enemy_Baby : Enemy
         });
         _knockBackFeedBack.StartBackMove(info);
         _flashWhiteFeedBack.Flash();
-        TextPopupSpawner.Instance.InitPopupText(this.transform, Color.blue, info.damageAmount);
+        TextPopupSpawner.Instance.InitPopupText(this.transform.position, Color.blue, info.damageAmount);
     }
 }

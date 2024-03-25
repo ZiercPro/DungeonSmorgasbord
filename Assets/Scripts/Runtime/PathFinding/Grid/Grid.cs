@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 
 namespace Runtime.PathFinding.Grid
@@ -14,6 +13,10 @@ namespace Runtime.PathFinding.Grid
         private Vector3 _originPosition;
 
         private TGridNode[,] _gridArray;
+
+
+        public int Width => _width;
+        public int Height => _height;
 
         public Grid(int width, int height, float cellSize, Func<Grid<TGridNode>, int, int, TGridNode> createGridObject,
             Vector3 originPosition = default)
@@ -31,19 +34,17 @@ namespace Runtime.PathFinding.Grid
                     _gridArray[i, j] = createGridObject(this, i, j);
                 }
             }
+        }
 
-            Debug.DrawLine(_originPosition, GetWorldPosition(_width, _height), Color.red, 20f);
+        public void GetXY(Vector3 worldPostion, out int x, out int y)
+        {
+            x = Mathf.FloorToInt((worldPostion - _originPosition).x / _cellSize);
+            y = Mathf.FloorToInt((worldPostion - _originPosition).y / _cellSize);
         }
 
         public Vector3 GetWorldPosition(int x, int y)
         {
             return new Vector3(x, y) * _cellSize + _originPosition;
-        }
-
-        private void GetXY(Vector3 worldPostion, out int x, out int y)
-        {
-            x = Mathf.FloorToInt((worldPostion - _originPosition).x / _cellSize);
-            y = Mathf.FloorToInt((worldPostion - _originPosition).y / _cellSize);
         }
 
         public void SetGridObject(Vector3 worldPosition, TGridNode value)
@@ -69,7 +70,7 @@ namespace Runtime.PathFinding.Grid
 
         public TGridNode GetGridObject(int x, int y)
         {
-            if (x > 0 && y > 0 && x < _width && y < _height)
+            if (x >= 0 && y >= 0 && x < _width && y < _height)
             {
                 return _gridArray[x, y];
             }
@@ -85,5 +86,20 @@ namespace Runtime.PathFinding.Grid
             GetXY(worldPosition, out x, out y);
             return GetGridObject(x, y);
         }
+#if UNITY_EDITOR
+        public void DebugDrawLine(Color color)
+        {
+            for (int i = 0; i < _gridArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < _gridArray.GetLength(1); j++)
+                {
+                    Debug.DrawLine(GetWorldPosition(i, j), GetWorldPosition(i + 1, j), color,
+                        Single.PositiveInfinity);
+                    Debug.DrawLine(GetWorldPosition(i, j), GetWorldPosition(i, j + 1), color,
+                        Single.PositiveInfinity);
+                }
+            }
+        }
+#endif
     }
 }

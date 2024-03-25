@@ -51,7 +51,7 @@ public class Enemy_BigMouse : Enemy
             current -= info.damageAmount;
             return current;
         });
-        TextPopupSpawner.Instance.InitPopupText(this.transform, Color.blue, info.damageAmount);
+        TextPopupSpawner.Instance.InitPopupText(this.transform.position, Color.blue, info.damageAmount);
     }
 
 }

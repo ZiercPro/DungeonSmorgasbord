@@ -8,17 +8,36 @@ namespace Runtime.PathFinding.PathFinding
         private int _x;
         private int _y;
 
-        public int GCost;//从起始位置到该位置最短消耗
-        public int HCost;//从该点到目标位置的理想消耗
-        public int FCost;//G+H
+        /// <summary>
+        /// 从起始位置到该位置最短消耗
+        /// </summary>
+        public int GCost;
 
-        public PathNode lastNode;//上一个所在节点
+        /// <summary>
+        /// 从该点到目标位置的理想消耗
+        /// </summary>
+        public int HCost;
+
+        /// <summary>
+        /// G+H
+        /// </summary>
+        public int FCost;
+
+        public PathNode lastNode; //上一个所在节点
+
+        public int X => _x;
+        public int Y => _y;
 
         public PathNode(Grid<PathNode> grid, int x, int y)
         {
             _grid = grid;
             _x = x;
             _y = y;
+        }
+
+        public void CalculateFCost()
+        {
+            FCost = GCost + HCost;
         }
 
         public override string ToString()
