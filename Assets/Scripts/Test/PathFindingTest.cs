@@ -9,7 +9,7 @@ using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 public class PathFindingTest : MonoBehaviour
 {
-    [SerializeField] private Sprite debugSprite;
+    [SerializeField] private GameObject blockCube;
     private PathFinding _pathFinding;
     private PathNode _startNode;
     private PathNode _endNode;
@@ -63,6 +63,19 @@ public class PathFindingTest : MonoBehaviour
         {
             _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             _startNode = _pathFinding.Grid.GetGridObject(_mousePosition);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            PathNode blockNode = _pathFinding.Grid.GetGridObject(_mousePosition);
+            blockNode.IsActive = false;
+            GameObject newBlock = Object.Instantiate(blockCube,
+                _pathFinding.Grid.GetWorldPosition(blockNode.X, blockNode.Y) +
+                (Vector3.right + Vector3.up) * (_pathFinding.Grid.CellSize * 0.5f), Quaternion.identity);
+            newBlock.transform.localScale = new Vector3(_pathFinding.Grid.CellSize, _pathFinding.Grid.CellSize,
+                _pathFinding.Grid.CellSize);
+            newBlock.SetActive(true);
         }
     }
 }

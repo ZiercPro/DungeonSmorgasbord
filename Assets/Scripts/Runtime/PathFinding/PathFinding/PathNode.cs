@@ -23,13 +23,22 @@ namespace Runtime.PathFinding.PathFinding
         /// </summary>
         public int FCost;
 
-        public PathNode lastNode; //上一个所在节点
+        /// <summary>
+        /// 上一个所在节点
+        /// </summary>
+        public PathNode LastNode;
+
+        /// <summary>
+        /// 该节点是否有效
+        /// </summary>
+        public bool IsActive;
 
         public int X => _x;
         public int Y => _y;
 
         public PathNode(Grid<PathNode> grid, int x, int y)
         {
+            IsActive = true;
             _grid = grid;
             _x = x;
             _y = y;

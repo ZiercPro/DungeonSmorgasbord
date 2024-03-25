@@ -34,7 +34,7 @@ namespace Runtime.PathFinding.PathFinding
                     PathNode pathNode = _grid.GetGridObject(i, j);
                     pathNode.GCost = int.MaxValue;
                     pathNode.CalculateFCost();
-                    pathNode.lastNode = null;
+                    pathNode.LastNode = null;
                 }
             }
 
@@ -59,11 +59,16 @@ namespace Runtime.PathFinding.PathFinding
                 foreach (PathNode neighbourNode in neighbourList)
                 {
                     if (_closeList.Contains(neighbourNode)) continue;
+                    if (!neighbourNode.IsActive)
+                    {
+                        _closeList.Add(neighbourNode);
+                        continue;
+                    }
 
                     int tempGCost = currentNode.GCost + CalculateDistanceCost(currentNode, neighbourNode);
                     if (neighbourNode.GCost > tempGCost)
                     {
-                        neighbourNode.lastNode = currentNode;
+                        neighbourNode.LastNode = currentNode;
                         neighbourNode.GCost = tempGCost;
                         neighbourNode.HCost = CalculateDistanceCost(neighbourNode, endNode);
                         neighbourNode.CalculateFCost();
@@ -114,11 +119,12 @@ namespace Runtime.PathFinding.PathFinding
             List<PathNode> pathList = new List<PathNode>();
             PathNode currentNode = endNode;
             pathList.Add(endNode);
-            while (currentNode.lastNode != null)
+            while (currentNode.LastNode != null)
             {
-                pathList.Add(currentNode.lastNode);
-                currentNode = currentNode.lastNode;
+                pathList.Add(currentNode.LastNode);
+                currentNode = currentNode.LastNode;
             }
+
             return pathList;
         }
 
