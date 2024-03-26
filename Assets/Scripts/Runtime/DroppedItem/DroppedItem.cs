@@ -24,7 +24,7 @@ public class DroppedItem : MonoBehaviour
     {
         if (_items == null || _items.Count == 0) return;
         _isClearing = true;
-        MyMath.ForeachList(_items, item =>
+        MyMath.ForeachChangeListAvailable(_items, item =>
         {
             if (item != null)
             {

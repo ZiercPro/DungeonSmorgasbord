@@ -25,7 +25,7 @@ namespace Runtime.Weapon.Base
         protected virtual void DamageCount()
         {
             FinalDamageAmount = (int)WeaponDamageRate[weaponType] * damageAmount;
-            bool isCriticalHit = MyMath.IsEffected(CriticalChance);
+            bool isCriticalHit = MyMath.ChanceToBool(CriticalChance);
             if (isCriticalHit)
             {
                 FinalDamageAmount *= 2;

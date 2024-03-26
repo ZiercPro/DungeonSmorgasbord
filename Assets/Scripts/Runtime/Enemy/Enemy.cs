@@ -91,7 +91,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public static void EnemyClear()
     {
         if (s_enemys == null || s_enemys.Count <= 0) return;
-        MyMath.ForeachList(s_enemys, enemy =>
+        MyMath.ForeachChangeListAvailable(s_enemys, enemy =>
         {
             if (enemy != null && enemy.isActiveAndEnabled) enemy.Dead(false);
         });

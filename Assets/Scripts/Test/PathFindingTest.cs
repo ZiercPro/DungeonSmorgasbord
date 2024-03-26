@@ -1,77 +1,132 @@
 using NaughtyAttributes;
-using UnityEngine;
 using Runtime.PathFinding.PathFinding;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Serialization;
 
-public class PathFindingTest : MonoBehaviour
+namespace Test
 {
-    [SerializeField] private GameObject blockCube;
-    private PathFinding _pathFinding;
-    private PathNode _startNode;
-    private PathNode _endNode;
-    private List<PathNode> _path;
-    private Vector3 _mousePosition;
-
-    private void Awake()
+    public class PathFindingTest : MonoBehaviour
     {
-        _pathFinding = new PathFinding(20, 20, 0.5f, new Vector3(-8, -4));
-        //AudioPlayerManager.Instance.PlayAudio(AudioName.MenuBgm);
-    }
+        [SerializeField] private GameObject blockCube;
 
-    [Button("GridDebug")]
-    private void DebugMode()
-    {
-        _pathFinding.Grid.DebugDrawLine(Color.red);
-    }
+        [Header("moveable info")] [Space] [SerializeField]
+        private Rigidbody2D pathFindAI;
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
+        [SerializeField] private float moveSpeed;
+        private PathFinding _pathFinding;
+        private PathNode _startNode;
+        private PathNode _endNode;
+        private Vector3 _mousePosition;
+
+        private List<PathNode> _pathNodes;
+        private List<Vector3> _path;
+
+        private void Awake()
         {
-            _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (_startNode != null)
-            {
-                _endNode = _pathFinding.Grid.GetGridObject(_mousePosition);
-                _path = _pathFinding.FindPath(_startNode, _endNode);
-            }
-            else
-            {
-                Debug.Log("no startPosition");
-            }
+            _pathFinding = new PathFinding(20, 20, 1f, new Vector3(-8, -4));
+            //AudioPlayerManager.Instance.PlayAudio(AudioName.MenuBgm);
+        }
 
-            Debug.Log(_endNode);
-            Debug.Log(_pathFinding.Grid.GetWorldPosition(_endNode.X, _endNode.Y));
+        [Button("GridDebug")]
+        private void DebugMode()
+        {
+            _pathFinding.Grid.DebugDrawLine(Color.red);
+        }
 
-            if (_path is { Count: > 0 })
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
             {
-                for (int i = 0; i < _path.Count - 1; i++)
+                _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (_startNode != null)
                 {
-                    Debug.DrawLine(
-                        _pathFinding.Grid.GetWorldPosition(_path[i].X, _path[i].Y) +
-                        (Vector3.right + Vector3.up) * (_pathFinding.Grid.CellSize * 0.5f),
-                        _pathFinding.Grid.GetWorldPosition(_path[i + 1].X, _path[i + 1].Y) +
-                        (Vector3.right + Vector3.up) * (_pathFinding.Grid.CellSize * 0.5f), Color.green, 2f);
+                    _endNode = _pathFinding.Grid.GetGridObject(_mousePosition);
+                    _pathNodes = _pathFinding.FindPath(_startNode, _endNode);
+                }
+                else
+                {
+                    Debug.Log("no startPosition");
+                }
+
+                Debug.Log(_endNode);
+                Debug.Log(_pathFinding.Grid.GetWorldPosition(_endNode.X, _endNode.Y));
+
+                if (_pathNodes is { Count: > 0 })
+                {
+                    for (int i = 0; i < _pathNodes.Count - 1; i++)
+                    {
+                        Debug.DrawLine(
+                            _pathFinding.Grid.GetWorldPosition(_pathNodes[i].X, _pathNodes[i].Y) +
+                            (Vector3.right + Vector3.up) * (_pathFinding.Grid.CellSize * 0.5f),
+                            _pathFinding.Grid.GetWorldPosition(_pathNodes[i + 1].X, _pathNodes[i + 1].Y) +
+                            (Vector3.right + Vector3.up) * (_pathFinding.Grid.CellSize * 0.5f), Color.green, 2f);
+                    }
                 }
             }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                _startNode = _pathFinding.Grid.GetGridObject(_mousePosition);
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                PathNode blockNode = _pathFinding.Grid.GetGridObject(_mousePosition);
+                blockNode.IsActive = false;
+                GameObject newBlock = Object.Instantiate(blockCube,
+                    _pathFinding.Grid.GetWorldPosition(blockNode.X, blockNode.Y) +
+                    (Vector3.right + Vector3.up) * (_pathFinding.Grid.CellSize * 0.5f), Quaternion.identity);
+                newBlock.transform.localScale = new Vector3(_pathFinding.Grid.CellSize, _pathFinding.Grid.CellSize,
+                    _pathFinding.Grid.CellSize);
+                newBlock.SetActive(true);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                _path = _pathFinding.FindPath(pathFindAI.position, _mousePosition);
+                // foreach (var pathNode in _path)
+                // {
+                //     Debug.Log(pathNode);
+                // }
+                MoveTo(_path, pathFindAI, moveSpeed);
+            }
         }
 
-        if (Input.GetMouseButtonDown(1))
+        private void MoveTo(List<Vector3> path, Rigidbody2D targetRigid2d, float speed)
         {
-            _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            _startNode = _pathFinding.Grid.GetGridObject(_mousePosition);
+            // StartCoroutine(TranslationCoroutine(path, targetRigid2d, speed, 0.1f));
+            MyCoroutineTool.Instance.StartCoroutine(TranslationCoroutine(path, targetRigid2d, speed, 0.1f));
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        IEnumerator TranslationCoroutine(List<Vector3> path, Rigidbody2D targetRigid2d, float speed,
+            float nearestDistance)
         {
-            _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            PathNode blockNode = _pathFinding.Grid.GetGridObject(_mousePosition);
-            blockNode.IsActive = false;
-            GameObject newBlock = Object.Instantiate(blockCube,
-                _pathFinding.Grid.GetWorldPosition(blockNode.X, blockNode.Y) +
-                (Vector3.right + Vector3.up) * (_pathFinding.Grid.CellSize * 0.5f), Quaternion.identity);
-            newBlock.transform.localScale = new Vector3(_pathFinding.Grid.CellSize, _pathFinding.Grid.CellSize,
-                _pathFinding.Grid.CellSize);
-            newBlock.SetActive(true);
+            yield return null;
+            int nodeIndex = path.Count - 2;
+            while (nodeIndex >= 0)
+            {
+                yield return MoveUnit(targetRigid2d, path[nodeIndex], speed, nearestDistance);
+                nodeIndex--;
+            }
+        }
+
+        IEnumerator MoveUnit(Rigidbody2D unit, Vector3 targetPostion, float speed, float nearestDistance)
+        {
+            while (true)
+            {
+                if (MyMath.CalculateDistance(unit.position, targetPostion) <= nearestDistance)
+                {
+                    Debug.Log(MyMath.CalculateDistance(unit.position, targetPostion));
+                    yield break;
+                }
+
+                unit.velocity = (targetPostion - unit.transform.position).normalized * speed;
+            }
         }
     }
 }

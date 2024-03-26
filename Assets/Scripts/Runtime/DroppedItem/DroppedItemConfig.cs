@@ -24,7 +24,7 @@ public class DroppedItemConfig
     /// <param name="bursForce">物体随机弹开力的大小</param>
     public void InstantiateItem(Transform position, float bursForce)
     {
-        bool willDrop = MyMath.IsEffected(dropChance / 100f);
+        bool willDrop = MyMath.ChanceToBool(dropChance / 100f);
         if (!willDrop) return;
         Rigidbody2D r2d;
         if (haveItemNumRange)

@@ -77,7 +77,7 @@ public class EnemyAI : MyInput
     }
     protected bool CheckAttackPerform()
     {
-        return MyMath.DistanceCpsL(attackPos.position, viewPos, attackRange);
+        return MyMath.CompareDistanceWithRange(attackPos.position, viewPos, attackRange);
     }
     #endregion
 

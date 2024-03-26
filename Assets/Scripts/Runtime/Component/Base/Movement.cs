@@ -1,7 +1,4 @@
-using NaughtyAttributes;
-using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {

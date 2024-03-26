@@ -14,7 +14,7 @@ public static class MyMath
     /// </summary>
     /// <param name="chance"></param>
     /// <returns></returns>
-    public static bool IsEffected(float chance)
+    public static bool ChanceToBool(float chance)
     {
         if (chance <= 0f) return false;
         float temp = Random.Range(0.0f, 1.0f);
@@ -29,10 +29,21 @@ public static class MyMath
     /// <param name="pos2">位置2</param>
     /// <param name="range">目标范围</param>
     /// <returns></returns>
-    public static bool DistanceCpsL(Vector3 pos1, Vector3 pos2, float range)
+    public static bool CompareDistanceWithRange(Vector3 pos1, Vector3 pos2, float range)
     {
         if ((pos1 - pos2).sqrMagnitude <= range * range) return true;
         return false;
+    }
+
+    /// <summary>
+    /// 计算两点距离
+    /// </summary>
+    /// <param name="pos1">点1</param>
+    /// <param name="pos2">点2</param>
+    /// <returns>两点间距离</returns>
+    public static float CalculateDistance(Vector3 pos1, Vector3 pos2)
+    {
+        return Vector3.Distance(pos1, pos2);
     }
 
     /// <summary>
@@ -132,7 +143,7 @@ public static class MyMath
     /// <param name="list">操作链表</param>
     /// <param name="action">操作</param>
     /// <typeparam name="T">链表储存对象</typeparam>
-    public static void ForeachList<T>(List<T> list, Action<T> action)
+    public static void ForeachChangeListAvailable<T>(List<T> list, Action<T> action)
     {
         if (list == null || list.Count <= 0)
         {
