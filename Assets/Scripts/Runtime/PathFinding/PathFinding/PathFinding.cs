@@ -21,6 +21,16 @@ namespace Runtime.PathFinding.PathFinding
             _grid = new Grid<PathNode>(width, height, cellSize, (g, x, y) => new PathNode(g, x, y), originPosition);
         }
 
+        public List<Vector3> FindPath(Vector3 startPosition, Vector3 endPosition)
+        {
+            PathNode startNode = _grid.GetGridObject(startPosition);
+            PathNode endNode = _grid.GetGridObject(endPosition);
+            List<PathNode> pathNodes = FindPath(startNode, endNode);
+            if (pathNodes != null)
+                return PathNodeToVector3(pathNodes);
+            return null;
+        }
+
         public List<PathNode> FindPath(PathNode startNode, PathNode endNode)
         {
             _openList = new List<PathNode> { startNode };
@@ -80,6 +90,22 @@ namespace Runtime.PathFinding.PathFinding
 
             //找不到路径
             return null;
+        }
+
+        //将节点链表转换为坐标链表
+        private List<Vector3> PathNodeToVector3(List<PathNode> pathNodes)
+        {
+            List<Vector3> result = new List<Vector3>();
+            if (pathNodes is not { Count: 0 })
+            {
+                foreach (var pathNode in pathNodes)
+                {
+                    Vector3 newV = _grid.GetWorldPosition(pathNode.X, pathNode.Y);
+                    result.Add(newV);
+                }
+            }
+
+            return result;
         }
 
         //获取所有相邻的节点

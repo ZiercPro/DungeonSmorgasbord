@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bd36c1ef-bee6-41a4-b2ce-922eadf5c2c5" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scenes/Test.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/PathFinding/PathFinding/PathFinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/PathFinding/PathFinding/PathFinding.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/PathFinding/PathFinding/PathNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/PathFinding/PathFinding/PathNode.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test/PathFindingTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Test/PathFindingTest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -90,30 +88,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "vue.rearranger.settings.migration": "true",
-    "附加到 Unity 编辑器.附加到 Unity 编辑器.executor": "Debug"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;附加到 Unity 编辑器.附加到 Unity 编辑器.executor&quot;: &quot;Debug&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\LJTX\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\LJTX\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\LJTX\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\LJTX\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\LJTX\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\LJTX\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="附加到 Unity 编辑器.附加到 Unity 编辑器">
     <configuration name="启动 Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.13f1\Editor\Unity.exe" />
@@ -139,10 +137,10 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="附加到 Unity 编辑器" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="27116">
+    <configuration name="附加到 Unity 编辑器" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="27116" />
+      <option name="pid" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -219,7 +217,8 @@
       <workItem from="1711273843114" duration="1125000" />
       <workItem from="1711274992824" duration="4474000" />
       <workItem from="1711330536584" duration="15085000" />
-      <workItem from="1711361719297" duration="6963000" />
+      <workItem from="1711361719297" duration="7521000" />
+      <workItem from="1711444195866" duration="537000" />
     </task>
     <servers />
   </component>

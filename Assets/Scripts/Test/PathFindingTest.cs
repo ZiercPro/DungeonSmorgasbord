@@ -1,11 +1,7 @@
 using NaughtyAttributes;
-using Runtime.Helper;
 using UnityEngine;
-using Runtime.PathFinding.Grid;
 using Runtime.PathFinding.PathFinding;
 using System.Collections.Generic;
-using System.IO;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 public class PathFindingTest : MonoBehaviour
 {
