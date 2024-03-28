@@ -1,30 +1,33 @@
 using UnityEngine;
 
-public class FlipController : MonoBehaviour
+namespace Runtime.Component.Base
 {
-    public bool isFaceingRight { get; private set; }
-
-    private void Start()
+    public class FlipController : MonoBehaviour
     {
-        isFaceingRight = true;
-    }
+        public bool isFaceingRight { get; private set; }
 
-    private void Flip()
-    {
-        isFaceingRight = !isFaceingRight;
-        transform.Rotate(new Vector3(0, 180, 0));
-    }
-
-    public void FaceTo(Vector2 viewPos)
-    {
-        float faceX = (viewPos - (Vector2)transform.position).x;
-        if (faceX < 0 && isFaceingRight)
+        private void Start()
         {
-            Flip();
+            isFaceingRight = true;
         }
-        else if (faceX > 0 && !isFaceingRight)
+
+        private void Flip()
         {
-            Flip();
+            isFaceingRight = !isFaceingRight;
+            transform.Rotate(new Vector3(0, 180, 0));
+        }
+
+        public void FaceTo(Vector2 viewPos)
+        {
+            float faceX = (viewPos - (Vector2)transform.position).x;
+            if (faceX < 0 && isFaceingRight)
+            {
+                Flip();
+            }
+            else if (faceX > 0 && !isFaceingRight)
+            {
+                Flip();
+            }
         }
     }
 }

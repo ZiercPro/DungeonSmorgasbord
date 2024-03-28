@@ -3,10 +3,11 @@ using Runtime.PathFinding.PathFinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Test
 {
+    using Runtime.Helper;
+
     public class PathFindingTest : MonoBehaviour
     {
         [SerializeField] private GameObject blockCube;

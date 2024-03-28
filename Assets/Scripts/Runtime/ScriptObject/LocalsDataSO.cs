@@ -1,38 +1,42 @@
-using System;
 using UnityEngine;
 
-/// <summary>
-/// 储存语言对应编号
-/// </summary>
-[CreateAssetMenu(menuName = "ScriptObj/LocalID", fileName = "LocalID")]
-public class LocalsDataSO : ScriptableObject
+namespace Runtime.ScriptObject
 {
-    [field: SerializeField] public TextAsset LanguageIndexData { get; private set; }
-    [field: SerializeField] public SerDictionary<string, int> localsIDTable { get; private set; }
+    using Helper;
 
-    private void OnEnable()
+    /// <summary>
+    /// 储存语言对应编号
+    /// </summary>
+    [CreateAssetMenu(menuName = "ScriptObj/LocalID", fileName = "LocalID")]
+    public class LocalsDataSO : ScriptableObject
     {
-        if (LanguageIndexData == null) return;
+        [field: SerializeField] public TextAsset LanguageIndexData { get; private set; }
+        [field: SerializeField] public SerDictionary<string, int> localsIDTable { get; private set; }
 
-        localsIDTable = new SerDictionary<string, int>();
-        string[] lines = LanguageIndexData.text.Split('\n');
-        for (int i = 0; i < lines.Length - 1; i++)
+        private void OnEnable()
         {
-            string[] rows = lines[i].Split(',');
-            localsIDTable.Add(rows[0], int.Parse(rows[1]));
+            if (LanguageIndexData == null) return;
+
+            localsIDTable = new SerDictionary<string, int>();
+            string[] lines = LanguageIndexData.text.Split('\n');
+            for (int i = 0; i < lines.Length - 1; i++)
+            {
+                string[] rows = lines[i].Split(',');
+                localsIDTable.Add(rows[0], int.Parse(rows[1]));
+            }
         }
-    }
 
-    private void OnValidate()
-    {
-        if (LanguageIndexData == null) return;
-
-        localsIDTable = new SerDictionary<string, int>();
-        string[] lines = LanguageIndexData.text.Split('\n');
-        for (int i = 0; i < lines.Length - 1; i++)
+        private void OnValidate()
         {
-            string[] rows = lines[i].Split(',');
-            localsIDTable.Add(rows[0], int.Parse(rows[1]));
+            if (LanguageIndexData == null) return;
+
+            localsIDTable = new SerDictionary<string, int>();
+            string[] lines = LanguageIndexData.text.Split('\n');
+            for (int i = 0; i < lines.Length - 1; i++)
+            {
+                string[] rows = lines[i].Split(',');
+                localsIDTable.Add(rows[0], int.Parse(rows[1]));
+            }
         }
     }
 }

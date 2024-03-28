@@ -1,10 +1,12 @@
 using Runtime.Helper;
 using System.Collections.Generic;
 using UnityEngine;
-using AudioType = Runtime.Audio.Base.AudioType;
 
 namespace Runtime.ScriptObject
 {
+    using Audio;
+    using Audio.Base;
+
     [CreateAssetMenu(menuName = "ScriptObj/AudioList", fileName = "AudioList")]
     public class AudioListSo : ScriptableObject
     {

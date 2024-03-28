@@ -1,5 +1,5 @@
-
-
+namespace Runtime.Enemy.EnemyState.Base
+{
     /// <summary>
     /// 敌人状态基类
     /// </summary>
@@ -39,3 +39,4 @@
         /// </summary>
         public virtual void AnimationTriggerEvent() { }
     }
+}

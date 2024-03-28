@@ -1,13 +1,14 @@
 using UnityEngine;
 using Runtime.Enemy.EnemyState.Base;
 
-namespace Runtime.Enemy.EnemyState.States.Baby
+namespace Runtime.Enemy.EnemyState.States.BigMouth
 {
-    public class BabyIdleState : BabyNormalState
+    public class BigMouthIdleState : BigMouthNormalState
     {
         private static readonly int Idle = Animator.StringToHash("idle");
 
-        public BabyIdleState(Enemy enemyBase, EnemyStateMachine stateMachine, Enemy_Baby enemy) : base(enemyBase,
+        public BigMouthIdleState(Enemy enemyBase, EnemyStateMachine stateMachine, Enemy_BigMouse enemy) : base(
+            enemyBase,
             stateMachine, enemy)
         {
         }

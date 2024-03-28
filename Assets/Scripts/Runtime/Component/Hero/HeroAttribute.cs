@@ -1,18 +1,26 @@
 using UnityEngine;
 
-public class HeroAttribute : Attribute
+namespace Runtime.Component.Hero
 {
-    [SerializeField] private HeroAttributeSO attributeData;
+    using Base;
+    using Helper;
+    using Weapon.Base;
+    using ScriptObject;
 
-    public SerDictionary<WeaponType, float> weaponDamageRate;
-    public float criticalChance;
-
-    private void Awake()
+    public class HeroAttribute : Attribute
     {
-        if (attributeData == null) return;
-        moveSpeed = attributeData.moveSpeed;
-        maxHealth = attributeData.maxHealth;
-        criticalChance = attributeData.criticalChance;
-        weaponDamageRate = attributeData.weaponDamageRate;
+        [SerializeField] private HeroAttributeSO attributeData;
+
+        public SerDictionary<WeaponType, float> weaponDamageRate;
+        public float criticalChance;
+
+        private void Awake()
+        {
+            if (attributeData == null) return;
+            moveSpeed = attributeData.moveSpeed;
+            maxHealth = attributeData.maxHealth;
+            criticalChance = attributeData.criticalChance;
+            weaponDamageRate = attributeData.weaponDamageRate;
+        }
     }
 }

@@ -1,11 +1,11 @@
-
-using System.Collections.Generic;
-/// <summary>
-///  Êı¾İ¹ÜÀíÆ÷ Ìá¹©ÁËÊı¾İĞòÁĞ»¯ºÍ·´ĞòÁĞ»¯µÄ·½·¨
-///  ²¢Ìá¹©ÁËÉè¶¨ÁËÊı¾İ½â¶ÁµÄË³Ğò
-/// </summary>
-public static class DataManager {
-    public static readonly string Path;
-
-    
+namespace Runtime.Manager
+{
+    /// <summary>
+    ///  æ•°æ®ç®¡ç†å™¨ æä¾›äº†æ•°æ®åºåˆ—åŒ–å’Œååºåˆ—åŒ–çš„æ–¹æ³•
+    ///  å¹¶æä¾›äº†è®¾å®šäº†æ•°æ®è§£è¯»çš„é¡ºåº
+    /// </summary>
+    public static class DataManager
+    {
+        public static readonly string Path;
+    }
 }

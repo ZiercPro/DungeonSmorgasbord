@@ -1,36 +1,39 @@
 using System;
 using UnityEngine;
 
-public class WeaponAnimationEventHandler : MonoBehaviour
+namespace Runtime.Weapon.WeaponComponent
 {
-    public event Action AnimationStarted;
-    public event Action AnimationTriggeredStart;
-    public event Action AnimationTriggeredPerform;
-    public event Action AnimationTriggeredEnd;
-    public event Action AnimationEnded;
-
-    private void OnAnimationStarted()
+    public class WeaponAnimationEventHandler : MonoBehaviour
     {
-        AnimationStarted?.Invoke();
-    }
+        public event Action AnimationStarted;
+        public event Action AnimationTriggeredStart;
+        public event Action AnimationTriggeredPerform;
+        public event Action AnimationTriggeredEnd;
+        public event Action AnimationEnded;
 
-    private void OnAnimationTriggeredStart()
-    {
-        AnimationTriggeredStart?.Invoke();
-    }
+        private void OnAnimationStarted()
+        {
+            AnimationStarted?.Invoke();
+        }
 
-    private void OnAnimationTriggeredPerform()
-    {
-        AnimationTriggeredPerform?.Invoke();
-    }
+        private void OnAnimationTriggeredStart()
+        {
+            AnimationTriggeredStart?.Invoke();
+        }
 
-    private void OnAnimationTriggeredEnd()
-    {
-        AnimationTriggeredEnd?.Invoke();
-    }
+        private void OnAnimationTriggeredPerform()
+        {
+            AnimationTriggeredPerform?.Invoke();
+        }
 
-    private void OnAnimationEnded()
-    {
-        AnimationEnded?.Invoke();
+        private void OnAnimationTriggeredEnd()
+        {
+            AnimationTriggeredEnd?.Invoke();
+        }
+
+        private void OnAnimationEnded()
+        {
+            AnimationEnded?.Invoke();
+        }
     }
 }

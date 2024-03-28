@@ -1,26 +1,31 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class CardAnimation : MonoBehaviour
+namespace Runtime.UI.Card
 {
-    private float startY;
-    private void Awake()
+    public class CardAnimation : MonoBehaviour
     {
-        startY = transform.position.y;
-    }
-    public void CardEnter()
-    {
-        transform.DOScale(1.2f, 0.2f).SetUpdate(true).OnUpdate(() =>
-        {
-            transform.DOMoveY(startY + 100f, 0.2f).SetUpdate(true);
-        });
+        private float startY;
 
-    }
-    public void CardExit()
-    {
-        transform.DOScale(1.0f, 0.2f).SetUpdate(true).OnUpdate(() =>
+        private void Awake()
         {
-            transform.DOMoveY(startY, 0.2f).SetUpdate(true);
-        });
+            startY = transform.position.y;
+        }
+
+        public void CardEnter()
+        {
+            transform.DOScale(1.2f, 0.2f).SetUpdate(true).OnUpdate(() =>
+            {
+                transform.DOMoveY(startY + 100f, 0.2f).SetUpdate(true);
+            });
+        }
+
+        public void CardExit()
+        {
+            transform.DOScale(1.0f, 0.2f).SetUpdate(true).OnUpdate(() =>
+            {
+                transform.DOMoveY(startY, 0.2f).SetUpdate(true);
+            });
+        }
     }
 }

@@ -1,14 +1,17 @@
 using UnityEngine;
 using Runtime.Enemy.EnemyState.Base;
-namespace Runtime.Enemy.EnemyState.States.Baby
+
+namespace Runtime.Enemy.EnemyState.States.BigMouth
 {
-    public class BabyMoveState : BabyNormalState
+    public class BigMouthMoveState : BigMouthNormalState
     {
         private Vector2 _moveDir;
         private Transform _targetTransform;
+
         private static readonly int Running = Animator.StringToHash("running");
 
-        public BabyMoveState(Enemy enemyBase, EnemyStateMachine stateMachine, Enemy_Baby enemy) : base(enemyBase,
+        public BigMouthMoveState(Enemy enemyBase, EnemyStateMachine stateMachine, Enemy_BigMouse enemy) : base(
+            enemyBase,
             stateMachine, enemy)
         {
         }
@@ -29,7 +32,8 @@ namespace Runtime.Enemy.EnemyState.States.Baby
         {
             base.ExitState();
             _enemy.animator.SetBool(Running, false);
-            _enemy.movement.StopMovePerform();
+            _targetTransform = null;
+            enemyBase.movement.StopMovePerform();
         }
 
         public override void FrameUpdate()
@@ -45,7 +49,7 @@ namespace Runtime.Enemy.EnemyState.States.Baby
         public override void PhysicsUpdate()
         {
             base.PhysicsUpdate();
-            _enemy.movement.MovePerform(_moveDir);
+            enemyBase.movement.MovePerform(_moveDir);
         }
     }
 }

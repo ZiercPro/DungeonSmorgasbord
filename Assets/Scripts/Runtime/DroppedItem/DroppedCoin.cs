@@ -1,23 +1,30 @@
-using System;
 using UnityEngine;
+using Runtime.Audio;
 
-public class DroppedCoin : DroppedItem
+namespace Runtime.DroppedItem
 {
-    private void GetItem(CoinPack pack)
-    {
-        pack.GetCoins(num);
-        AudioPlayerManager.Instance.PlayAudio(AudioName.CoinCollected);
-        base.GetItem();
-    }
+    using Component.Hero;
+    using Manager;
+    using Hero;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public class DroppedCoin : DroppedItem
     {
-        if (other.CompareTag("Player"))
+        private void GetItem(CoinPack pack)
         {
-            GetItem(other.GetComponent<Hero>().CoinPack);
-            TextPopupSpawner.Instance.InitPopupText(other.transform.position, Color.yellow, "+" + num);
-            num = 0;
-            Destroy(gameObject);
+            pack.GetCoins(num);
+            AudioPlayerManager.Instance.PlayAudio(AudioName.CoinCollected);
+            base.GetItem();
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                GetItem(other.GetComponent<Hero>().CoinPack);
+                TextPopupSpawner.Instance.InitPopupText(other.transform.position, Color.yellow, "+" + num);
+                num = 0;
+                Destroy(gameObject);
+            }
         }
     }
 }

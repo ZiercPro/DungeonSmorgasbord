@@ -3,6 +3,9 @@ using System;
 using System.IO;
 using UnityEngine;
 
+namespace Runtime.Data.Base
+{
+    
 public class JsonDataService : IDataService
 {
     public bool SaveData<T>(string relativePath, T data, bool encrypted)
@@ -20,7 +23,8 @@ public class JsonDataService : IDataService
             {
                 Debug.Log("Writing file for the first time!");
             }
-            using FileStream fileStream = File.Create(path);//使用using可以自动释放资源 不需要在finally中手动释放filestream
+
+            using FileStream fileStream = File.Create(path); //使用using可以自动释放资源 不需要在finally中手动释放filestream
             fileStream.Close();
             File.WriteAllText(path, JsonConvert.SerializeObject(data));
             return true;
@@ -45,15 +49,15 @@ public class JsonDataService : IDataService
         {
             try
             {
-                T data=JsonConvert.DeserializeObject<T>(File.ReadAllText(path));
+                T data = JsonConvert.DeserializeObject<T>(File.ReadAllText(path));
                 return data;
             }
             catch (Exception e)
             {
                 Debug.LogError($"Can not load data due to:{e.Message};{e.StackTrace}");
-                throw e;//重新抛出 方便调用方法出问题时 进行处理 提示玩家等等
+                throw e; //重新抛出 方便调用方法出问题时 进行处理 提示玩家等等
             }
         }
     }
-
+}
 }

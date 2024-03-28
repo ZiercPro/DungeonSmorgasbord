@@ -1,45 +1,48 @@
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+namespace Runtime.Component.Base
 {
-    private Rigidbody2D _rb;
-    public bool canMove;
-    public float moveSpeed { get; private set; }
-
-    private void Awake()
+    public class Movement : MonoBehaviour
     {
-        _rb = GetComponentInChildren<Rigidbody2D>();
-    }
+        private Rigidbody2D _rb;
+        public bool canMove;
+        public float moveSpeed { get; private set; }
 
-    private void OnDisable()
-    {
-        StopMovePerform();
-    }
+        private void Awake()
+        {
+            _rb = GetComponentInChildren<Rigidbody2D>();
+        }
 
-    public void Initialize(float speed)
-    {
-        moveSpeed = speed;
-        canMove = true;
-    }
+        private void OnDisable()
+        {
+            StopMovePerform();
+        }
 
-    public void MovePerform(Vector2 moveDir)
-    {
-        if (!canMove) return;
-        _rb.velocity = moveDir * moveSpeed;
-    }
+        public void Initialize(float speed)
+        {
+            moveSpeed = speed;
+            canMove = true;
+        }
 
-    public void StopMovePerform()
-    {
-        _rb.velocity = Vector2.zero;
-    }
+        public void MovePerform(Vector2 moveDir)
+        {
+            if (!canMove) return;
+            _rb.velocity = moveDir * moveSpeed;
+        }
 
-    public void AddSpeed(float amount)
-    {
-        moveSpeed += amount;
-    }
+        public void StopMovePerform()
+        {
+            _rb.velocity = Vector2.zero;
+        }
 
-    public void ReduceSpeed(float amount)
-    {
-        moveSpeed -= amount;
+        public void AddSpeed(float amount)
+        {
+            moveSpeed += amount;
+        }
+
+        public void ReduceSpeed(float amount)
+        {
+            moveSpeed -= amount;
+        }
     }
 }

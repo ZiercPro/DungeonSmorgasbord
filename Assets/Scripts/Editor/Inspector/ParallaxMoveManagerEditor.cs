@@ -3,6 +3,7 @@
 namespace Editor.Inspector
 {
     using UnityEditor;
+    using Runtime.Manager;
 
     [CustomEditor(typeof(ParallaxMoveManager))]
     public class ParallaxMoveManagerEditor : Editor

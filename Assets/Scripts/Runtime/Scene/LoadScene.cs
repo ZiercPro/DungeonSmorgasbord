@@ -1,32 +1,38 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class LoadScene : SceneState
+namespace Runtime.Scene
 {
-    private readonly string name = "Loading";
-    private PanelManager PanelManager;
-    public override void OnEnter()
+    using UI;
+    using Base;
+    using UI.Panel;
+    using UnityEngine.SceneManagement;
+
+    public class LoadScene : SceneState
     {
-        PanelManager=new PanelManager();
-        if (SceneManager.GetActiveScene().name != name)
+        private readonly string name = "Loading";
+        private PanelManager PanelManager;
+
+        public override void OnEnter()
         {
-            SceneManager.sceneLoaded += OnSceneLoaded;
-            SceneManager.LoadScene(name);
+            PanelManager = new PanelManager();
+            if (SceneManager.GetActiveScene().name != name)
+            {
+                SceneManager.sceneLoaded += OnSceneLoaded;
+                SceneManager.LoadScene(name);
+            }
+            else
+            {
+                PanelManager.Push(new LoadPanel());
+            }
         }
-        else
+
+        public override void OnExit()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            PanelManager.PopAll();
+        }
+
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             PanelManager.Push(new LoadPanel());
         }
-    }
-
-    public override void OnExit()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        PanelManager.PopAll();
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        PanelManager.Push(new LoadPanel());
     }
 }

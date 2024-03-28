@@ -1,104 +1,112 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Runtime.Enemy.EnemyState.Base;
 
-
-public abstract class Enemy : MonoBehaviour, IDamageable
+namespace Runtime.Enemy
 {
-    public EnemyStateMachine stateMachine { get; private set; }
-    public EnemyAttribute attribute { get; private set; }
-    public AttackCheck attackCheck { get; private set; }
-    public Movement movement { get; private set; }
-    public Animator animator { get; private set; }
-    public Health health { get; private set; }
+    using Damage;
+    using Helper;
+    using Component.Base;
+    using Component.Enemy;
 
-    public GameObject attackTarget { get; private set; }
-    private static List<Enemy> s_enemys;
-
-    public event Action<DamageInfo> OnTakeDamage;
-
-    public virtual void TakeDamage(DamageInfo info)
+    public abstract class Enemy : MonoBehaviour, IDamageable
     {
-        OnTakeDamage?.Invoke(info);
-    }
+        public EnemyStateMachine stateMachine { get; private set; }
+        public EnemyAttribute attribute { get; private set; }
+        public AttackCheck attackCheck { get; private set; }
+        public Movement movement { get; private set; }
+        public Animator animator { get; private set; }
+        public Health health { get; private set; }
 
-    protected void OnEnable()
-    {
-        if (s_enemys == null) s_enemys = new List<Enemy>();
-        s_enemys.Add(this);
-    }
+        public GameObject attackTarget { get; private set; }
+        private static List<Enemy> s_enemys;
 
-    protected void OnDisable()
-    {
-        s_enemys.Remove(this);
-    }
+        public event Action<DamageInfo> OnTakeDamage;
 
-    protected virtual void Awake()
-    {
-        attribute = GetComponentInChildren<EnemyAttribute>();
-        attackCheck = GetComponentInChildren<AttackCheck>();
-        movement = GetComponentInChildren<Movement>();
-        animator = GetComponentInChildren<Animator>();
-        health = GetComponentInChildren<Health>();
-        stateMachine = new EnemyStateMachine();
-        attackTarget = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    protected virtual void Start()
-    {
-        attribute.Initialize();
-        movement.Initialize(attribute.moveSpeed);
-        health.Initialize(attribute.maxHealth);
-        health.Dead += () =>
+        public virtual void TakeDamage(DamageInfo info)
         {
-            Dead();
-        };
-    }
+            OnTakeDamage?.Invoke(info);
+        }
 
-    protected virtual void Update()
-    {
-        stateMachine.currentState.FrameUpdate();
-    }
-
-    protected virtual void FixedUpdate()
-    {
-        stateMachine.currentState.PhysicsUpdate();
-    }
-
-    public void ChangeTarget(GameObject target)
-    {
-        attackTarget = target;
-    }
-
-    public virtual void Dead(bool dropItem = true)
-    {
-        Destroy(gameObject);
-    }
-
-
-    /// <summary>
-    /// 获取当前所有存活的敌人
-    /// </summary>
-    /// <returns>敌人链表</returns>
-    public static List<Enemy> GetEnemys()
-    {
-        return s_enemys;
-    }
-
-    /// <summary>
-    /// 销毁当前全部敌人实例
-    /// </summary>
-    public static void EnemyClear()
-    {
-        if (s_enemys == null || s_enemys.Count <= 0) return;
-        MyMath.ForeachChangeListAvailable(s_enemys, enemy =>
+        protected void OnEnable()
         {
-            if (enemy != null && enemy.isActiveAndEnabled) enemy.Dead(false);
-        });
-    }
+            if (s_enemys == null) s_enemys = new List<Enemy>();
+            s_enemys.Add(this);
+        }
 
-    public virtual DamageInfo Attack()
-    {
-        return null;
+        protected void OnDisable()
+        {
+            s_enemys.Remove(this);
+        }
+
+        protected virtual void Awake()
+        {
+            attribute = GetComponentInChildren<EnemyAttribute>();
+            attackCheck = GetComponentInChildren<AttackCheck>();
+            movement = GetComponentInChildren<Movement>();
+            animator = GetComponentInChildren<Animator>();
+            health = GetComponentInChildren<Health>();
+            stateMachine = new EnemyStateMachine();
+            attackTarget = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        protected virtual void Start()
+        {
+            attribute.Initialize();
+            movement.Initialize(attribute.moveSpeed);
+            health.Initialize(attribute.maxHealth);
+            health.Dead += () =>
+            {
+                Dead();
+            };
+        }
+
+        protected virtual void Update()
+        {
+            stateMachine.currentState.FrameUpdate();
+        }
+
+        protected virtual void FixedUpdate()
+        {
+            stateMachine.currentState.PhysicsUpdate();
+        }
+
+        public void ChangeTarget(GameObject target)
+        {
+            attackTarget = target;
+        }
+
+        public virtual void Dead(bool dropItem = true)
+        {
+            Destroy(gameObject);
+        }
+
+
+        /// <summary>
+        /// 获取当前所有存活的敌人
+        /// </summary>
+        /// <returns>敌人链表</returns>
+        public static List<Enemy> GetEnemys()
+        {
+            return s_enemys;
+        }
+
+        /// <summary>
+        /// 销毁当前全部敌人实例
+        /// </summary>
+        public static void EnemyClear()
+        {
+            if (s_enemys == null || s_enemys.Count <= 0) return;
+            MyMath.ForeachChangeListAvailable(s_enemys, enemy =>
+            {
+                if (enemy != null && enemy.isActiveAndEnabled) enemy.Dead(false);
+            });
+        }
+
+        public virtual DamageInfo Attack()
+        {
+            return null;
+        }
     }
 }

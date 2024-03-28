@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Editor.Inspector
 {
+    using Runtime.Component.Enemy;
+    using Runtime.DroppedItem;
     using UnityEditor;
 
     [CustomEditor(typeof(CanDropItems))]

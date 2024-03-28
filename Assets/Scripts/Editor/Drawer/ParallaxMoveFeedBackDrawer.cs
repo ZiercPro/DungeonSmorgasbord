@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine.UIElements;
 
 namespace Editor.Drawer
 {
-    using UnityEditor;
-    using UnityEngine.UIElements;
+    using Runtime.FeedBack;
 
     [CustomPropertyDrawer(typeof(ParallaxMoveFeedBack))]
     public class ParallaxMoveFeedBackDrawer : PropertyDrawer

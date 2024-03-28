@@ -3,18 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthTest : MonoBehaviour
+namespace Test
 {
-    private Health _health;
+    using Runtime.Component.Base;
 
-    private void Awake()
+    public class HealthTest : MonoBehaviour
     {
-        _health = GetComponent<Health>();
-    }
+        private Health _health;
 
-    private void Start()
-    {
-        _health.Initialize(10);
-        _health.CurrentHealthChanged += current => { Debug.Log(current); };
+        private void Awake()
+        {
+            _health = GetComponent<Health>();
+        }
+
+        private void Start()
+        {
+            _health.Initialize(10);
+            _health.CurrentHealthChanged += current => { Debug.Log(current); };
+        }
     }
 }

@@ -1,8 +1,11 @@
-/// <summary>
-/// 伤害类型枚举
-/// </summary>
-public enum DamageType 
+namespace Runtime.Damage
 {
-    Physics,
-    Magic
+    /// <summary>
+    /// 伤害类型枚举
+    /// </summary>
+    public enum DamageType
+    {
+        Physics,
+        Magic
+    }
 }

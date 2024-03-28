@@ -4,6 +4,14 @@ using UnityEngine;
 
 namespace Runtime.Weapon.Weapons
 {
+    using Base;
+    using Audio;
+    using Damage;
+    using Helper;
+    using Player;
+    using FeedBack;
+    using WeaponComponent;
+
     public class Weapon_DiamondGreatSword : global::Runtime.Weapon.Base.Weapon
     {
         private CameraShakeFeedback _cameraShakeFeedback;

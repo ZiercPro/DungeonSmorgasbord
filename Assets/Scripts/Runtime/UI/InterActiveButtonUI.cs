@@ -2,50 +2,55 @@ using UnityEngine;
 using DG.Tweening;
 using TMPro;
 
-/// <summary>
-/// 互动物品的互动按钮UI
-/// </summary>
-public class InterActiveButtonUI : MonoBehaviour
+namespace Runtime.UI
 {
-    public HotKey hotkey;
-    private TextMeshPro textMesh;
-    private string buttonText = "";
-    private string originalText;
-    private Tween typeWriterT;
-    public float duration = 1f;
-    private void Awake()
+    /// <summary>
+    /// 互动物品的互动按钮UI
+    /// </summary>
+    public class InterActiveButtonUI : MonoBehaviour
     {
-        textMesh = GetComponentInChildren<TextMeshPro>();
-        GetText();
-    }
-    public void ShowText()
-    {
-        string currentT = "";
-        originalText = textMesh.text;
-        typeWriterT = DOTween.To(() => currentT, x => currentT = x, originalText + buttonText, duration).OnUpdate(() =>
+        public HotKey hotkey;
+        private TextMeshPro textMesh;
+        private string buttonText = "";
+        private string originalText;
+        private Tween typeWriterT;
+        public float duration = 1f;
+
+        private void Awake()
         {
-            textMesh.text = currentT;
-        });
-    }
-    private void GetText()
-    {
-        switch (hotkey)
+            textMesh = GetComponentInChildren<TextMeshPro>();
+            GetText();
+        }
+
+        public void ShowText()
         {
-            case HotKey.E:
-            buttonText += " E";
-            break;
-            case HotKey.Q:
-            buttonText += " Q";
-            break;
-            default:
-            break;
+            string currentT = "";
+            originalText = textMesh.text;
+            typeWriterT = DOTween.To(() => currentT, x => currentT = x, originalText + buttonText, duration).OnUpdate(
+                () =>
+                {
+                    textMesh.text = currentT;
+                });
+        }
+
+        private void GetText()
+        {
+            switch (hotkey)
+            {
+                case HotKey.E:
+                    buttonText += " E";
+                    break;
+                case HotKey.Q:
+                    buttonText += " Q";
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
-
-}
-
-public enum HotKey
-{
-    E, Q, Space
+    public enum HotKey
+    {
+        E, Q, Space
+    }
 }

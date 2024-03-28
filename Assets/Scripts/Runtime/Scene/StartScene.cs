@@ -1,45 +1,52 @@
-using UnityEngine.SceneManagement;
-
-/// <summary>
-/// 初始场景
-/// </summary>
-public class StartScene : SceneState
+namespace Runtime.Scene
 {
-    private readonly string name = "Start";
-    private PanelManager panelManager;
+    using UI;
+    using Base;
+    using Audio;
+    using UI.Panel;
+    using UnityEngine.SceneManagement;
 
-    public override void OnEnter()
+    /// <summary>
+    /// 初始场景
+    /// </summary>
+    public class StartScene : SceneState
     {
-        panelManager = new PanelManager();
+        private readonly string name = "Start";
+        private PanelManager panelManager;
 
-        if (SceneManager.GetActiveScene().name != name)
+        public override void OnEnter()
         {
-            SceneManager.sceneLoaded += OnSceneLoaded;
-            SceneManager.LoadScene(name);
+            panelManager = new PanelManager();
+
+            if (SceneManager.GetActiveScene().name != name)
+            {
+                SceneManager.sceneLoaded += OnSceneLoaded;
+                SceneManager.LoadScene(name);
+            }
+            else
+            {
+                //执行第一次进入该场景后应该做的事情
+                panelManager.Push(new StartPanel());
+                AudioPlayerManager.Instance.PlayAudio(AudioName.MenuBgm);
+            }
         }
-        else
+
+        public override void OnExit()
         {
-            //执行第一次进入该场景后应该做的事情
+            AudioPlayerManager.Instance.StopAudio(AudioName.MenuBgm);
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            panelManager.PopAll();
+        }
+
+        /// <summary>
+        /// 场景加载完毕后执行方法
+        /// </summary>
+        /// <param name="scene">被加载的场景</param>
+        /// <param name="mode">场景加载模式</param>
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
             panelManager.Push(new StartPanel());
             AudioPlayerManager.Instance.PlayAudio(AudioName.MenuBgm);
         }
-    }
-
-    public override void OnExit()
-    {
-        AudioPlayerManager.Instance.StopAudio(AudioName.MenuBgm);
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        panelManager.PopAll();
-    }
-
-    /// <summary>
-    /// 场景加载完毕后执行方法
-    /// </summary>
-    /// <param name="scene">被加载的场景</param>
-    /// <param name="mode">场景加载模式</param>
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        panelManager.Push(new StartPanel());
-        AudioPlayerManager.Instance.PlayAudio(AudioName.MenuBgm);
     }
 }

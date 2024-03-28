@@ -1,33 +1,33 @@
-using System.Diagnostics;
-
-/// <summary>
-/// 储存所有音频的引用
-/// </summary>
-public enum AudioName
+namespace Runtime.Audio
 {
-    None,
-    MenuBgm,
-    IdleBgm,
-    BattleBgmNormal,
-    ButtonClick1,
-    ButtonEnter1,
-    CardEnter1,
-    CardClick1,
-    WeaponWave1,
-    BigMouthSpawn1,
-    BabySpawn1,
-    Interactive1,
-    Explosion1,
-    EnemyDead1,
-    EnemyDead2,
-    EnemyDead3,
-    EnemyDead4,
-    CoinCollected,
-    WeaponWave2,
-    WeaponWave3,
-    WeaponWave4,
-    WeaponWave5
-}
+    /// <summary>
+    /// 储存所有音频的引用
+    /// </summary>
+    public enum AudioName
+    {
+        None,
+        MenuBgm,
+        IdleBgm,
+        BattleBgmNormal,
+        ButtonClick1,
+        ButtonEnter1,
+        CardEnter1,
+        CardClick1,
+        WeaponWave1,
+        BigMouthSpawn1,
+        BabySpawn1,
+        Interactive1,
+        Explosion1,
+        EnemyDead1,
+        EnemyDead2,
+        EnemyDead3,
+        EnemyDead4,
+        CoinCollected,
+        WeaponWave2,
+        WeaponWave3,
+        WeaponWave4,
+        WeaponWave5
+    }
 //
 // public idleBgm = "Audio/8Bit Music Album - 051321/IdleBgm";
 //
@@ -97,3 +97,4 @@ public enum AudioName
 // public AudioBase battleBgm_normal = new AudioBase(new AudioType("Audio/8Bit Music Album - 051321/BattleBgm_normal"),
 //     1, true, false,
 //     AudioPlayerManager.Instance.Music);
+}

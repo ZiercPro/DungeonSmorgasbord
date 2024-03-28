@@ -1,33 +1,38 @@
 using UnityEngine;
 
-public class DroppedWeapon : DroppedItem
+namespace Runtime.DroppedItem
 {
-    [SerializeField] private GameObject droppedItemTemp;
-    [SerializeField] private Transform animatorTransform;
-    [SerializeField] private float getRadius;
+    using Component.Hero;
 
-    private HeroWeaponHandler _heroWeaponHandler;
-
-    private GameObject itemInstance;
-
-    private void Awake()
+    public class DroppedWeapon : DroppedItem
     {
-        itemInstance = Instantiate(droppedItemTemp, animatorTransform);
-    }
+        [SerializeField] private GameObject droppedItemTemp;
+        [SerializeField] private Transform animatorTransform;
+        [SerializeField] private float getRadius;
 
-    public override void GetItem()
-    {
-        Collider2D[] c2ds = Physics2D.OverlapCircleAll(transform.position, getRadius);
-        foreach (Collider2D hero in c2ds)
+        private HeroWeaponHandler _heroWeaponHandler;
+
+        private GameObject itemInstance;
+
+        private void Awake()
         {
-            if (hero.TryGetComponent(out HeroWeaponHandler hw))
+            itemInstance = Instantiate(droppedItemTemp, animatorTransform);
+        }
+
+        public override void GetItem()
+        {
+            Collider2D[] c2ds = Physics2D.OverlapCircleAll(transform.position, getRadius);
+            foreach (Collider2D hero in c2ds)
             {
-                GameObject weaponInstance = hw.EquipWeapon(itemInstance);
-                itemInstance = weaponInstance;
-                weaponInstance.transform.SetParent(animatorTransform);
-                weaponInstance.transform.localScale = Vector3.one;
-                weaponInstance.transform.localPosition = Vector3.zero;
-                weaponInstance.transform.localRotation = Quaternion.identity;
+                if (hero.TryGetComponent(out HeroWeaponHandler hw))
+                {
+                    GameObject weaponInstance = hw.EquipWeapon(itemInstance);
+                    itemInstance = weaponInstance;
+                    weaponInstance.transform.SetParent(animatorTransform);
+                    weaponInstance.transform.localScale = Vector3.one;
+                    weaponInstance.transform.localPosition = Vector3.zero;
+                    weaponInstance.transform.localRotation = Quaternion.identity;
+                }
             }
         }
     }

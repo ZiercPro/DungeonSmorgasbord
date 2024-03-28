@@ -1,8 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ScriptObject
+namespace Runtime.ScriptObject
 {
+    using Helper;
+
     /// <summary>
     /// 怪物难度值
     /// </summary>

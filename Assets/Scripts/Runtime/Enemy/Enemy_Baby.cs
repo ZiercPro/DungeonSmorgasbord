@@ -1,54 +1,63 @@
 using UnityEngine;
+using Runtime.Audio;
+using Runtime.Manager;
 using Runtime.FeedBack;
+using Runtime.Enemy.EnemyState.States.Baby;
 
-public class Enemy_Baby : Enemy
+namespace Runtime.Enemy
 {
-    [SerializeField] private GameObject deadParticle;
-    public BabyIdleState idleState { get; private set; }
-    public BabyMoveState moveState { get; private set; }
+    using Damage;
+    using Component.Enemy;
 
-    private CanDropItems _canDropItems;
-    private KnockBackFeedBack _knockBackFeedBack;
-    private FlashWhiteFeedBack _flashWhiteFeedBack;
-
-    protected override void Awake()
+    public class Enemy_Baby : Enemy
     {
-        base.Awake();
-        idleState = new BabyIdleState(this, stateMachine, this);
-        moveState = new BabyMoveState(this, stateMachine, this);
-        _canDropItems = GetComponent<CanDropItems>();
-        _knockBackFeedBack = GetComponent<KnockBackFeedBack>();
-        _flashWhiteFeedBack = GetComponent<FlashWhiteFeedBack>();
-    }
+        [SerializeField] private GameObject deadParticle;
+        public BabyIdleState idleState { get; private set; }
+        public BabyMoveState moveState { get; private set; }
 
-    protected override void Start()
-    {
-        base.Start();
-        stateMachine.Initialize(idleState);
-        attackCheck.SetRadius(attribute.attackRange);
-        AudioPlayerManager.Instance.PlayAudio(AudioName.CoinCollected);
-    }
+        private CanDropItems _canDropItems;
+        private KnockBackFeedBack _knockBackFeedBack;
+        private FlashWhiteFeedBack _flashWhiteFeedBack;
 
-    public override void Dead(bool dropItem = true)
-    {
-        Instantiate(deadParticle, transform.position, Quaternion.identity);
-        AudioPlayerManager.Instance.PlayAudio(AudioName.EnemyDead3);
-        if (dropItem)
-            _canDropItems.DropItems();
-        Destroy(gameObject);
-    }
-
-
-    public override void TakeDamage(DamageInfo info)
-    {
-        base.TakeDamage(info);
-        health.SetCurrent(current =>
+        protected override void Awake()
         {
-            current -= info.damageAmount;
-            return current;
-        });
-        _knockBackFeedBack.StartBackMove(info);
-        _flashWhiteFeedBack.Flash();
-        TextPopupSpawner.Instance.InitPopupText(this.transform.position, Color.blue, info.damageAmount);
+            base.Awake();
+            idleState = new BabyIdleState(this, stateMachine, this);
+            moveState = new BabyMoveState(this, stateMachine, this);
+            _canDropItems = GetComponent<CanDropItems>();
+            _knockBackFeedBack = GetComponent<KnockBackFeedBack>();
+            _flashWhiteFeedBack = GetComponent<FlashWhiteFeedBack>();
+        }
+
+        protected override void Start()
+        {
+            base.Start();
+            stateMachine.Initialize(idleState);
+            attackCheck.SetRadius(attribute.attackRange);
+            AudioPlayerManager.Instance.PlayAudio(AudioName.CoinCollected);
+        }
+
+        public override void Dead(bool dropItem = true)
+        {
+            Instantiate(deadParticle, transform.position, Quaternion.identity);
+            AudioPlayerManager.Instance.PlayAudio(AudioName.EnemyDead3);
+            if (dropItem)
+                _canDropItems.DropItems();
+            Destroy(gameObject);
+        }
+
+
+        public override void TakeDamage(DamageInfo info)
+        {
+            base.TakeDamage(info);
+            health.SetCurrent(current =>
+            {
+                current -= info.damageAmount;
+                return current;
+            });
+            _knockBackFeedBack.StartBackMove(info);
+            _flashWhiteFeedBack.Flash();
+            TextPopupSpawner.Instance.InitPopupText(this.transform.position, Color.blue, info.damageAmount);
+        }
     }
 }

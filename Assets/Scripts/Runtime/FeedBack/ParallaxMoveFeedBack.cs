@@ -1,45 +1,50 @@
 using System.Collections;
 using UnityEngine;
 
-/// <summary>
-/// 视差效果
-/// </summary>
-[System.Serializable]
-public class ParallaxMoveFeedBack
+namespace Runtime.FeedBack
 {
-    [SerializeField] private Transform objectInstance;
+    using Helper;
 
-    [Tooltip("越小，离屏幕越近，越大,离屏幕越远")] [Range(0, 1)] [SerializeField]
-    private float moveOffSet;
-
-
-    private Coroutine _backMoveCoroutine;
-    private Camera _mainCamera;
-    private Vector2 _startPos;
-    private bool _canMove;
-
-    public void OnMove(Camera parent)
+    /// <summary>
+    /// 视差效果
+    /// </summary>
+    [System.Serializable]
+    public class ParallaxMoveFeedBack
     {
-        _startPos = objectInstance.position;
-        _mainCamera = parent;
-        objectInstance.SetParent(_mainCamera.transform);
-        _canMove = true;
-        _backMoveCoroutine = MyCoroutineTool.Instance.StartMyCor(Move());
-    }
+        [SerializeField] private Transform objectInstance;
 
-    public void OnStop()
-    {
-        _canMove = false;
-        MyCoroutineTool.Instance.StopMyCor(_backMoveCoroutine);
-    }
+        [Tooltip("越小，离屏幕越近，越大,离屏幕越远")] [Range(0, 1)] [SerializeField]
+        private float moveOffSet;
 
-    IEnumerator Move()
-    {
-        while (_canMove)
+
+        private Coroutine _backMoveCoroutine;
+        private Camera _mainCamera;
+        private Vector2 _startPos;
+        private bool _canMove;
+
+        public void OnMove(Camera parent)
         {
-            Vector2 dist = _mainCamera.transform.position * moveOffSet;
-            objectInstance.position = _startPos + dist;
-            yield return null;
+            _startPos = objectInstance.position;
+            _mainCamera = parent;
+            objectInstance.SetParent(_mainCamera.transform);
+            _canMove = true;
+            _backMoveCoroutine = MyCoroutineTool.Instance.StartMyCor(Move());
+        }
+
+        public void OnStop()
+        {
+            _canMove = false;
+            MyCoroutineTool.Instance.StopMyCor(_backMoveCoroutine);
+        }
+
+        IEnumerator Move()
+        {
+            while (_canMove)
+            {
+                Vector2 dist = _mainCamera.transform.position * moveOffSet;
+                objectInstance.position = _startPos + dist;
+                yield return null;
+            }
         }
     }
 }

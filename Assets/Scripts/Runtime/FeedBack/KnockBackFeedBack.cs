@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Runtime.FeedBack
 {
+    using Damage;
+    using Component.Base;
+
     public class KnockBackFeedBack : MonoBehaviour
     {
         [SerializeField] private float backMoveTime = 0.15f;

@@ -1,11 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
+namespace Test
+{
+    
 public class AddressableLoader : MonoBehaviour
 {
     [SerializeField] private AssetLabelReference audioLabel;
@@ -52,4 +52,5 @@ public class AddressableLoader : MonoBehaviour
             }
         }
     }
+}
 }

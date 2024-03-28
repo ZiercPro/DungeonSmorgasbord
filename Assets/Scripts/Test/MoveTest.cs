@@ -1,23 +1,31 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MoveTest : MonoBehaviour
+namespace Test
 {
-    private InputManager _inputManager;
-    private Movement _movement;
+    using Runtime.Player;
+    using Runtime.Component.Base;
 
-    private void Awake()
+    public class MoveTest : MonoBehaviour
     {
-        _movement = GetComponent<Movement>();
-        _inputManager = GetComponent<InputManager>();
-    }
+        private InputManager _inputManager;
+        private Movement _movement;
 
-    private void Start()
-    {
-        _movement.Initialize(2f);
-        _inputManager.MovementInputPeforming += moveDir => { _movement.MovePerform(moveDir); };
+        private void Awake()
+        {
+            _movement = GetComponent<Movement>();
+            _inputManager = GetComponent<InputManager>();
+        }
+
+        private void Start()
+        {
+            _movement.Initialize(2f);
+            _inputManager.MovementInputPeforming += moveDir => { _movement.MovePerform(moveDir); };
+        }
     }
 }

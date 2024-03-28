@@ -2,6 +2,11 @@ using UnityEngine;
 
 namespace Runtime.Weapon.Base
 {
+    using Player;
+    using Helper;
+    using Damage;
+    using WeaponComponent;
+
     public class Weapon : MonoBehaviour
     {
         public DamageType damageType;

@@ -1,12 +1,16 @@
 using UnityEngine;
+using Runtime.Damage;
 
-[CreateAssetMenu(menuName = "ScriptObj/Attributes/Enemy", fileName = "Enemy")]
-public class EnemyAttributeSO : AttributesBaseSO
+namespace Runtime.ScriptObject
 {
-    public int difficulty;
-    public int damageAmount;
-    public DamageType damageType;
-    public LayerMask attackLayer;
-    public float attackSpeed;
-    public float attackRange;
+    [CreateAssetMenu(menuName = "ScriptObj/Attributes/Enemy", fileName = "Enemy")]
+    public class EnemyAttributeSO : AttributesBaseSO
+    {
+        public int difficulty;
+        public int damageAmount;
+        public DamageType damageType;
+        public LayerMask attackLayer;
+        public float attackSpeed;
+        public float attackRange;
+    }
 }

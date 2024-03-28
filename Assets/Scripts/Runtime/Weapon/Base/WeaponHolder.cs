@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace Runtime.Weapon.Base
 {
+    using Component.Base;
+
     public class WeaponHolder : MonoBehaviour
     {
         [SerializeField] private Transform weaponPos;

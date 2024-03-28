@@ -1,31 +1,34 @@
 using System;
 using UnityEngine;
 
-public class WeaponColliderCheck : MonoBehaviour
+namespace Runtime.Weapon.WeaponComponent
 {
-    private Collider2D _hitBox;
-
-    public event Action<Collider2D> TriggerEntered;
-    public event Action<Collider2D> TriggerExited;
-
-    private void Awake()
+    public class WeaponColliderCheck : MonoBehaviour
     {
-        _hitBox = GetComponent<Collider2D>();
-        _hitBox.enabled = false;
-    }
+        private Collider2D _hitBox;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        TriggerEntered?.Invoke(other);
-    }
+        public event Action<Collider2D> TriggerEntered;
+        public event Action<Collider2D> TriggerExited;
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        TriggerExited?.Invoke(other);
-    }
+        private void Awake()
+        {
+            _hitBox = GetComponent<Collider2D>();
+            _hitBox.enabled = false;
+        }
 
-    public void SetCheckActive(bool isActive)
-    {
-        _hitBox.enabled = isActive;
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            TriggerEntered?.Invoke(other);
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            TriggerExited?.Invoke(other);
+        }
+
+        public void SetCheckActive(bool isActive)
+        {
+            _hitBox.enabled = isActive;
+        }
     }
 }

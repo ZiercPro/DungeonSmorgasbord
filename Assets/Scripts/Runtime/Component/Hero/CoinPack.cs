@@ -1,27 +1,31 @@
 using System;
 
-/// <summary>
-/// 储存硬币
-/// </summary>
-
-public class CoinPack
+namespace Runtime.Component.Hero
 {
-    public event Action<int> CoinChanged;
-    public CoinPack()
+    /// <summary>
+    /// 储存硬币
+    /// </summary>
+    public class CoinPack
     {
-        coinNum = 0;
-    }
-    public int coinNum { get; private set; }
+        public event Action<int> CoinChanged;
 
-    public void GetCoins(int num)
-    {
-        coinNum += num;
-        CoinChanged?.Invoke(coinNum);
-    }
+        public CoinPack()
+        {
+            coinNum = 0;
+        }
 
-    public void UseCoins(int num)
-    {
-        coinNum -= num;
-        CoinChanged?.Invoke(coinNum);
+        public int coinNum { get; private set; }
+
+        public void GetCoins(int num)
+        {
+            coinNum += num;
+            CoinChanged?.Invoke(coinNum);
+        }
+
+        public void UseCoins(int num)
+        {
+            coinNum -= num;
+            CoinChanged?.Invoke(coinNum);
+        }
     }
 }

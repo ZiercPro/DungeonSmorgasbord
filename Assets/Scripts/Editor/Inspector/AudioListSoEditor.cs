@@ -1,8 +1,7 @@
 ﻿using Runtime.ScriptObject;
-using System;
 using UnityEngine.UIElements;
 
-namespace Editor.Drawer
+namespace Editor.Inspector
 {
     using UnityEditor;
 

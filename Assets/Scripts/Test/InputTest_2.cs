@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class InputTest_2 : MonoBehaviour
+namespace Test
 {
-    private PlayerInputAction _playerInputAction;
-
-    private void Awake()
+    public class InputTest_2 : MonoBehaviour
     {
-        _playerInputAction = new PlayerInputAction();
-    }
+        private PlayerInputAction _playerInputAction;
 
-    private void Update()
-    {
-        Debug.Log(_playerInputAction.PlayerInput.enabled);
+        private void Awake()
+        {
+            _playerInputAction = new PlayerInputAction();
+        }
+
+        private void Update()
+        {
+            Debug.Log(_playerInputAction.PlayerInput.enabled);
+        }
     }
 }

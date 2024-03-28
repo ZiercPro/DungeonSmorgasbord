@@ -1,25 +1,28 @@
 using System;
 using UnityEngine;
 
-public class InteractHandler : MonoBehaviour
+namespace Runtime.Component.Hero
 {
-    private event Action InteractiveEvent;
-
-    public void AddToEvent(Action interAction)
+    public class InteractHandler : MonoBehaviour
     {
-        InteractiveEvent = null;
-        InteractiveEvent += interAction;
-    }
+        private event Action InteractiveEvent;
 
-    public void RemoveFromEvent(Action interAction)
-    {
-        if (InteractiveEvent != null)
-            InteractiveEvent -= interAction;
-    }
+        public void AddToEvent(Action interAction)
+        {
+            InteractiveEvent = null;
+            InteractiveEvent += interAction;
+        }
 
-    public void OnInteractive()
-    {
-        InteractiveEvent?.Invoke();
-        InteractiveEvent = null;
+        public void RemoveFromEvent(Action interAction)
+        {
+            if (InteractiveEvent != null)
+                InteractiveEvent -= interAction;
+        }
+
+        public void OnInteractive()
+        {
+            InteractiveEvent?.Invoke();
+            InteractiveEvent = null;
+        }
     }
 }

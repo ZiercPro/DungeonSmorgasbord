@@ -2,53 +2,60 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptObj/BattleDifficulty", fileName = "BattleDifficulty")]
-public class BattleDifficultyDataSO : ScriptableObject
+namespace Runtime.ScriptObject
 {
-    public TextAsset difDataFile;
+    using Helper;
 
-    //每一层对应难度总数
-    public SerDictionary<int, int> difOfLevel;
-    //每层对应的波数
-    public List<int> wavesOfLevel;
-    //每层波生成间隔
-    public List<float> intervalOfLevel;
-
-    private void OnEnable()
+    [CreateAssetMenu(menuName = "ScriptObj/BattleDifficulty", fileName = "BattleDifficulty")]
+    public class BattleDifficultyDataSO : ScriptableObject
     {
-        if (difDataFile == null) return;
+        public TextAsset difDataFile;
 
-        difOfLevel = new SerDictionary<int, int>();
-        wavesOfLevel = new List<int>();
-        intervalOfLevel = new List<float>();
+        //每一层对应难度总数
+        public SerDictionary<int, int> difOfLevel;
 
-        string[] lines = difDataFile.text.Split('\n');
+        //每层对应的波数
+        public List<int> wavesOfLevel;
 
-        for (int i = 1; i < lines.Length - 1; i++)
+        //每层波生成间隔
+        public List<float> intervalOfLevel;
+
+        private void OnEnable()
         {
-            string[] row = lines[i].Split(',');
-            difOfLevel.Add(i, int.Parse(row[0]));
-            wavesOfLevel.Add(int.Parse(row[1]));
-            intervalOfLevel.Add(float.Parse(row[2]));
+            if (difDataFile == null) return;
+
+            difOfLevel = new SerDictionary<int, int>();
+            wavesOfLevel = new List<int>();
+            intervalOfLevel = new List<float>();
+
+            string[] lines = difDataFile.text.Split('\n');
+
+            for (int i = 1; i < lines.Length - 1; i++)
+            {
+                string[] row = lines[i].Split(',');
+                difOfLevel.Add(i, int.Parse(row[0]));
+                wavesOfLevel.Add(int.Parse(row[1]));
+                intervalOfLevel.Add(float.Parse(row[2]));
+            }
         }
-    }
 
-    private void OnValidate()
-    {
-        if (difDataFile == null) return;
-
-        difOfLevel = new SerDictionary<int, int>();
-        wavesOfLevel = new List<int>();
-        intervalOfLevel = new List<float>();
-
-        string[] lines = difDataFile.text.Split('\n');
-
-        for (int i = 1; i < lines.Length - 1; i++)
+        private void OnValidate()
         {
-            string[] row = lines[i].Split(',');
-            difOfLevel.Add(i, int.Parse(row[0]));
-            wavesOfLevel.Add(int.Parse(row[1]));
-            intervalOfLevel.Add(float.Parse(row[2]));
+            if (difDataFile == null) return;
+
+            difOfLevel = new SerDictionary<int, int>();
+            wavesOfLevel = new List<int>();
+            intervalOfLevel = new List<float>();
+
+            string[] lines = difDataFile.text.Split('\n');
+
+            for (int i = 1; i < lines.Length - 1; i++)
+            {
+                string[] row = lines[i].Split(',');
+                difOfLevel.Add(i, int.Parse(row[0]));
+                wavesOfLevel.Add(int.Parse(row[1]));
+                intervalOfLevel.Add(float.Parse(row[2]));
+            }
         }
     }
 }

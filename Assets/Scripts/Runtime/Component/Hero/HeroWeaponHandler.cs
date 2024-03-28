@@ -1,39 +1,45 @@
 using Runtime.Weapon.Base;
 using UnityEngine;
 
-public class HeroWeaponHandler : MonoBehaviour
+namespace Runtime.Component.Hero
 {
-    [SerializeField] private GameObject defaultWeapon;
+    using Player;
+    using Weapon.Base;
 
-    private GameObject _currentWeaponInstance;
-    private WeaponHolder _weaponHolder;
-    private InputManager _inputManager;
-    private HeroAttribute _attribute;
-
-    private void Awake()
+    public class HeroWeaponHandler : MonoBehaviour
     {
-        _weaponHolder = GetComponentInChildren<WeaponHolder>();
-        _inputManager = GetComponentInChildren<InputManager>();
-        _attribute = GetComponentInChildren<HeroAttribute>();
-        _currentWeaponInstance = Instantiate(defaultWeapon);
-    }
+        [SerializeField] private GameObject defaultWeapon;
 
-    public void GetDefualtWeapon()
-    {
-        if (defaultWeapon == null) return;
-        EquipWeapon(_currentWeaponInstance);
-    }
+        private GameObject _currentWeaponInstance;
+        private WeaponHolder _weaponHolder;
+        private InputManager _inputManager;
+        private HeroAttribute _attribute;
 
-    public GameObject EquipWeapon(GameObject weaponIns)
-    {
-        GameObject lastWeapon = _currentWeaponInstance;
-        _currentWeaponInstance = weaponIns;
-        if (_currentWeaponInstance != lastWeapon)
-            lastWeapon.GetComponent<Weapon>().Disable();
-        SpriteRenderer weaponRenderer = weaponIns.GetComponentInChildren<SpriteRenderer>();
-        Weapon weapon = weaponIns.GetComponentInChildren<Weapon>();
-        weapon.Initialize(_attribute.weaponDamageRate, _attribute.criticalChance, _inputManager);
-        _weaponHolder.ChangeWeapon(weaponRenderer, weaponIns.transform);
-        return lastWeapon;
+        private void Awake()
+        {
+            _weaponHolder = GetComponentInChildren<WeaponHolder>();
+            _inputManager = GetComponentInChildren<InputManager>();
+            _attribute = GetComponentInChildren<HeroAttribute>();
+            _currentWeaponInstance = Instantiate(defaultWeapon);
+        }
+
+        public void GetDefualtWeapon()
+        {
+            if (defaultWeapon == null) return;
+            EquipWeapon(_currentWeaponInstance);
+        }
+
+        public GameObject EquipWeapon(GameObject weaponIns)
+        {
+            GameObject lastWeapon = _currentWeaponInstance;
+            _currentWeaponInstance = weaponIns;
+            if (_currentWeaponInstance != lastWeapon)
+                lastWeapon.GetComponent<Weapon>().Disable();
+            SpriteRenderer weaponRenderer = weaponIns.GetComponentInChildren<SpriteRenderer>();
+            Weapon weapon = weaponIns.GetComponentInChildren<Weapon>();
+            weapon.Initialize(_attribute.weaponDamageRate, _attribute.criticalChance, _inputManager);
+            _weaponHolder.ChangeWeapon(weaponRenderer, weaponIns.transform);
+            return lastWeapon;
+        }
     }
 }

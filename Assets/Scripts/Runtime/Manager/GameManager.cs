@@ -1,68 +1,80 @@
 using UnityEngine;
 
-/// <summary>
-/// 游戏场景管理
-/// </summary>
-public class GameManager : MonoBehaviour
+namespace Runtime.Manager
 {
-    [SerializeField] private Transform heroSpawnPos; //角色生成的位置
-    [SerializeField] private CameraTarget cameraT; //相机目标组件
+    using Hero;
+    using Basic;
+    using Audio;
+    using Data.Base;
+    using DroppedItem;
+    using UI.Panel;
+    using Component.Base;
+    using UI;
 
-    public static Transform playerTans { get; private set; } //角色的transform组件
-
-    private IDataService _jsonDataService;
-    private PanelManager _panelManager;
-    private HeroList _heroList; //角色资源信息
-
-    private void Awake()
+    /// <summary>
+    /// 游戏场景管理
+    /// </summary>
+    public class GameManager : MonoBehaviour
     {
-        _jsonDataService = new JsonDataService();
-        _panelManager = new PanelManager();
-        _heroList = new HeroList();
-        HeroBorn();
-        GameSet();
-        SceneInit();
-        CameraSet();
-    }
+        [SerializeField] private Transform heroSpawnPos; //角色生成的位置
+        [SerializeField] private CameraTarget cameraT; //相机目标组件
 
-    private void OnDestroy()
-    {
-        playerTans = null;
-        _panelManager.PopAll();
-        ParallaxMoveManager.Instance.BackGroundStop();
-    }
+        public static Transform playerTans { get; private set; } //角色的transform组件
 
-    //场景初始化
-    public void SceneInit()
-    {
-        ParallaxMoveManager.Instance.BackGroundMove();
-        AudioPlayerManager.Instance.PlayAudio(AudioName.IdleBgm);
-    }
+        private IDataService _jsonDataService;
+        private PanelManager _panelManager;
+        private HeroList _heroList; //角色资源信息
 
-    //角色生成
-    private void HeroBorn()
-    {
-        GameObject newHero = Instantiate(Resources.Load<GameObject>(_heroList.Lewis), heroSpawnPos.position,
-            Quaternion.identity);
-        playerTans = newHero.transform;
-
-        //同步数据
-    }
-
-    private void CameraSet()
-    {
-        cameraT.SetTarget(playerTans);
-        cameraT.Follow();
-    }
-
-    private void GameSet()
-    {
-        playerTans.GetComponent<Health>().Dead += () =>
+        private void Awake()
         {
-            _panelManager.Push(new DeadPanel());
-            BattleManager.Instance.BattleEixt();
-            DroppedItem.ClearAllItem();
-        };
+            _jsonDataService = new JsonDataService();
+            _panelManager = new PanelManager();
+            _heroList = new HeroList();
+            HeroBorn();
+            GameSet();
+            SceneInit();
+            CameraSet();
+        }
+
+        private void OnDestroy()
+        {
+            playerTans = null;
+            _panelManager.PopAll();
+            ParallaxMoveManager.Instance.BackGroundStop();
+        }
+
+        //场景初始化
+        public void SceneInit()
+        {
+            ParallaxMoveManager.Instance.BackGroundMove();
+            AudioPlayerManager.Instance.PlayAudio(AudioName.IdleBgm);
+        }
+
+        //角色生成
+        private void HeroBorn()
+        {
+            GameObject newHero = Instantiate(Resources.Load<GameObject>(_heroList.Lewis), heroSpawnPos.position,
+                Quaternion.identity);
+            playerTans = newHero.transform;
+
+            //同步数据
+        }
+
+        private void CameraSet()
+        {
+            cameraT.SetTarget(playerTans);
+            cameraT.Follow();
+        }
+
+        private void GameSet()
+        {
+            playerTans.GetComponent<Health>().Dead += () =>
+            {
+                _panelManager.Push(new DeadPanel());
+                BattleManager.Instance.BattleEixt();
+                DroppedItem.ClearAllItem();
+            };
+        }
+        //////////////////////////////////////////////////
     }
-    //////////////////////////////////////////////////
 }

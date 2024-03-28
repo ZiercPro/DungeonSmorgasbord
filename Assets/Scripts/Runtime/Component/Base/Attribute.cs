@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class Attribute : MonoBehaviour
+namespace Runtime.Component.Base
 {
-    public int maxHealth;
-    public float moveSpeed;
+    public class Attribute : MonoBehaviour
+    {
+        public int maxHealth;
+        public float moveSpeed;
 
-    public virtual void Initialize() { }
+        public virtual void Initialize() { }
+    }
 }

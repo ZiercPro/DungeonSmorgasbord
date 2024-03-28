@@ -1,42 +1,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParallaxMoveManager : SingletonIns<ParallaxMoveManager>
+namespace Runtime.Manager
 {
-    [SerializeField] private List<ParallaxMoveFeedBack> moveBackgrounds;
-    [SerializeField] private GameObject optionTutorialTemp;
-    [SerializeField] private Camera mainCamera;
-    public Transform environmentRoot;
+    using Basic;
+    using FeedBack;
 
-    public void BackGroundMove()
+    public class ParallaxMoveManager : SingletonIns<ParallaxMoveManager>
     {
-        foreach (var feedback in moveBackgrounds)
+        [SerializeField] private List<ParallaxMoveFeedBack> moveBackgrounds;
+        [SerializeField] private GameObject optionTutorialTemp;
+        [SerializeField] private Camera mainCamera;
+        public Transform environmentRoot;
+
+        public void BackGroundMove()
         {
-            feedback.OnMove(mainCamera);
+            foreach (var feedback in moveBackgrounds)
+            {
+                feedback.OnMove(mainCamera);
+            }
         }
-    }
 
-    public void BackGroundStop()
-    {
-        foreach (var feedback in moveBackgrounds)
+        public void BackGroundStop()
         {
-            feedback?.OnStop();
+            foreach (var feedback in moveBackgrounds)
+            {
+                feedback?.OnStop();
+            }
         }
-    }
 
-    public void Add()
-    {
-        if (moveBackgrounds == null) moveBackgrounds = new List<ParallaxMoveFeedBack>();
-        ParallaxMoveFeedBack newParallaxMoveFeedBack = new ParallaxMoveFeedBack();
-        moveBackgrounds.Add(newParallaxMoveFeedBack);
-    }
-
-    public void Delete()
-    {
-        if (moveBackgrounds != null && moveBackgrounds.Count > 0)
+        public void Add()
         {
-            int last = moveBackgrounds.Count - 1;
-            moveBackgrounds.RemoveAt(last);
+            if (moveBackgrounds == null) moveBackgrounds = new List<ParallaxMoveFeedBack>();
+            ParallaxMoveFeedBack newParallaxMoveFeedBack = new ParallaxMoveFeedBack();
+            moveBackgrounds.Add(newParallaxMoveFeedBack);
+        }
+
+        public void Delete()
+        {
+            if (moveBackgrounds != null && moveBackgrounds.Count > 0)
+            {
+                int last = moveBackgrounds.Count - 1;
+                moveBackgrounds.RemoveAt(last);
+            }
         }
     }
 }

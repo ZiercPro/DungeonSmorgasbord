@@ -1,27 +1,30 @@
-/// <summary>
-/// 敌人状态机，储存状态信息,控制状态的改变
-/// </summary>
-public class EnemyStateMachine
+namespace Runtime.Enemy.EnemyState.Base
 {
     /// <summary>
-    /// 当前状态
+    /// 敌人状态机，储存状态信息,控制状态的改变
     /// </summary>
-    public EnemyState currentState { get; private set; }
-
-    /// <summary>
-    /// 初始化状态
-    /// </summary>
-    /// <param name="startState">初始状态</param>
-    public void Initialize(EnemyState startState)
+    public class EnemyStateMachine
     {
-        currentState = startState;
-        currentState.EntryState();
-    }
+        /// <summary>
+        /// 当前状态
+        /// </summary>
+        public EnemyState currentState { get; private set; }
 
-    public void ChangeState(EnemyState targetState)
-    {
-        currentState.ExitState();
-        currentState = targetState;
-        currentState.EntryState();
+        /// <summary>
+        /// 初始化状态
+        /// </summary>
+        /// <param name="startState">初始状态</param>
+        public void Initialize(EnemyState startState)
+        {
+            currentState = startState;
+            currentState.EntryState();
+        }
+
+        public void ChangeState(EnemyState targetState)
+        {
+            currentState.ExitState();
+            currentState = targetState;
+            currentState.EntryState();
+        }
     }
 }

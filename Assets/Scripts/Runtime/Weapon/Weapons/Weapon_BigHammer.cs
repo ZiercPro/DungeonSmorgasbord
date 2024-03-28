@@ -1,8 +1,14 @@
-using System;
 using UnityEngine;
 
 namespace Runtime.Weapon.Weapons
 {
+    using Base;
+    using Damage;
+    using Helper;
+    using Player;
+    using FeedBack;
+    using WeaponComponent;
+
     public class Weapon_BigHammer : Base.Weapon
     {
         private CameraShakeFeedback _cameraShakeFeedback;

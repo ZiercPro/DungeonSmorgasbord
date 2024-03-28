@@ -1,22 +1,23 @@
 using UnityEngine;
 using Runtime.Enemy.EnemyState.Base;
 
-namespace Runtime.Enemy.EnemyState.States.Baby
+namespace Runtime.Enemy.EnemyState.States.BigMouth
 {
     using Damage;
 
-    public class BabyNormalState : Base.EnemyState
+    public abstract class BigMouthNormalState : Base.EnemyState
     {
-        protected Enemy_Baby _enemy;
+        protected Enemy_BigMouse _enemy;
         private float _attackInterval;
         private float _timer;
 
-        public BabyNormalState(Enemy enemyBase, EnemyStateMachine stateMachine, Enemy_Baby enemy) : base(enemyBase,
+        public BigMouthNormalState(Enemy enemyBase, EnemyStateMachine stateMachine, Enemy_BigMouse enemy) : base(
+            enemyBase,
             stateMachine)
         {
             _timer = 0f;
             _enemy = enemy;
-            _attackInterval = 1 / _enemy.attribute.attackSpeed;
+            _attackInterval = 1.0f / _enemy.attribute.attackSpeed;
         }
 
         public override void AnimationTriggerEvent()

@@ -1,10 +1,15 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class AnimationEventHelper : MonoBehaviour
+namespace Runtime.Helper
 {
-    public UnityEvent AnimationEventTrigger;
-    public void EventStart() {
-        AnimationEventTrigger?.Invoke();
+    public class AnimationEventHelper : MonoBehaviour
+    {
+        public UnityEvent AnimationEventTrigger;
+
+        public void EventStart()
+        {
+            AnimationEventTrigger?.Invoke();
+        }
     }
 }
