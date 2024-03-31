@@ -27,13 +27,13 @@ namespace Runtime.Scene
             {
                 //执行第一次进入该场景后应该做的事情
                 panelManager.Push(new StartPanel());
-                AudioPlayerManager.Instance.PlayAudio(AudioName.MenuBgm);
+                AudioPlayerManager.Instance.PlayAudioAsync(AudioName.MenuBgm);
             }
         }
 
         public override void OnExit()
         {
-            AudioPlayerManager.Instance.StopAudio(AudioName.MenuBgm);
+            AudioPlayerManager.Instance.StopAudioAsync(AudioName.MenuBgm);
             SceneManager.sceneLoaded -= OnSceneLoaded;
             panelManager.PopAll();
         }
@@ -46,7 +46,7 @@ namespace Runtime.Scene
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             panelManager.Push(new StartPanel());
-            AudioPlayerManager.Instance.PlayAudio(AudioName.MenuBgm);
+            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.MenuBgm);
         }
     }
 }

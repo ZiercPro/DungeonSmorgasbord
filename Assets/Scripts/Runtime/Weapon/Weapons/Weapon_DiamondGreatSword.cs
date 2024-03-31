@@ -56,7 +56,7 @@ namespace Runtime.Weapon.Weapons
             _isAttackBlocked = true;
             int attackID = Animator.StringToHash("attack");
             Animator.SetTrigger(attackID);
-            AudioPlayerManager.Instance.PlayAudiosRandom(_waveAudios);
+            AudioPlayerManager.Instance.PlayAudiosRandomAsync(_waveAudios);
         }
 
         private void OnColliderCheckStart()

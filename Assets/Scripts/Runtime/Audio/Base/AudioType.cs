@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace Runtime.Audio.Base
@@ -8,14 +9,16 @@ namespace Runtime.Audio.Base
     [System.Serializable]
     public class AudioType
     {
-        public string Name => System.IO.Path.GetFileNameWithoutExtension(Path);
+        [field: SerializeField, ReadOnly, AllowNesting]
+        public string Name { get; private set; }
 
-        [field: SerializeField, TextArea(2, 6)]
+        [field: SerializeField, ReadOnly, AllowNesting]
         public string Path { get; private set; }
 
         public AudioType(string path)
         {
             Path = path;
+            Name = System.IO.Path.GetFileNameWithoutExtension(Path);
         }
     }
 }

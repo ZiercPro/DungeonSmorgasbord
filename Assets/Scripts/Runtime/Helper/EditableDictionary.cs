@@ -1,7 +1,7 @@
-﻿using System;
+﻿using NaughtyAttributes;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Runtime.Helper
 {
@@ -24,7 +24,7 @@ namespace Runtime.Helper
             return result;
         }
 
-        public void Add(TKey keyValue, TObject objectValue)
+        public void Add(TKey keyValue, TObject objectValue, string itemName = null)
         {
             if (dicList == null)
             {
@@ -32,7 +32,7 @@ namespace Runtime.Helper
                 return;
             }
 
-            dicList.Add(new EditableDictionaryItem<TKey, TObject>(keyValue, objectValue));
+            dicList.Add(new EditableDictionaryItem<TKey, TObject>(keyValue, objectValue, itemName));
         }
 
 
@@ -66,6 +66,19 @@ namespace Runtime.Helper
             }
 
             dicList.RemoveAt(index);
+            return true;
+        }
+
+        public bool Clear()
+        {
+            if (dicList == null)
+            {
+                Debug.LogError("链表不存在!");
+                return false;
+            }
+
+            if (dicList.Count == 0) return true;
+            dicList.Clear();
             return true;
         }
 

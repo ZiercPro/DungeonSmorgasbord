@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace Runtime.Manager
         [SerializeField] private GameObject optionTutorialTemp;
         [SerializeField] private Camera mainCamera;
         public Transform environmentRoot;
+
 
         public void BackGroundMove()
         {

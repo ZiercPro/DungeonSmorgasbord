@@ -12,7 +12,7 @@ namespace Runtime.DroppedItem
         private void GetItem(CoinPack pack)
         {
             pack.GetCoins(num);
-            AudioPlayerManager.Instance.PlayAudio(AudioName.CoinCollected);
+            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.CoinCollected);
             base.GetItem();
         }
 

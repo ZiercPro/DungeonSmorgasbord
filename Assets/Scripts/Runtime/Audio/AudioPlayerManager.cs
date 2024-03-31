@@ -19,6 +19,7 @@ namespace Runtime.Audio
         [SerializeField] private AudioMixerGroup music;
         [SerializeField] private AudioMixerGroup sfx;
         [SerializeField] private AudioMixerGroup environment;
+        [Space] [SerializeField] private Transform audioParent;
 
         private AudioManager _audioManager;
         private AudioBase _currentMusic;
@@ -30,33 +31,10 @@ namespace Runtime.Audio
             _audioManager = new AudioManager();
         }
 
-        private void PlayAudio(AudioBase audioBase)
-        {
-            AudioSource player = _audioManager.GetAudioSource(audioBase);
-            if (player)
-            {
-                if (audioBase.outputGroup == sfx)
-                    PlaySFX(player, player.clip);
-                else
-                {
-                    PlayMusic(player);
-                    if (audioBase.outputGroup == music)
-                    {
-                        _currentMusic = audioBase;
-                        _isMusicPlaying = true;
-                    }
-                }
-            }
-            else
-            {
-                Debug.LogError($"音频{audioBase.AudioType.Name}组件缺失!");
-            }
-        }
-
-        public void PlayAudio(AudioName audioName)
+        public async void PlayAudioAsync(AudioName audioName)
         {
             AudioBase audioBase = audioList.Audios[audioName];
-            AudioSource player = _audioManager.GetAudioSource(audioBase);
+            AudioSource player = await _audioManager.GetAudioSourceAsync(audioBase);
             if (player)
             {
                 if (audioBase.outputGroup == sfx)
@@ -77,23 +55,16 @@ namespace Runtime.Audio
             }
         }
 
-        private void PlayAudiosRandom(List<AudioBase> audioBases)
-        {
-            int length = audioBases.Count;
-            int temp = MyMath.GetRandom(0, length);
-            PlayAudio(audioBases[temp]);
-        }
-
-        public void PlayAudiosRandom(List<AudioName> audioNames)
+        public void PlayAudiosRandomAsync(List<AudioName> audioNames)
         {
             int length = audioNames.Count;
             int temp = MyMath.GetRandom(0, length);
-            PlayAudio(audioNames[temp]);
+            PlayAudioAsync(audioNames[temp]);
         }
 
-        private void StopAudio(AudioBase audioBase)
+        private async void StopAudioAsync(AudioBase audioBase)
         {
-            AudioSource player = _audioManager.GetAudioSource(audioBase);
+            AudioSource player = await _audioManager.GetAudioSourceAsync(audioBase);
             if (player)
             {
                 if (audioBase == _currentMusic)
@@ -106,10 +77,10 @@ namespace Runtime.Audio
             }
         }
 
-        public void StopAudio(AudioName audioName)
+        public async void StopAudioAsync(AudioName audioName)
         {
             AudioBase audioBase = audioList.Audios[audioName];
-            AudioSource player = _audioManager.GetAudioSource(audioBase);
+            AudioSource player = await _audioManager.GetAudioSourceAsync(audioBase);
             if (player)
             {
                 if (audioBase == _currentMusic)
@@ -121,13 +92,14 @@ namespace Runtime.Audio
                 Debug.LogError($"音频{audioBase.AudioType.Name}组件缺失!");
             }
         }
+
 
         private void PlayMusic(AudioSource player)
         {
             if (!player.isPlaying)
             {
                 if (_isMusicPlaying)
-                    StopAudio(_currentMusic);
+                    StopAudioAsync(_currentMusic);
                 player.Play();
             }
         }

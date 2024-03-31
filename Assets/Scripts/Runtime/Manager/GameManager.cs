@@ -47,7 +47,7 @@ namespace Runtime.Manager
         public void SceneInit()
         {
             ParallaxMoveManager.Instance.BackGroundMove();
-            AudioPlayerManager.Instance.PlayAudio(AudioName.IdleBgm);
+            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.IdleBgm);
         }
 
         //角色生成

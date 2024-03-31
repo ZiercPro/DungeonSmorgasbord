@@ -30,7 +30,7 @@ namespace Runtime.Scene
 
         public override void OnExit()
         {
-            AudioPlayerManager.Instance.StopAudio(AudioName.IdleBgm);
+            AudioPlayerManager.Instance.StopAudioAsync(AudioName.IdleBgm);
             SceneManager.sceneLoaded -= OnSceneLoaded;
             BattleManager.Instance.OnBattleEnd.RemoveAllListeners();
             panelManager.PopAll();

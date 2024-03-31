@@ -9,7 +9,7 @@ namespace Runtime.Weapon.Weapons
     using FeedBack;
     using WeaponComponent;
 
-    public class Weapon_BigHammer : Base.Weapon
+    public class Weapon_BigHammer : Weapon
     {
         private CameraShakeFeedback _cameraShakeFeedback;
         private WeaponColliderCheck _colliderCheck;

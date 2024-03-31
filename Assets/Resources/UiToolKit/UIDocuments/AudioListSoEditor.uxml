@@ -1,10 +1,21 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
     <Style src="project://database/Assets/Resources/UiToolKit/StyleSheets/Editor.uss?fileID=7433441132597879392&amp;guid=10c172ea8a2ccb146ae2a6b356747833&amp;type=3#Editor" />
-    <ui:VisualElement name="Buttons" class="section" style="flex-grow: 1;">
-        <ui:Button text="AddAudio" parse-escape-sequences="true" display-tooltip-when-elided="true" name="addAudioButton" class="NormalButton" />
-        <ui:Button text="DeleteAudio" parse-escape-sequences="true" display-tooltip-when-elided="true" name="deleteAudioButton" class="NormalButton" />
+    <ui:VisualElement name="AutoConfig" class="section" style="flex-grow: 1;">
+        <ui:Label tabindex="-1" text="Choose AudioFile" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="-unity-font-style: bold; color: rgb(57, 255, 0); margin-bottom: 5px;" />
+        <ui:Button text="Reset" parse-escape-sequences="true" display-tooltip-when-elided="true" name="resetButton" class="NormalButton" style="background-color: rgb(8, 76, 0); margin-right: 40px; margin-left: 40px;" />
+        <ui:VisualElement name="AudioField" style="flex-grow: 1; margin-top: 10px; margin-right: 0; margin-bottom: 10px; margin-left: 0;">
+            <uie:PropertyField binding-path="toCreateAudioBase" style="-unity-font-style: bold; font-size: 16px;" />
+        </ui:VisualElement>
     </ui:VisualElement>
-    <ui:VisualElement name="List" class="section" style="flex-grow: 1;">
-        <uie:PropertyField binding-path="AudioList" name="PropertyField" style="font-size: 15px; -unity-font-style: bold;" />
+    <ui:VisualElement name="ManulConfig" class="section" style="flex-grow: 1;">
+        <ui:Label tabindex="-1" text="Config" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="-unity-font-style: bold; color: rgb(57, 255, 0); margin-bottom: 5px;" />
+        <ui:VisualElement name="Buttons" style="flex-grow: 1;">
+            <ui:Button text="AutoConfig" parse-escape-sequences="true" display-tooltip-when-elided="true" name="configButton" class="NormalButton" style="background-color: rgb(9, 158, 0);" />
+            <ui:Button text="DeleteAudio" parse-escape-sequences="true" display-tooltip-when-elided="true" name="deleteAudioButton" class="NormalButton" />
+            <ui:Button text="Clear" parse-escape-sequences="true" display-tooltip-when-elided="true" name="clearButton" class="NormalButton" style="color: rgb(255, 0, 0); background-color: rgb(237, 255, 5);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="List" style="flex-grow: 1;">
+            <uie:PropertyField binding-path="audioDic" name="PropertyField" style="font-size: 15px; -unity-font-style: bold;" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

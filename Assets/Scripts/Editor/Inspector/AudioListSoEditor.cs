@@ -11,8 +11,10 @@ namespace Editor.Inspector
         public VisualTreeAsset _treeAsset;
 
         private AudioListSo _audioListSo;
+        private Button _resetConfigButton;
+        private Button _autoConfigButton;
         private Button _deleteButton;
-        private Button _addButton;
+        private Button _clearButton;
 
         private void OnEnable()
         {
@@ -23,23 +25,36 @@ namespace Editor.Inspector
         {
             VisualElement root = new();
             _treeAsset.CloneTree(root);
-            _addButton = root.Q<Button>("addAudioButton");
+            _clearButton = root.Q<Button>("clearButton");
+            _autoConfigButton = root.Q<Button>("configButton");
+            _resetConfigButton = root.Q<Button>("resetButton");
             _deleteButton = root.Q<Button>("deleteAudioButton");
 
-            _addButton.RegisterCallback<ClickEvent>(AddAudio);
+            _clearButton.RegisterCallback<ClickEvent>(Clear);
             _deleteButton.RegisterCallback<ClickEvent>(DeleteAudio);
+            _autoConfigButton.RegisterCallback<ClickEvent>(AutoConfig);
+            _resetConfigButton.RegisterCallback<ClickEvent>(ResetConfig);
             return root;
         }
 
-        private void AddAudio(ClickEvent e)
+        private void Clear(ClickEvent e)
         {
-            _audioListSo.Add();
-            ;
+            _audioListSo.Clear();
         }
 
         private void DeleteAudio(ClickEvent e)
         {
             _audioListSo.Delete();
+        }
+
+        private void AutoConfig(ClickEvent e)
+        {
+            _audioListSo.AutoConfig();
+        }
+
+        private void ResetConfig(ClickEvent e)
+        {
+            _audioListSo.ReSetConfig();
         }
     }
 }

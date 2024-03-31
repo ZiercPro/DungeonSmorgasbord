@@ -1,5 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using Object = UnityEngine.Object;
 
 namespace Runtime.Audio.Base
 {
@@ -12,84 +16,133 @@ namespace Runtime.Audio.Base
         /// <summary>
         ///储存已经读取过的音频资源
         /// </summary>
-        public Dictionary<AudioType, AudioSource> audioDic { get; private set; }
+        private Dictionary<AudioType, AudioSource> audioSourceDictionary;
 
         /// <summary>
         /// 储存所以读取过的音频切片
         /// </summary>
-        private Dictionary<AudioType, AudioClip> clips;
+        private Dictionary<AudioType, AudioClip> audioClipsDictionary;
 
         public AudioManager()
         {
-            audioDic = new Dictionary<AudioType, AudioSource>();
-            clips = new Dictionary<AudioType, AudioClip>();
+            audioSourceDictionary = new Dictionary<AudioType, AudioSource>();
+            audioClipsDictionary = new Dictionary<AudioType, AudioClip>();
         }
 
         /// <summary>
-        /// 通过audiobase创建新的音频
+        /// 通过audiobase异步创建新的音频
         /// </summary>
-        /// <param name="audiobase"></param>
+        /// <param name="audioBase"></param>
         /// <returns></returns>
-        public AudioSource GetAudioSource(AudioBase audiobase)
+        public async Task<AudioSource> GetAudioSourceAsync(AudioBase audioBase)
         {
-            GameObject parent = GameObject.Find("Audios");
-            if (parent == null)
-                parent = new GameObject("Audios");
-
-            GameObject newAudioS = null;
-            AudioClip newClip = null;
-            AudioSource newComponent = null;
-
-            if (clips.ContainsKey(audiobase.AudioType))
-                newClip = clips[audiobase.AudioType];
-            else
+            AudioClip newClip;
+            var tcs = new TaskCompletionSource<AudioSource>();
+            if (audioSourceDictionary.ContainsKey(audioBase.AudioType))
             {
-                // Addressables.LoadAssetAsync<AudioClip>(audiobase.AudioType.Path).Completed += handle =>
-                // {
-                //     AudioClip prefab = handle.Result;
-                //     newClip = Object.Instantiate(prefab);
-                // };
-                newClip = GameObject.Instantiate(Resources.Load<AudioClip>(audiobase.AudioType.Path));
-                clips.Add(audiobase.AudioType, newClip);
+                tcs.SetResult(audioSourceDictionary[audioBase.AudioType]);
+                return await tcs.Task;
             }
 
-            if (newClip == null)
+            if (audioClipsDictionary.ContainsKey(audioBase.AudioType))
             {
-                Debug.LogError($"资源 {audiobase.AudioType.Name} 加载失败");
-                return null;
+                newClip = audioClipsDictionary[audioBase.AudioType];
+                tcs.SetResult(CreateNewAudioSource(audioBase, newClip, FindAudiosParent()));
+                return await tcs.Task;
             }
 
-            if (audioDic.ContainsKey(audiobase.AudioType))
+            AsyncOperationHandle<AudioClip> asyncOperationHandle =
+                Addressables.LoadAssetAsync<AudioClip>($"{audioBase.AudioType.Path}");
+            asyncOperationHandle.Completed += handle =>
             {
-                if (audioDic[audiobase.AudioType] == null)
+                if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
                 {
-                    newAudioS = new GameObject(audiobase.AudioType.Name);
-                    newAudioS.transform.SetParent(parent.transform);
-                    newComponent = newAudioS.AddComponent<AudioSource>();
-
-                    newComponent.clip = newClip;
-                    newComponent.playOnAwake = audiobase.isPlayAwake;
-                    newComponent.loop = audiobase.isLoop;
-                    newComponent.volume = audiobase.volume;
-                    newComponent.outputAudioMixerGroup = audiobase.outputGroup;
-
-                    audioDic[audiobase.AudioType] = newComponent;
+                    newClip = Object.Instantiate(handle.Result);
+                    tcs.SetResult(CreateNewAudioSource(audioBase, newClip, FindAudiosParent()));
                 }
 
-                return audioDic[audiobase.AudioType];
-            }
+                if (asyncOperationHandle.Status == AsyncOperationStatus.Failed)
+                {
+                    Debug.LogError("加载失败!");
+                }
+            };
 
-            newAudioS = new GameObject(audiobase.AudioType.Name);
-            newAudioS.transform.SetParent(parent.transform);
+            return await tcs.Task;
+        }
+
+        // /// <summary>
+        // /// 通过audiobase创建新的音频
+        // /// </summary>
+        // /// <param name="audioBase"></param>
+        // /// <returns></returns>
+        // [Obsolete]
+        // public AudioSource GetAudioSource(AudioBase audioBase)
+        // {
+        //     AudioClip newClip = null;
+        //     AsyncOperationHandle<AudioClip> asyncOperationHandle;
+        //     if (audioClipsDictionary.ContainsKey(audioBase.AudioType))
+        //         newClip = audioClipsDictionary[audioBase.AudioType];
+        //     else
+        //     {
+        //         asyncOperationHandle = Addressables.LoadAssetAsync<AudioClip>(audioBase.AudioType.Path);
+        //         asyncOperationHandle.Completed += handle =>
+        //         {
+        //             AudioClip prefab = handle.Result;
+        //             newClip = Object.Instantiate(prefab);
+        //             Addressables.Release(asyncOperationHandle);
+        //         };
+        //
+        //         asyncOperationHandle.WaitForCompletion();
+        //
+        //         audioClipsDictionary.Add(audioBase.AudioType, newClip);
+        //     }
+        //
+        //     if (!newClip)
+        //     {
+        //         Debug.LogError($"资源 {audioBase.AudioType.Name} 加载失败");
+        //         return null;
+        //     }
+        //
+        //     if (audioSourceDictionary.ContainsKey(audioBase.AudioType))
+        //     {
+        //         if (!audioSourceDictionary[audioBase.AudioType])
+        //         {
+        //             audioSourceDictionary[audioBase.AudioType] =
+        //                 CreateNewAudioSource(audioBase, newClip, _audioParent);
+        //         }
+        //
+        //         return audioSourceDictionary[audioBase.AudioType];
+        //     }
+        //
+        //     AudioSource newComponent = CreateNewAudioSource(audioBase, newClip, _audioParent);
+        //
+        //     audioSourceDictionary.Add(audioBase.AudioType, newComponent);
+        //
+        //     return newComponent;
+        // }
+
+        //获取音频父物体
+        private Transform FindAudiosParent()
+        {
+            GameObject parent = GameObject.Find("Audios");
+            if (!parent) parent = new GameObject("Audios");
+            return parent.transform;
+        }
+
+        //创建新的AudioSource
+        private AudioSource CreateNewAudioSource(AudioBase audioBase, AudioClip clip, Transform parent)
+        {
+            GameObject newAudioS;
+            AudioSource newComponent;
+            newAudioS = new GameObject(audioBase.AudioType.Name);
+            newAudioS.transform.SetParent(parent);
             newComponent = newAudioS.AddComponent<AudioSource>();
 
-            newComponent.clip = newClip;
-            newComponent.playOnAwake = audiobase.isPlayAwake;
-            newComponent.loop = audiobase.isLoop;
-            newComponent.volume = audiobase.volume;
-            newComponent.outputAudioMixerGroup = audiobase.outputGroup;
-
-            audioDic.Add(audiobase.AudioType, newComponent);
+            newComponent.clip = clip;
+            newComponent.playOnAwake = audioBase.isPlayAwake;
+            newComponent.loop = audioBase.isLoop;
+            newComponent.volume = audioBase.volume;
+            newComponent.outputAudioMixerGroup = audioBase.outputGroup;
 
             return newComponent;
         }

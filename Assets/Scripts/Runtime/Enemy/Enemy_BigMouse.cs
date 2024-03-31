@@ -35,13 +35,13 @@ namespace Runtime.Enemy
             base.Start();
             stateMachine.Initialize(idleState);
             attackCheck.SetRadius(attribute.attackRange);
-            AudioPlayerManager.Instance.PlayAudio(AudioName.BigMouthSpawn1);
+            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.BigMouthSpawn1);
         }
 
         public override void Dead(bool dropItem = true)
         {
             Instantiate(deadParticle, transform.position, Quaternion.identity);
-            AudioPlayerManager.Instance.PlayAudio(AudioName.EnemyDead4);
+            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.EnemyDead4);
             if (dropItem)
                 _canDropItems.DropItems();
             Destroy(gameObject);

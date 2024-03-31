@@ -15,22 +15,22 @@ namespace Runtime.UI
         //private bool playing = false;
         public void ButtonClick()
         {
-            AudioPlayerManager.Instance.PlayAudio(AudioName.ButtonClick1);
+            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.ButtonClick1);
         }
 
         public void ButtonEnter()
         {
-            AudioPlayerManager.Instance.PlayAudio(AudioName.ButtonEnter1);
+            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.ButtonEnter1);
         }
 
         public void CardClick()
         {
-            AudioPlayerManager.Instance.PlayAudio(AudioName.CardClick1);
+            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.CardClick1);
         }
 
         public void CardEnter()
         {
-            AudioPlayerManager.Instance.PlayAudio(AudioName.CardEnter1);
+            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.CardEnter1);
         }
     }
 }

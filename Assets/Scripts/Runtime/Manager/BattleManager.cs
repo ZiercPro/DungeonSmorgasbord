@@ -89,7 +89,7 @@ namespace Runtime.Manager
         {
             BattleStart();
             DroppedItem.ClearAllItem();
-            AudioPlayerManager.Instance.PlayAudio(AudioName.BattleBgmNormal);
+            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.BattleBgmNormal);
         }
 
         //结束战斗(玩家死亡

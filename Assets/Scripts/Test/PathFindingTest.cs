@@ -1,12 +1,16 @@
 using NaughtyAttributes;
 using Runtime.PathFinding.PathFinding;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using Object = UnityEngine.Object;
 
 namespace Test
 {
     using Runtime.Helper;
+    using Runtime.Audio;
 
     public class PathFindingTest : MonoBehaviour
     {
@@ -27,14 +31,20 @@ namespace Test
         private void Awake()
         {
             _pathFinding = new PathFinding(20, 20, 1f, new Vector3(-8, -4));
-            //AudioPlayerManager.Instance.PlayAudio(AudioName.MenuBgm);
         }
 
+        private void Start()
+        {
+            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.MenuBgm);
+        }
+#if UNITY_EDITOR
         [Button("GridDebug")]
         private void DebugMode()
         {
             _pathFinding.Grid.DebugDrawLine(Color.red);
         }
+#endif
+
 
         private void Update()
         {
