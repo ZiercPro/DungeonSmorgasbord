@@ -25,6 +25,7 @@ namespace Runtime.Scene
                 panelManager.Push(new GamePanel());
                 BattleManager.Instance.OnBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
                 GameRoot.Instance.OnTab.AddListener(() => { panelManager.Push(new HeroAttributesPanel()); });
+                AudioPlayerManager.Instance.PlayAudioAsync(AudioName.IdleBgm);
             }
         }
 
@@ -41,6 +42,7 @@ namespace Runtime.Scene
             panelManager.Push(new GamePanel());
             BattleManager.Instance.OnBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
             GameRoot.Instance.OnTab.AddListener(() => { panelManager.Push(new HeroAttributesPanel()); });
+            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.IdleBgm);
         }
     }
 }

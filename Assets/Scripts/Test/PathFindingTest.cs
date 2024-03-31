@@ -35,7 +35,7 @@ namespace Test
 
         private void Start()
         {
-            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.MenuBgm);
+           // AudioPlayerManager.Instance.PlayAudioAsync(AudioName.MenuBgm);
         }
 #if UNITY_EDITOR
         [Button("GridDebug")]

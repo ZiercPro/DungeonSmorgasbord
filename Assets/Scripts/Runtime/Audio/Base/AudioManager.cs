@@ -16,17 +16,11 @@ namespace Runtime.Audio.Base
         /// <summary>
         ///储存已经读取过的音频资源
         /// </summary>
-        private Dictionary<AudioType, AudioSource> audioSourceDictionary;
-
-        /// <summary>
-        /// 储存所以读取过的音频切片
-        /// </summary>
-        private Dictionary<AudioType, AudioClip> audioClipsDictionary;
+        private Dictionary<AudioType, AudioSource> _audioSourceDictionary;
 
         public AudioManager()
         {
-            audioSourceDictionary = new Dictionary<AudioType, AudioSource>();
-            audioClipsDictionary = new Dictionary<AudioType, AudioClip>();
+            _audioSourceDictionary = new Dictionary<AudioType, AudioSource>();
         }
 
         /// <summary>
@@ -38,16 +32,9 @@ namespace Runtime.Audio.Base
         {
             AudioClip newClip;
             var tcs = new TaskCompletionSource<AudioSource>();
-            if (audioSourceDictionary.ContainsKey(audioBase.AudioType))
+            if (_audioSourceDictionary.TryGetValue(audioBase.AudioType, out AudioSource value))
             {
-                tcs.SetResult(audioSourceDictionary[audioBase.AudioType]);
-                return await tcs.Task;
-            }
-
-            if (audioClipsDictionary.ContainsKey(audioBase.AudioType))
-            {
-                newClip = audioClipsDictionary[audioBase.AudioType];
-                tcs.SetResult(CreateNewAudioSource(audioBase, newClip, FindAudiosParent()));
+                tcs.SetResult(value);
                 return await tcs.Task;
             }
 
@@ -132,11 +119,10 @@ namespace Runtime.Audio.Base
         //创建新的AudioSource
         private AudioSource CreateNewAudioSource(AudioBase audioBase, AudioClip clip, Transform parent)
         {
-            GameObject newAudioS;
-            AudioSource newComponent;
-            newAudioS = new GameObject(audioBase.AudioType.Name);
+            GameObject newAudioS = new(audioBase.AudioType.Name);
+            AudioSource newComponent = newAudioS.AddComponent<AudioSource>();
+
             newAudioS.transform.SetParent(parent);
-            newComponent = newAudioS.AddComponent<AudioSource>();
 
             newComponent.clip = clip;
             newComponent.playOnAwake = audioBase.isPlayAwake;
@@ -144,6 +130,7 @@ namespace Runtime.Audio.Base
             newComponent.volume = audioBase.volume;
             newComponent.outputAudioMixerGroup = audioBase.outputGroup;
 
+            _audioSourceDictionary.Add(audioBase.AudioType, newComponent);
             return newComponent;
         }
     }

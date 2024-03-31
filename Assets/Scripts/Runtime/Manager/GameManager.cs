@@ -40,14 +40,12 @@ namespace Runtime.Manager
         {
             playerTans = null;
             _panelManager.PopAll();
-            ParallaxMoveManager.Instance.BackGroundStop();
         }
 
         //场景初始化
         public void SceneInit()
         {
             ParallaxMoveManager.Instance.BackGroundMove();
-            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.IdleBgm);
         }
 
         //角色生成

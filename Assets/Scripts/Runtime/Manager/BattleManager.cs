@@ -134,11 +134,14 @@ namespace Runtime.Manager
 
         private void SpawnEnemy()
         {
-            StartCoroutine(EnemySpawn());
+            StartCoroutine(EnemySpawnCoroutine());
         }
 
-        IEnumerator EnemySpawn()
+        IEnumerator EnemySpawnCoroutine()
         {
+            GetCurrentDifficulty(_currentLevel);
+            GetHash(_currentDifficulty);
+
             int wave = difficultyDataSO.wavesOfLevel[_currentLevel];
             while (wave > 0)
             {
@@ -167,8 +170,6 @@ namespace Runtime.Manager
         private void BattleStart()
         {
             OnBattleStart?.Invoke();
-            GetCurrentDifficulty(_currentLevel);
-            GetHash(_currentDifficulty);
             SpawnEnemy();
         }
 

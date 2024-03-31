@@ -2,7 +2,6 @@ using Runtime.Helper;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Runtime.ScriptObject
 {
@@ -14,7 +13,16 @@ namespace Runtime.ScriptObject
     {
         [field: SerializeField] private EditableDictionary<AudioName, AudioBase> audioDic;
         [SerializeField] private AudioClip toCreateAudioBase;
-        public Dictionary<AudioName, AudioBase> Audios => audioDic.ToDictionary();
+        public Dictionary<AudioName, AudioBase> Audios
+        {
+            get
+            {
+                if (Audios == null)
+                    Audios = audioDic.ToDictionary();
+                return Audios;
+            }
+            private set => Audios = value;
+        }
 #if UNITY_EDITOR
 
         public void Delete()

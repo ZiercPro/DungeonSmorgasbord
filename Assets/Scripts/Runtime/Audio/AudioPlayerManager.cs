@@ -19,7 +19,6 @@ namespace Runtime.Audio
         [SerializeField] private AudioMixerGroup music;
         [SerializeField] private AudioMixerGroup sfx;
         [SerializeField] private AudioMixerGroup environment;
-        [Space] [SerializeField] private Transform audioParent;
 
         private AudioManager _audioManager;
         private AudioBase _currentMusic;
@@ -31,6 +30,10 @@ namespace Runtime.Audio
             _audioManager = new AudioManager();
         }
 
+        /// <summary>
+        /// 异步播放音频
+        /// </summary>
+        /// <param name="audioName">音频名称</param>
         public async void PlayAudioAsync(AudioName audioName)
         {
             AudioBase audioBase = audioList.Audios[audioName];
@@ -38,7 +41,7 @@ namespace Runtime.Audio
             if (player)
             {
                 if (audioBase.outputGroup == sfx)
-                    PlaySFX(player, player.clip);
+                    PlaySfx(player, player.clip);
                 else
                 {
                     PlayMusic(player);
@@ -55,6 +58,10 @@ namespace Runtime.Audio
             }
         }
 
+        /// <summary>
+        /// 异步随机播放音频
+        /// </summary>
+        /// <param name="audioNames">音频名称链表</param>
         public void PlayAudiosRandomAsync(List<AudioName> audioNames)
         {
             int length = audioNames.Count;
@@ -62,21 +69,10 @@ namespace Runtime.Audio
             PlayAudioAsync(audioNames[temp]);
         }
 
-        private async void StopAudioAsync(AudioBase audioBase)
-        {
-            AudioSource player = await _audioManager.GetAudioSourceAsync(audioBase);
-            if (player)
-            {
-                if (audioBase == _currentMusic)
-                    _isMusicPlaying = false;
-                player.Stop();
-            }
-            else
-            {
-                Debug.LogError($"音频{audioBase.AudioType.Name}组件缺失!");
-            }
-        }
-
+        /// <summary>
+        /// 异步停止播发音频
+        /// </summary>
+        /// <param name="audioName">音频名称</param>
         public async void StopAudioAsync(AudioName audioName)
         {
             AudioBase audioBase = audioList.Audios[audioName];
@@ -94,17 +90,36 @@ namespace Runtime.Audio
         }
 
 
-        private void PlayMusic(AudioSource player)
+        private async void StopAudioAsync(AudioBase audioBase)
         {
-            if (!player.isPlaying)
+            AudioSource player = await _audioManager.GetAudioSourceAsync(audioBase);
+            if (player)
             {
-                if (_isMusicPlaying)
-                    StopAudioAsync(_currentMusic);
-                player.Play();
+                Debug.Log(_isMusicPlaying + " " + player.name);
+                if (audioBase == _currentMusic)
+                    _isMusicPlaying = false;
+                player.Stop();
+                Debug.Log(_isMusicPlaying + " " + player.name + " " + player.isPlaying);
+            }
+            else
+            {
+                Debug.LogError($"音频{audioBase.AudioType.Name}组件缺失!");
             }
         }
 
-        private void PlaySFX(AudioSource player, AudioClip clip)
+
+        private void PlayMusic(AudioSource player)
+        {
+            if (_isMusicPlaying)
+                StopAudioAsync(_currentMusic);
+
+            if (!player.isPlaying)
+                player.Play();
+            else
+                Debug.LogWarning($"{player.name}is already playing");
+        }
+
+        private void PlaySfx(AudioSource player, AudioClip clip)
         {
             player.PlayOneShot(clip);
         }
