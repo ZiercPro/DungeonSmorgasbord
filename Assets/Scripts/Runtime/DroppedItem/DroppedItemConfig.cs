@@ -1,9 +1,9 @@
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace Runtime.DroppedItem
+namespace ZRuntime
 {
-    using Helper;
+
 
     [System.Serializable]
     public class DroppedItemConfig

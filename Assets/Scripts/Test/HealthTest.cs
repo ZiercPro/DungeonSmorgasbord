@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using ZRuntime;
 using UnityEngine;
 
 namespace Test
 {
-    using Runtime.Component.Base;
-
     public class HealthTest : MonoBehaviour
     {
         private Health _health;

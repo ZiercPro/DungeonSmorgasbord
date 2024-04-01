@@ -1,10 +1,9 @@
-using NaughtyAttributes;
-using System;
+
 using UnityEngine;
 
-namespace Runtime.ScriptObject
+namespace ZRuntime
 {
-    using Helper;
+
 
     /// <summary>
     /// 自定义文本数据

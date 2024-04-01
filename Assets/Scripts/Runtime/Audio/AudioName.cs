@@ -1,4 +1,4 @@
-namespace Runtime.Audio
+namespace ZRuntime
 {
     /// <summary>
     /// 储存所有音频的引用

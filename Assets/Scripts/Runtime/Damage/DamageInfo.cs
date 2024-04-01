@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Runtime.Damage
+namespace ZRuntime
 {
     /// <summary>
     /// 伤害信息类，储存相关信息

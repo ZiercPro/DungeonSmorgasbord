@@ -1,10 +1,7 @@
 using System.Collections.Generic;
 
-namespace Runtime.UI.Card
+namespace ZRuntime
 {
-    using Weapon.Base;
-    using Component.Hero;
-    using Component.Base;
 
     /// <summary>
     /// 储存所有卡片的配置信息

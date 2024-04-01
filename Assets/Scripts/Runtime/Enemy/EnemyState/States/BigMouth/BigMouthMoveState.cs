@@ -1,7 +1,6 @@
 using UnityEngine;
-using Runtime.Enemy.EnemyState.Base;
 
-namespace Runtime.Enemy.EnemyState.States.BigMouth
+namespace ZRuntime
 {
     public class BigMouthMoveState : BigMouthNormalState
     {

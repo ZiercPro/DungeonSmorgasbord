@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Runtime.Component.Base
+namespace ZRuntime
 {
     public class Attribute : MonoBehaviour
     {

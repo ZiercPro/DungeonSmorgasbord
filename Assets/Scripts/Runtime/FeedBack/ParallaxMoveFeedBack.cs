@@ -1,9 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Runtime.FeedBack
+namespace ZRuntime
 {
-    using Helper;
 
     /// <summary>
     /// 视差效果

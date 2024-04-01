@@ -1,11 +1,9 @@
-using System;
+
 using System.Collections;
 using UnityEngine;
 
-namespace Runtime.FeedBack
+namespace ZRuntime
 {
-    using Damage;
-    using Component.Base;
 
     public class KnockBackFeedBack : MonoBehaviour
     {

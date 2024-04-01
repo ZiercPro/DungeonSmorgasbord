@@ -4,15 +4,8 @@ using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Runtime.Manager
+namespace ZRuntime
 {
-    using Basic;
-    using Audio;
-    using Enemy;
-    using Helper;
-    using DroppedItem;
-    using ScriptObject;
-
     public class BattleManager : SingletonIns<BattleManager>
     {
         public event Action<int> OnLevelChange;
@@ -89,7 +82,7 @@ namespace Runtime.Manager
         {
             BattleStart();
             DroppedItem.ClearAllItem();
-            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.BattleBgmNormal);
+            AudioPlayer.Instance.PlayAudioAsync(AudioName.BattleBgmNormal);
         }
 
         //结束战斗(玩家死亡

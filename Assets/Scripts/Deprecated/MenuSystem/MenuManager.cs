@@ -3,7 +3,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Deprecated.MenuSystem
+namespace Deprecated
 {
     [System.Obsolete]
     public class MenuManager : MonoBehaviour

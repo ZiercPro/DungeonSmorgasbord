@@ -2,11 +2,8 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Runtime.UI.Panel
+namespace ZRuntime
 {
-    using Audio;
-    using Manager;
-    using UIFramework;
 
     public class SettingPanel : BasePanel
     {
@@ -23,13 +20,13 @@ namespace Runtime.UI.Panel
             Tweener newTnr = cGroup.DOFade(1f, 0.5f).SetUpdate(true);
             //音量设置逻辑
             UITool.GetComponentInChildrenUI<Slider>("EnvironmentSlider").onValueChanged
-                .AddListener(AudioPlayerManager.Instance.SetEnvironmentVolume);
+                .AddListener(AudioPlayer.Instance.SetEnvironmentVolume);
             UITool.GetComponentInChildrenUI<Slider>("MasterSlider").onValueChanged
-                .AddListener(AudioPlayerManager.Instance.SetMasterVolume);
+                .AddListener(AudioPlayer.Instance.SetMasterVolume);
             UITool.GetComponentInChildrenUI<Slider>("MusicSlider").onValueChanged
-                .AddListener(AudioPlayerManager.Instance.SetMusicVolume);
+                .AddListener(AudioPlayer.Instance.SetMusicVolume);
             UITool.GetComponentInChildrenUI<Slider>("SFXSlider").onValueChanged
-                .AddListener(AudioPlayerManager.Instance.SetSFXVolume);
+                .AddListener(AudioPlayer.Instance.SetSFXVolume);
             //页面切换逻辑
             UITool.GetComponentInChildrenUI<Toggle>("VolumeToggle").onValueChanged.AddListener(ison =>
             {

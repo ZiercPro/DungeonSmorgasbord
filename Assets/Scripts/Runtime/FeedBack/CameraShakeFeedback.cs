@@ -2,7 +2,7 @@ using Cinemachine;
 using UnityEngine;
 using System.Collections;
 
-namespace Runtime.FeedBack
+namespace ZRuntime
 {
     public class CameraShakeFeedback : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-namespace Runtime.UI.UIFramework
+namespace ZRuntime
 {
     /// <summary>
     /// 所有面板UI的父类

@@ -1,4 +1,4 @@
-﻿namespace Deprecated.MenuSystem
+﻿namespace Deprecated
 {
     /// <summary>
     /// A base menu class that implements parameterless Show and Hide methods

@@ -2,7 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using TMPro;
 
-namespace Runtime.UI
+namespace ZRuntime
 {
     /// <summary>
     /// 互动物品的互动按钮UI

@@ -1,15 +1,7 @@
 using UnityEngine;
 
-namespace Runtime.Manager
+namespace ZRuntime
 {
-    using Hero;
-    using Basic;
-    using Audio;
-    using Data.Base;
-    using DroppedItem;
-    using UI.Panel;
-    using Component.Base;
-    using UI;
 
     /// <summary>
     /// 游戏场景管理

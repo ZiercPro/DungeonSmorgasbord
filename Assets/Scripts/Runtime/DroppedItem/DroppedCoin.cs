@@ -1,18 +1,14 @@
 using UnityEngine;
-using Runtime.Audio;
 
-namespace Runtime.DroppedItem
+namespace ZRuntime
 {
-    using Component.Hero;
-    using Manager;
-    using Hero;
 
     public class DroppedCoin : DroppedItem
     {
         private void GetItem(CoinPack pack)
         {
             pack.GetCoins(num);
-            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.CoinCollected);
+            AudioPlayer.Instance.PlayAudioAsync(AudioName.CoinCollected);
             base.GetItem();
         }
 

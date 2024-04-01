@@ -2,9 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Runtime.Player
+namespace ZRuntime
 {
-    using Manager;
 
     public class InputManager : MonoBehaviour
     {

@@ -1,9 +1,8 @@
 using UnityEngine;
-using Runtime.Helper;
 
-namespace Runtime.ScriptObject
+namespace ZRuntime
 {
-    using Weapon.Base;
+
 
     /// <summary>
     /// 英雄属性 为了方便初始化 利用了可编辑物品

@@ -1,11 +1,7 @@
-namespace Runtime.Scene
-{
-    using UI;
-    using Base;
-    using Audio;
-    using UI.Panel;
-    using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
+namespace ZRuntime
+{
     /// <summary>
     /// 初始场景
     /// </summary>
@@ -27,13 +23,13 @@ namespace Runtime.Scene
             {
                 //执行第一次进入该场景后应该做的事情
                 panelManager.Push(new StartPanel());
-                AudioPlayerManager.Instance.PlayAudioAsync(AudioName.MenuBgm);
+                AudioPlayer.Instance.PlayAudioAsync(AudioName.MenuBgm);
             }
         }
 
         public override void OnExit()
         {
-            AudioPlayerManager.Instance.StopAudioAsync(AudioName.MenuBgm);
+            AudioPlayer.Instance.StopAudioAsync(AudioName.MenuBgm);
             SceneManager.sceneLoaded -= OnSceneLoaded;
             panelManager.PopAll();
         }
@@ -46,7 +42,7 @@ namespace Runtime.Scene
         private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             panelManager.Push(new StartPanel());
-            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.MenuBgm);
+            AudioPlayer.Instance.PlayAudioAsync(AudioName.MenuBgm);
         }
     }
 }

@@ -2,9 +2,8 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Runtime.Component.Enemy
+namespace ZRuntime
 {
-    using DroppedItem;
     public class CanDropItems : MonoBehaviour
     {
         [Button("Add")]

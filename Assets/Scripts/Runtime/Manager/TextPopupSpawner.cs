@@ -1,10 +1,8 @@
 using TMPro;
 using UnityEngine;
-using Runtime.FeedBack;
 
-namespace Runtime.Manager
+namespace ZRuntime
 {
-    using Basic;
 
     public class TextPopupSpawner : SingletonIns<TextPopupSpawner>
     {

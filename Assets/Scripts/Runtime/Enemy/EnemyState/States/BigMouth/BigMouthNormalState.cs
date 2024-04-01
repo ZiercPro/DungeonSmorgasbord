@@ -1,11 +1,8 @@
 using UnityEngine;
-using Runtime.Enemy.EnemyState.Base;
 
-namespace Runtime.Enemy.EnemyState.States.BigMouth
+namespace ZRuntime
 {
-    using Damage;
-
-    public abstract class BigMouthNormalState : Base.EnemyState
+    public abstract class BigMouthNormalState : EnemyState
     {
         protected Enemy_BigMouse _enemy;
         private float _attackInterval;

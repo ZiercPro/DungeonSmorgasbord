@@ -1,8 +1,7 @@
 using UnityEngine;
 
-namespace Runtime.DroppedItem
+namespace ZRuntime
 {
-    using Component.Hero;
 
     public class DroppedWeapon : DroppedItem
     {

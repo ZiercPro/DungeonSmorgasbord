@@ -1,12 +1,10 @@
-﻿using UnityEngine;
+﻿using ZRuntime;
+using UnityEditor;
+using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Editor.Inspector
+namespace ZEditor
 {
-    using Runtime.Component.Enemy;
-    using Runtime.DroppedItem;
-    using UnityEditor;
-
     [CustomEditor(typeof(CanDropItems))]
     public class CanDropItemsEditor : Editor
     {

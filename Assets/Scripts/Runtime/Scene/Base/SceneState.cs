@@ -1,4 +1,4 @@
-namespace Runtime.Scene.Base
+namespace ZRuntime
 {
     /// <summary>
     /// 游戏场景状态 

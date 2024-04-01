@@ -1,10 +1,9 @@
+using ZRuntime;
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor.Drawer
+namespace ZEditor
 {
-    using Runtime.CustomAttribute;
-
     [CustomPropertyDrawer(typeof(MySeparator))]
     public class MySeparatorDrawer : DecoratorDrawer
     {

@@ -4,12 +4,8 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine.Localization.Components;
 
-namespace Runtime.UI.Panel
+namespace ZRuntime
 {
-    using Helper;
-    using Manager;
-    using Card;
-    using UIFramework;
 
     public class CardPanel : BasePanel
     {

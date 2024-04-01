@@ -1,18 +1,15 @@
-using Runtime.ScriptObject;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace Runtime.Audio
+namespace ZRuntime
 {
-    using Base;
-    using Basic;
-    using Helper;
+
 
     /// <summary>
     /// 音效播放管理器 控制音频的播放、暂停和音量
     /// </summary>
-    public class AudioPlayerManager : UnitySingleton<AudioPlayerManager>
+    public class AudioPlayer : UnitySingleton<AudioPlayer>
     {
         [SerializeField] private AudioListSo audioList;
         [Space] [SerializeField] private AudioMixer audioMixer;

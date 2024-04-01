@@ -1,6 +1,6 @@
 using UnityEngine;
-using Runtime.Enemy.EnemyState.Base;
-namespace Runtime.Enemy.EnemyState.States.Baby
+
+namespace ZRuntime
 {
     public class BabyMoveState : BabyNormalState
     {

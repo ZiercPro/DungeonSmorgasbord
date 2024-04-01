@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace Runtime.Helper
+namespace ZRuntime
 {
     [Serializable]
     public class EditableDictionaryItem<TKey, TObject>

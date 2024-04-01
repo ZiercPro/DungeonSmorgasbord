@@ -1,10 +1,8 @@
 using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Runtime.UI
+namespace ZRuntime
 {
     public class ButtonShake : MonoBehaviour
     {

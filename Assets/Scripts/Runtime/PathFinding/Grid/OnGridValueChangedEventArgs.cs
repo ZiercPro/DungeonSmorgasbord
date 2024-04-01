@@ -1,6 +1,6 @@
 using System;
 
-namespace Runtime.PathFinding.Grid
+namespace ZRuntime
 {
     /// <summary>
     /// Grid节点数值改变事件参数

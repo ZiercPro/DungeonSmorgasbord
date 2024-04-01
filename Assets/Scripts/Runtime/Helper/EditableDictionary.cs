@@ -1,9 +1,9 @@
-﻿using NaughtyAttributes;
+﻿
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Runtime.Helper
+namespace ZRuntime
 {
     [Serializable]
     public class EditableDictionary<TKey, TObject>

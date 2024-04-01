@@ -1,9 +1,7 @@
 using UnityEngine;
 
-namespace Runtime.Component.Hero
+namespace ZRuntime
 {
-    using Base;
-    using Player;
 
     /// <summary>
     /// 暂时使用

@@ -1,4 +1,4 @@
-namespace Runtime.Enemy.EnemyState.Base
+namespace ZRuntime
 {
     /// <summary>
     /// 敌人状态机，储存状态信息,控制状态的改变

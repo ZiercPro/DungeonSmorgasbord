@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Runtime.Component.Hero
+namespace ZRuntime
 {
     public class InteractHandler : MonoBehaviour
     {

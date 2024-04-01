@@ -1,6 +1,6 @@
-﻿using Runtime.PathFinding.Grid;
+﻿
 
-namespace Runtime.PathFinding.PathFinding
+namespace ZRuntime
 {
     public class PathNode
     {

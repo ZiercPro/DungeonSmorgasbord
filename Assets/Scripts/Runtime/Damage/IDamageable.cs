@@ -1,6 +1,6 @@
 using System;
 
-namespace Runtime.Damage
+namespace ZRuntime
 {
     /// <summary>
     /// 可被伤害接口

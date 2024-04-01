@@ -2,11 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Runtime.UI.Panel
+namespace ZRuntime
 {
-    using Scene;
-    using Helper;
-    using UIFramework;
 
     public class LoadPanel : BasePanel
     {

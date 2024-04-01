@@ -1,4 +1,4 @@
-namespace Runtime.UI.UIFramework
+namespace ZRuntime
 {
     using UnityEngine;
 

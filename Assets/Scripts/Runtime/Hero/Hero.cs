@@ -1,16 +1,10 @@
-using Runtime.FeedBack;
-using Runtime.Weapon.Base;
+
 using System;
 using UnityEngine;
 
 
-namespace Runtime.Hero
+namespace ZRuntime
 {
-    using Damage;
-    using Player;
-    using Manager;
-    using Component.Hero;
-    using Component.Base;
 
     public class Hero : MonoBehaviour, IDamageable
     {

@@ -2,11 +2,8 @@ using UnityEngine.UI;
 using UnityEngine;
 using DG.Tweening;
 
-namespace Runtime.UI.Panel
+namespace ZRuntime
 {
-    using Scene;
-    using Manager;
-    using UIFramework;
 
     public class StartPanel : BasePanel
     {

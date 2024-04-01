@@ -2,10 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Runtime.Helper
+namespace ZRuntime
 {
-    using UI;
-    using Component.Hero;
 
     public class Interactiveable : MonoBehaviour
     {

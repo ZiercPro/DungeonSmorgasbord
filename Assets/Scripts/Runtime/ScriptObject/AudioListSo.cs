@@ -1,12 +1,10 @@
-using Runtime.Helper;
+
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Runtime.ScriptObject
+namespace ZRuntime
 {
-    using Audio;
-    using Audio.Base;
 
     [CreateAssetMenu(menuName = "ScriptObj/AudioList", fileName = "AudioList")]
     public class AudioListSo : ScriptableObject
@@ -45,7 +43,7 @@ namespace Runtime.ScriptObject
             if (audioDic == null) audioDic = new();
             AudioBase newAudioBase =
                 new AudioBase(new AudioType(GetPrefabPath(toCreateAudioBase)), 1, false, false,
-                    AudioPlayerManager.Instance.Music);
+                    AudioPlayer.Instance.Music);
             audioDic.Add(AudioName.None, newAudioBase, newAudioBase.AudioType.Name);
         }
 

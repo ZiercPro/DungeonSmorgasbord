@@ -1,6 +1,6 @@
-using UnityEngine;
 
-namespace Runtime.Hero
+
+namespace ZRuntime
 {
     /// <summary>
     /// 角色预制件的资源配置信息

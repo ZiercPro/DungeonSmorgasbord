@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Runtime.Basic
+namespace ZRuntime
 {
     /// <summary>
     /// 相机真实追踪的目标 为了实现相机向鼠标方向轻微移动的效果

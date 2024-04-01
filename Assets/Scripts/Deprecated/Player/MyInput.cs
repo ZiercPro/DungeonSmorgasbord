@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Deprecated.Player
+namespace Deprecated
 {
     /// <summary>
     /// AI或者玩家的输入

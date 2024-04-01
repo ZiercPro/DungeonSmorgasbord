@@ -5,12 +5,8 @@ using UnityEngine.Events;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 
-namespace Runtime.UI.Panel
+namespace ZRuntime
 {
-    using Hero;
-    using Manager;
-    using UIFramework;
-    using Component.Base;
 
     public class GamePanel : BasePanel
     {

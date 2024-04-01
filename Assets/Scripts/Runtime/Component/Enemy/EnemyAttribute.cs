@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 
-namespace Runtime.Component.Enemy
+namespace ZRuntime
 {
-    using Base;
-    using Damage;
-    using ScriptObject;
 
     public class EnemyAttribute : Attribute
     {

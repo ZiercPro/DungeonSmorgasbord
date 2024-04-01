@@ -1,13 +1,8 @@
 using UnityEngine;
-using Runtime.Audio;
-using Runtime.Manager;
-using Runtime.FeedBack;
-using Runtime.Enemy.EnemyState.States.BigMouth;
 
-namespace Runtime.Enemy
+
+namespace ZRuntime
 {
-    using Damage;
-    using Component.Enemy;
 
     public class Enemy_BigMouse : Enemy
     {
@@ -35,13 +30,13 @@ namespace Runtime.Enemy
             base.Start();
             stateMachine.Initialize(idleState);
             attackCheck.SetRadius(attribute.attackRange);
-            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.BigMouthSpawn1);
+            AudioPlayer.Instance.PlayAudioAsync(AudioName.BigMouthSpawn1);
         }
 
         public override void Dead(bool dropItem = true)
         {
             Instantiate(deadParticle, transform.position, Quaternion.identity);
-            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.EnemyDead4);
+            AudioPlayer.Instance.PlayAudioAsync(AudioName.EnemyDead4);
             if (dropItem)
                 _canDropItems.DropItems();
             Destroy(gameObject);

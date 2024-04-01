@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Runtime.FeedBack
+namespace ZRuntime
 {
     
     public class FlashWhiteFeedBack : MonoBehaviour {

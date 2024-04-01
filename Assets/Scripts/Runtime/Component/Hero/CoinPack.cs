@@ -1,6 +1,6 @@
 using System;
 
-namespace Runtime.Component.Hero
+namespace ZRuntime
 {
     /// <summary>
     /// 储存硬币

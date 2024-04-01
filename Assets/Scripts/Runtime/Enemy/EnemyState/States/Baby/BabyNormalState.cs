@@ -1,11 +1,9 @@
 using UnityEngine;
-using Runtime.Enemy.EnemyState.Base;
 
-namespace Runtime.Enemy.EnemyState.States.Baby
+namespace ZRuntime
 {
-    using Damage;
 
-    public class BabyNormalState : Base.EnemyState
+    public class BabyNormalState : EnemyState
     {
         protected Enemy_Baby _enemy;
         private float _attackInterval;

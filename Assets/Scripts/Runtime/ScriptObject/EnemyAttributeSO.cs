@@ -1,7 +1,7 @@
 using UnityEngine;
-using Runtime.Damage;
 
-namespace Runtime.ScriptObject
+
+namespace ZRuntime
 {
     [CreateAssetMenu(menuName = "ScriptObj/Attributes/Enemy", fileName = "Enemy")]
     public class EnemyAttributeSO : AttributesBaseSO

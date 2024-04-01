@@ -2,11 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-namespace Runtime.UI.Panel
+namespace ZRuntime
 {
-    using Scene;
-    using Manager;
-    using UIFramework;
 
 
     public class PausePanel : BasePanel

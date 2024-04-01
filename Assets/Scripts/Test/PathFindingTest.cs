@@ -1,16 +1,12 @@
 using NaughtyAttributes;
-using Runtime.PathFinding.PathFinding;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
+using ZRuntime;
 using Object = UnityEngine.Object;
 
 namespace Test
 {
-    using Runtime.Helper;
-    using Runtime.Audio;
 
     public class PathFindingTest : MonoBehaviour
     {

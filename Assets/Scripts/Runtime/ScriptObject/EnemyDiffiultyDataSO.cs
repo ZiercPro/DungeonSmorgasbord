@@ -1,9 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Runtime.ScriptObject
+namespace ZRuntime
 {
-    using Helper;
 
     /// <summary>
     /// 怪物难度值

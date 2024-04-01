@@ -5,7 +5,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Object = UnityEngine.Object;
 
-namespace Runtime.Audio.Base
+namespace ZRuntime
 {
     /// <summary>
     /// 音频管理器

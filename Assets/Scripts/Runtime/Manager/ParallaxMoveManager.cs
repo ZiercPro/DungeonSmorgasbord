@@ -1,11 +1,9 @@
-using System;
+
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Runtime.Manager
+namespace ZRuntime
 {
-    using Basic;
-    using FeedBack;
 
     public class ParallaxMoveManager : SingletonIns<ParallaxMoveManager>
     {

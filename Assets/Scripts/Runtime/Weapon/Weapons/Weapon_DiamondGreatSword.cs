@@ -1,18 +1,11 @@
-using System;
+
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Runtime.Weapon.Weapons
+namespace ZRuntime
 {
-    using Base;
-    using Audio;
-    using Damage;
-    using Helper;
-    using Player;
-    using FeedBack;
-    using WeaponComponent;
 
-    public class Weapon_DiamondGreatSword : global::Runtime.Weapon.Base.Weapon
+    public class Weapon_DiamondGreatSword : Weapon
     {
         private CameraShakeFeedback _cameraShakeFeedback;
         private WeaponColliderCheck _colliderCheck;
@@ -56,7 +49,7 @@ namespace Runtime.Weapon.Weapons
             _isAttackBlocked = true;
             int attackID = Animator.StringToHash("attack");
             Animator.SetTrigger(attackID);
-            AudioPlayerManager.Instance.PlayAudiosRandomAsync(_waveAudios);
+            AudioPlayer.Instance.PlayAudiosRandomAsync(_waveAudios);
         }
 
         private void OnColliderCheckStart()

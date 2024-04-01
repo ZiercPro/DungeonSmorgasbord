@@ -1,10 +1,10 @@
-using System;
+
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Runtime.ScriptObject
+namespace ZRuntime
 {
-    using Helper;
+
 
     [CreateAssetMenu(menuName = "ScriptObj/BattleDifficulty", fileName = "BattleDifficulty")]
     public class BattleDifficultyDataSO : ScriptableObject

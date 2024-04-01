@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Runtime.Component.Enemy
+namespace ZRuntime
 {
     public class AttackCheck : MonoBehaviour
     {

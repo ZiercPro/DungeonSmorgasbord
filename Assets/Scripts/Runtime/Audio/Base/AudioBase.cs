@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace Runtime.Audio.Base
+namespace ZRuntime
 {
     /// <summary>
     /// 基础的音频类 储存音频的基本信息

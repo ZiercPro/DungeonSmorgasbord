@@ -1,4 +1,4 @@
-namespace Runtime.Helper
+namespace ZRuntime
 {
     /// <summary>
     /// 自定义文本的数据表

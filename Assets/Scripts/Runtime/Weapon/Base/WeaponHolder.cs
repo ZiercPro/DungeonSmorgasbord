@@ -1,9 +1,8 @@
 using System;
 using UnityEngine;
 
-namespace Runtime.Weapon.Base
+namespace ZRuntime
 {
-    using Component.Base;
 
     public class WeaponHolder : MonoBehaviour
     {

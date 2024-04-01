@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Deprecated.MenuSystem
+namespace Deprecated
 {
     [System.Obsolete]
     public abstract class Menu<T> : Menu where T : Menu<T>

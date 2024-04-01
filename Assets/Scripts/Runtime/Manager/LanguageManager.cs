@@ -3,9 +3,8 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 
-namespace Runtime.Manager
+namespace ZRuntime
 {
-    using ScriptObject;
 
     public class LanguageManager : MonoBehaviour
     {

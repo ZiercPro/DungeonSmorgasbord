@@ -1,11 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Runtime.UI.Panel
+namespace ZRuntime
 {
-    using Scene;
-    using Manager;
-using UIFramework;
+
     public class DeadPanel : BasePanel
     {
         public readonly static string path = "Prefabs/UI/Panel/DeadPanel";

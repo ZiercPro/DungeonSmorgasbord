@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Runtime.Enemy
+namespace ZRuntime
 {
     public class EnemySpawner_RedCircle : MonoBehaviour
     {

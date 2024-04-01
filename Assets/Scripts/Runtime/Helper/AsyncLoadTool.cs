@@ -3,11 +3,10 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Runtime.Manager;
+using ZRuntime.Manager;
 
-namespace Runtime.Helper
+namespace ZRuntime
 {
-    using Scene.Base;
 
     /// <summary>
     /// 异步加载工具

@@ -1,9 +1,10 @@
-﻿using Runtime.ScriptObject;
+﻿using ZRuntime;
+using UnityEditor;
 using UnityEngine.UIElements;
 
-namespace Editor.Inspector
+namespace ZEditor
 {
-    using UnityEditor;
+
 
     [CustomEditor(typeof(AudioListSo))]
     public class AudioListSoEditor : Editor

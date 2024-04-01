@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-namespace Runtime.Weapon.Weapons
+namespace ZRuntime
 {
     public class Weapon_WoodenBow : MonoBehaviour
     {

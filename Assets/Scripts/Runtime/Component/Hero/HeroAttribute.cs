@@ -1,11 +1,7 @@
 using UnityEngine;
 
-namespace Runtime.Component.Hero
+namespace ZRuntime
 {
-    using Base;
-    using Helper;
-    using Weapon.Base;
-    using ScriptObject;
 
     public class HeroAttribute : Attribute
     {

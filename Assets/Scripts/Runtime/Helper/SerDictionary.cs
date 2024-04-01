@@ -1,13 +1,14 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Runtime.Helper
+namespace ZRuntime
 {
     /// <summary>
     /// 可序列化字典
     /// 通过能够序列化的链表帮助字典序列化
     /// </summary>
-    [System.Serializable]
+    [Serializable, Obsolete]
     public class SerDictionary<Tkey, Tvalue> : Dictionary<Tkey, Tvalue>, ISerializationCallbackReceiver
     {
         [SerializeField] List<Tkey> _keyList;

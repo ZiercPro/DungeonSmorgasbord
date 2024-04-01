@@ -1,8 +1,7 @@
 using UnityEngine;
 
-namespace Runtime.Basic
+namespace ZRuntime
 {
-    
     /// <summary>
     /// 单例 场景转换时不会被销毁
     /// 无单例则直接实例化

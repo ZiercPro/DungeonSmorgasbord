@@ -1,4 +1,4 @@
-namespace Runtime.Enemy.EnemyState.Base
+namespace ZRuntime
 {
     /// <summary>
     /// 敌人状态基类

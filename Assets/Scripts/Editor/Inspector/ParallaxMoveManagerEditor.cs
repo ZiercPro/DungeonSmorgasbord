@@ -1,10 +1,9 @@
-﻿using UnityEngine.UIElements;
+﻿using ZRuntime;
+using UnityEditor;
+using UnityEngine.UIElements;
 
-namespace Editor.Inspector
+namespace ZEditor
 {
-    using UnityEditor;
-    using Runtime.Manager;
-
     [CustomEditor(typeof(ParallaxMoveManager))]
     public class ParallaxMoveManagerEditor : Editor
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Deprecated.Player
+namespace Deprecated
 {
     [System.Obsolete]
     public class DashGhostFeedback : MonoBehaviour

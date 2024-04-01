@@ -1,4 +1,4 @@
-namespace Runtime.Manager
+namespace ZRuntime.Manager
 {
     /// <summary>
     ///  数据管理器 提供了数据序列化和反序列化的方法

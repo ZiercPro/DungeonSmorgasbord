@@ -1,10 +1,9 @@
+using ZRuntime;
 using UnityEngine;
 
 
 namespace Test
 {
-    using Runtime.Player;
-    using Runtime.Component.Base;
 
     public class MoveTest : MonoBehaviour
     {

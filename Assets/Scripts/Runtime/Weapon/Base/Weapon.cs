@@ -1,11 +1,7 @@
 using UnityEngine;
 
-namespace Runtime.Weapon.Base
+namespace ZRuntime
 {
-    using Player;
-    using Helper;
-    using Damage;
-    using WeaponComponent;
 
     public class Weapon : MonoBehaviour
     {

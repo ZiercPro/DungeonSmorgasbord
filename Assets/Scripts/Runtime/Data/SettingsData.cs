@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Runtime.Data
+namespace ZRuntime
 {
     /// <summary>
     /// 储存设置信息

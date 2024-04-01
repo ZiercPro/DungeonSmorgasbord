@@ -3,14 +3,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace Runtime.Manager
+namespace ZRuntime
 {
-    using Data;
-    using Basic;
-    using Audio;
-    using Scene;
-    using Data.Base;
-    using Scene.Base;
 
     /// <summary>
     /// 游戏程序全局管理器
@@ -109,10 +103,10 @@ namespace Runtime.Manager
         /// </summary>
         private void GameInit()
         {
-            AudioPlayerManager.Instance.SetEnvironmentVolume(settingsData.EnvironmentVolume);
-            AudioPlayerManager.Instance.SetMasterVolume(settingsData.MasterVolume);
-            AudioPlayerManager.Instance.SetMusicVolume(settingsData.MusicVolume);
-            AudioPlayerManager.Instance.SetSFXVolume(settingsData.SFXVolume);
+            AudioPlayer.Instance.SetEnvironmentVolume(settingsData.EnvironmentVolume);
+            AudioPlayer.Instance.SetMasterVolume(settingsData.MasterVolume);
+            AudioPlayer.Instance.SetMusicVolume(settingsData.MusicVolume);
+            AudioPlayer.Instance.SetSFXVolume(settingsData.SFXVolume);
 
             _playerInputAction.UI.Enable();
 

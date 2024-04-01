@@ -1,4 +1,4 @@
-namespace Runtime.Weapon.Base
+namespace ZRuntime
 {
     public enum WeaponType
     {

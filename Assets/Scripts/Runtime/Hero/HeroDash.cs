@@ -1,9 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Runtime.Hero
+namespace ZRuntime
 {
-    using Component.Base;
     
     public class HeroDash : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using UnityEngine;
 
-namespace Runtime.Data.Base
+namespace ZRuntime
 {
     
 public class JsonDataService : IDataService

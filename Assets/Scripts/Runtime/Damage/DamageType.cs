@@ -1,4 +1,4 @@
-namespace Runtime.Damage
+namespace ZRuntime
 {
     /// <summary>
     /// 伤害类型枚举

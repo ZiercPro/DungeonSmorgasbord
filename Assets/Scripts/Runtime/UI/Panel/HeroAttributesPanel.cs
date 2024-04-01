@@ -1,15 +1,9 @@
-using System;
-using UnityEngine;
+
 using UnityEngine.Events;
 using UnityEngine.Localization.Components;
 
-namespace Runtime.UI.Panel
+namespace ZRuntime
 {
-    using Manager;
-    using UIFramework;
-    using Weapon.Base;
-    using Component.Base;
-    using Component.Hero;
 
     public class HeroAttributesPanel : BasePanel
     {

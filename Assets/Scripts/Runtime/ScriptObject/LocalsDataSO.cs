@@ -1,8 +1,7 @@
 using UnityEngine;
 
-namespace Runtime.ScriptObject
+namespace ZRuntime
 {
-    using Helper;
 
     /// <summary>
     /// 储存语言对应编号

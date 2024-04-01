@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace Runtime.UI
+namespace ZRuntime
 {
-    using UIFramework;
 
     /// <summary>
     /// 储存所有UI信息 并可以创建或销毁UI

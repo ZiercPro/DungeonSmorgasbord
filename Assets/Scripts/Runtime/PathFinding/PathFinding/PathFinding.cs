@@ -1,8 +1,8 @@
-using Runtime.PathFinding.Grid;
+
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Runtime.PathFinding.PathFinding
+namespace ZRuntime
 {
     public class PathFinding
     {

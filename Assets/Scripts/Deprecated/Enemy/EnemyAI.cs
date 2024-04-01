@@ -1,12 +1,9 @@
+using ZRuntime;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Deprecated.Enemy
+namespace Deprecated
 {
-    using Player;
-    using Runtime.Player;
-    using Runtime.Helper;
-    using Runtime.Component.Base;
 
     [System.Obsolete]
     public class EnemyAI : MyInput

@@ -1,11 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-namespace Runtime.UI
+namespace ZRuntime
 {
-    using Manager;
-    using UIFramework;
 
     /// <summary>
     /// 面板管理，用栈储存UI

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Runtime.Weapon.WeaponComponent
+namespace ZRuntime
 {
     public class WeaponColliderCheck : MonoBehaviour
     {

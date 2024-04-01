@@ -1,9 +1,7 @@
-namespace Runtime.Scene
+using UnityEngine.SceneManagement;
+
+namespace ZRuntime
 {
-    using UI;
-    using Base;
-    using UI.Panel;
-    using UnityEngine.SceneManagement;
 
     public class LoadScene : SceneState
     {

@@ -1,10 +1,7 @@
-using Runtime.Weapon.Base;
 using UnityEngine;
 
-namespace Runtime.Component.Hero
+namespace ZRuntime
 {
-    using Player;
-    using Weapon.Base;
 
     public class HeroWeaponHandler : MonoBehaviour
     {

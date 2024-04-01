@@ -1,13 +1,8 @@
 using UnityEngine;
-using Runtime.Audio;
-using Runtime.Manager;
-using Runtime.FeedBack;
-using Runtime.Enemy.EnemyState.States.Baby;
 
-namespace Runtime.Enemy
+
+namespace ZRuntime
 {
-    using Damage;
-    using Component.Enemy;
 
     public class Enemy_Baby : Enemy
     {
@@ -34,13 +29,13 @@ namespace Runtime.Enemy
             base.Start();
             stateMachine.Initialize(idleState);
             attackCheck.SetRadius(attribute.attackRange);
-            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.CoinCollected);
+            AudioPlayer.Instance.PlayAudioAsync(AudioName.CoinCollected);
         }
 
         public override void Dead(bool dropItem = true)
         {
             Instantiate(deadParticle, transform.position, Quaternion.identity);
-            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.EnemyDead3);
+            AudioPlayer.Instance.PlayAudioAsync(AudioName.EnemyDead3);
             if (dropItem)
                 _canDropItems.DropItems();
             Destroy(gameObject);

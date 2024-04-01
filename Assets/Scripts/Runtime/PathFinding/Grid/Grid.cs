@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Runtime.PathFinding.Grid
+namespace ZRuntime
 {
     public class Grid<TGridNode>
     {

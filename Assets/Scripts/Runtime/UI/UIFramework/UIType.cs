@@ -1,4 +1,4 @@
-namespace Runtime.UI.UIFramework
+namespace ZRuntime
 {
     /// <summary>
     ///储存单个UI的信息

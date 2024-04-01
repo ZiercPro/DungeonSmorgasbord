@@ -1,4 +1,4 @@
-namespace Runtime.Manager
+namespace ZRuntime
 {
     public static class DamageManager
     {

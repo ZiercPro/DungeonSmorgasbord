@@ -1,12 +1,7 @@
-namespace Runtime.Scene
-{
-    using UI;
-    using Base;
-    using Audio;
-    using Manager;
-    using UI.Panel;
-    using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
+namespace ZRuntime
+{
     public class GameScene : SceneState
     {
         private readonly string name = "Game";
@@ -25,13 +20,13 @@ namespace Runtime.Scene
                 panelManager.Push(new GamePanel());
                 BattleManager.Instance.OnBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
                 GameRoot.Instance.OnTab.AddListener(() => { panelManager.Push(new HeroAttributesPanel()); });
-                AudioPlayerManager.Instance.PlayAudioAsync(AudioName.IdleBgm);
+                AudioPlayer.Instance.PlayAudioAsync(AudioName.IdleBgm);
             }
         }
 
         public override void OnExit()
         {
-            AudioPlayerManager.Instance.StopAudioAsync(AudioName.IdleBgm);
+            AudioPlayer.Instance.StopAudioAsync(AudioName.IdleBgm);
             SceneManager.sceneLoaded -= OnSceneLoaded;
             BattleManager.Instance.OnBattleEnd.RemoveAllListeners();
             panelManager.PopAll();
@@ -42,7 +37,7 @@ namespace Runtime.Scene
             panelManager.Push(new GamePanel());
             BattleManager.Instance.OnBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
             GameRoot.Instance.OnTab.AddListener(() => { panelManager.Push(new HeroAttributesPanel()); });
-            AudioPlayerManager.Instance.PlayAudioAsync(AudioName.IdleBgm);
+            AudioPlayer.Instance.PlayAudioAsync(AudioName.IdleBgm);
         }
     }
 }

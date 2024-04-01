@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Runtime.Component.Base
+namespace ZRuntime
 {
     public class Health : MonoBehaviour
     {

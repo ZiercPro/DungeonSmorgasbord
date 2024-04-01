@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Runtime.DroppedItem
+namespace ZRuntime
 {
-    using Helper;
 
     public class DroppedItem : MonoBehaviour
     {

@@ -1,14 +1,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Runtime.Enemy.EnemyState.Base;
 
-namespace Runtime.Enemy
+namespace ZRuntime
 {
-    using Damage;
-    using Helper;
-    using Component.Base;
-    using Component.Enemy;
 
     public abstract class Enemy : MonoBehaviour, IDamageable
     {
