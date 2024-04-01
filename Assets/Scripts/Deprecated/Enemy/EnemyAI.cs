@@ -1,7 +1,7 @@
 using ZiercCode.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
-using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Helper;
 using ZiercCode.Runtime.Player;
 

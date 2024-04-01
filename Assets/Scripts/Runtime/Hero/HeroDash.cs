@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Component;
 
 namespace ZiercCode.Runtime.Hero
 {

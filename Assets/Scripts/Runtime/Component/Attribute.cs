@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Component.Base
+namespace ZiercCode.Runtime.Component
 {
     public class Attribute : MonoBehaviour
     {

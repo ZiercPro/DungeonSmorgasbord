@@ -1,42 +1,37 @@
 using UnityEngine;
-using ZiercCode.Runtime.Component.Base;
-using ZiercCode.Runtime.Player;
 
 namespace ZiercCode.Runtime.Component.Hero
 {
-
     /// <summary>
     /// 暂时使用
     /// </summary>
     public class HeroAnimationController : MonoBehaviour
     {
-        [SerializeField] private Health Health;
-        [SerializeField] private Animator Animator;
-        [SerializeField] private InputManager InputManager;
+        [SerializeField] private Animator animator;
 
         public void MoveAnimation(Vector2 moveDir)
         {
-            int runningID = UnityEngine.Animator.StringToHash("running");
+            int runningID = Animator.StringToHash("running");
             if (moveDir.sqrMagnitude > 0)
             {
-                Animator.SetBool(runningID, true);
+                animator.SetBool(runningID, true);
             }
             else
             {
-                Animator.SetBool(runningID, false);
+                animator.SetBool(runningID, false);
             }
         }
 
         public void HitAnimation()
         {
             int getHitID = Animator.StringToHash("getHit");
-            Animator.SetTrigger(getHitID);
+            animator.SetTrigger(getHitID);
         }
 
         public void DeadAnimation()
         {
             int isDeadID = Animator.StringToHash("isDead");
-            Animator.SetTrigger(isDeadID);
+            animator.SetTrigger(isDeadID);
         }
     }
 }

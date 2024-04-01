@@ -1,6 +1,6 @@
 using ZiercCode.Runtime;
 using UnityEngine;
-using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Player;
 
 
@@ -21,7 +21,7 @@ namespace Test
         private void Start()
         {
             _movement.Initialize(2f);
-            _inputManager.MovementInputPeforming += moveDir => { _movement.MovePerform(moveDir); };
+            _inputManager.MovementInputPerforming += moveDir => { _movement.MovePerform(moveDir); };
         }
     }
 }

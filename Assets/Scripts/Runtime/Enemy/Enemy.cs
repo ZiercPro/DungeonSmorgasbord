@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Component.Enemy;
 using ZiercCode.Runtime.Damage;
 using ZiercCode.Runtime.Enemy.EnemyState;

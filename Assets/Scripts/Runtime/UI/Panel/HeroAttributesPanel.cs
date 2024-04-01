@@ -1,6 +1,6 @@
 using UnityEngine.Events;
 using UnityEngine.Localization.Components;
-using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Component.Hero;
 using ZiercCode.Runtime.Manager;
 using ZiercCode.Runtime.UI.Framework;

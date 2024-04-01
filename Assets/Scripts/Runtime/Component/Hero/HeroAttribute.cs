@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Runtime.Component.Base;
 using ZiercCode.Runtime.Helper;
 using ZiercCode.Runtime.ScriptObject;
 using ZiercCode.Runtime.Weapon;

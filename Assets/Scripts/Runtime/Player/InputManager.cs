@@ -5,11 +5,13 @@ using ZiercCode.Runtime.Manager;
 
 namespace ZiercCode.Runtime.Player
 {
-
     public class InputManager : MonoBehaviour
     {
         private PlayerInputAction _playerInputAction;
-        private Camera _mianCamera;
+        private Camera _mainCamera;
+
+        private bool _isPlayerInputActive;
+        private bool _isUIInputActive;
 
         //鼠标左键
         public event Action MouseLeftClickStarted;
@@ -22,7 +24,7 @@ namespace ZiercCode.Runtime.Player
         public event Action MouseRightClickCanceled;
 
         //移动
-        public event Action<Vector2> MovementInputPeforming;
+        public event Action<Vector2> MovementInputPerforming;
 
         private bool _isMovementPerforming;
 
@@ -40,6 +42,11 @@ namespace ZiercCode.Runtime.Player
         public event Action InteractButtonPressStarted;
         public event Action InteractButtonPressPerformed;
         public event Action InteractButtonPressCanceled;
+
+        //ESC
+        public event Action EscButtonPressStarted;
+        public event Action EscButtonPressing;
+        public event Action EscButtonReleased;
 
         private void OnEnable()
         {
@@ -62,6 +69,9 @@ namespace ZiercCode.Runtime.Player
             _playerInputAction.PlayerInput.Movement.started += OnMovementInputStarted;
             _playerInputAction.PlayerInput.Movement.canceled += OnMovementInputCanceled;
 
+            _playerInputAction.UI.Back.performed += OnEscButtonPressing;
+            _playerInputAction.UI.Back.started += OnEscButtonPressStart;
+            _playerInputAction.UI.Back.canceled += OnEscButtonRelease;
             GameRoot.OnGamePaues += OnPause;
             GameRoot.OnGameResume += OnResume;
         }
@@ -87,6 +97,10 @@ namespace ZiercCode.Runtime.Player
             _playerInputAction.PlayerInput.Movement.started -= OnMovementInputStarted;
             _playerInputAction.PlayerInput.Movement.canceled -= OnMovementInputCanceled;
 
+            _playerInputAction.UI.Back.performed -= OnEscButtonPressing;
+            _playerInputAction.UI.Back.started -= OnEscButtonPressStart;
+            _playerInputAction.UI.Back.canceled -= OnEscButtonRelease;
+
             GameRoot.OnGamePaues -= OnPause;
             GameRoot.OnGameResume -= OnResume;
 
@@ -96,12 +110,11 @@ namespace ZiercCode.Runtime.Player
         private void Awake()
         {
             _playerInputAction = new PlayerInputAction();
-            _mianCamera = Camera.main;
+            _mainCamera = Camera.main;
         }
 
         private void Start()
         {
-            _playerInputAction.PlayerInput.Enable();
             _isMouseMoving = true;
             _isMovementPerforming = true;
         }
@@ -110,6 +123,26 @@ namespace ZiercCode.Runtime.Player
         {
             OnMovementInput();
             OnMousePositionChanging();
+        }
+
+        public void SetPlayerInput(bool isActive)
+        {
+            if (isActive)
+                _playerInputAction.PlayerInput.Enable();
+            else
+                _playerInputAction.PlayerInput.Disable();
+
+            _isPlayerInputActive = isActive;
+        }
+
+        public void SetUIInput(bool isActive)
+        {
+            if (isActive)
+                _playerInputAction.UI.Enable();
+            else
+                _playerInputAction.UI.Disable();
+
+            _isUIInputActive = isActive;
         }
 
         #region GameManage
@@ -189,19 +222,19 @@ namespace ZiercCode.Runtime.Player
 
         private void OnMovementInputStarted(InputAction.CallbackContext context)
         {
-            MovementInputPeforming?.Invoke(_playerInputAction.PlayerInput.Movement.ReadValue<Vector2>());
+            MovementInputPerforming?.Invoke(_playerInputAction.PlayerInput.Movement.ReadValue<Vector2>());
             _isMovementPerforming = true;
         }
 
         private void OnMovementInput()
         {
             if (!_isMovementPerforming) return;
-            MovementInputPeforming?.Invoke(_playerInputAction.PlayerInput.Movement.ReadValue<Vector2>());
+            MovementInputPerforming?.Invoke(_playerInputAction.PlayerInput.Movement.ReadValue<Vector2>());
         }
 
         private void OnMovementInputCanceled(InputAction.CallbackContext context)
         {
-            MovementInputPeforming?.Invoke(_playerInputAction.PlayerInput.Movement.ReadValue<Vector2>());
+            MovementInputPerforming?.Invoke(_playerInputAction.PlayerInput.Movement.ReadValue<Vector2>());
             _isMovementPerforming = false;
         }
 
@@ -213,7 +246,7 @@ namespace ZiercCode.Runtime.Player
         {
             if (!_isMouseMoving) return;
             Vector2 mousePos =
-                _mianCamera.ScreenToWorldPoint(_playerInputAction.PlayerInput.PointerPosition.ReadValue<Vector2>());
+                _mainCamera.ScreenToWorldPoint(_playerInputAction.PlayerInput.PointerPosition.ReadValue<Vector2>());
             MousePositionChanging?.Invoke(mousePos);
         }
 
@@ -234,6 +267,25 @@ namespace ZiercCode.Runtime.Player
         private void OnDashPressedCanceled(InputAction.CallbackContext context)
         {
             DashButtonPressedCanceled?.Invoke(_playerInputAction.PlayerInput.Movement.ReadValue<Vector2>());
+        }
+
+        #endregion
+
+        #region ESC
+
+        private void OnEscButtonPressStart(InputAction.CallbackContext context)
+        {
+            EscButtonPressStarted?.Invoke();
+        }
+
+        private void OnEscButtonPressing(InputAction.CallbackContext context)
+        {
+            EscButtonPressing?.Invoke();
+        }
+
+        private void OnEscButtonRelease(InputAction.CallbackContext context)
+        {
+            EscButtonReleased?.Invoke();
         }
 
         #endregion

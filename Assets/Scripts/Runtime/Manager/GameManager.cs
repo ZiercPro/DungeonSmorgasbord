@@ -1,6 +1,6 @@
 using UnityEngine;
 using ZiercCode.Runtime.Basic;
-using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Data;
 using ZiercCode.Runtime.Hero;
 using ZiercCode.Runtime.UI;

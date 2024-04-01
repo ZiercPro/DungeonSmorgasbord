@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
-using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Manager;
 using ZiercCode.Runtime.UI.Framework;
 

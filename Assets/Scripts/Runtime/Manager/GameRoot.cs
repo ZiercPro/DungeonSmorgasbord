@@ -14,7 +14,7 @@ namespace ZiercCode.Runtime.Manager
     /// </summary>
     public class GameRoot : UnitySingleton<GameRoot>
     {
-        public PlayerInputAction _playerInputAction { get; private set; }
+        public PlayerInputAction PlayerInputAction { get; private set; }
         public LanguageManager LanguageManager { get; private set; }
         public UnityEvent OnEsc { get; private set; }
         public UnityEvent OnTab { get; private set; }
@@ -30,17 +30,17 @@ namespace ZiercCode.Runtime.Manager
 
         private void OnEnable()
         {
-            _playerInputAction.UI.Back.performed += OnEscPressed;
-            _playerInputAction.PlayerInput.View.performed += OnTabPressed;
+            PlayerInputAction.UI.Back.performed += OnEscPressed;
+            PlayerInputAction.PlayerInput.View.performed += OnTabPressed;
         }
 
         private void OnDisable()
         {
             //如果gameroot不是单例时，不会被分配 _playerinputaction，此时直接调用会报错
-            if (_playerInputAction != null)
+            if (PlayerInputAction != null)
             {
-                _playerInputAction.UI.Back.performed -= OnEscPressed;
-                _playerInputAction.PlayerInput.View.performed -= OnTabPressed;
+                PlayerInputAction.UI.Back.performed -= OnEscPressed;
+                PlayerInputAction.PlayerInput.View.performed -= OnTabPressed;
             }
         }
 
@@ -51,11 +51,10 @@ namespace ZiercCode.Runtime.Manager
             OnTab = new UnityEvent();
             SceneSystem = new SceneSystem();
             _jsonService = new JsonDataService();
-            _playerInputAction = new PlayerInputAction();
+            PlayerInputAction = new PlayerInputAction();
             LanguageManager = GetComponentInChildren<LanguageManager>();
         }
-
-
+        
         private void Start()
         {
             LoadSettings();
@@ -109,7 +108,7 @@ namespace ZiercCode.Runtime.Manager
             AudioPlayer.Instance.SetMusicVolume(SettingsData.MusicVolume);
             AudioPlayer.Instance.SetSFXVolume(SettingsData.SFXVolume);
 
-            _playerInputAction.UI.Enable();
+            PlayerInputAction.UI.Enable();
 
             LanguageManager.SetLanguage(SettingsData.Language);
             AudioPlayer.Instance.PlayAudioAsync(AudioName.MenuBgm);

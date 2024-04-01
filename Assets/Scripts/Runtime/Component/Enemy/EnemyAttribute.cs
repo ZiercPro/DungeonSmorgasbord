@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using ZiercCode.Runtime.Component.Base;
 using ZiercCode.Runtime.Damage;
 using ZiercCode.Runtime.ScriptObject;
 

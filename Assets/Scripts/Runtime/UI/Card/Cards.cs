@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Component.Hero;
 using ZiercCode.Runtime.Weapon;
 

@@ -5,15 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd36c1ef-bee6-41a4-b2ce-922eadf5c2c5" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scenes/MainMenu.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Scenes/MainMenu.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Player/PlayerShortcutKetHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Player/PlayerShortcutKetHandler.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.changes" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.changes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.wktree" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.wktree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scenes/Start.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Scenes/Start.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObj/AudioList.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObj/AudioList.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/AudioPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Audio/AudioPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/BattleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/BattleManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Scene/GameScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Scene/GameScene.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scenes/Start.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Scenes/Start.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Deprecated/Enemy/EnemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Deprecated/Enemy/EnemyAI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Base.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Base/Attribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Attribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Base/Attribute.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Attribute.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Base/FlipController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/FlipController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Base/FlipController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/FlipController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Base/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Health.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Base/Health.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Health.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Base/Movement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Movement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Base/Movement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Movement.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Enemy/EnemyAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Enemy/EnemyAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Hero/HeroAnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Hero/HeroAnimationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Hero/HeroAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Component/Hero/HeroAttribute.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Enemy/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/FeedBack/KnockBackFeedBack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/FeedBack/KnockBackFeedBack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Hero/Hero.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Hero/Hero.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Hero/HeroDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Hero/HeroDash.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/GameRoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/GameRoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Player/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Player/InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Card/Cards.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Card/Cards.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Panel/GamePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Panel/GamePanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Panel/HeroAttributesPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Panel/HeroAttributesPanel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Weapon/WeaponHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Weapon/WeaponHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test/HealthTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Test/HealthTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test/MoveTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Test/MoveTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Scenes/URP2DSceneTemplate.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Scenes/URP2DSceneTemplate.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,8 +111,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/DroppedItem/MagneticEffect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/PathFinding/Grid/GridBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/PathFinding/PathFinding.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Player/PlayerShotcutKetHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/AudioListSo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/CustomTextDataSO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/ScriptObject/CustomTextDataSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Weapon/WeaponAnimationEventHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Weapon/WeaponColliderCheck.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Weapon/Weapon_BigHammer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -270,7 +299,7 @@
       <workItem from="1711934946523" duration="4781000" />
       <workItem from="1711939927781" duration="4028000" />
       <workItem from="1711944119379" duration="442000" />
-      <workItem from="1711967777366" duration="865000" />
+      <workItem from="1711967777366" duration="2582000" />
     </task>
     <servers />
   </component>

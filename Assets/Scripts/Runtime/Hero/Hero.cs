@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Component.Hero;
 using ZiercCode.Runtime.Damage;
 using ZiercCode.Runtime.FeedBack;
@@ -10,7 +10,6 @@ using ZiercCode.Runtime.Weapon;
 
 namespace ZiercCode.Runtime.Hero
 {
-
     public class Hero : MonoBehaviour, IDamageable
     {
         private HeroAnimationController _heroAnimationController;
@@ -29,7 +28,7 @@ namespace ZiercCode.Runtime.Hero
 
         public CoinPack CoinPack { get; private set; }
 
-        protected virtual void Awake()
+        private void Awake()
         {
             CoinPack = new CoinPack();
             _health = GetComponentInChildren<Health>();
@@ -47,7 +46,7 @@ namespace ZiercCode.Runtime.Hero
             _heroAnimationController = GetComponentInChildren<HeroAnimationController>();
         }
 
-        protected virtual void Start()
+        private void Start()
         {
             //让gamepanel显示金币数量
             CoinPack.GetCoins(0);
@@ -58,13 +57,14 @@ namespace ZiercCode.Runtime.Hero
             _movement.Initialize(_attribute.moveSpeed);
             _weaponHolder.Initialize(_spriteRenderer, _flipController);
 
+            _inputManager.SetPlayerInput(true);
             _inputManager.DashButtonPressedPerformed += _heroDash.StartDash;
             _inputManager.InteractButtonPressPerformed += _interactHandler.OnInteractive;
-            _inputManager.MovementInputPeforming += moveDir => { _movement.MovePerform(moveDir); };
+            _inputManager.MovementInputPerforming += moveDir => { _movement.MovePerform(moveDir); };
             _inputManager.MousePositionChanging += viewPos => { _flipController.FaceTo(viewPos); };
             _inputManager.MousePositionChanging += viewPos => { _weaponHolder.WeaponRotateTo(viewPos); };
             //动画
-            _inputManager.MovementInputPeforming += moveDir => { _heroAnimationController.MoveAnimation(moveDir); };
+            _inputManager.MovementInputPerforming += moveDir => { _heroAnimationController.MoveAnimation(moveDir); };
             OnTakeDamage += damageInfo => { _heroAnimationController.HitAnimation(); };
             _health.Dead += _heroAnimationController.DeadAnimation;
             _health.Dead += Dead;
@@ -97,7 +97,7 @@ namespace ZiercCode.Runtime.Hero
         public void Dead()
         {
             _knockBackFeedBack.enabled = false;
-            _inputManager.enabled = false;
+            _inputManager.SetPlayerInput(false);
             _movement.StopMovePerform();
             // enabled = false;
         }
