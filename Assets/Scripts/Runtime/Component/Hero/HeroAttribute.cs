@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode.Runtime.Component.Base;
 using ZiercCode.Runtime.Helper;
@@ -6,12 +7,11 @@ using ZiercCode.Runtime.Weapon;
 
 namespace ZiercCode.Runtime.Component.Hero
 {
-
     public class HeroAttribute : Attribute
     {
-        [SerializeField] private HeroAttributeSO attributeData;
+        [SerializeField] private HeroAttributeSo attributeData;
 
-        public SerDictionary<WeaponType, float> weaponDamageRate;
+        public Dictionary<WeaponType, float> WeaponDamageRate;
         public float criticalChance;
 
         private void Awake()
@@ -20,7 +20,7 @@ namespace ZiercCode.Runtime.Component.Hero
             moveSpeed = attributeData.moveSpeed;
             maxHealth = attributeData.maxHealth;
             criticalChance = attributeData.criticalChance;
-            weaponDamageRate = attributeData.weaponDamageRate;
+            WeaponDamageRate = attributeData.WeaponDamageRate.ToDictionary();
         }
     }
 }

@@ -1,16 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace ZiercCode.Runtime.Helper
 {
     [Serializable]
     public class EditableDictionary<TKey, TObject>
     {
-        [SerializeField] private List<EditableDictionaryItem<TKey, TObject>> dicList =
-            new();
+        [SerializeField] private List<EditableDictionaryItem<TKey, TObject>> dicList;
 
         public int Count => dicList?.Count ?? 0;
+
+        public EditableDictionary()
+        {
+            dicList = new();
+        }
 
         public Dictionary<TKey, TObject> ToDictionary()
         {

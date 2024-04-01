@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode.Runtime.Damage;
 using ZiercCode.Runtime.FeedBack;
@@ -27,7 +28,7 @@ namespace ZiercCode.Runtime.Weapon
         }
 
 
-        public override void Initialize(SerDictionary<WeaponType, float> weaponDamageRate, float criticalChance,
+        public override void Initialize(Dictionary<WeaponType, float> weaponDamageRate, float criticalChance,
             InputManager inputManager)
         {
             base.Initialize(weaponDamageRate, criticalChance, inputManager);

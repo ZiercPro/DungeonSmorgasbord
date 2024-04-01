@@ -1,25 +1,25 @@
-using System.Collections;
+using System;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using ZiercCode.Runtime.ScriptObject;
 
 namespace ZiercCode.Runtime.Manager
 {
-
     public class LanguageManager : MonoBehaviour
     {
         //语言id数据
-        [SerializeField] private LocalsDataSO _localsID;
+        [SerializeField] private LocalsDataSo localsID;
+        private Dictionary<string, int> _localesIdDictionary;
 
         //卡片文本数据
-        [SerializeField] private CustomTextDataSO cardTextDataSo;
-
+        [SerializeField] private CustomTextDataSo cardTextDataSo;
 
         private void Awake()
         {
-            Debug.Log(_localsID.localsIDTable.Count);
-            Debug.Log(_localsID.LanguageIndexData);
+            _localesIdDictionary = localsID.LocalsIDTable.ToDictionary();
         }
 
         public void SetLanguage(int language)
@@ -29,13 +29,13 @@ namespace ZiercCode.Runtime.Manager
 
         public void SetLanguage(string language)
         {
-            int id = _localsID.localsIDTable[language];
+            int id = _localesIdDictionary[language];
             StartCoroutine(SetLocal(id));
         }
 
-        public LocalsDataSO GetLocalID()
+        public LocalsDataSo GetLocalID()
         {
-            return _localsID;
+            return localsID;
         }
 
         public string GetCardText(int itemId)
@@ -45,10 +45,10 @@ namespace ZiercCode.Runtime.Manager
             {
                 case 0:
                     //中文
-                    return cardTextDataSo.customTextTable[itemId].Chinese;
+                    return cardTextDataSo.CustomTextTable[itemId].Chinese;
                 case 1:
                     //English
-                    return cardTextDataSo.customTextTable[itemId].English;
+                    return cardTextDataSo.CustomTextTable[itemId].English;
                 default:
                     Debug.LogError("id不存在");
                     break;

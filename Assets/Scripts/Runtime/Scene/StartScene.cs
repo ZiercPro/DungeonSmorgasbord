@@ -10,31 +10,29 @@ namespace ZiercCode.Runtime.Scene
     /// </summary>
     public class StartScene : SceneState
     {
-        private readonly string name = "Start";
-        private PanelManager panelManager;
+        private readonly string _sceneName = "Start";
+        private PanelManager _panelManager;
 
         public override void OnEnter()
         {
-            panelManager = new PanelManager();
+            _panelManager = new PanelManager();
 
-            if (SceneManager.GetActiveScene().name != name)
+            if (SceneManager.GetActiveScene().name != _sceneName)
             {
                 SceneManager.sceneLoaded += OnSceneLoaded;
-                SceneManager.LoadScene(name);
+                SceneManager.LoadScene(_sceneName);
             }
             else
             {
                 //执行第一次进入该场景后应该做的事情
-                panelManager.Push(new StartPanel());
-                AudioPlayer.Instance.PlayAudioAsync(AudioName.MenuBgm);
+                _panelManager.Push(new StartPanel());
             }
         }
 
         public override void OnExit()
         {
-            AudioPlayer.Instance.StopAudioAsync(AudioName.MenuBgm);
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            panelManager.PopAll();
+            _panelManager.PopAll();
         }
 
         /// <summary>
@@ -44,8 +42,7 @@ namespace ZiercCode.Runtime.Scene
         /// <param name="mode">场景加载模式</param>
         private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
         {
-            panelManager.Push(new StartPanel());
-            AudioPlayer.Instance.PlayAudioAsync(AudioName.MenuBgm);
+            _panelManager.Push(new StartPanel());
         }
     }
 }

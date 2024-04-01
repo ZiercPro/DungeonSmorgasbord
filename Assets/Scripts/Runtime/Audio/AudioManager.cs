@@ -30,31 +30,23 @@ namespace ZiercCode.Runtime.Audio
         /// <returns></returns>
         public async Task<AudioSource> GetAudioSourceAsync(AudioBase audioBase)
         {
-            AudioClip newClip;
-            var tcs = new TaskCompletionSource<AudioSource>();
+            AudioClip newClip = null;
             if (_audioSourceDictionary.TryGetValue(audioBase.AudioType, out AudioSource value))
-            {
-                tcs.SetResult(value);
-                return await tcs.Task;
-            }
+                return value;
 
             AsyncOperationHandle<AudioClip> asyncOperationHandle =
-                Addressables.LoadAssetAsync<AudioClip>($"{audioBase.AudioType.Path}");
+                Addressables.LoadAssetAsync<AudioClip>(audioBase.AudioType.Path);
             asyncOperationHandle.Completed += handle =>
             {
                 if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
-                {
                     newClip = Object.Instantiate(handle.Result);
-                    tcs.SetResult(CreateNewAudioSource(audioBase, newClip, FindAudiosParent()));
-                }
-
-                if (asyncOperationHandle.Status == AsyncOperationStatus.Failed)
-                {
+                else
                     Debug.LogError("加载失败!");
-                }
             };
 
-            return await tcs.Task;
+            await asyncOperationHandle.Task;
+
+            return CreateNewAudioSource(audioBase, newClip, FindAudiosParent());
         }
 
         // /// <summary>
@@ -130,7 +122,7 @@ namespace ZiercCode.Runtime.Audio
             newComponent.volume = audioBase.volume;
             newComponent.outputAudioMixerGroup = audioBase.outputGroup;
 
-            _audioSourceDictionary.Add(audioBase.AudioType, newComponent);
+            _audioSourceDictionary.TryAdd(audioBase.AudioType, newComponent);
             return newComponent;
         }
     }

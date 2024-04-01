@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode.Runtime.Damage;
 using ZiercCode.Runtime.Helper;
@@ -17,7 +18,7 @@ namespace ZiercCode.Runtime.Weapon
 
         protected Animator Animator;
         protected InputManager InputManager;
-        protected SerDictionary<WeaponType, float> WeaponDamageRate;
+        protected Dictionary<WeaponType, float> WeaponDamageRate;
         protected WeaponAnimationEventHandler AnimationEventHandler;
 
         protected virtual void Awake()
@@ -36,7 +37,7 @@ namespace ZiercCode.Runtime.Weapon
             }
         }
 
-        public virtual void Initialize(SerDictionary<WeaponType, float> weaponDamageRate, float criticalChance,
+        public virtual void Initialize(Dictionary<WeaponType, float> weaponDamageRate, float criticalChance,
             InputManager inputManager)
         {
             WeaponDamageRate = weaponDamageRate;

@@ -3,12 +3,10 @@ using UnityEngine;
 using ZiercCode.Runtime.Audio;
 using ZiercCode.Runtime.Damage;
 using ZiercCode.Runtime.FeedBack;
-using ZiercCode.Runtime.Helper;
 using ZiercCode.Runtime.Player;
 
 namespace ZiercCode.Runtime.Weapon
 {
-
     public class Weapon_DiamondGreatSword : Weapon
     {
         private CameraShakeFeedback _cameraShakeFeedback;
@@ -34,7 +32,7 @@ namespace ZiercCode.Runtime.Weapon
             _waveAudios.Add(AudioName.WeaponWave5);
         }
 
-        public override void Initialize(SerDictionary<WeaponType, float> weaponDamageRate, float criticalChance,
+        public override void Initialize(Dictionary<WeaponType, float> weaponDamageRate, float criticalChance,
             InputManager inputManager)
         {
             base.Initialize(weaponDamageRate, criticalChance, inputManager);

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Audio;
 using ZiercCode.Runtime.Basic;
@@ -7,8 +9,6 @@ using ZiercCode.Runtime.ScriptObject;
 
 namespace ZiercCode.Runtime.Audio
 {
-
-
     /// <summary>
     /// 音效播放管理器 控制音频的播放、暂停和音量
     /// </summary>
@@ -20,6 +20,8 @@ namespace ZiercCode.Runtime.Audio
         [SerializeField] private AudioMixerGroup sfx;
         [SerializeField] private AudioMixerGroup environment;
 
+        private Dictionary<AudioName, AudioBase> _audioDic;
+
         private AudioManager _audioManager;
         private AudioBase _currentMusic;
         private bool _isMusicPlaying;
@@ -27,6 +29,7 @@ namespace ZiercCode.Runtime.Audio
         protected override void Awake()
         {
             base.Awake();
+            _audioDic = audioList.AudioEditableDictionary.ToDictionary();
             _audioManager = new AudioManager();
         }
 
@@ -36,8 +39,9 @@ namespace ZiercCode.Runtime.Audio
         /// <param name="audioName">音频名称</param>
         public async void PlayAudioAsync(AudioName audioName)
         {
-            AudioBase audioBase = audioList.Audios[audioName];
+            AudioBase audioBase = _audioDic[audioName];
             AudioSource player = await _audioManager.GetAudioSourceAsync(audioBase);
+
             if (player)
             {
                 if (audioBase.outputGroup == sfx)
@@ -75,7 +79,7 @@ namespace ZiercCode.Runtime.Audio
         /// <param name="audioName">音频名称</param>
         public async void StopAudioAsync(AudioName audioName)
         {
-            AudioBase audioBase = audioList.Audios[audioName];
+            AudioBase audioBase = _audioDic[audioName];
             AudioSource player = await _audioManager.GetAudioSourceAsync(audioBase);
             if (player)
             {

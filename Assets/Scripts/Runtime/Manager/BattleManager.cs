@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using ZiercCode.Runtime.Audio;
 using ZiercCode.Runtime.Basic;
 using ZiercCode.Runtime.Enemy;
@@ -20,8 +21,8 @@ namespace ZiercCode.Runtime.Manager
         [SerializeField] private GameObject enemySpawnerTemp;
         [SerializeField] private List<GameObject> enemyTemps;
         [SerializeField] private Transform battlePlatform;
-        [SerializeField] private BattleDifficultyDataSO difficultyDataSO;
-        [SerializeField] private EnemyDiffiultyDataSO enemyDiffiultyDataS0;
+        [SerializeField] private BattleDifficultyDataSo difficultyDataSO;
+        [SerializeField] private EnemyDifficultyDataSo enemyDifficultyDataS0;
 
         private float _spawnInterval;
         private Vector2 _range;
@@ -99,7 +100,7 @@ namespace ZiercCode.Runtime.Manager
         //获取当前波的总难度值
         private void GetCurrentDifficulty(int curLevel)
         {
-            _currentDifficulty = difficultyDataSO.difOfLevel[curLevel];
+            _currentDifficulty = difficultyDataSO.DifficultyPerLevel[curLevel];
         }
 
         #region Enemy
@@ -115,7 +116,7 @@ namespace ZiercCode.Runtime.Manager
             {
                 for (int i = 0; i < _enemyNumHash.Length; i++)
                 {
-                    int temp = enemyDiffiultyDataS0.enemyDiffiultyDic[enemyTemps[i].name];
+                    int temp = enemyDifficultyDataS0.EnemyDifficultyDictionary[enemyTemps[i].name];
                     dif -= temp;
                     _enemyNumHash[i]++;
                 }

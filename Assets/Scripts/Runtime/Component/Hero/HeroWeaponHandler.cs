@@ -4,7 +4,6 @@ using ZiercCode.Runtime.Weapon;
 
 namespace ZiercCode.Runtime.Component.Hero
 {
-
     public class HeroWeaponHandler : MonoBehaviour
     {
         [SerializeField] private GameObject defaultWeapon;
@@ -36,7 +35,7 @@ namespace ZiercCode.Runtime.Component.Hero
                 lastWeapon.GetComponent<Weapon.Weapon>().Disable();
             SpriteRenderer weaponRenderer = weaponIns.GetComponentInChildren<SpriteRenderer>();
             Weapon.Weapon weapon = weaponIns.GetComponentInChildren<Weapon.Weapon>();
-            weapon.Initialize(_attribute.weaponDamageRate, _attribute.criticalChance, _inputManager);
+            weapon.Initialize(_attribute.WeaponDamageRate, _attribute.criticalChance, _inputManager);
             _weaponHolder.ChangeWeapon(weaponRenderer, weaponIns.transform);
             return lastWeapon;
         }

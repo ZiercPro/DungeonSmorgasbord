@@ -4,7 +4,7 @@ using ZiercCode.Runtime.Damage;
 namespace ZiercCode.Runtime.ScriptObject
 {
     [CreateAssetMenu(menuName = "ScriptObj/Attributes/Enemy", fileName = "Enemy")]
-    public class EnemyAttributeSO : AttributesBaseSO
+    public class EnemyAttributeSo : AttributesBaseSo
     {
         public int difficulty;
         public int damageAmount;

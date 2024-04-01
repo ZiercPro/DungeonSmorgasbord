@@ -57,16 +57,16 @@ namespace ZiercCode.Runtime.UI.Panel
             //读取默认值
             Toggle[] languageTgls = UITool.GetComponentInChildrenUI<Transform>("LanguageSettings")
                 .GetComponentsInChildren<Toggle>();
-            languageTgls[GameRoot.Instance.settingsData.Language].isOn = true;
+            languageTgls[GameRoot.Instance.SettingsData.Language].isOn = true;
             UITool.GetComponentInChildrenUI<RectTransform>("VolumeSettings").gameObject.SetActive(true);
             UITool.GetComponentInChildrenUI<RectTransform>("OtherSettings").gameObject.SetActive(false);
             UITool.GetComponentInChildrenUI<RectTransform>("LanguageSettings").gameObject.SetActive(false);
-            UITool.GetComponentInChildrenUI<Slider>("MasterSlider").value = GameRoot.Instance.settingsData.MasterVolume;
-            UITool.GetComponentInChildrenUI<Slider>("MusicSlider").value = GameRoot.Instance.settingsData.MusicVolume;
-            UITool.GetComponentInChildrenUI<Slider>("SFXSlider").value = GameRoot.Instance.settingsData.SFXVolume;
+            UITool.GetComponentInChildrenUI<Slider>("MasterSlider").value = GameRoot.Instance.SettingsData.MasterVolume;
+            UITool.GetComponentInChildrenUI<Slider>("MusicSlider").value = GameRoot.Instance.SettingsData.MusicVolume;
+            UITool.GetComponentInChildrenUI<Slider>("SFXSlider").value = GameRoot.Instance.SettingsData.SFXVolume;
             UITool.GetComponentInChildrenUI<Slider>("EnvironmentSlider").value =
-                GameRoot.Instance.settingsData.EnvironmentVolume;
-            UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn = GameRoot.Instance.settingsData.FPSOn;
+                GameRoot.Instance.SettingsData.EnvironmentVolume;
+            UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn = GameRoot.Instance.SettingsData.FPSOn;
             UITool.GetComponentInChildrenUI<Toggle>("VolumeToggle").isOn = true;
         }
 
@@ -82,13 +82,13 @@ namespace ZiercCode.Runtime.UI.Panel
             UITool.GetComponentInChildrenUI<Toggle>("OtherToggle").onValueChanged.RemoveAllListeners();
             UITool.GetComponentInChildrenUI<Toggle>("LanguageToggle").onValueChanged.RemoveAllListeners();
             //同步设置值
-            GameRoot.Instance.settingsData.EnvironmentVolume =
+            GameRoot.Instance.SettingsData.EnvironmentVolume =
                 UITool.GetComponentInChildrenUI<Slider>("EnvironmentSlider").value;
-            GameRoot.Instance.settingsData.MasterVolume = UITool.GetComponentInChildrenUI<Slider>("MasterSlider").value;
-            GameRoot.Instance.settingsData.MusicVolume = UITool.GetComponentInChildrenUI<Slider>("MusicSlider").value;
-            GameRoot.Instance.settingsData.SFXVolume = UITool.GetComponentInChildrenUI<Slider>("SFXSlider").value;
-            GameRoot.Instance.settingsData.FPSOn = UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn;
-            GameRoot.Instance.settingsData.Language = LanguageManager.GetSelectedLocalID();
+            GameRoot.Instance.SettingsData.MasterVolume = UITool.GetComponentInChildrenUI<Slider>("MasterSlider").value;
+            GameRoot.Instance.SettingsData.MusicVolume = UITool.GetComponentInChildrenUI<Slider>("MusicSlider").value;
+            GameRoot.Instance.SettingsData.SFXVolume = UITool.GetComponentInChildrenUI<Slider>("SFXSlider").value;
+            GameRoot.Instance.SettingsData.FPSOn = UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn;
+            GameRoot.Instance.SettingsData.Language = LanguageManager.GetSelectedLocalID();
             //动画部分
             CanvasGroup cGroup = UITool.GetOrAddComponent<CanvasGroup>();
             cGroup.interactable = false;

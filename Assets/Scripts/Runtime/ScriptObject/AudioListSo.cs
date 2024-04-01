@@ -1,52 +1,48 @@
-using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 using ZiercCode.Runtime.Audio;
 using ZiercCode.Runtime.Helper;
 using AudioType = ZiercCode.Runtime.Audio.AudioType;
+using Object = UnityEngine.Object;
 
 namespace ZiercCode.Runtime.ScriptObject
 {
-
     [CreateAssetMenu(menuName = "ScriptObj/AudioList", fileName = "AudioList")]
     public class AudioListSo : ScriptableObject
     {
-        [field: SerializeField] private EditableDictionary<AudioName, AudioBase> audioDic;
-        [SerializeField] private AudioClip toCreateAudioBase;
-        public Dictionary<AudioName, AudioBase> Audios
+        [field: SerializeField]
+        public EditableDictionary<AudioName, AudioBase> AudioEditableDictionary
         {
-            get
-            {
-                if (Audios == null)
-                    Audios = audioDic.ToDictionary();
-                return Audios;
-            }
-            private set => Audios = value;
+            get;
+            private set;
         }
+
+        [SerializeField] private AudioClip toCreateAudioBase;
 #if UNITY_EDITOR
 
         public void Delete()
         {
-            if (audioDic is { Count: > 0 })
+            if (AudioEditableDictionary is { Count: > 0 })
             {
-                int last = audioDic.Count - 1;
-                audioDic.RemoveAt(last);
+                int last = AudioEditableDictionary.Count - 1;
+                AudioEditableDictionary.RemoveAt(last);
             }
         }
 
         public void Clear()
         {
-            audioDic?.Clear();
+            AudioEditableDictionary?.Clear();
         }
 
         public void AutoConfig()
         {
             if (!toCreateAudioBase) return;
-            if (audioDic == null) audioDic = new();
+            if (AudioEditableDictionary == null) AudioEditableDictionary = new();
             AudioBase newAudioBase =
                 new AudioBase(new AudioType(GetPrefabPath(toCreateAudioBase)), 1, false, false,
                     AudioPlayer.Instance.Music);
-            audioDic.Add(AudioName.None, newAudioBase, newAudioBase.AudioType.Name);
+            AudioEditableDictionary.Add(AudioName.None, newAudioBase, newAudioBase.AudioType.Name);
         }
 
         public void ReSetConfig()
@@ -55,7 +51,7 @@ namespace ZiercCode.Runtime.ScriptObject
             toCreateAudioBase = null;
         }
 
-        public string GetPrefabPath(Object prefab)
+        private string GetPrefabPath(Object prefab)
         {
             if (prefab == null)
             {
@@ -65,12 +61,6 @@ namespace ZiercCode.Runtime.ScriptObject
 
             string prefabPath = AssetDatabase.GetAssetPath(prefab);
             return prefabPath;
-        }
-
-        public struct AudioConfig
-        {
-            public string Name;
-            public EditableDictionaryItem<AudioType, AudioSource> AudioItem;
         }
 #endif
     }

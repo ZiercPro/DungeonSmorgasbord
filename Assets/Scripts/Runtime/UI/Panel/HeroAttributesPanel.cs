@@ -38,28 +38,28 @@ namespace ZiercCode.Runtime.UI.Panel
             meleeDamage.StringReference.Arguments = new object[]
             {
                 GameManager.playerTans.GetComponentInChildren<HeroAttribute>()
-                    .weaponDamageRate[WeaponType.Melee]
+                    .WeaponDamageRate[WeaponType.Melee]
             };
             meleeDamage.StringReference.RefreshString();
             LocalizeStringEvent remotelyDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("RemotelyDamage");
             remotelyDamage.StringReference.Arguments = new object[]
             {
                 GameManager.playerTans.GetComponentInChildren<HeroAttribute>()
-                    .weaponDamageRate[WeaponType.Remotely]
+                    .WeaponDamageRate[WeaponType.Remotely]
             };
             remotelyDamage.StringReference.RefreshString();
             LocalizeStringEvent magicDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("MagicDamage");
             magicDamage.StringReference.Arguments = new object[]
             {
                 GameManager.playerTans.GetComponentInChildren<HeroAttribute>()
-                    .weaponDamageRate[WeaponType.Magic]
+                    .WeaponDamageRate[WeaponType.Magic]
             };
             magicDamage.StringReference.RefreshString();
             LocalizeStringEvent specialDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("SpecialDamage");
             specialDamage.StringReference.Arguments = new object[]
             {
                 GameManager.playerTans.GetComponentInChildren<HeroAttribute>()
-                    .weaponDamageRate[WeaponType.Special]
+                    .WeaponDamageRate[WeaponType.Special]
             };
             specialDamage.StringReference.RefreshString();
             // LocalizeStringEvent meleeRange = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("AttackRange");

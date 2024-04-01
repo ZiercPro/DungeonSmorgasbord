@@ -9,7 +9,6 @@ using ZiercCode.Runtime.Scene;
 
 namespace ZiercCode.Runtime.Manager
 {
-
     /// <summary>
     /// 游戏程序全局管理器
     /// </summary>
@@ -17,14 +16,13 @@ namespace ZiercCode.Runtime.Manager
     {
         public PlayerInputAction _playerInputAction { get; private set; }
         public LanguageManager LanguageManager { get; private set; }
-        public AudioName AudioName { get; private set; }
         public UnityEvent OnEsc { get; private set; }
         public UnityEvent OnTab { get; private set; }
         public SceneSystem SceneSystem { get; private set; }
 
-        public SettingsData settingsData;
+        public SettingsData SettingsData;
 
-        private IDataService jsonService;
+        private IDataService _jsonService;
 
         //添加static是为了在游戏结束时不去生成新的gameroot对象
         public static event Action OnGamePaues;
@@ -51,11 +49,10 @@ namespace ZiercCode.Runtime.Manager
             base.Awake();
             OnEsc = new UnityEvent();
             OnTab = new UnityEvent();
-            AudioName = new AudioName();
             SceneSystem = new SceneSystem();
-            jsonService = new JsonDataService();
+            _jsonService = new JsonDataService();
             _playerInputAction = new PlayerInputAction();
-            LanguageManager = GetComponent<LanguageManager>();
+            LanguageManager = GetComponentInChildren<LanguageManager>();
         }
 
 
@@ -80,7 +77,7 @@ namespace ZiercCode.Runtime.Manager
             SettingsData loadedData = null;
             try
             {
-                loadedData = jsonService.LoadData<SettingsData>("/settings.json", false);
+                loadedData = _jsonService.LoadData<SettingsData>("/settings.json", false);
                 Debug.Log("Settings loading complete!");
             }
             catch (Exception e)
@@ -91,12 +88,12 @@ namespace ZiercCode.Runtime.Manager
             }
 
             if (loadedData == null) loadedData = new SettingsData(0f, 0f, 0f, 0f, false, 0);
-            settingsData = loadedData;
+            SettingsData = loadedData;
         }
 
         private void SaveSettings()
         {
-            if (jsonService.SaveData("/settings.json", settingsData, false))
+            if (_jsonService.SaveData("/settings.json", SettingsData, false))
                 Debug.Log("Settings saved!");
             else
                 Debug.LogError("Settings can not save!");
@@ -107,14 +104,15 @@ namespace ZiercCode.Runtime.Manager
         /// </summary>
         private void GameInit()
         {
-            AudioPlayer.Instance.SetEnvironmentVolume(settingsData.EnvironmentVolume);
-            AudioPlayer.Instance.SetMasterVolume(settingsData.MasterVolume);
-            AudioPlayer.Instance.SetMusicVolume(settingsData.MusicVolume);
-            AudioPlayer.Instance.SetSFXVolume(settingsData.SFXVolume);
+            AudioPlayer.Instance.SetEnvironmentVolume(SettingsData.EnvironmentVolume);
+            AudioPlayer.Instance.SetMasterVolume(SettingsData.MasterVolume);
+            AudioPlayer.Instance.SetMusicVolume(SettingsData.MusicVolume);
+            AudioPlayer.Instance.SetSFXVolume(SettingsData.SFXVolume);
 
             _playerInputAction.UI.Enable();
 
-            LanguageManager.SetLanguage(settingsData.Language);
+            LanguageManager.SetLanguage(SettingsData.Language);
+            AudioPlayer.Instance.PlayAudioAsync(AudioName.MenuBgm);
         }
 
         private void OnEscPressed(InputAction.CallbackContext context)

@@ -8,7 +8,7 @@ namespace ZiercCode.Runtime.Component.Enemy
 
     public class EnemyAttribute : Attribute
     {
-        [SerializeField] private EnemyAttributeSO attributeData;
+        [SerializeField] private EnemyAttributeSo attributeData;
 
         public LayerMask attackLayer;
         public DamageType damageType;

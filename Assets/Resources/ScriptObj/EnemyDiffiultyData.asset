@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7ed1efc1c14701815616cdc7103f06, type: 3}
   m_Name: EnemyDiffiultyData
   m_EditorClassIdentifier: 
-  enemyDiffiultyDataFile: {fileID: 4900000, guid: dd4f2de893e329c438bbdc9579f9e948, type: 3}
-  enemyDiffiultyDic:
-    _keyList:
-    - Baby
-    - BigMouth
-    _valueList: 0100000002000000
+  enemyDifficultyDataFile: {fileID: 4900000, guid: dd4f2de893e329c438bbdc9579f9e948, type: 3}
+  enemyDifficultyDictionary:
+    dicList:
+    - _inspectorName: 
+      keyValue: Baby
+      objectValue: 1
+    - _inspectorName: 
+      keyValue: BigMouth
+      objectValue: 2

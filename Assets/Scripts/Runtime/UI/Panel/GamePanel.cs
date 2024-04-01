@@ -74,7 +74,7 @@ namespace ZiercCode.Runtime.UI.Panel
             BattleManager.Instance.OnLevelChange += _levelUpdateAction;
             GameManager.playerTans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
             GameManager.playerTans.GetComponent<Hero.Hero>().CoinPack.CoinChanged += _coinUpdateAction;
-            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = GameRoot.Instance.settingsData.FPSOn;
+            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = GameRoot.Instance.SettingsData.FPSOn;
         }
 
         public override void OnPause()
@@ -86,7 +86,7 @@ namespace ZiercCode.Runtime.UI.Panel
         public override void OnResume()
         {
             GameRoot.Instance.OnEsc.AddListener(_escAction);
-            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = GameRoot.Instance.settingsData.FPSOn;
+            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = GameRoot.Instance.SettingsData.FPSOn;
             GameManager.playerTans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
         }
 

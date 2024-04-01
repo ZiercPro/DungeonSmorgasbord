@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace ZiercCode.Runtime.Helper
 {
@@ -8,7 +9,7 @@ namespace ZiercCode.Runtime.Helper
     /// 可序列化字典
     /// 通过能够序列化的链表帮助字典序列化
     /// </summary>
-    [Serializable, Obsolete]
+    [Serializable, Obsolete("use EditableDictionary instead")]
     public class SerDictionary<Tkey, Tvalue> : Dictionary<Tkey, Tvalue>, ISerializationCallbackReceiver
     {
         [SerializeField] List<Tkey> _keyList;

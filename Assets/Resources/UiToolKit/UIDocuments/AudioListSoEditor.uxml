@@ -15,7 +15,7 @@
             <ui:Button text="Clear" parse-escape-sequences="true" display-tooltip-when-elided="true" name="clearButton" class="NormalButton" style="color: rgb(255, 0, 0); background-color: rgb(237, 255, 5);" />
         </ui:VisualElement>
         <ui:VisualElement name="List" style="flex-grow: 1;">
-            <uie:PropertyField binding-path="audioDic" name="PropertyField" style="font-size: 15px; -unity-font-style: bold;" />
+            <uie:PropertyField binding-path="AudioEditableDictionary" name="PropertyField" style="font-size: 15px; -unity-font-style: bold;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
