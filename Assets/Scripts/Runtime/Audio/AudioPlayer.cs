@@ -89,7 +89,7 @@ namespace ZiercCode.Runtime.Audio
             }
             else
             {
-                Debug.LogError($"音频{audioBase.AudioType.Name}组件缺失!");
+                Debug.LogWarning($"音频{audioBase.AudioType.Name}组件缺失或被销毁!");
             }
         }
 
@@ -99,15 +99,13 @@ namespace ZiercCode.Runtime.Audio
             AudioSource player = await _audioManager.GetAudioSourceAsync(audioBase);
             if (player)
             {
-                Debug.Log(_isMusicPlaying + " " + player.name);
                 if (audioBase == _currentMusic)
                     _isMusicPlaying = false;
                 player.Stop();
-                Debug.Log(_isMusicPlaying + " " + player.name + " " + player.isPlaying);
             }
             else
             {
-                Debug.LogError($"音频{audioBase.AudioType.Name}组件缺失!");
+                Debug.LogWarning($"音频{audioBase.AudioType.Name}组件缺失或被销毁!");
             }
         }
 

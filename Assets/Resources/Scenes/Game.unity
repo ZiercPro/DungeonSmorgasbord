@@ -18332,91 +18332,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388ad2a16a90bf2468643179afd32c37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnBattleStart:
+  onBattleStart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4234473617364887339}
-        m_TargetAssemblyTypeName: Door, Assembly-CSharp
-        m_MethodName: Close
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2912577226927987365}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4082809161260486896}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnBattleEnd:
+      m_Calls: []
+  onBattleEnd:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4234473617364887339}
-        m_TargetAssemblyTypeName: Door, Assembly-CSharp
-        m_MethodName: Open
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2912577226927987365}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 4082809161260486896}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   enemySpawnerTemp: {fileID: 2766421769593891088, guid: 5291e1fb03b8e3241a5c97cc94f380a4, type: 3}
   enemyTemps:
   - {fileID: 3149073930474505641, guid: 6bdfd58355abf8a42b48ed28d1820ac4, type: 3}
   - {fileID: 8472406070026422316, guid: 8bb4383f80ae3fa46bb1b7bc97b2ef13, type: 3}
-  battlePlatform: {fileID: 1841950319306474154}
-  difficultyDataSO: {fileID: 11400000, guid: 6ffd4458bc3bfb6438470260f59f5ced, type: 2}
-  enemyDiffiultyDataS0: {fileID: 11400000, guid: c74f415671d0d884fa1d5746999ae7f9, type: 2}
+  difficultyDataSo: {fileID: 11400000, guid: 6ffd4458bc3bfb6438470260f59f5ced, type: 2}
+  enemyDifficultyDataS0: {fileID: 11400000, guid: c74f415671d0d884fa1d5746999ae7f9, type: 2}
 --- !u!1 &6269616256313221734
 GameObject:
   m_ObjectHideFlags: 0
@@ -19450,7 +19377,6 @@ MonoBehaviour:
     moveOffSet: 1
   optionTutorialTemp: {fileID: 6610852189506980358, guid: d6a496636ba742c42bcaf840e418b28e, type: 3}
   mainCamera: {fileID: 519420031}
-  environmentRoot: {fileID: 1277808941}
 --- !u!4 &8935008638674486412
 Transform:
   m_ObjectHideFlags: 0

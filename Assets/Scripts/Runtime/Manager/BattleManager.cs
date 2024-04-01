@@ -15,13 +15,12 @@ namespace ZiercCode.Runtime.Manager
     public class BattleManager : SingletonIns<BattleManager>
     {
         public event Action<int> OnLevelChange;
-        public UnityEvent OnBattleStart;
-        public UnityEvent OnBattleEnd;
+        public UnityEvent onBattleStart;
+        public UnityEvent onBattleEnd;
 
         [SerializeField] private GameObject enemySpawnerTemp;
         [SerializeField] private List<GameObject> enemyTemps;
-        [SerializeField] private Transform battlePlatform;
-        [SerializeField] private BattleDifficultyDataSo difficultyDataSO;
+        [SerializeField] private BattleDifficultyDataSo difficultyDataSo;
         [SerializeField] private EnemyDifficultyDataSo enemyDifficultyDataS0;
 
         private float _spawnInterval;
@@ -72,7 +71,7 @@ namespace ZiercCode.Runtime.Manager
         private void LevelUp()
         {
             _currentLevel++;
-            _spawnInterval = difficultyDataSO.intervalOfLevel[_currentLevel];
+            _spawnInterval = difficultyDataSo.intervalOfLevel[_currentLevel];
             OnLevelChange?.Invoke(_currentLevel);
         }
 
@@ -98,15 +97,15 @@ namespace ZiercCode.Runtime.Manager
         }
 
         //获取当前波的总难度值
-        private void GetCurrentDifficulty(int curLevel)
+        private void GetDifficultyOfCurrentLevel(int curLevel)
         {
-            _currentDifficulty = difficultyDataSO.DifficultyPerLevel[curLevel];
+            _currentDifficulty = difficultyDataSo.DifficultyPerLevel[curLevel];
         }
 
         #region Enemy
 
         //获取每种敌人对应的生成数量
-        private void GetHash(int currentDif)
+        private void GetNumOfEnemy(int currentDif)
         {
             int dif = currentDif;
 
@@ -138,10 +137,10 @@ namespace ZiercCode.Runtime.Manager
 
         IEnumerator EnemySpawnCoroutine()
         {
-            GetCurrentDifficulty(_currentLevel);
-            GetHash(_currentDifficulty);
+            GetDifficultyOfCurrentLevel(_currentLevel);
+            GetNumOfEnemy(_currentDifficulty);
 
-            int wave = difficultyDataSO.wavesOfLevel[_currentLevel];
+            int wave = difficultyDataSo.wavesOfLevel[_currentLevel];
             while (wave > 0)
             {
                 wave--;
@@ -168,14 +167,14 @@ namespace ZiercCode.Runtime.Manager
 
         private void BattleStart()
         {
-            OnBattleStart?.Invoke();
+            onBattleStart?.Invoke();
             SpawnEnemy();
         }
 
         private void BattleEnd()
         {
             LevelUp();
-            OnBattleEnd?.Invoke();
+            onBattleEnd?.Invoke();
         }
 
         private bool IsWaveDone()

@@ -22,7 +22,7 @@ namespace ZiercCode.Runtime.Scene
             else
             {
                 panelManager.Push(new GamePanel());
-                BattleManager.Instance.OnBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
+                BattleManager.Instance.onBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
                 GameRoot.Instance.OnTab.AddListener(() => { panelManager.Push(new HeroAttributesPanel()); });
                 AudioPlayer.Instance.PlayAudioAsync(AudioName.IdleBgm);
             }
@@ -32,14 +32,14 @@ namespace ZiercCode.Runtime.Scene
         {
             AudioPlayer.Instance.StopAudioAsync(AudioName.IdleBgm);
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            BattleManager.Instance.OnBattleEnd.RemoveAllListeners();
+            BattleManager.Instance.onBattleEnd.RemoveAllListeners();
             panelManager.PopAll();
         }
 
         private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
         {
             panelManager.Push(new GamePanel());
-            BattleManager.Instance.OnBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
+            BattleManager.Instance.onBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
             GameRoot.Instance.OnTab.AddListener(() => { panelManager.Push(new HeroAttributesPanel()); });
             AudioPlayer.Instance.PlayAudioAsync(AudioName.IdleBgm);
         }
