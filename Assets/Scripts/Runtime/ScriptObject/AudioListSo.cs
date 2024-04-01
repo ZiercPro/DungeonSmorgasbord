@@ -11,38 +11,34 @@ namespace ZiercCode.Runtime.ScriptObject
     [CreateAssetMenu(menuName = "ScriptObj/AudioList", fileName = "AudioList")]
     public class AudioListSo : ScriptableObject
     {
-        [field: SerializeField]
-        public EditableDictionary<AudioName, AudioBase> AudioEditableDictionary
-        {
-            get;
-            private set;
-        }
+        [SerializeField] private EditableDictionary<AudioName, AudioBase> audioEditableDictionary;
+        public EditableDictionary<AudioName, AudioBase> AudioEditableDictionary => audioEditableDictionary;
 
-        [SerializeField] private AudioClip toCreateAudioBase;
+        [field: SerializeField] private AudioClip toCreateAudioBase;
 #if UNITY_EDITOR
 
         public void Delete()
         {
-            if (AudioEditableDictionary is { Count: > 0 })
+            if (audioEditableDictionary is { Count: > 0 })
             {
-                int last = AudioEditableDictionary.Count - 1;
-                AudioEditableDictionary.RemoveAt(last);
+                int last = audioEditableDictionary.Count - 1;
+                audioEditableDictionary.RemoveAt(last);
             }
         }
 
         public void Clear()
         {
-            AudioEditableDictionary?.Clear();
+            audioEditableDictionary?.Clear();
         }
 
         public void AutoConfig()
         {
             if (!toCreateAudioBase) return;
-            if (AudioEditableDictionary == null) AudioEditableDictionary = new();
+            if (audioEditableDictionary == null) audioEditableDictionary = new();
             AudioBase newAudioBase =
                 new AudioBase(new AudioType(GetPrefabPath(toCreateAudioBase)), 1, false, false,
                     AudioPlayer.Instance.Music);
-            AudioEditableDictionary.Add(AudioName.None, newAudioBase, newAudioBase.AudioType.Name);
+            audioEditableDictionary.Add(AudioName.None, newAudioBase, newAudioBase.AudioType.Name);
         }
 
         public void ReSetConfig()
