@@ -1,4 +1,4 @@
-namespace ZRuntime
+namespace ZiercCode.Runtime.Audio
 {
     /// <summary>
     /// 储存所有音频的引用

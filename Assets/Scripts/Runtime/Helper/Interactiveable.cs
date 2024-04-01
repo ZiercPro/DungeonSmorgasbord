@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using ZiercCode.Runtime.Component.Hero;
+using ZiercCode.Runtime.UI;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Helper
 {
 
     public class Interactiveable : MonoBehaviour

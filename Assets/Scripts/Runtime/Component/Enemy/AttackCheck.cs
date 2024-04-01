@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Component.Enemy
 {
     public class AttackCheck : MonoBehaviour
     {

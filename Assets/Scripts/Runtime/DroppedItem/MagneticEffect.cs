@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.DroppedItem
 {
     public class MagneticEffect : MonoBehaviour
     {

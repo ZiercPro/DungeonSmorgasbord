@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Component.Hero
 {
     public class InteractHandler : MonoBehaviour
     {

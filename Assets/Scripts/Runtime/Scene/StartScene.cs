@@ -1,6 +1,9 @@
 using UnityEngine.SceneManagement;
+using ZiercCode.Runtime.Audio;
+using ZiercCode.Runtime.UI;
+using ZiercCode.Runtime.UI.Panel;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Scene
 {
     /// <summary>
     /// 初始场景
@@ -39,7 +42,7 @@ namespace ZRuntime
         /// </summary>
         /// <param name="scene">被加载的场景</param>
         /// <param name="mode">场景加载模式</param>
-        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
         {
             panelManager.Push(new StartPanel());
             AudioPlayer.Instance.PlayAudioAsync(AudioName.MenuBgm);

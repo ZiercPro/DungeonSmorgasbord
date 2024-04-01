@@ -1,7 +1,12 @@
 using UnityEngine;
+using ZiercCode.Runtime.Audio;
+using ZiercCode.Runtime.Component.Enemy;
+using ZiercCode.Runtime.Damage;
+using ZiercCode.Runtime.Enemy.EnemyState;
+using ZiercCode.Runtime.FeedBack;
+using ZiercCode.Runtime.Manager;
 
-
-namespace ZRuntime
+namespace ZiercCode.Runtime.Enemy
 {
 
     public class Enemy_BigMouse : Enemy

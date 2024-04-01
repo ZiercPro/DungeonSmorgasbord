@@ -1,10 +1,14 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using DG.Tweening;
+﻿using DG.Tweening;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.Localization.Components;
+using UnityEngine.UI;
+using ZiercCode.Runtime.Helper;
+using ZiercCode.Runtime.Manager;
+using ZiercCode.Runtime.UI.Card;
+using ZiercCode.Runtime.UI.Framework;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.UI.Panel
 {
 
     public class CardPanel : BasePanel

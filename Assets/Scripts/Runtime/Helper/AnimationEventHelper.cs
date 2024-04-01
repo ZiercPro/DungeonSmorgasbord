@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Helper
 {
     public class AnimationEventHelper : MonoBehaviour
     {

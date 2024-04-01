@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Basic
 {
     /// <summary>
     /// 单例 场景转换时不会被销毁

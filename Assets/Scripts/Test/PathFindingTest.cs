@@ -2,7 +2,9 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ZRuntime;
+using ZiercCode.Runtime;
+using ZiercCode.Runtime.Helper;
+using ZiercCode.Runtime.PathFinding;
 using Object = UnityEngine.Object;
 
 namespace Test
@@ -12,7 +14,7 @@ namespace Test
     {
         [SerializeField] private GameObject blockCube;
 
-        [Header("moveable info")] [Space] [SerializeField]
+        [Header("movable info")] [Space] [SerializeField]
         private Rigidbody2D pathFindAI;
 
         [SerializeField] private float moveSpeed;
@@ -37,7 +39,7 @@ namespace Test
         [Button("GridDebug")]
         private void DebugMode()
         {
-            _pathFinding.Grid.DebugDrawLine(Color.red);
+            _pathFinding.GridBase.DebugDrawLine(Color.red);
         }
 #endif
 
@@ -49,7 +51,7 @@ namespace Test
                 _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 if (_startNode != null)
                 {
-                    _endNode = _pathFinding.Grid.GetGridObject(_mousePosition);
+                    _endNode = _pathFinding.GridBase.GetGridObject(_mousePosition);
                     _pathNodes = _pathFinding.FindPath(_startNode, _endNode);
                 }
                 else
@@ -58,17 +60,17 @@ namespace Test
                 }
 
                 Debug.Log(_endNode);
-                Debug.Log(_pathFinding.Grid.GetWorldPosition(_endNode.X, _endNode.Y));
+                Debug.Log(_pathFinding.GridBase.GetWorldPosition(_endNode.X, _endNode.Y));
 
                 if (_pathNodes is { Count: > 0 })
                 {
                     for (int i = 0; i < _pathNodes.Count - 1; i++)
                     {
                         Debug.DrawLine(
-                            _pathFinding.Grid.GetWorldPosition(_pathNodes[i].X, _pathNodes[i].Y) +
-                            (Vector3.right + Vector3.up) * (_pathFinding.Grid.CellSize * 0.5f),
-                            _pathFinding.Grid.GetWorldPosition(_pathNodes[i + 1].X, _pathNodes[i + 1].Y) +
-                            (Vector3.right + Vector3.up) * (_pathFinding.Grid.CellSize * 0.5f), Color.green, 2f);
+                            _pathFinding.GridBase.GetWorldPosition(_pathNodes[i].X, _pathNodes[i].Y) +
+                            (Vector3.right + Vector3.up) * (_pathFinding.GridBase.CellSize * 0.5f),
+                            _pathFinding.GridBase.GetWorldPosition(_pathNodes[i + 1].X, _pathNodes[i + 1].Y) +
+                            (Vector3.right + Vector3.up) * (_pathFinding.GridBase.CellSize * 0.5f), Color.green, 2f);
                     }
                 }
             }
@@ -76,19 +78,19 @@ namespace Test
             if (Input.GetMouseButtonDown(1))
             {
                 _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                _startNode = _pathFinding.Grid.GetGridObject(_mousePosition);
+                _startNode = _pathFinding.GridBase.GetGridObject(_mousePosition);
             }
 
             if (Input.GetKeyDown(KeyCode.E))
             {
                 _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                PathNode blockNode = _pathFinding.Grid.GetGridObject(_mousePosition);
+                PathNode blockNode = _pathFinding.GridBase.GetGridObject(_mousePosition);
                 blockNode.IsActive = false;
                 GameObject newBlock = Object.Instantiate(blockCube,
-                    _pathFinding.Grid.GetWorldPosition(blockNode.X, blockNode.Y) +
-                    (Vector3.right + Vector3.up) * (_pathFinding.Grid.CellSize * 0.5f), Quaternion.identity);
-                newBlock.transform.localScale = new Vector3(_pathFinding.Grid.CellSize, _pathFinding.Grid.CellSize,
-                    _pathFinding.Grid.CellSize);
+                    _pathFinding.GridBase.GetWorldPosition(blockNode.X, blockNode.Y) +
+                    (Vector3.right + Vector3.up) * (_pathFinding.GridBase.CellSize * 0.5f), Quaternion.identity);
+                newBlock.transform.localScale = new Vector3(_pathFinding.GridBase.CellSize, _pathFinding.GridBase.CellSize,
+                    _pathFinding.GridBase.CellSize);
                 newBlock.SetActive(true);
             }
 

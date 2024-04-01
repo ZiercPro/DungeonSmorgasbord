@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.UI.Card
 {
     public class CardAnimation : MonoBehaviour
     {

@@ -1,6 +1,8 @@
 using UnityEngine;
+using ZiercCode.Runtime.Player;
+using ZiercCode.Runtime.Weapon;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Component.Hero
 {
 
     public class HeroWeaponHandler : MonoBehaviour
@@ -31,9 +33,9 @@ namespace ZRuntime
             GameObject lastWeapon = _currentWeaponInstance;
             _currentWeaponInstance = weaponIns;
             if (_currentWeaponInstance != lastWeapon)
-                lastWeapon.GetComponent<Weapon>().Disable();
+                lastWeapon.GetComponent<Weapon.Weapon>().Disable();
             SpriteRenderer weaponRenderer = weaponIns.GetComponentInChildren<SpriteRenderer>();
-            Weapon weapon = weaponIns.GetComponentInChildren<Weapon>();
+            Weapon.Weapon weapon = weaponIns.GetComponentInChildren<Weapon.Weapon>();
             weapon.Initialize(_attribute.weaponDamageRate, _attribute.criticalChance, _inputManager);
             _weaponHolder.ChangeWeapon(weaponRenderer, weaponIns.transform);
             return lastWeapon;

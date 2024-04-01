@@ -4,8 +4,11 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
+using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Manager;
+using ZiercCode.Runtime.UI.Framework;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.UI.Panel
 {
 
     public class GamePanel : BasePanel
@@ -70,7 +73,7 @@ namespace ZRuntime
             GameRoot.Instance.OnEsc.AddListener(_escAction);
             BattleManager.Instance.OnLevelChange += _levelUpdateAction;
             GameManager.playerTans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
-            GameManager.playerTans.GetComponent<Hero>().CoinPack.CoinChanged += _coinUpdateAction;
+            GameManager.playerTans.GetComponent<Hero.Hero>().CoinPack.CoinChanged += _coinUpdateAction;
             UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = GameRoot.Instance.settingsData.FPSOn;
         }
 
@@ -90,7 +93,7 @@ namespace ZRuntime
         public override void OnExit()
         {
             GameManager.playerTans.GetComponent<Health>().InitializeEnded -= _healthBarInitAction;
-            GameManager.playerTans.GetComponent<Hero>().CoinPack.CoinChanged -= _coinUpdateAction;
+            GameManager.playerTans.GetComponent<Hero.Hero>().CoinPack.CoinChanged -= _coinUpdateAction;
             BattleManager.Instance.OnLevelChange -= _levelUpdateAction;
             GameRoot.Instance.OnEsc.RemoveListener(_escAction);
             UIManager.DestroyUI(UIType);

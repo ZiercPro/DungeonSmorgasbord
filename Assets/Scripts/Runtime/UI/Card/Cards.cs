@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Component.Hero;
+using ZiercCode.Runtime.Weapon;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.UI.Card
 {
 
     /// <summary>

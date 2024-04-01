@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.CustomAttribute
 {
     /// <summary>
     /// 自定义分割线属性

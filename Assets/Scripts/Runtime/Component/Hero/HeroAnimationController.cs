@@ -1,6 +1,8 @@
 using UnityEngine;
+using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Player;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Component.Hero
 {
 
     /// <summary>

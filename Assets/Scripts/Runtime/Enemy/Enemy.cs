@@ -1,8 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Component.Enemy;
+using ZiercCode.Runtime.Damage;
+using ZiercCode.Runtime.Enemy.EnemyState;
+using ZiercCode.Runtime.Helper;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Enemy
 {
 
     public abstract class Enemy : MonoBehaviour, IDamageable

@@ -1,6 +1,12 @@
 using UnityEngine;
+using ZiercCode.Runtime.Basic;
+using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Data;
+using ZiercCode.Runtime.Hero;
+using ZiercCode.Runtime.UI;
+using ZiercCode.Runtime.UI.Panel;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Manager
 {
 
     /// <summary>
@@ -62,7 +68,7 @@ namespace ZRuntime
             {
                 _panelManager.Push(new DeadPanel());
                 BattleManager.Instance.BattleEixt();
-                DroppedItem.ClearAllItem();
+                DroppedItem.DroppedItem.ClearAllItem();
             };
         }
         //////////////////////////////////////////////////

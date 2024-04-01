@@ -1,11 +1,11 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using ZRuntime.Manager;
+using ZiercCode.Runtime.Manager;
+using ZiercCode.Runtime.Scene;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Helper
 {
 
     /// <summary>

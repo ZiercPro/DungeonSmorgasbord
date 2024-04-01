@@ -1,8 +1,8 @@
 using Cinemachine;
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.FeedBack
 {
     public class CameraShakeFeedback : MonoBehaviour
     {

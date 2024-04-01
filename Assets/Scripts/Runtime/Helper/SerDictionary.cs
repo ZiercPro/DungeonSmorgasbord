@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Helper
 {
     /// <summary>
     /// 可序列化字典

@@ -1,9 +1,14 @@
-
 using System;
 using UnityEngine;
+using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Component.Hero;
+using ZiercCode.Runtime.Damage;
+using ZiercCode.Runtime.FeedBack;
+using ZiercCode.Runtime.Manager;
+using ZiercCode.Runtime.Player;
+using ZiercCode.Runtime.Weapon;
 
-
-namespace ZRuntime
+namespace ZiercCode.Runtime.Hero
 {
 
     public class Hero : MonoBehaviour, IDamageable

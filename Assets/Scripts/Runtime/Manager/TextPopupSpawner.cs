@@ -1,7 +1,9 @@
 using TMPro;
 using UnityEngine;
+using ZiercCode.Runtime.Basic;
+using ZiercCode.Runtime.FeedBack;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Manager
 {
 
     public class TextPopupSpawner : SingletonIns<TextPopupSpawner>

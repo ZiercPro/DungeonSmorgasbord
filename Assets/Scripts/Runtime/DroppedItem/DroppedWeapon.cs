@@ -1,6 +1,7 @@
 using UnityEngine;
+using ZiercCode.Runtime.Component.Hero;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.DroppedItem
 {
 
     public class DroppedWeapon : DroppedItem

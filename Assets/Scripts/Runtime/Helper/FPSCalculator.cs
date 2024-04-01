@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Helper
 {
     /// <summary>
     /// 计算帧数

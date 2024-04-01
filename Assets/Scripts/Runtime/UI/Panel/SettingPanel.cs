@@ -1,8 +1,11 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using ZiercCode.Runtime.Audio;
+using ZiercCode.Runtime.Manager;
+using ZiercCode.Runtime.UI.Framework;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.UI.Panel
 {
 
     public class SettingPanel : BasePanel

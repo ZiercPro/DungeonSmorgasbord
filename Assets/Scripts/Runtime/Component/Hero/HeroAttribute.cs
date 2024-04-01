@@ -1,6 +1,10 @@
 using UnityEngine;
+using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Helper;
+using ZiercCode.Runtime.ScriptObject;
+using ZiercCode.Runtime.Weapon;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Component.Hero
 {
 
     public class HeroAttribute : Attribute

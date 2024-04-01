@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.ScriptObject
 {
     /// <summary>
     /// 储存游戏对象基本的静态数据

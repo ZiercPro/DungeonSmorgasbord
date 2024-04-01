@@ -2,8 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
+using ZiercCode.Runtime.ScriptObject;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Manager
 {
 
     public class LanguageManager : MonoBehaviour

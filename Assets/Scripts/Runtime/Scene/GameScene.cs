@@ -1,6 +1,10 @@
 using UnityEngine.SceneManagement;
+using ZiercCode.Runtime.Audio;
+using ZiercCode.Runtime.Manager;
+using ZiercCode.Runtime.UI;
+using ZiercCode.Runtime.UI.Panel;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Scene
 {
     public class GameScene : SceneState
     {
@@ -32,7 +36,7 @@ namespace ZRuntime
             panelManager.PopAll();
         }
 
-        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
         {
             panelManager.Push(new GamePanel());
             BattleManager.Instance.OnBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });

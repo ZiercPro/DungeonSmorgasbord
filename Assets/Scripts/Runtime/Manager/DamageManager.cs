@@ -1,4 +1,4 @@
-namespace ZRuntime
+namespace ZiercCode.Runtime.Manager
 {
     public static class DamageManager
     {

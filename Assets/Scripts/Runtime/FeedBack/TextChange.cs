@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.FeedBack
 {
     public class TextChange : MonoBehaviour
     {

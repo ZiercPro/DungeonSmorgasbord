@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Damage
 {
     /// <summary>
     /// 伤害信息类，储存相关信息

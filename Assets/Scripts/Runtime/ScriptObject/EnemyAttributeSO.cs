@@ -1,7 +1,7 @@
 using UnityEngine;
+using ZiercCode.Runtime.Damage;
 
-
-namespace ZRuntime
+namespace ZiercCode.Runtime.ScriptObject
 {
     [CreateAssetMenu(menuName = "ScriptObj/Attributes/Enemy", fileName = "Enemy")]
     public class EnemyAttributeSO : AttributesBaseSO

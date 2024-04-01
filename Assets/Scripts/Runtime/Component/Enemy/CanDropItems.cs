@@ -1,8 +1,9 @@
 using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
+using ZiercCode.Runtime.DroppedItem;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Component.Enemy
 {
     public class CanDropItems : MonoBehaviour
     {

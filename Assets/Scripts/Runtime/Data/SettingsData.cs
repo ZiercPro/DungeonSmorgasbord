@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Data
 {
     /// <summary>
     /// 储存设置信息

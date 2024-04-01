@@ -1,10 +1,15 @@
 using System;
-using UnityEngine;
-using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using ZiercCode.Runtime.Audio;
+using ZiercCode.Runtime.Basic;
+using ZiercCode.Runtime.Enemy;
+using ZiercCode.Runtime.Helper;
+using ZiercCode.Runtime.ScriptObject;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Manager
 {
     public class BattleManager : SingletonIns<BattleManager>
     {
@@ -81,7 +86,7 @@ namespace ZRuntime
         public void BattleEntry()
         {
             BattleStart();
-            DroppedItem.ClearAllItem();
+            DroppedItem.DroppedItem.ClearAllItem();
             AudioPlayer.Instance.PlayAudioAsync(AudioName.BattleBgmNormal);
         }
 
@@ -176,7 +181,7 @@ namespace ZRuntime
         {
             if (EnemySpawner_RedCircle.GetSpawner() == null || EnemySpawner_RedCircle.GetSpawner().Count > 0)
                 return false;
-            if (Enemy.GetEnemys() == null || Enemy.GetEnemys().Count > 0) return false;
+            if (Enemy.Enemy.GetEnemys() == null || Enemy.Enemy.GetEnemys().Count > 0) return false;
             return true;
         }
     }

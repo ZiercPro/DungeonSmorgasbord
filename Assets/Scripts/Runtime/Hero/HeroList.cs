@@ -1,6 +1,6 @@
 
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Hero
 {
     /// <summary>
     /// 角色预制件的资源配置信息

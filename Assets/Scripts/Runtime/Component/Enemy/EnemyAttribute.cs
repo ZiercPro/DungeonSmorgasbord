@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
+using ZiercCode.Runtime.Component.Base;
+using ZiercCode.Runtime.Damage;
+using ZiercCode.Runtime.ScriptObject;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Component.Enemy
 {
 
     public class EnemyAttribute : Attribute

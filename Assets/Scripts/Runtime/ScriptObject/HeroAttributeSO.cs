@@ -1,6 +1,8 @@
 using UnityEngine;
+using ZiercCode.Runtime.Helper;
+using ZiercCode.Runtime.Weapon;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.ScriptObject
 {
 
 

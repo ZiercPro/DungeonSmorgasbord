@@ -1,6 +1,8 @@
 using UnityEngine.SceneManagement;
+using ZiercCode.Runtime.UI;
+using ZiercCode.Runtime.UI.Panel;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.Scene
 {
 
     public class LoadScene : SceneState
@@ -28,7 +30,7 @@ namespace ZRuntime
             PanelManager.PopAll();
         }
 
-        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
         {
             PanelManager.Push(new LoadPanel());
         }

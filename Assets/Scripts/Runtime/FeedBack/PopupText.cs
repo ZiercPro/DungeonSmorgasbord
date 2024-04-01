@@ -2,7 +2,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-namespace ZRuntime
+namespace ZiercCode.Runtime.FeedBack
 {
     public class PopupText : MonoBehaviour
     {
