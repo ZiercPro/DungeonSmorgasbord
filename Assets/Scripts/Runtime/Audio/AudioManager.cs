@@ -32,7 +32,17 @@ namespace ZiercCode.Runtime.Audio
         {
             AudioClip newClip = null;
             if (_audioSourceDictionary.TryGetValue(audioBase.AudioType, out AudioSource value))
-                return value;
+                if (value && value.isActiveAndEnabled)
+                {
+                    Debug.Log("exist!");
+                    return value;
+                }
+                else
+                {
+                    Debug.Log("clip destroyed!");
+                    _audioSourceDictionary.Remove(audioBase.AudioType);
+                }
+
 
             AsyncOperationHandle<AudioClip> asyncOperationHandle =
                 Addressables.LoadAssetAsync<AudioClip>(audioBase.AudioType.Path);
@@ -122,8 +132,9 @@ namespace ZiercCode.Runtime.Audio
             newComponent.volume = audioBase.volume;
             newComponent.outputAudioMixerGroup = audioBase.outputGroup;
 
-            _audioSourceDictionary.TryAdd(audioBase.AudioType, newComponent);
-            return newComponent;
+            if (_audioSourceDictionary.TryAdd(audioBase.AudioType, newComponent))
+                return newComponent;
+            return null;
         }
     }
 }

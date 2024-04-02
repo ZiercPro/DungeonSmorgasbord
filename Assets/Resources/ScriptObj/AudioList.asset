@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AudioList
   m_EditorClassIdentifier: 
   audioEditableDictionary:
-    dicList:
+    dictionaryList:
     - _inspectorName: BattleBgm_normal
       keyValue: 3
       objectValue:
@@ -114,26 +114,6 @@ MonoBehaviour:
         <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
         <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-    - _inspectorName: ButtonClick1
-      keyValue: 4
-      objectValue:
-        <AudioType>k__BackingField:
-          <Name>k__BackingField: ButtonClick1
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Other/ButtonClick1.wav
-        volume: 1
-        <isLoop>k__BackingField: 0
-        <isPlayAwake>k__BackingField: 0
-        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-    - _inspectorName: ButtonEnter1
-      keyValue: 5
-      objectValue:
-        <AudioType>k__BackingField:
-          <Name>k__BackingField: ButtonEnter1
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Other/ButtonEnter1.wav
-        volume: 1
-        <isLoop>k__BackingField: 0
-        <isPlayAwake>k__BackingField: 0
-        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
     - _inspectorName: CardClick
       keyValue: 7
       objectValue:
@@ -224,4 +204,24 @@ MonoBehaviour:
         <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
         <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-  toCreateAudioBase: {fileID: 8300000, guid: 5d5c1fdf2ebec994aa8bb83d142e547b, type: 3}
+    - _inspectorName: ButtonEnter1
+      keyValue: 5
+      objectValue:
+        <AudioType>k__BackingField:
+          <Name>k__BackingField: ButtonEnter1
+          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Other/ButtonEnter1.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - _inspectorName: ButtonClick1
+      keyValue: 4
+      objectValue:
+        <AudioType>k__BackingField:
+          <Name>k__BackingField: ButtonClick1
+          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Other/ButtonClick1.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+  toCreateAudioBase: {fileID: 8300000, guid: f32d8d60f197f204ba10bab042d4cf87, type: 3}

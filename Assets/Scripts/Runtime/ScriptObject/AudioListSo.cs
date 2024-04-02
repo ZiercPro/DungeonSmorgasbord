@@ -37,7 +37,7 @@ namespace ZiercCode.Runtime.ScriptObject
             if (audioEditableDictionary == null) audioEditableDictionary = new();
             AudioBase newAudioBase =
                 new AudioBase(new AudioType(GetPrefabPath(toCreateAudioBase)), 1, false, false,
-                    AudioPlayer.Instance.Music);
+                   null);
             audioEditableDictionary.Add(AudioName.None, newAudioBase, newAudioBase.AudioType.Name);
         }
 

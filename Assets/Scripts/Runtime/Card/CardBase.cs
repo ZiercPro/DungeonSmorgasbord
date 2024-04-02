@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ZiercCode.Runtime.UI.Card
+namespace ZiercCode.Runtime.Card
 {
     /// <summary>
     /// 卡片信息

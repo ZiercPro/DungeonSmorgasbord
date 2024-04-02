@@ -7,7 +7,6 @@ using ZiercCode.Runtime.UI.Framework;
 
 namespace ZiercCode.Runtime.UI.Panel
 {
-
     public class StartPanel : BasePanel
     {
         private static readonly string path = "Prefabs/UI/Panel/MainMenu";
@@ -24,7 +23,7 @@ namespace ZiercCode.Runtime.UI.Panel
             UITool.GetComponentInChildrenUI<Button>("StartButton").onClick.AddListener(() =>
             {
                 //游戏开始
-                GameRoot.Instance.SceneSystem.SetScene(new LoadScene());
+                SceneSystem.SetScene(new LoadScene());
             });
 
 

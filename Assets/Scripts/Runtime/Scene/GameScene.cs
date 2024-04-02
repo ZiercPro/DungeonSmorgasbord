@@ -1,6 +1,7 @@
 using UnityEngine.SceneManagement;
 using ZiercCode.Runtime.Audio;
 using ZiercCode.Runtime.Manager;
+using ZiercCode.Runtime.Player;
 using ZiercCode.Runtime.UI;
 using ZiercCode.Runtime.UI.Panel;
 
@@ -9,6 +10,7 @@ namespace ZiercCode.Runtime.Scene
     public class GameScene : SceneState
     {
         private readonly string name = "Game";
+
         public PanelManager panelManager { get; private set; }
 
         public override void OnEnter()
@@ -20,12 +22,7 @@ namespace ZiercCode.Runtime.Scene
                 SceneManager.LoadScene(name);
             }
             else
-            {
-                panelManager.Push(new GamePanel());
-                BattleManager.Instance.onBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
-                GameRoot.Instance.OnTab.AddListener(() => { panelManager.Push(new HeroAttributesPanel()); });
-                AudioPlayer.Instance.PlayAudioAsync(AudioName.IdleBgm);
-            }
+                ToDoOnSceneLoaded();
         }
 
         public override void OnExit()
@@ -36,12 +33,17 @@ namespace ZiercCode.Runtime.Scene
             panelManager.PopAll();
         }
 
-        private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+
+        protected override void ToDoOnSceneLoaded()
         {
             panelManager.Push(new GamePanel());
             BattleManager.Instance.onBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
-            GameRoot.Instance.OnTab.AddListener(() => { panelManager.Push(new HeroAttributesPanel()); });
             AudioPlayer.Instance.PlayAudioAsync(AudioName.IdleBgm);
+        }
+
+        private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+        {
+            ToDoOnSceneLoaded();
         }
     }
 }

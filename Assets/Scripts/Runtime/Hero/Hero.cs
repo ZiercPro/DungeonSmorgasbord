@@ -1,11 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Component.Hero;
 using ZiercCode.Runtime.Damage;
 using ZiercCode.Runtime.FeedBack;
 using ZiercCode.Runtime.Manager;
 using ZiercCode.Runtime.Player;
+using ZiercCode.Runtime.UI;
+using ZiercCode.Runtime.UI.Panel;
 using ZiercCode.Runtime.Weapon;
 
 namespace ZiercCode.Runtime.Hero
@@ -16,10 +19,11 @@ namespace ZiercCode.Runtime.Hero
         private CameraShakeFeedback _cameraShakeFeedback;
         private KnockBackFeedBack _knockBackFeedBack;
         private HeroWeaponHandler _heroWeaponHandler;
+        private HeroInputManager _heroInputManager;
         private InteractHandler _interactHandler;
         private FlipController _flipController;
         private SpriteRenderer _spriteRenderer;
-        private InputManager _inputManager;
+        private PanelManager _panelManager;
         private WeaponHolder _weaponHolder;
         private HeroAttribute _attribute;
         private Movement _movement;
@@ -31,15 +35,16 @@ namespace ZiercCode.Runtime.Hero
         private void Awake()
         {
             CoinPack = new CoinPack();
+            _panelManager = new PanelManager();
             _health = GetComponentInChildren<Health>();
             _movement = GetComponentInChildren<Movement>();
             _heroDash = GetComponentInChildren<HeroDash>();
             _attribute = GetComponentInChildren<HeroAttribute>();
-            _inputManager = GetComponentInChildren<InputManager>();
             _weaponHolder = GetComponentInChildren<WeaponHolder>();
             _flipController = GetComponentInChildren<FlipController>();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             _interactHandler = GetComponentInChildren<InteractHandler>();
+            _heroInputManager = GetComponentInChildren<HeroInputManager>();
             _heroWeaponHandler = GetComponentInChildren<HeroWeaponHandler>();
             _knockBackFeedBack = GetComponentInChildren<KnockBackFeedBack>();
             _cameraShakeFeedback = GetComponentInChildren<CameraShakeFeedback>();
@@ -48,31 +53,27 @@ namespace ZiercCode.Runtime.Hero
 
         private void Start()
         {
-            //让gamepanel显示金币数量
-            CoinPack.GetCoins(0);
-
             _attribute.Initialize();
             _heroWeaponHandler.GetDefualtWeapon();
             _health.Initialize(_attribute.maxHealth);
             _movement.Initialize(_attribute.moveSpeed);
             _weaponHolder.Initialize(_spriteRenderer, _flipController);
 
-            _inputManager.SetPlayerInput(true);
-            _inputManager.DashButtonPressedPerformed += _heroDash.StartDash;
-            _inputManager.InteractButtonPressPerformed += _interactHandler.OnInteractive;
-            _inputManager.MovementInputPerforming += moveDir => { _movement.MovePerform(moveDir); };
-            _inputManager.MousePositionChanging += viewPos => { _flipController.FaceTo(viewPos); };
-            _inputManager.MousePositionChanging += viewPos => { _weaponHolder.WeaponRotateTo(viewPos); };
+            _heroInputManager.SetHeroControl(true);
+            _heroInputManager.TabButtonPressing += CallView;
+            _heroInputManager.DashButtonPressedPerformed += _heroDash.StartDash;
+            _heroInputManager.InteractButtonPressPerformed += _interactHandler.OnInteractive;
+            _heroInputManager.MovementInputPerforming += moveDir => { _movement.MovePerform(moveDir); };
+            _heroInputManager.MousePositionChanging += viewPos => { _flipController.FaceTo(viewPos); };
+            _heroInputManager.MousePositionChanging += viewPos => { _weaponHolder.WeaponRotateTo(viewPos); };
             //动画
-            _inputManager.MovementInputPerforming += moveDir => { _heroAnimationController.MoveAnimation(moveDir); };
+            _heroInputManager.MovementInputPerforming += moveDir =>
+            {
+                _heroAnimationController.MoveAnimation(moveDir);
+            };
             OnTakeDamage += damageInfo => { _heroAnimationController.HitAnimation(); };
             _health.Dead += _heroAnimationController.DeadAnimation;
             _health.Dead += Dead;
-        }
-
-        public HeroAttribute GetAttribute()
-        {
-            return _attribute;
         }
 
         public event Action<DamageInfo> OnTakeDamage;
@@ -97,9 +98,14 @@ namespace ZiercCode.Runtime.Hero
         public void Dead()
         {
             _knockBackFeedBack.enabled = false;
-            _inputManager.SetPlayerInput(false);
+            _heroInputManager.SetHeroControl(false);
             _movement.StopMovePerform();
             // enabled = false;
+        }
+
+        private void CallView()
+        {
+            _panelManager.Push(new HeroAttributesPanel());
         }
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Basic
+namespace ZiercCode.Runtime.Envionment
 {
     /// <summary>
     /// 相机真实追踪的目标 为了实现相机向鼠标方向轻微移动的效果

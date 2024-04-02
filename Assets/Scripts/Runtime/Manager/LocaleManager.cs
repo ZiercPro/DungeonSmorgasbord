@@ -1,25 +1,31 @@
-using System;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
+using ZiercCode.Runtime.Basic;
+using ZiercCode.Runtime.Helper;
 using ZiercCode.Runtime.ScriptObject;
 
 namespace ZiercCode.Runtime.Manager
 {
-    public class LanguageManager : MonoBehaviour
+    public class LocaleManager : USingletonComponentDontDestroy<LocaleManager>
     {
         //语言id数据
         [SerializeField] private LocalsDataSo localsID;
+
+        //自定义文本数据
+        [SerializeField] private EditableDictionary<string, CustomTextDataSo> customTextTables;
+
         private Dictionary<string, int> _localesIdDictionary;
+        private static Dictionary<int, CustomTextTable> _cardTextTable;
 
-        //卡片文本数据
-        [SerializeField] private CustomTextDataSo cardTextDataSo;
-
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+            DontDestroyOnLoad(gameObject);
             _localesIdDictionary = localsID.LocalsIDTable.ToDictionary();
+            _cardTextTable = customTextTables["CardText"].CustomTextTable.ToDictionary();
         }
 
         public void SetLanguage(int language)
@@ -38,17 +44,17 @@ namespace ZiercCode.Runtime.Manager
             return localsID;
         }
 
-        public string GetCardText(int itemId)
+        public static string GetCardText(int itemId)
         {
             int languageIDd = GetSelectedLocalID();
             switch (languageIDd)
             {
                 case 0:
                     //中文
-                    return cardTextDataSo.CustomTextTable[itemId].Chinese;
+                    return _cardTextTable[itemId].Chinese;
                 case 1:
                     //English
-                    return cardTextDataSo.CustomTextTable[itemId].English;
+                    return _cardTextTable[itemId].English;
                 default:
                     Debug.LogError("id不存在");
                     break;

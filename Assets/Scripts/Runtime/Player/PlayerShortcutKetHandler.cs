@@ -3,15 +3,26 @@ using UnityEngine;
 
 namespace ZiercCode.Runtime.Player
 {
+    /// <summary>
+    /// 负责处理游戏中的快捷键
+    /// </summary>
+    [RequireComponent(typeof(HeroInputManager))]
     public class PlayerShortcutKetHandler : MonoBehaviour
     {
-        private InputManager _inputManager;
+        private HeroInputManager _heroInputManager;
 
+        
+        
         private void Awake()
         {
-            _inputManager = GetComponent<InputManager>();
+            DontDestroyOnLoad(gameObject);
+            _heroInputManager = GetComponent<HeroInputManager>();
         }
-        
+
+        private void Start()
+        {
+            _heroInputManager.SetShortKey(true);
+        }
         
     }
 }

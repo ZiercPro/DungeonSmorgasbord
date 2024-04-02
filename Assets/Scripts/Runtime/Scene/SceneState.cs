@@ -14,5 +14,10 @@ namespace ZiercCode.Runtime.Scene
         /// 场景退出时执行的方法
         /// </summary>
         public abstract void OnExit();
+
+        /// <summary>
+        /// 场景记载完成之后调用方法
+        /// </summary>
+        protected abstract void ToDoOnSceneLoaded();
     }
 }

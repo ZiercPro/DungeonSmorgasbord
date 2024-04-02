@@ -2,7 +2,7 @@
     "name": "InputAction",
     "maps": [
         {
-            "name": "PlayerInput",
+            "name": "HeroControl",
             "id": "35af9e21-b13e-43f2-923f-d6a9cbf9e1c0",
             "actions": [
                 {
@@ -54,15 +54,6 @@
                     "name": "Interact",
                     "type": "Button",
                     "id": "d0a36e3a-5613-4815-a0bc-a1f6e44d13bf",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "View",
-                    "type": "Button",
-                    "id": "99c7dcca-e6e0-4d73-978a-10d0e98b0a98",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -234,28 +225,26 @@
                     "action": "MouseClickRight",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "10b1c586-f5ee-4bd4-b1e9-31429c447bc9",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoard",
-                    "action": "View",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "UI",
+            "name": "ShortKey",
             "id": "aa8887c7-dab1-4512-9ca2-8f21b9f07c76",
             "actions": [
                 {
                     "name": "Back",
                     "type": "Button",
                     "id": "d665ca56-7256-4cbf-9bc8-9e1f51f0193c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "View",
+                    "type": "Button",
+                    "id": "465750d7-501e-4b82-a63b-fdd261e00875",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -271,6 +260,17 @@
                     "processors": "",
                     "groups": "KeyBoard",
                     "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9093e0a1-1c45-4149-aad5-79576a973480",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard",
+                    "action": "View",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

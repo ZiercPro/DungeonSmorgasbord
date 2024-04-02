@@ -12,7 +12,7 @@ namespace ZiercCode.Runtime.Audio
     /// <summary>
     /// 音效播放管理器 控制音频的播放、暂停和音量
     /// </summary>
-    public class AudioPlayer : UnitySingleton<AudioPlayer>
+    public class AudioPlayer : USingletonComponentDontDestroy<AudioPlayer>
     {
         [SerializeField] private AudioListSo audioList;
         [Space] [SerializeField] private AudioMixer audioMixer;
@@ -41,7 +41,6 @@ namespace ZiercCode.Runtime.Audio
         {
             AudioBase audioBase = _audioDic[audioName];
             AudioSource player = await _audioManager.GetAudioSourceAsync(audioBase);
-
             if (player)
             {
                 if (audioBase.outputGroup == sfx)
@@ -58,7 +57,7 @@ namespace ZiercCode.Runtime.Audio
             }
             else
             {
-                Debug.LogError($"音频{audioBase.AudioType.Name}组件缺失!");
+                Debug.LogWarning($"音频{audioBase.AudioType.Name}组件获取失败!");
             }
         }
 
@@ -203,10 +202,6 @@ namespace ZiercCode.Runtime.Audio
         {
             audioMixer.SetFloat("environmentVolume", amount);
         }
-
-        public AudioMixerGroup Music => music;
-        public AudioMixerGroup Sfx => sfx;
-        public AudioMixerGroup Environment => environment;
 
         #endregion
     }

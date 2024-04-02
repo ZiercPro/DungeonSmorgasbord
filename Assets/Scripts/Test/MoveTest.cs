@@ -9,19 +9,19 @@ namespace Test
 
     public class MoveTest : MonoBehaviour
     {
-        private InputManager _inputManager;
+        private HeroInputManager _heroInputManager;
         private Movement _movement;
 
         private void Awake()
         {
             _movement = GetComponent<Movement>();
-            _inputManager = GetComponent<InputManager>();
+            _heroInputManager = GetComponent<HeroInputManager>();
         }
 
         private void Start()
         {
             _movement.Initialize(2f);
-            _inputManager.MovementInputPerforming += moveDir => { _movement.MovePerform(moveDir); };
+            _heroInputManager.MovementInputPerforming += moveDir => { _movement.MovePerform(moveDir); };
         }
     }
 }

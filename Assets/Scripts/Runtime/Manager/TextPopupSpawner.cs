@@ -6,7 +6,7 @@ using ZiercCode.Runtime.FeedBack;
 namespace ZiercCode.Runtime.Manager
 {
 
-    public class TextPopupSpawner : SingletonIns<TextPopupSpawner>
+    public class TextPopupSpawner : USingletonComponentDestroy<TextPopupSpawner>
     {
         [SerializeField] private GameObject damagePopupTemp;
 

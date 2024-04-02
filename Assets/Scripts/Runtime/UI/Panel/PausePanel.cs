@@ -7,8 +7,6 @@ using ZiercCode.Runtime.UI.Framework;
 
 namespace ZiercCode.Runtime.UI.Panel
 {
-
-
     public class PausePanel : BasePanel
     {
         readonly static string path = "Prefabs/UI/Panel/PauseMenu";
@@ -26,14 +24,13 @@ namespace ZiercCode.Runtime.UI.Panel
             });
             UITool.GetComponentInChildrenUI<Button>("MenuButton").onClick.AddListener(() =>
             {
-                GameRoot.Instance.SceneSystem.SetScene(new StartScene());
+                SceneSystem.SetScene(new StartScene());
             });
-            GameRoot.Instance.Pause();
+            Time.timeScale = 0f;
         }
 
         public override void OnPause()
         {
-            GameRoot.Instance.Pause();
             CanvasGroup cGroup = UITool.GetOrAddComponent<CanvasGroup>();
             cGroup.interactable = false;
             cGroup.DOFade(0f, 0.5f).SetUpdate(true);
@@ -54,7 +51,7 @@ namespace ZiercCode.Runtime.UI.Panel
             UITool.GetComponentInChildrenUI<Button>("SettingButton").onClick.RemoveAllListeners();
             UITool.GetComponentInChildrenUI<Button>("MenuButton").onClick.RemoveAllListeners();
             UIManager.DestroyUI(UIType);
-            GameRoot.Instance.Play();
+            Time.timeScale = 1f;
         }
     }
 }

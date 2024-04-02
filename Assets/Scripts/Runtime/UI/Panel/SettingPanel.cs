@@ -7,7 +7,6 @@ using ZiercCode.Runtime.UI.Framework;
 
 namespace ZiercCode.Runtime.UI.Panel
 {
-
     public class SettingPanel : BasePanel
     {
         private static readonly string path = "Prefabs/UI/Panel/SettingMenu";
@@ -46,27 +45,27 @@ namespace ZiercCode.Runtime.UI.Panel
             //语言设置逻辑
             UITool.GetComponentInChildrenUI<Toggle>("Chinese").onValueChanged.AddListener(ison =>
             {
-                if (ison) GameRoot.Instance.LanguageManager.SetLanguage("Chinese");
+                if (ison) LocaleManager.Instance.SetLanguage("Chinese");
             });
             UITool.GetComponentInChildrenUI<Toggle>("English").onValueChanged.AddListener(ison =>
             {
-                if (ison) GameRoot.Instance.LanguageManager.SetLanguage("English");
+                if (ison) LocaleManager.Instance.SetLanguage("English");
             });
             //返回逻辑
             UITool.GetComponentInChildrenUI<Button>("BackButton").onClick.AddListener(() => { PanelManager.Pop(); });
             //读取默认值
             Toggle[] languageTgls = UITool.GetComponentInChildrenUI<Transform>("LanguageSettings")
                 .GetComponentsInChildren<Toggle>();
-            languageTgls[GameRoot.Instance.SettingsData.Language].isOn = true;
+            languageTgls[DataManager.SettingsData.Language].isOn = true;
             UITool.GetComponentInChildrenUI<RectTransform>("VolumeSettings").gameObject.SetActive(true);
             UITool.GetComponentInChildrenUI<RectTransform>("OtherSettings").gameObject.SetActive(false);
             UITool.GetComponentInChildrenUI<RectTransform>("LanguageSettings").gameObject.SetActive(false);
-            UITool.GetComponentInChildrenUI<Slider>("MasterSlider").value = GameRoot.Instance.SettingsData.MasterVolume;
-            UITool.GetComponentInChildrenUI<Slider>("MusicSlider").value = GameRoot.Instance.SettingsData.MusicVolume;
-            UITool.GetComponentInChildrenUI<Slider>("SFXSlider").value = GameRoot.Instance.SettingsData.SFXVolume;
+            UITool.GetComponentInChildrenUI<Slider>("MasterSlider").value = DataManager.SettingsData.MasterVolume;
+            UITool.GetComponentInChildrenUI<Slider>("MusicSlider").value = DataManager.SettingsData.MusicVolume;
+            UITool.GetComponentInChildrenUI<Slider>("SFXSlider").value = DataManager.SettingsData.SFXVolume;
             UITool.GetComponentInChildrenUI<Slider>("EnvironmentSlider").value =
-                GameRoot.Instance.SettingsData.EnvironmentVolume;
-            UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn = GameRoot.Instance.SettingsData.FPSOn;
+                DataManager.SettingsData.EnvironmentVolume;
+            UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn = DataManager.SettingsData.FPSOn;
             UITool.GetComponentInChildrenUI<Toggle>("VolumeToggle").isOn = true;
         }
 
@@ -82,13 +81,13 @@ namespace ZiercCode.Runtime.UI.Panel
             UITool.GetComponentInChildrenUI<Toggle>("OtherToggle").onValueChanged.RemoveAllListeners();
             UITool.GetComponentInChildrenUI<Toggle>("LanguageToggle").onValueChanged.RemoveAllListeners();
             //同步设置值
-            GameRoot.Instance.SettingsData.EnvironmentVolume =
+            DataManager.SettingsData.EnvironmentVolume =
                 UITool.GetComponentInChildrenUI<Slider>("EnvironmentSlider").value;
-            GameRoot.Instance.SettingsData.MasterVolume = UITool.GetComponentInChildrenUI<Slider>("MasterSlider").value;
-            GameRoot.Instance.SettingsData.MusicVolume = UITool.GetComponentInChildrenUI<Slider>("MusicSlider").value;
-            GameRoot.Instance.SettingsData.SFXVolume = UITool.GetComponentInChildrenUI<Slider>("SFXSlider").value;
-            GameRoot.Instance.SettingsData.FPSOn = UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn;
-            GameRoot.Instance.SettingsData.Language = LanguageManager.GetSelectedLocalID();
+            DataManager.SettingsData.MasterVolume = UITool.GetComponentInChildrenUI<Slider>("MasterSlider").value;
+            DataManager.SettingsData.MusicVolume = UITool.GetComponentInChildrenUI<Slider>("MusicSlider").value;
+            DataManager.SettingsData.SFXVolume = UITool.GetComponentInChildrenUI<Slider>("SFXSlider").value;
+            DataManager.SettingsData.FPSOn = UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn;
+            DataManager.SettingsData.Language = LocaleManager.GetSelectedLocalID();
             //动画部分
             CanvasGroup cGroup = UITool.GetOrAddComponent<CanvasGroup>();
             cGroup.interactable = false;

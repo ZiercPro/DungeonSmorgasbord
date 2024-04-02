@@ -4,7 +4,6 @@ using ZiercCode.Runtime.UI.Panel;
 
 namespace ZiercCode.Runtime.Scene
 {
-
     public class LoadScene : SceneState
     {
         private readonly string name = "Loading";
@@ -20,7 +19,7 @@ namespace ZiercCode.Runtime.Scene
             }
             else
             {
-                PanelManager.Push(new LoadPanel());
+                ToDoOnSceneLoaded();
             }
         }
 
@@ -30,9 +29,14 @@ namespace ZiercCode.Runtime.Scene
             PanelManager.PopAll();
         }
 
-        private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+        protected override void ToDoOnSceneLoaded()
         {
             PanelManager.Push(new LoadPanel());
+        }
+
+        private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
+        {
+            ToDoOnSceneLoaded();
         }
     }
 }

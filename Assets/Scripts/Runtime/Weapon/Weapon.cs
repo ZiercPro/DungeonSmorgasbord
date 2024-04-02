@@ -17,7 +17,7 @@ namespace ZiercCode.Runtime.Weapon
         protected float CriticalChance;
 
         protected Animator Animator;
-        protected InputManager InputManager;
+        protected HeroInputManager HeroInputManager;
         protected Dictionary<WeaponType, float> WeaponDamageRate;
         protected WeaponAnimationEventHandler AnimationEventHandler;
 
@@ -38,18 +38,18 @@ namespace ZiercCode.Runtime.Weapon
         }
 
         public virtual void Initialize(Dictionary<WeaponType, float> weaponDamageRate, float criticalChance,
-            InputManager inputManager)
+            HeroInputManager heroInputManager)
         {
             WeaponDamageRate = weaponDamageRate;
             CriticalChance = criticalChance;
-            InputManager = inputManager;
+            HeroInputManager = heroInputManager;
         }
 
         public virtual void Disable()
         {
             WeaponDamageRate = null;
             CriticalChance = 0f;
-            InputManager = null;
+            HeroInputManager = null;
         }
     }
 }

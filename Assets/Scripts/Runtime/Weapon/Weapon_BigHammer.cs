@@ -29,15 +29,15 @@ namespace ZiercCode.Runtime.Weapon
 
 
         public override void Initialize(Dictionary<WeaponType, float> weaponDamageRate, float criticalChance,
-            InputManager inputManager)
+            HeroInputManager heroInputManager)
         {
-            base.Initialize(weaponDamageRate, criticalChance, inputManager);
-            InputManager.MouseLeftClickPerformed += OnAttackStart;
+            base.Initialize(weaponDamageRate, criticalChance, heroInputManager);
+            HeroInputManager.MouseLeftClickPerformed += OnAttackStart;
         }
 
         public override void Disable()
         {
-            InputManager.MouseLeftClickPerformed -= OnAttackStart;
+            HeroInputManager.MouseLeftClickPerformed -= OnAttackStart;
             base.Disable();
         }
 

@@ -2,13 +2,13 @@ using UnityEngine;
 using ZiercCode.Runtime.Basic;
 using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Data;
+using ZiercCode.Runtime.Envionment;
 using ZiercCode.Runtime.Hero;
 using ZiercCode.Runtime.UI;
 using ZiercCode.Runtime.UI.Panel;
 
 namespace ZiercCode.Runtime.Manager
 {
-
     /// <summary>
     /// 游戏场景管理
     /// </summary>
@@ -19,13 +19,11 @@ namespace ZiercCode.Runtime.Manager
 
         public static Transform playerTans { get; private set; } //角色的transform组件
 
-        private IDataService _jsonDataService;
         private PanelManager _panelManager;
         private HeroList _heroList; //角色资源信息
 
         private void Awake()
         {
-            _jsonDataService = new JsonDataService();
             _panelManager = new PanelManager();
             _heroList = new HeroList();
             HeroBorn();

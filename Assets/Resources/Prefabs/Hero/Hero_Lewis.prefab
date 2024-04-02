@@ -19,11 +19,11 @@ GameObject:
   - component: {fileID: 4605838071213516601}
   - component: {fileID: 6262629404899212936}
   - component: {fileID: 6664480362858052325}
-  - component: {fileID: 7313946861486673487}
   - component: {fileID: 8962218401074913994}
   - component: {fileID: 4860067538032032267}
   - component: {fileID: 7032251624863716901}
   - component: {fileID: 6903971427401375828}
+  - component: {fileID: 7313946861486673487}
   m_Layer: 3
   m_Name: Hero_Lewis
   m_TagString: Player
@@ -255,18 +255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c2e788184586847ab58cc575b51e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!210 &7313946861486673487
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3299815134350897790}
-  m_Enabled: 1
-  m_SortingLayerID: 404507155
-  m_SortingLayer: 4
-  m_SortingOrder: 0
-  m_SortAtRoot: 0
 --- !u!114 &8962218401074913994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,9 +270,6 @@ MonoBehaviour:
   maxHealth: 10
   moveSpeed: 6
   attributeData: {fileID: 11400000, guid: aae6d71946ac5d34aabd9745ea932ef2, type: 2}
-  weaponDamageRate:
-    _keyList: 
-    _valueList: []
   criticalChance: 0.05
 --- !u!114 &4860067538032032267
 MonoBehaviour:
@@ -298,9 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74d2c01e83245746a9fd6e83875179c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: {fileID: 6262629404899212936}
-  Animator: {fileID: 1448311870630047478}
-  InputManager: {fileID: 1035837962143427144}
+  animator: {fileID: 1448311870630047478}
 --- !u!114 &7032251624863716901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +313,18 @@ MonoBehaviour:
   intensity: 2
   frequence: 1.5
   duration: 0.5
+--- !u!210 &7313946861486673487
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299815134350897790}
+  m_Enabled: 1
+  m_SortingLayerID: 404507155
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &4322705567087781510
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +458,7 @@ MonoBehaviour:
   - {x: 0.25, y: 0.05, z: 0}
   m_ShapePathHash: 334015429
   m_Mesh: {fileID: 0}
-  m_InstanceId: 44230
+  m_InstanceId: 37438
   m_LocalBounds:
     m_Center: {x: -0.025000006, y: 0.175, z: 0}
     m_Extent: {x: 0.275, y: 0.125, z: 0}

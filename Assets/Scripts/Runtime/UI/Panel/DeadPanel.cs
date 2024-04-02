@@ -23,7 +23,7 @@ namespace ZiercCode.Runtime.UI.Panel
             Button mainMenuButton = UITool.GetComponentInChildrenUI<Button>("MenuButton");
             mainMenuButton.onClick.AddListener(() =>
             {
-                GameRoot.Instance.SceneSystem.SetScene(new StartScene());
+                SceneSystem.SetScene(new StartScene());
             });
         }
 

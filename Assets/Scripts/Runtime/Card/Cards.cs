@@ -3,7 +3,7 @@ using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Component.Hero;
 using ZiercCode.Runtime.Weapon;
 
-namespace ZiercCode.Runtime.UI.Card
+namespace ZiercCode.Runtime.Card
 {
 
     /// <summary>

@@ -37,6 +37,9 @@ namespace ZiercCode.Runtime.Data
         /// </summary>
         public int Language;
 
+        public SettingsData() : this(0f, 0f, 0f, 0f, false, 0) { }
+
+
         public SettingsData(float masterV, float musicV, float sfxV, float environmentV, bool fps, int language)
         {
             MasterVolume = masterV;

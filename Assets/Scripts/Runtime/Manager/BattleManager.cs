@@ -12,7 +12,7 @@ using ZiercCode.Runtime.ScriptObject;
 
 namespace ZiercCode.Runtime.Manager
 {
-    public class BattleManager : SingletonIns<BattleManager>
+    public class BattleManager : USingletonComponentDestroy<BattleManager>
     {
         public event Action<int> OnLevelChange;
         public UnityEvent onBattleStart;

@@ -10,13 +10,13 @@ namespace ZiercCode.Runtime.Component.Hero
 
         private GameObject _currentWeaponInstance;
         private WeaponHolder _weaponHolder;
-        private InputManager _inputManager;
+        private HeroInputManager _heroInputManager;
         private HeroAttribute _attribute;
 
         private void Awake()
         {
             _weaponHolder = GetComponentInChildren<WeaponHolder>();
-            _inputManager = GetComponentInChildren<InputManager>();
+            _heroInputManager = GetComponentInChildren<HeroInputManager>();
             _attribute = GetComponentInChildren<HeroAttribute>();
             _currentWeaponInstance = Instantiate(defaultWeapon);
         }
@@ -35,7 +35,7 @@ namespace ZiercCode.Runtime.Component.Hero
                 lastWeapon.GetComponent<Weapon.Weapon>().Disable();
             SpriteRenderer weaponRenderer = weaponIns.GetComponentInChildren<SpriteRenderer>();
             Weapon.Weapon weapon = weaponIns.GetComponentInChildren<Weapon.Weapon>();
-            weapon.Initialize(_attribute.WeaponDamageRate, _attribute.criticalChance, _inputManager);
+            weapon.Initialize(_attribute.WeaponDamageRate, _attribute.criticalChance, _heroInputManager);
             _weaponHolder.ChangeWeapon(weaponRenderer, weaponIns.transform);
             return lastWeapon;
         }

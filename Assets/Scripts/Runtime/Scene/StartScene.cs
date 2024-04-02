@@ -1,5 +1,4 @@
 using UnityEngine.SceneManagement;
-using ZiercCode.Runtime.Audio;
 using ZiercCode.Runtime.UI;
 using ZiercCode.Runtime.UI.Panel;
 
@@ -10,7 +9,7 @@ namespace ZiercCode.Runtime.Scene
     /// </summary>
     public class StartScene : SceneState
     {
-        private readonly string _sceneName = "Start";
+        private readonly string _sceneName = "MainMenu";
         private PanelManager _panelManager;
 
         public override void OnEnter()
@@ -24,8 +23,7 @@ namespace ZiercCode.Runtime.Scene
             }
             else
             {
-                //执行第一次进入该场景后应该做的事情
-                _panelManager.Push(new StartPanel());
+                ToDoOnSceneLoaded();
             }
         }
 
@@ -35,6 +33,11 @@ namespace ZiercCode.Runtime.Scene
             _panelManager.PopAll();
         }
 
+        protected override void ToDoOnSceneLoaded()
+        {
+            _panelManager.Push(new StartPanel());
+        }
+
         /// <summary>
         /// 场景加载完毕后执行方法
         /// </summary>
@@ -42,7 +45,7 @@ namespace ZiercCode.Runtime.Scene
         /// <param name="mode">场景加载模式</param>
         private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
         {
-            _panelManager.Push(new StartPanel());
+            ToDoOnSceneLoaded();
         }
     }
 }

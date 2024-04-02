@@ -3,19 +3,20 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
+using ZiercCode.Runtime.Card;
 using ZiercCode.Runtime.Helper;
 using ZiercCode.Runtime.Manager;
-using ZiercCode.Runtime.UI.Card;
+using ZiercCode.Runtime.Player;
 using ZiercCode.Runtime.UI.Framework;
 
 namespace ZiercCode.Runtime.UI.Panel
 {
-
     public class CardPanel : BasePanel
     {
         public static readonly string path = "Prefabs/UI/Panel/CardPanel";
         public CardPanel() : base(new UIType(path)) { }
 
+        private HeroInputManager _heroInputManager;
         private Coroutine _timeSlowCoroutine;
 
         public override void OnEnter()
@@ -28,7 +29,7 @@ namespace ZiercCode.Runtime.UI.Panel
 
             cGroup.DOFade(1f, 1.5f).SetUpdate(true).OnComplete(() =>
             {
-                GameRoot.Instance.Pause();
+                Time.timeScale = 0f;
                 int[] cardIndex = MyMath.GetRandomInts(0, Cards.GetCards().Count - 1, 3);
                 for (int i = 0; i < 3; i++)
                 {
@@ -42,18 +43,19 @@ namespace ZiercCode.Runtime.UI.Panel
                     {
                         Cards.GetCards()[temp].cardEffect(GameManager.playerTans);
                         PanelManager.Pop();
-                        GameRoot.Instance.Play();
+                        Time.timeScale = 1f;
                     });
                     //卡片文本
                     LocalizeStringEvent text = newCard.GetComponent<LocalizeStringEvent>();
                     text.StringReference.Arguments = new object[]
                     {
-                        GameRoot.Instance.LanguageManager.GetCardText(Cards.GetCards()[cardIndex[i]].id)
+                        LocaleManager.GetCardText(Cards.GetCards()[cardIndex[i]].id)
                     };
                     text.StringReference.RefreshString();
                 }
             });
         }
+
 
         public override void OnPause()
         {
@@ -63,7 +65,7 @@ namespace ZiercCode.Runtime.UI.Panel
         public override void OnExit()
         {
             MyCoroutineTool.Instance.StopCoroutine(_timeSlowCoroutine);
-            GameRoot.Instance.Play();
+            Time.timeScale = 1f;
             CanvasGroup cGroup = UITool.GetOrAddComponent<CanvasGroup>();
             cGroup.interactable = false;
             cGroup.DOFade(0f, 0.5f).OnComplete(() =>

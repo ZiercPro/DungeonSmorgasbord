@@ -2,6 +2,7 @@ using DG.Tweening;
 using System;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 using ZiercCode.Runtime.Component;
@@ -10,22 +11,23 @@ using ZiercCode.Runtime.UI.Framework;
 
 namespace ZiercCode.Runtime.UI.Panel
 {
-
     public class GamePanel : BasePanel
     {
-        private static readonly string path = "Prefabs/UI/Panel/GameMenu";
-        public GamePanel() : base(new UIType(path)) { }
+        private const string Path = "Prefabs/UI/Panel/GameMenu";
+        public GamePanel() : base(new UIType(Path)) { }
 
-        private UnityAction _escAction;
         private Action _healthBarInitAction;
         private Action<int> _coinUpdateAction;
         private Action<int> _levelUpdateAction;
+        private Action<InputAction.CallbackContext> _escAction;
+
+        private PlayerInputAction _playerInputAction;
 
         private Tweener _coinGetShake;
 
         public override void OnEnter()
         {
-            _escAction = () => { PanelManager.Push(new PausePanel()); };
+            _playerInputAction = new PlayerInputAction();
             _levelUpdateAction = level =>
             {
                 LocalizeStringEvent levelText = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("Level");
@@ -70,23 +72,23 @@ namespace ZiercCode.Runtime.UI.Panel
                     UITool.GetComponentInChildrenUI<TextMeshProUGUI>("HealthBarCurrent").text = current.ToString();
                 };
             };
-            GameRoot.Instance.OnEsc.AddListener(_escAction);
+            SetEscEvent();
             BattleManager.Instance.OnLevelChange += _levelUpdateAction;
             GameManager.playerTans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
             GameManager.playerTans.GetComponent<Hero.Hero>().CoinPack.CoinChanged += _coinUpdateAction;
-            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = GameRoot.Instance.SettingsData.FPSOn;
+            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = DataManager.SettingsData.FPSOn;
         }
 
         public override void OnPause()
         {
-            GameRoot.Instance.OnEsc.RemoveListener(_escAction);
+            DeleteEscEvent();
             GameManager.playerTans.GetComponent<Health>().InitializeEnded -= _healthBarInitAction;
         }
 
         public override void OnResume()
         {
-            GameRoot.Instance.OnEsc.AddListener(_escAction);
-            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = GameRoot.Instance.SettingsData.FPSOn;
+            SetEscEvent();
+            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = DataManager.SettingsData.FPSOn;
             GameManager.playerTans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
         }
 
@@ -95,8 +97,21 @@ namespace ZiercCode.Runtime.UI.Panel
             GameManager.playerTans.GetComponent<Health>().InitializeEnded -= _healthBarInitAction;
             GameManager.playerTans.GetComponent<Hero.Hero>().CoinPack.CoinChanged -= _coinUpdateAction;
             BattleManager.Instance.OnLevelChange -= _levelUpdateAction;
-            GameRoot.Instance.OnEsc.RemoveListener(_escAction);
+            DeleteEscEvent();
             UIManager.DestroyUI(UIType);
+        }
+
+        private void SetEscEvent()
+        {
+            _escAction = e => { PanelManager.Push(new PausePanel()); };
+            _playerInputAction.ShortKey.Enable();
+            _playerInputAction.ShortKey.Back.performed += _escAction;
+        }
+
+        private void DeleteEscEvent()
+        {
+            _playerInputAction.ShortKey.Back.performed -= _escAction;
+            _playerInputAction.ShortKey.Disable();
         }
     }
 }

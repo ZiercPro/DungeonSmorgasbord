@@ -3,18 +3,18 @@ namespace ZiercCode.Runtime.Scene
     /// <summary>
     /// 场景管理系统
     /// </summary>
-    public class SceneSystem
+    public class SceneSystem 
     {
         /// <summary>
         /// 当前运行的场景
         /// </summary>
-        public SceneState currentS { get; private set; }
+        private static SceneState currentS;
 
         /// <summary>
         /// 设置并进入当前场景 
         /// </summary>
         /// <param name="state">要进入的场景</param>
-        public void SetScene(SceneState state)
+        public static void SetScene(SceneState state)
         {
             currentS?.OnExit();
             currentS = state;

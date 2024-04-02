@@ -8,12 +8,13 @@ namespace ZiercCode.Runtime.Helper
     /// <summary>
     /// 帮忙开启协程的单例
     /// </summary>
-    public class MyCoroutineTool : SingletonIns<MyCoroutineTool>
+    public class MyCoroutineTool : USingletonComponentDestroy<MyCoroutineTool>
     {
         private List<Coroutine> _myCoroutines;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _myCoroutines = new List<Coroutine>();
         }
 

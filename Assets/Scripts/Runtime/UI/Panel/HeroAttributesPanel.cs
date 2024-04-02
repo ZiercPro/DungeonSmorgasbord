@@ -1,4 +1,7 @@
+using System;
+using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.Localization.Components;
 using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Component.Hero;
@@ -8,23 +11,20 @@ using ZiercCode.Runtime.Weapon;
 
 namespace ZiercCode.Runtime.UI.Panel
 {
-
     public class HeroAttributesPanel : BasePanel
     {
         public HeroAttributesPanel() : base(new UIType("Prefabs/UI/Panel/HeroAttributesPanel")) { }
 
-        private UnityAction _Pop;
-        private UnityAction _Push;
+        private PlayerInputAction _playerInputAction;
+        private Action<InputAction.CallbackContext> _tabAction;
 
         public override void OnEnter()
         {
+            _playerInputAction = new PlayerInputAction();
             //快捷键
-            GameRoot.Instance.OnTab.RemoveAllListeners();
-            _Pop = () => { PanelManager.Pop(); };
-            _Push = () => { PanelManager.Push(new HeroAttributesPanel()); };
-            GameRoot.Instance.OnTab.AddListener(_Pop);
+            SetTabAction();
             //游戏暂停
-            GameRoot.Instance.Pause();
+            Time.timeScale = 0f;
             //属性显示
             LocalizeStringEvent maxHealth = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("MaxHealth");
             maxHealth.StringReference.Arguments =
@@ -62,12 +62,6 @@ namespace ZiercCode.Runtime.UI.Panel
                     .WeaponDamageRate[WeaponType.Special]
             };
             specialDamage.StringReference.RefreshString();
-            // LocalizeStringEvent meleeRange = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("AttackRange");
-            // meleeRange.StringReference.Arguments = new object[] { GameManager.playerTans.GetComponentInChildren<Weapon>().attackRange };
-            // meleeRange.StringReference.RefreshString();
-            // LocalizeStringEvent meleeSpeed = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("AttackSpeed");
-            // meleeSpeed.StringReference.Arguments = new object[] { GameManager.playerTans.GetComponentInChildren<Weapon>().attackSpeed };
-            // meleeSpeed.StringReference.RefreshString();
             LocalizeStringEvent criticalChance = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("CriticalChance");
             criticalChance.StringReference.Arguments = new object[]
             {
@@ -79,12 +73,24 @@ namespace ZiercCode.Runtime.UI.Panel
         public override void OnExit()
         {
             //快捷键
-            GameRoot.Instance.OnTab.RemoveListener(_Pop);
-            GameRoot.Instance.OnTab.RemoveListener(_Push);
+            DeleteTabAction();
             //关闭面板
             UIManager.DestroyUI(UIType);
             //游戏继续
-            GameRoot.Instance.Play();
+            Time.timeScale = 1f;
+        }
+
+        private void SetTabAction()
+        {
+            _tabAction = e => { PanelManager.Pop(); };
+            _playerInputAction.ShortKey.Enable();
+            _playerInputAction.ShortKey.View.performed += _tabAction;
+        }
+
+        private void DeleteTabAction()
+        {
+            _playerInputAction.ShortKey.View.performed -= _tabAction;
+            _playerInputAction.ShortKey.Disable();
         }
     }
 }

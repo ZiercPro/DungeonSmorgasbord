@@ -7,7 +7,6 @@ using ZiercCode.Runtime.Scene;
 
 namespace ZiercCode.Runtime.Helper
 {
-
     /// <summary>
     /// 异步加载工具
     /// </summary>
@@ -39,7 +38,7 @@ namespace ZiercCode.Runtime.Helper
                 yield return null;
             }
 
-            GameRoot.Instance.SceneSystem.SetScene(newSceneState);
+            SceneSystem.SetScene(newSceneState);
         }
     }
 }

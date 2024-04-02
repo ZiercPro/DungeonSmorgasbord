@@ -55,7 +55,7 @@ namespace Deprecated
 
         private void FindDefaultTarget()
         {
-            attackTarget = FindAnyObjectByType<InputManager>().transform;
+            attackTarget = FindAnyObjectByType<HeroInputManager>().transform;
         }
 
         protected void UpdateMoveDir()
