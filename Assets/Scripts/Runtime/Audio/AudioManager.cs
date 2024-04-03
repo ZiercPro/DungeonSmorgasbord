@@ -154,7 +154,7 @@ namespace ZiercCode.Runtime.Audio
         {
             if (_audioSourceDictionary.TryGetValue(audioBase, out AudioSource value))
             {
-                if (value.clip)
+                if (value && value.clip)
                 {
                     audioSource = value;
                     return true;
