@@ -10,26 +10,27 @@ namespace ZiercCode.Runtime.UI
     public class InterActiveButtonUI : MonoBehaviour
     {
         public HotKey hotkey;
-        private TextMeshPro textMesh;
-        private string buttonText = "";
-        private string originalText;
-        private Tween typeWriterT;
+        private string _buttonText;
+        private Tween _typeWriterT;
         public float duration = 1f;
+        private string _originalText;
+        private TextMeshPro _textMesh;
 
         private void Awake()
         {
-            textMesh = GetComponentInChildren<TextMeshPro>();
+            _textMesh = GetComponentInChildren<TextMeshPro>();
             GetText();
         }
 
         public void ShowText()
         {
             string currentT = "";
-            originalText = textMesh.text;
-            typeWriterT = DOTween.To(() => currentT, x => currentT = x, originalText + buttonText, duration).OnUpdate(
+            _originalText = _textMesh.text;
+            string endT = _originalText + _buttonText;
+            _typeWriterT = DOTween.To(() => currentT, x => currentT = x, endT, duration).OnUpdate(
                 () =>
                 {
-                    textMesh.text = currentT;
+                    _textMesh.text = currentT;
                 });
         }
 
@@ -38,10 +39,10 @@ namespace ZiercCode.Runtime.UI
             switch (hotkey)
             {
                 case HotKey.E:
-                    buttonText += " E";
+                    _buttonText += " E";
                     break;
                 case HotKey.Q:
-                    buttonText += " Q";
+                    _buttonText += " Q";
                     break;
                 default:
                     break;

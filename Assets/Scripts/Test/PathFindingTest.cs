@@ -2,12 +2,11 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Runtime;
 using ZiercCode.Runtime.Helper;
 using ZiercCode.Runtime.PathFinding;
 using Object = UnityEngine.Object;
 
-namespace Test
+namespace ZiercCode.Test
 {
 
     public class PathFindingTest : MonoBehaviour

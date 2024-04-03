@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Deprecated
+namespace ZiercCode.Deprecated.Player
 {
     /// <summary>
     /// AI或者玩家的输入

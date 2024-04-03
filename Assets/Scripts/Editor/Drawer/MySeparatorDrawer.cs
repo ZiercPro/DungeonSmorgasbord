@@ -1,9 +1,8 @@
-using ZiercCode.Runtime;
 using UnityEditor;
 using UnityEngine;
 using ZiercCode.Runtime.CustomAttribute;
 
-namespace ZEditor
+namespace ZiercCode.Editor.Drawer
 {
     [CustomPropertyDrawer(typeof(MySeparator))]
     public class MySeparatorDrawer : DecoratorDrawer

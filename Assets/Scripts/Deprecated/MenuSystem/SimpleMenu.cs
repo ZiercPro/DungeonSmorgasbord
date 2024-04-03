@@ -1,4 +1,4 @@
-﻿namespace Deprecated
+﻿namespace ZiercCode.Deprecated.MenuSystem
 {
     /// <summary>
     /// A base menu class that implements parameterless Show and Hide methods

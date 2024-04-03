@@ -1,14 +1,13 @@
-﻿using ZiercCode.Runtime;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine.UIElements;
 using ZiercCode.Runtime.ScriptObject;
 
-namespace ZEditor
+namespace ZiercCode.Editor.Inspector
 {
 
 
     [CustomEditor(typeof(AudioListSo))]
-    public class AudioListSoEditor : Editor
+    public class AudioListSoEditor : UnityEditor.Editor
     {
         public VisualTreeAsset _treeAsset;
 

@@ -5,6 +5,7 @@ using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 using ZiercCode.Runtime.Card;
 using ZiercCode.Runtime.Helper;
+using ZiercCode.Runtime.Hero;
 using ZiercCode.Runtime.Manager;
 using ZiercCode.Runtime.Player;
 using ZiercCode.Runtime.UI.Framework;

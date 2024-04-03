@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Deprecated
+namespace ZiercCode.Deprecated.MenuSystem
 {
     [System.Obsolete]
     public abstract class Menu<T> : Menu where T : Menu<T>

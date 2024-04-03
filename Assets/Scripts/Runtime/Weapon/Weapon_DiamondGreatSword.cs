@@ -3,6 +3,7 @@ using UnityEngine;
 using ZiercCode.Runtime.Audio;
 using ZiercCode.Runtime.Damage;
 using ZiercCode.Runtime.FeedBack;
+using ZiercCode.Runtime.Hero;
 using ZiercCode.Runtime.Player;
 
 namespace ZiercCode.Runtime.Weapon

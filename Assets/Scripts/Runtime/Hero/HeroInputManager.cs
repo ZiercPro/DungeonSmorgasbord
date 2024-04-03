@@ -1,9 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using ZiercCode.Runtime.Manager;
 
-namespace ZiercCode.Runtime.Player
+namespace ZiercCode.Runtime.Hero
 {
     public class HeroInputManager : MonoBehaviour
     {

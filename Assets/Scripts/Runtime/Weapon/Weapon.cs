@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode.Runtime.Damage;
 using ZiercCode.Runtime.Helper;
+using ZiercCode.Runtime.Hero;
 using ZiercCode.Runtime.Player;
 
 namespace ZiercCode.Runtime.Weapon

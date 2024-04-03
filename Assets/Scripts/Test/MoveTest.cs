@@ -1,10 +1,8 @@
-using ZiercCode.Runtime;
 using UnityEngine;
 using ZiercCode.Runtime.Component;
-using ZiercCode.Runtime.Player;
+using ZiercCode.Runtime.Hero;
 
-
-namespace Test
+namespace ZiercCode.Test
 {
 
     public class MoveTest : MonoBehaviour

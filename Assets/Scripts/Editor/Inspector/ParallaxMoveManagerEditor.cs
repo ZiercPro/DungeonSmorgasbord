@@ -1,12 +1,11 @@
-﻿using ZiercCode.Runtime;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine.UIElements;
 using ZiercCode.Runtime.Manager;
 
-namespace ZEditor
+namespace ZiercCode.Editor.Inspector
 {
     [CustomEditor(typeof(ParallaxMoveManager))]
-    public class ParallaxMoveManagerEditor : Editor
+    public class ParallaxMoveManagerEditor : UnityEditor.Editor
     {
         public VisualTreeAsset treeAsset;
 

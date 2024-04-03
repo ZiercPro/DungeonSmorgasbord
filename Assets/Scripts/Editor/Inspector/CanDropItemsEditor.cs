@@ -1,14 +1,13 @@
-﻿using ZiercCode.Runtime;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using ZiercCode.Runtime.Component.Enemy;
 using ZiercCode.Runtime.DroppedItem;
 
-namespace ZEditor
+namespace ZiercCode.Editor.Inspector
 {
     [CustomEditor(typeof(CanDropItems))]
-    public class CanDropItemsEditor : Editor
+    public class CanDropItemsEditor : UnityEditor.Editor
     {
         public VisualTreeAsset treeAsset;
 

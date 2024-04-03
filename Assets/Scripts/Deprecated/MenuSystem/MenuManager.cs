@@ -3,7 +3,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Deprecated
+namespace ZiercCode.Deprecated.MenuSystem
 {
     [System.Obsolete]
     public class MenuManager : MonoBehaviour

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Deprecated
+namespace ZiercCode.Deprecated.Player
 {
     [System.Obsolete]
     public class DashGhostFeedback : MonoBehaviour

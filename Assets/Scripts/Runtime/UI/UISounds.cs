@@ -1,10 +1,8 @@
-
 using UnityEngine;
 using ZiercCode.Runtime.Audio;
 
 namespace ZiercCode.Runtime.UI
 {
-
     /// <summary>
     /// ui播放音效的辅助脚本
     /// </summary>
@@ -30,6 +28,11 @@ namespace ZiercCode.Runtime.UI
         public void CardEnter()
         {
             AudioPlayer.Instance.PlayAudioAsync(AudioName.CardEnter1);
+        }
+
+        public void Interact()
+        {
+            AudioPlayer.Instance.PlayAudioAsync(AudioName.Interactive1);
         }
     }
 }

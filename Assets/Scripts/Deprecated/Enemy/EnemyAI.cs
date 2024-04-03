@@ -1,11 +1,11 @@
-using ZiercCode.Runtime;
 using UnityEngine;
 using UnityEngine.Events;
+using ZiercCode.Deprecated.Player;
 using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Helper;
-using ZiercCode.Runtime.Player;
+using ZiercCode.Runtime.Hero;
 
-namespace Deprecated
+namespace ZiercCode.Deprecated.Enemy
 {
 
     [System.Obsolete]

@@ -1,9 +1,8 @@
-﻿using ZiercCode.Runtime;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine.UIElements;
 using ZiercCode.Runtime.FeedBack;
 
-namespace ZEditor
+namespace ZiercCode.Editor.Drawer
 {
 
     [CustomPropertyDrawer(typeof(ParallaxMoveFeedBack))]

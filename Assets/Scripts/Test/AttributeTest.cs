@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-namespace Test
+namespace ZiercCode.Test
 {
     public class AttributeTest : MonoBehaviour
     {
