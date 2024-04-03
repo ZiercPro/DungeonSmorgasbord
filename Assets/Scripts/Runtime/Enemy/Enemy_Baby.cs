@@ -8,7 +8,6 @@ using ZiercCode.Runtime.Manager;
 
 namespace ZiercCode.Runtime.Enemy
 {
-
     public class Enemy_Baby : Enemy
     {
         [SerializeField] private GameObject deadParticle;
@@ -34,7 +33,6 @@ namespace ZiercCode.Runtime.Enemy
             base.Start();
             stateMachine.Initialize(idleState);
             attackCheck.SetRadius(attribute.attackRange);
-            AudioPlayer.Instance.PlayAudioAsync(AudioName.CoinCollected);
         }
 
         public override void Dead(bool dropItem = true)

@@ -80,6 +80,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""View"",
+                    ""type"": ""Button"",
+                    ""id"": ""207dc0d4-b63d-4ae8-9bc6-1732dd9a2a1b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -247,6 +256,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""MouseClickRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""de048875-6ee3-4714-bf34-7a0f687eb19c"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyBoard"",
+                    ""action"": ""View"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -262,15 +282,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""View"",
-                    ""type"": ""Button"",
-                    ""id"": ""465750d7-501e-4b82-a63b-fdd261e00875"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -282,17 +293,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyBoard"",
                     ""action"": ""Back"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9093e0a1-1c45-4149-aad5-79576a973480"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyBoard"",
-                    ""action"": ""View"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -332,10 +332,10 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_HeroControl_MouseClickLeft = m_HeroControl.FindAction("MouseClickLeft", throwIfNotFound: true);
         m_HeroControl_Dash = m_HeroControl.FindAction("Dash", throwIfNotFound: true);
         m_HeroControl_Interact = m_HeroControl.FindAction("Interact", throwIfNotFound: true);
+        m_HeroControl_View = m_HeroControl.FindAction("View", throwIfNotFound: true);
         // ShortKey
         m_ShortKey = asset.FindActionMap("ShortKey", throwIfNotFound: true);
         m_ShortKey_Back = m_ShortKey.FindAction("Back", throwIfNotFound: true);
-        m_ShortKey_View = m_ShortKey.FindAction("View", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -403,6 +403,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_HeroControl_MouseClickLeft;
     private readonly InputAction m_HeroControl_Dash;
     private readonly InputAction m_HeroControl_Interact;
+    private readonly InputAction m_HeroControl_View;
     public struct HeroControlActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -413,6 +414,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @MouseClickLeft => m_Wrapper.m_HeroControl_MouseClickLeft;
         public InputAction @Dash => m_Wrapper.m_HeroControl_Dash;
         public InputAction @Interact => m_Wrapper.m_HeroControl_Interact;
+        public InputAction @View => m_Wrapper.m_HeroControl_View;
         public InputActionMap Get() { return m_Wrapper.m_HeroControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -440,6 +442,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @View.started += instance.OnView;
+            @View.performed += instance.OnView;
+            @View.canceled += instance.OnView;
         }
 
         private void UnregisterCallbacks(IHeroControlActions instance)
@@ -462,6 +467,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @View.started -= instance.OnView;
+            @View.performed -= instance.OnView;
+            @View.canceled -= instance.OnView;
         }
 
         public void RemoveCallbacks(IHeroControlActions instance)
@@ -484,13 +492,11 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_ShortKey;
     private List<IShortKeyActions> m_ShortKeyActionsCallbackInterfaces = new List<IShortKeyActions>();
     private readonly InputAction m_ShortKey_Back;
-    private readonly InputAction m_ShortKey_View;
     public struct ShortKeyActions
     {
         private @PlayerInputAction m_Wrapper;
         public ShortKeyActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Back => m_Wrapper.m_ShortKey_Back;
-        public InputAction @View => m_Wrapper.m_ShortKey_View;
         public InputActionMap Get() { return m_Wrapper.m_ShortKey; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -503,9 +509,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Back.started += instance.OnBack;
             @Back.performed += instance.OnBack;
             @Back.canceled += instance.OnBack;
-            @View.started += instance.OnView;
-            @View.performed += instance.OnView;
-            @View.canceled += instance.OnView;
         }
 
         private void UnregisterCallbacks(IShortKeyActions instance)
@@ -513,9 +516,6 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Back.started -= instance.OnBack;
             @Back.performed -= instance.OnBack;
             @Back.canceled -= instance.OnBack;
-            @View.started -= instance.OnView;
-            @View.performed -= instance.OnView;
-            @View.canceled -= instance.OnView;
         }
 
         public void RemoveCallbacks(IShortKeyActions instance)
@@ -559,10 +559,10 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnMouseClickLeft(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnView(InputAction.CallbackContext context);
     }
     public interface IShortKeyActions
     {
         void OnBack(InputAction.CallbackContext context);
-        void OnView(InputAction.CallbackContext context);
     }
 }

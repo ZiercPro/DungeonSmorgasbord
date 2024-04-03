@@ -82,15 +82,15 @@ namespace ZiercCode.Runtime.UI.Panel
 
         private void SetTabAction()
         {
-            _tabAction = e => { PanelManager.Pop(); };
-            _playerInputAction.ShortKey.Enable();
-            _playerInputAction.ShortKey.View.performed += _tabAction;
+            _tabAction = e => { PanelManager.PopAll(); };
+            _playerInputAction.HeroControl.Enable();
+            _playerInputAction.HeroControl.View.performed += _tabAction;
         }
 
         private void DeleteTabAction()
         {
-            _playerInputAction.ShortKey.View.performed -= _tabAction;
-            _playerInputAction.ShortKey.Disable();
+            _playerInputAction.HeroControl.View.performed -= _tabAction;
+            _playerInputAction.HeroControl.Disable();
         }
     }
 }

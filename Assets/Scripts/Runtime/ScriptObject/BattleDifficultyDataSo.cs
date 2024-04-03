@@ -31,11 +31,11 @@ namespace ZiercCode.Runtime.ScriptObject
         }
 
         //每层对应的波数
-        public List<int> wavesOfLevel;
+        [FormerlySerializedAs("wavesPerLevel")] [FormerlySerializedAs("wavesOfLevel")] public List<int> waveNumPerLevel;
 
         //每层波生成间隔
         public List<float> intervalOfLevel;
-        
+
 
         private void OnValidate()
         {
@@ -43,7 +43,7 @@ namespace ZiercCode.Runtime.ScriptObject
             if (difDataFile == null) return;
 
             difficultyPerLevel = new EditableDictionary<int, int>();
-            wavesOfLevel = new List<int>();
+            waveNumPerLevel = new List<int>();
             intervalOfLevel = new List<float>();
 
             string[] lines = difDataFile.text.Split('\n');
@@ -52,7 +52,7 @@ namespace ZiercCode.Runtime.ScriptObject
             {
                 string[] row = lines[i].Split(',');
                 difficultyPerLevel.Add(i, int.Parse(row[0]));
-                wavesOfLevel.Add(int.Parse(row[1]));
+                waveNumPerLevel.Add(int.Parse(row[1]));
                 intervalOfLevel.Add(float.Parse(row[2]));
             }
         }

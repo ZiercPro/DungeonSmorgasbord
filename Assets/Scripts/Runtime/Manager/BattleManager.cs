@@ -40,6 +40,8 @@ namespace ZiercCode.Runtime.Manager
             _enemyNumHash = new int[enemyTemps.Count];
             currentState = BattleState.Before;
             OnLevelChange?.Invoke(_currentLevel);
+            
+            
         }
 
         private void Update()
@@ -140,7 +142,7 @@ namespace ZiercCode.Runtime.Manager
             GetDifficultyOfCurrentLevel(_currentLevel);
             GetNumOfEnemy(_currentDifficulty);
 
-            int wave = difficultyDataSo.wavesOfLevel[_currentLevel];
+            int wave = difficultyDataSo.waveNumPerLevel[_currentLevel];
             while (wave > 0)
             {
                 wave--;

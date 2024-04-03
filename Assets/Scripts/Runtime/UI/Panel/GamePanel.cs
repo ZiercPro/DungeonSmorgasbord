@@ -20,6 +20,7 @@ namespace ZiercCode.Runtime.UI.Panel
         private Action<int> _coinUpdateAction;
         private Action<int> _levelUpdateAction;
         private Action<InputAction.CallbackContext> _escAction;
+        private Action<InputAction.CallbackContext> _tabAction;
 
         private PlayerInputAction _playerInputAction;
 
@@ -113,5 +114,6 @@ namespace ZiercCode.Runtime.UI.Panel
             _playerInputAction.ShortKey.Back.performed -= _escAction;
             _playerInputAction.ShortKey.Disable();
         }
+        
     }
 }

@@ -194,6 +194,7 @@ namespace ZiercCode.Runtime.Audio
                 return newComponent;
 
             Debug.LogWarning("audioBase already exist");
+            Object.Destroy(newAudioS);
             return _audioSourceDictionary[audioBase];
         }
     }

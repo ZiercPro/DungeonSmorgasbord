@@ -63,9 +63,9 @@ namespace ZiercCode.Runtime.Hero
             _playerInputAction.HeroControl.Movement.started += OnMovementInputStarted;
             _playerInputAction.HeroControl.Movement.canceled += OnMovementInputCanceled;
 
-            _playerInputAction.ShortKey.View.performed += OnTabButtonPressing;
-            _playerInputAction.ShortKey.View.started += OnTabButtonPressStart;
-            _playerInputAction.ShortKey.View.canceled += OnTabButtonReleased;
+            _playerInputAction.HeroControl.View.performed += OnTabButtonPressing;
+            _playerInputAction.HeroControl.View.started += OnTabButtonPressStart;
+            _playerInputAction.HeroControl.View.canceled += OnTabButtonReleased;
         }
 
         private void OnDisable()
@@ -89,9 +89,9 @@ namespace ZiercCode.Runtime.Hero
             _playerInputAction.HeroControl.Movement.started -= OnMovementInputStarted;
             _playerInputAction.HeroControl.Movement.canceled -= OnMovementInputCanceled;
 
-            _playerInputAction.ShortKey.View.performed -= OnTabButtonPressing;
-            _playerInputAction.ShortKey.View.started -= OnTabButtonPressStart;
-            _playerInputAction.ShortKey.View.canceled -= OnTabButtonReleased;
+            _playerInputAction.HeroControl.View.performed -= OnTabButtonPressing;
+            _playerInputAction.HeroControl.View.started -= OnTabButtonPressStart;
+            _playerInputAction.HeroControl.View.canceled -= OnTabButtonReleased;
         }
 
         private void Awake()
