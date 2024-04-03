@@ -46,7 +46,6 @@ namespace ZiercCode.Runtime.Manager
         private void EnterGame()
         {
             SceneSystem.SetScene(new StartScene());
-            AudioPlayer.Instance.PlayAudioAsync(AudioName.MenuBgm);
         }
 
         private void ExitGame()

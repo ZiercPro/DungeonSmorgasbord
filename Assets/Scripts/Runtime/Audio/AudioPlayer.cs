@@ -29,8 +29,8 @@ namespace ZiercCode.Runtime.Audio
         protected override void Awake()
         {
             base.Awake();
-            _audioDic = audioList.AudioEditableDictionary.ToDictionary();
             _audioManager = new AudioManager();
+            _audioDic = audioList.AudioEditableDictionary.ToDictionary();
         }
 
         /// <summary>
@@ -90,6 +90,11 @@ namespace ZiercCode.Runtime.Audio
             {
                 Debug.LogWarning($"音频{audioBase.AudioType.Name}组件缺失或被销毁!");
             }
+        }
+
+        public bool ClearAudioCache()
+        {
+            return _audioManager.RemoveAllAudios();
         }
 
 

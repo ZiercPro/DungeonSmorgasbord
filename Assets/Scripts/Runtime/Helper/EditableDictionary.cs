@@ -8,7 +8,7 @@ namespace ZiercCode.Runtime.Helper
     [Serializable]
     public class EditableDictionary<TKey, TObject>
     {
-        [FormerlySerializedAs("dicList")] [SerializeField] private List<EditableDictionaryItem<TKey, TObject>> dictionaryList;
+        [SerializeField] private List<EditableDictionaryItem<TKey, TObject>> dictionaryList;
 
         public int Count => dictionaryList?.Count ?? 0;
 

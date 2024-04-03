@@ -1,6 +1,7 @@
 using UnityEngine.SceneManagement;
 using ZiercCode.Runtime.UI;
 using ZiercCode.Runtime.UI.Panel;
+using ZiercCode.Runtime.Audio;
 
 namespace ZiercCode.Runtime.Scene
 {
@@ -30,12 +31,14 @@ namespace ZiercCode.Runtime.Scene
         public override void OnExit()
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
+            AudioPlayer.Instance.ClearAudioCache();
             _panelManager.PopAll();
         }
 
         protected override void ToDoOnSceneLoaded()
         {
             _panelManager.Push(new StartPanel());
+            AudioPlayer.Instance.PlayAudioAsync(AudioName.MenuBgm);
         }
 
         /// <summary>
