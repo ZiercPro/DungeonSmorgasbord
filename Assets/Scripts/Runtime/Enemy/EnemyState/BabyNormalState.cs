@@ -35,7 +35,7 @@ namespace ZiercCode.Runtime.Enemy.EnemyState
 
         public override void FrameUpdate()
         {
-            if (_enemy.attackTarget && _enemy.attackTarget.activeInHierarchy)
+            if (_enemy.attackTarget && !_enemy.attackTarget.isDead)
             {
                 if (enemyBase.attackCheck.isEnter)
                 {

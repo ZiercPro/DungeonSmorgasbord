@@ -19,7 +19,7 @@ namespace ZiercCode.Runtime.Enemy
         public Animator animator { get; private set; }
         public Health health { get; private set; }
 
-        public GameObject attackTarget { get; private set; }
+        public Health attackTarget { get; private set; }
         private static List<Enemy> s_enemys;
 
         public event Action<DamageInfo> OnTakeDamage;
@@ -48,7 +48,7 @@ namespace ZiercCode.Runtime.Enemy
             animator = GetComponentInChildren<Animator>();
             health = GetComponentInChildren<Health>();
             stateMachine = new EnemyStateMachine();
-            attackTarget = GameObject.FindGameObjectWithTag("Player");
+            attackTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
         }
 
         protected virtual void Start()
@@ -72,7 +72,7 @@ namespace ZiercCode.Runtime.Enemy
             stateMachine.currentState.PhysicsUpdate();
         }
 
-        public void ChangeTarget(GameObject target)
+        public void ChangeTarget(Health target)
         {
             attackTarget = target;
         }
