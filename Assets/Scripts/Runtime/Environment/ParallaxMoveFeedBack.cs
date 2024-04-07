@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using ZiercCode.Runtime.Helper;
 
-namespace ZiercCode.Runtime.FeedBack
+namespace ZiercCode.Runtime.Environment
 {
 
     /// <summary>
@@ -18,11 +18,11 @@ namespace ZiercCode.Runtime.FeedBack
 
 
         private Coroutine _backMoveCoroutine;
-        private Camera _mainCamera;
+        private UnityEngine.Camera _mainCamera;
         private Vector2 _startPos;
         private bool _canMove;
 
-        public void OnMove(Camera parent)
+        public void OnMove(UnityEngine.Camera parent)
         {
             _startPos = objectInstance.position;
             _mainCamera = parent;

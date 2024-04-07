@@ -1,9 +1,9 @@
 using UnityEngine;
 using ZiercCode.Runtime.Audio;
+using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Component.Enemy;
 using ZiercCode.Runtime.Damage;
 using ZiercCode.Runtime.Enemy.EnemyState;
-using ZiercCode.Runtime.FeedBack;
 using ZiercCode.Runtime.Manager;
 
 namespace ZiercCode.Runtime.Enemy
@@ -16,6 +16,7 @@ namespace ZiercCode.Runtime.Enemy
 
         private CanDropItems _canDropItems;
         private KnockBackFeedBack _knockBackFeedBack;
+        private ScaleShakeFeedBack _scaleShakeFeedBack;
         private FlashWhiteFeedBack _flashWhiteFeedBack;
 
         protected override void Awake()
@@ -25,6 +26,7 @@ namespace ZiercCode.Runtime.Enemy
             moveState = new BabyMoveState(this, stateMachine, this);
             _canDropItems = GetComponent<CanDropItems>();
             _knockBackFeedBack = GetComponent<KnockBackFeedBack>();
+            _scaleShakeFeedBack = GetComponent<ScaleShakeFeedBack>();
             _flashWhiteFeedBack = GetComponent<FlashWhiteFeedBack>();
         }
 
@@ -53,6 +55,7 @@ namespace ZiercCode.Runtime.Enemy
                 current -= info.damageAmount;
                 return current;
             });
+            _scaleShakeFeedBack.StartShake();
             _knockBackFeedBack.StartBackMove(info);
             _flashWhiteFeedBack.Flash();
             TextPopupSpawner.Instance.InitPopupText(this.transform.position, Color.blue, info.damageAmount);
