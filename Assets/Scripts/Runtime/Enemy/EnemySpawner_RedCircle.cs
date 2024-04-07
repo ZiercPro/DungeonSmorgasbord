@@ -9,11 +9,10 @@ namespace ZiercCode.Runtime.Enemy
         public GameObject enemyTemp;
         public Action<GameObject> SpawnComplete;
 
-        private static List<EnemySpawner_RedCircle> _spawns;
+        private static readonly List<EnemySpawner_RedCircle> _spawns = new List<EnemySpawner_RedCircle>();
 
         private void OnEnable()
         {
-            if (_spawns == null) _spawns = new List<EnemySpawner_RedCircle>();
             _spawns.Add(this);
         }
 

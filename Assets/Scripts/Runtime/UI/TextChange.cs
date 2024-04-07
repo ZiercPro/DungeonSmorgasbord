@@ -12,7 +12,7 @@ namespace ZiercCode.Runtime.UI
         private string targetT;
 
         //修饰用的字符
-        private readonly static string s_modifier = "-";
+        private static readonly string SModifier = "-";
 
         private void Awake()
         {
@@ -61,13 +61,13 @@ namespace ZiercCode.Runtime.UI
         {
             text = GetComponentInChildren<TextMeshProUGUI>(true);
             originalT = text.text;
-            if (originalT.Contains(s_modifier))
+            if (originalT.Contains(SModifier))
             {
-                string[] temp = originalT.Split(s_modifier);
+                string[] temp = originalT.Split(SModifier);
                 originalT = temp[1];
             }
 
-            targetT = s_modifier + originalT + s_modifier;
+            targetT = SModifier + originalT + SModifier;
 
             ToggleState();
         }
