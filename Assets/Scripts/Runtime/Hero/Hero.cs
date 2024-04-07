@@ -53,6 +53,7 @@ namespace ZiercCode.Runtime.Hero
 
         private void Start()
         {
+            CoinPack.Init(0);
             _attribute.Initialize();
             _heroWeaponHandler.GetDefualtWeapon();
             _health.Initialize(_attribute.maxHealth);

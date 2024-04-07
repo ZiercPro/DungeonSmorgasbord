@@ -60,7 +60,6 @@ namespace ZiercCode.Runtime.Audio
                 {
                     newClip = Object.Instantiate(handle.Result);
                     _audioClipDictionary.TryAdd(audioBase, newClip);
-                    Debug.Log("complete");
                 }
                 else
                     Debug.LogError("加载失败!");

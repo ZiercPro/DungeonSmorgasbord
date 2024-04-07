@@ -191,7 +191,6 @@ namespace ZiercCode.Runtime.Audio
 
         public void SetMusicVolume(float amount)
         {
-            Debug.Log(amount);
             audioMixer.SetFloat("musicVolume", amount);
         }
 

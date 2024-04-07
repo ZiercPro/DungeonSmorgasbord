@@ -1,7 +1,6 @@
 using DG.Tweening;
 using System;
 using TMPro;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;

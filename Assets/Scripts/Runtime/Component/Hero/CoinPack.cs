@@ -12,8 +12,11 @@ namespace ZiercCode.Runtime.Component.Hero
         public CoinPack()
         {
             coinNum = 0;
-            //让gamepanel显示金币数量
-            GetCoins(0);
+        }
+
+        public void Init(int amount)
+        {
+            GetCoins(amount);
         }
 
         public int coinNum { get; private set; }

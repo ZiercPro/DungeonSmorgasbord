@@ -15,6 +15,7 @@ namespace ZiercCode.Runtime.Manager
     public class BattleManager : USingletonComponentDestroy<BattleManager>
     {
         public event Action<int> OnLevelChange;
+
         public UnityEvent onBattleStart;
         public UnityEvent onBattleEnd;
 
@@ -40,22 +41,17 @@ namespace ZiercCode.Runtime.Manager
             _enemyNumHash = new int[enemyTemps.Count];
             currentState = BattleState.Before;
             OnLevelChange?.Invoke(_currentLevel);
-            
-            
         }
 
         private void Update()
         {
             switch (currentState)
             {
-                default:
-                    break;
                 case BattleState.Before:
                     break;
                 case BattleState.Ing:
                     if (IsWaveDone())
                     {
-                        Debug.Log("wavedone!");
                         currentState = BattleState.After;
                     }
 
@@ -139,6 +135,7 @@ namespace ZiercCode.Runtime.Manager
 
         IEnumerator EnemySpawnCoroutine()
         {
+            yield return null;
             GetDifficultyOfCurrentLevel(_currentLevel);
             GetNumOfEnemy(_currentDifficulty);
 
