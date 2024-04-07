@@ -1,10 +1,7 @@
-using System;
+using System.Threading;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.InputSystem;
 using ZiercCode.Runtime.Audio;
 using ZiercCode.Runtime.Basic;
-using ZiercCode.Runtime.Data;
 using ZiercCode.Runtime.Scene;
 
 namespace ZiercCode.Runtime.Manager
@@ -37,14 +34,15 @@ namespace ZiercCode.Runtime.Manager
         private void InitGame()
         {
             DataManager.LoadSettings();
-            AudioPlayer.Instance.SetEnvironmentVolume(DataManager.SettingsData.EnvironmentVolume);
-            AudioPlayer.Instance.SetMasterVolume(DataManager.SettingsData.MasterVolume);
-            AudioPlayer.Instance.SetMusicVolume(DataManager.SettingsData.MusicVolume);
-            AudioPlayer.Instance.SetSFXVolume(DataManager.SettingsData.SFXVolume);
+            LocaleManager.Instance.SetLanguage(DataManager.SettingsData.Language);
         }
 
         private void EnterGame()
         {
+            AudioPlayer.Instance.SetEnvironmentVolume(DataManager.SettingsData.EnvironmentVolume);
+            AudioPlayer.Instance.SetMasterVolume(DataManager.SettingsData.MasterVolume);
+            AudioPlayer.Instance.SetMusicVolume(DataManager.SettingsData.MusicVolume);
+            AudioPlayer.Instance.SetSfxVolume(DataManager.SettingsData.SFXVolume);
             SceneSystem.SetScene(new StartScene());
         }
 

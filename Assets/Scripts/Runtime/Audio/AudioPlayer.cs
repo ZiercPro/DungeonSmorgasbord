@@ -40,6 +40,7 @@ namespace ZiercCode.Runtime.Audio
         public async void PlayAudioAsync(AudioName audioName)
         {
             AudioBase audioBase = _audioDic[audioName];
+
             AudioSource player = await _audioManager.GetAudioSourceAsync(audioBase);
             if (player)
             {
@@ -190,10 +191,11 @@ namespace ZiercCode.Runtime.Audio
 
         public void SetMusicVolume(float amount)
         {
+            Debug.Log(amount);
             audioMixer.SetFloat("musicVolume", amount);
         }
 
-        public void SetSFXVolume(float amount)
+        public void SetSfxVolume(float amount)
         {
             audioMixer.SetFloat("sfxVolume", amount);
         }
