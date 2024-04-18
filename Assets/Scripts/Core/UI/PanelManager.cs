@@ -10,17 +10,17 @@ namespace ZiercCode.Core.UI
     /// </summary>
     public class PanelManager
     {
-        private Stack<BasePanel> panelStack;
-        private UIManager uiManager;
-        private BasePanel curPanel;
+        private Stack<BasePanel> _panelStack;
+        private UIManager _uiManager;
+        private BasePanel _curPanel;
 
         private PlayerInputAction _playerInputAction;
         private Action<InputAction.CallbackContext> _escAction;
 
         public PanelManager()
         {
-            panelStack = new Stack<BasePanel>();
-            uiManager = new UIManager();
+            _panelStack = new Stack<BasePanel>();
+            _uiManager = new UIManager();
             _playerInputAction = new PlayerInputAction();
             SetEscAction();
         }
@@ -32,16 +32,16 @@ namespace ZiercCode.Core.UI
         /// <returns>新显示的面板</returns>
         public BasePanel Push(BasePanel nextPanel)
         {
-            if (panelStack.Count > 0)
-                curPanel.OnPause();
+            if (_panelStack.Count > 0)
+                _curPanel.OnPause();
 
-            curPanel = nextPanel;
+            _curPanel = nextPanel;
 
-            panelStack.Push(nextPanel);
+            _panelStack.Push(nextPanel);
 
-            GameObject newP = uiManager.GetSingleUI(nextPanel.UIType);
+            GameObject newP = _uiManager.GetSingleUI(nextPanel.UIType);
 
-            nextPanel.Init(new UITool(newP), this, uiManager);
+            nextPanel.Init(new UITool(newP), this, _uiManager);
             nextPanel.OnEnter();
 
             return nextPanel;
@@ -52,11 +52,11 @@ namespace ZiercCode.Core.UI
         /// </summary>
         public void Pop()
         {
-            if (panelStack.Count > 1)
+            if (_panelStack.Count > 1)
             {
-                panelStack.Pop().OnExit();
-                curPanel = panelStack.Peek();
-                curPanel.OnResume();
+                _panelStack.Pop().OnExit();
+                _curPanel = _panelStack.Peek();
+                _curPanel.OnResume();
             }
         }
 
@@ -65,17 +65,17 @@ namespace ZiercCode.Core.UI
         /// </summary>
         public void PopAll()
         {
-            while (panelStack.Count > 0)
+            while (_panelStack.Count > 0)
             {
-                panelStack.Pop().OnExit();
+                _panelStack.Pop().OnExit();
             }
 
-            curPanel = null;
+            _curPanel = null;
         }
 
         private void SetEscAction()
         {
-            _escAction = e => { curPanel.OnEsc(); };
+            _escAction = e => { _curPanel.OnEsc(); };
             _playerInputAction.ShortKey.Enable();
             _playerInputAction.ShortKey.Back.performed += _escAction;
         }

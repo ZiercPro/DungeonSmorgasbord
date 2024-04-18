@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with BOM under Windows, with no BOM otherwise">
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Basic/USingletonComponentDontDestroy.cs" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Card/CardBase.cs" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/Runtime/Manager/DataManager.cs" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Panel/StartPanel.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Old/Basic/USingletonComponentDontDestroy.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Old/Card/CardBase.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Old/Manager/DataManager.cs" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Old/UI/Panel/StartPanel.cs" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

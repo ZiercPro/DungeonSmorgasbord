@@ -3,7 +3,7 @@ namespace ZiercCode.Core.UI
     /// <summary>
     /// 所有面板UI的父类
     /// </summary>
-    public abstract class BasePanel
+    public abstract class BasePanel 
     {
         /// <summary>
         /// 这个Panel的UI信息
