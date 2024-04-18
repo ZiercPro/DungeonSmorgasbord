@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using ZiercCode.Runtime.UI;
-using ZiercCode.Runtime.Component.Hero;
+using ZiercCode.Old.Component.Hero;
+using ZiercCode.Old.UI;
 
-namespace ZiercCode.Runtime.Environment
+namespace ZiercCode.Old.Environment
 {
     [RequireComponent(typeof(CircleCollider2D))]
     public class Interactable : MonoBehaviour

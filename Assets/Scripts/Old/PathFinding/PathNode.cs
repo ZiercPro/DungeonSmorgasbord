@@ -1,8 +1,8 @@
 ﻿
 
-using ZiercCode.Runtime.PathFinding.Grid;
+using ZiercCode.Old.PathFinding.Grid;
 
-namespace ZiercCode.Runtime.PathFinding
+namespace ZiercCode.Old.PathFinding
 {
     public class PathNode
     {

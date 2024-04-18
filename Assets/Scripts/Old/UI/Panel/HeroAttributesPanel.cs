@@ -3,13 +3,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Localization.Components;
 using ZiercCode.Core.UI;
-using ZiercCode.Runtime.Component;
-using ZiercCode.Runtime.Component.Hero;
-using ZiercCode.Runtime.Hero;
-using ZiercCode.Runtime.Manager;
-using ZiercCode.Runtime.Weapon;
+using ZiercCode.Old.Component;
+using ZiercCode.Old.Component.Hero;
+using ZiercCode.Old.Hero;
+using ZiercCode.Old.Manager;
+using ZiercCode.Old.Weapon;
 
-namespace ZiercCode.Runtime.UI.Panel
+namespace ZiercCode.Old.UI.Panel
 {
     public class HeroAttributesPanel : BasePanel
     {
@@ -22,10 +22,10 @@ namespace ZiercCode.Runtime.UI.Panel
         public override void OnEnter()
         {
             //禁用玩家输入
-            BanHeroInput();
+            BanPlayerInput();
             _playerInputAction = new PlayerInputAction();
             //快捷键
-            SetTabAction();
+            // SetTabAction();
             //游戏暂停
             Time.timeScale = 0f;
             //属性显示
@@ -76,45 +76,26 @@ namespace ZiercCode.Runtime.UI.Panel
         public override void OnExit()
         {
             //快捷键
-            DeleteTabAction();
+            //DeleteTabAction();
             //关闭面板
             UIManager.DestroyUI(UIType);
             //放行玩家输入
-            ReleaseHeroInput();
+            //  ReleaseHeroInput();
             //游戏继续
             Time.timeScale = 1f;
         }
-        public override void OnEsc()
-        {
-            PanelManager.PopAll();
-        }
 
-        private void SetTabAction()
-        {
-            _tabAction = e => { PanelManager.PopAll(); };
-            _playerInputAction.HeroControl.Enable();
-            _playerInputAction.HeroControl.View.performed += _tabAction;
-        }
-
-        private void DeleteTabAction()
-        {
-            _playerInputAction.HeroControl.View.performed -= _tabAction;
-            _playerInputAction.HeroControl.Disable();
-        }
-        //禁用玩家输入
-        private void BanHeroInput()
-        {
-            if (GameManager.playerTrans)
-            {
-                _heroInputManager = GameManager.playerTrans.GetComponent<HeroInputManager>();
-                _heroInputManager.enabled = false;
-            }
-        }
-        //放行玩家输入
-        private void ReleaseHeroInput()
-        {
-            _heroInputManager.enabled = true;
-            _heroInputManager = null;
-        }
+        // private void SetTabAction()
+        // {
+        //     _tabAction = e => { PanelManager.PopAll(); };
+        //     _playerInputAction.HeroControl.Enable();
+        //     _playerInputAction.HeroControl.View.performed += _tabAction;
+        // }
+        //
+        // private void DeleteTabAction()
+        // {
+        //     _playerInputAction.HeroControl.View.performed -= _tabAction;
+        //     _playerInputAction.HeroControl.Disable();
+        // }
     }
 }

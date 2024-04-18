@@ -1,4 +1,4 @@
-namespace ZiercCode.Runtime.Enemy.EnemyState
+namespace ZiercCode.Old.Enemy.EnemyState
 {
     /// <summary>
     /// 敌人状态基类

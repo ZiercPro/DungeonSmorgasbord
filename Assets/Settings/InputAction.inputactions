@@ -58,15 +58,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "View",
-                    "type": "Button",
-                    "id": "207dc0d4-b63d-4ae8-9bc6-1732dd9a2a1b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -234,17 +225,6 @@
                     "action": "MouseClickRight",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "de048875-6ee3-4714-bf34-7a0f687eb19c",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyBoard",
-                    "action": "View",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -260,6 +240,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "View",
+                    "type": "Button",
+                    "id": "24c1cd18-6426-4c50-b991-84ea24f74d57",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -271,6 +260,17 @@
                     "processors": "",
                     "groups": "KeyBoard",
                     "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "854c4c57-6ad9-4078-9125-051c3dd45048",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyBoard",
+                    "action": "View",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

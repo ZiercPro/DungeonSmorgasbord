@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Runtime.Basic;
-using ZiercCode.Runtime.Environment;
+using ZiercCode.Old.Basic;
+using ZiercCode.Old.Environment;
 
-namespace ZiercCode.Runtime.Manager
+namespace ZiercCode.Old.Manager
 {
 
     public class ParallaxMoveManager : USingletonComponentDestroy<ParallaxMoveManager>

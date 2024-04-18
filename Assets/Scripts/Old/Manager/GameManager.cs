@@ -1,15 +1,11 @@
 using UnityEngine;
 using ZiercCode.Core.UI;
-using ZiercCode.Runtime.Basic;
-using ZiercCode.Runtime.Component;
-using ZiercCode.Runtime.Data;
-using ZiercCode.Runtime.Enemy;
-using ZiercCode.Runtime.Environment;
-using ZiercCode.Runtime.Hero;
-using ZiercCode.Runtime.UI;
-using ZiercCode.Runtime.UI.Panel;
+using ZiercCode.Old.Component;
+using ZiercCode.Old.Environment;
+using ZiercCode.Old.Hero;
+using ZiercCode.Old.UI.Panel;
 
-namespace ZiercCode.Runtime.Manager
+namespace ZiercCode.Old.Manager
 {
     /// <summary>
     /// 游戏场景管理器

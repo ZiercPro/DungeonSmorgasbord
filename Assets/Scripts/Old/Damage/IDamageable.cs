@@ -1,6 +1,6 @@
 using System;
 
-namespace ZiercCode.Runtime.Damage
+namespace ZiercCode.Old.Damage
 {
     /// <summary>
     /// 可被伤害接口

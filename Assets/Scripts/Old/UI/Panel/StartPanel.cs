@@ -2,9 +2,9 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using ZiercCode.Core.UI;
-using ZiercCode.Runtime.Scene;
+using ZiercCode.Old.Scene;
 
-namespace ZiercCode.Runtime.UI.Panel
+namespace ZiercCode.Old.UI.Panel
 {
     public class StartPanel : BasePanel
     {

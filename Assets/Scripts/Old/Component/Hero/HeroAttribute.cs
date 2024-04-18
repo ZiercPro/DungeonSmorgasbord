@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-using UnityEngine;
-using ZiercCode.Runtime.Helper;
-using ZiercCode.Runtime.ScriptObject;
-using ZiercCode.Runtime.Weapon;
+using ZiercCode.Old.ScriptObject;
+using ZiercCode.Old.Weapon;
 
-namespace ZiercCode.Runtime.Component.Hero
+namespace ZiercCode.Old.Component.Hero
 {
     public class HeroAttribute : Attribute<HeroAttributeSo>
     {

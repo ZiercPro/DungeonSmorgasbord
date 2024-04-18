@@ -2,8 +2,8 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Runtime.Helper;
-using ZiercCode.Runtime.PathFinding;
+using ZiercCode.Old.Helper;
+using ZiercCode.Old.PathFinding;
 using Object = UnityEngine.Object;
 
 namespace ZiercCode.Test

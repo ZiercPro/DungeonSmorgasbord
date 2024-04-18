@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Runtime.Damage;
-using ZiercCode.Runtime.Helper;
-using ZiercCode.Runtime.Hero;
-using ZiercCode.Runtime.Player;
+using ZiercCode.Old.Damage;
+using ZiercCode.Old.Helper;
+using ZiercCode.Old.Hero;
 
-namespace ZiercCode.Runtime.Weapon
+namespace ZiercCode.Old.Weapon
 {
 
     public class Weapon : MonoBehaviour

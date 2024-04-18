@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Weapon
+namespace ZiercCode.Old.Weapon
 {
     public class Weapon_WoodenBow : MonoBehaviour
     {

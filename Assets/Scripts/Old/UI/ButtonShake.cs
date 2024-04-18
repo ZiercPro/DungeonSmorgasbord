@@ -2,7 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
-namespace ZiercCode.Runtime.UI
+namespace ZiercCode.Old.UI
 {
     public class ButtonShake : MonoBehaviour
     {

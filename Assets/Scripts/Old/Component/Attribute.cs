@@ -1,8 +1,7 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using ZiercCode.Runtime.ScriptObject;
+using ZiercCode.Old.ScriptObject;
 
-namespace ZiercCode.Runtime.Component
+namespace ZiercCode.Old.Component
 {
     public class Attribute<T> : MonoBehaviour where T : AttributesBaseSo
     {

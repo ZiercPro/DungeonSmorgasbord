@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace ZiercCode.Runtime.Audio
+namespace ZiercCode.Old.Audio
 {
     /// <summary>
     /// 基础的音频类 储存音频的基本信息

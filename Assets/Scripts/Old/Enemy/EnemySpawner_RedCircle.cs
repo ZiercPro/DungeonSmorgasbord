@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Enemy
+namespace ZiercCode.Old.Enemy
 {
     public class EnemySpawner_RedCircle : MonoBehaviour
     {

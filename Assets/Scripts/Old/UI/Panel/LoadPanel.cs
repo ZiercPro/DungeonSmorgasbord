@@ -2,10 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using ZiercCode.Core.UI;
-using ZiercCode.Runtime.Helper;
-using ZiercCode.Runtime.Scene;
+using ZiercCode.Old.Helper;
+using ZiercCode.Old.Scene;
 
-namespace ZiercCode.Runtime.UI.Panel
+namespace ZiercCode.Old.UI.Panel
 {
 
     public class LoadPanel : BasePanel

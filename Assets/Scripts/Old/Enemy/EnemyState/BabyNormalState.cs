@@ -1,7 +1,7 @@
 using UnityEngine;
-using ZiercCode.Runtime.Damage;
+using ZiercCode.Old.Damage;
 
-namespace ZiercCode.Runtime.Enemy.EnemyState
+namespace ZiercCode.Old.Enemy.EnemyState
 {
 
     public class BabyNormalState : EnemyState

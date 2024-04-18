@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
-using ZiercCode.Runtime.Helper;
+using ZiercCode.Old.Helper;
 
-namespace ZiercCode.Runtime.ScriptObject
+namespace ZiercCode.Old.ScriptObject
 {
     [CreateAssetMenu(menuName = "ScriptObj/BattleDifficulty", fileName = "BattleDifficulty")]
     public class BattleDifficultyDataSo : ScriptableObject

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Environment
+namespace ZiercCode.Old.Environment
 {
     public class Door : MonoBehaviour
     {

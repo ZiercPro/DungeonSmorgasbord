@@ -1,6 +1,6 @@
 using System;
 
-namespace ZiercCode.Runtime.Component.Hero
+namespace ZiercCode.Old.Component.Hero
 {
     /// <summary>
     /// 储存硬币

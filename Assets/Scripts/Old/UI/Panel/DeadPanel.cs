@@ -1,19 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 using ZiercCode.Core.UI;
-using ZiercCode.Runtime.Manager;
-using ZiercCode.Runtime.Scene;
+using ZiercCode.Old.Scene;
 
-namespace ZiercCode.Runtime.UI.Panel
+namespace ZiercCode.Old.UI.Panel
 {
-
-    public class DeadPanel : BasePanel
+    public class DeadPanel : BaseAnimationPanel
     {
         public readonly static string path = "Prefabs/UI/Panel/DeadPanel";
         public DeadPanel() : base(new UIType(path)) { }
 
         public override void OnEnter()
         {
+            base.OnEnter();
             Button reStartButton = UITool.GetComponentInChildrenUI<Button>("ReStartButton");
             reStartButton.onClick.AddListener(() =>
             {
@@ -29,6 +28,7 @@ namespace ZiercCode.Runtime.UI.Panel
 
         public override void OnExit()
         {
+            base.OnExit();
             UIManager.DestroyUI(UIType);
         }
     }

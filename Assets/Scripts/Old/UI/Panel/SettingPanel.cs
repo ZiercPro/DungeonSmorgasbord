@@ -2,10 +2,10 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using ZiercCode.Core.UI;
-using ZiercCode.Runtime.Audio;
-using ZiercCode.Runtime.Manager;
+using ZiercCode.Old.Audio;
+using ZiercCode.Old.Manager;
 
-namespace ZiercCode.Runtime.UI.Panel
+namespace ZiercCode.Old.UI.Panel
 {
     public class SettingPanel : BasePanel
     {
@@ -90,11 +90,6 @@ namespace ZiercCode.Runtime.UI.Panel
                 UIManager.DestroyUI(UIType);
             });
         }
-        public override void OnEsc()
-        {
-            PanelManager.Pop();
-        }
-
         private void SetMusicVolume(float amount)
         {
             AudioPlayer.Instance.SetMusicVolume(amount);

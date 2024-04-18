@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace ZiercCode.Runtime.PathFinding.Grid
+namespace ZiercCode.Old.PathFinding.Grid
 {
     public class GridBase<TGridNode>
     {

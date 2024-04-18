@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Component
+namespace ZiercCode.Old.Component
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class Movement : MonoBehaviour

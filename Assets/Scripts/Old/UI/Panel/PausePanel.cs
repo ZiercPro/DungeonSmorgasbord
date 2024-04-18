@@ -2,11 +2,11 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using ZiercCode.Core.UI;
-using ZiercCode.Runtime.Hero;
-using ZiercCode.Runtime.Manager;
-using ZiercCode.Runtime.Scene;
+using ZiercCode.Old.Hero;
+using ZiercCode.Old.Manager;
+using ZiercCode.Old.Scene;
 
-namespace ZiercCode.Runtime.UI.Panel
+namespace ZiercCode.Old.UI.Panel
 {
     public class PausePanel : BasePanel
     {
@@ -57,10 +57,6 @@ namespace ZiercCode.Runtime.UI.Panel
             UIManager.DestroyUI(UIType);
             Time.timeScale = 1f;
             ReleaseHeroInput();
-        }
-        public override void OnEsc()
-        {
-            PanelManager.Pop();
         }
         //禁用玩家输入
         private void BanHeroInput()

@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Serialization;
-using ZiercCode.Runtime.Helper;
+﻿using UnityEngine;
+using ZiercCode.Old.Helper;
 
-namespace ZiercCode.Runtime.ScriptObject
+namespace ZiercCode.Old.ScriptObject
 {
     /// <summary>
     /// 怪物难度值

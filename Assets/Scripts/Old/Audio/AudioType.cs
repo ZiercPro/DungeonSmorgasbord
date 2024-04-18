@@ -1,7 +1,7 @@
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Audio
+namespace ZiercCode.Old.Audio
 {
     /// <summary>
     /// 音频资源类包含音频切片的名称和资源位置信息

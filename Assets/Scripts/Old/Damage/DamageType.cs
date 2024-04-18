@@ -1,4 +1,4 @@
-namespace ZiercCode.Runtime.Damage
+namespace ZiercCode.Old.Damage
 {
     /// <summary>
     /// 伤害类型枚举

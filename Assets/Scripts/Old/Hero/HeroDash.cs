@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using ZiercCode.Runtime.Component;
+using ZiercCode.Old.Component;
 
-namespace ZiercCode.Runtime.Hero
+namespace ZiercCode.Old.Hero
 {
     
     public class HeroDash : MonoBehaviour

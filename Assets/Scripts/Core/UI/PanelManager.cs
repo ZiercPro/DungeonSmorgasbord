@@ -1,6 +1,6 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
 namespace ZiercCode.Core.UI
@@ -10,8 +10,19 @@ namespace ZiercCode.Core.UI
     /// </summary>
     public class PanelManager
     {
+        /// <summary>
+        /// 面板栈，保存储存管理的面板
+        /// </summary>
         private Stack<BasePanel> _panelStack;
+
+        /// <summary>
+        /// ui管理器
+        /// </summary>
         private UIManager _uiManager;
+
+        /// <summary>
+        /// 当前置顶面板
+        /// </summary>
         private BasePanel _curPanel;
 
         private PlayerInputAction _playerInputAction;
@@ -22,7 +33,6 @@ namespace ZiercCode.Core.UI
             _panelStack = new Stack<BasePanel>();
             _uiManager = new UIManager();
             _playerInputAction = new PlayerInputAction();
-            SetEscAction();
         }
 
         /// <summary>
@@ -71,19 +81,6 @@ namespace ZiercCode.Core.UI
             }
 
             _curPanel = null;
-        }
-
-        private void SetEscAction()
-        {
-            _escAction = e => { _curPanel.OnEsc(); };
-            _playerInputAction.ShortKey.Enable();
-            _playerInputAction.ShortKey.Back.performed += _escAction;
-        }
-
-        private void DeleteEscAction()
-        {
-            _playerInputAction.ShortKey.Back.performed -= _escAction;
-            _playerInputAction.ShortKey.Disable();
         }
     }
 }

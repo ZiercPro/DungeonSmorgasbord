@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace ZiercCode.Runtime.Helper
+namespace ZiercCode.Old.Helper
 {
     /// <summary>
     /// 自己的数学类，用来进行数值的处理

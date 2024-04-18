@@ -1,7 +1,7 @@
 using UnityEngine;
-using ZiercCode.Runtime.Audio;
+using ZiercCode.Old.Audio;
 
-namespace ZiercCode.Runtime.Helper
+namespace ZiercCode.Old.Helper
 {
     /// <summary>
     /// ui播放音效的辅助脚本

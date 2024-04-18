@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine.UIElements;
-using ZiercCode.Runtime.ScriptObject;
+using ZiercCode.Old.ScriptObject;
 
 namespace ZiercCode.Editor.Inspector
 {

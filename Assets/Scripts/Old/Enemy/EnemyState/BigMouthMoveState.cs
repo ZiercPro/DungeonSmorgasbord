@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Enemy.EnemyState
+namespace ZiercCode.Old.Enemy.EnemyState
 {
     public class BigMouthMoveState : BigMouthNormalState
     {

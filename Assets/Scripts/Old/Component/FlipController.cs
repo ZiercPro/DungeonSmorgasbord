@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Component
+namespace ZiercCode.Old.Component
 {
     public class FlipController : MonoBehaviour
     {

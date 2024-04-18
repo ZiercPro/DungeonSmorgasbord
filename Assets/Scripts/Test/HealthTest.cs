@@ -1,5 +1,5 @@
 using UnityEngine;
-using ZiercCode.Runtime.Component;
+using ZiercCode.Old.Component;
 
 namespace ZiercCode.Test
 {

@@ -1,8 +1,7 @@
 using System;
-using UnityEngine;
-using ZiercCode.Runtime.Helper;
+using ZiercCode.Old.Helper;
 
-namespace ZiercCode.Runtime.Weapon
+namespace ZiercCode.Old.Weapon
 {
     public class WeaponAnimationEventHandler : AnimationEventHelper
     {

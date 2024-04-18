@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
-using ZiercCode.Runtime.Data;
+using ZiercCode.Old.Data;
 
-namespace ZiercCode.Runtime.Manager
+namespace ZiercCode.Old.Manager
 {
     /// <summary>
     ///  数据管理器

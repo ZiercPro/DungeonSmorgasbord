@@ -1,9 +1,9 @@
 using UnityEngine;
-using ZiercCode.Runtime.Audio;
-using ZiercCode.Runtime.Component.Hero;
-using ZiercCode.Runtime.Manager;
+using ZiercCode.Old.Audio;
+using ZiercCode.Old.Component.Hero;
+using ZiercCode.Old.Manager;
 
-namespace ZiercCode.Runtime.DroppedItem
+namespace ZiercCode.Old.DroppedItem
 {
 
     public class DroppedCoin : DroppedItem

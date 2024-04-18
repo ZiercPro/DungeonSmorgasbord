@@ -1,8 +1,8 @@
 using UnityEngine;
-using ZiercCode.Runtime.Audio;
-using ZiercCode.Runtime.Scene;
+using ZiercCode.Old.Audio;
+using ZiercCode.Old.Scene;
 
-namespace ZiercCode.Runtime.Manager
+namespace ZiercCode.Old.Manager
 {
     /// <summary>
     /// 游戏入口

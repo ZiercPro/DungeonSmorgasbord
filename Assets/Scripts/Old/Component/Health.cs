@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Component
+namespace ZiercCode.Old.Component
 {
     public class Health : MonoBehaviour
     {

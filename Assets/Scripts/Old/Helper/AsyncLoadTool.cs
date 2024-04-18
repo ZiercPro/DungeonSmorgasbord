@@ -2,10 +2,9 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using ZiercCode.Runtime.Manager;
-using ZiercCode.Runtime.Scene;
+using ZiercCode.Old.Scene;
 
-namespace ZiercCode.Runtime.Helper
+namespace ZiercCode.Old.Helper
 {
     /// <summary>
     /// 异步加载工具

@@ -1,10 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
-using ZiercCode.Runtime.Helper;
-using ZiercCode.Runtime.Weapon;
+using ZiercCode.Old.Helper;
+using ZiercCode.Old.Weapon;
 
-namespace ZiercCode.Runtime.ScriptObject
+namespace ZiercCode.Old.ScriptObject
 {
     /// <summary>
     /// 英雄属性 为了方便初始化 利用了可编辑物品

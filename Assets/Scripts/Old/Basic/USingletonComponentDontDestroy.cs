@@ -1,12 +1,12 @@
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Basic
+namespace ZiercCode.Old.Basic
 {
     /// <summary>
-    /// 单例 场景转换时不会被销毁
+    /// unity组件单例 场景转换时不会被销毁
     /// 无单例则直接实例化
     /// </summary>
-    /// <typeparam name="T">单例对象类型</typeparam>
+    /// <typeparam name="T">组件类型</typeparam>
     public class USingletonComponentDontDestroy<T> : MonoBehaviour where T : UnityEngine.Component
     {
         private static T _instance;

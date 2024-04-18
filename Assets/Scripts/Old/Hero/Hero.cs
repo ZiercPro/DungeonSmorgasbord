@@ -1,16 +1,15 @@
 using System;
 using UnityEngine;
 using ZiercCode.Core.UI;
-using ZiercCode.Runtime.Component;
-using ZiercCode.Runtime.Component.Hero;
-using ZiercCode.Runtime.Damage;
-using ZiercCode.Runtime.FeedBack;
-using ZiercCode.Runtime.Manager;
-using ZiercCode.Runtime.UI;
-using ZiercCode.Runtime.UI.Panel;
-using ZiercCode.Runtime.Weapon;
+using ZiercCode.Old.Component;
+using ZiercCode.Old.Component.Hero;
+using ZiercCode.Old.Damage;
+using ZiercCode.Old.FeedBack;
+using ZiercCode.Old.Manager;
+using ZiercCode.Old.UI.Panel;
+using ZiercCode.Old.Weapon;
 
-namespace ZiercCode.Runtime.Hero
+namespace ZiercCode.Old.Hero
 {
     public class Hero : MonoBehaviour, IDamageable
     {
@@ -58,7 +57,6 @@ namespace ZiercCode.Runtime.Hero
             _movement.Initialize(_attribute.moveSpeed);
             _weaponHolder.Initialize(_spriteRenderer, _flipController);
             _heroInputManager.SetHeroControl(true);
-            _heroInputManager.TabButtonPressing += CallView;
             _heroInputManager.DashButtonPressedPerformed += _heroDash.StartDash;
             _heroInputManager.InteractButtonPressPerformed += _interactHandler.OnInteractive;
             _heroInputManager.MovementInputPerforming += moveDir => { _movement.MovePerform(moveDir); };
@@ -98,11 +96,6 @@ namespace ZiercCode.Runtime.Hero
             _knockBackFeedBack.enabled = false;
             _heroInputManager.SetHeroControl(false);
             _movement.StopMovePerform();
-        }
-
-        private void CallView()
-        {
-            _panelManager.Push(new HeroAttributesPanel());
         }
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Weapon
+namespace ZiercCode.Old.Weapon
 {
     public class WeaponColliderCheck : MonoBehaviour
     {

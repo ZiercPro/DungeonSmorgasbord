@@ -1,4 +1,4 @@
-namespace ZiercCode.Runtime.Weapon
+namespace ZiercCode.Old.Weapon
 {
     public enum WeaponType
     {

@@ -1,11 +1,10 @@
 using UnityEngine.SceneManagement;
 using ZiercCode.Core.UI;
-using ZiercCode.Runtime.Audio;
-using ZiercCode.Runtime.Manager;
-using ZiercCode.Runtime.UI;
-using ZiercCode.Runtime.UI.Panel;
+using ZiercCode.Old.Audio;
+using ZiercCode.Old.Manager;
+using ZiercCode.Old.UI.Panel;
 
-namespace ZiercCode.Runtime.Scene
+namespace ZiercCode.Old.Scene
 {
     public class GameScene : SceneState
     {

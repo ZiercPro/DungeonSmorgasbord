@@ -1,6 +1,6 @@
 using UnityEngine;
-using ZiercCode.Runtime.Component;
-using ZiercCode.Runtime.Hero;
+using ZiercCode.Old.Component;
+using ZiercCode.Old.Hero;
 
 namespace ZiercCode.Test
 {

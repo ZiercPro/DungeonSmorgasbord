@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Runtime.Helper;
+using ZiercCode.Old.Helper;
 
-namespace ZiercCode.Runtime.DroppedItem
+namespace ZiercCode.Old.DroppedItem
 {
 
     public class DroppedItem : MonoBehaviour

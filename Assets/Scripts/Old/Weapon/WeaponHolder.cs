@@ -1,7 +1,7 @@
 using UnityEngine;
-using ZiercCode.Runtime.Component;
+using ZiercCode.Old.Component;
 
-namespace ZiercCode.Runtime.Weapon
+namespace ZiercCode.Old.Weapon
 {
 
     public class WeaponHolder : MonoBehaviour

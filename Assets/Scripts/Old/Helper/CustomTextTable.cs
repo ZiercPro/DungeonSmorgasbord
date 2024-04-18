@@ -1,4 +1,4 @@
-namespace ZiercCode.Runtime.Helper
+namespace ZiercCode.Old.Helper
 {
     /// <summary>
     /// 自定义文本的数据表

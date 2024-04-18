@@ -1,14 +1,13 @@
 using DG.Tweening;
 using System;
 using TMPro;
-using UnityEngine.InputSystem;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 using ZiercCode.Core.UI;
-using ZiercCode.Runtime.Component;
-using ZiercCode.Runtime.Manager;
+using ZiercCode.Old.Component;
+using ZiercCode.Old.Manager;
 
-namespace ZiercCode.Runtime.UI.Panel
+namespace ZiercCode.Old.UI.Panel
 {
     public class GamePanel : BasePanel
     {
@@ -90,10 +89,6 @@ namespace ZiercCode.Runtime.UI.Panel
             GameManager.playerTrans.GetComponent<Hero.Hero>().CoinPack.CoinChanged -= _coinUpdateAction;
             BattleManager.Instance.OnLevelChange -= _levelUpdateAction;
             UIManager.DestroyUI(UIType);
-        }
-        public override void OnEsc()
-        {
-            PanelManager.Push(new PausePanel());
         }
 
     }

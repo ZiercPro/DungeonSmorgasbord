@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Component.Hero
+namespace ZiercCode.Old.Component.Hero
 {
     /// <summary>
     /// 暂时使用

@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Runtime.Audio;
-using ZiercCode.Runtime.Damage;
-using ZiercCode.Runtime.FeedBack;
-using ZiercCode.Runtime.Hero;
-using ZiercCode.Runtime.Player;
+using ZiercCode.Old.Audio;
+using ZiercCode.Old.Damage;
+using ZiercCode.Old.FeedBack;
+using ZiercCode.Old.Hero;
 
-namespace ZiercCode.Runtime.Weapon
+namespace ZiercCode.Old.Weapon
 {
     public class Weapon_DiamondGreatSword : Weapon
     {

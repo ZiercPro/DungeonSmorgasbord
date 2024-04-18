@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace ZiercCode.Runtime.Hero
+namespace ZiercCode.Old.Hero
 {
     public class HeroInputManager : MonoBehaviour
     {
@@ -37,11 +37,6 @@ namespace ZiercCode.Runtime.Hero
         public event Action InteractButtonPressPerformed;
         public event Action InteractButtonPressCanceled;
 
-        //Tab
-        public event Action TabButtonPressStarted;
-        public event Action TabButtonPressing;
-        public event Action TabButtonReleased;
-
         private void OnEnable()
         {
             _playerInputAction.HeroControl.MouseClickLeft.started += OnMouseLeftStarted;
@@ -62,10 +57,6 @@ namespace ZiercCode.Runtime.Hero
 
             _playerInputAction.HeroControl.Movement.started += OnMovementInputStarted;
             _playerInputAction.HeroControl.Movement.canceled += OnMovementInputCanceled;
-
-            _playerInputAction.HeroControl.View.performed += OnTabButtonPressing;
-            _playerInputAction.HeroControl.View.started += OnTabButtonPressStart;
-            _playerInputAction.HeroControl.View.canceled += OnTabButtonReleased;
         }
 
         private void OnDisable()
@@ -88,10 +79,6 @@ namespace ZiercCode.Runtime.Hero
 
             _playerInputAction.HeroControl.Movement.started -= OnMovementInputStarted;
             _playerInputAction.HeroControl.Movement.canceled -= OnMovementInputCanceled;
-
-            _playerInputAction.HeroControl.View.performed -= OnTabButtonPressing;
-            _playerInputAction.HeroControl.View.started -= OnTabButtonPressStart;
-            _playerInputAction.HeroControl.View.canceled -= OnTabButtonReleased;
         }
 
         private void Awake()
@@ -224,26 +211,6 @@ namespace ZiercCode.Runtime.Hero
         private void OnDashPressedCanceled(InputAction.CallbackContext context)
         {
             DashButtonPressedCanceled?.Invoke(_playerInputAction.HeroControl.Movement.ReadValue<Vector2>());
-        }
-
-        #endregion
-
-
-        #region Tab
-
-        private void OnTabButtonPressStart(InputAction.CallbackContext context)
-        {
-            TabButtonPressStarted?.Invoke();
-        }
-
-        private void OnTabButtonPressing(InputAction.CallbackContext context)
-        {
-            TabButtonPressing?.Invoke();
-        }
-
-        private void OnTabButtonReleased(InputAction.CallbackContext context)
-        {
-            TabButtonReleased?.Invoke();
         }
 
         #endregion

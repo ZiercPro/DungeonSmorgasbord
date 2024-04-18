@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Data
+namespace ZiercCode.Old.Data
 {
     /// <summary>
     /// 储存设置信息

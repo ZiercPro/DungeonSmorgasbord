@@ -1,9 +1,7 @@
 using DG.Tweening;
-using System;
-using System.Collections;
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Component
+namespace ZiercCode.Old.Component
 {
     public class ScaleShakeFeedBack : MonoBehaviour
     {

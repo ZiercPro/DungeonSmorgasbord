@@ -1,9 +1,8 @@
 ﻿using System;
-using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.Serialization;
+using UnityEngine;
 
-namespace ZiercCode.Runtime.Helper
+namespace ZiercCode.Old.Helper
 {
     [Serializable]
     public class EditableDictionary<TKey, TObject>

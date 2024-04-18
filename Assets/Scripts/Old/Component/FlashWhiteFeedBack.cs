@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Component
+namespace ZiercCode.Old.Component
 {
     
     public class FlashWhiteFeedBack : MonoBehaviour {

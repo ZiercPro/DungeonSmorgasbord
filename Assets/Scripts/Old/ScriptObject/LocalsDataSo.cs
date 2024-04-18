@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Runtime.Helper;
+using ZiercCode.Old.Helper;
 
-namespace ZiercCode.Runtime.ScriptObject
+namespace ZiercCode.Old.ScriptObject
 {
     /// <summary>
     /// 储存语言对应编号

@@ -1,8 +1,8 @@
 using System.Collections;
 using UnityEngine;
-using ZiercCode.Runtime.Damage;
+using ZiercCode.Old.Damage;
 
-namespace ZiercCode.Runtime.Component
+namespace ZiercCode.Old.Component
 {
 
     public class KnockBackFeedBack : MonoBehaviour

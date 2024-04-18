@@ -1,13 +1,13 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
-using ZiercCode.Runtime.Basic;
-using ZiercCode.Runtime.Helper;
-using ZiercCode.Runtime.ScriptObject;
+using ZiercCode.Old.Basic;
+using ZiercCode.Old.Helper;
+using ZiercCode.Old.ScriptObject;
 
-namespace ZiercCode.Runtime.Manager
+namespace ZiercCode.Old.Manager
 {
     public class LocaleManager : USingletonComponentDontDestroy<LocaleManager>
     {

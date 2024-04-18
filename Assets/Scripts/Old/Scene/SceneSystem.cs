@@ -1,4 +1,4 @@
-namespace ZiercCode.Runtime.Scene
+namespace ZiercCode.Old.Scene
 {
     /// <summary>
     /// 场景管理系统

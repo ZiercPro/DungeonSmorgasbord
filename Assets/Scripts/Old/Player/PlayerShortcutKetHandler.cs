@@ -1,8 +1,7 @@
-using System;
 using UnityEngine;
-using ZiercCode.Runtime.Hero;
+using ZiercCode.Old.Hero;
 
-namespace ZiercCode.Runtime.Player
+namespace ZiercCode.Old.Player
 {
     /// <summary>
     /// 负责处理游戏中的快捷键

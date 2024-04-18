@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using ZiercCode.Runtime.Damage;
-using ZiercCode.Runtime.ScriptObject;
+﻿using ZiercCode.Old.Damage;
+using ZiercCode.Old.ScriptObject;
 
-namespace ZiercCode.Runtime.Component.Enemy
+namespace ZiercCode.Old.Component.Enemy
 {
     public class EnemyAttribute : Attribute<EnemyAttributeSo>
     {

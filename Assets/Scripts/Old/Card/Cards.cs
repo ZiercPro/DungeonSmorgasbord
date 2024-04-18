@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using ZiercCode.Runtime.Component;
-using ZiercCode.Runtime.Component.Hero;
-using ZiercCode.Runtime.Weapon;
+using ZiercCode.Old.Component;
+using ZiercCode.Old.Component.Hero;
+using ZiercCode.Old.Weapon;
 
-namespace ZiercCode.Runtime.Card
+namespace ZiercCode.Old.Card
 {
     /// <summary>
     /// 储存所有卡片的配置信息

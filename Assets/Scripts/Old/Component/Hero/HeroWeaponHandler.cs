@@ -1,9 +1,8 @@
 using UnityEngine;
-using ZiercCode.Runtime.Hero;
-using ZiercCode.Runtime.Player;
-using ZiercCode.Runtime.Weapon;
+using ZiercCode.Old.Hero;
+using ZiercCode.Old.Weapon;
 
-namespace ZiercCode.Runtime.Component.Hero
+namespace ZiercCode.Old.Component.Hero
 {
     public class HeroWeaponHandler : MonoBehaviour
     {

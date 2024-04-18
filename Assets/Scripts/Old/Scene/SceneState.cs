@@ -1,4 +1,4 @@
-namespace ZiercCode.Runtime.Scene
+namespace ZiercCode.Old.Scene
 {
     /// <summary>
     /// 游戏场景状态 

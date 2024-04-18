@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-namespace ZiercCode.Runtime.Helper
+namespace ZiercCode.Old.Helper
 {
     public class GizmosDraw : MonoBehaviour
     {

@@ -1,9 +1,9 @@
 using TMPro;
 using UnityEngine;
-using ZiercCode.Runtime.Basic;
-using ZiercCode.Runtime.UI;
+using ZiercCode.Old.Basic;
+using ZiercCode.Old.UI;
 
-namespace ZiercCode.Runtime.Manager
+namespace ZiercCode.Old.Manager
 {
 
     public class TextPopupSpawner : USingletonComponentDestroy<TextPopupSpawner>

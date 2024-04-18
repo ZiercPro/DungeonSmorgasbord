@@ -1,8 +1,8 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using ZiercCode.Runtime.Component.Enemy;
-using ZiercCode.Runtime.DroppedItem;
+using ZiercCode.Old.Component.Enemy;
+using ZiercCode.Old.DroppedItem;
 
 namespace ZiercCode.Editor.Inspector
 {
