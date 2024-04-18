@@ -5,10 +5,10 @@ using ZiercCode.Old.Data;
 namespace ZiercCode.Old.Manager
 {
     /// <summary>
-    ///  数据管理器
+    ///  全局配置数据管理
     /// 提供加载不同数据的方法
     /// </summary>
-    public class DataManager
+    public class ConfigManager
     {
         /// <summary>
         /// 设置数据保存地址
@@ -18,7 +18,7 @@ namespace ZiercCode.Old.Manager
         /// <summary>
         /// 设置数据
         /// </summary>
-        public static SettingsData SettingsData { get; private set; }
+        public static SettingsData SettingsData;
 
         /// <summary>
         /// json数据服务
@@ -32,7 +32,7 @@ namespace ZiercCode.Old.Manager
         public static void LoadSettings()
         {
             //默认值
-            SettingsData loadedData = null;
+            SettingsData loadedData;
             try
             {
                 loadedData = _jsonService.LoadData<SettingsData>(SETTING_DATA_PATH, false);
@@ -41,11 +41,10 @@ namespace ZiercCode.Old.Manager
             catch (Exception e)
             {
                 Debug.LogError($"Can not load settings data due to:{e.Message};{e.StackTrace}");
-                loadedData = null;
+                loadedData = default;
                 //提示玩家 加载失败
             }
 
-            if (loadedData == null) loadedData = new SettingsData();
             SettingsData = loadedData;
         }
 

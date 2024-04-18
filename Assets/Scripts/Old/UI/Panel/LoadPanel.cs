@@ -22,5 +22,11 @@ namespace ZiercCode.Old.UI.Panel
             AsyncLoadTool com = tool.AddComponent<AsyncLoadTool>();
             com.AsyncLoad(bar, progress, new GameScene(), "Game");
         }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+            UIManager.DestroyUI(UIType);
+        }
     }
 }

@@ -22,6 +22,12 @@ namespace ZiercCode.Old.UI.Panel
 
         public override void OnEnter()
         {
+            base.OnEnter();
+            //设置回退事件
+            SetBackEvent(context => { PanelManager.Push(new PausePanel()); });
+            //设置视图事件
+            SetViewEvent(context => { PanelManager.Push(new HeroAttributesPanel()); });
+            
             _levelUpdateAction = level =>
             {
                 LocalizeStringEvent levelText = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("Level");
@@ -69,27 +75,28 @@ namespace ZiercCode.Old.UI.Panel
             BattleManager.Instance.OnLevelChange += _levelUpdateAction;
             GameManager.playerTrans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
             GameManager.playerTrans.GetComponent<Hero.Hero>().CoinPack.CoinChanged += _coinUpdateAction;
-            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = DataManager.SettingsData.FPSOn;
+            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = ConfigManager.SettingsData.FPSOn;
         }
 
         public override void OnPause()
         {
+            base.OnPause();
             GameManager.playerTrans.GetComponent<Health>().InitializeEnded -= _healthBarInitAction;
         }
 
         public override void OnResume()
         {
-            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = DataManager.SettingsData.FPSOn;
+            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = ConfigManager.SettingsData.FPSOn;
             GameManager.playerTrans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
         }
 
         public override void OnExit()
         {
+            base.OnExit();
             GameManager.playerTrans.GetComponent<Health>().InitializeEnded -= _healthBarInitAction;
             GameManager.playerTrans.GetComponent<Hero.Hero>().CoinPack.CoinChanged -= _coinUpdateAction;
             BattleManager.Instance.OnLevelChange -= _levelUpdateAction;
             UIManager.DestroyUI(UIType);
         }
-
     }
 }

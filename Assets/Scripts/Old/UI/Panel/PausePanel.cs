@@ -8,16 +8,14 @@ using ZiercCode.Old.Scene;
 
 namespace ZiercCode.Old.UI.Panel
 {
-    public class PausePanel : BasePanel
+    public class PausePanel : BaseAnimationPanel
     {
         readonly static string path = "Prefabs/UI/Panel/PauseMenu";
         public PausePanel() : base(new UIType(path)) { }
 
-        private HeroInputManager _heroInputManager;
-
         public override void OnEnter()
         {
-            BanHeroInput();
+            BanPlayerInput();
             UITool.GetComponentInChildrenUI<Button>("BackButton").onClick.AddListener(() =>
             {
                 PanelManager.Pop();
@@ -35,44 +33,25 @@ namespace ZiercCode.Old.UI.Panel
 
         public override void OnPause()
         {
-            CanvasGroup cGroup = UITool.GetOrAddComponent<CanvasGroup>();
-            cGroup.interactable = false;
-            cGroup.DOFade(0f, 0.5f).SetUpdate(true);
+            base.OnPause();
+            OutAnimate(1f);
         }
 
         public override void OnResume()
         {
-            CanvasGroup cGroup = UITool.GetOrAddComponent<CanvasGroup>();
-            cGroup.DOFade(1f, 0.5f).SetUpdate(true).OnComplete(() =>
-            {
-                cGroup.interactable = true;
-            });
+            base.OnResume();
+            InAnimate(1f);
         }
 
         public override void OnExit()
         {
+            base.OnExit();
             UITool.GetComponentInChildrenUI<Button>("BackButton").onClick.RemoveAllListeners();
             UITool.GetComponentInChildrenUI<Button>("SettingButton").onClick.RemoveAllListeners();
             UITool.GetComponentInChildrenUI<Button>("MenuButton").onClick.RemoveAllListeners();
-            UIManager.DestroyUI(UIType);
             Time.timeScale = 1f;
-            ReleaseHeroInput();
+            ReleasePlayerInput();
+            UIManager.DestroyUI(UIType);
         }
-        //禁用玩家输入
-        private void BanHeroInput()
-        {
-            if (GameManager.playerTrans)
-            {
-                _heroInputManager = GameManager.playerTrans.GetComponent<HeroInputManager>();
-                _heroInputManager.enabled = false;
-            }
-        }
-        //放行玩家输入
-        private void ReleaseHeroInput()
-        {
-            _heroInputManager.enabled = true;
-            _heroInputManager = null;
-        }
-
     }
 }

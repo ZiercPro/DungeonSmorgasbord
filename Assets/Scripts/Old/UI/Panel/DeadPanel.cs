@@ -31,5 +31,6 @@ namespace ZiercCode.Old.UI.Panel
             base.OnExit();
             UIManager.DestroyUI(UIType);
         }
+        
     }
 }

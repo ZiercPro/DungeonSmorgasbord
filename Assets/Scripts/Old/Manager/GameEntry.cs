@@ -30,22 +30,22 @@ namespace ZiercCode.Old.Manager
         /// </summary>
         private void InitGame()
         {
-            DataManager.LoadSettings();
-            LocaleManager.Instance.SetLanguage(DataManager.SettingsData.Language);
+            ConfigManager.LoadSettings();
+            LocaleManager.Instance.SetLanguage(ConfigManager.SettingsData.Language);
         }
 
         private void EnterGame()
         {
-            AudioPlayer.Instance.SetEnvironmentVolume(DataManager.SettingsData.EnvironmentVolume);
-            AudioPlayer.Instance.SetMasterVolume(DataManager.SettingsData.MasterVolume);
-            AudioPlayer.Instance.SetMusicVolume(DataManager.SettingsData.MusicVolume);
-            AudioPlayer.Instance.SetSfxVolume(DataManager.SettingsData.SFXVolume);
+            AudioPlayer.Instance.SetEnvironmentVolume(ConfigManager.SettingsData.EnvironmentVolume);
+            AudioPlayer.Instance.SetMasterVolume(ConfigManager.SettingsData.MasterVolume);
+            AudioPlayer.Instance.SetMusicVolume(ConfigManager.SettingsData.MusicVolume);
+            AudioPlayer.Instance.SetSfxVolume(ConfigManager.SettingsData.SFXVolume);
             SceneSystem.SetScene(new StartScene());
         }
 
         private void ExitGame()
         {
-            DataManager.SaveSettings();
+            ConfigManager.SaveSettings();
         }
     }
 }

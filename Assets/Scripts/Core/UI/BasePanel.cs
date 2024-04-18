@@ -65,20 +65,26 @@ namespace ZiercCode.Core.UI
         /// <summary>
         /// UI暂停时执行
         /// </summary>
-        public virtual void OnPause() { }
+        public virtual void OnPause()
+        {
+            _playerInputAction.ShortKey.Disable();
+        }
 
 
         /// <summary>
         /// UI继续时执行
         /// </summary>
-        public virtual void OnResume() { }
+        public virtual void OnResume()
+        {
+            _playerInputAction.ShortKey.Enable();
+        }
 
         /// <summary>
         /// UI退出时执行
         /// </summary>
         public virtual void OnExit()
         {
-            RemovePlayerInputAction();
+            RemovePlayerInputBindings();
         }
 
         /// <summary>
@@ -119,7 +125,10 @@ namespace ZiercCode.Core.UI
             _playerInputAction.ShortKey.View.performed += action;
         }
 
-        private void RemovePlayerInputAction()
+        /// <summary>
+        /// 移除所有玩家输入绑定
+        /// </summary>
+        private void RemovePlayerInputBindings()
         {
             _playerInputAction.RemoveAllBindingOverrides();
             _playerInputAction.ShortKey.Disable();

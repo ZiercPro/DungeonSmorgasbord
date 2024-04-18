@@ -19,7 +19,7 @@ namespace ZiercCode.Old.UI.Panel
 
         public override void OnEnter()
         {
-            StartTimeSlow();
+            _timeSlowCoroutine = MyCoroutineTool.Instance.StartCoroutine(TimeSlow());
             base.OnEnter();
             BanPlayerInput();
             CreateCard();
@@ -27,21 +27,21 @@ namespace ZiercCode.Old.UI.Panel
 
         public override void OnPause()
         {
-            StopTimeSlow();
+            MyCoroutineTool.Instance.StopCoroutine(_timeSlowCoroutine);
         }
 
         public override void OnResume()
         {
-            StartTimeSlow();
+            _timeSlowCoroutine = MyCoroutineTool.Instance.StartCoroutine(TimeSlow());
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            StopTimeSlow();
+            MyCoroutineTool.Instance.StopCoroutine(_timeSlowCoroutine);
             Time.timeScale = 1f;
-            UIManager.DestroyUI(UIType);
             ReleasePlayerInput();
+            UIManager.DestroyUI(UIType);
         }
 
         /// <summary>
@@ -90,22 +90,6 @@ namespace ZiercCode.Old.UI.Panel
             }
 
             Time.timeScale = 0f;
-        }
-
-        /// <summary>
-        /// 开启时缓效果
-        /// </summary>
-        private void StartTimeSlow()
-        {
-            _timeSlowCoroutine = MyCoroutineTool.Instance.StartCoroutine(TimeSlow());
-        }
-
-        /// <summary>
-        /// 结束时缓效果
-        /// </summary>
-        private void StopTimeSlow()
-        {
-            MyCoroutineTool.Instance.StopCoroutine(_timeSlowCoroutine);
         }
     }
 }

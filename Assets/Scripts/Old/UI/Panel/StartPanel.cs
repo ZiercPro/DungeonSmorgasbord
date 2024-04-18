@@ -6,13 +6,14 @@ using ZiercCode.Old.Scene;
 
 namespace ZiercCode.Old.UI.Panel
 {
-    public class StartPanel : BasePanel
+    public class StartPanel : BaseAnimationPanel
     {
         private static readonly string path = "Prefabs/UI/Panel/MainMenu";
         public StartPanel() : base(new UIType(path)) { }
 
         public override void OnEnter()
         {
+            base.OnEnter();
             UITool.GetComponentInChildrenUI<Button>("SettingButton").onClick.AddListener(() =>
             {
                 PanelManager.Push(new SettingPanel());
@@ -35,22 +36,17 @@ namespace ZiercCode.Old.UI.Panel
 
         public override void OnPause()
         {
-            CanvasGroup cgroup = UITool.GetOrAddComponent<CanvasGroup>();
-            cgroup.interactable = false;
-            cgroup.DOFade(0, 0.5f);
+            OutAnimate(1f);
         }
 
         public override void OnResume()
         {
-            CanvasGroup cgroup = UITool.GetOrAddComponent<CanvasGroup>();
-            cgroup.DOFade(1, 0.5f).OnComplete(() =>
-            {
-                cgroup.interactable = true;
-            });
+            InAnimate(1f);
         }
 
         public override void OnExit()
         {
+            base.OnExit();
             UITool.GetComponentInChildrenUI<Button>("SettingButton").onClick.RemoveAllListeners();
             UITool.GetComponentInChildrenUI<Button>("StartButton").onClick.RemoveAllListeners();
             UITool.GetComponentInChildrenUI<Button>("QuitButton").onClick.RemoveAllListeners();

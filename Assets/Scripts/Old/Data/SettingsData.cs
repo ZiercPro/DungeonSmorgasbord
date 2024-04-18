@@ -5,7 +5,7 @@ namespace ZiercCode.Old.Data
     /// <summary>
     /// 储存设置信息
     /// </summary>
-    public class SettingsData
+    public struct SettingsData
     {
         /// <summary>
         /// 主音量
@@ -36,18 +36,5 @@ namespace ZiercCode.Old.Data
         /// 默认语言
         /// </summary>
         public int Language;
-
-        public SettingsData() : this(0f, 0f, 0f, 0f, false, 0) { }
-
-
-        public SettingsData(float masterV, float musicV, float sfxV, float environmentV, bool fps, int language)
-        {
-            MasterVolume = masterV;
-            MusicVolume = musicV;
-            SFXVolume = sfxV;
-            EnvironmentVolume = environmentV;
-            FPSOn = fps;
-            Language = language;
-        }
     }
 }

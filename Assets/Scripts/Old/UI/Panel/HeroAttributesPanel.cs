@@ -11,91 +11,71 @@ using ZiercCode.Old.Weapon;
 
 namespace ZiercCode.Old.UI.Panel
 {
-    public class HeroAttributesPanel : BasePanel
+    public class HeroAttributesPanel : BaseAnimationPanel
     {
         public HeroAttributesPanel() : base(new UIType("Prefabs/UI/Panel/HeroAttributesPanel")) { }
 
-        private HeroInputManager _heroInputManager;
-        private PlayerInputAction _playerInputAction;
-        private Action<InputAction.CallbackContext> _tabAction;
-
         public override void OnEnter()
         {
+            base.OnEnter();
+            //设置back
+            SetBackEvent(context => { PanelManager.Pop(); });
+            //设置view
+            SetViewEvent(context => { PanelManager.Pop(); });
             //禁用玩家输入
             BanPlayerInput();
-            _playerInputAction = new PlayerInputAction();
-            //快捷键
-            // SetTabAction();
             //游戏暂停
             Time.timeScale = 0f;
             //属性显示
-            LocalizeStringEvent maxHealth = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("MaxHealth");
-            maxHealth.StringReference.Arguments =
-                new object[] { GameManager.playerTrans.GetComponentInChildren<Health>().maxHealth };
-            maxHealth.StringReference.RefreshString();
-            LocalizeStringEvent moveSpeed = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("MoveSpeed");
-            moveSpeed.StringReference.Arguments =
-                new object[] { GameManager.playerTrans.GetComponentInChildren<Movement>().MoveSpeed };
-            moveSpeed.StringReference.RefreshString();
-            LocalizeStringEvent meleeDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("MeleeDamage");
-            meleeDamage.StringReference.Arguments = new object[]
-            {
-                GameManager.playerTrans.GetComponentInChildren<HeroAttribute>()
-                    .WeaponDamageRate[WeaponType.Melee]
-            };
-            meleeDamage.StringReference.RefreshString();
-            LocalizeStringEvent remotelyDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("RemotelyDamage");
-            remotelyDamage.StringReference.Arguments = new object[]
-            {
-                GameManager.playerTrans.GetComponentInChildren<HeroAttribute>()
-                    .WeaponDamageRate[WeaponType.Remotely]
-            };
-            remotelyDamage.StringReference.RefreshString();
-            LocalizeStringEvent magicDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("MagicDamage");
-            magicDamage.StringReference.Arguments = new object[]
-            {
-                GameManager.playerTrans.GetComponentInChildren<HeroAttribute>()
-                    .WeaponDamageRate[WeaponType.Magic]
-            };
-            magicDamage.StringReference.RefreshString();
-            LocalizeStringEvent specialDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("SpecialDamage");
-            specialDamage.StringReference.Arguments = new object[]
-            {
-                GameManager.playerTrans.GetComponentInChildren<HeroAttribute>()
-                    .WeaponDamageRate[WeaponType.Special]
-            };
-            specialDamage.StringReference.RefreshString();
-            LocalizeStringEvent criticalChance = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("CriticalChance");
-            criticalChance.StringReference.Arguments = new object[]
-            {
-                GameManager.playerTrans.GetComponentInChildren<HeroAttribute>().criticalChance
-            };
-            criticalChance.StringReference.RefreshString();
+            ShowAttributes();
         }
 
         public override void OnExit()
         {
-            //快捷键
-            //DeleteTabAction();
-            //关闭面板
-            UIManager.DestroyUI(UIType);
-            //放行玩家输入
-            //  ReleaseHeroInput();
+            base.OnExit();
             //游戏继续
             Time.timeScale = 1f;
+            //关闭面板
+            UIManager.DestroyUI(UIType);
         }
 
-        // private void SetTabAction()
-        // {
-        //     _tabAction = e => { PanelManager.PopAll(); };
-        //     _playerInputAction.HeroControl.Enable();
-        //     _playerInputAction.HeroControl.View.performed += _tabAction;
-        // }
-        //
-        // private void DeleteTabAction()
-        // {
-        //     _playerInputAction.HeroControl.View.performed -= _tabAction;
-        //     _playerInputAction.HeroControl.Disable();
-        // }
+        private void ShowAttributes()
+        {
+            if (!GameManager.playerTrans)
+            {
+                Debug.LogError("英雄组件不存在");
+                return;
+            }
+
+            HeroAttribute attribute = GameManager.playerTrans.GetComponentInChildren<HeroAttribute>();
+            //最大生命值
+            LocalizeStringEvent maxHealth = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("MaxHealth");
+            maxHealth.StringReference.Arguments = new object[] { attribute.maxHealth };
+            maxHealth.StringReference.RefreshString();
+            //移动速度
+            LocalizeStringEvent moveSpeed = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("MoveSpeed");
+            moveSpeed.StringReference.Arguments = new object[] { attribute.moveSpeed };
+            moveSpeed.StringReference.RefreshString();
+            //近战攻击伤害
+            LocalizeStringEvent meleeDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("MeleeDamage");
+            meleeDamage.StringReference.Arguments = new object[] { attribute.WeaponDamageRate[WeaponType.Melee] };
+            meleeDamage.StringReference.RefreshString();
+            //远程攻击伤害
+            LocalizeStringEvent remotelyDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("RemotelyDamage");
+            remotelyDamage.StringReference.Arguments = new object[] { attribute.WeaponDamageRate[WeaponType.Remotely] };
+            remotelyDamage.StringReference.RefreshString();
+            //魔法伤害
+            LocalizeStringEvent magicDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("MagicDamage");
+            magicDamage.StringReference.Arguments = new object[] { attribute.WeaponDamageRate[WeaponType.Magic] };
+            magicDamage.StringReference.RefreshString();
+            //特殊伤害
+            LocalizeStringEvent specialDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("SpecialDamage");
+            specialDamage.StringReference.Arguments = new object[] { attribute.WeaponDamageRate[WeaponType.Special] };
+            specialDamage.StringReference.RefreshString();
+            //暴击率
+            LocalizeStringEvent criticalChance = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("CriticalChance");
+            criticalChance.StringReference.Arguments = new object[] { attribute.criticalChance };
+            criticalChance.StringReference.RefreshString();
+        }
     }
 }
