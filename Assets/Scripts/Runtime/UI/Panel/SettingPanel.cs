@@ -1,9 +1,9 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using ZiercCode.Core.UI;
 using ZiercCode.Runtime.Audio;
 using ZiercCode.Runtime.Manager;
-using ZiercCode.Runtime.UI.Framework;
 
 namespace ZiercCode.Runtime.UI.Panel
 {
@@ -89,6 +89,10 @@ namespace ZiercCode.Runtime.UI.Panel
             {
                 UIManager.DestroyUI(UIType);
             });
+        }
+        public override void OnEsc()
+        {
+            PanelManager.Pop();
         }
 
         private void SetMusicVolume(float amount)

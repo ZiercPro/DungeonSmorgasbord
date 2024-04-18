@@ -1,4 +1,5 @@
 using UnityEngine.SceneManagement;
+using ZiercCode.Core.UI;
 using ZiercCode.Runtime.Audio;
 using ZiercCode.Runtime.Manager;
 using ZiercCode.Runtime.UI;
@@ -8,7 +9,7 @@ namespace ZiercCode.Runtime.Scene
 {
     public class GameScene : SceneState
     {
-        private readonly string name = "Game";
+        private readonly string name = "GameScene";
 
         public PanelManager panelManager { get; private set; }
 

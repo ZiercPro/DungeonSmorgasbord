@@ -11,7 +11,6 @@ namespace ZiercCode.Runtime.Enemy
     public class Enemy_BigMouse : Enemy
     {
         [SerializeField] private GameObject deadParticle;
-
         public BigMouthIdleState idleState { get; private set; }
         public BigMouthMoveState moveState { get; private set; }
 

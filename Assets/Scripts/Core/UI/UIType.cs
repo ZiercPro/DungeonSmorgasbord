@@ -1,4 +1,4 @@
-namespace ZiercCode.Runtime.UI.Framework
+namespace ZiercCode.Core.UI
 {
     /// <summary>
     ///储存单个UI的信息

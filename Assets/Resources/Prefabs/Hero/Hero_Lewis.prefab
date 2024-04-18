@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 4860067538032032267}
   - component: {fileID: 7032251624863716901}
   - component: {fileID: 6903971427401375828}
-  - component: {fileID: 7313946861486673487}
   - component: {fileID: 9142441715828021553}
+  - component: {fileID: 7313946861486673487}
   m_Layer: 3
   m_Name: Hero_Lewis
   m_TagString: Player
@@ -255,9 +255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac0d0927913f5d4cbcb30d0252249cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attributesBaseSo: {fileID: 11400000, guid: aae6d71946ac5d34aabd9745ea932ef2, type: 2}
   maxHealth: 10
   moveSpeed: 6
-  attributeData: {fileID: 11400000, guid: aae6d71946ac5d34aabd9745ea932ef2, type: 2}
   criticalChance: 0.05
 --- !u!114 &4860067538032032267
 MonoBehaviour:
@@ -301,18 +301,6 @@ MonoBehaviour:
   intensity: 2
   frequence: 1.5
   duration: 0.5
---- !u!210 &7313946861486673487
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3299815134350897790}
-  m_Enabled: 1
-  m_SortingLayerID: 404507155
-  m_SortingLayer: 4
-  m_SortingOrder: 0
-  m_SortAtRoot: 0
 --- !u!114 &9142441715828021553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +313,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b814496a083f564db10e8feef55a3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &7313946861486673487
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299815134350897790}
+  m_Enabled: 1
+  m_SortingLayerID: 404507155
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &4322705567087781510
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +458,7 @@ MonoBehaviour:
   - {x: 0.25, y: 0.05, z: 0}
   m_ShapePathHash: 334015429
   m_Mesh: {fileID: 0}
-  m_InstanceId: 41476
+  m_InstanceId: 34846
   m_LocalBounds:
     m_Center: {x: -0.025000006, y: 0.175, z: 0}
     m_Extent: {x: 0.275, y: 0.125, z: 0}

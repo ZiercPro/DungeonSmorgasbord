@@ -1,12 +1,11 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using ZiercCode.Core.UI;
 using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Component.Hero;
 using ZiercCode.Runtime.Damage;
 using ZiercCode.Runtime.FeedBack;
 using ZiercCode.Runtime.Manager;
-using ZiercCode.Runtime.Player;
 using ZiercCode.Runtime.UI;
 using ZiercCode.Runtime.UI.Panel;
 using ZiercCode.Runtime.Weapon;
@@ -54,12 +53,10 @@ namespace ZiercCode.Runtime.Hero
         private void Start()
         {
             CoinPack.Init(0);
-            _attribute.Initialize();
             _heroWeaponHandler.GetDefualtWeapon();
             _health.Initialize(_attribute.maxHealth);
             _movement.Initialize(_attribute.moveSpeed);
             _weaponHolder.Initialize(_spriteRenderer, _flipController);
-
             _heroInputManager.SetHeroControl(true);
             _heroInputManager.TabButtonPressing += CallView;
             _heroInputManager.DashButtonPressedPerformed += _heroDash.StartDash;
@@ -101,7 +98,6 @@ namespace ZiercCode.Runtime.Hero
             _knockBackFeedBack.enabled = false;
             _heroInputManager.SetHeroControl(false);
             _movement.StopMovePerform();
-            // enabled = false;
         }
 
         private void CallView()

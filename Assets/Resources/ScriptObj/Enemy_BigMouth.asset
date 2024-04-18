@@ -16,8 +16,10 @@ MonoBehaviour:
   moveSpeed: 3
   difficulty: 1
   damageAmount: 1
-  attackSpeed: 1.2
-  attackRange: 0.6
+  damageType: 0
   attackLayer:
     serializedVersion: 2
     m_Bits: 8
+  attackSpeed: 1.2
+  attackRange: 0.6
+  terget: {fileID: 3299815134350897790, guid: ce53025bd3484424d93af6eed027b4ae, type: 3}

@@ -4,9 +4,9 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
+using ZiercCode.Core.UI;
 using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Manager;
-using ZiercCode.Runtime.UI.Framework;
 
 namespace ZiercCode.Runtime.UI.Panel
 {
@@ -18,16 +18,11 @@ namespace ZiercCode.Runtime.UI.Panel
         private Action _healthBarInitAction;
         private Action<int> _coinUpdateAction;
         private Action<int> _levelUpdateAction;
-        private Action<InputAction.CallbackContext> _escAction;
-        private Action<InputAction.CallbackContext> _tabAction;
-
-        private PlayerInputAction _playerInputAction;
 
         private Tweener _coinGetShake;
 
         public override void OnEnter()
         {
-            _playerInputAction = new PlayerInputAction();
             _levelUpdateAction = level =>
             {
                 LocalizeStringEvent levelText = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("Level");
@@ -48,71 +43,58 @@ namespace ZiercCode.Runtime.UI.Panel
             {
                 UITool.GetComponentInChildrenUI<Slider>("HealthBar").minValue = 0;
                 UITool.GetComponentInChildrenUI<Slider>("HealthBar").maxValue =
-                    GameManager.playerTans.GetComponentInChildren<Health>().maxHealth;
+                    GameManager.playerTrans.GetComponentInChildren<Health>().maxHealth;
                 UITool.GetComponentInChildrenUI<Slider>("HealthBar").value =
-                    GameManager.playerTans.GetComponentInChildren<Health>().currentHealth;
+                    GameManager.playerTrans.GetComponentInChildren<Health>().currentHealth;
                 UITool.GetComponentInChildrenUI<TextMeshProUGUI>("HealthBarMax").text =
-                    GameManager.playerTans.GetComponentInChildren<Health>().maxHealth.ToString();
-                UITool.GetComponentInChildrenUI<TextMeshProUGUI>("HealthBarCurrent").text = GameManager.playerTans
+                    GameManager.playerTrans.GetComponentInChildren<Health>().maxHealth.ToString();
+                UITool.GetComponentInChildrenUI<TextMeshProUGUI>("HealthBarCurrent").text = GameManager.playerTrans
                     .GetComponentInChildren<Health>().currentHealth.ToString();
-                GameManager.playerTans.GetComponent<Health>().MaxHealthChanged += max =>
+                GameManager.playerTrans.GetComponent<Health>().MaxHealthChanged += max =>
                 {
                     UITool.GetComponentInChildrenUI<Slider>("HealthBar").maxValue = max;
                 };
-                GameManager.playerTans.GetComponent<Health>().CurrentHealthChanged += current =>
+                GameManager.playerTrans.GetComponent<Health>().CurrentHealthChanged += current =>
                 {
                     UITool.GetComponentInChildrenUI<Slider>("HealthBar").value = current;
                 };
-                GameManager.playerTans.GetComponent<Health>().MaxHealthChanged += max =>
+                GameManager.playerTrans.GetComponent<Health>().MaxHealthChanged += max =>
                 {
                     UITool.GetComponentInChildrenUI<TextMeshProUGUI>("HealthBarMax").text = max.ToString();
                 };
-                GameManager.playerTans.GetComponent<Health>().CurrentHealthChanged += current =>
+                GameManager.playerTrans.GetComponent<Health>().CurrentHealthChanged += current =>
                 {
                     UITool.GetComponentInChildrenUI<TextMeshProUGUI>("HealthBarCurrent").text = current.ToString();
                 };
             };
-            SetEscEvent();
             BattleManager.Instance.OnLevelChange += _levelUpdateAction;
-            GameManager.playerTans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
-            GameManager.playerTans.GetComponent<Hero.Hero>().CoinPack.CoinChanged += _coinUpdateAction;
+            GameManager.playerTrans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
+            GameManager.playerTrans.GetComponent<Hero.Hero>().CoinPack.CoinChanged += _coinUpdateAction;
             UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = DataManager.SettingsData.FPSOn;
         }
 
         public override void OnPause()
         {
-            DeleteEscEvent();
-            GameManager.playerTans.GetComponent<Health>().InitializeEnded -= _healthBarInitAction;
+            GameManager.playerTrans.GetComponent<Health>().InitializeEnded -= _healthBarInitAction;
         }
 
         public override void OnResume()
         {
-            SetEscEvent();
             UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = DataManager.SettingsData.FPSOn;
-            GameManager.playerTans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
+            GameManager.playerTrans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
         }
 
         public override void OnExit()
         {
-            GameManager.playerTans.GetComponent<Health>().InitializeEnded -= _healthBarInitAction;
-            GameManager.playerTans.GetComponent<Hero.Hero>().CoinPack.CoinChanged -= _coinUpdateAction;
+            GameManager.playerTrans.GetComponent<Health>().InitializeEnded -= _healthBarInitAction;
+            GameManager.playerTrans.GetComponent<Hero.Hero>().CoinPack.CoinChanged -= _coinUpdateAction;
             BattleManager.Instance.OnLevelChange -= _levelUpdateAction;
-            DeleteEscEvent();
             UIManager.DestroyUI(UIType);
         }
-
-        private void SetEscEvent()
+        public override void OnEsc()
         {
-            _escAction = e => { PanelManager.Push(new PausePanel()); };
-            _playerInputAction.ShortKey.Enable();
-            _playerInputAction.ShortKey.Back.performed += _escAction;
+            PanelManager.Push(new PausePanel());
         }
 
-        private void DeleteEscEvent()
-        {
-            _playerInputAction.ShortKey.Back.performed -= _escAction;
-            _playerInputAction.ShortKey.Disable();
-        }
-        
     }
 }

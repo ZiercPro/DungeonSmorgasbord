@@ -1,19 +1,16 @@
-using System.Threading;
 using UnityEngine;
 using ZiercCode.Runtime.Audio;
-using ZiercCode.Runtime.Basic;
 using ZiercCode.Runtime.Scene;
 
 namespace ZiercCode.Runtime.Manager
 {
     /// <summary>
-    /// 游戏程序全局管理器
+    /// 游戏入口
     /// </summary>
-    public class GameRoot : USingletonComponentDontDestroy<GameRoot>
+    public class GameEntry : MonoBehaviour
     {
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
             InitGame();
         }
 

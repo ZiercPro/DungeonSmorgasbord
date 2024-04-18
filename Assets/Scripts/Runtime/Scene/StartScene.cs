@@ -1,4 +1,5 @@
 using UnityEngine.SceneManagement;
+using ZiercCode.Core.UI;
 using ZiercCode.Runtime.UI;
 using ZiercCode.Runtime.UI.Panel;
 using ZiercCode.Runtime.Audio;
@@ -10,7 +11,7 @@ namespace ZiercCode.Runtime.Scene
     /// </summary>
     public class StartScene : SceneState
     {
-        private readonly string _sceneName = "MainMenu";
+        private readonly string _sceneName = "MainMenuScene";
         private PanelManager _panelManager;
 
         public override void OnEnter()

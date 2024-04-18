@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using ZiercCode.Core.UI;
 using ZiercCode.Runtime.Manager;
 using ZiercCode.Runtime.Scene;
-using ZiercCode.Runtime.UI.Framework;
 
 namespace ZiercCode.Runtime.UI.Panel
 {

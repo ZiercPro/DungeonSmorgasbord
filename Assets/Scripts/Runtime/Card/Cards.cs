@@ -5,7 +5,6 @@ using ZiercCode.Runtime.Weapon;
 
 namespace ZiercCode.Runtime.Card
 {
-
     /// <summary>
     /// 储存所有卡片的配置信息
     /// </summary>
@@ -47,7 +46,7 @@ namespace ZiercCode.Runtime.Card
         private static CardBase card3 = new CardBase(1002, CardType.Hero, "移动速度+2%", Hero =>
         {
             Movement mc = Hero.GetComponentInChildren<Movement>();
-            mc.AddSpeed(mc.moveSpeed * 0.02f);
+            mc.ChangeSpeed(moveSpeed => moveSpeed * 0.02f);
         });
 
         private static CardBase card4 = new CardBase(1003, CardType.Hero, "最大生命值+2", Hero =>

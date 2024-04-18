@@ -1,15 +1,14 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
+using ZiercCode.Runtime.Helper;
+using ZiercCode.Runtime.Damage;
+using System.Collections.Generic;
 using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Component.Enemy;
-using ZiercCode.Runtime.Damage;
 using ZiercCode.Runtime.Enemy.EnemyState;
-using ZiercCode.Runtime.Helper;
 
 namespace ZiercCode.Runtime.Enemy
 {
-
     public abstract class Enemy : MonoBehaviour, IDamageable
     {
         public EnemyStateMachine stateMachine { get; private set; }
@@ -18,10 +17,9 @@ namespace ZiercCode.Runtime.Enemy
         public Movement movement { get; private set; }
         public Animator animator { get; private set; }
         public Health health { get; private set; }
-
         public Health attackTarget { get; private set; }
-        private static List<Enemy> s_enemys;
 
+        private static List<Enemy> s_enemys;
         public event Action<DamageInfo> OnTakeDamage;
 
         public virtual void TakeDamage(DamageInfo info)
@@ -53,7 +51,6 @@ namespace ZiercCode.Runtime.Enemy
 
         protected virtual void Start()
         {
-            attribute.Initialize();
             movement.Initialize(attribute.moveSpeed);
             health.Initialize(attribute.maxHealth);
             health.Dead += () =>
@@ -81,7 +78,6 @@ namespace ZiercCode.Runtime.Enemy
         {
             Destroy(gameObject);
         }
-
 
         /// <summary>
         /// 获取当前所有存活的敌人

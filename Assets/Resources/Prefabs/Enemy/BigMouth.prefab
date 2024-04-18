@@ -133,7 +133,7 @@ MonoBehaviour:
   - {x: 0.35, y: 0.3, z: 0}
   m_ShapePathHash: -1093780895
   m_Mesh: {fileID: 0}
-  m_InstanceId: 55296
+  m_InstanceId: 34304
   m_LocalBounds:
     m_Center: {x: 0, y: 0.90000004, z: 0}
     m_Extent: {x: 0.35, y: 0.6, z: 0}
@@ -302,8 +302,8 @@ GameObject:
   - component: {fileID: 7753462400711176672}
   - component: {fileID: 3034293297724978597}
   - component: {fileID: 6125341557900362748}
-  - component: {fileID: 7265021260225710745}
   - component: {fileID: -2864066936988530281}
+  - component: {fileID: 7265021260225710745}
   m_Layer: 6
   m_Name: BigMouth
   m_TagString: Untagged
@@ -429,16 +429,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6c641725bb4a70bd0725e5fe57f674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 6
-  moveSpeed: 4
-  attributeData: {fileID: 11400000, guid: 975e63cfc57ff5246ab12dee01abe5c2, type: 2}
+  _attributesBaseSo: {fileID: 11400000, guid: 120a875949e2c2044a8b8a1101258a4f, type: 2}
+  maxHealth: 10
+  moveSpeed: 3
   attackLayer:
     serializedVersion: 2
     m_Bits: 8
   damageType: 0
-  attackSpeed: 2
-  attackRange: 0.3
-  damageAmount: 2
+  attackSpeed: 1.2
+  attackRange: 0.6
+  damageAmount: 1
 --- !u!114 &1293876698643740071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,18 +513,6 @@ MonoBehaviour:
     itemNum: 1
     minNum: 0
     maxNum: 0
---- !u!210 &7265021260225710745
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8472406070026422316}
-  m_Enabled: 1
-  m_SortingLayerID: 404507155
-  m_SortingLayer: 4
-  m_SortingOrder: 0
-  m_SortAtRoot: 0
 --- !u!114 &-2864066936988530281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,3 +528,15 @@ MonoBehaviour:
   animatorTransform: {fileID: 5778455385163744210}
   duration: 0.8
   strength: 0.4
+--- !u!210 &7265021260225710745
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472406070026422316}
+  m_Enabled: 1
+  m_SortingLayerID: 404507155
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 0

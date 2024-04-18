@@ -127,7 +127,7 @@ namespace ZiercCode.Runtime.Helper
         }
 
         /// <summary>
-        ///获取随机的单位化vector2
+        ///获取随机的单位化vector2，主要用于方向
         /// </summary>
         /// <returns></returns>
         public static Vector2 GetRandomVector2()
@@ -137,6 +137,18 @@ namespace ZiercCode.Runtime.Helper
             Vector2 result = new Vector2(x, y).normalized;
             return result;
         }
+
+
+        /// <summary>
+        /// 获取范围内的一个随机vector2
+        /// </summary>
+        /// <param name="range">范围包含从-range到range</param>
+        /// <returns></returns>
+        public static Vector2 GetRandomPos(Vector2 range)
+        {
+            return new Vector2(GetRandom(-range.x, range.x), GetRandom(-range.y, range.y));
+        }
+
 
         /// <summary>
         /// 从后向前遍历，并对链表进行操作，主要是应用于在遍历时，需要对链表进行调整的操作

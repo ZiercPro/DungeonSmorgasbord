@@ -4,12 +4,8 @@ using ZiercCode.Runtime.ScriptObject;
 
 namespace ZiercCode.Runtime.Component.Enemy
 {
-
-    public class EnemyAttribute : Attribute
+    public class EnemyAttribute : Attribute<EnemyAttributeSo>
     {
-        [SerializeField] private EnemyAttributeSo attributeData;
-
-        public LayerMask attackLayer;
         public DamageType damageType;
         public float attackSpeed;
         public float attackRange;
@@ -17,14 +13,13 @@ namespace ZiercCode.Runtime.Component.Enemy
 
         public void OnValidate()
         {
-            if (attributeData == null) return;
-            moveSpeed = attributeData.moveSpeed;
-            maxHealth = attributeData.maxHealth;
-            damageType = attributeData.damageType;
-            attackLayer = attributeData.attackLayer;
-            attackSpeed = attributeData.attackSpeed;
-            attackRange = attributeData.attackRange;
-            damageAmount = attributeData.damageAmount;
+            if (_attributesBaseSo == null) return;
+            moveSpeed = _attributesBaseSo.moveSpeed;
+            maxHealth = _attributesBaseSo.maxHealth;
+            damageType = _attributesBaseSo.damageType;
+            attackSpeed = _attributesBaseSo.attackSpeed;
+            attackRange = _attributesBaseSo.attackRange;
+            damageAmount = _attributesBaseSo.damageAmount;
         }
     }
 }

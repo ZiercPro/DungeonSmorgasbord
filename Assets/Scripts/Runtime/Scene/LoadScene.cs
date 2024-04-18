@@ -1,4 +1,5 @@
 using UnityEngine.SceneManagement;
+using ZiercCode.Core.UI;
 using ZiercCode.Runtime.UI;
 using ZiercCode.Runtime.Audio;
 using ZiercCode.Runtime.UI.Panel;
@@ -7,7 +8,7 @@ namespace ZiercCode.Runtime.Scene
 {
     public class LoadScene : SceneState
     {
-        private readonly string name = "Loading";
+        private readonly string name = "LoadingScene";
         private PanelManager PanelManager;
 
         public override void OnEnter()

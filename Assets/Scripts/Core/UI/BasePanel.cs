@@ -1,4 +1,4 @@
-namespace ZiercCode.Runtime.UI.Framework
+namespace ZiercCode.Core.UI
 {
     /// <summary>
     /// 所有面板UI的父类
@@ -9,9 +9,20 @@ namespace ZiercCode.Runtime.UI.Framework
         /// 这个Panel的UI信息
         /// </summary>
         public UIType UIType { get; private set; }
-
+        
+        /// <summary>
+        /// UI辅助工具
+        /// </summary>
         public UITool UITool { get; private set; }
+        
+        /// <summary>
+        ///  该Panel的管理器
+        /// </summary>
         public PanelManager PanelManager { get; private set; }
+        
+        /// <summary>
+        /// UI管理器
+        /// </summary>
         public UIManager UIManager { get; private set; }
 
         public BasePanel(UIType uiType)
@@ -35,6 +46,9 @@ namespace ZiercCode.Runtime.UI.Framework
             UIManager = um;
         }
 
+        /// <summary>
+        /// UI进入时执行
+        /// </summary>
         public virtual void OnEnter() { }
 
         /// <summary>
@@ -52,5 +66,10 @@ namespace ZiercCode.Runtime.UI.Framework
         /// UI退出时执行
         /// </summary>
         public virtual void OnExit() { }
+
+        /// <summary>
+        /// esc按下时
+        /// </summary>
+        public virtual void OnEsc() { }
     }
 }

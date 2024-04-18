@@ -1,14 +1,15 @@
 ﻿using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
+using ZiercCode.Core.UI;
 using ZiercCode.Runtime.Card;
 using ZiercCode.Runtime.Helper;
 using ZiercCode.Runtime.Hero;
 using ZiercCode.Runtime.Manager;
 using ZiercCode.Runtime.Player;
-using ZiercCode.Runtime.UI.Framework;
 
 namespace ZiercCode.Runtime.UI.Panel
 {
@@ -16,12 +17,13 @@ namespace ZiercCode.Runtime.UI.Panel
     {
         public static readonly string path = "Prefabs/UI/Panel/CardPanel";
         public CardPanel() : base(new UIType(path)) { }
-
+        private PlayerInputManager _playerInputManager;
         private HeroInputManager _heroInputManager;
         private Coroutine _timeSlowCoroutine;
 
         public override void OnEnter()
         {
+            BanHeroInput();
             _timeSlowCoroutine = MyCoroutineTool.Instance.StartCoroutine(TimeSlow());
             float start = 0f;
             CanvasGroup cGroup = UITool.GetOrAddComponent<CanvasGroup>();
@@ -42,7 +44,7 @@ namespace ZiercCode.Runtime.UI.Panel
                         Quaternion.identity);
                     newCard.GetComponentInChildren<Button>().onClick.AddListener(() =>
                     {
-                        Cards.GetCards()[temp].cardEffect(GameManager.playerTans);
+                        Cards.GetCards()[temp].cardEffect(GameManager.playerTrans);
                         PanelManager.Pop();
                         Time.timeScale = 1f;
                     });
@@ -74,6 +76,7 @@ namespace ZiercCode.Runtime.UI.Panel
                 UIManager.DestroyUI(UIType);
             });
             UIManager.DestroyUI(UIType);
+            ReleaseHeroInput();
             //游戏继续
         }
 
@@ -87,6 +90,21 @@ namespace ZiercCode.Runtime.UI.Panel
                 if (t <= 0.1f) break;
                 yield return null;
             }
+        }
+        //禁用玩家输入
+        private void BanHeroInput()
+        {
+            if (GameManager.playerTrans)
+            {
+                _heroInputManager = GameManager.playerTrans.GetComponent<HeroInputManager>();
+                _heroInputManager.enabled = false;
+            }
+        }
+        //放行玩家输入
+        private void ReleaseHeroInput()
+        {
+            _heroInputManager.enabled = true;
+            _heroInputManager = null;
         }
     }
 }

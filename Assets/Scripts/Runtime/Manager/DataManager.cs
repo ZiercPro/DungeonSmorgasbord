@@ -1,7 +1,5 @@
 using System;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
-using ZiercCode.Runtime.Basic;
 using ZiercCode.Runtime.Data;
 
 namespace ZiercCode.Runtime.Manager
@@ -12,10 +10,19 @@ namespace ZiercCode.Runtime.Manager
     /// </summary>
     public class DataManager
     {
+        /// <summary>
+        /// 设置数据保存地址
+        /// </summary>
         private const string SETTING_DATA_PATH = "/settings.json";
 
+        /// <summary>
+        /// 设置数据
+        /// </summary>
         public static SettingsData SettingsData { get; private set; }
 
+        /// <summary>
+        /// json数据服务
+        /// </summary>
         private static IDataService _jsonService = new JsonDataService();
 
 

@@ -6,20 +6,18 @@ using ZiercCode.Runtime.Weapon;
 
 namespace ZiercCode.Runtime.Component.Hero
 {
-    public class HeroAttribute : Attribute
+    public class HeroAttribute : Attribute<HeroAttributeSo>
     {
-        [SerializeField] private HeroAttributeSo attributeData;
-
         public Dictionary<WeaponType, float> WeaponDamageRate;
         public float criticalChance;
 
         private void Awake()
         {
-            if (attributeData == null) return;
-            moveSpeed = attributeData.moveSpeed;
-            maxHealth = attributeData.maxHealth;
-            criticalChance = attributeData.criticalChance;
-            WeaponDamageRate = attributeData.WeaponDamageRate.ToDictionary();
+            if (_attributesBaseSo == null) return;
+            moveSpeed = _attributesBaseSo.moveSpeed;
+            maxHealth = _attributesBaseSo.maxHealth;
+            criticalChance = _attributesBaseSo.criticalChance;
+            WeaponDamageRate = _attributesBaseSo.WeaponDamageRate.ToDictionary();
         }
     }
 }

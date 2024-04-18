@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using System.Collections;
 using UnityEngine.Events;
 using ZiercCode.Runtime.UI;
 using ZiercCode.Runtime.Component.Hero;

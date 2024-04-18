@@ -10,8 +10,8 @@ namespace ZiercCode.Runtime.Component.Hero
         [SerializeField] private GameObject defaultWeapon;
 
         private GameObject _currentWeaponInstance;
-        private WeaponHolder _weaponHolder;
         private HeroInputManager _heroInputManager;
+        private WeaponHolder _weaponHolder;
         private HeroAttribute _attribute;
 
         private void Awake()

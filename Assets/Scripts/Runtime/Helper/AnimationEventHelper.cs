@@ -3,11 +3,15 @@ using UnityEngine.Events;
 
 namespace ZiercCode.Runtime.Helper
 {
+    /// <summary>
+    /// 用于帮助实现动画帧事件
+    /// </summary>
     public class AnimationEventHelper : MonoBehaviour
     {
+
         public UnityEvent AnimationEventTrigger;
 
-        public void EventStart()
+        protected virtual void EventStart()
         {
             AnimationEventTrigger?.Invoke();
         }

@@ -1,9 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using ZiercCode.Core.UI;
+using ZiercCode.Runtime.Hero;
 using ZiercCode.Runtime.Manager;
 using ZiercCode.Runtime.Scene;
-using ZiercCode.Runtime.UI.Framework;
 
 namespace ZiercCode.Runtime.UI.Panel
 {
@@ -12,8 +13,11 @@ namespace ZiercCode.Runtime.UI.Panel
         readonly static string path = "Prefabs/UI/Panel/PauseMenu";
         public PausePanel() : base(new UIType(path)) { }
 
+        private HeroInputManager _heroInputManager;
+
         public override void OnEnter()
         {
+            BanHeroInput();
             UITool.GetComponentInChildrenUI<Button>("BackButton").onClick.AddListener(() =>
             {
                 PanelManager.Pop();
@@ -52,6 +56,27 @@ namespace ZiercCode.Runtime.UI.Panel
             UITool.GetComponentInChildrenUI<Button>("MenuButton").onClick.RemoveAllListeners();
             UIManager.DestroyUI(UIType);
             Time.timeScale = 1f;
+            ReleaseHeroInput();
         }
+        public override void OnEsc()
+        {
+            PanelManager.Pop();
+        }
+        //禁用玩家输入
+        private void BanHeroInput()
+        {
+            if (GameManager.playerTrans)
+            {
+                _heroInputManager = GameManager.playerTrans.GetComponent<HeroInputManager>();
+                _heroInputManager.enabled = false;
+            }
+        }
+        //放行玩家输入
+        private void ReleaseHeroInput()
+        {
+            _heroInputManager.enabled = true;
+            _heroInputManager = null;
+        }
+
     }
 }

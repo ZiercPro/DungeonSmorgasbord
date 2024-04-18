@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZiercCode.Runtime.UI.Framework
+namespace ZiercCode.Core.UI
 {
     /// <summary>
     /// UI管理工具，获取一些UI的子对象

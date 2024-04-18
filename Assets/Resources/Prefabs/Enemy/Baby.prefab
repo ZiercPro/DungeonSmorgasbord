@@ -90,16 +90,16 @@ GameObject:
   m_Component:
   - component: {fileID: 5761354861034177839}
   - component: {fileID: 2990257174180385413}
+  - component: {fileID: 7312892530035054334}
   - component: {fileID: 7097685445367053004}
   - component: {fileID: 2241906935849456536}
-  - component: {fileID: 7312892530035054334}
   - component: {fileID: 2782844309975292074}
-  - component: {fileID: 8182654456024282727}
-  - component: {fileID: 374477211409069075}
   - component: {fileID: 5417867317326553159}
+  - component: {fileID: 374477211409069075}
+  - component: {fileID: 8182654456024282727}
+  - component: {fileID: 2516324243222191819}
   - component: {fileID: 2128747106723904120}
   - component: {fileID: 2177417096687788655}
-  - component: {fileID: 2516324243222191819}
   m_Layer: 6
   m_Name: Baby
   m_TagString: Untagged
@@ -152,31 +152,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &7097685445367053004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3149073930474505641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 932b357a591b79e44bf9090780f6848f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canMove: 0
---- !u!114 &2241906935849456536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3149073930474505641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d70d6c9f8ac07c6468bcd1adaefd3a68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &7312892530035054334
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -212,6 +187,31 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.45}
   m_Size: {x: 0.8, y: 1}
   m_Direction: 0
+--- !u!114 &7097685445367053004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149073930474505641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 932b357a591b79e44bf9090780f6848f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canMove: 0
+--- !u!114 &2241906935849456536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149073930474505641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70d6c9f8ac07c6468bcd1adaefd3a68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!210 &2782844309975292074
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -224,6 +224,33 @@ SortingGroup:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &5417867317326553159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149073930474505641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 078ee863e17cb6b458a90de5efe39f0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadParticle: {fileID: 1953027942559269116, guid: 1990e80f29563844ca7c74fc70b92377, type: 3}
+--- !u!114 &374477211409069075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149073930474505641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ca5dd0ad74122438153f1eed2f7185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backMoveTime: 0.15
+  force: 50
 --- !u!114 &8182654456024282727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +267,7 @@ MonoBehaviour:
   defualt: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   characterS: {fileID: 4520229708370242629}
   maintainTime: 0.1
---- !u!114 &374477211409069075
+--- !u!114 &2516324243222191819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,24 +276,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3149073930474505641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61ca5dd0ad74122438153f1eed2f7185, type: 3}
+  m_Script: {fileID: 11500000, guid: a785ccf3bd4f68546b51bf1793babf29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backMoveTime: 0.15
-  force: 50
---- !u!114 &5417867317326553159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3149073930474505641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 078ee863e17cb6b458a90de5efe39f0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deadParticle: {fileID: 1953027942559269116, guid: 1990e80f29563844ca7c74fc70b92377, type: 3}
+  animatorTransform: {fileID: 6462168680198285285}
+  duration: 0.8
+  strength: 0.6
 --- !u!114 &2128747106723904120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,9 +294,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6c641725bb4a70bd0725e5fe57f674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _attributesBaseSo: {fileID: 11400000, guid: 975e63cfc57ff5246ab12dee01abe5c2, type: 2}
   maxHealth: 6
   moveSpeed: 4
-  attributeData: {fileID: 11400000, guid: 975e63cfc57ff5246ab12dee01abe5c2, type: 2}
   attackLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -309,21 +324,6 @@ MonoBehaviour:
     itemNum: 0
     minNum: 1
     maxNum: 4
---- !u!114 &2516324243222191819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3149073930474505641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a785ccf3bd4f68546b51bf1793babf29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animatorTransform: {fileID: 6462168680198285285}
-  duration: 0.8
-  strength: 0.6
 --- !u!1 &6365258972828138985
 GameObject:
   m_ObjectHideFlags: 0

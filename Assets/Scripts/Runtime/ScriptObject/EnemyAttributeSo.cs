@@ -9,7 +9,6 @@ namespace ZiercCode.Runtime.ScriptObject
         public int difficulty;
         public int damageAmount;
         public DamageType damageType;
-        public LayerMask attackLayer;
         public float attackSpeed;
         public float attackRange;
     }

@@ -1,12 +1,12 @@
 using UnityEngine;
 using ZiercCode.Runtime.Audio;
 
-namespace ZiercCode.Runtime.UI
+namespace ZiercCode.Runtime.Helper
 {
     /// <summary>
     /// ui播放音效的辅助脚本
     /// </summary>
-    public class UISounds : MonoBehaviour
+    public class UISoundsHelper : MonoBehaviour
     {
         //private float playDuration = 0.5f;
         //private bool playing = false;

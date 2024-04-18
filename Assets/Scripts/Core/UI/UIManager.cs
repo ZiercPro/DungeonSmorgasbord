@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Runtime.UI.Framework;
 
-namespace ZiercCode.Runtime.UI
+namespace ZiercCode.Core.UI
 {
-
     /// <summary>
     /// 储存所有UI信息 并可以创建或销毁UI
     /// </summary>
@@ -13,12 +11,12 @@ namespace ZiercCode.Runtime.UI
         /// <summary>
         /// 储存所有UI信息的字典，每一个UI信息都会对应一个GameObject
         /// </summary>
-        private Dictionary<UIType, GameObject> uiDic;
+        private Dictionary<UIType, GameObject> _uiDictionary;
 
         public UIManager()
         {
-            if (uiDic == null)
-                uiDic = new Dictionary<UIType, GameObject>();
+            if (_uiDictionary == null)
+                _uiDictionary = new Dictionary<UIType, GameObject>();
         }
 
         /// <summary>
@@ -35,13 +33,13 @@ namespace ZiercCode.Runtime.UI
                 return null;
             }
 
-            if (uiDic.ContainsKey(type))
-                return uiDic[type];
+            if (_uiDictionary.ContainsKey(type))
+                return _uiDictionary[type];
 
             GameObject ui = GameObject.Instantiate(Resources.Load<GameObject>(type.Path), parent.transform);
             ui.name = type.Name;
 
-            uiDic.Add(type, ui);
+            _uiDictionary.Add(type, ui);
 
             return ui;
         }
@@ -51,10 +49,10 @@ namespace ZiercCode.Runtime.UI
         /// </summary>
         public void DestroyUI(UIType type)
         {
-            if (uiDic.ContainsKey(type))
+            if (_uiDictionary.ContainsKey(type))
             {
-                GameObject.Destroy(uiDic[type]);
-                uiDic.Remove(type);
+                GameObject.Destroy(_uiDictionary[type]);
+                _uiDictionary.Remove(type);
             }
         }
     }

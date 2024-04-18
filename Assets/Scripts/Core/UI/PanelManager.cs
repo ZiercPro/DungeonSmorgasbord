@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using ZiercCode.Runtime.Manager;
-using ZiercCode.Runtime.UI.Framework;
 
-namespace ZiercCode.Runtime.UI
+namespace ZiercCode.Core.UI
 {
     /// <summary>
     /// 面板管理，用栈储存UI
@@ -35,10 +33,9 @@ namespace ZiercCode.Runtime.UI
         public BasePanel Push(BasePanel nextPanel)
         {
             if (panelStack.Count > 0)
-            {
-                curPanel = panelStack.Peek();
                 curPanel.OnPause();
-            }
+
+            curPanel = nextPanel;
 
             panelStack.Push(nextPanel);
 
@@ -58,7 +55,8 @@ namespace ZiercCode.Runtime.UI
             if (panelStack.Count > 1)
             {
                 panelStack.Pop().OnExit();
-                panelStack.Peek().OnResume();
+                curPanel = panelStack.Peek();
+                curPanel.OnResume();
             }
         }
 
@@ -72,23 +70,12 @@ namespace ZiercCode.Runtime.UI
                 panelStack.Pop().OnExit();
             }
 
-            DeleteEscAction();
-        }
-
-        /// <summary>
-        /// 判断panel类型是否相同
-        /// </summary>
-        /// <param name="panel1">panel1</param>
-        /// <param name="panel2">panel2</param>
-        /// <returns>true则相同，false则不同</returns>
-        public static bool isPanelClassEquals(BasePanel panel1, BasePanel panel2)
-        {
-            return panel1.GetType() == panel2.GetType();
+            curPanel = null;
         }
 
         private void SetEscAction()
         {
-            _escAction = e => { Pop(); };
+            _escAction = e => { curPanel.OnEsc(); };
             _playerInputAction.ShortKey.Enable();
             _playerInputAction.ShortKey.Back.performed += _escAction;
         }

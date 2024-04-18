@@ -1,12 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using ZiercCode.Runtime.ScriptObject;
 
 namespace ZiercCode.Runtime.Component
 {
-    public class Attribute : MonoBehaviour
+    public class Attribute<T> : MonoBehaviour where T : AttributesBaseSo
     {
-        public int maxHealth;
+        [SerializeField] protected T _attributesBaseSo;
         public float moveSpeed;
-
-        public virtual void Initialize() { }
+        public int maxHealth;
     }
 }

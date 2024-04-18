@@ -1,7 +1,9 @@
 using UnityEngine;
+using ZiercCode.Core.UI;
 using ZiercCode.Runtime.Basic;
 using ZiercCode.Runtime.Component;
 using ZiercCode.Runtime.Data;
+using ZiercCode.Runtime.Enemy;
 using ZiercCode.Runtime.Environment;
 using ZiercCode.Runtime.Hero;
 using ZiercCode.Runtime.UI;
@@ -10,18 +12,33 @@ using ZiercCode.Runtime.UI.Panel;
 namespace ZiercCode.Runtime.Manager
 {
     /// <summary>
-    /// 游戏场景管理
+    /// 游戏场景管理器
     /// </summary>
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] private Transform heroSpawnPos; //角色生成的位置
-        [SerializeField] private CameraTarget cameraT; //相机目标组件
+        /// <summary>
+        ///角色生成的位置
+        /// </summary>
+        [SerializeField] private Transform heroSpawnPos;
+        /// <summary>
+        /// 相机目标组件
+        /// </summary>
+        [SerializeField] private CameraTarget cameraT;
 
-        public static Transform playerTans { get; private set; } //角色的transform组件
-
+        /// <summary>
+        /// 面板管理器
+        /// </summary>
         private PanelManager _panelManager;
-        private HeroList _heroList; //角色资源信息
 
+        /// <summary>
+        /// 角色资源信息
+        /// </summary>
+        private HeroList _heroList;
+
+        /// <summary>
+        /// 英雄transform组件，用于全局引用
+        /// </summary>
+        public static Transform playerTrans { get; private set; } //角色的transform组件
         private void Awake()
         {
             _panelManager = new PanelManager();
@@ -34,7 +51,7 @@ namespace ZiercCode.Runtime.Manager
 
         private void OnDestroy()
         {
-            playerTans = null;
+            playerTrans = null;
             _panelManager.PopAll();
         }
 
@@ -49,23 +66,22 @@ namespace ZiercCode.Runtime.Manager
         {
             GameObject newHero = Instantiate(Resources.Load<GameObject>(_heroList.Lewis), heroSpawnPos.position,
                 Quaternion.identity);
-            playerTans = newHero.transform;
+            playerTrans = newHero.transform;
 
             //同步数据
         }
 
         private void CameraSet()
         {
-            cameraT.SetTarget(playerTans);
+            cameraT.SetTarget(playerTrans);
             cameraT.Follow();
         }
 
         private void GameSet()
         {
-            playerTans.GetComponent<Health>().Dead += () =>
+            playerTrans.GetComponent<Health>().Dead += () =>
             {
                 _panelManager.Push(new DeadPanel());
-                BattleManager.Instance.BattleEixt();
                 DroppedItem.DroppedItem.ClearAllItem();
             };
         }

@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
+using ZiercCode.Runtime.Helper;
 
 namespace ZiercCode.Runtime.Weapon
 {
-    public class WeaponAnimationEventHandler : MonoBehaviour
+    public class WeaponAnimationEventHandler : AnimationEventHelper
     {
         public event Action AnimationStarted;
         public event Action AnimationTriggeredStart;
