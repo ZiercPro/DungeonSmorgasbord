@@ -8,7 +8,7 @@ using ZiercCode.Old.Helper;
 using ZiercCode.Old.Hero;
 using ZiercCode.Old.Manager;
 
-namespace ZiercCode.Old.UI.Panel
+namespace ZiercCode.DungeonSmorgasbord.UI
 {
     public class CardPanel : BaseAnimationPanel
     {

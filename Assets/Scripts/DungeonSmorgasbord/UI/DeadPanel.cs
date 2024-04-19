@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using ZiercCode.Core.UI;
 using ZiercCode.Old.Scene;
 
-namespace ZiercCode.Old.UI.Panel
+namespace ZiercCode.DungeonSmorgasbord.UI
 {
     public class DeadPanel : BaseAnimationPanel
     {

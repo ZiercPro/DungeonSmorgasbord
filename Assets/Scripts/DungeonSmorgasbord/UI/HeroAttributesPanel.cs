@@ -5,7 +5,7 @@ using ZiercCode.Old.Component.Hero;
 using ZiercCode.Old.Manager;
 using ZiercCode.Old.Weapon;
 
-namespace ZiercCode.Old.UI.Panel
+namespace ZiercCode.DungeonSmorgasbord.UI
 {
     public class HeroAttributesPanel : BaseAnimationPanel
     {

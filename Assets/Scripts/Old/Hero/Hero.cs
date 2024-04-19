@@ -6,7 +6,6 @@ using ZiercCode.Old.Component.Hero;
 using ZiercCode.Old.Damage;
 using ZiercCode.Old.FeedBack;
 using ZiercCode.Old.Manager;
-using ZiercCode.Old.UI.Panel;
 using ZiercCode.Old.Weapon;
 
 namespace ZiercCode.Old.Hero

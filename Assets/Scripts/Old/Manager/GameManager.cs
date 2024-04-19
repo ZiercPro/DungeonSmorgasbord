@@ -1,9 +1,9 @@
 using UnityEngine;
 using ZiercCode.Core.UI;
+using ZiercCode.DungeonSmorgasbord.UI;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Environment;
 using ZiercCode.Old.Hero;
-using ZiercCode.Old.UI.Panel;
 
 namespace ZiercCode.Old.Manager
 {

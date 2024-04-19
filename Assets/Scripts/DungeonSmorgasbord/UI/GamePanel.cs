@@ -7,9 +7,9 @@ using ZiercCode.Core.UI;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Manager;
 
-namespace ZiercCode.Old.UI.Panel
+namespace ZiercCode.DungeonSmorgasbord.UI
 {
-    public class GamePanel : BasePanel
+    public class GamePanel : BaseInputActionPanel
     {
         private const string Path = "Prefabs/UI/Panel/GameMenu";
         public GamePanel() : base(new UIType(Path)) { }
@@ -75,7 +75,7 @@ namespace ZiercCode.Old.UI.Panel
             };
             BattleManager.Instance.OnLevelChange += _levelUpdateAction;
             GameManager.playerTrans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
-            GameManager.playerTrans.GetComponent<Hero.Hero>().CoinPack.CoinChanged += _coinUpdateAction;
+            GameManager.playerTrans.GetComponent<Old.Hero.Hero>().CoinPack.CoinChanged += _coinUpdateAction;
             UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = ConfigManager.SettingsData.FPSOn;
         }
 
@@ -96,7 +96,7 @@ namespace ZiercCode.Old.UI.Panel
         {
             base.OnExit();
             GameManager.playerTrans.GetComponent<Health>().InitializeEnded -= _healthBarInitAction;
-            GameManager.playerTrans.GetComponent<Hero.Hero>().CoinPack.CoinChanged -= _coinUpdateAction;
+            GameManager.playerTrans.GetComponent<Old.Hero.Hero>().CoinPack.CoinChanged -= _coinUpdateAction;
             BattleManager.Instance.OnLevelChange -= _levelUpdateAction;
             UIManager.DestroyUI(UIType);
         }

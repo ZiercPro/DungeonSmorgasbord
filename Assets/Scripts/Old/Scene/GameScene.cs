@@ -1,8 +1,8 @@
 using UnityEngine.SceneManagement;
 using ZiercCode.Core.UI;
+using ZiercCode.DungeonSmorgasbord.UI;
 using ZiercCode.Old.Audio;
 using ZiercCode.Old.Manager;
-using ZiercCode.Old.UI.Panel;
 
 namespace ZiercCode.Old.Scene
 {

@@ -1,12 +1,13 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using ZiercCode.Core.UI;
 
-namespace ZiercCode.Core.UI
+namespace ZiercCode.DungeonSmorgasbord.UI
 {
     /// <summary>
     /// 含有进出动画的面板基类，含有进出动画的面板需要继承或重构其中的动画方法
     /// </summary>
-    public abstract class BaseAnimationPanel : BasePanel
+    public abstract class BaseAnimationPanel : BaseInputActionPanel
     {
         protected BaseAnimationPanel(UIType uiType) : base(uiType) { }
 

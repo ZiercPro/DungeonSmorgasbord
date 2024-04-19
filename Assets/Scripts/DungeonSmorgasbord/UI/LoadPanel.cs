@@ -5,7 +5,7 @@ using ZiercCode.Core.UI;
 using ZiercCode.Old.Helper;
 using ZiercCode.Old.Scene;
 
-namespace ZiercCode.Old.UI.Panel
+namespace ZiercCode.DungeonSmorgasbord.UI
 {
 
     public class LoadPanel : BasePanel

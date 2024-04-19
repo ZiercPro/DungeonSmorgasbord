@@ -1,8 +1,3 @@
-using System;
-using System.Linq;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.InputSystem;
 using ZiercCode.Old.Hero;
 using ZiercCode.Old.Manager;
 
@@ -13,11 +8,6 @@ namespace ZiercCode.Core.UI
     /// </summary>
     public abstract class BasePanel
     {
-        /// <summary>
-        /// 玩家输入数据表，每次进入面板时会被重新分配
-        /// </summary>
-        protected PlayerInputAction PlayerInputAction;
-
         /// <summary>
         /// 这个Panel的UI信息
         /// </summary>
@@ -58,7 +48,6 @@ namespace ZiercCode.Core.UI
             UITool = uITool;
             PanelManager = pm;
             UIManager = um;
-            PlayerInputAction = new PlayerInputAction();
         }
 
         /// <summary>
@@ -66,7 +55,6 @@ namespace ZiercCode.Core.UI
         /// </summary>
         public virtual void OnEnter()
         {
-            ReleaseUiInput();
         }
 
         /// <summary>
@@ -74,7 +62,6 @@ namespace ZiercCode.Core.UI
         /// </summary>
         public virtual void OnPause()
         {
-            BanUiInput();
         }
 
 
@@ -83,7 +70,6 @@ namespace ZiercCode.Core.UI
         /// </summary>
         public virtual void OnResume()
         {
-            ReleaseUiInput();
         }
 
         /// <summary>
@@ -91,25 +77,8 @@ namespace ZiercCode.Core.UI
         /// </summary>
         public virtual void OnExit()
         {
-            BanUiInput();
-            PlayerInputAction = null;
         }
 
-        /// <summary>
-        /// 禁用UI快捷输入
-        /// </summary>
-        protected void BanUiInput()
-        {
-            PlayerInputAction.UI.Disable();
-        }
-
-        /// <summary>
-        /// 允许UI快捷输入
-        /// </summary>
-        protected void ReleaseUiInput()
-        {
-            PlayerInputAction.UI.Enable();
-        }
 
         /// <summary>
         /// 禁止玩家输入
@@ -127,34 +96,6 @@ namespace ZiercCode.Core.UI
         {
             if (GameManager.playerTrans)
                 GameManager.playerTrans.GetComponent<HeroInputManager>().enabled = true;
-        }
-
-        /// <summary>
-        /// 设置输入监听，在进入面板时调用
-        /// </summary>
-        /// <param name="inputAction">输入委托类型</param>
-        /// <param name="action">委托</param>
-        protected void SetAction(InputAction inputAction, Action<InputAction.CallbackContext> action)
-        {
-            inputAction.started += action;
-        }
-
-        /// <summary>
-        /// 获取view输入委托
-        /// </summary>
-        /// <returns></returns>
-        protected InputAction GetViewInputAction()
-        {
-            return PlayerInputAction.UI.View;
-        }
-
-        /// <summary>
-        /// 获取back输入委托
-        /// </summary>
-        /// <returns></returns>
-        protected InputAction GetBackInputAction()
-        {
-            return PlayerInputAction.UI.Back;
         }
     }
 }

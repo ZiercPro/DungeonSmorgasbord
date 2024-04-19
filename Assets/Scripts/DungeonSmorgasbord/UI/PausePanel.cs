@@ -1,10 +1,9 @@
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using ZiercCode.Core.UI;
 using ZiercCode.Old.Scene;
 
-namespace ZiercCode.Old.UI.Panel
+namespace ZiercCode.DungeonSmorgasbord.UI
 {
     public class PausePanel : BaseAnimationPanel
     {
@@ -14,11 +13,7 @@ namespace ZiercCode.Old.UI.Panel
         public override void OnEnter()
         {
             base.OnEnter();
-            SetAction(GetBackInputAction(), context =>
-            {
-                PanelManager.Pop();
-                Debug.Log("pause pop");
-            });
+            SetAction(GetBackInputAction(), context => PanelManager.Pop());
             BanPlayerInput();
             UITool.GetComponentInChildrenUI<Button>("BackButton").onClick.AddListener(() =>
             {
