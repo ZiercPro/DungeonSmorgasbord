@@ -24,10 +24,11 @@ namespace ZiercCode.Old.UI.Panel
         {
             base.OnEnter();
             //设置回退事件
-            SetBackEvent(context => { PanelManager.Push(new PausePanel()); });
+            SetAction(GetBackInputAction(), context => PanelManager.Push(new PausePanel()));
+
             //设置视图事件
-            SetViewEvent(context => { PanelManager.Push(new HeroAttributesPanel()); });
-            
+            SetAction(GetViewInputAction(), context => PanelManager.Push(new HeroAttributesPanel()));
+
             _levelUpdateAction = level =>
             {
                 LocalizeStringEvent levelText = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("Level");
@@ -86,6 +87,7 @@ namespace ZiercCode.Old.UI.Panel
 
         public override void OnResume()
         {
+            base.OnResume();
             UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = ConfigManager.SettingsData.FPSOn;
             GameManager.playerTrans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
         }

@@ -24,7 +24,7 @@ namespace ZiercCode.Old.Helper
         }
 
         /// <summary>
-        /// 两点间距离比较,性能消耗较小  小于range返回true 大于返回false
+        /// 两点间距离比较,性能消耗较小  小于等于range返回true 大于返回false
         /// </summary>
         /// <param name="pos1">位置1</param>
         /// <param name="pos2">位置2</param>

@@ -1,11 +1,7 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Localization.Components;
 using ZiercCode.Core.UI;
-using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Hero;
-using ZiercCode.Old.Hero;
 using ZiercCode.Old.Manager;
 using ZiercCode.Old.Weapon;
 
@@ -19,9 +15,9 @@ namespace ZiercCode.Old.UI.Panel
         {
             base.OnEnter();
             //设置back
-            SetBackEvent(context => { PanelManager.Pop(); });
+            SetAction(GetBackInputAction(), context => PanelManager.Pop());
             //设置view
-            SetViewEvent(context => { PanelManager.Pop(); });
+            SetAction(GetViewInputAction(), context => PanelManager.Pop());
             //禁用玩家输入
             BanPlayerInput();
             //游戏暂停
@@ -33,6 +29,8 @@ namespace ZiercCode.Old.UI.Panel
         public override void OnExit()
         {
             base.OnExit();
+            //放行玩家输入
+            ReleasePlayerInput();
             //游戏继续
             Time.timeScale = 1f;
             //关闭面板

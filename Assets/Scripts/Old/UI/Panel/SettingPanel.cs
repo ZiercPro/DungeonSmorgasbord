@@ -14,6 +14,7 @@ namespace ZiercCode.Old.UI.Panel
 
         public override void OnEnter()
         {
+            SetAction(GetBackInputAction(), context => PanelManager.Pop());
             //动画部分
             base.OnEnter();
             //读取默认值

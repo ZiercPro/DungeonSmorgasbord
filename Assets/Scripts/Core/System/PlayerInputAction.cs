@@ -251,7 +251,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""ShortKey"",
+            ""name"": ""UI"",
             ""id"": ""aa8887c7-dab1-4512-9ca2-8f21b9f07c76"",
             ""actions"": [
                 {
@@ -332,10 +332,10 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_HeroControl_MouseClickLeft = m_HeroControl.FindAction("MouseClickLeft", throwIfNotFound: true);
         m_HeroControl_Dash = m_HeroControl.FindAction("Dash", throwIfNotFound: true);
         m_HeroControl_Interact = m_HeroControl.FindAction("Interact", throwIfNotFound: true);
-        // ShortKey
-        m_ShortKey = asset.FindActionMap("ShortKey", throwIfNotFound: true);
-        m_ShortKey_Back = m_ShortKey.FindAction("Back", throwIfNotFound: true);
-        m_ShortKey_View = m_ShortKey.FindAction("View", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Back = m_UI.FindAction("Back", throwIfNotFound: true);
+        m_UI_View = m_UI.FindAction("View", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -480,26 +480,26 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     }
     public HeroControlActions @HeroControl => new HeroControlActions(this);
 
-    // ShortKey
-    private readonly InputActionMap m_ShortKey;
-    private List<IShortKeyActions> m_ShortKeyActionsCallbackInterfaces = new List<IShortKeyActions>();
-    private readonly InputAction m_ShortKey_Back;
-    private readonly InputAction m_ShortKey_View;
-    public struct ShortKeyActions
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_Back;
+    private readonly InputAction m_UI_View;
+    public struct UIActions
     {
         private @PlayerInputAction m_Wrapper;
-        public ShortKeyActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Back => m_Wrapper.m_ShortKey_Back;
-        public InputAction @View => m_Wrapper.m_ShortKey_View;
-        public InputActionMap Get() { return m_Wrapper.m_ShortKey; }
+        public UIActions(@PlayerInputAction wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Back => m_Wrapper.m_UI_Back;
+        public InputAction @View => m_Wrapper.m_UI_View;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ShortKeyActions set) { return set.Get(); }
-        public void AddCallbacks(IShortKeyActions instance)
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void AddCallbacks(IUIActions instance)
         {
-            if (instance == null || m_Wrapper.m_ShortKeyActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_ShortKeyActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
             @Back.started += instance.OnBack;
             @Back.performed += instance.OnBack;
             @Back.canceled += instance.OnBack;
@@ -508,7 +508,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @View.canceled += instance.OnView;
         }
 
-        private void UnregisterCallbacks(IShortKeyActions instance)
+        private void UnregisterCallbacks(IUIActions instance)
         {
             @Back.started -= instance.OnBack;
             @Back.performed -= instance.OnBack;
@@ -518,21 +518,21 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @View.canceled -= instance.OnView;
         }
 
-        public void RemoveCallbacks(IShortKeyActions instance)
+        public void RemoveCallbacks(IUIActions instance)
         {
-            if (m_Wrapper.m_ShortKeyActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IShortKeyActions instance)
+        public void SetCallbacks(IUIActions instance)
         {
-            foreach (var item in m_Wrapper.m_ShortKeyActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_ShortKeyActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public ShortKeyActions @ShortKey => new ShortKeyActions(this);
+    public UIActions @UI => new UIActions(this);
     private int m_KeyBoardSchemeIndex = -1;
     public InputControlScheme KeyBoardScheme
     {
@@ -560,7 +560,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
     }
-    public interface IShortKeyActions
+    public interface IUIActions
     {
         void OnBack(InputAction.CallbackContext context);
         void OnView(InputAction.CallbackContext context);

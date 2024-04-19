@@ -100,14 +100,7 @@ namespace ZiercCode.Old.Hero
             else
                 _playerInputAction.HeroControl.Disable();
         }
-
-        public void SetShortKey(bool enable)
-        {
-            if (enable)
-                _playerInputAction.ShortKey.Enable();
-            else
-                _playerInputAction.ShortKey.Disable();
-        }
+        
 
         #region LeftClick
 

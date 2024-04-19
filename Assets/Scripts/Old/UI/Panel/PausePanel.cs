@@ -2,8 +2,6 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using ZiercCode.Core.UI;
-using ZiercCode.Old.Hero;
-using ZiercCode.Old.Manager;
 using ZiercCode.Old.Scene;
 
 namespace ZiercCode.Old.UI.Panel
@@ -15,6 +13,12 @@ namespace ZiercCode.Old.UI.Panel
 
         public override void OnEnter()
         {
+            base.OnEnter();
+            SetAction(GetBackInputAction(), context =>
+            {
+                PanelManager.Pop();
+                Debug.Log("pause pop");
+            });
             BanPlayerInput();
             UITool.GetComponentInChildrenUI<Button>("BackButton").onClick.AddListener(() =>
             {

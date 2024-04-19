@@ -1,4 +1,7 @@
 using System;
+using System.Linq;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using ZiercCode.Old.Hero;
 using ZiercCode.Old.Manager;
@@ -10,6 +13,11 @@ namespace ZiercCode.Core.UI
     /// </summary>
     public abstract class BasePanel
     {
+        /// <summary>
+        /// 玩家输入数据表，每次进入面板时会被重新分配
+        /// </summary>
+        protected PlayerInputAction PlayerInputAction;
+
         /// <summary>
         /// 这个Panel的UI信息
         /// </summary>
@@ -30,10 +38,6 @@ namespace ZiercCode.Core.UI
         /// </summary>
         public UIManager UIManager { get; private set; }
 
-        /// <summary>
-        /// 玩家输入委托表
-        /// </summary>
-        private PlayerInputAction _playerInputAction;
 
         public BasePanel(UIType uiType)
         {
@@ -54,20 +58,23 @@ namespace ZiercCode.Core.UI
             UITool = uITool;
             PanelManager = pm;
             UIManager = um;
-            _playerInputAction = new PlayerInputAction();
+            PlayerInputAction = new PlayerInputAction();
         }
 
         /// <summary>
         /// UI进入时执行
         /// </summary>
-        public virtual void OnEnter() { }
+        public virtual void OnEnter()
+        {
+            ReleaseUiInput();
+        }
 
         /// <summary>
         /// UI暂停时执行
         /// </summary>
         public virtual void OnPause()
         {
-            _playerInputAction.ShortKey.Disable();
+            BanUiInput();
         }
 
 
@@ -76,7 +83,7 @@ namespace ZiercCode.Core.UI
         /// </summary>
         public virtual void OnResume()
         {
-            _playerInputAction.ShortKey.Enable();
+            ReleaseUiInput();
         }
 
         /// <summary>
@@ -84,7 +91,24 @@ namespace ZiercCode.Core.UI
         /// </summary>
         public virtual void OnExit()
         {
-            RemovePlayerInputBindings();
+            BanUiInput();
+            PlayerInputAction = null;
+        }
+
+        /// <summary>
+        /// 禁用UI快捷输入
+        /// </summary>
+        protected void BanUiInput()
+        {
+            PlayerInputAction.UI.Disable();
+        }
+
+        /// <summary>
+        /// 允许UI快捷输入
+        /// </summary>
+        protected void ReleaseUiInput()
+        {
+            PlayerInputAction.UI.Enable();
         }
 
         /// <summary>
@@ -106,33 +130,31 @@ namespace ZiercCode.Core.UI
         }
 
         /// <summary>
-        /// 设置back指令
+        /// 设置输入监听，在进入面板时调用
         /// </summary>
-        /// <param name="action"></param>
-        protected void SetBackEvent(Action<InputAction.CallbackContext> action)
+        /// <param name="inputAction">输入委托类型</param>
+        /// <param name="action">委托</param>
+        protected void SetAction(InputAction inputAction, Action<InputAction.CallbackContext> action)
         {
-            _playerInputAction.ShortKey.Enable();
-            _playerInputAction.ShortKey.Back.performed += action;
+            inputAction.started += action;
         }
 
         /// <summary>
-        /// 设置view指令
+        /// 获取view输入委托
         /// </summary>
-        /// <param name="action"></param>
-        protected void SetViewEvent(Action<InputAction.CallbackContext> action)
+        /// <returns></returns>
+        protected InputAction GetViewInputAction()
         {
-            _playerInputAction.ShortKey.Enable();
-            _playerInputAction.ShortKey.View.performed += action;
+            return PlayerInputAction.UI.View;
         }
 
         /// <summary>
-        /// 移除所有玩家输入绑定
+        /// 获取back输入委托
         /// </summary>
-        private void RemovePlayerInputBindings()
+        /// <returns></returns>
+        protected InputAction GetBackInputAction()
         {
-            _playerInputAction.RemoveAllBindingOverrides();
-            _playerInputAction.ShortKey.Disable();
-            _playerInputAction = null;
+            return PlayerInputAction.UI.Back;
         }
     }
 }

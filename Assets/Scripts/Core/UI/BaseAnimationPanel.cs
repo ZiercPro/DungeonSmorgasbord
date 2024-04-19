@@ -12,22 +12,24 @@ namespace ZiercCode.Core.UI
 
         public override void OnEnter()
         {
-            InAnimate(1.5f);
+            base.OnEnter();
+            InAnimate(1f);
         }
 
         public override void OnExit()
         {
+            base.OnExit();
             OutAnimate(1f);
         }
 
-        public virtual void InAnimate(float animationTime)
+        protected virtual void InAnimate(float animationTime)
         {
             CanvasGroup cGroup = UITool.GetOrAddComponent<CanvasGroup>();
             cGroup.alpha = 0f;
             cGroup.DOFade(1f, animationTime).SetUpdate(true);
         }
 
-        public virtual void OutAnimate(float animationTime)
+        protected virtual void OutAnimate(float animationTime)
         {
             CanvasGroup cGroup = UITool.GetOrAddComponent<CanvasGroup>();
             cGroup.DOFade(0f, animationTime).SetUpdate(true);
