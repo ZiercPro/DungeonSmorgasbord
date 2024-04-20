@@ -69,7 +69,7 @@ namespace ZiercCode.DungeonSmorgasbord.UI
                 LocalizeStringEvent text = newCard.GetComponent<LocalizeStringEvent>();
                 text.StringReference.Arguments = new object[]
                 {
-                    LocaleManager.GetCardText(Cards.GetCards()[cardIndex[i]].id)
+                    LocaleManager.Instance.GetLocaleText(Cards.GetCards()[cardIndex[i]].id)
                 };
                 text.StringReference.RefreshString();
             }

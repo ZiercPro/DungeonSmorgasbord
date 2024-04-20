@@ -1,4 +1,5 @@
 using UnityEngine;
+using ZiercCode.Old.Helper;
 
 namespace ZiercCode.Old.Data
 {
@@ -35,6 +36,6 @@ namespace ZiercCode.Old.Data
         /// <summary>
         /// 默认语言
         /// </summary>
-        public int Language;
+        public LanguageEnum Language;
     }
 }

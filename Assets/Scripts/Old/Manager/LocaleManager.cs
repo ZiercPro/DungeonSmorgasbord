@@ -1,92 +1,62 @@
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Localization;
-using UnityEngine.Localization.Settings;
+using ZiercCode.Old.Helper;
 using ZiercCode.Core.Extend;
 using ZiercCode.Core.System;
-using ZiercCode.Old.Helper;
 using ZiercCode.Old.ScriptObject;
+using UnityEngine.Localization.Settings;
 
 namespace ZiercCode.Old.Manager
 {
     public class LocaleManager : USingletonComponentDontDestroy<LocaleManager>
     {
         /// <summary>
-        /// 本地化语言id数据
-        /// </summary>
-        [SerializeField] private LocalsDataSo localsID;
-
-        /// <summary>
         /// 自定义文本本地化数据
         /// </summary>
-        [SerializeField] private EditableDictionary<string, CustomTextDataSo> customTextTables;
+        [SerializeField] private List<CustomTextDataSo> customTextDataSoList;
 
         /// <summary>
-        /// 本地化语言对应id 字典
+        /// 当前所选语言
         /// </summary>
-        private Dictionary<string, int> _localesIdDictionary;
+        private LanguageEnum _currentLanguage;
 
         /// <summary>
-        /// 卡片文本数据字典
+        /// 设置语言的唯一途径
         /// </summary>
-        private static Dictionary<int, CustomTextTable> _cardTextTable;
-
-        protected override void Awake()
+        /// <param name="language">语言</param>
+        public void SetLanguage(LanguageEnum language)
         {
-            base.Awake();
-            DontDestroyOnLoad(gameObject);
-            _localesIdDictionary = localsID.LocalsIDTable.ToDictionary();
-            _cardTextTable = customTextTables["CardText"].CustomTextTable.ToDictionary();
-        }
-
-        /// <summary>
-        /// 设置语言
-        /// </summary>
-        /// <param name="language">语言名称</param>
-        public void SetLanguage(int language)
-        {
+            _currentLanguage = language;
             StartCoroutine(SetLocal(language));
         }
 
         /// <summary>
-        /// 设置语言
-        /// </summary>
-        /// <param name="language">语言id</param>
-        public void SetLanguage(string language)
-        {
-            int id = _localesIdDictionary[language];
-            StartCoroutine(SetLocal(id));
-        }
-
-        /// <summary>
-        /// 获取当前语言id
-        /// </summary>
-        /// <returns>当前所选语言id</returns>
-        public LocalsDataSo GetLocalID()
-        {
-            return localsID;
-        }
-
-        /// <summary>
-        /// 设置卡片文本
+        /// 获取本地化文本数据
         /// </summary>
         /// <param name="itemId"></param>
-        /// <returns></returns>
-        public static string GetCardText(int itemId)
+        /// <returns>文本</returns>
+        public string GetLocaleText(int itemId)
         {
-            int languageIDd = GetSelectedLocalID();
-            switch (languageIDd)
+            int languageIDd = GetSelectedLanguageID();
+            //寻找物品数据
+            foreach (var customTextDataSo in customTextDataSoList)
             {
-                case 0:
-                //中文
-                return _cardTextTable[itemId].Chinese;
-                case 1:
-                //English
-                return _cardTextTable[itemId].English;
-                default:
-                Debug.LogError("id不存在");
-                break;
+                EditableDictionary<int, CustomTextTable> customTextDictionary =
+                    customTextDataSo.CustomTextDictionary;
+                if (customTextDictionary.Contain(itemId))
+                {
+                    switch (_currentLanguage)
+                    {
+                        case LanguageEnum.Chinese:
+                            return customTextDictionary[itemId].chinese;
+                        case LanguageEnum.English:
+                            return customTextDictionary[itemId].english;
+                        default:
+                            Debug.LogError("当前语言不存在");
+                            break;
+                    }
+                }
             }
 
             Debug.LogError("无法获取文本!");
@@ -98,18 +68,17 @@ namespace ZiercCode.Old.Manager
         /// </summary>
         /// <param name="languageID">语言id</param>
         /// <returns></returns>
-
-        private IEnumerator SetLocal(int languageID)
+        private IEnumerator SetLocal(LanguageEnum languageID)
         {
             if (LocalizationSettings.Instance.GetSelectedLocale() ==
-                LocalizationSettings.AvailableLocales.Locales[languageID])
+                LocalizationSettings.AvailableLocales.Locales[(int)languageID])
             {
                 // Debug.Log("已经选择该语言");
                 yield break;
             }
 
             yield return LocalizationSettings.InitializationOperation;
-            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[languageID];
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[(int)languageID];
             // Debug.Log("语言切换完毕");
         }
 
@@ -117,17 +86,18 @@ namespace ZiercCode.Old.Manager
         /// 获取当前所选语言id
         /// </summary>
         /// <returns>id</returns>
-        public static int GetSelectedLocalID()
+        public int GetSelectedLanguageID()
         {
-            int result = 0;
-            foreach (Locale locale in LocalizationSettings.AvailableLocales.Locales)
-            {
-                if (LocalizationSettings.Instance.GetSelectedLocale() == locale)
-                    break;
-                else result++;
-            }
+            return (int)_currentLanguage;
+        }
 
-            return result;
+        /// <summary>
+        /// 获取所选的语言
+        /// </summary>
+        /// <returns>语言枚举</returns>
+        public LanguageEnum GetSelectedLanguage()
+        {
+            return _currentLanguage;
         }
     }
 }

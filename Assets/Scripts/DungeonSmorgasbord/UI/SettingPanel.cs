@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using ZiercCode.Core.UI;
 using ZiercCode.Old.Audio;
+using ZiercCode.Old.Helper;
 using ZiercCode.Old.Manager;
 
 namespace ZiercCode.DungeonSmorgasbord.UI
@@ -17,9 +18,9 @@ namespace ZiercCode.DungeonSmorgasbord.UI
             //动画部分
             base.OnEnter();
             //读取默认值
-            Toggle[] languageTgls = UITool.GetComponentInChildrenUI<Transform>("LanguageSettings")
+            Toggle[] languageToggelGroup = UITool.GetComponentInChildrenUI<Transform>("LanguageSettings")
                 .GetComponentsInChildren<Toggle>();
-            languageTgls[ConfigManager.SettingsData.Language].isOn = true;
+            languageToggelGroup[LocaleManager.Instance.GetSelectedLanguageID()].isOn = true;
             UITool.GetComponentInChildrenUI<RectTransform>("VolumeSettings").gameObject.SetActive(true);
             UITool.GetComponentInChildrenUI<RectTransform>("OtherSettings").gameObject.SetActive(false);
             UITool.GetComponentInChildrenUI<RectTransform>("LanguageSettings").gameObject.SetActive(false);
@@ -57,11 +58,11 @@ namespace ZiercCode.DungeonSmorgasbord.UI
             //语言设置逻辑
             UITool.GetComponentInChildrenUI<Toggle>("Chinese").onValueChanged.AddListener(ison =>
             {
-                if (ison) SetLanguage("Chinese");
+                if (ison) SetLanguage(LanguageEnum.Chinese);
             });
             UITool.GetComponentInChildrenUI<Toggle>("English").onValueChanged.AddListener(ison =>
             {
-                if (ison) SetLanguage("English");
+                if (ison) SetLanguage(LanguageEnum.English);
             });
             //返回逻辑
             UITool.GetComponentInChildrenUI<Button>("BackButton").onClick.AddListener(() => { PanelManager.Pop(); });
@@ -106,10 +107,10 @@ namespace ZiercCode.DungeonSmorgasbord.UI
             ConfigManager.SettingsData.EnvironmentVolume = amount;
         }
 
-        private void SetLanguage(string language)
+        private void SetLanguage(LanguageEnum language)
         {
             LocaleManager.Instance.SetLanguage(language);
-            ConfigManager.SettingsData.Language = LocaleManager.GetSelectedLocalID();
+            ConfigManager.SettingsData.Language = LocaleManager.Instance.GetSelectedLanguage();
         }
 
         private void SetFps(bool enable)

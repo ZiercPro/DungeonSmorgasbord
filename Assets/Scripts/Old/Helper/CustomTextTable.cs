@@ -1,7 +1,10 @@
+using UnityEngine.Serialization;
+
 namespace ZiercCode.Old.Helper
 {
     /// <summary>
     /// 自定义文本的数据表
+    /// 如果有新的语言，需要新添加字段
     /// </summary>
     [System.Serializable]
     public struct CustomTextTable
@@ -9,11 +12,11 @@ namespace ZiercCode.Old.Helper
         /// <summary>
         /// 中文文本
         /// </summary>
-        public string Chinese;
+        public string chinese;
 
         /// <summary>
         /// 英文文本
         /// </summary>
-        public string English;
+        public string english;
     }
 }

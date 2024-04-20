@@ -483,12 +483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb927df97cfa37a48b23326e0b783c85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localsID: {fileID: 11400000, guid: 1ccc31876cd52f249bf4d779acadc272, type: 2}
-  customTextTables:
-    dictionaryList:
-    - _inspectorName: 
-      keyValue: CardText
-      objectValue: {fileID: 11400000, guid: aa98dd51a48a7b043987d09e4f57de92, type: 2}
+  customTextDataSoList:
+  - {fileID: 11400000, guid: aa98dd51a48a7b043987d09e4f57de92, type: 2}
 --- !u!1 &2118155407
 GameObject:
   m_ObjectHideFlags: 0
