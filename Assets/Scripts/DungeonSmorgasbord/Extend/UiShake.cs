@@ -5,7 +5,7 @@ using UnityEngine;
 namespace ZiercCode.Old.UI
 {
     /// <summary>
-    /// ui元素抖动动画
+    /// ui元素抖动
     /// </summary>
     public class UiShake : MonoBehaviour
     {

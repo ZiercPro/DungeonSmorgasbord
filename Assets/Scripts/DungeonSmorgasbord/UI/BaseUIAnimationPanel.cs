@@ -23,6 +23,10 @@ namespace ZiercCode.DungeonSmorgasbord.UI
             OutAnimate(1f);
         }
 
+        /// <summary>
+        /// 进入动画
+        /// </summary>
+        /// <param name="animationTime">动画时间</param>
         protected virtual void InAnimate(float animationTime)
         {
             CanvasGroup cGroup = UITool.GetOrAddComponent<CanvasGroup>();
@@ -30,6 +34,10 @@ namespace ZiercCode.DungeonSmorgasbord.UI
             cGroup.DOFade(1f, animationTime).SetUpdate(true);
         }
 
+        /// <summary>
+        /// 退出动画
+        /// </summary>
+        /// <param name="animationTime">动画时间</param>
         protected virtual void OutAnimate(float animationTime)
         {
             CanvasGroup cGroup = UITool.GetOrAddComponent<CanvasGroup>();
