@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using ZiercCode.Core.UI;
+using ZiercCode.DungeonSmorgasbord.Locale;
 using ZiercCode.Old.Audio;
 using ZiercCode.Old.Helper;
 using ZiercCode.Old.Manager;
@@ -25,12 +26,15 @@ namespace ZiercCode.DungeonSmorgasbord.UI
             UITool.GetComponentInChildrenUI<RectTransform>("OtherSettings").gameObject.SetActive(false);
             UITool.GetComponentInChildrenUI<RectTransform>("LanguageSettings").gameObject.SetActive(false);
             UITool.GetComponentInChildrenUI<Toggle>("VolumeToggle").isOn = true;
-            UITool.GetComponentInChildrenUI<Slider>("MasterSlider").value = ConfigManager.SettingsData.MasterVolume;
-            UITool.GetComponentInChildrenUI<Slider>("MusicSlider").value = ConfigManager.SettingsData.MusicVolume;
-            UITool.GetComponentInChildrenUI<Slider>("SFXSlider").value = ConfigManager.SettingsData.SFXVolume;
+            UITool.GetComponentInChildrenUI<Slider>("MasterSlider").value =
+                GameEntry.Instance.ConfigManager.SettingsData.MasterVolume;
+            UITool.GetComponentInChildrenUI<Slider>("MusicSlider").value =
+                GameEntry.Instance.ConfigManager.SettingsData.MusicVolume;
+            UITool.GetComponentInChildrenUI<Slider>("SFXSlider").value =
+                GameEntry.Instance.ConfigManager.SettingsData.SfxVolume;
             UITool.GetComponentInChildrenUI<Slider>("EnvironmentSlider").value =
-                ConfigManager.SettingsData.EnvironmentVolume;
-            UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn = ConfigManager.SettingsData.FPSOn;
+                GameEntry.Instance.ConfigManager.SettingsData.EnvironmentVolume;
+            UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn = GameEntry.Instance.ConfigManager.SettingsData.FPSOn;
             //音量设置逻辑
             UITool.GetComponentInChildrenUI<Slider>("EnvironmentSlider").onValueChanged
                 .AddListener(SetEnvironmentVolume);
@@ -86,37 +90,37 @@ namespace ZiercCode.DungeonSmorgasbord.UI
         private void SetMusicVolume(float amount)
         {
             AudioPlayer.Instance.SetMusicVolume(amount);
-            ConfigManager.SettingsData.MusicVolume = amount;
+            GameEntry.Instance.ConfigManager.SettingsData.MusicVolume = amount;
         }
 
         private void SetSfxVolume(float amount)
         {
             AudioPlayer.Instance.SetSfxVolume(amount);
-            ConfigManager.SettingsData.SFXVolume = amount;
+            GameEntry.Instance.ConfigManager.SettingsData.SfxVolume = amount;
         }
 
         private void SetMasterVolume(float amount)
         {
             AudioPlayer.Instance.SetMasterVolume(amount);
-            ConfigManager.SettingsData.MasterVolume = amount;
+            GameEntry.Instance.ConfigManager.SettingsData.MasterVolume = amount;
         }
 
         private void SetEnvironmentVolume(float amount)
         {
             AudioPlayer.Instance.SetEnvironmentVolume(amount);
-            ConfigManager.SettingsData.EnvironmentVolume = amount;
+            GameEntry.Instance.ConfigManager.SettingsData.EnvironmentVolume = amount;
         }
 
         private void SetLanguage(LanguageEnum language)
         {
             LocaleManager.Instance.SetLanguage(language);
-            ConfigManager.SettingsData.Language = LocaleManager.Instance.GetSelectedLanguage();
+            GameEntry.Instance.ConfigManager.SettingsData.Language = LocaleManager.Instance.GetSelectedLanguage();
         }
 
         private void SetFps(bool enable)
         {
             UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn = enable;
-            ConfigManager.SettingsData.FPSOn = enable;
+            GameEntry.Instance.ConfigManager.SettingsData.FPSOn = enable;
         }
     }
 }

@@ -76,7 +76,8 @@ namespace ZiercCode.DungeonSmorgasbord.UI
             BattleManager.Instance.OnLevelChange += _levelUpdateAction;
             GameManager.playerTrans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
             GameManager.playerTrans.GetComponent<Old.Hero.Hero>().CoinPack.CoinChanged += _coinUpdateAction;
-            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = ConfigManager.SettingsData.FPSOn;
+            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled =
+                GameEntry.Instance.ConfigManager.SettingsData.FPSOn;
         }
 
         public override void OnPause()
@@ -88,7 +89,8 @@ namespace ZiercCode.DungeonSmorgasbord.UI
         public override void OnResume()
         {
             base.OnResume();
-            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled = ConfigManager.SettingsData.FPSOn;
+            UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled =
+                GameEntry.Instance.ConfigManager.SettingsData.FPSOn;
             GameManager.playerTrans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
         }
 

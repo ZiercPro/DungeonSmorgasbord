@@ -7,7 +7,6 @@ namespace ZiercCode.Old.Damage
     /// </summary>
     public interface IDamageable
     {
-        public event Action<DamageInfo> OnTakeDamage;
         public void TakeDamage(DamageInfo info);
     }
 }

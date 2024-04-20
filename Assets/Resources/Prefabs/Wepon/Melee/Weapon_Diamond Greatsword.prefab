@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6804911899401152441}
   - component: {fileID: 64676381317102006}
   - component: {fileID: 3975630879825958663}
-  - component: {fileID: 6844203462735959351}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -107,18 +106,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6844203462735959351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3004392359352960273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c53cad863567d4ca03ea78fdf88d1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3750903395687166601
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +117,7 @@ GameObject:
   - component: {fileID: 5954699438021429229}
   - component: {fileID: 5963086508653605238}
   - component: {fileID: 5414978786675948531}
+  - component: {fileID: 4282083453564751242}
   m_Layer: 0
   m_Name: Weapon_Diamond Greatsword
   m_TagString: Untagged
@@ -184,6 +172,21 @@ MonoBehaviour:
   intensity: 1.8
   frequence: 1
   duration: 0.2
+--- !u!114 &4282083453564751242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3750903395687166601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c53cad863567d4ca03ea78fdf88d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AnimationEventTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8996496289278654133
 GameObject:
   m_ObjectHideFlags: 0

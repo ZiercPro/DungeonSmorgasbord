@@ -2,12 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode.Core.Extend;
 using ZiercCode.Old.Damage;
-using ZiercCode.Old.Helper;
 using ZiercCode.Old.Hero;
 
 namespace ZiercCode.Old.Weapon
 {
-
     public class Weapon : MonoBehaviour
     {
         public DamageType damageType;
@@ -25,7 +23,7 @@ namespace ZiercCode.Old.Weapon
         protected virtual void Awake()
         {
             Animator = GetComponentInChildren<Animator>();
-            AnimationEventHandler = GetComponentInChildren<WeaponAnimationEventHandler>();
+            AnimationEventHandler = GetComponent<WeaponAnimationEventHandler>();
         }
 
         protected virtual void DamageCount()

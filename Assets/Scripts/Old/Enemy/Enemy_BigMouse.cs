@@ -50,8 +50,6 @@ namespace ZiercCode.Old.Enemy
 
         public override void TakeDamage(DamageInfo info)
         {
-            base.TakeDamage(info);
-
             health.SetCurrent(current =>
             {
                 current -= info.damageAmount;

@@ -36,7 +36,7 @@ namespace ZiercCode.Old.Component.Hero
             SpriteRenderer weaponRenderer = weaponIns.GetComponentInChildren<SpriteRenderer>();
             Weapon.Weapon weapon = weaponIns.GetComponentInChildren<Weapon.Weapon>();
             weapon.Initialize(_attribute.WeaponDamageRate, _attribute.criticalChance, _heroInputManager);
-            _weaponHolder.ChangeWeapon(weaponRenderer, weaponIns.transform);
+            // _weaponHolder.SetWeaponParent(weaponRenderer, weaponIns.transform);
             return lastWeapon;
         }
     }

@@ -100,7 +100,7 @@ namespace ZiercCode.Old.Hero
             else
                 _playerInputAction.HeroControl.Disable();
         }
-        
+
 
         #region LeftClick
 

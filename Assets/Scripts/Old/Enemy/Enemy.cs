@@ -21,13 +21,8 @@ namespace ZiercCode.Old.Enemy
         public Health attackTarget { get; private set; }
 
         private static List<Enemy> s_enemys;
-        public event Action<DamageInfo> OnTakeDamage;
-
-        public virtual void TakeDamage(DamageInfo info)
-        {
-            OnTakeDamage?.Invoke(info);
-        }
-
+        public abstract void TakeDamage(DamageInfo info);
+       
         protected void OnEnable()
         {
             if (s_enemys == null) s_enemys = new List<Enemy>();

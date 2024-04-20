@@ -1,4 +1,4 @@
-﻿namespace ZiercCode.Old.Helper
+﻿namespace ZiercCode.DungeonSmorgasbord.Locale
 {
     /// <summary>
     /// 语言类型

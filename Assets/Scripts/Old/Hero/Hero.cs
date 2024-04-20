@@ -53,7 +53,6 @@ namespace ZiercCode.Old.Hero
             _heroWeaponHandler.GetDefualtWeapon();
             _health.Initialize(_attribute.maxHealth);
             _movement.Initialize(_attribute.moveSpeed);
-            _weaponHolder.Initialize(_spriteRenderer, _flipController);
             _heroInputManager.SetHeroControl(true);
             _heroInputManager.DashButtonPressedPerformed += _heroDash.StartDash;
             _heroInputManager.InteractButtonPressPerformed += _interactHandler.OnInteractive;
@@ -65,16 +64,13 @@ namespace ZiercCode.Old.Hero
             {
                 _heroAnimationController.MoveAnimation(moveDir);
             };
-            OnTakeDamage += damageInfo => { _heroAnimationController.HitAnimation(); };
             _health.Dead += _heroAnimationController.DeadAnimation;
             _health.Dead += Dead;
         }
 
-        public event Action<DamageInfo> OnTakeDamage;
 
         public void TakeDamage(DamageInfo info)
         {
-            OnTakeDamage?.Invoke(info);
             _health.SetCurrent(current =>
             {
                 current -= info.damageAmount;

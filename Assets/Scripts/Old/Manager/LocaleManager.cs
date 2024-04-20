@@ -6,6 +6,7 @@ using ZiercCode.Core.Extend;
 using ZiercCode.Core.System;
 using ZiercCode.Old.ScriptObject;
 using UnityEngine.Localization.Settings;
+using ZiercCode.DungeonSmorgasbord.Locale;
 
 namespace ZiercCode.Old.Manager
 {

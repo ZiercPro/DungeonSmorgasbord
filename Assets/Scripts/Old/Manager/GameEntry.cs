@@ -1,6 +1,5 @@
-using UnityEngine;
+using ZiercCode.Core.System;
 using ZiercCode.Old.Audio;
-using ZiercCode.Old.Helper;
 using ZiercCode.Old.Scene;
 
 namespace ZiercCode.Old.Manager
@@ -8,10 +7,13 @@ namespace ZiercCode.Old.Manager
     /// <summary>
     /// 游戏入口
     /// </summary>
-    public class GameEntry : MonoBehaviour
+    public class GameEntry : USingletonComponentDontDestroy<GameEntry>
     {
-        private void Awake()
+        public ConfigManager ConfigManager { get; private set; }
+
+        protected override void Awake()
         {
+            base.Awake();
             InitGame();
         }
 
@@ -31,7 +33,8 @@ namespace ZiercCode.Old.Manager
         /// </summary>
         private void InitGame()
         {
-            ConfigManager.LoadSettings();
+            ConfigManager = new ConfigManager();
+            ConfigManager.Load();
             LocaleManager.Instance.SetLanguage(ConfigManager.SettingsData.Language);
         }
 
@@ -40,13 +43,13 @@ namespace ZiercCode.Old.Manager
             AudioPlayer.Instance.SetEnvironmentVolume(ConfigManager.SettingsData.EnvironmentVolume);
             AudioPlayer.Instance.SetMasterVolume(ConfigManager.SettingsData.MasterVolume);
             AudioPlayer.Instance.SetMusicVolume(ConfigManager.SettingsData.MusicVolume);
-            AudioPlayer.Instance.SetSfxVolume(ConfigManager.SettingsData.SFXVolume);
+            AudioPlayer.Instance.SetSfxVolume(ConfigManager.SettingsData.SfxVolume);
             SceneSystem.SetScene(new StartScene());
         }
 
         private void ExitGame()
         {
-            ConfigManager.SaveSettings();
+            ConfigManager.Save();
         }
     }
 }
