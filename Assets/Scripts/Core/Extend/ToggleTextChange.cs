@@ -1,7 +1,6 @@
-﻿using TMPro;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 
-namespace ZiercCode.Old.UI
+namespace ZiercCode.Core.Extend
 {
     /// <summary>
     /// 用于toggle的文本更新

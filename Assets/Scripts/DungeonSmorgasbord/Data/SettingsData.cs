@@ -1,7 +1,7 @@
 using UnityEngine;
 using ZiercCode.Old.Helper;
 
-namespace ZiercCode.Old.Data
+namespace ZiercCode.DungeonSmorgasbord.Data
 {
     /// <summary>
     /// 储存设置信息

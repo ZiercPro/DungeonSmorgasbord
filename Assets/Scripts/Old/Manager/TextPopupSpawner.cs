@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using ZiercCode.Core.System;
+using ZiercCode.DungeonSmorgasbord.Extend;
 using ZiercCode.Old.UI;
 
 namespace ZiercCode.Old.Manager

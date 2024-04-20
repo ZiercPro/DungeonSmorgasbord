@@ -2,7 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
-namespace ZiercCode.Old.UI
+namespace ZiercCode.DungeonSmorgasbord.Extend
 {
     /// <summary>
     /// ui元素抖动

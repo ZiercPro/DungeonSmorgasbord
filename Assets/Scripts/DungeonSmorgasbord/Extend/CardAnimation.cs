@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace ZiercCode.Old.Card
+namespace ZiercCode.DungeonSmorgasbord.Extend
 {
     /// <summary>
     /// 卡片按钮动画

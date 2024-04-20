@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
-using ZiercCode.Old.Data;
+using ZiercCode.Core.Data;
+using ZiercCode.DungeonSmorgasbord.Data;
 
 namespace ZiercCode.Old.Manager
 {

@@ -1,4 +1,4 @@
-namespace ZiercCode.Old.Data
+namespace ZiercCode.Core.Data
 {
     /// <summary>
     /// 数据服务接口 提供数据服务的类接入

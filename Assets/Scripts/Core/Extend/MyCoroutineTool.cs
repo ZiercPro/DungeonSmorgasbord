@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Core.Extend;
 using ZiercCode.Core.System;
 
-namespace ZiercCode.Old.Helper
+namespace ZiercCode.Core.Extend
 {
     /// <summary>
     /// 帮忙开启协程的单例

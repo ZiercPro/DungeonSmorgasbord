@@ -1,6 +1,6 @@
 using System;
 
-namespace ZiercCode.Old.PathFinding.Grid
+namespace ZiercCode.Test.PathFinding.Grid
 {
     /// <summary>
     /// Grid节点数值改变事件参数

@@ -2,7 +2,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-namespace ZiercCode.Old.UI
+namespace ZiercCode.DungeonSmorgasbord.Extend
 {
     /// <summary>
     /// 文本跳动动画，用于实现例如伤害数字等的显示

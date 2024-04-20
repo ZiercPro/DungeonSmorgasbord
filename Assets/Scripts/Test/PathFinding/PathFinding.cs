@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Old.PathFinding.Grid;
+using ZiercCode.Test.PathFinding.Grid;
 
-namespace ZiercCode.Old.PathFinding
+namespace ZiercCode.Test.PathFinding
 {
     public class PathFinding
     {

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace ZiercCode.Old.UI
+namespace ZiercCode.Core.Extend
 {
     /// <summary>
     /// ui元素文本自定义变化，用于美化ui，比如在鼠标选中时，在两边添加符号

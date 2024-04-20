@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using UnityEngine;
 
-namespace ZiercCode.Old.Data
+namespace ZiercCode.Core.Data
 {
     /// <summary>
     /// json数据服务
