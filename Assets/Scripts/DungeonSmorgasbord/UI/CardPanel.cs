@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
+using ZiercCode.Core.Extend;
 using ZiercCode.Core.UI;
 using ZiercCode.Old.Card;
 using ZiercCode.Old.Helper;
@@ -10,7 +11,7 @@ using ZiercCode.Old.Manager;
 
 namespace ZiercCode.DungeonSmorgasbord.UI
 {
-    public class CardPanel : BaseAnimationPanel
+    public class CardPanel : BaseUIAnimationPanel
     {
         private static readonly string Path = "Prefabs/UI/Panel/CardPanel";
         public CardPanel() : base(new UIType(Path)) { }

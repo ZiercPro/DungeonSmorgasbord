@@ -5,7 +5,7 @@ using ZiercCode.Old.Scene;
 
 namespace ZiercCode.DungeonSmorgasbord.UI
 {
-    public class DeadPanel : BaseAnimationPanel
+    public class DeadPanel : BaseUIAnimationPanel
     {
         public readonly static string path = "Prefabs/UI/Panel/DeadPanel";
         public DeadPanel() : base(new UIType(path)) { }

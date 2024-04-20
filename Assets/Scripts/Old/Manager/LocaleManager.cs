@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
-using ZiercCode.Old.Basic;
+using ZiercCode.Core.Extend;
+using ZiercCode.Core.System;
 using ZiercCode.Old.Helper;
 using ZiercCode.Old.ScriptObject;
 

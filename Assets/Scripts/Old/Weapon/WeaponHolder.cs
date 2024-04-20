@@ -1,12 +1,12 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using ZiercCode.Old.Component;
 
 namespace ZiercCode.Old.Weapon
 {
-
     public class WeaponHolder : MonoBehaviour
     {
-        [SerializeField] private Transform weaponPos;
+        [SerializeField] private Transform handPosition;
 
         private Transform _weaponTransform;
         private FlipController _flipController;
@@ -26,7 +26,7 @@ namespace ZiercCode.Old.Weapon
             _isChangingWeapon = true;
             _weaponRenderer = weaponRenderer;
             _weaponTransform = weaponTransform;
-            _weaponTransform.SetParent(weaponPos);
+            _weaponTransform.SetParent(handPosition);
             _weaponTransform.localScale = Vector3.one;
             _weaponTransform.localPosition = Vector3.zero;
             _weaponTransform.localRotation = Quaternion.identity;

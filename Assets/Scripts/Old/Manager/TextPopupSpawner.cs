@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-using ZiercCode.Old.Basic;
+using ZiercCode.Core.System;
 using ZiercCode.Old.UI;
 
 namespace ZiercCode.Old.Manager
@@ -16,7 +16,7 @@ namespace ZiercCode.Old.Manager
             GameObject newP = Instantiate(damagePopupTemp, pos, Quaternion.identity);
             newP.GetComponent<TextMeshPro>().color = textColor;
             newP.GetComponent<TextMeshPro>().text = amount.ToString();
-            newP.GetComponent<PopupText>().Popup();
+            newP.GetComponent<TextPopupAnimation>().Popup();
             return newP;
         }
 
@@ -25,7 +25,7 @@ namespace ZiercCode.Old.Manager
             GameObject newP = Instantiate(damagePopupTemp, pos, Quaternion.identity);
             newP.GetComponent<TextMeshPro>().color = textColor;
             newP.GetComponent<TextMeshPro>().text = text;
-            newP.GetComponent<PopupText>().Popup();
+            newP.GetComponent<TextPopupAnimation>().Popup();
             return newP;
         }
     }

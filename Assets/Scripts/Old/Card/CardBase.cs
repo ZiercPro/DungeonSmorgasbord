@@ -4,42 +4,24 @@ using UnityEngine.Events;
 namespace ZiercCode.Old.Card
 {
     /// <summary>
-    /// 卡片信息
+    /// 卡片基类，不同的卡片都需要继承该基类
     /// </summary>
     public class CardBase
     {
         /// <summary>
-        /// 物品id
+        /// 卡片id
         /// </summary>
         public int id;
-
-        /// <summary>
-        /// 卡片类型 包括角色和事件两种类型
-        /// </summary>
-        public CardType CardType { get; private set; }
-
-        /// <summary>
-        /// 卡片文字
-        /// </summary>
-        public string text { get; private set; }
 
         /// <summary>
         /// card实现的效果
         /// </summary>
         public UnityAction<Transform> cardEffect { get; private set; }
 
-        public CardBase(int id, CardType cardType, string text, UnityAction<Transform> effect)
+        public CardBase(int id, UnityAction<Transform> effect)
         {
             this.id = id;
-            CardType = cardType;
-            this.text = text;
             cardEffect = effect;
         }
-    }
-
-    public enum CardType
-    {
-        Hero,
-        Event
     }
 }

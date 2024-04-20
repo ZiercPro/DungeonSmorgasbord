@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 6903971427401375828}
   - component: {fileID: 9142441715828021553}
   - component: {fileID: 7313946861486673487}
+  - component: {fileID: 2022308064305852640}
   m_Layer: 3
   m_Name: Hero_Lewis
   m_TagString: Player
@@ -256,8 +257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attributesBaseSo: {fileID: 11400000, guid: aae6d71946ac5d34aabd9745ea932ef2, type: 2}
-  maxHealth: 10
   moveSpeed: 6
+  maxHealth: 10
   criticalChance: 0.05
 --- !u!114 &4860067538032032267
 MonoBehaviour:
@@ -325,6 +326,19 @@ SortingGroup:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &2022308064305852640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299815134350897790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec659d78a14ed1642b65a076b8449f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPos: {fileID: 7183972671249625216}
 --- !u!1 &4322705567087781510
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +472,7 @@ MonoBehaviour:
   - {x: 0.25, y: 0.05, z: 0}
   m_ShapePathHash: 334015429
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34846
+  m_InstanceId: 34082
   m_LocalBounds:
     m_Center: {x: -0.025000006, y: 0.175, z: 0}
     m_Extent: {x: 0.275, y: 0.125, z: 0}
@@ -570,7 +584,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8422820264100826033}
   - component: {fileID: 1412232043309588232}
-  - component: {fileID: 5449001185250036724}
   m_Layer: 0
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -615,16 +628,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5449001185250036724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8715158168949680935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec659d78a14ed1642b65a076b8449f81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponPos: {fileID: 7183972671249625216}

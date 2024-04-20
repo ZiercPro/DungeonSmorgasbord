@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using ZiercCode.Core.System;
 using ZiercCode.Core.UI;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Hero;
@@ -20,7 +21,6 @@ namespace ZiercCode.Old.Hero
         private InteractHandler _interactHandler;
         private FlipController _flipController;
         private SpriteRenderer _spriteRenderer;
-        private PanelManager _panelManager;
         private WeaponHolder _weaponHolder;
         private HeroAttribute _attribute;
         private Movement _movement;
@@ -32,7 +32,6 @@ namespace ZiercCode.Old.Hero
         private void Awake()
         {
             CoinPack = new CoinPack();
-            _panelManager = new PanelManager();
             _health = GetComponentInChildren<Health>();
             _movement = GetComponentInChildren<Movement>();
             _heroDash = GetComponentInChildren<HeroDash>();

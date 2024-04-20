@@ -6,7 +6,7 @@ using ZiercCode.Old.Manager;
 
 namespace ZiercCode.DungeonSmorgasbord.UI
 {
-    public class SettingPanel : BaseAnimationPanel
+    public class SettingPanel : BaseUIAnimationPanel
     {
         private static readonly string path = "Prefabs/UI/Panel/SettingMenu";
         public SettingPanel() : base(new UIType(path)) { }

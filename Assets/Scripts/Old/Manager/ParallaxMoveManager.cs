@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Old.Basic;
+using ZiercCode.Core.System;
 using ZiercCode.Old.Environment;
 
 namespace ZiercCode.Old.Manager

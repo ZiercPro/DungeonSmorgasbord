@@ -7,7 +7,7 @@ using ZiercCode.Old.Weapon;
 
 namespace ZiercCode.DungeonSmorgasbord.UI
 {
-    public class HeroAttributesPanel : BaseAnimationPanel
+    public class HeroAttributesPanel : BaseUIAnimationPanel
     {
         public HeroAttributesPanel() : base(new UIType("Prefabs/UI/Panel/HeroAttributesPanel")) { }
 

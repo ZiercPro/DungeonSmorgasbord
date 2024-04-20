@@ -9,7 +9,7 @@ using ZiercCode.Old.Manager;
 
 namespace ZiercCode.DungeonSmorgasbord.UI
 {
-    public class GamePanel : BaseInputActionPanel
+    public class GamePanel : BaseUIInputActionPanel
     {
         private const string Path = "Prefabs/UI/Panel/GameMenu";
         public GamePanel() : base(new UIType(Path)) { }

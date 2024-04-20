@@ -5,7 +5,7 @@ using ZiercCode.Old.Scene;
 
 namespace ZiercCode.DungeonSmorgasbord.UI
 {
-    public class StartPanel : BaseAnimationPanel
+    public class StartPanel : BaseUIAnimationPanel
     {
         private static readonly string path = "Prefabs/UI/Panel/MainMenu";
         public StartPanel() : base(new UIType(path)) { }
@@ -13,24 +13,14 @@ namespace ZiercCode.DungeonSmorgasbord.UI
         public override void OnEnter()
         {
             base.OnEnter();
-            UITool.GetComponentInChildrenUI<Button>("SettingButton").onClick.AddListener(() =>
-            {
-                PanelManager.Push(new SettingPanel());
-            });
+            UITool.GetComponentInChildrenUI<Button>("SettingButton").onClick
+                .AddListener(() => PanelManager.Push(new SettingPanel()));
 
 
             UITool.GetComponentInChildrenUI<Button>("StartButton").onClick.AddListener(() =>
-            {
-                //游戏开始
-                SceneSystem.SetScene(new LoadScene());
-            });
+                SceneSystem.SetScene(new LoadScene()));
 
-
-            UITool.GetComponentInChildrenUI<Button>("QuitButton").onClick.AddListener(() =>
-            {
-                //游戏结束 
-                Application.Quit();
-            });
+            UITool.GetComponentInChildrenUI<Button>("QuitButton").onClick.AddListener(() => Application.Quit());
         }
 
         public override void OnPause()

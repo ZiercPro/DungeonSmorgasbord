@@ -7,7 +7,6 @@ using ZiercCode.Old.Scene;
 
 namespace ZiercCode.DungeonSmorgasbord.UI
 {
-
     public class LoadPanel : BasePanel
     {
         private readonly static string path = "Prefabs/UI/Panel/LoadingPanel";

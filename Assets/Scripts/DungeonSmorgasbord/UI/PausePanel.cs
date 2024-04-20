@@ -5,7 +5,7 @@ using ZiercCode.Old.Scene;
 
 namespace ZiercCode.DungeonSmorgasbord.UI
 {
-    public class PausePanel : BaseAnimationPanel
+    public class PausePanel : BaseUIAnimationPanel
     {
         readonly static string path = "Prefabs/UI/Panel/PauseMenu";
         public PausePanel() : base(new UIType(path)) { }
