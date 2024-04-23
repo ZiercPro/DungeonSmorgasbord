@@ -1,4 +1,5 @@
 using ZiercCode.Core.System;
+using ZiercCode.DungeonSmorgasbord.Locale;
 using ZiercCode.Old.Audio;
 using ZiercCode.Old.Scene;
 
@@ -9,11 +10,12 @@ namespace ZiercCode.Old.Manager
     /// </summary>
     public class GameEntry : USingletonComponentDontDestroy<GameEntry>
     {
-        public ConfigManager ConfigManager { get; private set; }
+        private ConfigManager _configManager;
 
         protected override void Awake()
         {
             base.Awake();
+            Init();
             InitGame();
         }
 
@@ -27,14 +29,20 @@ namespace ZiercCode.Old.Manager
             ExitGame();
         }
 
+        /// <summary>
+        /// 游戏入口初始化
+        /// </summary>
+        private void Init()
+        {
+            _configManager = new ConfigManager();
+        }
 
         /// <summary>
         /// 游戏初始化
         /// </summary>
         private void InitGame()
         {
-            ConfigManager = new ConfigManager();
-            ConfigManager.Load();
+            _configManager.Load();
             LocaleManager.Instance.SetLanguage(ConfigManager.SettingsData.Language);
         }
 
@@ -44,12 +52,12 @@ namespace ZiercCode.Old.Manager
             AudioPlayer.Instance.SetMasterVolume(ConfigManager.SettingsData.MasterVolume);
             AudioPlayer.Instance.SetMusicVolume(ConfigManager.SettingsData.MusicVolume);
             AudioPlayer.Instance.SetSfxVolume(ConfigManager.SettingsData.SfxVolume);
-            SceneSystem.SetScene(new StartScene());
+            SceneSystem.SetScene(new MainMenuScene());
         }
 
         private void ExitGame()
         {
-            ConfigManager.Save();
+            _configManager.Save();
         }
     }
 }

@@ -4,6 +4,7 @@ namespace ZiercCode.Core.System
 {
     /// <summary>
     /// unity组件单例 场景转换时会被销毁
+    /// 无单例则直接实例化
     /// </summary>
     /// <typeparam name="T">组件类型</typeparam>
     public class USingletonComponentDestroy<T> : MonoBehaviour where T : UnityEngine.Component

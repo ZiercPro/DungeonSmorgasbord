@@ -133,7 +133,7 @@ MonoBehaviour:
   - {x: 0.35, y: 0.3, z: 0}
   m_ShapePathHash: -1093780895
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34304
+  m_InstanceId: 35116
   m_LocalBounds:
     m_Center: {x: 0, y: 0.90000004, z: 0}
     m_Extent: {x: 0.35, y: 0.6, z: 0}
@@ -301,9 +301,10 @@ GameObject:
   - component: {fileID: 1293876698643740071}
   - component: {fileID: 7753462400711176672}
   - component: {fileID: 3034293297724978597}
-  - component: {fileID: 6125341557900362748}
   - component: {fileID: -2864066936988530281}
+  - component: {fileID: 6411977566774079291}
   - component: {fileID: 7265021260225710745}
+  - component: {fileID: 6125341557900362748}
   m_Layer: 6
   m_Name: BigMouth
   m_TagString: Untagged
@@ -403,7 +404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932b357a591b79e44bf9090780f6848f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canMove: 0
 --- !u!114 &8941662257894150561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,12 +429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6c641725bb4a70bd0725e5fe57f674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attributesBaseSo: {fileID: 11400000, guid: 120a875949e2c2044a8b8a1101258a4f, type: 2}
-  maxHealth: 10
+  creatureAttributesBaseSo: {fileID: 11400000, guid: 120a875949e2c2044a8b8a1101258a4f, type: 2}
+  criticalChance: 0
   moveSpeed: 3
-  attackLayer:
-    serializedVersion: 2
-    m_Bits: 8
+  maxHealth: 10
   damageType: 0
   attackSpeed: 1.2
   attackRange: 0.6
@@ -477,10 +475,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feeac0b2bf5dfab42b1c5edaa3ac0c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whiteM: {fileID: 2100000, guid: 90914f556d1fc594399acad960bee107, type: 2}
-  defualt: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  flashMaterial: {fileID: 0}
+  defaultMaterial: {fileID: 0}
   characterS: {fileID: 2938499904769739467}
   maintainTime: 0.1
+--- !u!114 &-2864066936988530281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472406070026422316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a785ccf3bd4f68546b51bf1793babf29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatorTransform: {fileID: 5778455385163744210}
+  duration: 0.8
+  strength: 0.4
+--- !u!114 &6411977566774079291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472406070026422316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5dfc6d27e87db84ca2ef4f3ca8f361f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2938499904769739467}
+  defaultRight: 1
+--- !u!210 &7265021260225710745
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472406070026422316}
+  m_Enabled: 1
+  m_SortingLayerID: 404507155
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!114 &6125341557900362748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,30 +552,3 @@ MonoBehaviour:
     itemNum: 1
     minNum: 0
     maxNum: 0
---- !u!114 &-2864066936988530281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8472406070026422316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a785ccf3bd4f68546b51bf1793babf29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animatorTransform: {fileID: 5778455385163744210}
-  duration: 0.8
-  strength: 0.4
---- !u!210 &7265021260225710745
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8472406070026422316}
-  m_Enabled: 1
-  m_SortingLayerID: 404507155
-  m_SortingLayer: 4
-  m_SortingOrder: 0
-  m_SortAtRoot: 0

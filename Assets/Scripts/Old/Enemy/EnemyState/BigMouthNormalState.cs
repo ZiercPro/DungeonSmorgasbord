@@ -1,5 +1,5 @@
 using UnityEngine;
-using ZiercCode.Old.Damage;
+using ZiercCode.DungeonSmorgasbord.Damage;
 
 namespace ZiercCode.Old.Enemy.EnemyState
 {
@@ -15,7 +15,7 @@ namespace ZiercCode.Old.Enemy.EnemyState
         {
             _timer = 0f;
             _enemy = enemy;
-            _attackInterval = 1.0f / _enemy.attribute.attackSpeed;
+            _attackInterval = 1.0f / _enemy.Attribute.attackSpeed;
         }
 
         public override void AnimationTriggerEvent()
@@ -41,7 +41,7 @@ namespace ZiercCode.Old.Enemy.EnemyState
                 {
                     if (_timer <= 0)
                     {
-                        DamageInfo info = new DamageInfo(_enemy.attribute.damageAmount, _enemy.attribute.damageType,
+                        DamageInfo info = new DamageInfo(_enemy.Attribute.damageAmount, _enemy.Attribute.damageType,
                             _enemy.transform);
                         IDamageable damageable =
                             _enemy.attackCheck.collier.GetComponent(typeof(IDamageable)) as IDamageable;

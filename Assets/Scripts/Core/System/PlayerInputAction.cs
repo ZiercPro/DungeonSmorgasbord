@@ -28,7 +28,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             ""id"": ""35af9e21-b13e-43f2-923f-d6a9cbf9e1c0"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""MoveComponent"",
                     ""type"": ""Value"",
                     ""id"": ""900f06a5-4b95-419d-b024-022ea9d1c964"",
                     ""expectedControlType"": ""Vector2"",
@@ -134,7 +134,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveComponent"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -145,7 +145,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard"",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveComponent"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -156,7 +156,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard"",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveComponent"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -167,7 +167,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard"",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveComponent"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -178,7 +178,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyBoard"",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveComponent"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -189,7 +189,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""GamePad"",
-                    ""action"": ""Movement"",
+                    ""action"": ""MoveComponent"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -326,7 +326,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
 }");
         // HeroControl
         m_HeroControl = asset.FindActionMap("HeroControl", throwIfNotFound: true);
-        m_HeroControl_Movement = m_HeroControl.FindAction("Movement", throwIfNotFound: true);
+        m_HeroControl_Movement = m_HeroControl.FindAction("MoveComponent", throwIfNotFound: true);
         m_HeroControl_PointerPosition = m_HeroControl.FindAction("PointerPosition", throwIfNotFound: true);
         m_HeroControl_MouseClickRight = m_HeroControl.FindAction("MouseClickRight", throwIfNotFound: true);
         m_HeroControl_MouseClickLeft = m_HeroControl.FindAction("MouseClickLeft", throwIfNotFound: true);

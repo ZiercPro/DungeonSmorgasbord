@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using ZiercCode.Core.Extend;
 using ZiercCode.Core.System;
 using ZiercCode.Old.Audio;
 using ZiercCode.Old.Enemy;
-using ZiercCode.Old.Helper;
 using ZiercCode.Old.ScriptObject;
 
 namespace ZiercCode.Old.Manager
@@ -19,12 +19,12 @@ namespace ZiercCode.Old.Manager
         /// </summary>
         private enum BattleState
         {
-            BattleBefore,//战斗开始之前
-            LevelBefore,//波次开始之前
-            LevelIng,//波次进行
-            LevelAfter,//波次结束
-            Card,//选择奖励卡
-            BattleEnd//战斗结束
+            BattleBefore, //战斗开始之前
+            LevelBefore, //波次开始之前
+            LevelIng, //波次进行
+            LevelAfter, //波次结束
+            Card, //选择奖励卡
+            BattleEnd //战斗结束
         }
 
         public event Action<int> OnLevelChange;
@@ -32,9 +32,8 @@ namespace ZiercCode.Old.Manager
         public UnityEvent onBattleEnd;
 
         [SerializeField] private GameObject enemySpawnerTemp;
-        [SerializeField] private List<GameObject> enemyTemps;
+        [SerializeField] private EnemyDataListSo enemyDataListSo;
         [SerializeField] private BattleDifficultyDataSo difficultyDataSo;
-        [SerializeField] private EnemyDifficultyDataSo enemyDifficultyDataS0;
 
         /// <summary>
         /// 当前波次
@@ -68,7 +67,7 @@ namespace ZiercCode.Old.Manager
 
         private void Start()
         {
-            _enemyNumHash = new int[enemyTemps.Count];
+            _enemyNumHash = new int[enemyDataListSo.enemyAttributeSoList.Count];
             OnLevelChange?.Invoke(_currentLevel);
         }
 
@@ -139,7 +138,6 @@ namespace ZiercCode.Old.Manager
         /// </summary>
         private void BattleEnd()
         {
-
         }
 
         /// <summary>
@@ -164,13 +162,13 @@ namespace ZiercCode.Old.Manager
         {
             int dif = difficulty;
 
-            _enemyNumHash = new int[enemyTemps.Count];
+            _enemyNumHash = new int[enemyDataListSo.enemyAttributeSoList.Count];
 
             while (dif > 0)
             {
                 for (int i = 0; i < _enemyNumHash.Length; i++)
                 {
-                    int temp = enemyDifficultyDataS0.EnemyDifficultyDictionary[enemyTemps[i].name];
+                    int temp = enemyDataListSo.enemyAttributeSoList[i].difficulty;
                     dif -= temp;
                     _enemyNumHash[i]++;
                 }
@@ -182,7 +180,7 @@ namespace ZiercCode.Old.Manager
         {
             GameObject newSpawner = Instantiate(enemySpawnerTemp, pos, Quaternion.identity);
             EnemySpawner_RedCircle es = newSpawner.GetComponent<EnemySpawner_RedCircle>();
-            es.enemyTemp = enemyTemps[index];
+            es.enemyTemp = enemyDataListSo.enemyAttributeSoList[index].instance;
         }
 
         private void SpawnEnemy()
@@ -243,8 +241,5 @@ namespace ZiercCode.Old.Manager
             BeforeLevelStart();
             LevelStart();
         }
-
     }
-
-
 }

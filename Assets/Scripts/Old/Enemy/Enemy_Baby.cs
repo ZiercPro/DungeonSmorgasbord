@@ -1,8 +1,9 @@
 using UnityEngine;
+using ZiercCode.DungeonSmorgasbord.Component;
+using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.Old.Audio;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Enemy;
-using ZiercCode.Old.Damage;
 using ZiercCode.Old.Enemy.EnemyState;
 using ZiercCode.Old.Manager;
 
@@ -17,7 +18,7 @@ namespace ZiercCode.Old.Enemy
         private CanDropItems _canDropItems;
         private KnockBackFeedBack _knockBackFeedBack;
         private ScaleShakeFeedBack _scaleShakeFeedBack;
-        private FlashWhiteFeedBack _flashWhiteFeedBack;
+        private FlashFeedBack _flashFeedBack;
 
         protected override void Awake()
         {
@@ -27,14 +28,14 @@ namespace ZiercCode.Old.Enemy
             _canDropItems = GetComponent<CanDropItems>();
             _knockBackFeedBack = GetComponent<KnockBackFeedBack>();
             _scaleShakeFeedBack = GetComponent<ScaleShakeFeedBack>();
-            _flashWhiteFeedBack = GetComponent<FlashWhiteFeedBack>();
+            _flashFeedBack = GetComponent<FlashFeedBack>();
         }
 
         protected override void Start()
         {
             base.Start();
             stateMachine.Initialize(idleState);
-            attackCheck.SetRadius(attribute.attackRange);
+            attackCheck.SetRadius(Attribute.attackRange);
         }
 
         public override void Dead(bool dropItem = true)
@@ -56,7 +57,7 @@ namespace ZiercCode.Old.Enemy
             });
             _scaleShakeFeedBack.StartShake();
             _knockBackFeedBack.StartBackMove(info);
-            _flashWhiteFeedBack.Flash();
+            _flashFeedBack.Flash();
             TextPopupSpawner.Instance.InitPopupText(this.transform.position, Color.blue, info.damageAmount);
         }
     }

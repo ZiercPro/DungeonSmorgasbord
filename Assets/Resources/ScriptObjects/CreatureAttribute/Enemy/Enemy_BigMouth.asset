@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb1345f53f04b24a8b6d62249f2e4d2, type: 3}
+  m_Name: Enemy_BigMouth
+  m_EditorClassIdentifier: 
+  instance: {fileID: 8472406070026422316, guid: 8bb4383f80ae3fa46bb1b7bc97b2ef13, type: 3}
+  myName: BigMouth
+  maxHealth: 10
+  moveSpeed: 3
+  criticalChance: 0
+  difficulty: 1
+  damageAmount: 1
+  damageType: 0
+  attackSpeed: 1.2
+  attackRange: 0.6

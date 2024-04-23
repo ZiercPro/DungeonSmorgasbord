@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Hero;
-using ZiercCode.Old.Weapon;
 
 namespace ZiercCode.Old.Card
 {
@@ -35,17 +34,17 @@ namespace ZiercCode.Old.Card
         //
         // private static CardBase card1 = new CardBase(1000, CardType.Hero, "近战攻击伤害+6%", Hero =>
         // {
-        //     Hero.GetComponentInChildren<HeroAttribute>().WeaponDamageRate[WeaponType.Melee] *= 1.06f;
+        //     Hero.GetComponentInChildren<HeroAttribute>().weaponDamageRate[WeaponType.Melee] *= 1.06f;
         // });
         //
         // private static CardBase card2 = new CardBase(1001, CardType.Hero, "远程攻击伤害+6%", Hero =>
         // {
-        //     Hero.GetComponentInChildren<HeroAttribute>().WeaponDamageRate[WeaponType.Remotely] *= 1.06f;
+        //     Hero.GetComponentInChildren<HeroAttribute>().weaponDamageRate[WeaponType.Remotely] *= 1.06f;
         // });
         //
         // private static CardBase card3 = new CardBase(1002, CardType.Hero, "移动速度+2%", Hero =>
         // {
-        //     Movement mc = Hero.GetComponentInChildren<Movement>();
+        //     MoveComponent mc = Hero.GetComponentInChildren<MoveComponent>();
         //     mc.ChangeSpeed(moveSpeed => moveSpeed * 0.02f);
         // });
         //
@@ -70,7 +69,7 @@ namespace ZiercCode.Old.Card
         //
         // private static CardBase card6 = new CardBase(1005, CardType.Hero, "魔法攻击伤害+6%", Hero =>
         // {
-        //     Hero.GetComponentInChildren<HeroAttribute>().WeaponDamageRate[WeaponType.Magic] *= 1.06f;
+        //     Hero.GetComponentInChildren<HeroAttribute>().weaponDamageRate[WeaponType.Magic] *= 1.06f;
         // });
     }
 }

@@ -1,9 +1,10 @@
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using ZiercCode.Core.UI;
+using ZiercCode.DungeonSmorgasbord.Component;
+using ZiercCode.DungeonSmorgasbord.Weapon;
 using ZiercCode.Old.Component.Hero;
 using ZiercCode.Old.Manager;
-using ZiercCode.Old.Weapon;
 
 namespace ZiercCode.DungeonSmorgasbord.UI
 {
@@ -47,7 +48,7 @@ namespace ZiercCode.DungeonSmorgasbord.UI
 
             HeroAttribute attribute = GameManager.playerTrans.GetComponentInChildren<HeroAttribute>();
             //最大生命值
-            LocalizeStringEvent maxHealth = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("MaxHealth");
+            LocalizeStringEvent maxHealth = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("maxHealth");
             maxHealth.StringReference.Arguments = new object[] { attribute.maxHealth };
             maxHealth.StringReference.RefreshString();
             //移动速度
@@ -56,19 +57,19 @@ namespace ZiercCode.DungeonSmorgasbord.UI
             moveSpeed.StringReference.RefreshString();
             //近战攻击伤害
             LocalizeStringEvent meleeDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("MeleeDamage");
-            meleeDamage.StringReference.Arguments = new object[] { attribute.WeaponDamageRate[WeaponType.Melee] };
+            meleeDamage.StringReference.Arguments = new object[] { attribute.weaponDamageRate[WeaponType.Melee] };
             meleeDamage.StringReference.RefreshString();
             //远程攻击伤害
             LocalizeStringEvent remotelyDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("RemotelyDamage");
-            remotelyDamage.StringReference.Arguments = new object[] { attribute.WeaponDamageRate[WeaponType.Remotely] };
+            remotelyDamage.StringReference.Arguments = new object[] { attribute.weaponDamageRate[WeaponType.Remotely] };
             remotelyDamage.StringReference.RefreshString();
             //魔法伤害
             LocalizeStringEvent magicDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("MagicDamage");
-            magicDamage.StringReference.Arguments = new object[] { attribute.WeaponDamageRate[WeaponType.Magic] };
+            magicDamage.StringReference.Arguments = new object[] { attribute.weaponDamageRate[WeaponType.Magic] };
             magicDamage.StringReference.RefreshString();
             //特殊伤害
             LocalizeStringEvent specialDamage = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("SpecialDamage");
-            specialDamage.StringReference.Arguments = new object[] { attribute.WeaponDamageRate[WeaponType.Special] };
+            specialDamage.StringReference.Arguments = new object[] { attribute.weaponDamageRate[WeaponType.Special] };
             specialDamage.StringReference.RefreshString();
             //暴击率
             LocalizeStringEvent criticalChance = UITool.GetComponentInChildrenUI<LocalizeStringEvent>("CriticalChance");

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6433465752049301718}
   - component: {fileID: 5863042537430611546}
   - component: {fileID: 5616014303212438530}
-  - component: {fileID: 757001312702941374}
   - component: {fileID: 2978424118396048828}
   - component: {fileID: 1035837962143427144}
   - component: {fileID: 4605838071213516601}
@@ -22,9 +21,10 @@ GameObject:
   - component: {fileID: 4860067538032032267}
   - component: {fileID: 7032251624863716901}
   - component: {fileID: 6903971427401375828}
+  - component: {fileID: 757001312702941374}
+  - component: {fileID: 2022308064305852640}
   - component: {fileID: 9142441715828021553}
   - component: {fileID: 7313946861486673487}
-  - component: {fileID: 2022308064305852640}
   m_Layer: 3
   m_Name: Hero_Lewis
   m_TagString: Player
@@ -134,20 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932b357a591b79e44bf9090780f6848f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canMove: 0
---- !u!114 &757001312702941374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3299815134350897790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b2b96cfcdd0c434eaab369bafaddb18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultWeapon: {fileID: 3750903395687166601, guid: 21f82944069f28d4eb8cdc708ddcaeae, type: 3}
 --- !u!114 &2978424118396048828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5dfc6d27e87db84ca2ef4f3ca8f361f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 8927325310093559870}
+  defaultRight: 1
 --- !u!114 &1035837962143427144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4913d0c839e73dc489b172cd9e4ef18f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useSpeedCurve: 1
+  dashSpeed: 0
   dashSpeedCurve:
     serializedVersion: 2
     m_Curve:
@@ -220,6 +210,39 @@ MonoBehaviour:
   dashParticle: {fileID: 7803808135997141566, guid: b97c5f9d4c57f5f44b937212f6dea57e, type: 3}
   dashCoolDown: 1
   dashTime: 0.3
+  dashStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5863042537430611546}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  dashing:
+    m_PersistentCalls:
+      m_Calls: []
+  dashEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5863042537430611546}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &6262629404899212936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,10 +279,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dac0d0927913f5d4cbcb30d0252249cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attributesBaseSo: {fileID: 11400000, guid: aae6d71946ac5d34aabd9745ea932ef2, type: 2}
+  creatureAttributesBaseSo: {fileID: 11400000, guid: aae6d71946ac5d34aabd9745ea932ef2, type: 2}
+  criticalChance: 0.05
   moveSpeed: 6
   maxHealth: 10
-  criticalChance: 0.05
+  weaponDamageRate:
+    dictionaryList: []
 --- !u!114 &4860067538032032267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +327,37 @@ MonoBehaviour:
   intensity: 2
   frequence: 1.5
   duration: 0.5
+--- !u!114 &757001312702941374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299815134350897790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b2b96cfcdd0c434eaab369bafaddb18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponRotateComponent: {fileID: 2022308064305852640}
+--- !u!114 &2022308064305852640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299815134350897790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec659d78a14ed1642b65a076b8449f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationAnchorPosition: {fileID: 8422820264100826033}
+  handPosition: {fileID: 7183972671249625216}
+  characterRenderer: {fileID: 8927325310093559870}
+  canChangeWeapon: 1
+  weaponRenderer: {fileID: 0}
+  autoFlipComponent: {fileID: 2978424118396048828}
 --- !u!114 &9142441715828021553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,19 +382,6 @@ SortingGroup:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_SortAtRoot: 0
---- !u!114 &2022308064305852640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3299815134350897790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec659d78a14ed1642b65a076b8449f81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponPos: {fileID: 7183972671249625216}
 --- !u!1 &4322705567087781510
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,7 +515,7 @@ MonoBehaviour:
   - {x: 0.25, y: 0.05, z: 0}
   m_ShapePathHash: 334015429
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34082
+  m_InstanceId: 34656
   m_LocalBounds:
     m_Center: {x: -0.025000006, y: 0.175, z: 0}
     m_Extent: {x: 0.275, y: 0.125, z: 0}
@@ -583,7 +626,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8422820264100826033}
-  - component: {fileID: 1412232043309588232}
   m_Layer: 0
   m_Name: WeaponHolder
   m_TagString: Untagged
@@ -607,24 +649,3 @@ Transform:
   - {fileID: 7183972671249625216}
   m_Father: {fileID: 5949077082135309028}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1412232043309588232
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8715158168949680935}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e8a171bcbda5fb04abadce5b4faad7d5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

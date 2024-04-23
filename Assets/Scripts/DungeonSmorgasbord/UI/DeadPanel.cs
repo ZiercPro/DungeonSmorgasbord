@@ -22,7 +22,7 @@ namespace ZiercCode.DungeonSmorgasbord.UI
             Button mainMenuButton = UITool.GetComponentInChildrenUI<Button>("MenuButton");
             mainMenuButton.onClick.AddListener(() =>
             {
-                SceneSystem.SetScene(new StartScene());
+                SceneSystem.SetScene(new MainMenuScene());
             });
         }
 

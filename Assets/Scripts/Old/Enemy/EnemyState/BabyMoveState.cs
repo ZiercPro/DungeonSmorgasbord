@@ -29,7 +29,7 @@ namespace ZiercCode.Old.Enemy.EnemyState
         {
             base.ExitState();
             _enemy.animator.SetBool(Running, false);
-            _enemy.movement.StopMovePerform();
+            _enemy.MoveComponent.Stop();
         }
 
         public override void FrameUpdate()
@@ -45,7 +45,7 @@ namespace ZiercCode.Old.Enemy.EnemyState
         public override void PhysicsUpdate()
         {
             base.PhysicsUpdate();
-            _enemy.movement.MovePerform(_moveDir);
+            _enemy.MoveComponent.Move(_moveDir);
         }
     }
 }

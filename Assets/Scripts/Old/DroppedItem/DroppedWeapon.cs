@@ -1,4 +1,5 @@
 using UnityEngine;
+using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.Old.Component.Hero;
 
 namespace ZiercCode.Old.DroppedItem
@@ -10,7 +11,7 @@ namespace ZiercCode.Old.DroppedItem
         [SerializeField] private Transform animatorTransform;
         [SerializeField] private float getRadius;
 
-        private HeroWeaponHandler _heroWeaponHandler;
+        private WeaponUserComponent _weaponUserComponent;
 
         private GameObject itemInstance;
 
@@ -24,7 +25,7 @@ namespace ZiercCode.Old.DroppedItem
             Collider2D[] c2ds = Physics2D.OverlapCircleAll(transform.position, getRadius);
             foreach (Collider2D hero in c2ds)
             {
-                if (hero.TryGetComponent(out HeroWeaponHandler hw))
+                if (hero.TryGetComponent(out WeaponUserComponent hw))
                 {
                     GameObject weaponInstance = hw.EquipWeapon(itemInstance);
                     itemInstance = weaponInstance;

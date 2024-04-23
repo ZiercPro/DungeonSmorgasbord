@@ -16,6 +16,7 @@ namespace ZiercCode.Old.Manager
         ///角色生成的位置
         /// </summary>
         [SerializeField] private Transform heroSpawnPos;
+
         /// <summary>
         /// 相机目标组件
         /// </summary>
@@ -35,6 +36,7 @@ namespace ZiercCode.Old.Manager
         /// 英雄transform组件，用于全局引用
         /// </summary>
         public static Transform playerTrans { get; private set; } //角色的transform组件
+
         private void Awake()
         {
             _panelManager = new PanelManager();
@@ -81,6 +83,5 @@ namespace ZiercCode.Old.Manager
                 DroppedItem.DroppedItem.ClearAllItem();
             };
         }
-        //////////////////////////////////////////////////
     }
 }

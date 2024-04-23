@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode.Core.Extend;
+using ZiercCode.DungeonSmorgasbord.Component;
+using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Enemy;
-using ZiercCode.Old.Damage;
 using ZiercCode.Old.Enemy.EnemyState;
 using ZiercCode.Old.Helper;
 
@@ -12,17 +13,18 @@ namespace ZiercCode.Old.Enemy
 {
     public abstract class Enemy : MonoBehaviour, IDamageable
     {
+        public AutoFlipComponent AutoFlipComponent { get; private set; }
         public EnemyStateMachine stateMachine { get; private set; }
-        public EnemyAttribute attribute { get; private set; }
+        public EnemyAttribute Attribute { get; private set; }
         public AttackCheck attackCheck { get; private set; }
-        public Movement movement { get; private set; }
+        public MoveComponent MoveComponent { get; private set; }
         public Animator animator { get; private set; }
         public Health health { get; private set; }
         public Health attackTarget { get; private set; }
 
         private static List<Enemy> s_enemys;
         public abstract void TakeDamage(DamageInfo info);
-       
+
         protected void OnEnable()
         {
             if (s_enemys == null) s_enemys = new List<Enemy>();
@@ -36,9 +38,10 @@ namespace ZiercCode.Old.Enemy
 
         protected virtual void Awake()
         {
-            attribute = GetComponentInChildren<EnemyAttribute>();
+            Attribute = GetComponentInChildren<EnemyAttribute>();
             attackCheck = GetComponentInChildren<AttackCheck>();
-            movement = GetComponentInChildren<Movement>();
+            AutoFlipComponent = GetComponent<AutoFlipComponent>();
+            MoveComponent = GetComponentInChildren<MoveComponent>();
             animator = GetComponentInChildren<Animator>();
             health = GetComponentInChildren<Health>();
             stateMachine = new EnemyStateMachine();
@@ -47,8 +50,8 @@ namespace ZiercCode.Old.Enemy
 
         protected virtual void Start()
         {
-            movement.Initialize(attribute.moveSpeed);
-            health.Initialize(attribute.maxHealth);
+            MoveComponent.SetMoveSpeed(Attribute.moveSpeed);
+            health.Initialize(Attribute.maxHealth);
             health.Dead += () =>
             {
                 Dead();
@@ -58,6 +61,7 @@ namespace ZiercCode.Old.Enemy
         protected virtual void Update()
         {
             stateMachine.currentState.FrameUpdate();
+            AutoFlipComponent.FaceTo(attackTarget.transform.position);
         }
 
         protected virtual void FixedUpdate()

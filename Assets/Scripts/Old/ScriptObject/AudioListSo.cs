@@ -2,13 +2,12 @@ using UnityEditor;
 using UnityEngine;
 using ZiercCode.Core.Extend;
 using ZiercCode.Old.Audio;
-using ZiercCode.Old.Helper;
 using AudioType = ZiercCode.Old.Audio.AudioType;
 using Object = UnityEngine.Object;
 
 namespace ZiercCode.Old.ScriptObject
 {
-    [CreateAssetMenu(menuName = "ScriptObj/AudioList", fileName = "AudioList")]
+    [CreateAssetMenu(menuName = "ScriptObject/AudioList", fileName = "AudioList")]
     public class AudioListSo : ScriptableObject
     {
         [SerializeField] private EditableDictionary<AudioName, AudioBase> audioEditableDictionary;

@@ -708,7 +708,7 @@
         </member>
         <member name="M:HarmonyLib.HarmonyArgument.#ctor(System.String,System.String)">
              <summary>An annotation to declare injected arguments by renaming them</summary>
-             <param name="originalName">Name of the original argument</param>
+             <param name="originalName">myName of the original argument</param>
              <param name="newName">New name</param>
             
         </member>
@@ -888,7 +888,7 @@
         </member>
         <member name="F:HarmonyLib.Harmony.DEBUG">
             <summary>Set to true before instantiating Harmony to debug Harmony or use an environment variable to set HARMONY_DEBUG to '1' like this: cmd /C "set HARMONY_DEBUG=1 &amp;&amp; game.exe"</summary>
-            <remarks>This is for full debugging. To debug only specific patches, use the <see cref="T:HarmonyLib.HarmonyDebug"/> attribute</remarks>
+            <remarks>This is for full debugging. To debug only specific patches, use the <see cref="T:HarmonyLib.HarmonyDebug"/> creatureAttribute</remarks>
             
         </member>
         <member name="M:HarmonyLib.Harmony.#ctor(System.String)">
@@ -1439,7 +1439,7 @@
         <member name="M:HarmonyLib.PatchClassProcessor.#ctor(HarmonyLib.Harmony,System.Type)">
              <summary>Creates a patch class processor by pointing out a class. Similar to PatchAll() but without searching through all classes.</summary>
              <param name="instance">The Harmony instance</param>
-             <param name="type">The class to process (need to have at least a [HarmonyPatch] attribute)</param>
+             <param name="type">The class to process (need to have at least a [HarmonyPatch] creatureAttribute)</param>
             
         </member>
         <member name="M:HarmonyLib.PatchClassProcessor.Patch">

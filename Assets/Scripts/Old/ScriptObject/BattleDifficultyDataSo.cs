@@ -6,7 +6,7 @@ using ZiercCode.Old.Helper;
 
 namespace ZiercCode.Old.ScriptObject
 {
-    [CreateAssetMenu(menuName = "ScriptObj/BattleDifficulty", fileName = "BattleDifficulty")]
+    [CreateAssetMenu(menuName = "ScriptObject/BattleDifficulty", fileName = "BattleDifficulty")]
     public class BattleDifficultyDataSo : ScriptableObject
     {
         [SerializeField] private TextAsset difDataFile;

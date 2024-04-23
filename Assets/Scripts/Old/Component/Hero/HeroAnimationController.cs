@@ -3,7 +3,7 @@ using UnityEngine;
 namespace ZiercCode.Old.Component.Hero
 {
     /// <summary>
-    /// 暂时使用
+    /// 英雄动画控制 暂时使用
     /// </summary>
     public class HeroAnimationController : MonoBehaviour
     {

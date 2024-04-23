@@ -7,7 +7,7 @@ namespace ZiercCode.Old.ScriptObject
     /// <summary>
     /// 自定义文本数据
     /// </summary>
-    [CreateAssetMenu(menuName = "ScriptObj/CustomTextData", fileName = "CustomTextData")]
+    [CreateAssetMenu(menuName = "ScriptObject/CustomTextData", fileName = "CustomTextData")]
     public class CustomTextDataSo : ScriptableObject
     {
         [SerializeField] private TextAsset customTextTableFile;

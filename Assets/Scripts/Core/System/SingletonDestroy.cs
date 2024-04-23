@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// 普通单例
+    /// 无单例则直接实例化
     /// </summary>
     /// <typeparam name="T">单例类型</typeparam>
     public class SingletonDestroy<T>  where T: new() 

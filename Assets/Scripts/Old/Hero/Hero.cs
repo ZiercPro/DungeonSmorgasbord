@@ -2,12 +2,12 @@ using System;
 using UnityEngine;
 using ZiercCode.Core.System;
 using ZiercCode.Core.UI;
+using ZiercCode.DungeonSmorgasbord.Component;
+using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Hero;
-using ZiercCode.Old.Damage;
 using ZiercCode.Old.FeedBack;
 using ZiercCode.Old.Manager;
-using ZiercCode.Old.Weapon;
 
 namespace ZiercCode.Old.Hero
 {
@@ -16,15 +16,15 @@ namespace ZiercCode.Old.Hero
         private HeroAnimationController _heroAnimationController;
         private CameraShakeFeedback _cameraShakeFeedback;
         private KnockBackFeedBack _knockBackFeedBack;
-        private HeroWeaponHandler _heroWeaponHandler;
+        private WeaponUserComponent _weaponUserComponent;
         private HeroInputManager _heroInputManager;
         private InteractHandler _interactHandler;
-        private FlipController _flipController;
+        private AutoFlipComponent _autoFlipComponent;
         private SpriteRenderer _spriteRenderer;
-        private WeaponHolder _weaponHolder;
+        private WeaponRotateComponent _weaponRotateComponent;
         private HeroAttribute _attribute;
-        private Movement _movement;
-        private HeroDash _heroDash;
+        private MoveComponent _moveComponent;
+        private DashComponent _dashComponent;
         private Health _health;
 
         public CoinPack CoinPack { get; private set; }
@@ -33,15 +33,15 @@ namespace ZiercCode.Old.Hero
         {
             CoinPack = new CoinPack();
             _health = GetComponentInChildren<Health>();
-            _movement = GetComponentInChildren<Movement>();
-            _heroDash = GetComponentInChildren<HeroDash>();
+            _moveComponent = GetComponentInChildren<MoveComponent>();
+            _dashComponent = GetComponentInChildren<DashComponent>();
             _attribute = GetComponentInChildren<HeroAttribute>();
-            _weaponHolder = GetComponentInChildren<WeaponHolder>();
-            _flipController = GetComponentInChildren<FlipController>();
+            _weaponRotateComponent = GetComponentInChildren<WeaponRotateComponent>();
+            _autoFlipComponent = GetComponentInChildren<AutoFlipComponent>();
             _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             _interactHandler = GetComponentInChildren<InteractHandler>();
             _heroInputManager = GetComponentInChildren<HeroInputManager>();
-            _heroWeaponHandler = GetComponentInChildren<HeroWeaponHandler>();
+            _weaponUserComponent = GetComponentInChildren<WeaponUserComponent>();
             _knockBackFeedBack = GetComponentInChildren<KnockBackFeedBack>();
             _cameraShakeFeedback = GetComponentInChildren<CameraShakeFeedback>();
             _heroAnimationController = GetComponentInChildren<HeroAnimationController>();
@@ -50,15 +50,15 @@ namespace ZiercCode.Old.Hero
         private void Start()
         {
             CoinPack.Init(0);
-            _heroWeaponHandler.GetDefualtWeapon();
+            _weaponUserComponent.GetDefaultWeapon();
             _health.Initialize(_attribute.maxHealth);
-            _movement.Initialize(_attribute.moveSpeed);
+            _moveComponent.SetMoveSpeed(_attribute.moveSpeed);
             _heroInputManager.SetHeroControl(true);
-            _heroInputManager.DashButtonPressedPerformed += _heroDash.StartDash;
+            _heroInputManager.DashButtonPressedPerformed += _dashComponent.Dash;
             _heroInputManager.InteractButtonPressPerformed += _interactHandler.OnInteractive;
-            _heroInputManager.MovementInputPerforming += moveDir => { _movement.MovePerform(moveDir); };
-            _heroInputManager.MousePositionChanging += viewPos => { _flipController.FaceTo(viewPos); };
-            _heroInputManager.MousePositionChanging += viewPos => { _weaponHolder.WeaponRotateTo(viewPos); };
+            _heroInputManager.MovementInputPerforming += moveDir => { _moveComponent.Move(moveDir); };
+            _heroInputManager.MousePositionChanging += viewPos => { _autoFlipComponent.FaceTo(viewPos); };
+            _heroInputManager.MousePositionChanging += viewPos => { _weaponRotateComponent.WeaponRotateTo(viewPos); };
             //动画
             _heroInputManager.MovementInputPerforming += moveDir =>
             {
@@ -89,7 +89,7 @@ namespace ZiercCode.Old.Hero
         {
             _knockBackFeedBack.enabled = false;
             _heroInputManager.SetHeroControl(false);
-            _movement.StopMovePerform();
+            _moveComponent.Stop();
         }
     }
 }

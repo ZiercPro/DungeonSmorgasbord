@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using ZiercCode.Core.UI;
 using ZiercCode.DungeonSmorgasbord.UI;
@@ -8,17 +9,19 @@ namespace ZiercCode.Old.Scene
 {
     public class GameScene : SceneState
     {
-        private readonly string name = "GameScene";
+        private readonly string _name = "GameScene";
 
-        public PanelManager panelManager { get; private set; }
+        private PanelManager _panelManager;
+
+        public AsyncOperation AsyncOperation { get; private set; }
 
         public override void OnEnter()
         {
-            panelManager = new PanelManager();
-            if (SceneManager.GetActiveScene().name != name)
+            _panelManager = new PanelManager();
+            if (SceneManager.GetActiveScene().name != _name)
             {
                 SceneManager.sceneLoaded += OnSceneLoaded;
-                SceneManager.LoadScene(name);
+                AsyncOperation = SceneManager.LoadSceneAsync(_name);
             }
             else
                 ToDoOnSceneLoaded();
@@ -29,14 +32,14 @@ namespace ZiercCode.Old.Scene
             AudioPlayer.Instance.ClearAudioCache();
             SceneManager.sceneLoaded -= OnSceneLoaded;
             BattleManager.Instance.onBattleEnd.RemoveAllListeners();
-            panelManager.PopAll();
+            _panelManager.PopAll();
         }
 
 
         protected override void ToDoOnSceneLoaded()
         {
-            panelManager.Push(new GamePanel());
-            BattleManager.Instance.onBattleEnd.AddListener(() => { panelManager.Push(new CardPanel()); });
+            _panelManager.Push(new GamePanel());
+            BattleManager.Instance.onBattleEnd.AddListener(() => { _panelManager.Push(new CardPanel()); });
             AudioPlayer.Instance.PlayAudioAsync(AudioName.IdleBgm);
         }
 

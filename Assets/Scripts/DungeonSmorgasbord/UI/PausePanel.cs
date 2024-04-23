@@ -25,7 +25,7 @@ namespace ZiercCode.DungeonSmorgasbord.UI
             });
             UITool.GetComponentInChildrenUI<Button>("MenuButton").onClick.AddListener(() =>
             {
-                SceneSystem.SetScene(new StartScene());
+                SceneSystem.SetScene(new MainMenuScene());
             });
             Time.timeScale = 0f;
         }

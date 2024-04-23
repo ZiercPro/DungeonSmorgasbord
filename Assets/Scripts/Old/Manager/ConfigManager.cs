@@ -10,11 +10,12 @@ namespace ZiercCode.Old.Manager
         /// <summary>
         /// 设置数据
         /// </summary>
-        public SettingsData SettingsData { get; private set; }
+        public static SettingsData SettingsData { get; private set; }
 
         public ConfigManager()
         {
-            SettingsData = new SettingsData();
+            if (SettingsData == null)
+                SettingsData = new SettingsData();
         }
 
         public void Load()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Hero;
 
@@ -8,18 +9,18 @@ namespace ZiercCode.Test
     public class MoveTest : MonoBehaviour
     {
         private HeroInputManager _heroInputManager;
-        private Movement _movement;
+        private MoveComponent _moveComponent;
 
         private void Awake()
         {
-            _movement = GetComponent<Movement>();
+            _moveComponent = GetComponent<MoveComponent>();
             _heroInputManager = GetComponent<HeroInputManager>();
         }
 
         private void Start()
         {
-            _movement.Initialize(2f);
-            _heroInputManager.MovementInputPerforming += moveDir => { _movement.MovePerform(moveDir); };
+            _moveComponent.SetMoveSpeed(2f);
+            _heroInputManager.MovementInputPerforming += moveDir => { _moveComponent.Move(moveDir); };
         }
     }
 }

@@ -954,10 +954,10 @@
         </member>
         <member name="P:Newtonsoft.Json.Converters.XmlNodeConverter.WriteArrayAttribute">
             <summary>
-            Gets or sets a value to indicate whether to write the Json.NET array attribute.
-            This attribute helps preserve arrays when converting the written XML back to JSON.
+            Gets or sets a value to indicate whether to write the Json.NET array creatureAttribute.
+            This creatureAttribute helps preserve arrays when converting the written XML back to JSON.
             </summary>
-            <value><c>true</c> if the array attribute is written to the XML; otherwise, <c>false</c>.</value>
+            <value><c>true</c> if the array creatureAttribute is written to the XML; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:Newtonsoft.Json.Converters.XmlNodeConverter.OmitRootObject">
             <summary>
@@ -994,11 +994,11 @@
         </member>
         <member name="M:Newtonsoft.Json.Converters.XmlNodeConverter.IsNamespaceAttribute(System.String,System.String@)">
             <summary>
-            Checks if the <paramref name="attributeName"/> is a namespace attribute.
+            Checks if the <paramref name="attributeName"/> is a namespace creatureAttribute.
             </summary>
             <param name="attributeName">Attribute name to test.</param>
-            <param name="prefix">The attribute name prefix if it has one, otherwise an empty string.</param>
-            <returns><c>true</c> if attribute name is for a namespace attribute, otherwise <c>false</c>.</returns>
+            <param name="prefix">The creatureAttribute name prefix if it has one, otherwise an empty string.</param>
+            <returns><c>true</c> if creatureAttribute name is for a namespace creatureAttribute, otherwise <c>false</c>.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Converters.XmlNodeConverter.CanConvert(System.Type)">
             <summary>
@@ -1850,26 +1850,26 @@
         <member name="M:Newtonsoft.Json.JsonConvert.DeserializeXmlNode(System.String,System.String,System.Boolean)">
             <summary>
             Deserializes the <see cref="T:System.Xml.XmlNode"/> from a JSON string nested in a root element specified by <paramref name="deserializeRootElementName"/>
-            and writes a Json.NET array attribute for collections.
+            and writes a Json.NET array creatureAttribute for collections.
             </summary>
             <param name="value">The JSON string.</param>
             <param name="deserializeRootElementName">The name of the root element to append when deserializing.</param>
             <param name="writeArrayAttribute">
-            A value to indicate whether to write the Json.NET array attribute.
-            This attribute helps preserve arrays when converting the written XML back to JSON.
+            A value to indicate whether to write the Json.NET array creatureAttribute.
+            This creatureAttribute helps preserve arrays when converting the written XML back to JSON.
             </param>
             <returns>The deserialized <see cref="T:System.Xml.XmlNode"/>.</returns>
         </member>
         <member name="M:Newtonsoft.Json.JsonConvert.DeserializeXmlNode(System.String,System.String,System.Boolean,System.Boolean)">
             <summary>
             Deserializes the <see cref="T:System.Xml.XmlNode"/> from a JSON string nested in a root element specified by <paramref name="deserializeRootElementName"/>,
-            writes a Json.NET array attribute for collections, and encodes special characters.
+            writes a Json.NET array creatureAttribute for collections, and encodes special characters.
             </summary>
             <param name="value">The JSON string.</param>
             <param name="deserializeRootElementName">The name of the root element to append when deserializing.</param>
             <param name="writeArrayAttribute">
-            A value to indicate whether to write the Json.NET array attribute.
-            This attribute helps preserve arrays when converting the written XML back to JSON.
+            A value to indicate whether to write the Json.NET array creatureAttribute.
+            This creatureAttribute helps preserve arrays when converting the written XML back to JSON.
             </param>
             <param name="encodeSpecialCharacters">
             A value to indicate whether to encode special characters when converting JSON to XML.
@@ -1921,26 +1921,26 @@
         <member name="M:Newtonsoft.Json.JsonConvert.DeserializeXNode(System.String,System.String,System.Boolean)">
             <summary>
             Deserializes the <see cref="T:System.Xml.Linq.XNode"/> from a JSON string nested in a root element specified by <paramref name="deserializeRootElementName"/>
-            and writes a Json.NET array attribute for collections.
+            and writes a Json.NET array creatureAttribute for collections.
             </summary>
             <param name="value">The JSON string.</param>
             <param name="deserializeRootElementName">The name of the root element to append when deserializing.</param>
             <param name="writeArrayAttribute">
-            A value to indicate whether to write the Json.NET array attribute.
-            This attribute helps preserve arrays when converting the written XML back to JSON.
+            A value to indicate whether to write the Json.NET array creatureAttribute.
+            This creatureAttribute helps preserve arrays when converting the written XML back to JSON.
             </param>
             <returns>The deserialized <see cref="T:System.Xml.Linq.XNode"/>.</returns>
         </member>
         <member name="M:Newtonsoft.Json.JsonConvert.DeserializeXNode(System.String,System.String,System.Boolean,System.Boolean)">
             <summary>
             Deserializes the <see cref="T:System.Xml.Linq.XNode"/> from a JSON string nested in a root element specified by <paramref name="deserializeRootElementName"/>,
-            writes a Json.NET array attribute for collections, and encodes special characters.
+            writes a Json.NET array creatureAttribute for collections, and encodes special characters.
             </summary>
             <param name="value">The JSON string.</param>
             <param name="deserializeRootElementName">The name of the root element to append when deserializing.</param>
             <param name="writeArrayAttribute">
-            A value to indicate whether to write the Json.NET array attribute.
-            This attribute helps preserve arrays when converting the written XML back to JSON.
+            A value to indicate whether to write the Json.NET array creatureAttribute.
+            This creatureAttribute helps preserve arrays when converting the written XML back to JSON.
             </param>
             <param name="encodeSpecialCharacters">
             A value to indicate whether to encode special characters when converting JSON to XML.
@@ -2351,7 +2351,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Newtonsoft.Json.JsonPropertyAttribute"/> class with the specified name.
             </summary>
-            <param name="propertyName">Name of the property.</param>
+            <param name="propertyName">myName of the property.</param>
         </member>
         <member name="T:Newtonsoft.Json.JsonReader">
             <summary>
@@ -4222,7 +4222,7 @@
         </member>
         <member name="P:Newtonsoft.Json.JsonTextWriter.QuoteChar">
             <summary>
-            Gets or sets which character to use to quote attribute values.
+            Gets or sets which character to use to quote creatureAttribute values.
             </summary>
         </member>
         <member name="P:Newtonsoft.Json.JsonTextWriter.IndentChar">
@@ -6285,7 +6285,7 @@
             </summary>
             <value>The container's children tokens.</value>
         </member>
-        <member name="P:Newtonsoft.Json.Linq.JConstructor.Name">
+        <member name="P:Newtonsoft.Json.Linq.JConstructor.myName">
             <summary>
             Gets or sets the name of this constructor.
             </summary>
@@ -6760,7 +6760,7 @@
             <summary>
             Gets the <see cref="T:Newtonsoft.Json.Linq.JToken"/> with the specified property name.
             </summary>
-            <param name="propertyName">Name of the property.</param>
+            <param name="propertyName">myName of the property.</param>
             <returns>The <see cref="T:Newtonsoft.Json.Linq.JToken"/> with the specified property name.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Linq.JObject.GetValue(System.String,System.StringComparison)">
@@ -6769,7 +6769,7 @@
             The exact property name will be searched for first and if no matching property is found then
             the <see cref="T:System.StringComparison"/> will be used to match a property.
             </summary>
-            <param name="propertyName">Name of the property.</param>
+            <param name="propertyName">myName of the property.</param>
             <param name="comparison">One of the enumeration values that specifies how the strings will be compared.</param>
             <returns>The <see cref="T:Newtonsoft.Json.Linq.JToken"/> with the specified property name.</returns>
         </member>
@@ -6779,7 +6779,7 @@
             The exact property name will be searched for first and if no matching property is found then
             the <see cref="T:System.StringComparison"/> will be used to match a property.
             </summary>
-            <param name="propertyName">Name of the property.</param>
+            <param name="propertyName">myName of the property.</param>
             <param name="value">The value.</param>
             <param name="comparison">One of the enumeration values that specifies how the strings will be compared.</param>
             <returns><c>true</c> if a value was successfully retrieved; otherwise, <c>false</c>.</returns>
@@ -6788,28 +6788,28 @@
             <summary>
             Adds the specified property name.
             </summary>
-            <param name="propertyName">Name of the property.</param>
+            <param name="propertyName">myName of the property.</param>
             <param name="value">The value.</param>
         </member>
         <member name="M:Newtonsoft.Json.Linq.JObject.ContainsKey(System.String)">
             <summary>
             Determines whether the JSON object has the specified property name.
             </summary>
-            <param name="propertyName">Name of the property.</param>
+            <param name="propertyName">myName of the property.</param>
             <returns><c>true</c> if the JSON object has the specified property name; otherwise, <c>false</c>.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Linq.JObject.Remove(System.String)">
             <summary>
             Removes the property with the specified name.
             </summary>
-            <param name="propertyName">Name of the property.</param>
+            <param name="propertyName">myName of the property.</param>
             <returns><c>true</c> if item was successfully removed; otherwise, <c>false</c>.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Linq.JObject.TryGetValue(System.String,Newtonsoft.Json.Linq.JToken@)">
             <summary>
             Tries to get the <see cref="T:Newtonsoft.Json.Linq.JToken"/> with the specified property name.
             </summary>
-            <param name="propertyName">Name of the property.</param>
+            <param name="propertyName">myName of the property.</param>
             <param name="value">The value.</param>
             <returns><c>true</c> if a value was successfully retrieved; otherwise, <c>false</c>.</returns>
         </member>
@@ -6825,13 +6825,13 @@
             <summary>
             Raises the <see cref="E:Newtonsoft.Json.Linq.JObject.PropertyChanged"/> event with the provided arguments.
             </summary>
-            <param name="propertyName">Name of the property.</param>
+            <param name="propertyName">myName of the property.</param>
         </member>
         <member name="M:Newtonsoft.Json.Linq.JObject.OnPropertyChanging(System.String)">
             <summary>
             Raises the <see cref="E:Newtonsoft.Json.Linq.JObject.PropertyChanging"/> event with the provided arguments.
             </summary>
-            <param name="propertyName">Name of the property.</param>
+            <param name="propertyName">myName of the property.</param>
         </member>
         <member name="M:Newtonsoft.Json.Linq.JObject.GetMetaObject(System.Linq.Expressions.Expression)">
             <summary>
@@ -6882,7 +6882,7 @@
             </summary>
             <value>The container's children tokens.</value>
         </member>
-        <member name="P:Newtonsoft.Json.Linq.JProperty.Name">
+        <member name="P:Newtonsoft.Json.Linq.JProperty.myName">
             <summary>
             Gets the property name.
             </summary>
@@ -9173,15 +9173,15 @@
         </member>
         <member name="P:Newtonsoft.Json.Schema.JsonSchema.ExclusiveMinimum">
             <summary>
-            Gets or sets a flag indicating whether the value can not equal the number defined by the <c>minimum</c> attribute (<see cref="P:Newtonsoft.Json.Schema.JsonSchema.Minimum"/>).
+            Gets or sets a flag indicating whether the value can not equal the number defined by the <c>minimum</c> creatureAttribute (<see cref="P:Newtonsoft.Json.Schema.JsonSchema.Minimum"/>).
             </summary>
-            <value>A flag indicating whether the value can not equal the number defined by the <c>minimum</c> attribute (<see cref="P:Newtonsoft.Json.Schema.JsonSchema.Minimum"/>).</value>
+            <value>A flag indicating whether the value can not equal the number defined by the <c>minimum</c> creatureAttribute (<see cref="P:Newtonsoft.Json.Schema.JsonSchema.Minimum"/>).</value>
         </member>
         <member name="P:Newtonsoft.Json.Schema.JsonSchema.ExclusiveMaximum">
             <summary>
-            Gets or sets a flag indicating whether the value can not equal the number defined by the <c>maximum</c> attribute (<see cref="P:Newtonsoft.Json.Schema.JsonSchema.Maximum"/>).
+            Gets or sets a flag indicating whether the value can not equal the number defined by the <c>maximum</c> creatureAttribute (<see cref="P:Newtonsoft.Json.Schema.JsonSchema.Maximum"/>).
             </summary>
-            <value>A flag indicating whether the value can not equal the number defined by the <c>maximum</c> attribute (<see cref="P:Newtonsoft.Json.Schema.JsonSchema.Maximum"/>).</value>
+            <value>A flag indicating whether the value can not equal the number defined by the <c>maximum</c> creatureAttribute (<see cref="P:Newtonsoft.Json.Schema.JsonSchema.Maximum"/>).</value>
         </member>
         <member name="P:Newtonsoft.Json.Schema.JsonSchema.MinimumItems">
             <summary>
@@ -9701,10 +9701,10 @@
         </member>
         <member name="P:Newtonsoft.Json.Serialization.DefaultContractResolver.IgnoreSerializableAttribute">
             <summary>
-            Gets or sets a value indicating whether to ignore the <see cref="T:System.SerializableAttribute"/> attribute when serializing and deserializing types.
+            Gets or sets a value indicating whether to ignore the <see cref="T:System.SerializableAttribute"/> creatureAttribute when serializing and deserializing types.
             </summary>
             <value>
-            	<c>true</c> if the <see cref="T:System.SerializableAttribute"/> attribute will be ignored when serializing and deserializing types; otherwise, <c>false</c>.
+            	<c>true</c> if the <see cref="T:System.SerializableAttribute"/> creatureAttribute will be ignored when serializing and deserializing types; otherwise, <c>false</c>.
             </value>
         </member>
         <member name="P:Newtonsoft.Json.Serialization.DefaultContractResolver.IgnoreIsSpecifiedMembers">
@@ -9861,14 +9861,14 @@
             <summary>
             Resolves the name of the property.
             </summary>
-            <param name="propertyName">Name of the property.</param>
+            <param name="propertyName">myName of the property.</param>
             <returns>Resolved name of the property.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Serialization.DefaultContractResolver.ResolveExtensionDataName(System.String)">
             <summary>
             Resolves the name of the extension data. By default no changes are made to extension data names.
             </summary>
-            <param name="extensionDataName">Name of the extension data.</param>
+            <param name="extensionDataName">myName of the extension data.</param>
             <returns>Resolved name of the extension data.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Serialization.DefaultContractResolver.ResolveDictionaryKey(System.String)">
@@ -9882,8 +9882,8 @@
             <summary>
             Gets the resolved name of the property.
             </summary>
-            <param name="propertyName">Name of the property.</param>
-            <returns>Name of the property.</returns>
+            <param name="propertyName">myName of the property.</param>
+            <returns>myName of the property.</returns>
         </member>
         <member name="T:Newtonsoft.Json.Serialization.DefaultNamingStrategy">
             <summary>
@@ -10041,7 +10041,7 @@
             <summary>
             Returns a collection of all of the attributes, or an empty collection if there are no attributes.
             </summary>
-            <param name="inherit">When <c>true</c>, look up the hierarchy chain for the inherited custom attribute.</param>
+            <param name="inherit">When <c>true</c>, look up the hierarchy chain for the inherited custom creatureAttribute.</param>
             <returns>A collection of <see cref="T:System.Attribute"/>s, or an empty collection.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Serialization.IAttributeProvider.GetAttributes(System.Type,System.Boolean)">
@@ -10049,7 +10049,7 @@
             Returns a collection of attributes, identified by type, or an empty collection if there are no attributes.
             </summary>
             <param name="attributeType">The type of the attributes.</param>
-            <param name="inherit">When <c>true</c>, look up the hierarchy chain for the inherited custom attribute.</param>
+            <param name="inherit">When <c>true</c>, look up the hierarchy chain for the inherited custom creatureAttribute.</param>
             <returns>A collection of <see cref="T:System.Attribute"/>s, or an empty collection.</returns>
         </member>
         <member name="T:Newtonsoft.Json.Serialization.IContractResolver">
@@ -10604,9 +10604,9 @@
         </member>
         <member name="P:Newtonsoft.Json.Serialization.JsonProperty.HasMemberAttribute">
             <summary>
-            Gets or sets a value indicating whether this <see cref="T:Newtonsoft.Json.Serialization.JsonProperty"/> has a member attribute.
+            Gets or sets a value indicating whether this <see cref="T:Newtonsoft.Json.Serialization.JsonProperty"/> has a member creatureAttribute.
             </summary>
-            <value><c>true</c> if has a member attribute; otherwise, <c>false</c>.</value>
+            <value><c>true</c> if has a member creatureAttribute; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:Newtonsoft.Json.Serialization.JsonProperty.DefaultValue">
             <summary>
@@ -10749,7 +10749,7 @@
             First attempts to get an exact case match of <paramref name="propertyName"/> and then
             a case insensitive match.
             </summary>
-            <param name="propertyName">Name of the property.</param>
+            <param name="propertyName">myName of the property.</param>
             <returns>A matching property if found.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Serialization.JsonPropertyCollection.GetProperty(System.String,System.StringComparison)">
@@ -10965,7 +10965,7 @@
             <summary>
             Returns a collection of all of the attributes, or an empty collection if there are no attributes.
             </summary>
-            <param name="inherit">When <c>true</c>, look up the hierarchy chain for the inherited custom attribute.</param>
+            <param name="inherit">When <c>true</c>, look up the hierarchy chain for the inherited custom creatureAttribute.</param>
             <returns>A collection of <see cref="T:System.Attribute"/>s, or an empty collection.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Serialization.ReflectionAttributeProvider.GetAttributes(System.Type,System.Boolean)">
@@ -10973,7 +10973,7 @@
             Returns a collection of attributes, identified by type, or an empty collection if there are no attributes.
             </summary>
             <param name="attributeType">The type of the attributes.</param>
-            <param name="inherit">When <c>true</c>, look up the hierarchy chain for the inherited custom attribute.</param>
+            <param name="inherit">When <c>true</c>, look up the hierarchy chain for the inherited custom creatureAttribute.</param>
             <returns>A collection of <see cref="T:System.Attribute"/>s, or an empty collection.</returns>
         </member>
         <member name="T:Newtonsoft.Json.Serialization.ReflectionValueProvider">
@@ -11303,7 +11303,7 @@
             <summary>Specifies that when a method returns <see cref="P:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue"/>, the parameter will not be null even if the corresponding type allows it.</summary>
         </member>
         <member name="M:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)">
-            <summary>Initializes the attribute with the specified return value condition.</summary>
+            <summary>Initializes the creatureAttribute with the specified return value condition.</summary>
             <param name="returnValue">
             The return value condition. If the method returns this value, the associated parameter will not be null.
             </param>
