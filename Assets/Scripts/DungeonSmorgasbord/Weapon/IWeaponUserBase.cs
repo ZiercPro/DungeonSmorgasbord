@@ -1,21 +1,26 @@
 ﻿using System.Collections.Generic;
-using ZiercCode.DungeonSmorgasbord.Damage;
+using UnityEngine;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
-    /// <summary>
-    /// 武器使用者接口，可使用武器类需要实现该接口
-    /// </summary>
     public interface IWeaponUserBase
     {
         /// <summary>
-        /// 不同武器伤害效率
+        /// 获取使用不同武器对应伤害效率
         /// </summary>
-        public Dictionary<WeaponType, float> WeaponDamageRate { get; }
+        /// <returns></returns>
+        public Dictionary<WeaponType, float> GetWeaponDamageRate();
 
         /// <summary>
-        /// 伤害信息
+        /// 获取暴击率
         /// </summary>
-        public DamageInfo DamageInfo { get; }
+        /// <returns></returns>
+        public float GetCriticalChance();
+
+        /// <summary>
+        /// 获取武器使用者
+        /// </summary>
+        /// <returns></returns>
+        public Transform GetWeaponUser();
     }
 }

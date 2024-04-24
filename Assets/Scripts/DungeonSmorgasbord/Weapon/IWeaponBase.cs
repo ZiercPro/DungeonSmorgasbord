@@ -36,17 +36,5 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// 右按钮松开
         /// </summary>
         public void OnRightButtonPressCanceled();
-
-        /// <summary>
-        /// 装备武器
-        /// </summary>
-        /// <param name="weaponUserBase">武器使用者</param>
-        /// <returns>武器的数据</returns>
-        public void Equip(IWeaponUserBase weaponUserBase);
-
-        /// <summary>
-        /// 丢弃武器
-        /// </summary>
-        public void Drop();
     }
 }

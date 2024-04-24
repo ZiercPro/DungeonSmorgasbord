@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.Damage;
+using ZiercCode.DungeonSmorgasbord.ScriptObject;
 using ZiercCode.DungeonSmorgasbord.Weapon;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Hero;
@@ -12,13 +14,16 @@ namespace ZiercCode.Old.Hero
 {
     public class Hero : MonoBehaviour, IDamageable, IWeaponUserBase
     {
+        [SerializeField] private WeaponDataSo weaponDataSo;
+
+
         private HeroAnimationController _heroAnimationController;
-        private WeaponRotateComponent _weaponRotateComponent;
+        private WeaponUserComponent _weaponUserComponent;
         private CameraShakeFeedback _cameraShakeFeedback;
         private KnockBackFeedBack _knockBackFeedBack;
+        private AutoFlipComponent _autoFlipComponent;
         private HeroInputManager _heroInputManager;
         private InteractHandler _interactHandler;
-        private AutoFlipComponent _autoFlipComponent;
         private HeroAttribute _attribute;
         private MoveComponent _moveComponent;
         private DashComponent _dashComponent;
@@ -29,17 +34,17 @@ namespace ZiercCode.Old.Hero
         private void Awake()
         {
             CoinPack = new CoinPack();
-            _health = GetComponentInChildren<Health>();
-            _moveComponent = GetComponentInChildren<MoveComponent>();
-            _dashComponent = GetComponentInChildren<DashComponent>();
-            _attribute = GetComponentInChildren<HeroAttribute>();
-            _weaponRotateComponent = GetComponentInChildren<WeaponRotateComponent>();
-            _autoFlipComponent = GetComponentInChildren<AutoFlipComponent>();
-            _interactHandler = GetComponentInChildren<InteractHandler>();
-            _heroInputManager = GetComponentInChildren<HeroInputManager>();
-            _knockBackFeedBack = GetComponentInChildren<KnockBackFeedBack>();
-            _cameraShakeFeedback = GetComponentInChildren<CameraShakeFeedback>();
-            _heroAnimationController = GetComponentInChildren<HeroAnimationController>();
+            _health = GetComponent<Health>();
+            _weaponUserComponent = GetComponent<WeaponUserComponent>();
+            _moveComponent = GetComponent<MoveComponent>();
+            _dashComponent = GetComponent<DashComponent>();
+            _attribute = GetComponent<HeroAttribute>();
+            _autoFlipComponent = GetComponent<AutoFlipComponent>();
+            _interactHandler = GetComponent<InteractHandler>();
+            _heroInputManager = GetComponent<HeroInputManager>();
+            _knockBackFeedBack = GetComponent<KnockBackFeedBack>();
+            _cameraShakeFeedback = GetComponent<CameraShakeFeedback>();
+            _heroAnimationController = GetComponent<HeroAnimationController>();
         }
 
         private void Start()
@@ -48,6 +53,7 @@ namespace ZiercCode.Old.Hero
             _health.Initialize(_attribute.maxHealth);
             _moveComponent.SetMoveSpeed(_attribute.moveSpeed);
             _heroInputManager.SetHeroControl(true);
+            InitWeapon();
             _heroInputManager.DashButtonPressedPerformed += _dashComponent.Dash;
             _heroInputManager.InteractButtonPressPerformed += _interactHandler.OnInteractive;
             _heroInputManager.MovementInputPerforming += moveDir => { _moveComponent.Move(moveDir); };
@@ -61,6 +67,15 @@ namespace ZiercCode.Old.Hero
             _health.Dead += Dead;
         }
 
+        private void InitWeapon()
+        {
+            GameObject weaponInstance = Instantiate(weaponDataSo.prefab);
+            SpriteRenderer weaponRenderer = weaponInstance.GetComponentInChildren<SpriteRenderer>();
+            WeaponBase weaponBase = weaponInstance.GetComponent<WeaponBase>();
+            _heroInputManager.MousePositionChanging +=
+                _weaponUserComponent.SetWeapon(weaponRenderer, weaponInstance.transform, weaponBase);
+            _heroInputManager.MouseLeftClickStarted += _weaponUserComponent.OnLeftButtonPressStarted;
+        }
 
         public void TakeDamage(DamageInfo info)
         {
@@ -85,7 +100,19 @@ namespace ZiercCode.Old.Hero
             _moveComponent.Stop();
         }
 
-        public Dictionary<WeaponType, float> WeaponDamageRate { get; }
-        public DamageInfo DamageInfo { get; }
+        public Dictionary<WeaponType, float> GetWeaponDamageRate()
+        {
+            return _attribute.weaponDamageRate.ToDictionary();
+        }
+
+        public float GetCriticalChance()
+        {
+            return _attribute.criticalChance;
+        }
+
+        public Transform GetWeaponUser()
+        {
+            return transform;
+        }
     }
 }

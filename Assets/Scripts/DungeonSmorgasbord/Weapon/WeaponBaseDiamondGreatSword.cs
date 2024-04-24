@@ -1,25 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using ZiercCode.Old.Audio;
 using ZiercCode.Old.FeedBack;
 using ZiercCode.DungeonSmorgasbord.Damage;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
-    public class Weapon_DiamondGreatSword : Weapon
+    public class WeaponBaseDiamondGreatSword : WeaponBase
     {
-        private CameraShakeFeedback _cameraShakeFeedback;
-        private WeaponColliderCheck _colliderCheck;
+        [SerializeField] private CameraShakeFeedback cameraShakeFeedback;
+        [SerializeField] private WeaponColliderCheck colliderCheck;
         private bool _isAttackBlocked;
-
-
-        protected override void Awake()
-        {
-            base.Awake();
-            waveAudios = new List<AudioName>();
-            _cameraShakeFeedback = GetComponent<CameraShakeFeedback>();
-            _colliderCheck = GetComponentInChildren<WeaponColliderCheck>();
-        }
 
         private void Start()
         {
@@ -38,29 +30,30 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             if (_isAttackBlocked) return;
             _isAttackBlocked = true;
             int attackID = Animator.StringToHash("attack");
-            Animator.SetTrigger(attackID);
+            GetAnimator().SetTrigger(attackID);
             AudioPlayer.Instance.PlayAudiosRandomAsync(waveAudios);
         }
 
         private void OnColliderCheckStart()
         {
-            _colliderCheck.Enable();
-            _colliderCheck.TriggerEntered += DoDamage;
+            colliderCheck.Enable();
+            colliderCheck.TriggerEntered += DoDamage;
         }
 
         private void OnColliderCheckEnd()
         {
-            _colliderCheck.Disable();
-            _colliderCheck.TriggerEntered -= DoDamage;
+            colliderCheck.Disable();
+            colliderCheck.TriggerEntered -= DoDamage;
         }
 
         private void DoDamage(Collider2D c2d)
         {
+            if (c2d.transform == GetWeaponUser().GetWeaponUser()) return;
             if (c2d.GetComponent(typeof(IDamageable)) is IDamageable damageable)
             {
                 DamageInfo newInfo = GetDamageInfo();
                 damageable.TakeDamage(newInfo);
-                _cameraShakeFeedback.StartShake();
+                cameraShakeFeedback.StartShake();
             }
         }
 

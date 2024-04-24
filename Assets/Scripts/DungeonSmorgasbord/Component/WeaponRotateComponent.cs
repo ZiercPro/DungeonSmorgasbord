@@ -1,8 +1,5 @@
 using NaughtyAttributes;
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
-using ZiercCode.DungeonSmorgasbord.Weapon;
 
 namespace ZiercCode.DungeonSmorgasbord.Component
 {
@@ -11,11 +8,6 @@ namespace ZiercCode.DungeonSmorgasbord.Component
     /// </summary>
     public class WeaponRotateComponent : MonoBehaviour
     {
-        /// <summary>
-        /// 武器旋转委托
-        /// </summary>
-        public Action<Vector2> WeaponRotateAction;
-
         /// <summary>
         /// 旋转锚点
         /// </summary>
@@ -30,6 +22,11 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         /// 角色渲染组件
         /// </summary>
         [SerializeField] private SpriteRenderer characterRenderer;
+
+        /// <summary>
+        /// 自动翻转组件
+        /// </summary>
+        [SerializeField] private AutoFlipComponent autoFlipComponent;
 
         /// <summary>
         /// 是否可以更换武器
@@ -49,45 +46,34 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         private Transform weaponTransform;
 
         /// <summary>
-        /// 自动翻转组件
+        /// 是否能旋转，用于武器切换时使用，因为需要调用设置方法，不能直接禁用组件
         /// </summary>
-        [SerializeField] private AutoFlipComponent autoFlipComponent;
+        private bool _canRotate;
 
-        /// <summary>
-        /// 启用
-        /// </summary>
-        public void Enable()
-        {
-            WeaponRotateAction = WeaponRotateTo;
-        }
-
-        /// <summary>
-        /// 禁用
-        /// </summary>
-        public void Disable()
-        {
-            WeaponRotateAction = null;
-        }
 
         /// <summary>
         /// 设置武器的父物体
         /// </summary>
         /// <param name="weaponTransform">武器的transform组件</param>
-        public void SetWeaponParent(Transform weaponTransform)
+        public void SetWeapon(Transform weaponTransform, SpriteRenderer weaponSpriteRenderer)
         {
+            _canRotate = false;
+            weaponRenderer = weaponSpriteRenderer;
             this.weaponTransform = weaponTransform;
             weaponTransform.SetParent(handPosition);
             weaponTransform.localScale = Vector3.one;
             weaponTransform.localPosition = Vector3.zero;
             weaponTransform.localRotation = Quaternion.identity;
+            _canRotate = true;
         }
 
         /// <summary>
         /// 武器旋转目标位置
         /// </summary>
         /// <param name="viewPos">目标位置</param>
-        private void WeaponRotateTo(Vector2 viewPos)
+        public void WeaponRotateTo(Vector2 viewPos)
         {
+            if (!_canRotate) return;
             //指向指针
             Vector2 myPos = rotationAnchorPosition.position;
             float reRotation = Mathf.Atan2(viewPos.y - myPos.y, viewPos.x - myPos.x) * Mathf.Rad2Deg;

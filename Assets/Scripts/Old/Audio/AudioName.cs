@@ -47,7 +47,7 @@ namespace ZiercCode.Old.Audio
 //     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Plastic/CardClick"), 1, false, false,
 //         AudioPlayerManager.Instance.SFX);
 //
-// public AudioBase weaponWave_1 = new AudioBase(new AudioType("Audio/Weapon/weaponWave_1"), 1, false, false,
+// public AudioBase weaponWave_1 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_1"), 1, false, false,
 //     AudioPlayerManager.Instance.SFX);
 //
 // public AudioBase bigMouthSpawn_1 = new AudioBase(new AudioType("Audio/Fantasy Sfx/Mp3/Dragon_Growl_00"), 1,
@@ -82,16 +82,16 @@ namespace ZiercCode.Old.Audio
 // public AudioBase coinCollected = new AudioBase(new AudioType("Audio/Item/CoinCollected"), 1, false, false,
 //     AudioPlayerManager.Instance.SFX);
 //
-// public AudioBase weaponWave_2 = new AudioBase(new AudioType("Audio/Weapon/weaponWave_2"), 1, false, false,
+// public AudioBase weaponWave_2 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_2"), 1, false, false,
 //     AudioPlayerManager.Instance.SFX);
 //
-// public AudioBase weaponWave_3 = new AudioBase(new AudioType("Audio/Weapon/weaponWave_3"), 1, false, false,
+// public AudioBase weaponWave_3 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_3"), 1, false, false,
 //     AudioPlayerManager.Instance.SFX);
 //
-// public AudioBase weaponWave_4 = new AudioBase(new AudioType("Audio/Weapon/weaponWave_4"), 1, false, false,
+// public AudioBase weaponWave_4 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_4"), 1, false, false,
 //     AudioPlayerManager.Instance.SFX);
 //
-// public AudioBase weaponWave_5 = new AudioBase(new AudioType("Audio/Weapon/weaponWave_5"), 1, false, false,
+// public AudioBase weaponWave_5 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_5"), 1, false, false,
 //     AudioPlayerManager.Instance.SFX);
 //
 // public AudioBase battleBgm_normal = new AudioBase(new AudioType("Audio/8Bit Music Album - 051321/BattleBgm_normal"),

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode.Core.Extend;
@@ -7,7 +6,6 @@ using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Enemy;
 using ZiercCode.Old.Enemy.EnemyState;
-using ZiercCode.Old.Helper;
 
 namespace ZiercCode.Old.Enemy
 {

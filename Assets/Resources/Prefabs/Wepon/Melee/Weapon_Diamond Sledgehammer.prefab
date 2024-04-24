@@ -215,6 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28c53cad863567d4ca03ea78fdf88d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationEventTrigger:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6185784982844736175
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,6 +280,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1ef870add579046a79b4dd1776204a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageType: 0
-  weaponType: 0
-  damageAmount: 4
+  animator: {fileID: 1471164340297562109}
+  weaponDataSo: {fileID: 11400000, guid: 230d255eeb082fe41bafd1c1a1563f53, type: 2}
+  waveAudios: 1200000015000000
+  animationEventHandler: {fileID: 5252660167937085486}
+  cameraShakeFeedback: {fileID: 2447673223184864201}
+  colliderCheck: {fileID: 8780246480542800226}

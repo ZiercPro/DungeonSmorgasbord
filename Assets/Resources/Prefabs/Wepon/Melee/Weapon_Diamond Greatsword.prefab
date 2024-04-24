@@ -169,9 +169,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba9fccb1a2e2b647bdc41d1b0788429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 3975630879825958663}
   weaponDataSo: {fileID: 11400000, guid: 6ceea18110757f14f8632f24e90e8a03, type: 2}
   waveAudios: 130000001400000015000000
   animationEventHandler: {fileID: 3338431177992273359}
+  cameraShakeFeedback: {fileID: 5414978786675948531}
+  colliderCheck: {fileID: 1394522285165198012}
 --- !u!114 &5414978786675948531
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 2022308064305852640}
   - component: {fileID: 9142441715828021553}
   - component: {fileID: 7313946861486673487}
+  - component: {fileID: 6874231262188466895}
   m_Layer: 3
   m_Name: Hero_Lewis
   m_TagString: Player
@@ -266,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c2e788184586847ab58cc575b51e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponDataSo: {fileID: 11400000, guid: 6ceea18110757f14f8632f24e90e8a03, type: 2}
 --- !u!114 &8962218401074913994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,10 +355,10 @@ MonoBehaviour:
   rotationAnchorPosition: {fileID: 8422820264100826033}
   handPosition: {fileID: 7183972671249625216}
   characterRenderer: {fileID: 8927325310093559870}
+  autoFlipComponent: {fileID: 2978424118396048828}
   canChangeWeapon: 1
   weaponRenderer: {fileID: 0}
   weaponTransform: {fileID: 0}
-  autoFlipComponent: {fileID: 2978424118396048828}
 --- !u!114 &9142441715828021553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +383,18 @@ SortingGroup:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &6874231262188466895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299815134350897790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2025ca86674dbd8398adff56bee2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4322705567087781510
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +528,7 @@ MonoBehaviour:
   - {x: 0.25, y: 0.05, z: 0}
   m_ShapePathHash: 334015429
   m_Mesh: {fileID: 0}
-  m_InstanceId: 36598
+  m_InstanceId: -3048
   m_LocalBounds:
     m_Center: {x: -0.025000006, y: 0.175, z: 0}
     m_Extent: {x: 0.275, y: 0.125, z: 0}

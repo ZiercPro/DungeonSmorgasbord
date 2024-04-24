@@ -8,7 +8,6 @@ namespace ZiercCode.Old.DroppedItem
         [SerializeField] private Transform animatorTransform;
         [SerializeField] private float getRadius;
 
-
         private GameObject itemInstance;
 
         private void Awake()
