@@ -26,9 +26,14 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             TriggerExited?.Invoke(other);
         }
 
-        public void SetCheckActive(bool isActive)
+        public void Enable()
         {
-            _hitBox.enabled = isActive;
+            _hitBox.enabled = true;
+        }
+
+        public void Disable()
+        {
+            _hitBox.enabled = false;
         }
     }
 }

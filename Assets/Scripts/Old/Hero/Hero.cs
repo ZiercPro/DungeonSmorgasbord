@@ -1,9 +1,8 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Core.System;
-using ZiercCode.Core.UI;
 using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.Damage;
+using ZiercCode.DungeonSmorgasbord.Weapon;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Hero;
 using ZiercCode.Old.FeedBack;
@@ -11,17 +10,15 @@ using ZiercCode.Old.Manager;
 
 namespace ZiercCode.Old.Hero
 {
-    public class Hero : MonoBehaviour, IDamageable
+    public class Hero : MonoBehaviour, IDamageable, IWeaponUserBase
     {
         private HeroAnimationController _heroAnimationController;
+        private WeaponRotateComponent _weaponRotateComponent;
         private CameraShakeFeedback _cameraShakeFeedback;
         private KnockBackFeedBack _knockBackFeedBack;
-        private WeaponUserComponent _weaponUserComponent;
         private HeroInputManager _heroInputManager;
         private InteractHandler _interactHandler;
         private AutoFlipComponent _autoFlipComponent;
-        private SpriteRenderer _spriteRenderer;
-        private WeaponRotateComponent _weaponRotateComponent;
         private HeroAttribute _attribute;
         private MoveComponent _moveComponent;
         private DashComponent _dashComponent;
@@ -38,10 +35,8 @@ namespace ZiercCode.Old.Hero
             _attribute = GetComponentInChildren<HeroAttribute>();
             _weaponRotateComponent = GetComponentInChildren<WeaponRotateComponent>();
             _autoFlipComponent = GetComponentInChildren<AutoFlipComponent>();
-            _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
             _interactHandler = GetComponentInChildren<InteractHandler>();
             _heroInputManager = GetComponentInChildren<HeroInputManager>();
-            _weaponUserComponent = GetComponentInChildren<WeaponUserComponent>();
             _knockBackFeedBack = GetComponentInChildren<KnockBackFeedBack>();
             _cameraShakeFeedback = GetComponentInChildren<CameraShakeFeedback>();
             _heroAnimationController = GetComponentInChildren<HeroAnimationController>();
@@ -50,7 +45,6 @@ namespace ZiercCode.Old.Hero
         private void Start()
         {
             CoinPack.Init(0);
-            _weaponUserComponent.GetDefaultWeapon();
             _health.Initialize(_attribute.maxHealth);
             _moveComponent.SetMoveSpeed(_attribute.moveSpeed);
             _heroInputManager.SetHeroControl(true);
@@ -58,7 +52,6 @@ namespace ZiercCode.Old.Hero
             _heroInputManager.InteractButtonPressPerformed += _interactHandler.OnInteractive;
             _heroInputManager.MovementInputPerforming += moveDir => { _moveComponent.Move(moveDir); };
             _heroInputManager.MousePositionChanging += viewPos => { _autoFlipComponent.FaceTo(viewPos); };
-            _heroInputManager.MousePositionChanging += viewPos => { _weaponRotateComponent.WeaponRotateTo(viewPos); };
             //动画
             _heroInputManager.MovementInputPerforming += moveDir =>
             {
@@ -91,5 +84,8 @@ namespace ZiercCode.Old.Hero
             _heroInputManager.SetHeroControl(false);
             _moveComponent.Stop();
         }
+
+        public Dictionary<WeaponType, float> WeaponDamageRate { get; }
+        public DamageInfo DamageInfo { get; }
     }
 }

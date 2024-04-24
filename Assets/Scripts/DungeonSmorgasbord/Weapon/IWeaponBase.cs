@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
@@ -38,9 +38,15 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         public void OnRightButtonPressCanceled();
 
         /// <summary>
-        /// 获取武器的transform组件
+        /// 装备武器
         /// </summary>
-        /// <returns></returns>
-        public Transform GetWeaponTransform();
+        /// <param name="weaponUserBase">武器使用者</param>
+        /// <returns>武器的数据</returns>
+        public void Equip(IWeaponUserBase weaponUserBase);
+
+        /// <summary>
+        /// 丢弃武器
+        /// </summary>
+        public void Drop();
     }
 }

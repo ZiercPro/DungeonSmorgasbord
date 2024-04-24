@@ -45,7 +45,7 @@ namespace ZiercCode.Old.Enemy
             animator = GetComponentInChildren<Animator>();
             health = GetComponentInChildren<Health>();
             stateMachine = new EnemyStateMachine();
-            attackTarget = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+            SetTarget(GameObject.FindGameObjectWithTag("Player").GetComponent<Health>());
         }
 
         protected virtual void Start()
@@ -69,7 +69,7 @@ namespace ZiercCode.Old.Enemy
             stateMachine.currentState.PhysicsUpdate();
         }
 
-        public void ChangeTarget(Health target)
+        public void SetTarget(Health target)
         {
             attackTarget = target;
         }

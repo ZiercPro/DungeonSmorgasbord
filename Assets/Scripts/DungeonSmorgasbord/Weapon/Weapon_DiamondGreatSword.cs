@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.Old.Audio;
 using ZiercCode.Old.FeedBack;
+using ZiercCode.DungeonSmorgasbord.Damage;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
@@ -16,46 +16,21 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         protected override void Awake()
         {
             base.Awake();
-            WaveAudios = new List<AudioName>();
+            waveAudios = new List<AudioName>();
             _cameraShakeFeedback = GetComponent<CameraShakeFeedback>();
             _colliderCheck = GetComponentInChildren<WeaponColliderCheck>();
         }
 
         private void Start()
         {
-            AnimationEventHandler.AnimationTriggeredPerform += OnColliderCheckStart;
-            AnimationEventHandler.AnimationTriggeredEnd += OnColliderCheckEnd;
-            AnimationEventHandler.AnimationEnded += OnAttackEnd;
+            animationEventHandler.AnimationTriggeredPerform += OnColliderCheckStart;
+            animationEventHandler.AnimationTriggeredEnd += OnColliderCheckEnd;
+            animationEventHandler.AnimationEnded += OnAttackEnd;
         }
 
         public override void OnLeftButtonPressStarted()
         {
             OnAttackStart();
-        }
-
-        public override void OnLeftButtonPressing()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void OnLeftButtonPressCanceled()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void OnRightButtonPressStarted()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void OnRightButtonPressing()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override void OnRightButtonPressCanceled()
-        {
-            throw new System.NotImplementedException();
         }
 
         private void OnAttackStart()
@@ -64,29 +39,26 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             _isAttackBlocked = true;
             int attackID = Animator.StringToHash("attack");
             Animator.SetTrigger(attackID);
-            AudioPlayer.Instance.PlayAudiosRandomAsync(WaveAudios);
+            AudioPlayer.Instance.PlayAudiosRandomAsync(waveAudios);
         }
 
         private void OnColliderCheckStart()
         {
-            _colliderCheck.SetCheckActive(true);
+            _colliderCheck.Enable();
             _colliderCheck.TriggerEntered += DoDamage;
         }
 
         private void OnColliderCheckEnd()
         {
-            _colliderCheck.SetCheckActive(false);
+            _colliderCheck.Disable();
             _colliderCheck.TriggerEntered -= DoDamage;
         }
 
         private void DoDamage(Collider2D c2d)
         {
-            DamageCount();
-            //伤害信息
-            IDamageable damageable = c2d.GetComponent(typeof(IDamageable)) as IDamageable;
-            if (damageable != null)
+            if (c2d.GetComponent(typeof(IDamageable)) is IDamageable damageable)
             {
-                DamageInfo newInfo = new DamageInfo(FinalDamageAmount, WeaponDataSo.DamageType, transform);
+                DamageInfo newInfo = GetDamageInfo();
                 damageable.TakeDamage(newInfo);
                 _cameraShakeFeedback.StartShake();
             }

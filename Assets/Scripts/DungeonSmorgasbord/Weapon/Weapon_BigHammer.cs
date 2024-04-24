@@ -19,34 +19,14 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 
         private void Start()
         {
-            AnimationEventHandler.AnimationTriggeredPerform += OnColliderCheckStart;
-            AnimationEventHandler.AnimationTriggeredEnd += OnColliderCheckEnd;
-            AnimationEventHandler.AnimationEnded += OnAttackEnd;
+            animationEventHandler.AnimationTriggeredPerform += OnColliderCheckStart;
+            animationEventHandler.AnimationTriggeredEnd += OnColliderCheckEnd;
+            animationEventHandler.AnimationEnded += OnAttackEnd;
         }
 
         public override void OnLeftButtonPressStarted()
         {
             OnAttackStart();
-        }
-
-        public override void OnLeftButtonPressing()
-        {
-        }
-
-        public override void OnLeftButtonPressCanceled()
-        {
-        }
-
-        public override void OnRightButtonPressStarted()
-        {
-        }
-
-        public override void OnRightButtonPressing()
-        {
-        }
-
-        public override void OnRightButtonPressCanceled()
-        {
         }
 
         private void OnAttackStart()
@@ -59,23 +39,22 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 
         private void OnColliderCheckStart()
         {
-            _colliderCheck.SetCheckActive(true);
+            _colliderCheck.Enable();
             _colliderCheck.TriggerEntered += DoDamage;
         }
 
         private void OnColliderCheckEnd()
         {
-            _colliderCheck.SetCheckActive(false);
+            _colliderCheck.Disable();
             _colliderCheck.TriggerEntered -= DoDamage;
         }
 
         private void DoDamage(Collider2D c2d)
         {
-            DamageCount();
             IDamageable damageable = c2d.GetComponent(typeof(IDamageable)) as IDamageable;
             if (damageable != null)
             {
-                DamageInfo damageInfo = new(FinalDamageAmount, WeaponDataSo.DamageType, transform);
+                DamageInfo damageInfo = GetDamageInfo();
                 damageable.TakeDamage(damageInfo);
                 _cameraShakeFeedback.StartShake();
             }

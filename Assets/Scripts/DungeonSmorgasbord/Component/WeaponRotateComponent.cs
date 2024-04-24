@@ -1,5 +1,8 @@
 using NaughtyAttributes;
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
+using ZiercCode.DungeonSmorgasbord.Weapon;
 
 namespace ZiercCode.DungeonSmorgasbord.Component
 {
@@ -8,6 +11,11 @@ namespace ZiercCode.DungeonSmorgasbord.Component
     /// </summary>
     public class WeaponRotateComponent : MonoBehaviour
     {
+        /// <summary>
+        /// 武器旋转委托
+        /// </summary>
+        public Action<Vector2> WeaponRotateAction;
+
         /// <summary>
         /// 旋转锚点
         /// </summary>
@@ -35,24 +43,50 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         private SpriteRenderer weaponRenderer;
 
         /// <summary>
+        /// 武器transform
+        /// </summary>
+        [SerializeField, HideIf("canChangeWeapon")]
+        private Transform weaponTransform;
+
+        /// <summary>
         /// 自动翻转组件
         /// </summary>
         [SerializeField] private AutoFlipComponent autoFlipComponent;
-        
-        
-        private Transform _weaponTransform;
 
-
-        public void SetWeaponParent(Transform weaponTransform)
+        /// <summary>
+        /// 启用
+        /// </summary>
+        public void Enable()
         {
-            _weaponTransform = weaponTransform;
-            _weaponTransform.SetParent(handPosition);
-            _weaponTransform.localScale = Vector3.one;
-            _weaponTransform.localPosition = Vector3.zero;
-            _weaponTransform.localRotation = Quaternion.identity;
+            WeaponRotateAction = WeaponRotateTo;
         }
 
-        public void WeaponRotateTo(Vector2 viewPos)
+        /// <summary>
+        /// 禁用
+        /// </summary>
+        public void Disable()
+        {
+            WeaponRotateAction = null;
+        }
+
+        /// <summary>
+        /// 设置武器的父物体
+        /// </summary>
+        /// <param name="weaponTransform">武器的transform组件</param>
+        public void SetWeaponParent(Transform weaponTransform)
+        {
+            this.weaponTransform = weaponTransform;
+            weaponTransform.SetParent(handPosition);
+            weaponTransform.localScale = Vector3.one;
+            weaponTransform.localPosition = Vector3.zero;
+            weaponTransform.localRotation = Quaternion.identity;
+        }
+
+        /// <summary>
+        /// 武器旋转目标位置
+        /// </summary>
+        /// <param name="viewPos">目标位置</param>
+        private void WeaponRotateTo(Vector2 viewPos)
         {
             //指向指针
             Vector2 myPos = rotationAnchorPosition.position;

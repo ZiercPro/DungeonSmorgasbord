@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
+using ZiercCode.DungeonSmorgasbord.Damage;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
@@ -14,9 +14,8 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         public Dictionary<WeaponType, float> WeaponDamageRate { get; }
 
         /// <summary>
-        /// 获取武器的父物体
+        /// 伤害信息
         /// </summary>
-        /// <returns></returns>
-        public Transform GetWeaponParent();
+        public DamageInfo DamageInfo { get; }
     }
 }

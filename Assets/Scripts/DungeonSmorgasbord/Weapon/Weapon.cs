@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Core.Extend;
+using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
 using ZiercCode.Old.Audio;
 
@@ -8,54 +8,47 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
     public abstract class Weapon : MonoBehaviour, IWeaponBase
     {
-        [SerializeField] protected WeaponDataSo WeaponDataSo;
-        [SerializeField] protected List<AudioName> WaveAudios;
-
-        protected int FinalDamageAmount;
-        protected float CriticalChance;
+        [SerializeField] protected WeaponDataSo weaponDataSo;
+        [SerializeField] protected List<AudioName> waveAudios;
+        [SerializeField] protected WeaponAnimationEventHandler animationEventHandler;
 
         protected Animator Animator;
-        protected Dictionary<WeaponType, float> WeaponDamageRate;
-        protected WeaponAnimationEventHandler AnimationEventHandler;
+
+        private IWeaponUserBase _weaponUserBase;
 
         protected virtual void Awake()
         {
             Animator = GetComponentInChildren<Animator>();
-            AnimationEventHandler = GetComponent<WeaponAnimationEventHandler>();
+            animationEventHandler = GetComponent<WeaponAnimationEventHandler>();
         }
 
-        protected void DamageCount()
+        protected DamageInfo GetDamageInfo()
         {
-            FinalDamageAmount = (int)WeaponDamageRate[WeaponDataSo.WeaponType] * WeaponDataSo.Damage;
-            bool isCriticalHit = MyMath.ChanceToBool(CriticalChance);
-            if (isCriticalHit)
-            {
-                FinalDamageAmount *= 2;
-            }
+            return _weaponUserBase.DamageInfo;
         }
 
-        public void Initialize(Dictionary<WeaponType, float> weaponDamageRate, float criticalChance)
+        /// <summary>
+        /// 装备武器
+        /// </summary>
+        /// <param name="weaponUserBase">武器使用类</param>
+        public void Equip(IWeaponUserBase weaponUserBase)
         {
-            WeaponDamageRate = weaponDamageRate;
-            CriticalChance = criticalChance;
+            _weaponUserBase = weaponUserBase;
         }
 
-        public void Disable()
+        /// <summary>
+        /// 舍弃武器
+        /// </summary>
+        public void Drop()
         {
-            WeaponDamageRate = null;
-            CriticalChance = 0f;
+            _weaponUserBase = null;
         }
 
-        public abstract void OnLeftButtonPressStarted();
-        public abstract void OnLeftButtonPressing();
-        public abstract void OnLeftButtonPressCanceled();
-        public abstract void OnRightButtonPressStarted();
-        public abstract void OnRightButtonPressing();
-        public abstract void OnRightButtonPressCanceled();
-
-        public Transform GetWeaponTransform()
-        {
-            return transform;
-        }
+        public virtual void OnLeftButtonPressStarted() { }
+        public virtual void OnLeftButtonPressing() { }
+        public virtual void OnLeftButtonPressCanceled() { }
+        public virtual void OnRightButtonPressStarted() { }
+        public virtual void OnRightButtonPressing() { }
+        public virtual void OnRightButtonPressCanceled() { }
     }
 }
