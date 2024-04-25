@@ -112,7 +112,7 @@ namespace ZiercCode.Old.Audio
         //
         //     if (!newClip)
         //     {
-        //         Debug.LogError($"资源 {audioBase.AudioType.myName} 加载失败");
+        //         Debug.LogError($"资源 {audioBase.AudioType.name} 加载失败");
         //         return null;
         //     }
         //

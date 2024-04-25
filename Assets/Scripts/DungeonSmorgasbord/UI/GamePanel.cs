@@ -49,13 +49,13 @@ namespace ZiercCode.DungeonSmorgasbord.UI
             {
                 UITool.GetComponentInChildrenUI<Slider>("HealthBar").minValue = 0;
                 UITool.GetComponentInChildrenUI<Slider>("HealthBar").maxValue =
-                    GameManager.playerTrans.GetComponentInChildren<Health>().maxHealth;
+                    GameManager.playerTrans.GetComponentInChildren<Health>().MaxHealth;
                 UITool.GetComponentInChildrenUI<Slider>("HealthBar").value =
-                    GameManager.playerTrans.GetComponentInChildren<Health>().currentHealth;
+                    GameManager.playerTrans.GetComponentInChildren<Health>().CurrentHealth;
                 UITool.GetComponentInChildrenUI<TextMeshProUGUI>("HealthBarMax").text =
-                    GameManager.playerTrans.GetComponentInChildren<Health>().maxHealth.ToString();
+                    GameManager.playerTrans.GetComponentInChildren<Health>().MaxHealth.ToString();
                 UITool.GetComponentInChildrenUI<TextMeshProUGUI>("HealthBarCurrent").text = GameManager.playerTrans
-                    .GetComponentInChildren<Health>().currentHealth.ToString();
+                    .GetComponentInChildren<Health>().CurrentHealth.ToString();
                 GameManager.playerTrans.GetComponent<Health>().MaxHealthChanged += max =>
                 {
                     UITool.GetComponentInChildrenUI<Slider>("HealthBar").maxValue = max;

@@ -32,7 +32,7 @@ namespace ZiercCode.Old.Enemy.EnemyState
         public override void FrameUpdate()
         {
             base.FrameUpdate();
-            if (!_enemy.attackTarget.isDead)
+            if (!_enemy.attackTarget.IsDead)
             {
                 stateMachine.ChangeState(_enemy.moveState);
             }

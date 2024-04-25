@@ -54,6 +54,7 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         /// <summary>
         /// 设置武器的父物体
         /// </summary>
+        /// <param name="weaponSpriteRenderer">武器渲染组件</param>
         /// <param name="weaponTransform">武器的transform组件</param>
         public void SetWeapon(Transform weaponTransform, SpriteRenderer weaponSpriteRenderer)
         {
@@ -78,7 +79,7 @@ namespace ZiercCode.DungeonSmorgasbord.Component
             Vector2 myPos = rotationAnchorPosition.position;
             float reRotation = Mathf.Atan2(viewPos.y - myPos.y, viewPos.x - myPos.x) * Mathf.Rad2Deg;
             Vector3 targetAngles = new Vector3(0, 0, reRotation);
-            rotationAnchorPosition.eulerAngles = targetAngles;
+            rotationAnchorPosition.localEulerAngles = targetAngles;
 
             //翻转
             if (!autoFlipComponent.IsFacingRight)

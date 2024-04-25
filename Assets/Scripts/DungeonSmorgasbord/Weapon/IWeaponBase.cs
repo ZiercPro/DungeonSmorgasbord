@@ -15,7 +15,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 左按钮按住
         /// </summary>
-        public void OnLeftButtonPressing();
+        public void OnLeftButtonPressed();
 
         /// <summary>
         /// 左按钮松开
@@ -30,7 +30,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 右按钮按住
         /// </summary>
-        public void OnRightButtonPressing();
+        public void OnRightButtonPressed();
 
         /// <summary>
         /// 右按钮松开

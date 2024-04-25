@@ -4,6 +4,7 @@ using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 using ZiercCode.Core.Extend;
 using ZiercCode.Core.UI;
+using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.Locale;
 using ZiercCode.Old.Card;
 using ZiercCode.Old.Helper;

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.Serialization;
 using ZiercCode.Core.Extend;
 using ZiercCode.Core.System;
+using ZiercCode.DungeonSmorgasbord.ScriptObject;
 using ZiercCode.Old.Audio;
 using ZiercCode.Old.Enemy;
 using ZiercCode.Old.ScriptObject;

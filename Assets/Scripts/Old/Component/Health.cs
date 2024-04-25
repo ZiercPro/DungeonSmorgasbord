@@ -5,9 +5,9 @@ namespace ZiercCode.Old.Component
 {
     public class Health : MonoBehaviour
     {
-        public int currentHealth { get; private set; }
-        public int maxHealth { get; private set; }
-        public bool isDead { get; private set; }
+        public int CurrentHealth { get; private set; }
+        public int MaxHealth { get; private set; }
+        public bool IsDead { get; private set; }
 
         public event Action<int> CurrentHealthChanged;
         public event Action<int> MaxHealthChanged;
@@ -16,11 +16,11 @@ namespace ZiercCode.Old.Component
 
         public void Initialize(int maxHealth)
         {
-            this.maxHealth = maxHealth;
-            currentHealth = maxHealth;
-            if (maxHealth <= 0 || currentHealth <= 0)
+            this.MaxHealth = maxHealth;
+            CurrentHealth = maxHealth;
+            if (maxHealth <= 0 || CurrentHealth <= 0)
             {
-                isDead = true;
+                IsDead = true;
                 OnDead();
             }
 
@@ -29,43 +29,43 @@ namespace ZiercCode.Old.Component
 
         public void SetCurrent(Func<int, int> set)
         {
-            currentHealth = set.Invoke(currentHealth);
-            CurrentHealthChanged?.Invoke(currentHealth);
+            CurrentHealth = set.Invoke(CurrentHealth);
+            CurrentHealthChanged?.Invoke(CurrentHealth);
             HealthCheck();
         }
 
         public void SetMax(Func<int, int> set)
         {
-            maxHealth = set.Invoke(maxHealth);
-            MaxHealthChanged?.Invoke(maxHealth);
+            MaxHealth = set.Invoke(MaxHealth);
+            MaxHealthChanged?.Invoke(MaxHealth);
             HealthCheck();
         }
 
         private void HealthCheck()
         {
-            if (isDead) return;
+            if (IsDead) return;
 
-            if (maxHealth <= 0)
+            if (MaxHealth <= 0)
             {
-                maxHealth = 0;
+                MaxHealth = 0;
                 OnDead();
             }
 
-            if (currentHealth > maxHealth)
+            if (CurrentHealth > MaxHealth)
             {
-                currentHealth = maxHealth;
+                CurrentHealth = MaxHealth;
             }
 
-            if (currentHealth <= 0)
+            if (CurrentHealth <= 0)
             {
-                currentHealth = 0;
+                CurrentHealth = 0;
                 OnDead();
             }
         }
 
         private void OnDead()
         {
-            isDead = true;
+            IsDead = true;
             Dead?.Invoke();
         }
     }

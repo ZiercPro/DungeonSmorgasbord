@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295c8216387ac884a850caecbf58d5dc, type: 3}
   m_Name: DiamondSledgehammer
   m_EditorClassIdentifier: 
+  myName: "\u94BB\u77F3\u9524"
   Damage: 4
   DamageType: 0
   WeaponType: 0

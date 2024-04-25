@@ -39,7 +39,7 @@ namespace ZiercCode.Old.Enemy.EnemyState
         {
             base.FrameUpdate();
             _moveDir = ((Vector2)(_targetTransform.position - _enemy.transform.position)).normalized;
-            if (_enemy.attackTarget.isDead)
+            if (_enemy.attackTarget.IsDead)
             {
                 stateMachine.ChangeState(_enemy.idleState);
             }

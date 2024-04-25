@@ -96,6 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d32e4e14cc66d4cb708ac344684872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitBox: {fileID: 2475496344448259144}
+  triggerEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  triggerExited:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4608076044383792076
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +114,7 @@ GameObject:
   - component: {fileID: 6458921259543376790}
   - component: {fileID: 7480188005678964583}
   - component: {fileID: 1471164340297562109}
-  - component: {fileID: 5252660167937085486}
+  - component: {fileID: 5631211354188568420}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -203,7 +210,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5252660167937085486
+--- !u!114 &5631211354188568420
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,12 +219,60 @@ MonoBehaviour:
   m_GameObject: {fileID: 4608076044383792076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c53cad863567d4ca03ea78fdf88d1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 47e96aff3c9ab3146b328f062ad8c3e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationEventTrigger:
+  animationStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4870811552832442896}
+        m_TargetAssemblyTypeName: ZiercCode.Old.Audio.AudioPlayerHelper, Assembly-CSharp
+        m_MethodName: Enable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4870811552832442896}
+        m_TargetAssemblyTypeName: ZiercCode.Old.Audio.AudioPlayerHelper, Assembly-CSharp
+        m_MethodName: PlayAudioRandom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  animationTriggeredStart:
     m_PersistentCalls:
       m_Calls: []
+  animationTriggeredPerform:
+    m_PersistentCalls:
+      m_Calls: []
+  animationTriggeredEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  animationEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4870811552832442896}
+        m_TargetAssemblyTypeName: ZiercCode.Old.Audio.AudioPlayerHelper, Assembly-CSharp
+        m_MethodName: Enable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6185784982844736175
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,8 +282,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2005531898049188444}
+  - component: {fileID: 5450117118578364982}
+  - component: {fileID: 9106613910258756266}
+  - component: {fileID: 2012713336263701463}
   - component: {fileID: 2447673223184864201}
-  - component: {fileID: 2806802943153451350}
+  - component: {fileID: 4870811552832442896}
   m_Layer: 0
   m_Name: Weapon_Diamond Sledgehammer
   m_TagString: Untagged
@@ -253,6 +311,77 @@ Transform:
   - {fileID: 744236877430414918}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5450117118578364982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6185784982844736175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6610fee702be64fa32f8708b030d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDataSo: {fileID: 11400000, guid: 230d255eeb082fe41bafd1c1a1563f53, type: 2}
+  waveAudios: 1200000013000000
+  weaponInputHandler: {fileID: 9106613910258756266}
+--- !u!114 &9106613910258756266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6185784982844736175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a78a2e1bd6948a981569db239d4d339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftButtonPressPerformed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2012713336263701463}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponAnimationHandler,
+          Assembly-CSharp
+        m_MethodName: ActiveAnimationFunc
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  leftButtonPressCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  rightButtonPressPerformed:
+    m_PersistentCalls:
+      m_Calls: []
+  rightButtonPressCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2012713336263701463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6185784982844736175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fd97c3e8c4cadaee52ca2b783e958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1471164340297562109}
+  weaponAnimationsFunc:
+  - parameterName: attack
+    weaponAnimationParameterType: 0
+    intValue: 0
+    boolValue: 0
+    floatValue: 0
 --- !u!114 &2447673223184864201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +397,7 @@ MonoBehaviour:
   intensity: 2
   frequence: 1
   duration: 0.2
---- !u!114 &2806802943153451350
+--- !u!114 &4870811552832442896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,12 +406,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6185784982844736175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a1ef870add579046a79b4dd1776204a, type: 3}
+  m_Script: {fileID: 11500000, guid: 22a821b8d98b4f41b34e804896d9a21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1471164340297562109}
-  weaponDataSo: {fileID: 11400000, guid: 230d255eeb082fe41bafd1c1a1563f53, type: 2}
-  waveAudios: 1200000015000000
-  animationEventHandler: {fileID: 5252660167937085486}
-  cameraShakeFeedback: {fileID: 2447673223184864201}
-  colliderCheck: {fileID: 8780246480542800226}
+  audioNames: 1500000014000000

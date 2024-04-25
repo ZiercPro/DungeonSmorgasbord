@@ -1,5 +1,5 @@
+using NaughtyAttributes;
 using System.Collections.Generic;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.Damage;
@@ -14,9 +14,6 @@ namespace ZiercCode.Old.Hero
 {
     public class Hero : MonoBehaviour, IDamageable, IWeaponUserBase
     {
-        [SerializeField] private WeaponDataSo weaponDataSo;
-
-
         private HeroAnimationController _heroAnimationController;
         private WeaponUserComponent _weaponUserComponent;
         private CameraShakeFeedback _cameraShakeFeedback;
@@ -69,12 +66,14 @@ namespace ZiercCode.Old.Hero
 
         private void InitWeapon()
         {
-            GameObject weaponInstance = Instantiate(weaponDataSo.prefab);
-            SpriteRenderer weaponRenderer = weaponInstance.GetComponentInChildren<SpriteRenderer>();
-            WeaponBase weaponBase = weaponInstance.GetComponent<WeaponBase>();
             _heroInputManager.MousePositionChanging +=
-                _weaponUserComponent.SetWeapon(weaponRenderer, weaponInstance.transform, weaponBase);
+                _weaponUserComponent.SetWeapon();
             _heroInputManager.MouseLeftClickStarted += _weaponUserComponent.OnLeftButtonPressStarted;
+            _heroInputManager.MouseLeftClickCanceled += _weaponUserComponent.OnLeftButtonPressCanceled;
+            _heroInputManager.MouseLeftClickPerformed += _weaponUserComponent.OnLeftButtonPressed;
+            _heroInputManager.MouseRightClickStarted += _weaponUserComponent.OnRightButtonPressStarted;
+            _heroInputManager.MouseRightClickPerformed += _weaponUserComponent.OnRightButtonPressed;
+            _heroInputManager.MouseRightClickCanceled += _weaponUserComponent.OnRightButtonPressCanceled;
         }
 
         public void TakeDamage(DamageInfo info)

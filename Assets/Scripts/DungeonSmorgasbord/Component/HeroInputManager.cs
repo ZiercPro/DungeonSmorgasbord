@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace ZiercCode.Old.Hero
+namespace ZiercCode.DungeonSmorgasbord.Component
 {
     public class HeroInputManager : MonoBehaviour
     {

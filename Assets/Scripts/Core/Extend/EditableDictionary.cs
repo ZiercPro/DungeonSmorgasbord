@@ -150,19 +150,41 @@ namespace ZiercCode.Core.Extend
 
             return default;
         }
-        
+
+        /// <summary>
+        /// 获取物品
+        /// </summary>
+        /// <param name="index">链表序号</param>
+        /// <returns></returns>
+        public TObject Get(int index)
+        {
+            if (dictionaryList == null || dictionaryList.Count == 0)
+            {
+                Debug.LogWarning("链表为空");
+                return default;
+            }
+
+            if (Count <= index)
+            {
+                Debug.LogError($"{index} 超出链表范围");
+                return default;
+            }
+
+            return dictionaryList[index].objectValue;
+        }
+
         /// <summary>
         /// 设置物品
         /// </summary>
         /// <param name="keyValue">物品键值</param>
-        /// <param name="objectValue">想要修改的值</param>
+        /// <param name="objectValue">值</param>
         /// <returns></returns>
         public bool Set(TKey keyValue, TObject objectValue)
         {
             if (dictionaryList == null || dictionaryList.Count == 0)
             {
                 Debug.LogWarning("链表为空");
-                return default;
+                return false;
             }
 
             foreach (var item in dictionaryList)
@@ -178,9 +200,34 @@ namespace ZiercCode.Core.Extend
         }
 
         /// <summary>
+        /// 设置物品
+        /// </summary>
+        /// <param name="index">链表序号</param>
+        /// <param name="objectValue">值</param>
+        /// <returns></returns>
+        public bool Set(int index, TObject objectValue)
+        {
+            if (dictionaryList == null || dictionaryList.Count == 0)
+            {
+                Debug.LogWarning("链表为空");
+                return false;
+            }
+
+            if (Count <= index)
+            {
+                Debug.LogError($"{index} 超出链表范围");
+                return false;
+            }
+
+            dictionaryList[index].objectValue = objectValue;
+
+            return true;
+        }
+
+        /// <summary>
         /// 重载'[]'符号
         /// </summary>
-        /// <param name="keyValue"></param>
+        /// <param name="keyValue">字典名</param>
         public TObject this[TKey keyValue]
         {
             get
@@ -193,6 +240,17 @@ namespace ZiercCode.Core.Extend
                 return default;
             }
             set => Set(keyValue, value);
+        }
+
+        /// <summary>
+        /// 重载'[]'符号
+        /// </summary>
+        /// <param name="index">链表序号</param>
+        public TObject this[int index]
+        {
+            get => Get(index);
+
+            set => Set(index, value);
         }
     }
 }

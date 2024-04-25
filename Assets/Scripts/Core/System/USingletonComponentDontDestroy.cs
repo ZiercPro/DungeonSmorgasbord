@@ -6,7 +6,7 @@ namespace ZiercCode.Core.System
     /// unity组件单例 场景转换时不会被销毁
     /// 无单例则直接实例化
     /// </summary>
-    /// <typeparam name="T">组件类型</typeparam>
+    /// <typeparam nName="T">组件类型</typeparam>
     public class USingletonComponentDontDestroy<T> : MonoBehaviour where T : Component
     {
         private static T _instance;

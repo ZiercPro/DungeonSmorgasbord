@@ -1,39 +1,30 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
     public class WeaponColliderCheck : MonoBehaviour
     {
-        private Collider2D _hitBox;
+        [SerializeField] private Collider2D hitBox;
 
-        public event Action<Collider2D> TriggerEntered;
-        public event Action<Collider2D> TriggerExited;
+
+        public UnityEvent<Collider2D> triggerEntered;
+        public UnityEvent<Collider2D> triggerExited;
 
         private void Awake()
         {
-            _hitBox = GetComponent<Collider2D>();
-            _hitBox.enabled = false;
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            TriggerEntered?.Invoke(other);
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            TriggerExited?.Invoke(other);
+            hitBox.enabled = false;
         }
 
         public void Enable()
         {
-            _hitBox.enabled = true;
+            hitBox.enabled = true;
         }
 
         public void Disable()
         {
-            _hitBox.enabled = false;
+            hitBox.enabled = false;
         }
     }
 }

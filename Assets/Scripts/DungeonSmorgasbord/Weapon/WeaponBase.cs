@@ -1,19 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
-using ZiercCode.Core.Extend;
-using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.Old.Audio;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
-    public abstract class WeaponBase : MonoBehaviour, IWeaponBase
+    public class WeaponBase : MonoBehaviour, IWeaponBase
     {
-        [SerializeField] protected Animator animator;
         [SerializeField] protected WeaponDataSo weaponDataSo;
-        [SerializeField] protected List<AudioName> waveAudios;
-        [SerializeField] protected WeaponAnimationEventHandler animationEventHandler;
+        [SerializeField] private WeaponInputHandler weaponInputHandler;
 
         private IWeaponUserBase _weaponUserBase;
 
@@ -27,41 +22,29 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             _weaponUserBase = weaponUserBase;
         }
 
-        /// <summary>
-        /// 获取最终伤害信息
-        /// </summary>
-        /// <returns></returns>
-        protected DamageInfo GetDamageInfo()
-        {
-            DamageInfo damageInfo;
-            int damageAmount = weaponDataSo.Damage;
-            if (MyMath.ChanceToBool(_weaponUserBase.GetCriticalChance()))
-                damageAmount *= 2;
 
-            damageInfo = new(damageAmount, weaponDataSo.DamageType,
-                _weaponUserBase.GetWeaponUser());
-            return damageInfo;
+        public virtual void OnLeftButtonPressStarted()
+        {
+            weaponInputHandler.leftButtonPressPerformed?.Invoke();
         }
 
-        /// <summary>
-        /// 获取动画控制器
-        /// </summary>
-        /// <returns></returns>
-        protected Animator GetAnimator()
+        public virtual void OnLeftButtonPressed() { }
+
+        public virtual void OnLeftButtonPressCanceled()
         {
-            return animator;
+            weaponInputHandler.leftButtonPressCanceled?.Invoke();
         }
 
-        protected IWeaponUserBase GetWeaponUser()
+        public virtual void OnRightButtonPressStarted()
         {
-            return _weaponUserBase;
+            weaponInputHandler.rightButtonPressPerformed?.Invoke();
         }
 
-        public virtual void OnLeftButtonPressStarted() { }
-        public virtual void OnLeftButtonPressing() { }
-        public virtual void OnLeftButtonPressCanceled() { }
-        public virtual void OnRightButtonPressStarted() { }
-        public virtual void OnRightButtonPressing() { }
-        public virtual void OnRightButtonPressCanceled() { }
+        public virtual void OnRightButtonPressed() { }
+
+        public virtual void OnRightButtonPressCanceled()
+        {
+            weaponInputHandler.rightButtonPressCanceled?.Invoke();
+        }
     }
 }

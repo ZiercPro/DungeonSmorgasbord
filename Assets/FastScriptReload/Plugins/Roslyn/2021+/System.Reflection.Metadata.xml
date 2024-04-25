@@ -125,7 +125,7 @@
     <member name="P:System.Reflection.Metadata.AssemblyDefinition.Culture" />
     <member name="P:System.Reflection.Metadata.AssemblyDefinition.Flags" />
     <member name="P:System.Reflection.Metadata.AssemblyDefinition.HashAlgorithm" />
-    <member name="P:System.Reflection.Metadata.AssemblyDefinition.myName" />
+    <member name="P:System.Reflection.Metadata.AssemblyDefinition.name" />
     <member name="P:System.Reflection.Metadata.AssemblyDefinition.PublicKey" />
     <member name="P:System.Reflection.Metadata.AssemblyDefinition.Version" />
     <member name="T:System.Reflection.Metadata.AssemblyDefinitionHandle" />
@@ -171,7 +171,7 @@
       <summary>Gets the hash value of the file content calculated using <see cref="P:System.Reflection.Metadata.AssemblyDefinition.HashAlgorithm" />.</summary>
       <returns>A <see cref="T:System.Reflection.Metadata.BlobHandle" /> instance representing the hash value of the file content.</returns>
     </member>
-    <member name="P:System.Reflection.Metadata.AssemblyFile.myName">
+    <member name="P:System.Reflection.Metadata.AssemblyFile.name">
       <summary>Gets the file name, including its extension.</summary>
       <returns>A <see cref="T:System.Reflection.Metadata.StringHandle" /> instance representing the file name with its extension.</returns>
     </member>
@@ -249,7 +249,7 @@
     <member name="P:System.Reflection.Metadata.AssemblyReference.Culture" />
     <member name="P:System.Reflection.Metadata.AssemblyReference.Flags" />
     <member name="P:System.Reflection.Metadata.AssemblyReference.HashValue" />
-    <member name="P:System.Reflection.Metadata.AssemblyReference.myName" />
+    <member name="P:System.Reflection.Metadata.AssemblyReference.name" />
     <member name="P:System.Reflection.Metadata.AssemblyReference.PublicKeyOrToken" />
     <member name="P:System.Reflection.Metadata.AssemblyReference.Version" />
     <member name="T:System.Reflection.Metadata.AssemblyReferenceHandle" />
@@ -1230,7 +1230,7 @@
       <summary>Gets the kind of argument.</summary>
       <returns>The argument kind.</returns>
     </member>
-    <member name="P:System.Reflection.Metadata.CustomAttributeNamedArgument`1.myName">
+    <member name="P:System.Reflection.Metadata.CustomAttributeNamedArgument`1.name">
       <summary>Gets the name of the argument.</summary>
       <returns>The argument name.</returns>
     </member>
@@ -1443,7 +1443,7 @@
     <member name="P:System.Reflection.Metadata.Document.Language">
       <summary>Gets the source code language (C#, VB, F#, etc.).</summary>
     </member>
-    <member name="P:System.Reflection.Metadata.Document.myName">
+    <member name="P:System.Reflection.Metadata.Document.name">
       <summary>Gets the document name blob.</summary>
     </member>
     <member name="T:System.Reflection.Metadata.DocumentHandle" />
@@ -1513,7 +1513,7 @@
       <returns>The element in the collection at the current position of the enumerator.</returns>
     </member>
     <member name="T:System.Reflection.Metadata.DocumentNameBlobHandle">
-      <summary>A <see cref="T:System.Reflection.Metadata.BlobHandle" /> representing a blob on #Blob heap in Portable PDB structured as Document myName.</summary>
+      <summary>A <see cref="T:System.Reflection.Metadata.BlobHandle" /> representing a blob on #Blob heap in Portable PDB structured as Document name.</summary>
     </member>
     <member name="M:System.Reflection.Metadata.DocumentNameBlobHandle.Equals(System.Object)">
       <param name="obj" />
@@ -3197,7 +3197,7 @@
     <member name="M:System.Reflection.Metadata.Ecma335.NameEncoder.#ctor(System.Reflection.Metadata.BlobBuilder)">
       <param name="builder" />
     </member>
-    <member name="M:System.Reflection.Metadata.Ecma335.NameEncoder.myName(System.String)">
+    <member name="M:System.Reflection.Metadata.Ecma335.NameEncoder.name(System.String)">
       <param name="name" />
     </member>
     <member name="P:System.Reflection.Metadata.Ecma335.NameEncoder.Builder" />
@@ -3528,7 +3528,7 @@
     <member name="M:System.Reflection.Metadata.EventDefinition.GetAccessors" />
     <member name="M:System.Reflection.Metadata.EventDefinition.GetCustomAttributes" />
     <member name="P:System.Reflection.Metadata.EventDefinition.Attributes" />
-    <member name="P:System.Reflection.Metadata.EventDefinition.myName" />
+    <member name="P:System.Reflection.Metadata.EventDefinition.name" />
     <member name="P:System.Reflection.Metadata.EventDefinition.Type" />
     <member name="T:System.Reflection.Metadata.EventDefinitionHandle" />
     <member name="M:System.Reflection.Metadata.EventDefinitionHandle.Equals(System.Object)">
@@ -3644,7 +3644,7 @@
       </returns>
     </member>
     <member name="P:System.Reflection.Metadata.ExportedType.IsForwarder" />
-    <member name="P:System.Reflection.Metadata.ExportedType.myName">
+    <member name="P:System.Reflection.Metadata.ExportedType.name">
       <summary>Gets the name of the target type, or <see langword="default" /> if the type is nested or defined in a root namespace.</summary>
       <returns>A <see cref="T:System.Reflection.Metadata.StringHandle" /> struct instance.</returns>
     </member>
@@ -3739,7 +3739,7 @@
     </member>
     <member name="M:System.Reflection.Metadata.FieldDefinition.GetRelativeVirtualAddress" />
     <member name="P:System.Reflection.Metadata.FieldDefinition.Attributes" />
-    <member name="P:System.Reflection.Metadata.FieldDefinition.myName" />
+    <member name="P:System.Reflection.Metadata.FieldDefinition.name" />
     <member name="P:System.Reflection.Metadata.FieldDefinition.Signature" />
     <member name="T:System.Reflection.Metadata.FieldDefinitionHandle" />
     <member name="M:System.Reflection.Metadata.FieldDefinitionHandle.Equals(System.Object)">
@@ -3816,7 +3816,7 @@
     <member name="P:System.Reflection.Metadata.GenericParameter.Index">
       <summary>Gets the zero-based index of the parameter within the declaring generic type or method declaration.</summary>
     </member>
-    <member name="P:System.Reflection.Metadata.GenericParameter.myName">
+    <member name="P:System.Reflection.Metadata.GenericParameter.name">
       <summary>Gets the name of the generic parameter.</summary>
     </member>
     <member name="P:System.Reflection.Metadata.GenericParameter.Parent">
@@ -4680,7 +4680,7 @@
     <member name="T:System.Reflection.Metadata.LocalConstant">
       <summary>Provides information about local constants. This information is stored in debug metadata.</summary>
     </member>
-    <member name="P:System.Reflection.Metadata.LocalConstant.myName" />
+    <member name="P:System.Reflection.Metadata.LocalConstant.name" />
     <member name="P:System.Reflection.Metadata.LocalConstant.Signature">
       <summary>Gets the constant signature.</summary>
       <returns>The constant signature.</returns>
@@ -4853,7 +4853,7 @@
     </member>
     <member name="P:System.Reflection.Metadata.LocalVariable.Attributes" />
     <member name="P:System.Reflection.Metadata.LocalVariable.Index" />
-    <member name="P:System.Reflection.Metadata.LocalVariable.myName" />
+    <member name="P:System.Reflection.Metadata.LocalVariable.name" />
     <member name="T:System.Reflection.Metadata.LocalVariableAttributes" />
     <member name="F:System.Reflection.Metadata.LocalVariableAttributes.DebuggerHidden" />
     <member name="F:System.Reflection.Metadata.LocalVariableAttributes.None" />
@@ -4933,7 +4933,7 @@
       <summary>Gets the implementation entity handle.</summary>
       <returns>An EntityHandle instance. If the <see cref="P:System.Reflection.Metadata.EntityHandle.IsNil" /> property is <see langword="true" />, the returned handle will have default values.</returns>
     </member>
-    <member name="P:System.Reflection.Metadata.ManifestResource.myName">
+    <member name="P:System.Reflection.Metadata.ManifestResource.name">
       <summary>Gets the resource name.</summary>
       <returns>The resource name.</returns>
     </member>
@@ -5028,7 +5028,7 @@
       <exception cref="T:System.BadImageFormatException">The member reference signature is invalid.</exception>
       <returns>One of the enumeration values that indicates the kind of member reference.</returns>
     </member>
-    <member name="P:System.Reflection.Metadata.MemberReference.myName" />
+    <member name="P:System.Reflection.Metadata.MemberReference.name" />
     <member name="P:System.Reflection.Metadata.MemberReference.Parent">
       <summary>Gets the parent entity handle.</summary>
       <returns>An entity handle instance. If the <see cref="P:System.Reflection.Metadata.EntityHandle.IsNil" /> property is <see langword="true" />, the returned handle will have default values.</returns>
@@ -5669,7 +5669,7 @@
     <member name="M:System.Reflection.Metadata.MethodDefinition.GetParameters" />
     <member name="P:System.Reflection.Metadata.MethodDefinition.Attributes" />
     <member name="P:System.Reflection.Metadata.MethodDefinition.ImplAttributes" />
-    <member name="P:System.Reflection.Metadata.MethodDefinition.myName" />
+    <member name="P:System.Reflection.Metadata.MethodDefinition.name" />
     <member name="P:System.Reflection.Metadata.MethodDefinition.RelativeVirtualAddress" />
     <member name="P:System.Reflection.Metadata.MethodDefinition.Signature" />
     <member name="T:System.Reflection.Metadata.MethodDefinitionHandle" />
@@ -5816,7 +5816,7 @@
     <member name="T:System.Reflection.Metadata.MethodImport" />
     <member name="P:System.Reflection.Metadata.MethodImport.Attributes" />
     <member name="P:System.Reflection.Metadata.MethodImport.Module" />
-    <member name="P:System.Reflection.Metadata.MethodImport.myName" />
+    <member name="P:System.Reflection.Metadata.MethodImport.name" />
     <member name="T:System.Reflection.Metadata.MethodSignature`1">
       <summary>Represents a method (definition, reference, or standalone) or property signature. In the case of properties, the signature matches that of a getter with a distinguishing <see cref="T:System.Reflection.Metadata.SignatureHeader" />.</summary>
       <typeparam name="TType">The method type.</typeparam>
@@ -5903,7 +5903,7 @@
     <member name="P:System.Reflection.Metadata.ModuleDefinition.Generation" />
     <member name="P:System.Reflection.Metadata.ModuleDefinition.GenerationId" />
     <member name="P:System.Reflection.Metadata.ModuleDefinition.Mvid" />
-    <member name="P:System.Reflection.Metadata.ModuleDefinition.myName" />
+    <member name="P:System.Reflection.Metadata.ModuleDefinition.name" />
     <member name="T:System.Reflection.Metadata.ModuleDefinitionHandle" />
     <member name="M:System.Reflection.Metadata.ModuleDefinitionHandle.Equals(System.Object)">
       <param name="obj" />
@@ -5938,7 +5938,7 @@
     <member name="P:System.Reflection.Metadata.ModuleDefinitionHandle.IsNil" />
     <member name="T:System.Reflection.Metadata.ModuleReference" />
     <member name="M:System.Reflection.Metadata.ModuleReference.GetCustomAttributes" />
-    <member name="P:System.Reflection.Metadata.ModuleReference.myName" />
+    <member name="P:System.Reflection.Metadata.ModuleReference.name" />
     <member name="T:System.Reflection.Metadata.ModuleReferenceHandle" />
     <member name="M:System.Reflection.Metadata.ModuleReferenceHandle.Equals(System.Object)">
       <param name="obj" />
@@ -5976,7 +5976,7 @@
       <summary>Gets all exported types that reside directly in a namespace.</summary>
       <returns>An immutable array of exported type handles.</returns>
     </member>
-    <member name="P:System.Reflection.Metadata.NamespaceDefinition.myName">
+    <member name="P:System.Reflection.Metadata.NamespaceDefinition.name">
       <summary>Gets the unqualified name of the namespace definition.</summary>
       <returns>The unqualified name of the namespace definition.</returns>
     </member>
@@ -6025,7 +6025,7 @@
     <member name="M:System.Reflection.Metadata.Parameter.GetDefaultValue" />
     <member name="M:System.Reflection.Metadata.Parameter.GetMarshallingDescriptor" />
     <member name="P:System.Reflection.Metadata.Parameter.Attributes" />
-    <member name="P:System.Reflection.Metadata.Parameter.myName" />
+    <member name="P:System.Reflection.Metadata.Parameter.name" />
     <member name="P:System.Reflection.Metadata.Parameter.SequenceNumber" />
     <member name="T:System.Reflection.Metadata.ParameterHandle" />
     <member name="M:System.Reflection.Metadata.ParameterHandle.Equals(System.Object)">
@@ -6252,7 +6252,7 @@
     <member name="M:System.Reflection.Metadata.PropertyDefinition.GetCustomAttributes" />
     <member name="M:System.Reflection.Metadata.PropertyDefinition.GetDefaultValue" />
     <member name="P:System.Reflection.Metadata.PropertyDefinition.Attributes" />
-    <member name="P:System.Reflection.Metadata.PropertyDefinition.myName" />
+    <member name="P:System.Reflection.Metadata.PropertyDefinition.name" />
     <member name="P:System.Reflection.Metadata.PropertyDefinition.Signature" />
     <member name="T:System.Reflection.Metadata.PropertyDefinitionHandle" />
     <member name="M:System.Reflection.Metadata.PropertyDefinitionHandle.Equals(System.Object)">
@@ -6842,7 +6842,7 @@
       <returns>
         <see langword="true" /> if it is a nested type, <see langword="false" /> otherwise.</returns>
     </member>
-    <member name="P:System.Reflection.Metadata.TypeDefinition.myName">
+    <member name="P:System.Reflection.Metadata.TypeDefinition.name">
       <summary>Gets the name of the type.</summary>
       <returns>The name of the type.</returns>
     </member>
@@ -6931,7 +6931,7 @@
     <member name="P:System.Reflection.Metadata.TypeLayout.PackingSize" />
     <member name="P:System.Reflection.Metadata.TypeLayout.Size" />
     <member name="T:System.Reflection.Metadata.TypeReference" />
-    <member name="P:System.Reflection.Metadata.TypeReference.myName">
+    <member name="P:System.Reflection.Metadata.TypeReference.name">
       <summary>Gets the name of the target type.</summary>
       <returns>The name of the target type.</returns>
     </member>
@@ -6940,7 +6940,7 @@
       <returns>The full name of the namespace where the target type is defined, or a handle whose the <see cref="P:System.Reflection.Metadata.StringHandle.IsNil" /> property is <see langword="true" /> if the type is nested or defined in a root namespace.</returns>
     </member>
     <member name="P:System.Reflection.Metadata.TypeReference.ResolutionScope">
-      <summary>Gets the resolution scope in which the target type is defined and is uniquely identified by the specified <see cref="P:System.Reflection.Metadata.TypeReference.Namespace" /> and <see cref="P:System.Reflection.Metadata.TypeReference.myName" />.</summary>
+      <summary>Gets the resolution scope in which the target type is defined and is uniquely identified by the specified <see cref="P:System.Reflection.Metadata.TypeReference.Namespace" /> and <see cref="P:System.Reflection.Metadata.TypeReference.name" />.</summary>
       <returns>The resolution scope in which the target type is uniquely defined.</returns>
     </member>
     <member name="T:System.Reflection.Metadata.TypeReferenceHandle" />
@@ -7633,7 +7633,7 @@
     <member name="P:System.Reflection.PortableExecutable.PEBuilder.IsDeterministic" />
     <member name="T:System.Reflection.PortableExecutable.PEBuilder.Section" />
     <member name="F:System.Reflection.PortableExecutable.PEBuilder.Section.Characteristics" />
-    <member name="F:System.Reflection.PortableExecutable.PEBuilder.Section.myName" />
+    <member name="F:System.Reflection.PortableExecutable.PEBuilder.Section.name" />
     <member name="M:System.Reflection.PortableExecutable.PEBuilder.Section.#ctor(System.String,System.Reflection.PortableExecutable.SectionCharacteristics)">
       <param name="name" />
       <param name="characteristics" />
@@ -8335,7 +8335,7 @@
     <member name="T:System.Reflection.PortableExecutable.SectionHeader">
       <summary>Provides information about the section header of a PE/COFF file.</summary>
     </member>
-    <member name="P:System.Reflection.PortableExecutable.SectionHeader.myName">
+    <member name="P:System.Reflection.PortableExecutable.SectionHeader.name">
       <summary>Gets the name of the section.</summary>
       <returns>The name of the section.</returns>
     </member>

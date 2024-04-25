@@ -11,6 +11,11 @@ namespace ZiercCode.DungeonSmorgasbord.ScriptObject
     public class WeaponDataSo : ScriptableObject
     {
         /// <summary>
+        /// 武器名称
+        /// </summary>
+        public string myName;
+
+        /// <summary>
         /// 伤害数值
         /// </summary>
         public int Damage;

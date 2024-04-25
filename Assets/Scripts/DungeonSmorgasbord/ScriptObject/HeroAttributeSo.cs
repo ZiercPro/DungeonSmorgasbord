@@ -20,7 +20,6 @@ namespace ZiercCode.DungeonSmorgasbord.ScriptObject
         /// </summary>
         public EditableDictionary<WeaponType, float> weaponDamageRate;
 
-
         //脚本被调用，或者在inspector界面变更时，会被调用（仅在编辑器中调用
         private void OnValidate()
         {

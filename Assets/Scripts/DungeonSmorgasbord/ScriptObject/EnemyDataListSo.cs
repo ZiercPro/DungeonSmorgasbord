@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
-namespace ZiercCode
+namespace ZiercCode.DungeonSmorgasbord.ScriptObject
 {
     [CreateAssetMenu(menuName = "ScriptObject/EnemyDataList",fileName = "EnemyDataList")]
     public class EnemyDataListSo : ScriptableObject

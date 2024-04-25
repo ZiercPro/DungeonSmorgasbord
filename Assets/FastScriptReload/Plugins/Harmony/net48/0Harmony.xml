@@ -708,7 +708,7 @@
         </member>
         <member name="M:HarmonyLib.HarmonyArgument.#ctor(System.String,System.String)">
              <summary>An annotation to declare injected arguments by renaming them</summary>
-             <param name="originalName">myName of the original argument</param>
+             <param name="originalName">name of the original argument</param>
              <param name="newName">New name</param>
             
         </member>

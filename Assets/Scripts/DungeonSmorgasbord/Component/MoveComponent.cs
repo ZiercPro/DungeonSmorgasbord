@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ZiercCode.DungeonSmorgasbord.Component
 {
@@ -9,7 +10,7 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         /// <summary>
         /// 刚体组件
         /// </summary>
-        private Rigidbody2D _rb;
+        [SerializeField] private Rigidbody2D rb2D;
 
         /// <summary>
         /// 移动速度
@@ -44,11 +45,6 @@ namespace ZiercCode.DungeonSmorgasbord.Component
             Enable();
         }
 
-        private void Awake()
-        {
-            _rb = GetComponentInChildren<Rigidbody2D>();
-        }
-
         private void OnDisable()
         {
             Stop();
@@ -58,12 +54,12 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         public void Move(Vector2 moveDir)
         {
             if (!_canMove) return;
-            _rb.velocity = moveDir * _moveSpeed;
+            rb2D.velocity = moveDir * _moveSpeed;
         }
 
         public void Stop()
         {
-            _rb.velocity = Vector2.zero;
+            rb2D.velocity = Vector2.zero;
         }
 
         /// <summary>

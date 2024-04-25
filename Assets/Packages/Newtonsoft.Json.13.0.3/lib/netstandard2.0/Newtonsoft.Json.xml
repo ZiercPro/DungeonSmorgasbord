@@ -2351,7 +2351,7 @@
             <summary>
             Initializes a new instance of the <see cref="T:Newtonsoft.Json.JsonPropertyAttribute"/> class with the specified name.
             </summary>
-            <param name="propertyName">myName of the property.</param>
+            <param name="propertyName">name of the property.</param>
         </member>
         <member name="T:Newtonsoft.Json.JsonReader">
             <summary>
@@ -6285,7 +6285,7 @@
             </summary>
             <value>The container's children tokens.</value>
         </member>
-        <member name="P:Newtonsoft.Json.Linq.JConstructor.myName">
+        <member name="P:Newtonsoft.Json.Linq.JConstructor.name">
             <summary>
             Gets or sets the name of this constructor.
             </summary>
@@ -6760,7 +6760,7 @@
             <summary>
             Gets the <see cref="T:Newtonsoft.Json.Linq.JToken"/> with the specified property name.
             </summary>
-            <param name="propertyName">myName of the property.</param>
+            <param name="propertyName">name of the property.</param>
             <returns>The <see cref="T:Newtonsoft.Json.Linq.JToken"/> with the specified property name.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Linq.JObject.GetValue(System.String,System.StringComparison)">
@@ -6769,7 +6769,7 @@
             The exact property name will be searched for first and if no matching property is found then
             the <see cref="T:System.StringComparison"/> will be used to match a property.
             </summary>
-            <param name="propertyName">myName of the property.</param>
+            <param name="propertyName">name of the property.</param>
             <param name="comparison">One of the enumeration values that specifies how the strings will be compared.</param>
             <returns>The <see cref="T:Newtonsoft.Json.Linq.JToken"/> with the specified property name.</returns>
         </member>
@@ -6779,7 +6779,7 @@
             The exact property name will be searched for first and if no matching property is found then
             the <see cref="T:System.StringComparison"/> will be used to match a property.
             </summary>
-            <param name="propertyName">myName of the property.</param>
+            <param name="propertyName">name of the property.</param>
             <param name="value">The value.</param>
             <param name="comparison">One of the enumeration values that specifies how the strings will be compared.</param>
             <returns><c>true</c> if a value was successfully retrieved; otherwise, <c>false</c>.</returns>
@@ -6788,28 +6788,28 @@
             <summary>
             Adds the specified property name.
             </summary>
-            <param name="propertyName">myName of the property.</param>
+            <param name="propertyName">name of the property.</param>
             <param name="value">The value.</param>
         </member>
         <member name="M:Newtonsoft.Json.Linq.JObject.ContainsKey(System.String)">
             <summary>
             Determines whether the JSON object has the specified property name.
             </summary>
-            <param name="propertyName">myName of the property.</param>
+            <param name="propertyName">name of the property.</param>
             <returns><c>true</c> if the JSON object has the specified property name; otherwise, <c>false</c>.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Linq.JObject.Remove(System.String)">
             <summary>
             Removes the property with the specified name.
             </summary>
-            <param name="propertyName">myName of the property.</param>
+            <param name="propertyName">name of the property.</param>
             <returns><c>true</c> if item was successfully removed; otherwise, <c>false</c>.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Linq.JObject.TryGetValue(System.String,Newtonsoft.Json.Linq.JToken@)">
             <summary>
             Tries to get the <see cref="T:Newtonsoft.Json.Linq.JToken"/> with the specified property name.
             </summary>
-            <param name="propertyName">myName of the property.</param>
+            <param name="propertyName">name of the property.</param>
             <param name="value">The value.</param>
             <returns><c>true</c> if a value was successfully retrieved; otherwise, <c>false</c>.</returns>
         </member>
@@ -6825,13 +6825,13 @@
             <summary>
             Raises the <see cref="E:Newtonsoft.Json.Linq.JObject.PropertyChanged"/> event with the provided arguments.
             </summary>
-            <param name="propertyName">myName of the property.</param>
+            <param name="propertyName">name of the property.</param>
         </member>
         <member name="M:Newtonsoft.Json.Linq.JObject.OnPropertyChanging(System.String)">
             <summary>
             Raises the <see cref="E:Newtonsoft.Json.Linq.JObject.PropertyChanging"/> event with the provided arguments.
             </summary>
-            <param name="propertyName">myName of the property.</param>
+            <param name="propertyName">name of the property.</param>
         </member>
         <member name="M:Newtonsoft.Json.Linq.JObject.GetMetaObject(System.Linq.Expressions.Expression)">
             <summary>
@@ -6882,7 +6882,7 @@
             </summary>
             <value>The container's children tokens.</value>
         </member>
-        <member name="P:Newtonsoft.Json.Linq.JProperty.myName">
+        <member name="P:Newtonsoft.Json.Linq.JProperty.name">
             <summary>
             Gets the property name.
             </summary>
@@ -9861,14 +9861,14 @@
             <summary>
             Resolves the name of the property.
             </summary>
-            <param name="propertyName">myName of the property.</param>
+            <param name="propertyName">name of the property.</param>
             <returns>Resolved name of the property.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Serialization.DefaultContractResolver.ResolveExtensionDataName(System.String)">
             <summary>
             Resolves the name of the extension data. By default no changes are made to extension data names.
             </summary>
-            <param name="extensionDataName">myName of the extension data.</param>
+            <param name="extensionDataName">name of the extension data.</param>
             <returns>Resolved name of the extension data.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Serialization.DefaultContractResolver.ResolveDictionaryKey(System.String)">
@@ -9882,8 +9882,8 @@
             <summary>
             Gets the resolved name of the property.
             </summary>
-            <param name="propertyName">myName of the property.</param>
-            <returns>myName of the property.</returns>
+            <param name="propertyName">name of the property.</param>
+            <returns>name of the property.</returns>
         </member>
         <member name="T:Newtonsoft.Json.Serialization.DefaultNamingStrategy">
             <summary>
@@ -10749,7 +10749,7 @@
             First attempts to get an exact case match of <paramref name="propertyName"/> and then
             a case insensitive match.
             </summary>
-            <param name="propertyName">myName of the property.</param>
+            <param name="propertyName">name of the property.</param>
             <returns>A matching property if found.</returns>
         </member>
         <member name="M:Newtonsoft.Json.Serialization.JsonPropertyCollection.GetProperty(System.String,System.StringComparison)">
