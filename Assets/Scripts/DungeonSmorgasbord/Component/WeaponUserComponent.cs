@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NaughtyAttributes;
+using System;
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.Weapon;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
@@ -12,6 +13,8 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         private IWeaponUserBase _weaponUserBase;
         private IWeaponBase _weaponBase;
 
+        private GameObject _currentWeaponInstance;
+
         private void Awake()
         {
             _weaponRotateComponent = GetComponent<WeaponRotateComponent>();
@@ -22,9 +25,20 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         /// 设置武器
         /// </summary>
         /// <returns>鼠标位置改变事件绑定</returns>
+#if UNITY_EDITOR
+        [Button("设置武器")]
+#endif
         public Action<Vector2> SetWeapon()
         {
+            if (_currentWeaponInstance)
+            {
+                //去除当前武器
+                Destroy(_currentWeaponInstance);
+                _currentWeaponInstance = null;
+            }
+
             GameObject weaponInstance = Instantiate(weaponDataSo.prefab);
+            _currentWeaponInstance = weaponInstance;
             Transform weaponTransform = weaponInstance.transform;
             SpriteRenderer weaponRenderer = weaponInstance.GetComponentInChildren<SpriteRenderer>();
             WeaponBase weaponBase = weaponInstance.GetComponent<WeaponBase>();

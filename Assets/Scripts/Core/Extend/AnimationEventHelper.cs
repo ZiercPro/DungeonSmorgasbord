@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ZiercCode.Old.Helper
+namespace ZiercCode.Core.Extend
 {
     /// <summary>
     /// 用于帮助实现动画帧事件

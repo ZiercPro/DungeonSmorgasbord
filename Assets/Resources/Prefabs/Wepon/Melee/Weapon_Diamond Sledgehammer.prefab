@@ -99,8 +99,24 @@ MonoBehaviour:
   hitBox: {fileID: 2475496344448259144}
   triggerEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8923497920505129274}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponDoDamage,
+          Assembly-CSharp
+        m_MethodName: DoDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   triggerExited:
+    m_PersistentCalls:
+      m_Calls: []
+  triggerStay:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &4608076044383792076
@@ -251,13 +267,39 @@ MonoBehaviour:
         m_CallState: 2
   animationTriggeredStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8780246480542800226}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponColliderCheck,
+          Assembly-CSharp
+        m_MethodName: Enable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   animationTriggeredPerform:
     m_PersistentCalls:
       m_Calls: []
   animationTriggeredEnd:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8780246480542800226}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponColliderCheck,
+          Assembly-CSharp
+        m_MethodName: Disable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   animationEnded:
     m_PersistentCalls:
       m_Calls:
@@ -287,6 +329,7 @@ GameObject:
   - component: {fileID: 2012713336263701463}
   - component: {fileID: 2447673223184864201}
   - component: {fileID: 4870811552832442896}
+  - component: {fileID: 8923497920505129274}
   m_Layer: 0
   m_Name: Weapon_Diamond Sledgehammer
   m_TagString: Untagged
@@ -324,7 +367,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDataSo: {fileID: 11400000, guid: 230d255eeb082fe41bafd1c1a1563f53, type: 2}
-  waveAudios: 1200000013000000
   weaponInputHandler: {fileID: 9106613910258756266}
 --- !u!114 &9106613910258756266
 MonoBehaviour:
@@ -410,3 +452,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioNames: 1500000014000000
+--- !u!114 &8923497920505129274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6185784982844736175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40bdff25fb7c4f628364f9182ea30a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 5450117118578364982}
+  canHurtSelf: 0

@@ -1,13 +1,11 @@
-using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Old.Audio;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
     public class WeaponBase : MonoBehaviour, IWeaponBase
     {
-        [SerializeField] protected WeaponDataSo weaponDataSo;
+        [SerializeField] private WeaponDataSo weaponDataSo;
         [SerializeField] private WeaponInputHandler weaponInputHandler;
 
         private IWeaponUserBase _weaponUserBase;
@@ -20,6 +18,24 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         public void Init(IWeaponUserBase weaponUserBase)
         {
             _weaponUserBase = weaponUserBase;
+        }
+
+        /// <summary>
+        /// 获取武器使用者
+        /// </summary>
+        /// <returns></returns>
+        public IWeaponUserBase GetWeaponUser()
+        {
+            return _weaponUserBase;
+        }
+
+        /// <summary>
+        /// 获取武器数据
+        /// </summary>
+        /// <returns></returns>
+        public WeaponDataSo GetWeaponDataSo()
+        {
+            return weaponDataSo;
         }
 
 

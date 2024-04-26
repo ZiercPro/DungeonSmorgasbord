@@ -48,7 +48,7 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         /// <summary>
         /// 是否能旋转，用于武器切换时使用，因为需要调用设置方法，不能直接禁用组件
         /// </summary>
-        private bool _canRotate;
+        [SerializeField] private bool canRotate;
 
 
         /// <summary>
@@ -58,14 +58,14 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         /// <param name="weaponTransform">武器的transform组件</param>
         public void SetWeapon(Transform weaponTransform, SpriteRenderer weaponSpriteRenderer)
         {
-            _canRotate = false;
+            canRotate = false;
             weaponRenderer = weaponSpriteRenderer;
             this.weaponTransform = weaponTransform;
             weaponTransform.SetParent(handPosition);
             weaponTransform.localScale = Vector3.one;
             weaponTransform.localPosition = Vector3.zero;
             weaponTransform.localRotation = Quaternion.identity;
-            _canRotate = true;
+            canRotate = true;
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         /// <param name="viewPos">目标位置</param>
         public void WeaponRotateTo(Vector2 viewPos)
         {
-            if (!_canRotate) return;
+            if (!canRotate) return;
             //指向指针
             Vector2 myPos = rotationAnchorPosition.position;
             float reRotation = Mathf.Atan2(viewPos.y - myPos.y, viewPos.x - myPos.x) * Mathf.Rad2Deg;

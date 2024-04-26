@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
@@ -38,7 +39,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         {
             int holding = Animator.StringToHash("isHolding");
             _isHolding = true;
-          //  animator.SetBool(holding, _isHolding);
+            //  animator.SetBool(holding, _isHolding);
 
             HoldArrow();
         }
@@ -54,8 +55,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         private void ReleaseArrow()
         {
             _arrow.transform.SetParent(null);
-            ProjectileComponent projectileComponent = _arrow.GetComponent<ProjectileComponent>();
-            projectileComponent.Fire(_arrow.transform.up, 20f);
         }
 
         private void AttackEnd()

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace ZiercCode.Old.Audio
@@ -7,6 +8,11 @@ namespace ZiercCode.Old.Audio
     {
         [SerializeField] private AudioName[] audioNames;
         private bool _canPlay;
+
+        public void OnEnable()
+        {
+            _canPlay = true;
+        }
 
         public void PlayAudio(int audioNameIndex)
         {

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6804911899401152441}
   - component: {fileID: 64676381317102006}
   - component: {fileID: 3975630879825958663}
-  - component: {fileID: 3338431177992273359}
+  - component: {fileID: 7387383672278373734}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -107,7 +107,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3338431177992273359
+--- !u!114 &7387383672278373734
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,10 +116,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 3004392359352960273}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28c53cad863567d4ca03ea78fdf88d1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 47e96aff3c9ab3146b328f062ad8c3e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AnimationEventTrigger:
+  animationStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8471055228792662828}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponCreateProjectile,
+          Assembly-CSharp
+        m_MethodName: CreateProjectile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  animationTriggeredStart:
+    m_PersistentCalls:
+      m_Calls: []
+  animationTriggeredPerform:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8471055228792662828}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponCreateProjectile,
+          Assembly-CSharp
+        m_MethodName: Fire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  animationTriggeredEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  animationEnded:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &3750903395687166601
@@ -132,7 +170,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5954699438021429229}
   - component: {fileID: 5414978786675948531}
-  - component: {fileID: 6404031763023848111}
+  - component: {fileID: 3359199199551731490}
+  - component: {fileID: 6556293326516266682}
+  - component: {fileID: 8471055228792662828}
+  - component: {fileID: 5340371038515230089}
   m_Layer: 0
   m_Name: Weapon_MiniBow
   m_TagString: Untagged
@@ -171,7 +212,7 @@ MonoBehaviour:
   intensity: 1.8
   frequence: 1
   duration: 0.2
---- !u!114 &6404031763023848111
+--- !u!114 &3359199199551731490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,11 +221,100 @@ MonoBehaviour:
   m_GameObject: {fileID: 3750903395687166601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5654f2a073f358438c8471e1f6c39e4, type: 3}
+  m_Script: {fileID: 11500000, guid: ed6610fee702be64fa32f8708b030d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDataSo: {fileID: 11400000, guid: 5c108d2df9d632e4da5bb96c078316c2, type: 2}
+  weaponInputHandler: {fileID: 6556293326516266682}
+--- !u!114 &6556293326516266682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3750903395687166601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a78a2e1bd6948a981569db239d4d339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftButtonPressPerformed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5340371038515230089}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponAnimationHandler,
+          Assembly-CSharp
+        m_MethodName: ActiveAnimationFunc
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  leftButtonPressCanceled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5340371038515230089}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponAnimationHandler,
+          Assembly-CSharp
+        m_MethodName: ActiveAnimationFunc
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  rightButtonPressPerformed:
+    m_PersistentCalls:
+      m_Calls: []
+  rightButtonPressCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8471055228792662828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3750903395687166601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4d1d2b0a9041ebb56ac67d8bb9e233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileDataSo: {fileID: 11400000, guid: d5b4369d5754bd241a057bc5827181c5, type: 2}
+  projectileNum: 1
+  projectileNumUnFired: 1
+  flySpeed: 20
+  projectileDefaultHeadDirection: 0
+  weaponDefaultHeadDirection: 3
+--- !u!114 &5340371038515230089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3750903395687166601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fd97c3e8c4cadaee52ca2b783e958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3975630879825958663}
-  weaponDataSo: {fileID: 11400000, guid: 5c108d2df9d632e4da5bb96c078316c2, type: 2}
-  waveAudios: 
-  animationEventHandler: {fileID: 3338431177992273359}
-  arrowDataSo: {fileID: 11400000, guid: d5b4369d5754bd241a057bc5827181c5, type: 2}
+  weaponAnimationsFunc:
+  - parameterName: isHolding
+    weaponAnimationParameterType: 3
+    intValue: 0
+    boolValue: 0
+    floatValue: 0
+  - parameterName: isHolding
+    weaponAnimationParameterType: 3
+    intValue: 0
+    boolValue: 1
+    floatValue: 0

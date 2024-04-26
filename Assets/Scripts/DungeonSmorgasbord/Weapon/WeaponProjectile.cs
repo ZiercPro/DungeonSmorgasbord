@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace ZiercCode
+namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
     /// <summary>
-    /// 射弹组件
+    /// 武器射弹组件，用于实现射弹的各种逻辑
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
-    public class ProjectileComponent : MonoBehaviour
+    public class WeaponProjectile : WeaponBase
     {
         /// <summary>
         /// 刚体
@@ -24,15 +22,20 @@ namespace ZiercCode
         /// <summary>
         /// 飞行速度
         /// </summary>
-        private float _speed;
+        private float _speed = 2f;
+
+        private void Awake()
+        {
+            rigidBody2D.isKinematic = true;
+        }
 
         /// <summary>
         /// 发射
         /// </summary>
-        public void Fire(Vector3 direction, float speed)
+        public void Fire(Vector3 direction)
         {
-            Debug.Log(direction);
-            Vector3 fireSpeed = direction * speed;
+            rigidBody2D.isKinematic = false;
+            Vector3 fireSpeed = direction * _speed;
             rigidBody2D.velocity = fireSpeed;
         }
     }

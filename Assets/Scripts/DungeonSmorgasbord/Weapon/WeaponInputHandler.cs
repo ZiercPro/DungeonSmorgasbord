@@ -1,7 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
-using ZiercCode.Core.Extend;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {

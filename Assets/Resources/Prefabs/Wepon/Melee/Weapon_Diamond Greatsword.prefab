@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6804911899401152441}
   - component: {fileID: 64676381317102006}
   - component: {fileID: 3975630879825958663}
-  - component: {fileID: 2506205075118500426}
+  - component: {fileID: 3060163292337070087}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -107,7 +107,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2506205075118500426
+--- !u!114 &3060163292337070087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,13 +148,39 @@ MonoBehaviour:
         m_CallState: 2
   animationTriggeredStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1394522285165198012}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponColliderCheck,
+          Assembly-CSharp
+        m_MethodName: Enable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   animationTriggeredPerform:
     m_PersistentCalls:
       m_Calls: []
   animationTriggeredEnd:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1394522285165198012}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponColliderCheck,
+          Assembly-CSharp
+        m_MethodName: Disable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   animationEnded:
     m_PersistentCalls:
       m_Calls:
@@ -184,6 +210,7 @@ GameObject:
   - component: {fileID: 3267839835858478400}
   - component: {fileID: 7024236760118111494}
   - component: {fileID: 1488947650457850942}
+  - component: {fileID: 7240828726038455807}
   m_Layer: 0
   m_Name: Weapon_Diamond Greatsword
   m_TagString: Untagged
@@ -306,6 +333,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioNames: 130000001400000015000000
+--- !u!114 &7240828726038455807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3750903395687166601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40bdff25fb7c4f628364f9182ea30a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 1274364151649758601}
+  canHurtSelf: 0
 --- !u!1 &8996496289278654133
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,11 +392,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d32e4e14cc66d4cb708ac344684872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitBox: {fileID: 0}
+  hitBox: {fileID: 1561290677112481725}
   triggerEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7240828726038455807}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponDoDamage,
+          Assembly-CSharp
+        m_MethodName: DoDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   triggerExited:
+    m_PersistentCalls:
+      m_Calls: []
+  triggerStay:
     m_PersistentCalls:
       m_Calls: []
 --- !u!60 &1561290677112481725

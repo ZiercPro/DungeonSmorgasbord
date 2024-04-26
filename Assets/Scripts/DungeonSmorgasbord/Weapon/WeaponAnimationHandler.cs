@@ -77,11 +77,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 
             [ShowIf("weaponAnimationParameterType", WeaponAnimationParameterType.Float), AllowNesting]
             public float floatValue;
-
-            public WeaponAnimationConfig(WeaponAnimationParameterType weaponAnimationParameterType)
-            {
-                this.weaponAnimationParameterType = weaponAnimationParameterType;
-            }
         }
     }
 }

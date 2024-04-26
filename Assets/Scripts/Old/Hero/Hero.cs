@@ -1,9 +1,7 @@
-using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.Damage;
-using ZiercCode.DungeonSmorgasbord.ScriptObject;
 using ZiercCode.DungeonSmorgasbord.Weapon;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Hero;
