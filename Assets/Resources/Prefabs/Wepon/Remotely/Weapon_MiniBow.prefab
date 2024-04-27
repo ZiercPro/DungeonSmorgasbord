@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d4d1d2b0a9041ebb56ac67d8bb9e233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileDataSo: {fileID: 11400000, guid: d5b4369d5754bd241a057bc5827181c5, type: 2}
+  projectileDataSo: {fileID: 11400000, guid: 9ac45ef1cbfc2b34fab6065da3c1c475, type: 2}
   fireWeapon: {fileID: 3359199199551731490}
   projectileNum: 1
   projectileNumUnFired: 1
