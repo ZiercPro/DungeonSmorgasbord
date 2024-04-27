@@ -21,6 +21,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// 获取武器使用者
         /// </summary>
         /// <returns></returns>
-        public Transform GetWeaponUser();
+        public Transform GetWeaponUserTransform();
     }
 }

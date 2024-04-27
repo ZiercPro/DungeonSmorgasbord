@@ -1187,6 +1187,10 @@ PrefabInstance:
       propertyPath: defaultMaterial
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 3740763580562008662, guid: 8bb4383f80ae3fa46bb1b7bc97b2ef13, type: 3}
+      propertyPath: rb2D
+      value: 
+      objectReference: {fileID: 1202249971}
     - target: {fileID: 8070502256068091186, guid: 8bb4383f80ae3fa46bb1b7bc97b2ef13, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1201,7 +1205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8472406070026422316, guid: 8bb4383f80ae3fa46bb1b7bc97b2ef13, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8941662257894150561, guid: 8bb4383f80ae3fa46bb1b7bc97b2ef13, type: 3}
       propertyPath: active
@@ -1421,6 +1425,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!50 &1202249971 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4304577464786362615, guid: 8bb4383f80ae3fa46bb1b7bc97b2ef13, type: 3}
+  m_PrefabInstance: {fileID: 1140172011}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1260035460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,7 +1657,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1941400080
 MonoBehaviour:
   m_ObjectHideFlags: 0

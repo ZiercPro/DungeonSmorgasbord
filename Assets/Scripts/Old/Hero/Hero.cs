@@ -107,7 +107,7 @@ namespace ZiercCode.Old.Hero
             return _attribute.criticalChance;
         }
 
-        public Transform GetWeaponUser()
+        public Transform GetWeaponUserTransform()
         {
             return transform;
         }

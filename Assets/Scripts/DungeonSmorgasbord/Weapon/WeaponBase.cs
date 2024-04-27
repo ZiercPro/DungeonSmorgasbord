@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
@@ -6,8 +7,8 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
     public class WeaponBase : MonoBehaviour, IWeaponBase
     {
         [SerializeField] private WeaponDataSo weaponDataSo;
-        [SerializeField] private WeaponInputHandler weaponInputHandler;
-
+        [SerializeField, ShowIf("haveInput")] private WeaponInputHandler weaponInputHandler;
+        [SerializeField] private bool haveInput;
         private IWeaponUserBase _weaponUserBase;
 
 
@@ -24,7 +25,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// 获取武器使用者
         /// </summary>
         /// <returns></returns>
-        public IWeaponUserBase GetWeaponUser()
+        public IWeaponUserBase GetWeaponUserBase()
         {
             return _weaponUserBase;
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
@@ -15,14 +14,14 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         [SerializeField] private Rigidbody2D rigidBody2D;
 
         /// <summary>
+        /// 飞行速度
+        /// </summary>
+        [SerializeField] private float speed;
+
+        /// <summary>
         /// 发射方向
         /// </summary>
         private Vector3 _direction;
-
-        /// <summary>
-        /// 飞行速度
-        /// </summary>
-        private float _speed = 2f;
 
         private void Awake()
         {
@@ -35,7 +34,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         public void Fire(Vector3 direction)
         {
             rigidBody2D.isKinematic = false;
-            Vector3 fireSpeed = direction * _speed;
+            Vector3 fireSpeed = direction * speed;
             rigidBody2D.velocity = fireSpeed;
         }
     }

@@ -2,7 +2,6 @@ using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.Old.Audio;
-using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Enemy;
 using ZiercCode.Old.Enemy.EnemyState;
 using ZiercCode.Old.Manager;

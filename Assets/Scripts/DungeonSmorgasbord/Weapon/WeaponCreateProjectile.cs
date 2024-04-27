@@ -15,6 +15,11 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         [SerializeField] private WeaponDataSo projectileDataSo;
 
         /// <summary>
+        /// 发射的武器
+        /// </summary>
+        [SerializeField] private WeaponBase fireWeapon;
+
+        /// <summary>
         /// 射弹数量
         /// </summary>
         [SerializeField, Tooltip("最终生成多少射弹")] private int projectileNum;
@@ -118,6 +123,8 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             {
                 //生成新的射弹
                 GameObject newP = Instantiate(projectileDataSo.prefab, transform);
+                //初始化新的射弹
+                newP.GetComponent<WeaponProjectile>().Init(fireWeapon.GetWeaponUserBase());
                 //设置方向
                 newP.transform.localRotation = Quaternion.Euler(direction);
                 newP.transform.localPosition = Vector3.zero;

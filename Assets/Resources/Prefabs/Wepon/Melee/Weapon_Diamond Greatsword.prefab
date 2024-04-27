@@ -264,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDataSo: {fileID: 11400000, guid: 6ceea18110757f14f8632f24e90e8a03, type: 2}
   weaponInputHandler: {fileID: 3267839835858478400}
+  haveInput: 1
 --- !u!114 &3267839835858478400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +423,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8996496289278654133}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

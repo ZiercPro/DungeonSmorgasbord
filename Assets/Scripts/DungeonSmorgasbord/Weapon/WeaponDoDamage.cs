@@ -1,8 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using ZiercCode.Core.Extend;
 using ZiercCode.DungeonSmorgasbord.Damage;
-using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
@@ -21,21 +19,12 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// </summary>
         [SerializeField] private bool canHurtSelf;
 
-        /// <summary>
-        /// 武器类
-        /// </summary>
-        private WeaponBase _weaponBase;
-
-        private void Awake()
-        {
-            _weaponBase = GetComponent<WeaponBase>();
-        }
 
         public void DoDamage(Collider2D c2d)
         {
             if (c2d.TryGetComponent(out IDamageable damageable))
             {
-                if (!canHurtSelf && c2d.transform == _weaponBase.transform)
+                if (!canHurtSelf && c2d.transform == weapon.GetWeaponUserBase().GetWeaponUserTransform())
                     return;
 
                 damageable.TakeDamage(GetDamageInfo());
@@ -49,11 +38,11 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         private DamageInfo GetDamageInfo()
         {
             int damageAmount = weapon.GetWeaponDataSo().Damage;
-            if (MyMath.ChanceToBool(_weaponBase.GetWeaponUser().GetCriticalChance()))
+            if (MyMath.ChanceToBool(weapon.GetWeaponUserBase().GetCriticalChance()))
                 damageAmount *= 2;
 
             DamageInfo damageInfo = new(damageAmount, weapon.GetWeaponDataSo().DamageType,
-                _weaponBase.GetWeaponUser().GetWeaponUser());
+                weapon.GetWeaponUserBase().GetWeaponUserTransform());
             return damageInfo;
         }
     }

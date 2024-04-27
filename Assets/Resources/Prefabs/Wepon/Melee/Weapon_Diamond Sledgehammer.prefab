@@ -40,7 +40,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788030239882833293}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -368,6 +368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDataSo: {fileID: 11400000, guid: 230d255eeb082fe41bafd1c1a1563f53, type: 2}
   weaponInputHandler: {fileID: 9106613910258756266}
+  haveInput: 1
 --- !u!114 &9106613910258756266
 MonoBehaviour:
   m_ObjectHideFlags: 0

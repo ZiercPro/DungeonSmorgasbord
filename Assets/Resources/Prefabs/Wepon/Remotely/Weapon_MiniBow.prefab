@@ -226,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDataSo: {fileID: 11400000, guid: 5c108d2df9d632e4da5bb96c078316c2, type: 2}
   weaponInputHandler: {fileID: 6556293326516266682}
+  haveInput: 1
 --- !u!114 &6556293326516266682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileDataSo: {fileID: 11400000, guid: d5b4369d5754bd241a057bc5827181c5, type: 2}
+  fireWeapon: {fileID: 3359199199551731490}
   projectileNum: 1
   projectileNumUnFired: 1
   flySpeed: 20
