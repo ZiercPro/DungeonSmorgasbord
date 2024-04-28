@@ -1,12 +1,10 @@
-﻿using DG.Tweening;
-using System;
-using UnityEngine;
-using ZiercCode.Old.Enemy;
+﻿using UnityEngine;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
     /// <summary>
-    /// 武器射弹组件，用于实现射弹的各种逻辑
+    /// 武器射弹组件
+    /// 用于实现射弹发射及之后的各种逻辑
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
     public class WeaponProjectile : WeaponBase

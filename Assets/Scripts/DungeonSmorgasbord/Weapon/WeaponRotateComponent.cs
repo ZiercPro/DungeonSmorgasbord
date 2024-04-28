@@ -84,9 +84,9 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 
             //翻转
             if (!autoFlipComponent.IsFacingRight)
-                rotationAnchorPosition.localScale = new Vector3(1, -1, 1);
+                handPosition.localScale = new Vector3(1, -1, 1);
             else if (autoFlipComponent.IsFacingRight)
-                rotationAnchorPosition.localScale = new Vector3(1, 1, 1);
+                handPosition.localScale = new Vector3(1, 1, 1);
 
             //图层
             if (rotationAnchorPosition.rotation.z > 0 && rotationAnchorPosition.rotation.z < 180)

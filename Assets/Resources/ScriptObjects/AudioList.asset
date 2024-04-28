@@ -224,4 +224,14 @@ MonoBehaviour:
         <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
         <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-  toCreateAudioBase: {fileID: 8300000, guid: f32d8d60f197f204ba10bab042d4cf87, type: 3}
+    - _inspectorName: FireBall
+      keyValue: 22
+      objectValue:
+        <AudioType>k__BackingField:
+          <Name>k__BackingField: FireBall
+          <Path>k__BackingField: Assets/Resources_moved/Audio/Self/FireBall.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+  toCreateAudioBase: {fileID: 8300000, guid: df9b647e7fe8490428dc9b9bb885527f, type: 3}

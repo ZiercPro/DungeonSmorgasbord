@@ -28,7 +28,8 @@ namespace ZiercCode.Old.Audio
         WeaponWave2,
         WeaponWave3,
         WeaponWave4,
-        WeaponWave5
+        WeaponWave5,
+        FireBall
     }
 //
 // public idleBgm = "Audio/8Bit Music Album - 051321/IdleBgm";

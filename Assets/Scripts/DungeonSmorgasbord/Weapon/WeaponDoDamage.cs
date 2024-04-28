@@ -15,6 +15,11 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         [SerializeField] private WeaponBase weapon;
 
         /// <summary>
+        /// 是否可以持续造成伤害
+        /// </summary>
+        [SerializeField] private bool canDoDamageConstantly;
+
+        /// <summary>
         /// 是否能伤害到武器持有者
         /// </summary>
         [SerializeField] private bool canHurtSelf;
@@ -28,6 +33,8 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
                     return;
 
                 damageable.TakeDamage(GetDamageInfo());
+                if (!canDoDamageConstantly)
+                    enabled = false;
             }
         }
 
