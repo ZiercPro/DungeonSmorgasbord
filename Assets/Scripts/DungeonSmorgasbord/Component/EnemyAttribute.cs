@@ -1,15 +1,14 @@
-﻿using NaughtyAttributes;
-using ZiercCode.DungeonSmorgasbord.Damage;
+﻿using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
 namespace ZiercCode.DungeonSmorgasbord.Component
 {
     public class EnemyAttribute : CreatureAttribute<EnemyAttributeSo>
     {
-        [ReadOnly] public DamageType damageType;
-        [ReadOnly] public float attackSpeed;
-        [ReadOnly] public float attackRange;
-        [ReadOnly] public int damageAmount;
+        public DamageType damageType;
+        public float attackSpeed;
+        public float attackRange;
+        public int damageAmount;
 
         public override void ResetData()
         {

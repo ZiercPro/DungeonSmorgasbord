@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 295c8216387ac884a850caecbf58d5dc, type: 3}
-  m_Name: Arrow
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: Global Volume Profile 1
   m_EditorClassIdentifier: 
-  myName: "\u7BAD"
-  Damage: 1
-  DamageType: 0
-  WeaponType: 1
-  prefab: {fileID: 5016844673037342057, guid: 876fa58c6c73f384484e756a6727a155, type: 3}
+  components: []

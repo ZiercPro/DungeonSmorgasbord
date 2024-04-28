@@ -293,7 +293,7 @@ MonoBehaviour:
   fireWeapon: {fileID: 3359199199551731490}
   projectileNum: 1
   projectileNumUnFired: 1
-  flySpeed: 20
+  flySpeed: 10
   projectileDefaultHeadDirection: 0
   weaponDefaultHeadDirection: 3
 --- !u!114 &5340371038515230089

@@ -58,7 +58,7 @@ namespace ZiercCode.Old.Enemy
             _scaleShakeFeedBack.StartShake();
             _knockBackFeedBack.StartBackMove(info);
             _flashFeedBack.Flash();
-            TextPopupSpawner.Instance.InitPopupText(this.transform.position, Color.blue, info.damageAmount);
+            TextPopupSpawner.Instance.InitPopupText(transform.position, Color.blue, info.damageAmount);
         }
     }
 }

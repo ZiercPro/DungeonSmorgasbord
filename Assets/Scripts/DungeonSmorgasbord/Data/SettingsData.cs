@@ -10,6 +10,9 @@ namespace ZiercCode.DungeonSmorgasbord.Data
     /// </summary>
     public class SettingsData : IDataStore<SettingsData>
     {
+       /// <summary>
+       /// 相对地址
+       /// </summary>
         private const string SETTING_DATA_PATH = "/settings.json";
 
         /// <summary>

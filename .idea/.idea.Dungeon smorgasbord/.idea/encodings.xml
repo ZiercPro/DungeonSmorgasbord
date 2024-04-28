@@ -2,9 +2,9 @@
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with BOM under Windows, with no BOM otherwise">
     <file url="file://$PROJECT_DIR$/Assets/Scripts/Core/System/USingletonComponentDontDestroy.cs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Manager/DataManager.cs" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/UI/MainMenuPanel.cs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Assets/Scripts/Old/Card/CardBase.cs" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/Old/Manager/ConfigManager.cs" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -1,10 +1,9 @@
 ﻿using NaughtyAttributes;
 using System;
 using UnityEngine;
-using ZiercCode.DungeonSmorgasbord.Weapon;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
-namespace ZiercCode.DungeonSmorgasbord.Component
+namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
     public class WeaponUserComponent : MonoBehaviour
     {

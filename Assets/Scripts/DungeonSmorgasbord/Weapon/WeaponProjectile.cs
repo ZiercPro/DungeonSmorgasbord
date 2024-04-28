@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using System;
+using UnityEngine;
+using ZiercCode.Old.Enemy;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
@@ -16,26 +19,52 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 飞行速度
         /// </summary>
-        [SerializeField] private float speed;
+        private float _speed;
 
         /// <summary>
         /// 发射方向
         /// </summary>
         private Vector3 _direction;
 
+        /// <summary>
+        /// 是否被发射
+        /// </summary>
+        private bool _isFired;
+
+        /// <summary>
+        /// 目标
+        /// </summary>
+        private Transform _target;
+
         private void Awake()
         {
             rigidBody2D.isKinematic = true;
         }
 
+        private void Update()
+        {
+            OnFly();
+        }
+
         /// <summary>
         /// 发射
         /// </summary>
-        public void Fire(Vector3 direction)
+        public void Fire(Vector3 direction, float speed)
         {
+            _speed = speed;
             rigidBody2D.isKinematic = false;
             Vector3 fireSpeed = direction * speed;
             rigidBody2D.velocity = fireSpeed;
+            _isFired = true;
+        }
+
+        /// <summary>
+        /// 飞行中更新
+        /// </summary>
+        private void OnFly()
+        {
+            if (!_isFired) return;
+            //追踪
         }
     }
 }

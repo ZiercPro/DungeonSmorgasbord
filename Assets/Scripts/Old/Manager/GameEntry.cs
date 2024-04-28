@@ -1,5 +1,6 @@
 using ZiercCode.Core.System;
 using ZiercCode.DungeonSmorgasbord.Locale;
+using ZiercCode.DungeonSmorgasbord.Manager;
 using ZiercCode.Old.Audio;
 using ZiercCode.Old.Scene;
 
@@ -10,7 +11,7 @@ namespace ZiercCode.Old.Manager
     /// </summary>
     public class GameEntry : USingletonComponentDontDestroy<GameEntry>
     {
-        private ConfigManager _configManager;
+        private DataManager _dataManager;
 
         protected override void Awake()
         {
@@ -34,7 +35,7 @@ namespace ZiercCode.Old.Manager
         /// </summary>
         private void Init()
         {
-            _configManager = new ConfigManager();
+            _dataManager = new DataManager();
         }
 
         /// <summary>
@@ -42,22 +43,22 @@ namespace ZiercCode.Old.Manager
         /// </summary>
         private void InitGame()
         {
-            _configManager.Load();
-            LocaleManager.Instance.SetLanguage(ConfigManager.SettingsData.Language);
+            _dataManager.Load();
+            LocaleManager.Instance.SetLanguage(DataManager.SettingsData.Language);
         }
 
         private void EnterGame()
         {
-            AudioPlayer.Instance.SetEnvironmentVolume(ConfigManager.SettingsData.EnvironmentVolume);
-            AudioPlayer.Instance.SetMasterVolume(ConfigManager.SettingsData.MasterVolume);
-            AudioPlayer.Instance.SetMusicVolume(ConfigManager.SettingsData.MusicVolume);
-            AudioPlayer.Instance.SetSfxVolume(ConfigManager.SettingsData.SfxVolume);
+            AudioPlayer.Instance.SetEnvironmentVolume(DataManager.SettingsData.EnvironmentVolume);
+            AudioPlayer.Instance.SetMasterVolume(DataManager.SettingsData.MasterVolume);
+            AudioPlayer.Instance.SetMusicVolume(DataManager.SettingsData.MusicVolume);
+            AudioPlayer.Instance.SetSfxVolume(DataManager.SettingsData.SfxVolume);
             SceneSystem.SetScene(new MainMenuScene());
         }
 
         private void ExitGame()
         {
-            _configManager.Save();
+            _dataManager.Save();
         }
     }
 }

@@ -1,18 +1,18 @@
 using ZiercCode.DungeonSmorgasbord.Data;
 
-namespace ZiercCode.Old.Manager
+namespace ZiercCode.DungeonSmorgasbord.Manager
 {
     /// <summary>
-    ///  全局配置数据管理
+    ///  全局数据管理
     /// </summary>
-    public class ConfigManager
+    public class DataManager
     {
         /// <summary>
         /// 设置数据
         /// </summary>
         public static SettingsData SettingsData { get; private set; }
 
-        public ConfigManager()
+        public DataManager()
         {
             if (SettingsData == null)
                 SettingsData = new SettingsData();

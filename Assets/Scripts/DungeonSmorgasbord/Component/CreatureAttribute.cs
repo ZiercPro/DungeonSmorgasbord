@@ -4,12 +4,16 @@ using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
 namespace ZiercCode.DungeonSmorgasbord.Component
 {
+    /// <summary>
+    /// 生物属性
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class CreatureAttribute<T> : MonoBehaviour where T : CreatureAttributesSo
     {
         [SerializeField] protected T creatureAttributesBaseSo;
-        [Space] [ReadOnly] public float criticalChance;
-        [ReadOnly] public float moveSpeed;
-        [ReadOnly] public int maxHealth;
+        [Space] public float criticalChance;
+        public float moveSpeed;
+        public int maxHealth;
 
         public virtual void ResetData()
         {

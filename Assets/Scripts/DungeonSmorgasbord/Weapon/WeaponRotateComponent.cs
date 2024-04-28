@@ -1,7 +1,8 @@
 using NaughtyAttributes;
 using UnityEngine;
+using ZiercCode.DungeonSmorgasbord.Component;
 
-namespace ZiercCode.DungeonSmorgasbord.Component
+namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
     /// <summary>
     /// 武器旋转组件，用于实现武器的旋转

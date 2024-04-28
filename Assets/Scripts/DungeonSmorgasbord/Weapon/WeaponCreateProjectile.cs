@@ -124,7 +124,8 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
                 //生成新的射弹
                 GameObject newP = Instantiate(projectileDataSo.prefab, transform);
                 //初始化新的射弹
-                newP.GetComponent<WeaponProjectile>().Init(fireWeapon.GetWeaponUserBase());
+                WeaponProjectile weaponProjectile = newP.GetComponent<WeaponProjectile>();
+                weaponProjectile.Init(fireWeapon.GetWeaponUserBase());
                 //设置方向
                 newP.transform.localRotation = Quaternion.Euler(direction);
                 newP.transform.localPosition = Vector3.zero;
@@ -146,7 +147,8 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             foreach (var projectile in _projectileInstances)
             {
                 projectile.transform.SetParent(null, true);
-                projectile.GetComponent<WeaponProjectile>().Fire(GetFireDirection(weaponDefaultHeadDirection));
+                projectile.GetComponent<WeaponProjectile>()
+                    .Fire(GetFireDirection(weaponDefaultHeadDirection), flySpeed);
             }
         }
     }

@@ -7,8 +7,7 @@ namespace ZiercCode.DungeonSmorgasbord.Component
 {
     public class HeroAttribute : CreatureAttribute<HeroAttributeSo>
     {
-        public WeaponDataSo weaponDataSo;
-        [ReadOnly] public EditableDictionary<WeaponType, float> weaponDamageRate;
+        public EditableDictionary<WeaponType, float> weaponDamageRate;
 
         public override void ResetData()
         {

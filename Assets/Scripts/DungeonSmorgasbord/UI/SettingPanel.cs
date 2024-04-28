@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using ZiercCode.Core.UI;
 using ZiercCode.DungeonSmorgasbord.Locale;
+using ZiercCode.DungeonSmorgasbord.Manager;
 using ZiercCode.Old.Audio;
 using ZiercCode.Old.Helper;
 using ZiercCode.Old.Manager;
@@ -27,14 +28,14 @@ namespace ZiercCode.DungeonSmorgasbord.UI
             UITool.GetComponentInChildrenUI<RectTransform>("LanguageSettings").gameObject.SetActive(false);
             UITool.GetComponentInChildrenUI<Toggle>("VolumeToggle").isOn = true;
             UITool.GetComponentInChildrenUI<Slider>("MasterSlider").value =
-                ConfigManager.SettingsData.MasterVolume;
+                DataManager.SettingsData.MasterVolume;
             UITool.GetComponentInChildrenUI<Slider>("MusicSlider").value =
-                ConfigManager.SettingsData.MusicVolume;
+                DataManager.SettingsData.MusicVolume;
             UITool.GetComponentInChildrenUI<Slider>("SFXSlider").value =
-                ConfigManager.SettingsData.SfxVolume;
+                DataManager.SettingsData.SfxVolume;
             UITool.GetComponentInChildrenUI<Slider>("EnvironmentSlider").value =
-                ConfigManager.SettingsData.EnvironmentVolume;
-            UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn = ConfigManager.SettingsData.FPSOn;
+                DataManager.SettingsData.EnvironmentVolume;
+            UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn = DataManager.SettingsData.FPSOn;
             //音量设置逻辑
             UITool.GetComponentInChildrenUI<Slider>("EnvironmentSlider").onValueChanged
                 .AddListener(SetEnvironmentVolume);
@@ -90,37 +91,37 @@ namespace ZiercCode.DungeonSmorgasbord.UI
         private void SetMusicVolume(float amount)
         {
             AudioPlayer.Instance.SetMusicVolume(amount);
-            ConfigManager.SettingsData.MusicVolume = amount;
+            DataManager.SettingsData.MusicVolume = amount;
         }
 
         private void SetSfxVolume(float amount)
         {
             AudioPlayer.Instance.SetSfxVolume(amount);
-            ConfigManager.SettingsData.SfxVolume = amount;
+            DataManager.SettingsData.SfxVolume = amount;
         }
 
         private void SetMasterVolume(float amount)
         {
             AudioPlayer.Instance.SetMasterVolume(amount);
-            ConfigManager.SettingsData.MasterVolume = amount;
+            DataManager.SettingsData.MasterVolume = amount;
         }
 
         private void SetEnvironmentVolume(float amount)
         {
             AudioPlayer.Instance.SetEnvironmentVolume(amount);
-            ConfigManager.SettingsData.EnvironmentVolume = amount;
+            DataManager.SettingsData.EnvironmentVolume = amount;
         }
 
         private void SetLanguage(LanguageEnum language)
         {
             LocaleManager.Instance.SetLanguage(language);
-            ConfigManager.SettingsData.Language = LocaleManager.Instance.GetSelectedLanguage();
+            DataManager.SettingsData.Language = LocaleManager.Instance.GetSelectedLanguage();
         }
 
         private void SetFps(bool enable)
         {
             UITool.GetComponentInChildrenUI<Toggle>("FPS").isOn = enable;
-            ConfigManager.SettingsData.FPSOn = enable;
+            DataManager.SettingsData.FPSOn = enable;
         }
     }
 }

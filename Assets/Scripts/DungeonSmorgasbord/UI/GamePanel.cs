@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 using ZiercCode.Core.UI;
+using ZiercCode.DungeonSmorgasbord.Manager;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Manager;
 
@@ -77,7 +78,7 @@ namespace ZiercCode.DungeonSmorgasbord.UI
             GameManager.playerTrans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
             GameManager.playerTrans.GetComponent<Old.Hero.Hero>().CoinPack.CoinChanged += _coinUpdateAction;
             UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled =
-                ConfigManager.SettingsData.FPSOn;
+                DataManager.SettingsData.FPSOn;
         }
 
         public override void OnPause()
@@ -90,7 +91,7 @@ namespace ZiercCode.DungeonSmorgasbord.UI
         {
             base.OnResume();
             UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled =
-                ConfigManager.SettingsData.FPSOn;
+                DataManager.SettingsData.FPSOn;
             GameManager.playerTrans.GetComponent<Health>().InitializeEnded += _healthBarInitAction;
         }
 
