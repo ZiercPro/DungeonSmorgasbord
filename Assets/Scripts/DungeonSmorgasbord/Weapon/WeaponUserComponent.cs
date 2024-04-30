@@ -77,5 +77,10 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         {
             _weaponBase.OnRightButtonPressCanceled();
         }
+
+        public void OnViewPositionChange(Vector2 viewPosition)
+        {
+            _weaponBase.OnViewPositionChange(viewPosition);
+        }
     }
 }

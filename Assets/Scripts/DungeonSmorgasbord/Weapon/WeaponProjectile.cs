@@ -51,7 +51,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         {
             _speed = speed;
             rigidBody2D.isKinematic = false;
-            Vector3 fireSpeed = direction * speed;
+            Vector3 fireSpeed = direction.normalized * speed;
             rigidBody2D.velocity = fireSpeed;
             _isFired = true;
         }

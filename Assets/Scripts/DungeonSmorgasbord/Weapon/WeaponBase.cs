@@ -63,5 +63,10 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         {
             weaponInputHandler.rightButtonPressCanceled?.Invoke();
         }
+
+        public virtual void OnViewPositionChange(Vector2 viewPosition)
+        {
+            weaponInputHandler.viewPositionChange?.Invoke(viewPosition);
+        }
     }
 }

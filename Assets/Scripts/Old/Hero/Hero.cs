@@ -72,6 +72,7 @@ namespace ZiercCode.Old.Hero
             _heroInputManager.MouseRightClickStarted += _weaponUserComponent.OnRightButtonPressStarted;
             _heroInputManager.MouseRightClickPerformed += _weaponUserComponent.OnRightButtonPressed;
             _heroInputManager.MouseRightClickCanceled += _weaponUserComponent.OnRightButtonPressCanceled;
+            _heroInputManager.MousePositionChanging += _weaponUserComponent.OnViewPositionChange;
         }
 
         public void TakeDamage(DamageInfo info)

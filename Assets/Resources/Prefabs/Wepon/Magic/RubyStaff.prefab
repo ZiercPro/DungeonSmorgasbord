@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1799059337224431789
+--- !u!1 &2524604458202706525
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,60 +8,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4928791558238827957}
+  - component: {fileID: 8479758204896192642}
   m_Layer: 0
-  m_Name: ProjectileParent2
+  m_Name: ProjectileAim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4928791558238827957
+--- !u!4 &8479758204896192642
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1799059337224431789}
+  m_GameObject: {fileID: 2524604458202706525}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7150091664650785123}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!1 &2523604029765399800
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4111254102483492833}
-  m_Layer: 0
-  m_Name: ProjectileParent1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4111254102483492833
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2523604029765399800}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.60876137, w: 0.7933534}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7150091664650785123}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -75}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3215588227768238225
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,9 +63,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4111254102483492833}
-  - {fileID: 4928791558238827957}
-  - {fileID: 8344879559671820001}
+  - {fileID: 8479758204896192642}
   m_Father: {fileID: 2990604659736468813}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6553384490223863551
@@ -251,7 +218,6 @@ GameObject:
   - component: {fileID: 6456400725157258967}
   - component: {fileID: 4618609719959064293}
   - component: {fileID: 7481506073733822260}
-  - component: {fileID: 5626511011647657155}
   m_Layer: 0
   m_Name: RubyStaff
   m_TagString: Untagged
@@ -327,6 +293,22 @@ MonoBehaviour:
   rightButtonPressCanceled:
     m_PersistentCalls:
       m_Calls: []
+  viewPositionChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6456400725157258967}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponCreateProjectile,
+          Assembly-CSharp
+        m_MethodName: UpdateAimDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6456400725157258967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,19 +322,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireWeapon: {fileID: 3557039605043540105}
+  projectileAimParent: {fileID: 8479758204896192642}
   projectileConfigs:
   - projectileDataSo: {fileID: 11400000, guid: 0f2a29fe4a3ee2742b568e193584e049, type: 2}
-    projectilePosition: {fileID: 4111254102483492833}
+    projectileFireTransform: {fileID: 8479758204896192642}
+    fireAngelOffset: 5
     projectileNum: 1
     showBeforeFired: 1
     flySpeed: 20
   - projectileDataSo: {fileID: 11400000, guid: 0f2a29fe4a3ee2742b568e193584e049, type: 2}
-    projectilePosition: {fileID: 4928791558238827957}
+    projectileFireTransform: {fileID: 8479758204896192642}
+    fireAngelOffset: 0
     projectileNum: 1
     showBeforeFired: 1
     flySpeed: 10
   - projectileDataSo: {fileID: 11400000, guid: 0f2a29fe4a3ee2742b568e193584e049, type: 2}
-    projectilePosition: {fileID: 8344879559671820001}
+    projectileFireTransform: {fileID: 8479758204896192642}
+    fireAngelOffset: -5
     projectileNum: 1
     showBeforeFired: 1
     flySpeed: 20
@@ -388,48 +374,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioNames: 16000000
---- !u!114 &5626511011647657155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6360319533005852905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5dfc6d27e87db84ca2ef4f3ca8f361f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  defaultRight: 1
---- !u!1 &7584997623980986239
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8344879559671820001}
-  m_Layer: 0
-  m_Name: ProjectileParent3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8344879559671820001
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7584997623980986239}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.7933534, w: 0.6087614}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7150091664650785123}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -105}

@@ -5,12 +5,12 @@ using ZiercCode.DungeonSmorgasbord.Component;
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
     /// <summary>
-    /// 武器旋转组件，用于实现武器的旋转
+    /// 武器旋转组件，用于实现武器的旋转，瞄准鼠标位置
     /// </summary>
     public class WeaponRotateComponent : MonoBehaviour
     {
         /// <summary>
-        /// 旋转锚点
+        /// 武器旋转锚点
         /// </summary>
         [SerializeField] private Transform rotationAnchorPosition;
 
@@ -77,10 +77,13 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         {
             if (!canRotate) return;
             //指向指针
-            Vector2 myPos = rotationAnchorPosition.position;
-            float reRotation = Mathf.Atan2(viewPos.y - myPos.y, viewPos.x - myPos.x) * Mathf.Rad2Deg;
-            Vector3 targetAngles = new Vector3(0, 0, reRotation);
-            rotationAnchorPosition.localEulerAngles = targetAngles;
+            Vector2 direction = viewPos - (Vector2)rotationAnchorPosition.position;
+            rotationAnchorPosition.right = direction;
+            // Vector2 myPos = rotationAnchorPosition.position;
+            // float reRotation = Mathf.Atan2(viewPos.y - myPos.y, viewPos.x - myPos.x) * Mathf.Rad2Deg;
+            // Vector3 targetAngles = new Vector3(0, 0, reRotation);
+            // rotationAnchorPosition.localEulerAngles = targetAngles;
+
 
             //翻转
             if (!autoFlipComponent.IsFacingRight)

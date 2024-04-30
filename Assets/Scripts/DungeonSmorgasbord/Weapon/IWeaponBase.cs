@@ -1,4 +1,5 @@
-﻿using ZiercCode.DungeonSmorgasbord.ScriptObject;
+﻿using UnityEngine;
+using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
@@ -42,5 +43,11 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// 右按钮松开
         /// </summary>
         public void OnRightButtonPressCanceled();
+
+        /// <summary>
+        /// 视线方向变化
+        /// </summary>
+        /// <param name="viewPosition">视点位置</param>
+        public void OnViewPositionChange(Vector2 viewPosition);
     }
 }

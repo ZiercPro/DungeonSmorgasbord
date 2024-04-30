@@ -12,5 +12,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         public UnityEvent leftButtonPressCanceled;
         public UnityEvent rightButtonPressPerformed;
         public UnityEvent rightButtonPressCanceled;
+        public UnityEvent<Vector2> viewPositionChange;
     }
 }
