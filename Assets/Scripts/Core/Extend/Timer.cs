@@ -65,7 +65,12 @@ namespace ZiercCode.Core.Extend
             //如果没有启动 则不会计时
             if (!_isActive) return;
             //一旦到达结束事件，停止计时
-            if (Time.time >= _endTime) { StopTimer(); }
+            if (Time.time >= _endTime)
+            {
+                StopTimer();
+                TimerTrigger?.Invoke();
+            }
         }
+        
     }
 }

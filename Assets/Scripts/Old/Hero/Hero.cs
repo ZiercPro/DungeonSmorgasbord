@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using ZiercCode.Core.Extend;
 using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.DungeonSmorgasbord.Weapon;
@@ -45,7 +46,6 @@ namespace ZiercCode.Old.Hero
         private void Start()
         {
             CoinPack.Init(0);
-            _health.Initialize(_attribute.maxHealth);
             _moveComponent.SetMoveSpeed(_attribute.moveSpeed);
             _heroInputManager.SetHeroControl(true);
             InitWeapon();
@@ -66,8 +66,7 @@ namespace ZiercCode.Old.Hero
 
         private void InitWeapon()
         {
-            _heroInputManager.MousePositionChanging +=
-                _weaponUserComponent.SetWeapon();
+            _heroInputManager.MousePositionChanging += _weaponUserComponent.SetWeapon();
             _heroInputManager.MouseLeftClickStarted += _weaponUserComponent.OnLeftButtonPressStarted;
             _heroInputManager.MouseLeftClickCanceled += _weaponUserComponent.OnLeftButtonPressCanceled;
             _heroInputManager.MouseLeftClickPerformed += _weaponUserComponent.OnLeftButtonPressed;
@@ -79,17 +78,15 @@ namespace ZiercCode.Old.Hero
 
         public void TakeDamage(DamageInfo info)
         {
-            _health.SetCurrent(current =>
-            {
-                current -= info.damageAmount;
-                return current;
-            });
+            int healthValue = _health.GetCurrentHealth() - info.damageAmount;
+            _health.SetCurrentHealth(healthValue, Health.HealthChangeType.Damage);
             //听觉反馈
 
             //视觉反馈
             TextPopupSpawner.Instance.InitPopupText(transform.position, Color.red, "-" + info.damageAmount);
             _cameraShakeFeedback.StartShake();
-            _knockBackFeedBack.StartBackMove(info);
+            _knockBackFeedBack.StartBackMove(info.owner);
+            _animationHandler.ActiveAnimationFunc(1);
         }
 
 

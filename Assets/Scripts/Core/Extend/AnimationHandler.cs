@@ -3,8 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-namespace ZiercCode.DungeonSmorgasbord.Weapon
+namespace ZiercCode.Core.Extend
 {
     /// <summary>
     /// 用于提供动画触发方法

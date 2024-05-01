@@ -24,9 +24,15 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// </summary>
         [SerializeField] private bool canHurtSelf;
 
+        /// <summary>
+        /// 是否可以造成伤害
+        /// </summary>
+        private bool _canDoDamage = true;
+
 
         public void DoDamage(Collider2D c2d)
         {
+            if (!_canDoDamage) return;
             if (c2d.TryGetComponent(out IDamageable damageable))
             {
                 if (!canHurtSelf && c2d.transform == weapon.GetWeaponUserBase().GetWeaponUserTransform())
@@ -34,7 +40,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 
                 damageable.TakeDamage(GetDamageInfo());
                 if (!canDoDamageConstantly)
-                    enabled = false;
+                    _canDoDamage = false;
             }
         }
 

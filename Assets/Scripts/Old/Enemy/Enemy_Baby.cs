@@ -50,13 +50,10 @@ namespace ZiercCode.Old.Enemy
 
         public override void TakeDamage(DamageInfo info)
         {
-            health.SetCurrent(current =>
-            {
-                current -= info.damageAmount;
-                return current;
-            });
+            int healthValue = health.GetCurrentHealth() - info.damageAmount;
+            health.SetCurrentHealth(healthValue, Health.HealthChangeType.Damage);
             _scaleShakeFeedBack.StartShake();
-            _knockBackFeedBack.StartBackMove(info);
+            _knockBackFeedBack.StartBackMove(info.owner);
             _flashFeedBack.Flash();
             TextPopupSpawner.Instance.InitPopupText(this.transform.position, Color.blue, info.damageAmount);
         }

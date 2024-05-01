@@ -9,11 +9,16 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         [SerializeField] private float duration = 1f;
         [SerializeField] private float strength = 1f;
 
+
         private Tweener _shakeTweener;
+        private bool _canShakeScale = true;
 
         public void StartShake()
         {
-            _shakeTweener = animatorTransform.DOShakeScale(duration, strength).SetEase(Ease.Flash);
+            if (!_canShakeScale) return;
+            _canShakeScale = false;
+            _shakeTweener = animatorTransform.DOShakeScale(duration, strength).SetEase(Ease.Flash)
+                .OnComplete(() => { _canShakeScale = true; });
             _shakeTweener.SetAutoKill(true);
         }
     }

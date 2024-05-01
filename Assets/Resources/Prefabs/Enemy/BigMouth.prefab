@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 6411977566774079291}
   - component: {fileID: 7265021260225710745}
   - component: {fileID: 6125341557900362748}
+  - component: {fileID: 3730886015328126032}
   m_Layer: 6
   m_Name: BigMouth
   m_TagString: Untagged
@@ -404,6 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932b357a591b79e44bf9090780f6848f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb2D: {fileID: 0}
 --- !u!114 &8941662257894150561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,7 +434,7 @@ MonoBehaviour:
   creatureAttributesBaseSo: {fileID: 11400000, guid: 120a875949e2c2044a8b8a1101258a4f, type: 2}
   criticalChance: 0
   moveSpeed: 3
-  maxHealth: 10
+  maxHealth: 2000
   damageType: 0
   attackSpeed: 1.2
   attackRange: 0.6
@@ -449,6 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70d6c9f8ac07c6468bcd1adaefd3a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creatureAttributesSo: {fileID: 0}
 --- !u!114 &7753462400711176672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,7 +479,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 0}
-  defaultMaterial: {fileID: 0}
   characterS: {fileID: 2938499904769739467}
   maintainTime: 0.1
 --- !u!114 &-2864066936988530281
@@ -552,3 +554,15 @@ MonoBehaviour:
     itemNum: 1
     minNum: 0
     maxNum: 0
+--- !u!114 &3730886015328126032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472406070026422316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2161287d0193244a59b78c557d6502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

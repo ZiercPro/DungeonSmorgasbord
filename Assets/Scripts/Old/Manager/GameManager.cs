@@ -57,6 +57,7 @@ namespace ZiercCode.Old.Manager
         public void SceneInit()
         {
             ParallaxMoveManager.Instance.BackGroundMove();
+            _panelManager.Push(new GamePanel());
         }
 
         //角色生成

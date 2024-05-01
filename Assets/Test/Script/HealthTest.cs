@@ -14,8 +14,6 @@ namespace ZiercCode.Test
 
         private void Start()
         {
-            _health.Initialize(10);
-            _health.CurrentHealthChanged += current => { Debug.Log(current); };
         }
     }
 }

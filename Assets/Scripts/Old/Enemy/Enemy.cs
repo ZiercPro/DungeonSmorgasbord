@@ -49,7 +49,6 @@ namespace ZiercCode.Old.Enemy
         protected virtual void Start()
         {
             MoveComponent.SetMoveSpeed(Attribute.moveSpeed);
-            health.Initialize(Attribute.maxHealth);
             health.Dead += () =>
             {
                 Dead();

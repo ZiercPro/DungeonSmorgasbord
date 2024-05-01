@@ -11,13 +11,11 @@ namespace ZiercCode.Old.Scene
     {
         private readonly string _name = "GameScene";
 
-        private PanelManager _panelManager;
 
         public AsyncOperation AsyncOperation { get; private set; }
 
         public override void OnEnter()
         {
-            _panelManager = new PanelManager();
             if (SceneManager.GetActiveScene().name != _name)
             {
                 SceneManager.sceneLoaded += OnSceneLoaded;
@@ -32,14 +30,11 @@ namespace ZiercCode.Old.Scene
             AudioPlayer.Instance.ClearAudioCache();
             SceneManager.sceneLoaded -= OnSceneLoaded;
             BattleManager.Instance.onBattleEnd.RemoveAllListeners();
-            _panelManager.PopAll();
         }
 
 
         protected override void ToDoOnSceneLoaded()
         {
-            _panelManager.Push(new GamePanel());
-            BattleManager.Instance.onBattleEnd.AddListener(() => { _panelManager.Push(new CardPanel()); });
             AudioPlayer.Instance.PlayAudioAsync(AudioName.IdleBgm);
         }
 

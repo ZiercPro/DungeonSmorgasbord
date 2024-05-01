@@ -2,6 +2,7 @@ using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.Old.Audio;
+using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Enemy;
 using ZiercCode.Old.Enemy.EnemyState;
 using ZiercCode.Old.Manager;
@@ -50,13 +51,10 @@ namespace ZiercCode.Old.Enemy
 
         public override void TakeDamage(DamageInfo info)
         {
-            health.SetCurrent(current =>
-            {
-                current -= info.damageAmount;
-                return current;
-            });
+            int healthValue = health.GetCurrentHealth() - info.damageAmount;
+            health.SetCurrentHealth(healthValue, Health.HealthChangeType.Damage);
             _scaleShakeFeedBack.StartShake();
-            _knockBackFeedBack.StartBackMove(info);
+            _knockBackFeedBack.StartBackMove(info.owner);
             _flashFeedBack.Flash();
             TextPopupSpawner.Instance.InitPopupText(transform.position, Color.blue, info.damageAmount);
         }

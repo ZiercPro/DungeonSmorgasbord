@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 6874231262188466895}
   - component: {fileID: 7313946861486673487}
   - component: {fileID: 1543473922173120584}
+  - component: {fileID: 8077011945100594774}
   m_Layer: 3
   m_Name: Hero_Lewis
   m_TagString: Player
@@ -256,6 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70d6c9f8ac07c6468bcd1adaefd3a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creatureAttributesSo: {fileID: 0}
 --- !u!114 &6664480362858052325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +420,18 @@ MonoBehaviour:
     intValue: 0
     boolValue: 1
     floatValue: 0
+--- !u!114 &8077011945100594774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299815134350897790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2161287d0193244a59b78c557d6502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4322705567087781510
 GameObject:
   m_ObjectHideFlags: 0

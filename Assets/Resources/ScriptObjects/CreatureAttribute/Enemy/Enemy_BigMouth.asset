@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instance: {fileID: 8472406070026422316, guid: 8bb4383f80ae3fa46bb1b7bc97b2ef13, type: 3}
   myName: BigMouth
-  maxHealth: 10
+  maxHealth: 2000
   moveSpeed: 3
   criticalChance: 0
   difficulty: 1

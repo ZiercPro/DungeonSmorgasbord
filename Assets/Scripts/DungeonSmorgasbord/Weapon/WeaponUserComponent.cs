@@ -23,7 +23,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 设置武器
         /// </summary>
-        /// <returns>鼠标位置改变事件绑定</returns>
+        /// <returns>鼠标位置改变事件绑定武器旋转方法</returns>
 #if UNITY_EDITOR
         [Button("设置武器")]
 #endif
