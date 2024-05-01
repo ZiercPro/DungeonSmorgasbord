@@ -12,11 +12,11 @@ namespace ZiercCode.Old.Hero
 {
     public class Hero : MonoBehaviour, IDamageable, IWeaponUserBase
     {
-        private HeroAnimationController _heroAnimationController;
         private WeaponUserComponent _weaponUserComponent;
         private CameraShakeFeedback _cameraShakeFeedback;
         private KnockBackFeedBack _knockBackFeedBack;
         private AutoFlipComponent _autoFlipComponent;
+        private AnimationHandler _animationHandler;
         private HeroInputManager _heroInputManager;
         private InteractHandler _interactHandler;
         private HeroAttribute _attribute;
@@ -39,7 +39,7 @@ namespace ZiercCode.Old.Hero
             _heroInputManager = GetComponent<HeroInputManager>();
             _knockBackFeedBack = GetComponent<KnockBackFeedBack>();
             _cameraShakeFeedback = GetComponent<CameraShakeFeedback>();
-            _heroAnimationController = GetComponent<HeroAnimationController>();
+            _animationHandler = GetComponent<AnimationHandler>();
         }
 
         private void Start()
@@ -56,9 +56,11 @@ namespace ZiercCode.Old.Hero
             //动画
             _heroInputManager.MovementInputPerforming += moveDir =>
             {
-                _heroAnimationController.MoveAnimation(moveDir);
+                if (moveDir.sqrMagnitude > 0)
+                    _animationHandler.ActiveAnimationFunc(3);
+                else
+                    _animationHandler.ActiveAnimationFunc(2);
             };
-            _health.Dead += _heroAnimationController.DeadAnimation;
             _health.Dead += Dead;
         }
 
@@ -93,6 +95,7 @@ namespace ZiercCode.Old.Hero
 
         public void Dead()
         {
+            _animationHandler.ActiveAnimationFunc(0);
             _knockBackFeedBack.enabled = false;
             _heroInputManager.SetHeroControl(false);
             _moveComponent.Stop();

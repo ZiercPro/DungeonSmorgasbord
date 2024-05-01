@@ -302,6 +302,9 @@ MonoBehaviour:
   rightButtonPressCanceled:
     m_PersistentCalls:
       m_Calls: []
+  viewPositionChange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7024236760118111494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,9 +318,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3975630879825958663}
-  weaponAnimationsFunc:
+  animationsFunc:
   - parameterName: attack
-    weaponAnimationParameterType: 0
+    animationParameterType: 0
     intValue: 0
     boolValue: 0
     floatValue: 0
@@ -347,6 +350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 1274364151649758601}
+  canDoDamageConstantly: 0
   canHurtSelf: 0
 --- !u!1 &8996496289278654133
 GameObject:

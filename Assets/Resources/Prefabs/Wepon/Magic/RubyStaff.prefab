@@ -355,9 +355,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 618581155776078339}
-  weaponAnimationsFunc:
+  animationsFunc:
   - parameterName: fire
-    weaponAnimationParameterType: 0
+    animationParameterType: 0
     intValue: 0
     boolValue: 0
     floatValue: 0

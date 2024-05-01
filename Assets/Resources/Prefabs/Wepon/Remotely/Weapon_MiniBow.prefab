@@ -314,14 +314,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3975630879825958663}
-  weaponAnimationsFunc:
+  animationsFunc:
   - parameterName: isHolding
-    weaponAnimationParameterType: 3
+    animationParameterType: 3
     intValue: 0
     boolValue: 0
     floatValue: 0
   - parameterName: isHolding
-    weaponAnimationParameterType: 3
+    animationParameterType: 3
     intValue: 0
     boolValue: 1
     floatValue: 0

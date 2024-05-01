@@ -18,13 +18,13 @@ GameObject:
   - component: {fileID: 6262629404899212936}
   - component: {fileID: 6664480362858052325}
   - component: {fileID: 8962218401074913994}
-  - component: {fileID: 4860067538032032267}
   - component: {fileID: 7032251624863716901}
   - component: {fileID: 6903971427401375828}
   - component: {fileID: 2022308064305852640}
   - component: {fileID: 9142441715828021553}
   - component: {fileID: 6874231262188466895}
   - component: {fileID: 7313946861486673487}
+  - component: {fileID: 1543473922173120584}
   m_Layer: 3
   m_Name: Hero_Lewis
   m_TagString: Player
@@ -268,7 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c2e788184586847ab58cc575b51e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDataSo: {fileID: 11400000, guid: 6ceea18110757f14f8632f24e90e8a03, type: 2}
 --- !u!114 &8962218401074913994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,19 +298,6 @@ MonoBehaviour:
     - _inspectorName: 
       keyValue: 1
       objectValue: 1
---- !u!114 &4860067538032032267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3299815134350897790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d74d2c01e83245746a9fd6e83875179c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 1448311870630047478}
 --- !u!114 &7032251624863716901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -360,6 +346,7 @@ MonoBehaviour:
   canChangeWeapon: 1
   weaponRenderer: {fileID: 0}
   weaponTransform: {fileID: 0}
+  canRotate: 0
 --- !u!114 &9142441715828021553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,6 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db2025ca86674dbd8398adff56bee2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponDataSo: {fileID: 0}
 --- !u!210 &7313946861486673487
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -396,6 +384,40 @@ SortingGroup:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &1543473922173120584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3299815134350897790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48fd97c3e8c4cadaee52ca2b783e958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1448311870630047478}
+  animationsFunc:
+  - parameterName: isDead
+    animationParameterType: 0
+    intValue: 0
+    boolValue: 0
+    floatValue: 0
+  - parameterName: getHit
+    animationParameterType: 0
+    intValue: 0
+    boolValue: 0
+    floatValue: 0
+  - parameterName: running
+    animationParameterType: 3
+    intValue: 0
+    boolValue: 0
+    floatValue: 0
+  - parameterName: running
+    animationParameterType: 3
+    intValue: 0
+    boolValue: 1
+    floatValue: 0
 --- !u!1 &4322705567087781510
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +551,7 @@ MonoBehaviour:
   - {x: 0.25, y: 0.05, z: 0}
   m_ShapePathHash: 334015429
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40640
+  m_InstanceId: 49582
   m_LocalBounds:
     m_Center: {x: -0.025000006, y: 0.175, z: 0}
     m_Extent: {x: 0.275, y: 0.125, z: 0}
