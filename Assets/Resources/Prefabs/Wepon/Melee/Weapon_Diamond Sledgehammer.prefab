@@ -113,6 +113,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7297511309310059311}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponKnockBack,
+          Assembly-CSharp
+        m_MethodName: DoKnockBack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   triggerExited:
     m_PersistentCalls:
       m_Calls: []
@@ -330,6 +343,7 @@ GameObject:
   - component: {fileID: 2447673223184864201}
   - component: {fileID: 4870811552832442896}
   - component: {fileID: 8923497920505129274}
+  - component: {fileID: 7297511309310059311}
   m_Layer: 0
   m_Name: Weapon_Diamond Sledgehammer
   m_TagString: Untagged
@@ -471,3 +485,16 @@ MonoBehaviour:
   weapon: {fileID: 5450117118578364982}
   canDoDamageConstantly: 0
   canHurtSelf: 0
+--- !u!114 &7297511309310059311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6185784982844736175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b213c95fb40916f4e8ada25c218d2510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 40

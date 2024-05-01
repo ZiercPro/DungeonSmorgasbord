@@ -85,7 +85,6 @@ namespace ZiercCode.Old.Hero
             //视觉反馈
             TextPopupSpawner.Instance.InitPopupText(transform.position, Color.red, "-" + info.damageAmount);
             _cameraShakeFeedback.StartShake();
-            _knockBackFeedBack.StartBackMove(info.owner);
             _animationHandler.ActiveAnimationFunc(1);
         }
 

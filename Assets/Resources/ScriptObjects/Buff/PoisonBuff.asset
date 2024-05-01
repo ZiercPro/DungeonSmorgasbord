@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 89e38aa7db579e148aeda0097cae5a2d, type: 3}
-  m_Name: FireBuff
+  m_Name: PoisonBuff
   m_EditorClassIdentifier: 
-  buffId: 0
+  buffId: 1
   duration: 10
-  effectInternal: 2
+  effectInternal: 1
   addAble: 1
   damage: 1
   haveParticle: 1
-  fireParticle: {fileID: 4495126671331401602, guid: b1d2453f0cfbce9429e8d903e9a3c33e, type: 3}
+  fireParticle: {fileID: 8697270535636560204, guid: 0cbf2ad0e5a3bc44fa80f8358f7d445b, type: 3}

@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 563419900009962298}
   m_Father: {fileID: 3356483818476602514}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &219050087947113465
@@ -194,7 +195,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9096499118313708832}
-  - {fileID: 563419900009962298}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3877932427956383919
@@ -251,7 +251,20 @@ MonoBehaviour:
       m_Calls: []
   viewPositionChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8020031456317528090}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponCreateProjectile,
+          Assembly-CSharp
+        m_MethodName: UpdateAimDirection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8020031456317528090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,10 +335,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5157996720525818315}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3356483818476602514}
+  m_Father: {fileID: 9096499118313708832}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

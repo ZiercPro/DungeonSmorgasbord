@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 7024236760118111494}
   - component: {fileID: 1488947650457850942}
   - component: {fileID: 7240828726038455807}
+  - component: {fileID: 5662345326014400720}
   m_Layer: 0
   m_Name: Weapon_Diamond Greatsword
   m_TagString: Untagged
@@ -352,6 +353,19 @@ MonoBehaviour:
   weapon: {fileID: 1274364151649758601}
   canDoDamageConstantly: 0
   canHurtSelf: 0
+--- !u!114 &5662345326014400720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3750903395687166601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b213c95fb40916f4e8ada25c218d2510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 15
 --- !u!1 &8996496289278654133
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +419,19 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponDoDamage,
           Assembly-CSharp
         m_MethodName: DoDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5662345326014400720}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponKnockBack,
+          Assembly-CSharp
+        m_MethodName: DoKnockBack
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

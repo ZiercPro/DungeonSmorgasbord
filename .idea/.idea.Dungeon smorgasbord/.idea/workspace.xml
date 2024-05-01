@@ -5,86 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd36c1ef-bee6-41a4-b2ce-922eadf5c2c5" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Buff.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Buff/FireBuff.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Buff/FireBuff.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/Projectile.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/Projectile/Arrow.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/Projectile/Arrow.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/Projectile/DiamondGreatswordProjectile.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/Projectile/DiamondGreatswordProjectile.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/Projectile/FireBall.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/Projectile/FireBall.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/Projectile/PoisonBall.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/Projectile/PoisonBall.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/WeaponBase.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/WeaponBase/DiamondGreatsword.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/WeaponBase/DiamondGreatsword.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/WeaponBase/DiamondSledgehammer.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/WeaponBase/DiamondSledgehammer.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/WeaponBase/EmeraldStaff.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/WeaponBase/EmeraldStaff.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/WeaponBase/MiniBow.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/WeaponBase/MiniBow.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/WeaponBase/RubyStaff.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/WeaponBase/RubyStaff.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/BuffBaseSo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/BuffBaseSo.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/BuffEffective.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/BuffEffective.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/FireBuff.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/FireBuff.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponDoBuffEffect.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponDoBuffEffect.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponDoCure.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponDoCure.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Buff/PoisonBuff.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Buff/PoisonBuff.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponKnockBack.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponKnockBack.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.changes" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.changes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.wktree" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.wktree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemy/BigMouth.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Enemy/BigMouth.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Hero/Hero_Lewis.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Hero/Hero_Lewis.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Particle/FireEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Particle/FireEffect.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Particle/ScarletMouth_DeadParticle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Particle/ScarletMouth_DeadParticle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Particle/PoisonEffect.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Particle/PoisonEffect.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/FireBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/FireBall.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/RubyStaff.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/RubyStaff.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/PoisonBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/PoisonBall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Melee/Weapon_Diamond Greatsword.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Melee/Weapon_Diamond Greatsword.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Melee/Weapon_Diamond Sledgehammer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Melee/Weapon_Diamond Sledgehammer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/CreatureAttribute/Enemy/Enemy_BigMouth.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/CreatureAttribute/Enemy/Enemy_BigMouth.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/Arrow.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/Arrow.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/DiamondGreatsword.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/DiamondGreatsword.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/DiamondGreatswordProjectile.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/DiamondGreatswordProjectile.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/DiamondSledgehammer.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/DiamondSledgehammer.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/EmeraldStaff.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/EmeraldStaff.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/FireBall.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/FireBall.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/MiniBow.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/MiniBow.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/PoisonBall.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/PoisonBall.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/RubyStaff.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/RubyStaff.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Extend/Timer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Extend/Timer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Buff/FireBuff.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Buff/FireBuff.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/FireBuffSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/DamageBuffSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/FireBuffSo.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/DamageBuffSo.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Component/KnockBackFeedBack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Component/KnockBackFeedBack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Component/ScaleShakeFeedBack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Component/ScaleShakeFeedBack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/UI/GamePanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/UI/GamePanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/AnimationHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Extend/AnimationHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/AnimationHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Extend/AnimationHandler.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponDoDamage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponDoDamage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponUserComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponUserComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Component/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Component/Health.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Enemy/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Enemy/Enemy_Baby.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Enemy/Enemy_Baby.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Enemy/Enemy_BigMouse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Enemy/Enemy_BigMouse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Hero/Hero.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Hero/Hero.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Manager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Manager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Scene/GameScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Scene/GameScene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Scene/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Scene/Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Script/HealthTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Script/HealthTest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +90,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/ScriptObject/EnemyDataListSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/ScriptObject/WeaponDataSo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponDoCure.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponKnockBack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.19/Editor/Settings/AddressableAssetEntry.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.19/Editor/Settings/AddressableAssetSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.19/Runtime/Addressables.cs" root0="SKIP_HIGHLIGHTING" />
@@ -381,7 +322,7 @@
       <workItem from="1714466008401" duration="471000" />
       <workItem from="1714480503787" duration="750000" />
       <workItem from="1714486526706" duration="2807000" />
-      <workItem from="1714535635891" duration="16681000" />
+      <workItem from="1714535635891" duration="18283000" />
     </task>
     <servers />
   </component>

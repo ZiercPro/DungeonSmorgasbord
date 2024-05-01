@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8694226074599228712}
   - component: {fileID: 7097391299916840660}
   - component: {fileID: 8321934552670445048}
+  - component: {fileID: 6231817382091486875}
+  - component: {fileID: 6642309748058936498}
   m_Layer: 0
   m_Name: PoisonBall
   m_TagString: Untagged
@@ -94,6 +96,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon: {fileID: 7097391299916840660}
   canDoDamageConstantly: 0
+  canHurtSelf: 0
+--- !u!114 &6231817382091486875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924614913807550534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b213c95fb40916f4e8ada25c218d2510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 5
+--- !u!114 &6642309748058936498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924614913807550534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c404408be4324cf3ace10ecbf4f8d5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponBase: {fileID: 7097391299916840660}
+  buffBaseSo: {fileID: 11400000, guid: 0f957f25a6609514fa984ac662753d63, type: 2}
   canHurtSelf: 0
 --- !u!1 &6899770781048087146
 GameObject:
@@ -183,6 +213,32 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponDoDamage,
           Assembly-CSharp
         m_MethodName: DoDamage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6642309748058936498}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponDoBuffEffect,
+          Assembly-CSharp
+        m_MethodName: DoBuffEffect
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6231817382091486875}
+        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponKnockBack,
+          Assembly-CSharp
+        m_MethodName: DoKnockBack
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
