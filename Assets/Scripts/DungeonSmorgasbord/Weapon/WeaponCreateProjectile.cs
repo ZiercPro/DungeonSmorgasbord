@@ -39,17 +39,19 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             /// </summary>
             [SerializeField] private WeaponDataSo projectileDataSo;
 
+
             /// <summary>
             /// 射弹轨道的transform
             /// 用于确认射弹生成的位置
             /// </summary>
-            [SerializeField] private Transform projectileFireTransform;
+            [SerializeField] private Transform projectilePosition;
 
 
             /// <summary>
             /// 相对总方向的角度差
             /// </summary>
-            [SerializeField] private float fireAngelOffset;
+            [SerializeField, Tooltip("相对瞄准方向的角度差值")]
+            private float fireAngelOffset;
 
             /// <summary>
             /// 射弹数量
@@ -82,12 +84,13 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
                 for (int i = 0; i < projectileNum; i++)
                 {
                     //生成新的射弹
-                    ProjectileInstances = Instantiate(projectileDataSo.prefab, projectileFireTransform);
+                    ProjectileInstances = Instantiate(projectileDataSo.prefab, projectilePosition);
                     //初始化新的射弹
                     WeaponProjectile weaponProjectile = ProjectileInstances.GetComponent<WeaponProjectile>();
                     weaponProjectile.Init(fireWeapon.GetWeaponUserBase());
                     //设置方向
-                    ProjectileInstances.transform.localRotation = Quaternion.identity;
+                    ProjectileInstances.transform.localEulerAngles = new Vector3(0, 0,
+                        ProjectileInstances.transform.localEulerAngles.z + fireAngelOffset);
                     //设置位置
                     ProjectileInstances.transform.localPosition = Vector3.zero;
                     if (!showBeforeFired)
@@ -104,16 +107,9 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 
                 if (!showBeforeFired)
                     ProjectileInstances.SetActive(true);
-                Vector2 fireDirection = projectileFireTransform.right;
-                //考虑插值
-                if (fireAngelOffset != 0)
-                {
-                    float radiusOffset = fireAngelOffset / Mathf.Rad2Deg;
-                    fireDirection += new Vector2(Mathf.Cos(radiusOffset), Mathf.Sin(radiusOffset));
-                }
 
                 ProjectileInstances.GetComponent<WeaponProjectile>()
-                    .Fire(fireDirection, flySpeed);
+                    .Fire(flySpeed);
             }
         }
 

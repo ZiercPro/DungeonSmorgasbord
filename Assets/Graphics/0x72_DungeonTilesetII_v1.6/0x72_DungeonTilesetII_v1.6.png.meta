@@ -4231,27 +4231,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.6_211
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 369
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6fc0e0df77c4602428e08526a1a74a44
-      internalID: 1614426769
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: 0x72_DungeonTilesetII_v1.6_212
       rect:
         serializedVersion: 2
@@ -4751,27 +4730,6 @@ TextureImporter:
       bones: []
       spriteID: 13acd09f09bf08f4e9c70fb4a3713d21
       internalID: -1720541679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 0x72_DungeonTilesetII_v1.6_239
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 352
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee3e2519cfff4284d92f00d53387b74a
-      internalID: -1157859392
       vertices: []
       indices: 
       edges: []
@@ -10488,6 +10446,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Emerald Staff
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 352
+        width: 16
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73172dbade8ed0542b380d74c0996f6b
+      internalID: -599073760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -11098,6 +11077,7 @@ TextureImporter:
       Coin_2: 521719970
       Coin_3: 395608672
       Coin_4: -322189447
+      Emerald Staff: -599073760
       Ground_1: -1517000211
       Ground_2: -1140356474
       Ground_3: 1869589008

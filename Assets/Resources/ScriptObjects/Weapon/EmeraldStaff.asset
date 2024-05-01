@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 295c8216387ac884a850caecbf58d5dc, type: 3}
-  m_Name: FireBall
+  m_Name: EmeraldStaff
   m_EditorClassIdentifier: 
-  myName: "\u706B\u6CD5\u7403"
+  myName: "\u7EFF\u5B9D\u77F3\u53D1\u6CD5\u6756"
   Damage: 2
   DamageType: 1
-  WeaponType: 2
-  prefab: {fileID: 1924614913807550534, guid: 94acaf71a013e894d9acdcb7ced8c487, type: 3}
+  WeaponType: 1
+  prefab: {fileID: 4011465470153352503, guid: a7e56e86cb5d3514aa0b2b687b983e59, type: 3}

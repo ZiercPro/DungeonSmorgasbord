@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3004392359352960273
+--- !u!1 &3805605601802135997
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6804911899401152441}
-  - component: {fileID: 64676381317102006}
-  - component: {fileID: 3975630879825958663}
-  - component: {fileID: 7387383672278373734}
+  - component: {fileID: 9096499118313708832}
+  - component: {fileID: 219050087947113465}
+  - component: {fileID: 3851802004098964013}
+  - component: {fileID: 1318701116236051133}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -19,28 +19,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6804911899401152441
+--- !u!4 &9096499118313708832
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3004392359352960273}
+  m_GameObject: {fileID: 3805605601802135997}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5954699438021429229}
+  m_Father: {fileID: 3356483818476602514}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &64676381317102006
+--- !u!212 &219050087947113465
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3004392359352960273}
+  m_GameObject: {fileID: 3805605601802135997}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -72,31 +72,31 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 404507155
-  m_SortingLayer: 4
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 983d908126cbc6548a9616bd5a3e5f05, type: 3}
+  m_Sprite: {fileID: -599073760, guid: 04f12c3d5113202419c9f03081d97203, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8, y: 8}
+  m_Size: {x: 1, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &3975630879825958663
+--- !u!95 &3851802004098964013
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3004392359352960273}
+  m_GameObject: {fileID: 3805605601802135997}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 11c55d7e5373f6c4f8151355786b02e1, type: 2}
+  m_Controller: {fileID: 9100000, guid: d2fd94dac3f44974baaa87ba177bd3c8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -107,13 +107,13 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7387383672278373734
+--- !u!114 &1318701116236051133
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3004392359352960273}
+  m_GameObject: {fileID: 3805605601802135997}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47e96aff3c9ab3146b328f062ad8c3e9, type: 3}
@@ -121,8 +121,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationStarted:
     m_PersistentCalls:
+      m_Calls: []
+  animationTriggeredStart:
+    m_PersistentCalls:
+      m_Calls: []
+  animationTriggeredPerform:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8471055228792662828}
+      - m_Target: {fileID: 8020031456317528090}
         m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponCreateProjectile,
           Assembly-CSharp
         m_MethodName: CreateProjectiles
@@ -135,13 +141,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  animationTriggeredStart:
-    m_PersistentCalls:
-      m_Calls: []
-  animationTriggeredPerform:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8471055228792662828}
+      - m_Target: {fileID: 8020031456317528090}
         m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponCreateProjectile,
           Assembly-CSharp
         m_MethodName: Fire
@@ -160,7 +160,7 @@ MonoBehaviour:
   animationEnded:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &3750903395687166601
+--- !u!1 &4011465470153352503
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,72 +168,57 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5954699438021429229}
-  - component: {fileID: 5414978786675948531}
-  - component: {fileID: 3359199199551731490}
-  - component: {fileID: 6556293326516266682}
-  - component: {fileID: 8471055228792662828}
-  - component: {fileID: 5340371038515230089}
+  - component: {fileID: 3356483818476602514}
+  - component: {fileID: 3877932427956383919}
+  - component: {fileID: 8248564975734724265}
+  - component: {fileID: 8020031456317528090}
+  - component: {fileID: 3158328617504396853}
   m_Layer: 0
-  m_Name: Weapon_MiniBow
+  m_Name: EmeraldStaff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5954699438021429229
+--- !u!4 &3356483818476602514
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3750903395687166601}
+  m_GameObject: {fileID: 4011465470153352503}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.306, y: 0.384, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6804911899401152441}
+  - {fileID: 9096499118313708832}
+  - {fileID: 563419900009962298}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5414978786675948531
+--- !u!114 &3877932427956383919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3750903395687166601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d08d96fd68039af44a4f02843696133b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  intensity: 1.8
-  frequence: 1
-  duration: 0.2
---- !u!114 &3359199199551731490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3750903395687166601}
+  m_GameObject: {fileID: 4011465470153352503}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed6610fee702be64fa32f8708b030d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDataSo: {fileID: 11400000, guid: 5c108d2df9d632e4da5bb96c078316c2, type: 2}
-  weaponInputHandler: {fileID: 6556293326516266682}
+  weaponDataSo: {fileID: 11400000, guid: 3731acb4e97918d4cafed8e3d4234f36, type: 2}
+  weaponInputHandler: {fileID: 8248564975734724265}
   haveInput: 1
---- !u!114 &6556293326516266682
+--- !u!114 &8248564975734724265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3750903395687166601}
+  m_GameObject: {fileID: 4011465470153352503}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a78a2e1bd6948a981569db239d4d339, type: 3}
@@ -242,23 +227,7 @@ MonoBehaviour:
   leftButtonPressPerformed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5340371038515230089}
-        m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponAnimationHandler,
-          Assembly-CSharp
-        m_MethodName: ActiveAnimationFunc
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  leftButtonPressCanceled:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5340371038515230089}
+      - m_Target: {fileID: 3158328617504396853}
         m_TargetAssemblyTypeName: ZiercCode.DungeonSmorgasbord.Weapon.WeaponAnimationHandler,
           Assembly-CSharp
         m_MethodName: ActiveAnimationFunc
@@ -271,6 +240,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  leftButtonPressCanceled:
+    m_PersistentCalls:
+      m_Calls: []
   rightButtonPressPerformed:
     m_PersistentCalls:
       m_Calls: []
@@ -280,48 +252,80 @@ MonoBehaviour:
   viewPositionChange:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8471055228792662828
+--- !u!114 &8020031456317528090
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3750903395687166601}
+  m_GameObject: {fileID: 4011465470153352503}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4d1d2b0a9041ebb56ac67d8bb9e233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireWeapon: {fileID: 3359199199551731490}
-  projectileAimParent: {fileID: 5954699438021429229}
+  fireWeapon: {fileID: 3877932427956383919}
+  projectileAimParent: {fileID: 563419900009962298}
   projectileConfigs:
-  - projectileDataSo: {fileID: 11400000, guid: d5b4369d5754bd241a057bc5827181c5, type: 2}
-    projectilePosition: {fileID: 5954699438021429229}
-    fireAngelOffset: 0
+  - projectileDataSo: {fileID: 11400000, guid: fc9fbdb0d1bed4c4d967ed425447358a, type: 2}
+    projectilePosition: {fileID: 563419900009962298}
+    fireAngelOffset: 10
     projectileNum: 1
-    showBeforeFired: 1
+    showBeforeFired: 0
     flySpeed: 10
---- !u!114 &5340371038515230089
+  - projectileDataSo: {fileID: 11400000, guid: fc9fbdb0d1bed4c4d967ed425447358a, type: 2}
+    projectilePosition: {fileID: 563419900009962298}
+    fireAngelOffset: -10
+    projectileNum: 1
+    showBeforeFired: 0
+    flySpeed: 10
+--- !u!114 &3158328617504396853
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3750903395687166601}
+  m_GameObject: {fileID: 4011465470153352503}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d48fd97c3e8c4cadaee52ca2b783e958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 3975630879825958663}
+  animator: {fileID: 3851802004098964013}
   weaponAnimationsFunc:
-  - parameterName: isHolding
-    weaponAnimationParameterType: 3
+  - parameterName: fire
+    weaponAnimationParameterType: 0
     intValue: 0
     boolValue: 0
     floatValue: 0
-  - parameterName: isHolding
-    weaponAnimationParameterType: 3
-    intValue: 0
-    boolValue: 1
-    floatValue: 0
+--- !u!1 &5157996720525818315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 563419900009962298}
+  m_Layer: 0
+  m_Name: ProjectileAim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &563419900009962298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5157996720525818315}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3356483818476602514}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

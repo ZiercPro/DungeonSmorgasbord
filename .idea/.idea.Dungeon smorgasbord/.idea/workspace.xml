@@ -5,28 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd36c1ef-bee6-41a4-b2ce-922eadf5c2c5" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Self/fire.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Audio/Self/fire.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shader/Material/Freeze.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shader/Material/Freeze.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shader/ShaderGraph/FreezeEffect.shadergraph" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Shader/ShaderGraph/FreezeEffect.shadergraph.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/Weapon/EmeraldStaff.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/Weapon/EmeraldStaff/Animator.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/Weapon/EmeraldStaff/Animator.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/Weapon/EmeraldStaff/fire.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Animation/Weapon/EmeraldStaff/fire.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Particle/PoisonEffect.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Particle/PoisonEffect.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/EmeraldStaff.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/EmeraldStaff.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/PoisonBall.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/PoisonBall.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/EmeraldStaff.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/EmeraldStaff.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/PoisonBall.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/PoisonBall.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.changes" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.changes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.wktree" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.wktree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/FireBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/FireBall.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/0x72_DungeonTilesetII_v1.6/0x72_DungeonTilesetII_v1.6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/0x72_DungeonTilesetII_v1.6/0x72_DungeonTilesetII_v1.6.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/RubyStaff.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/RubyStaff.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/RubyStaff.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/RubyStaff.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/IWeaponBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/IWeaponBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Remotely/Arrow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Remotely/Arrow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Remotely/Weapon_MiniBow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Remotely/Weapon_MiniBow.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/FireBall.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Weapon/FireBall.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponCreateProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponCreateProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponInputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponInputHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponRotateComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponRotateComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponUserComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponUserComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Hero/Hero.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Hero/Hero.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Scene/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Scene/Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/packages.config.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/packages.config.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -321,7 +324,8 @@
       <workItem from="1714398532589" duration="1317000" />
       <workItem from="1714466008401" duration="471000" />
       <workItem from="1714480503787" duration="750000" />
-      <workItem from="1714486526706" duration="2143000" />
+      <workItem from="1714486526706" duration="2807000" />
+      <workItem from="1714535635891" duration="2375000" />
     </task>
     <servers />
   </component>

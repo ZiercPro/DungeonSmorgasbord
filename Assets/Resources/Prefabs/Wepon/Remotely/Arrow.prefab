@@ -182,7 +182,6 @@ MonoBehaviour:
   weaponInputHandler: {fileID: 0}
   haveInput: 0
   rigidBody2D: {fileID: -1361687345426088720}
-  speed: 10
 --- !u!114 &7899278895890123891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 6898798329289494808}
+  canDoDamageConstantly: 0
   canHurtSelf: 0
 --- !u!1 &5767083258581423134
 GameObject:
@@ -222,13 +222,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5767083258581423134}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7607261336546069912}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &4137104926536985045
 SpriteRenderer:
   m_ObjectHideFlags: 0

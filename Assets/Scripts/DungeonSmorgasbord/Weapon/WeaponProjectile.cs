@@ -47,11 +47,11 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 发射
         /// </summary>
-        public void Fire(Vector3 direction, float speed)
+        public void Fire(float speed)
         {
             _speed = speed;
             rigidBody2D.isKinematic = false;
-            Vector3 fireSpeed = direction.normalized * speed;
+            Vector3 fireSpeed = transform.right.normalized * speed;
             rigidBody2D.velocity = fireSpeed;
             _isFired = true;
         }
