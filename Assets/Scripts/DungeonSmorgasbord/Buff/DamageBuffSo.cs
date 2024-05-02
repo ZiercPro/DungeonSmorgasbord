@@ -1,5 +1,5 @@
-﻿using NaughtyAttributes;
-using UnityEngine;
+﻿using UnityEngine;
+using ZiercCode.Core.Pool;
 using ZiercCode.DungeonSmorgasbord.Damage;
 
 namespace ZiercCode.DungeonSmorgasbord.Buff
@@ -9,15 +9,6 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
     {
         public int damage;
 
-        [SerializeField] private bool haveParticle;
-
-        /// <summary>
-        /// 粒子效果
-        /// </summary>
-        [SerializeField, ShowIf("haveParticle")]
-        private GameObject fireParticle;
-
-        private GameObject _fireParticleInstance;
         private IDamageable _damageable;
         private DamageInfo _damageInfo;
 
@@ -25,12 +16,6 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         {
             base.Init(buffEffective);
             _damageable = buffEffective.GetComponent<IDamageable>();
-            if (haveParticle)
-            {
-                _fireParticleInstance = Instantiate(fireParticle, buffEffective.transform);
-                _fireParticleInstance.transform.localPosition = Vector3.zero;
-            }
-
             _damageInfo = new DamageInfo(damage, DamageType.Magic, buffEffective.transform);
         }
 
@@ -43,7 +28,6 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         public override void InActive()
         {
             base.InActive();
-            Destroy(_fireParticleInstance);
             _damageInfo = null;
         }
     }

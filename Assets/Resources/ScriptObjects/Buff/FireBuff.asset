@@ -16,6 +16,8 @@ MonoBehaviour:
   duration: 10
   effectInternal: 2
   addAble: 1
-  damage: 1
   haveParticle: 1
-  fireParticle: {fileID: 4495126671331401602, guid: b1d2453f0cfbce9429e8d903e9a3c33e, type: 3}
+  particlePrefab: {fileID: 4495126671331401602, guid: b1d2453f0cfbce9429e8d903e9a3c33e, type: 3}
+  particlePoolInitSize: 10
+  particlePoolMaxSize: 50
+  damage: 1

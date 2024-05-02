@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using ZiercCode.Core.Extend;
 using ZiercCode.DungeonSmorgasbord.Damage;
 
@@ -15,9 +19,15 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         [SerializeField] private WeaponBase weapon;
 
         /// <summary>
-        /// 是否可以持续造成伤害
+        /// 只造成一次伤害
         /// </summary>
-        [SerializeField] private bool canDoDamageConstantly;
+        [SerializeField] private bool doSingleDamage;
+
+        /// <summary>
+        ///是否同一目只造成一次伤害
+        /// </summary>
+        [SerializeField, HideIf("doSingleDamage")]
+        private bool doSingleDamageToSameTarget;
 
         /// <summary>
         /// 是否能伤害到武器持有者
@@ -27,19 +37,37 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 是否可以造成伤害
         /// </summary>
-        private bool _canDoDamage = true;
+        private bool _canDoDamage;
+
+        /// <summary>
+        /// 已经造成过伤害的对象
+        /// </summary>
+        private List<Collider2D> _haveDamagedTarget;
+
+        private void Awake()
+        {
+            _canDoDamage = true;
+            _haveDamagedTarget = new List<Collider2D>();
+        }
 
 
         public void DoDamage(Collider2D c2d)
         {
             if (!_canDoDamage) return;
+
+            if (doSingleDamageToSameTarget)
+                if (_haveDamagedTarget.Any(target => target == c2d))
+                    return;
+
             if (c2d.TryGetComponent(out IDamageable damageable))
             {
                 if (!canHurtSelf && c2d.transform == weapon.GetWeaponUserBase().GetWeaponUserTransform())
                     return;
 
                 damageable.TakeDamage(GetDamageInfo());
-                if (!canDoDamageConstantly)
+                _haveDamagedTarget.Add(c2d);
+
+                if (doSingleDamage)
                     _canDoDamage = false;
             }
         }
@@ -57,6 +85,12 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             DamageInfo damageInfo = new(damageAmount, weapon.GetWeaponDataSo().DamageType,
                 weapon.GetWeaponUserBase().GetWeaponUserTransform());
             return damageInfo;
+        }
+
+        private void OnDisable()
+        {
+            _haveDamagedTarget.Clear();
+            _canDoDamage = true;
         }
     }
 }

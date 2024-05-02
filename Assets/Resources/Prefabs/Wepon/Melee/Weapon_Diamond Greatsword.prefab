@@ -351,7 +351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 1274364151649758601}
-  canDoDamageConstantly: 0
+  doSingleDamage: 0
+  doSingleDamageToSameTarget: 0
   canHurtSelf: 0
 --- !u!114 &5662345326014400720
 MonoBehaviour:

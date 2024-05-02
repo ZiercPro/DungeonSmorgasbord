@@ -16,7 +16,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// 武器初始化，使用武器前必须初始化
         /// </summary>
         /// <param name="weaponUserBase">武器使用者</param>
-        public void Init(IWeaponUserBase weaponUserBase)
+        public virtual void Init(IWeaponUserBase weaponUserBase)
         {
             _weaponUserBase = weaponUserBase;
         }

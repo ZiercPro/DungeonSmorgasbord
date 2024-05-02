@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Timers;
+using UnityEngine;
+using ZiercCode.Core.Pool;
+using Timer = ZiercCode.Core.Extend.Timer;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
@@ -15,9 +18,14 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         [SerializeField] private Rigidbody2D rigidBody2D;
 
         /// <summary>
-        /// 飞行速度
+        /// 生命时长
         /// </summary>
-        private float _speed;
+        [SerializeField] private float lifeTime = 5f;
+
+        /// <summary>
+        /// 自我释放计时器
+        /// </summary>
+        private Timer _selfReleaseTimer;
 
         /// <summary>
         /// 发射方向
@@ -34,8 +42,9 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// </summary>
         private Transform _target;
 
-        private void Awake()
+        public override void Init(IWeaponUserBase weaponUserBase)
         {
+            base.Init(weaponUserBase);
             rigidBody2D.isKinematic = true;
         }
 
@@ -49,11 +58,16 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// </summary>
         public void Fire(float speed)
         {
-            _speed = speed;
             rigidBody2D.isKinematic = false;
             Vector3 fireSpeed = transform.right.normalized * speed;
             rigidBody2D.velocity = fireSpeed;
             _isFired = true;
+            _selfReleaseTimer = new Timer(lifeTime);
+            _selfReleaseTimer.TimerTrigger += () =>
+            {
+                PoolManager.Instance.ReleasePoolObject(GetWeaponDataSo().myName, gameObject);
+            };
+            _selfReleaseTimer.StartTimer();
         }
 
         /// <summary>
@@ -63,6 +77,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         {
             if (!_isFired) return;
             //追踪
+            _selfReleaseTimer.Tick();
         }
     }
 }

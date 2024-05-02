@@ -17,3 +17,4 @@ MonoBehaviour:
   DamageType: 0
   WeaponType: 1
   prefab: {fileID: 3750903395687166601, guid: 4346aa6dbf17a534fb7d49c97e91ac6d, type: 3}
+  useAble: 1

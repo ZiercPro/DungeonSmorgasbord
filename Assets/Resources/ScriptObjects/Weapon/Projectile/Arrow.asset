@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295c8216387ac884a850caecbf58d5dc, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: 
-  myName: "\u7BAD"
+  myName: "\u6728\u7BAD"
   Damage: 1
   DamageType: 0
   WeaponType: 1
   prefab: {fileID: 5016844673037342057, guid: 876fa58c6c73f384484e756a6727a155, type: 3}
+  useAble: 0

@@ -327,21 +327,24 @@ MonoBehaviour:
   - projectileDataSo: {fileID: 11400000, guid: 0f2a29fe4a3ee2742b568e193584e049, type: 2}
     projectilePosition: {fileID: 8479758204896192642}
     fireAngelOffset: 5
-    projectileNum: 1
     showBeforeFired: 1
     flySpeed: 10
+    poolInitSize: 20
+    poolMaxSize: 50
   - projectileDataSo: {fileID: 11400000, guid: 0f2a29fe4a3ee2742b568e193584e049, type: 2}
     projectilePosition: {fileID: 8479758204896192642}
     fireAngelOffset: 0
-    projectileNum: 1
     showBeforeFired: 1
     flySpeed: 10
+    poolInitSize: 20
+    poolMaxSize: 50
   - projectileDataSo: {fileID: 11400000, guid: 0f2a29fe4a3ee2742b568e193584e049, type: 2}
     projectilePosition: {fileID: 8479758204896192642}
     fireAngelOffset: -5
-    projectileNum: 1
     showBeforeFired: 1
     flySpeed: 10
+    poolInitSize: 20
+    poolMaxSize: 50
 --- !u!114 &4618609719959064293
 MonoBehaviour:
   m_ObjectHideFlags: 0

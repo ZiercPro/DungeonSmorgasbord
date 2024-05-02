@@ -193,8 +193,6 @@ namespace ZiercCode.Old.Audio
             if (_audioSourceDictionary.TryAdd(audioBase, newComponent))
                 return newComponent;
 
-            Debug.LogWarning("audioBase already exist");
-            
             Object.Destroy(newAudioS);
             return _audioSourceDictionary[audioBase];
         }

@@ -1,6 +1,8 @@
 ﻿using NaughtyAttributes;
 using System;
 using UnityEngine;
+using UnityEngine.Pool;
+using ZiercCode.Core.Pool;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
@@ -54,11 +56,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             private float fireAngelOffset;
 
             /// <summary>
-            /// 射弹数量
-            /// </summary>
-            [SerializeField, Tooltip("最终生成多少射弹")] private int projectileNum = 1;
-
-            /// <summary>
             /// 没有发射时显示多少个射弹
             /// </summary>
             [SerializeField, Tooltip("未发射前，是否显示")] private bool showBeforeFired;
@@ -69,33 +66,67 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             /// </summary>
             [SerializeField] private float flySpeed;
 
+            /// <summary>
+            /// 池子初始容量
+            /// </summary>
+            [SerializeField] private int poolInitSize;
+
+            /// <summary>
+            /// 池子最大容量
+            /// </summary>
+            [SerializeField] private int poolMaxSize;
+
+            private ObjectPool<GameObject> _projectilePool;
 
             /// <summary>
             /// 射弹实例
             /// </summary>
-            public GameObject ProjectileInstances { get; private set; }
+            public GameObject ProjectileInstance { get; private set; }
 
+            public void Init()
+            {
+                _projectilePool = PoolManager.Instance.CreatePool(projectileDataSo.myName, CreateFunction, GetFunction,
+                    ReleaseFunction,
+                    DestroyFunction, false, poolInitSize, poolMaxSize);
+            }
+
+            public GameObject CreateFunction()
+            {
+                //生成新的射弹
+                GameObject newGameObject = Instantiate(projectileDataSo.prefab);
+                return newGameObject;
+            }
+
+            public void GetFunction(GameObject gameObject)
+            {
+                gameObject.SetActive(showBeforeFired);
+            }
+
+            public void ReleaseFunction(GameObject gameObject)
+            {
+                PoolManager.Instance.DefaultReleaseFunc(projectileDataSo.myName, gameObject);
+            }
+
+            public void DestroyFunction(GameObject gameObject)
+            {
+                Destroy(gameObject);
+            }
 
             /// <summary>
             /// 生成射弹
             /// </summary>
             public void CreateProjectile(WeaponBase fireWeapon)
             {
-                for (int i = 0; i < projectileNum; i++)
-                {
-                    //生成新的射弹
-                    ProjectileInstances = Instantiate(projectileDataSo.prefab, projectilePosition);
-                    //初始化新的射弹
-                    WeaponProjectile weaponProjectile = ProjectileInstances.GetComponent<WeaponProjectile>();
-                    weaponProjectile.Init(fireWeapon.GetWeaponUserBase());
-                    //设置方向
-                    ProjectileInstances.transform.localEulerAngles = new Vector3(0, 0,
-                        ProjectileInstances.transform.localEulerAngles.z + fireAngelOffset);
-                    //设置位置
-                    ProjectileInstances.transform.localPosition = Vector3.zero;
-                    if (!showBeforeFired)
-                        ProjectileInstances.SetActive(false);
-                }
+                //获取新的射弹实例
+                ProjectileInstance = PoolManager.Instance.GetPoolObject(projectileDataSo.myName, projectilePosition,
+                    Quaternion.identity);
+                //初始化新的射弹
+                WeaponProjectile weaponProjectile = ProjectileInstance.GetComponent<WeaponProjectile>();
+                weaponProjectile.Init(fireWeapon.GetWeaponUserBase());
+
+                //设置方向
+                ProjectileInstance.transform.localEulerAngles = new Vector3(0, 0,
+                    ProjectileInstance.transform.localEulerAngles.z + fireAngelOffset);
             }
 
             /// <summary>
@@ -103,15 +134,24 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             /// </summary>   
             public void Fire()
             {
-                ProjectileInstances.transform.SetParent(null, true);
+                ProjectileInstance.transform.SetParent(null, true);
 
                 if (!showBeforeFired)
-                    ProjectileInstances.SetActive(true);
+                    ProjectileInstance.SetActive(true);
 
-                ProjectileInstances.GetComponent<WeaponProjectile>()
+                ProjectileInstance.GetComponent<WeaponProjectile>()
                     .Fire(flySpeed);
             }
         }
+
+        private void Start()
+        {
+            foreach (var projectileConfig in projectileConfigs)
+            {
+                projectileConfig.Init();
+            }
+        }
+
 
         /// <summary>
         /// 更新总轨道瞄准的方向

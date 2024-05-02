@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode.Core.Extend;
 
@@ -26,6 +27,19 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
                         _buffBases.Remove(buff);
                     }
                 });
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (_buffBases.Count > 0)
+            {
+                foreach (var buff in _buffBases)
+                {
+                    buff.InActive();
+                }
+
+                _buffBases.Clear();
             }
         }
 

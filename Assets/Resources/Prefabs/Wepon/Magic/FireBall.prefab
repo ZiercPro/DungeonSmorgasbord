@@ -82,6 +82,7 @@ MonoBehaviour:
   weaponInputHandler: {fileID: 0}
   haveInput: 0
   rigidBody2D: {fileID: 8694226074599228712}
+  lifeTime: 5
 --- !u!114 &8321934552670445048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 7097391299916840660}
-  canDoDamageConstantly: 0
+  doSingleDamage: 0
+  doSingleDamageToSameTarget: 1
   canHurtSelf: 0
 --- !u!114 &1345574981405298598
 MonoBehaviour:

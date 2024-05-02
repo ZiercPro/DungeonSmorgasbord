@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes;
+using UnityEngine;
 using ZiercCode.Core.Extend;
+using ZiercCode.Core.Pool;
 
 namespace ZiercCode.DungeonSmorgasbord.Buff
 {
@@ -29,6 +31,31 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         public bool addAble;
 
         /// <summary>
+        /// 是否有粒子效果
+        /// </summary>
+        [SerializeField] private bool haveParticle;
+
+        /// <summary>
+        /// 粒子效果预制件
+        /// </summary>
+        [SerializeField, ShowIf("haveParticle")]
+        private GameObject particlePrefab;
+
+        /// <summary>
+        /// 粒子对象池初始大小
+        /// </summary>
+        [SerializeField, ShowIf("haveParticle")]
+        private int particlePoolInitSize;
+
+
+        /// <summary>
+        /// 粒子对象池最大大小
+        /// </summary>
+        [SerializeField, ShowIf("haveParticle")]
+        private int particlePoolMaxSize;
+
+
+        /// <summary>
         /// buff效果还在
         /// </summary>
         public bool Enable { get; protected set; }
@@ -44,13 +71,47 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         private Timer _activeTimer;
 
         /// <summary>
+        /// 粒子效果实例
+        /// </summary>
+        private GameObject _particleInstance;
+
+        /// <summary>
         /// buff持有者
         /// </summary>
         protected BuffEffective BuffEffective;
 
 
+        private GameObject CreateFunc()
+        {
+            GameObject newParticle = Instantiate(particlePrefab);
+            return newParticle;
+        }
+
+        private void GetFunc(GameObject particle)
+        {
+            particle.SetActive(true);
+        }
+
+        private void ReleaseFunc(GameObject particle)
+        {
+            PoolManager.Instance.DefaultReleaseFunc(particle.name, particle);
+        }
+
+        private void DestroyFunc(GameObject particle)
+        {
+            Destroy(particle);
+        }
+
         public virtual void Init(BuffEffective buffEffective)
         {
+            //粒子效果初始化
+            if (haveParticle)
+            {
+                PoolManager.Instance.CreatePool(particlePrefab.name, CreateFunc, GetFunc, ReleaseFunc, DestroyFunc,
+                    false, particlePoolInitSize, particlePoolMaxSize);
+                _particleInstance = PoolManager.Instance.GetPoolObject(particlePrefab.name, buffEffective.transform);
+            }
+
             BuffEffective = buffEffective;
             _enableTimer = new Timer(duration);
             _activeTimer = new Timer(effectInternal);

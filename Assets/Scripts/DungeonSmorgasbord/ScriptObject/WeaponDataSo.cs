@@ -34,5 +34,10 @@ namespace ZiercCode.DungeonSmorgasbord.ScriptObject
         /// 武器预制件
         /// </summary>
         public GameObject prefab;
+
+        /// <summary>
+        /// 是否可以使用
+        /// </summary>
+        public bool useAble;
     }
 }

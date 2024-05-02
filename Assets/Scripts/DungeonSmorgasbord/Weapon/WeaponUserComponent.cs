@@ -29,6 +29,12 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 #endif
         public Action<Vector2> SetWeapon()
         {
+            if (!weaponDataSo.useAble)
+            {
+                Debug.LogWarning($"weapon {weaponDataSo.myName} cant be equipped");
+                return default;
+            }
+
             if (_currentWeaponInstance)
             {
                 //去除当前武器
