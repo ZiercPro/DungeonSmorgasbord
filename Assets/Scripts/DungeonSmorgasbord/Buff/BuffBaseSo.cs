@@ -137,6 +137,7 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         {
             _enableTimer = null;
             _activeTimer = null;
+            PoolManager.Instance.ReleasePoolObject(particlePrefab.name, _particleInstance);
         }
 
         public void ReSetDuration()

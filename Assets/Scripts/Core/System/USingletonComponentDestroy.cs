@@ -7,7 +7,7 @@ namespace ZiercCode.Core.System
     /// 无单例则直接实例化
     /// </summary>
     /// <typeparam name="T">组件类型</typeparam>
-    public class USingletonComponentDestroy<T> : MonoBehaviour where T : UnityEngine.Component
+    public class USingletonComponentDestroy<T> : MonoBehaviour where T : Component
     {
         private static T _instance;
 
@@ -26,6 +26,7 @@ namespace ZiercCode.Core.System
                 return _instance;
             }
         }
+
         protected virtual void Awake()
         {
             if (_instance != null && _instance.gameObject != gameObject)

@@ -133,7 +133,7 @@ MonoBehaviour:
   - {x: 0.35, y: 0.3, z: 0}
   m_ShapePathHash: -1093780895
   m_Mesh: {fileID: 0}
-  m_InstanceId: 35116
+  m_InstanceId: 55408
   m_LocalBounds:
     m_Center: {x: 0, y: 0.90000004, z: 0}
     m_Extent: {x: 0.35, y: 0.6, z: 0}
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932b357a591b79e44bf9090780f6848f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb2D: {fileID: 0}
+  rb2D: {fileID: 4304577464786362615}
 --- !u!114 &8941662257894150561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,7 +434,7 @@ MonoBehaviour:
   creatureAttributesBaseSo: {fileID: 11400000, guid: 120a875949e2c2044a8b8a1101258a4f, type: 2}
   criticalChance: 0
   moveSpeed: 3
-  maxHealth: 2000
+  maxHealth: 20
   damageType: 0
   attackSpeed: 1.2
   attackRange: 0.6
@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70d6c9f8ac07c6468bcd1adaefd3a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureAttributesSo: {fileID: 0}
+  creatureAttributesSo: {fileID: 11400000, guid: 120a875949e2c2044a8b8a1101258a4f, type: 2}
 --- !u!114 &7753462400711176672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +465,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backMoveTime: 0.15
-  force: 50
 --- !u!114 &3034293297724978597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,7 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feeac0b2bf5dfab42b1c5edaa3ac0c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashMaterial: {fileID: 0}
+  flashMaterial: {fileID: 2100000, guid: 90914f556d1fc594399acad960bee107, type: 2}
   characterS: {fileID: 2938499904769739467}
   maintainTime: 0.1
 --- !u!114 &-2864066936988530281

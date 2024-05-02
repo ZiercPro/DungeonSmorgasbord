@@ -185,5 +185,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.5
-  moveduration: 0.2
-  punch: {x: 1, y: 2}
+  moveDuration: 0.2
+  rectTransform: {fileID: 2674392707996889531}
+  textMeshPro: {fileID: 6586735204136270714}

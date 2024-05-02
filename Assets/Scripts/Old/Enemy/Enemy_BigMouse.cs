@@ -55,7 +55,7 @@ namespace ZiercCode.Old.Enemy
             health.SetCurrentHealth(healthValue, Health.HealthChangeType.Damage);
             _scaleShakeFeedBack.StartShake();
             _flashFeedBack.Flash();
-            TextPopupSpawner.Instance.InitPopupText(transform.position, Color.blue, info.damageAmount);
+            TextPopupSpawner.Instance.InitPopupText(transform, Color.blue, info.damageAmount);
         }
     }
 }

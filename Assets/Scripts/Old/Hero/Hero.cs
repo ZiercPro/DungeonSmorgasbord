@@ -83,7 +83,7 @@ namespace ZiercCode.Old.Hero
             //听觉反馈
 
             //视觉反馈
-            TextPopupSpawner.Instance.InitPopupText(transform.position, Color.red, "-" + info.damageAmount);
+            TextPopupSpawner.Instance.InitPopupText(transform, Color.red, "-" + info.damageAmount);
             _cameraShakeFeedback.StartShake();
             _animationHandler.ActiveAnimationFunc(1);
         }
