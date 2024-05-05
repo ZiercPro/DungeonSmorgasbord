@@ -5,29 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd36c1ef-bee6-41a4-b2ce-922eadf5c2c5" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/PoolObjects/FireBall.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/PoolObjects/FireBall.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/PoolObjects/PoisonEffect.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/PoolObjects/PoisonEffect.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/PoolObjects/Arrow.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/PoolObjects/Arrow.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/PoolObjects/PoisonBall.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/PoolObjects/PoisonBall.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.changes" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.changes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.wktree" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.wktree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/FireBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/FireBall.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/RubyStaff.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Magic/RubyStaff.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Buff/FireBuff.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Buff/FireBuff.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Buff/PoisonBuff.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Buff/PoisonBuff.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/PoolObjects/FireEffect.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/PoolObjects/FireEffect.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Pool/PoolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Pool/PoolManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Pool/PoolObjectSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Pool/PoolObjectSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Pool/SpawnHandle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Pool/SpawnHandle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/BuffBaseSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/BuffBaseSo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/BuffEffective.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/BuffEffective.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/DamageBuffSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Buff/DamageBuffSo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Remotely/Weapon_MiniBow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/Wepon/Remotely/Weapon_MiniBow.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponCreateProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponCreateProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponDoBuffEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponDoBuffEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponProjectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Weapon/WeaponProjectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Scene/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Scene/Test.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -338,7 +324,7 @@
       <workItem from="1714785046892" duration="12868000" />
       <workItem from="1714827001995" duration="7860000" />
       <workItem from="1714877317454" duration="7749000" />
-      <workItem from="1714899250150" duration="7724000" />
+      <workItem from="1714899250150" duration="8216000" />
     </task>
     <servers />
   </component>

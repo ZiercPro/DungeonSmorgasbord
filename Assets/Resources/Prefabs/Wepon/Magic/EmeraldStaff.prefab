@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 8248564975734724265}
   - component: {fileID: 8020031456317528090}
   - component: {fileID: 3158328617504396853}
+  - component: {fileID: 4069366847762203064}
   m_Layer: 0
   m_Name: EmeraldStaff
   m_TagString: Untagged
@@ -210,8 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDataSo: {fileID: 11400000, guid: 3731acb4e97918d4cafed8e3d4234f36, type: 2}
-  weaponInputHandler: {fileID: 8248564975734724265}
   haveInput: 1
+  weaponInputHandler: {fileID: 8248564975734724265}
 --- !u!114 &8248564975734724265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,22 +279,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireWeapon: {fileID: 3877932427956383919}
+  spawner: {fileID: 4069366847762203064}
   projectileAimParent: {fileID: 563419900009962298}
   projectileConfigs:
-  - projectileDataSo: {fileID: 11400000, guid: fc9fbdb0d1bed4c4d967ed425447358a, type: 2}
+  - projectilePoolObjectSo: {fileID: 11400000, guid: 82e2ea94818e51f4c8f79e8262daff2d, type: 2}
     projectilePosition: {fileID: 563419900009962298}
     fireAngelOffset: 10
     showBeforeFired: 0
     flySpeed: 10
-    poolInitSize: 20
-    poolMaxSize: 50
-  - projectileDataSo: {fileID: 11400000, guid: fc9fbdb0d1bed4c4d967ed425447358a, type: 2}
+  - projectilePoolObjectSo: {fileID: 11400000, guid: 82e2ea94818e51f4c8f79e8262daff2d, type: 2}
     projectilePosition: {fileID: 563419900009962298}
     fireAngelOffset: -10
     showBeforeFired: 0
     flySpeed: 10
-    poolInitSize: 20
-    poolMaxSize: 50
 --- !u!114 &3158328617504396853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +311,20 @@ MonoBehaviour:
     intValue: 0
     boolValue: 0
     floatValue: 0
+--- !u!114 &4069366847762203064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4011465470153352503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c4a05ff69e45f7a9e5d5523155f719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolObjects:
+  - {fileID: 11400000, guid: 82e2ea94818e51f4c8f79e8262daff2d, type: 2}
 --- !u!1 &5157996720525818315
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8321934552670445048}
   - component: {fileID: 6231817382091486875}
   - component: {fileID: 6642309748058936498}
+  - component: {fileID: 2523366467805755879}
   m_Layer: 0
   m_Name: PoisonBall
   m_TagString: Untagged
@@ -79,8 +80,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDataSo: {fileID: 11400000, guid: fc9fbdb0d1bed4c4d967ed425447358a, type: 2}
-  weaponInputHandler: {fileID: 0}
   haveInput: 0
+  weaponInputHandler: {fileID: 0}
   rigidBody2D: {fileID: 8694226074599228712}
   lifeTime: 5
 --- !u!114 &8321934552670445048
@@ -126,7 +127,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponBase: {fileID: 7097391299916840660}
   buffBaseSo: {fileID: 11400000, guid: 0f957f25a6609514fa984ac662753d63, type: 2}
-  canHurtSelf: 0
+  poolObjectSpawner: {fileID: 2523366467805755879}
+  canEffectSelf: 0
+--- !u!114 &2523366467805755879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924614913807550534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c4a05ff69e45f7a9e5d5523155f719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolObjects:
+  - {fileID: 11400000, guid: 8ffc32b885e682e42a9f2ffedeb39c2b, type: 2}
 --- !u!1 &6899770781048087146
 GameObject:
   m_ObjectHideFlags: 0

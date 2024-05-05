@@ -66,8 +66,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.45, y: 1.3}
-  m_Direction: 0
+  m_Size: {x: 1.5, y: 0.45}
+  m_Direction: 1
 --- !u!114 &2597793355965312812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,8 +179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDataSo: {fileID: 11400000, guid: d5b4369d5754bd241a057bc5827181c5, type: 2}
-  weaponInputHandler: {fileID: 0}
   haveInput: 0
+  weaponInputHandler: {fileID: 0}
   rigidBody2D: {fileID: -1361687345426088720}
   lifeTime: 5
 --- !u!114 &7899278895890123891

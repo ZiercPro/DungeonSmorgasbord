@@ -42,11 +42,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         private class ProjectileConfig
         {
             /// <summary>
-            /// 射弹数据
-            /// </summary>
-            [SerializeField] private WeaponDataSo projectileDataSo;
-
-            /// <summary>
             /// 射弹对象池数据
             /// </summary>
             [SerializeField] private PoolObjectSo projectilePoolObjectSo;
@@ -75,17 +70,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             /// </summary>
             [SerializeField] private float flySpeed;
 
-            /// <summary>
-            /// 池子初始容量
-            /// </summary>
-            [SerializeField] private int poolInitSize;
-
-            /// <summary>
-            /// 池子最大容量
-            /// </summary>
-            [SerializeField] private int poolMaxSize;
-
-            private ObjectPool<GameObject> _projectilePool;
 
             /// <summary>
             /// 射弹实例
