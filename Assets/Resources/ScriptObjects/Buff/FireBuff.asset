@@ -16,8 +16,7 @@ MonoBehaviour:
   duration: 10
   effectInternal: 2
   addAble: 1
-  haveParticle: 1
-  particlePrefab: {fileID: 4495126671331401602, guid: b1d2453f0cfbce9429e8d903e9a3c33e, type: 3}
-  particlePoolInitSize: 10
-  particlePoolMaxSize: 50
+  <HaveParticle>k__BackingField: 1
+  <particlePoolSo>k__BackingField: {fileID: 11400000, guid: ec4de20a4add42441a0870fb750dbff8, type: 2}
   damage: 1
+  damageType: 1

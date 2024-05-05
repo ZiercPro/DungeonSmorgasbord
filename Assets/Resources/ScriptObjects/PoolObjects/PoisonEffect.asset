@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fba9406c817d4447b3a45ce5cdec1557, type: 3}
-  m_Name: FireEffect
+  m_Name: PoisonEffect
   m_EditorClassIdentifier: 
-  poolName: "\u706B\u7130\u7C92\u5B50"
-  prefab: {fileID: 4495126671331401602, guid: b1d2453f0cfbce9429e8d903e9a3c33e, type: 3}
+  poolName: "\u6BD2\u7C92\u5B50"
+  prefab: {fileID: 8697270535636560204, guid: 0cbf2ad0e5a3bc44fa80f8358f7d445b, type: 3}
   haveIPoolObject: 0
   initSize: 30
   maxSize: 50

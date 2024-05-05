@@ -10,6 +10,9 @@ namespace ZiercCode.Core.Pool
         /// </summary>
         private GameObject _poolObject;
 
+        /// <summary>
+        /// 对象池对象数据
+        /// </summary>
         private PoolObjectSo _poolObjectSo;
 
         /// <summary>

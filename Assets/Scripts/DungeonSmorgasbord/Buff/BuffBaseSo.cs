@@ -34,27 +34,14 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         /// <summary>
         /// 是否有粒子效果
         /// </summary>
-        [SerializeField] private bool haveParticle;
+        [field: SerializeField]
+        public bool HaveParticle { get; protected set; }
 
         /// <summary>
-        /// 粒子效果预制件
+        /// 粒子对象池数据
         /// </summary>
-        [SerializeField, ShowIf("haveParticle")]
-        private GameObject particlePrefab;
-
-        /// <summary>
-        /// 粒子对象池初始大小
-        /// </summary>
-        [SerializeField, ShowIf("haveParticle")]
-        private int particlePoolInitSize;
-
-
-        /// <summary>
-        /// 粒子对象池最大大小
-        /// </summary>
-        [SerializeField, ShowIf("haveParticle")]
-        private int particlePoolMaxSize;
-
+        [field: SerializeField, ShowIf("HaveParticle")]
+        public PoolObjectSo particlePoolSo { get; protected set; }
 
         /// <summary>
         /// buff效果还在
@@ -72,48 +59,29 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         private Timer _activeTimer;
 
         /// <summary>
-        /// 粒子效果实例
+        /// buff效果持有者
         /// </summary>
-        private GameObject _particleInstance;
+        private BuffEffective _buffEffective;
 
         /// <summary>
-        /// buff持有者
+        /// 粒子生成处理器
         /// </summary>
-        protected BuffEffective BuffEffective;
-
-
-        private GameObject CreateFunc()
-        {
-            GameObject newParticle = Instantiate(particlePrefab);
-            return newParticle;
-        }
-
-        private void GetFunc(GameObject particle)
-        {
-            particle.SetActive(true);
-        }
-
-        private void ReleaseFunc(GameObject particle)
-        {
-            //   PoolManager.Instance.ReleaseFunc(particlePrefab.name, particle);
-        }
-
-        private void DestroyFunc(GameObject particle)
-        {
-            Destroy(particle);
-        }
+        private SpawnHandle _particleSpawnHandle;
 
         public virtual void Init(BuffEffective buffEffective)
         {
-            Enable = true;
-            BuffEffective = buffEffective;
-            //粒子效果初始化
-            if (haveParticle)
+            _buffEffective = buffEffective;
+
+            if (HaveParticle)
             {
-                //  PoolManager.Instance.CreatePool(particlePrefab.name, CreateFunc, GetFunc, ReleaseFunc, DestroyFunc,
-                // false, particlePoolInitSize, particlePoolMaxSize);
-                // _particleInstance = PoolManager.Instance.GetPoolObject(particlePrefab.name);
+                GameObject particle = _particleSpawnHandle.GetObject();
+                particle.transform.SetParent(_buffEffective.transform);
+                particle.transform.localEulerAngles = Vector3.zero;
+                particle.transform.localPosition = Vector3.zero;
             }
+
+
+            Enable = true;
 
             _enableTimer = new Timer(duration);
             _activeTimer = new Timer(effectInternal);
@@ -128,7 +96,6 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         {
             _enableTimer.Tick();
             _activeTimer.Tick();
-            _particleInstance.transform.position = BuffEffective.transform.position;
         }
 
 
@@ -140,17 +107,29 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
 
         public virtual void InActive()
         {
+            if (HaveParticle)
+                _particleSpawnHandle.Release();
+            if (_activeTimer == null || _enableTimer == null) return;
             _activeTimer.StopTimer();
             _enableTimer.StopTimer();
             _activeTimer = null;
             _enableTimer = null;
-            // PoolManager.Instance.ReleasePoolObject(particlePrefab.name, _particleInstance);
         }
 
         public void ReSetDuration()
         {
             if (_enableTimer == null) return;
             _enableTimer.StartTimer();
+        }
+
+        public void SetSpawnHandle(SpawnHandle handle)
+        {
+            _particleSpawnHandle = handle;
+        }
+
+        protected BuffEffective GetBuffHolder()
+        {
+            return _buffEffective;
         }
     }
 }

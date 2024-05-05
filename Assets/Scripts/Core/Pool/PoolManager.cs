@@ -48,8 +48,18 @@ namespace ZiercCode.Core.Pool
 
         private void OnDestroy()
         {
+            //清空所有池对象
+            foreach (var pool in _pools)
+            {
+                pool.Value.Dispose();
+            }
+
+            //清除保存的数据
             _poolObjectParents.Clear();
             _pools.Clear();
+
+            //删除所有实例化的对象
+            Destroy(_poolsContainer);
         }
 
         /// <summary>
@@ -145,7 +155,7 @@ namespace ZiercCode.Core.Pool
             if (objectPool != null)
                 return objectPool.Get();
 
-            Debug.LogError($"无法获取对象池对象{objectSo}");
+            Debug.LogError($"{objectSo}无对象池");
             return null;
         }
 
@@ -212,11 +222,21 @@ namespace ZiercCode.Core.Pool
         }
 
         /// <summary>
+        /// 释放对象池
+        /// </summary>
+        /// <param name="objectSo">池对象数据</param>
+        public void ReleasePool(PoolObjectSo objectSo)
+        {
+            ObjectPool<GameObject> objectPool = GetPool(objectSo);
+            objectPool.Dispose();
+        }
+
+        /// <summary>
         /// 默认释放方法
         /// </summary>
         /// <param name="objectSo">对象数据</param>
         /// <param name="objectToRelease">释放的对象</param>
-        public void ReleaseFunc(PoolObjectSo objectSo, GameObject objectToRelease)
+        private void ReleaseFunc(PoolObjectSo objectSo, GameObject objectToRelease)
         {
             objectToRelease.transform.SetParent(GetPoolContainer(objectSo).transform);
             objectToRelease.SetActive(false);

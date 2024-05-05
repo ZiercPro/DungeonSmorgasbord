@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode.Core.Pool;
@@ -48,6 +49,11 @@ namespace ZiercCode.Old.Enemy
             SetTarget(GameObject.FindGameObjectWithTag("Player").GetComponent<Health>());
         }
 
+        protected void Start()
+        {
+            Init();
+        }
+
         public virtual void Init()
         {
             MoveComponent.SetMoveSpeed(Attribute.moveSpeed);
@@ -76,7 +82,6 @@ namespace ZiercCode.Old.Enemy
 
         public virtual void Dead(bool dropItem = true)
         {
-           
         }
 
         /// <summary>

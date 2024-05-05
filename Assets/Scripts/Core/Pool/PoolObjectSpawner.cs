@@ -1,7 +1,6 @@
-﻿using NaughtyAttributes;
+﻿using UnityEngine;
+using NaughtyAttributes;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Pool;
 
 namespace ZiercCode.Core.Pool
 {
@@ -10,7 +9,7 @@ namespace ZiercCode.Core.Pool
     /// </summary>
     public class PoolObjectSpawner : MonoBehaviour
     {
-        [Expandable] public List<PoolObjectSo> poolObjects;
+        [Expandable, SerializeField] private List<PoolObjectSo> poolObjects;
 
         private Dictionary<GameObject, SpawnHandle> _handlerDictionary;
 
@@ -19,6 +18,7 @@ namespace ZiercCode.Core.Pool
             CreatePools();
             _handlerDictionary = new Dictionary<GameObject, SpawnHandle>();
         }
+
 
         /// <summary>
         /// 生成对象
@@ -61,10 +61,19 @@ namespace ZiercCode.Core.Pool
         }
 
         /// <summary>
+        /// 删除池
+        /// </summary>
+        /// <param name="poolObjectSo">池对象数据</param>
+        public void DestroyPool(PoolObjectSo poolObjectSo)
+        {
+            PoolManager.Instance.ReleasePool(poolObjectSo);
+        }
+
+        /// <summary>
         /// 获取生成处理类
         /// </summary>
-        /// <param name="poolObjectSo"></param>
-        /// <param name="obj"></param>
+        /// <param name="poolObjectSo">池对象数据</param>
+        /// <param name="obj">对象实例</param>
         /// <returns></returns>
         private SpawnHandle GetHandler(PoolObjectSo poolObjectSo, GameObject obj)
         {

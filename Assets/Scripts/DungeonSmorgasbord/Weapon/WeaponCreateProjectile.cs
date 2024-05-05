@@ -18,6 +18,11 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         [SerializeField] private WeaponBase fireWeapon;
 
         /// <summary>
+        /// 对象生成器
+        /// </summary>
+        [SerializeField] private PoolObjectSpawner spawner;
+
+        /// <summary>
         /// 射弹总轨道
         /// 确认发射总方向
         /// </summary>
@@ -41,6 +46,10 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             /// </summary>
             [SerializeField] private WeaponDataSo projectileDataSo;
 
+            /// <summary>
+            /// 射弹对象池数据
+            /// </summary>
+            [SerializeField] private PoolObjectSo projectilePoolObjectSo;
 
             /// <summary>
             /// 射弹轨道的transform
@@ -83,43 +92,19 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             /// </summary>
             public GameObject ProjectileInstance { get; private set; }
 
-            public void Init()
-            {
-            }
-
-            public GameObject CreateFunction()
-            {
-                //生成新的射弹
-                GameObject newGameObject = Instantiate(projectileDataSo.prefab);
-                return newGameObject;
-            }
-
-            public void GetFunction(GameObject gameObject)
-            {
-                gameObject.SetActive(showBeforeFired);
-            }
-
-            public void ReleaseFunction(GameObject gameObject)
-            {
-                //PoolManager.Instance.ReleaseFunc(projectileDataSo.myName, gameObject);
-            }
-
-            public void DestroyFunction(GameObject gameObject)
-            {
-                Destroy(gameObject);
-            }
 
             /// <summary>
             /// 生成射弹
             /// </summary>
-            public void CreateProjectile(WeaponBase fireWeapon)
+            public void CreateProjectile(WeaponBase fireWeapon, PoolObjectSpawner spawner)
             {
-                //获取新的射弹实例
-                // ProjectileInstance = PoolManager.Instance.GetPoolObject(projectileDataSo.myName, projectilePosition,
-                //     Quaternion.identity);
+                SpawnHandle handle =
+                    spawner.SpawnPoolObject(projectilePoolObjectSo, projectilePosition, Quaternion.identity);
+                // 获取新的射弹实例
+                ProjectileInstance = handle.GetObject();
                 //初始化新的射弹
                 WeaponProjectile weaponProjectile = ProjectileInstance.GetComponent<WeaponProjectile>();
-                weaponProjectile.Init(fireWeapon.GetWeaponUserBase());
+                weaponProjectile.Init(fireWeapon.GetWeaponUserBase(), handle);
 
                 //设置方向
                 ProjectileInstance.transform.localEulerAngles = new Vector3(0, 0,
@@ -141,14 +126,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             }
         }
 
-        private void Start()
-        {
-            foreach (var projectileConfig in projectileConfigs)
-            {
-                projectileConfig.Init();
-            }
-        }
-
 
         /// <summary>
         /// 更新总轨道瞄准的方向
@@ -167,7 +144,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         {
             foreach (var projectileConfig in projectileConfigs)
             {
-                projectileConfig.CreateProjectile(fireWeapon);
+                projectileConfig.CreateProjectile(fireWeapon, spawner);
             }
         }
 

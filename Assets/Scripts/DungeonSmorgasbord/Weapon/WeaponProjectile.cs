@@ -42,9 +42,15 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// </summary>
         private Transform _target;
 
-        public override void Init(IWeaponUserBase weaponUserBase)
+        /// <summary>
+        /// 生成处理类
+        /// </summary>
+        private SpawnHandle _spawnHandle;
+
+        public void Init(IWeaponUserBase weaponUserBase, SpawnHandle spawnHandle)
         {
             base.Init(weaponUserBase);
+            _spawnHandle = spawnHandle;
             rigidBody2D.isKinematic = true;
         }
 
@@ -65,7 +71,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             _selfReleaseTimer = new Timer(lifeTime);
             _selfReleaseTimer.TimerTrigger += () =>
             {
-                //PoolManager.Instance.ReleasePoolObject(GetWeaponDataSo().myName, gameObject);
+                _spawnHandle.Release();
             };
             _selfReleaseTimer.StartTimer();
         }

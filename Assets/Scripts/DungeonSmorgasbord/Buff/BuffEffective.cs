@@ -50,16 +50,19 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
                 if (buff.buffId == buffBaseSo.buffId)
                 {
                     if (buff.addAble)
+                    {
                         buff.ReSetDuration();
+                    }
+
+                    buffBaseSo.InActive();
                     return;
                 }
             }
 
             //添加新的buff
-            BuffBaseSo buffBaseSoIns = Instantiate(buffBaseSo);
-            _buffBases.Add(buffBaseSoIns);
-            buffBaseSoIns.Init(this);
-            buffBaseSoIns.Active();
+            _buffBases.Add(buffBaseSo);
+            buffBaseSo.Init(this);
+            buffBaseSo.Active();
         }
     }
 }

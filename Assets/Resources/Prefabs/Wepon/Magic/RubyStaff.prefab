@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 6456400725157258967}
   - component: {fileID: 4618609719959064293}
   - component: {fileID: 7481506073733822260}
+  - component: {fileID: 5245558162206440433}
   m_Layer: 0
   m_Name: RubyStaff
   m_TagString: Untagged
@@ -254,8 +255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDataSo: {fileID: 11400000, guid: fb11603dbc5487c47a97fed7c1fadb45, type: 2}
-  weaponInputHandler: {fileID: 3504858861028249123}
   haveInput: 1
+  weaponInputHandler: {fileID: 3504858861028249123}
 --- !u!114 &3504858861028249123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,9 +323,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireWeapon: {fileID: 3557039605043540105}
+  spawner: {fileID: 5245558162206440433}
   projectileAimParent: {fileID: 8479758204896192642}
   projectileConfigs:
   - projectileDataSo: {fileID: 11400000, guid: 0f2a29fe4a3ee2742b568e193584e049, type: 2}
+    projectilePoolObjectSo: {fileID: 11400000, guid: 934e0aa64b161e84787fcea5c9040fe4, type: 2}
     projectilePosition: {fileID: 8479758204896192642}
     fireAngelOffset: 5
     showBeforeFired: 1
@@ -332,6 +335,7 @@ MonoBehaviour:
     poolInitSize: 20
     poolMaxSize: 50
   - projectileDataSo: {fileID: 11400000, guid: 0f2a29fe4a3ee2742b568e193584e049, type: 2}
+    projectilePoolObjectSo: {fileID: 11400000, guid: 934e0aa64b161e84787fcea5c9040fe4, type: 2}
     projectilePosition: {fileID: 8479758204896192642}
     fireAngelOffset: 0
     showBeforeFired: 1
@@ -339,6 +343,7 @@ MonoBehaviour:
     poolInitSize: 20
     poolMaxSize: 50
   - projectileDataSo: {fileID: 11400000, guid: 0f2a29fe4a3ee2742b568e193584e049, type: 2}
+    projectilePoolObjectSo: {fileID: 11400000, guid: 934e0aa64b161e84787fcea5c9040fe4, type: 2}
     projectilePosition: {fileID: 8479758204896192642}
     fireAngelOffset: -5
     showBeforeFired: 1
@@ -377,3 +382,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioNames: 16000000
+--- !u!114 &5245558162206440433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6360319533005852905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c4a05ff69e45f7a9e5d5523155f719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolObjects:
+  - {fileID: 11400000, guid: 934e0aa64b161e84787fcea5c9040fe4, type: 2}

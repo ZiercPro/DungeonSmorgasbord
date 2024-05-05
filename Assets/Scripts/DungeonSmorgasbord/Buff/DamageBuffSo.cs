@@ -7,6 +7,7 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
     public class DamageBuffSo : BuffBaseSo
     {
         public int damage;
+        public DamageType damageType;
 
         private IDamageable _damageable;
         private DamageInfo _damageInfo;
@@ -15,7 +16,7 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         {
             base.Init(buffEffective);
             _damageable = buffEffective.GetComponent<IDamageable>();
-            _damageInfo = new DamageInfo(damage, DamageType.Magic, buffEffective.transform);
+            _damageInfo = new DamageInfo(damage, damageType, buffEffective.transform);
         }
 
         public override void Active()

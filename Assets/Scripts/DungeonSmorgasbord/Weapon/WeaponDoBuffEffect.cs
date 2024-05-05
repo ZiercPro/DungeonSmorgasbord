@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using ZiercCode.Core.Pool;
 using ZiercCode.DungeonSmorgasbord.Buff;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
@@ -10,6 +11,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
     {
         [SerializeField] private WeaponBase weaponBase;
         [SerializeField] private BuffBaseSo buffBaseSo;
+        [SerializeField] private PoolObjectSpawner poolObjectSpawner;
 
         [SerializeField] private bool canEffectSelf;
 
@@ -21,7 +23,15 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
                     if (weaponBase.GetWeaponUserBase().GetWeaponUserTransform().GetComponent<BuffEffective>() ==
                         buffEffective)
                         return;
-                buffEffective.AddBuff(buffBaseSo);
+
+                BuffBaseSo buffInstance = Instantiate(buffBaseSo);
+                if (buffInstance.HaveParticle)
+                {
+                    SpawnHandle handle = poolObjectSpawner.SpawnPoolObject(buffInstance.particlePoolSo);
+                    buffInstance.SetSpawnHandle(handle);
+                }
+
+                buffEffective.AddBuff(buffInstance);
             }
         }
     }
