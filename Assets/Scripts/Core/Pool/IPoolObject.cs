@@ -11,5 +11,10 @@
         /// 释放时调用
         /// </summary>
         public void OnRelease();
+
+        /// <summary>
+        /// 设置生成处理器
+        /// </summary>
+        public void SetSpawnHandle(SpawnHandle handle);
     }
 }

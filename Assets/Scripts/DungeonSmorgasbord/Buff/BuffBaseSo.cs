@@ -73,12 +73,7 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
             _buffEffective = buffEffective;
 
             if (HaveParticle)
-            {
-                GameObject particle = _particleSpawnHandle.GetObject();
-                particle.transform.SetParent(_buffEffective.transform);
-                particle.transform.localEulerAngles = Vector3.zero;
-                particle.transform.localPosition = Vector3.zero;
-            }
+                _particleSpawnHandle.GetObject();
 
 
             Enable = true;
@@ -94,6 +89,8 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
 
         public void BuffTimeUpdate()
         {
+            if (HaveParticle)
+                _particleSpawnHandle.GetObject().transform.position = _buffEffective.transform.position;
             _enableTimer.Tick();
             _activeTimer.Tick();
         }

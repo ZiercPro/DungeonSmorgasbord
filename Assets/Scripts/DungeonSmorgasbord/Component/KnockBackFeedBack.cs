@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ZiercCode.DungeonSmorgasbord.Component
 {
-    public class KnockBackFeedBack : CoroutineComponent
+    public class KnockBackFeedBack : MonoBehaviour
     {
         [SerializeField] private float backMoveTime = 0.15f;
         private Rigidbody2D _rb2d;
@@ -11,15 +11,16 @@ namespace ZiercCode.DungeonSmorgasbord.Component
 
         private Coroutine _backMoveCoroutine;
 
-        private void Awake()  
+        private void Awake()
         {
             _moveC = GetComponent<MoveComponent>();
             _rb2d = GetComponent<Rigidbody2D>();
         }
 
-        protected override void OnDisable()
+        private void OnDisable()
         {
-            base.OnDisable();
+            if (_backMoveCoroutine != null)
+                StopCoroutine(_backMoveCoroutine);
             _moveC.Stop();
         }
 

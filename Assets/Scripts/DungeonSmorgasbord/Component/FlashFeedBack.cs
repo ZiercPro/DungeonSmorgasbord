@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ZiercCode.DungeonSmorgasbord.Component
 {
-    public class FlashFeedBack : CoroutineComponent
+    public class FlashFeedBack : MonoBehaviour
     {
         private Material DefaultMaterial; //默认
 
@@ -16,6 +16,13 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         private void Awake()
         {
             DefaultMaterial = characterS.material;
+        }
+
+        private void OnDisable()
+        {
+            if (_flashCoroutine != null)
+                StopCoroutine(_flashCoroutine);
+            characterS.material = DefaultMaterial;
         }
 
         public void Flash()

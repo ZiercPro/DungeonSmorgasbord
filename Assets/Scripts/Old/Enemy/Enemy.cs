@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode.Core.Pool;
@@ -11,7 +10,7 @@ using ZiercCode.Old.Enemy.EnemyState;
 
 namespace ZiercCode.Old.Enemy
 {
-    public abstract class Enemy : MonoBehaviour, IDamageable
+    public abstract class Enemy : MonoBehaviour, IDamageable, IPoolObject
     {
         public AutoFlipComponent AutoFlipComponent { get; private set; }
         public EnemyStateMachine stateMachine { get; private set; }
@@ -23,6 +22,8 @@ namespace ZiercCode.Old.Enemy
         public Health attackTarget { get; private set; }
 
         private static List<Enemy> s_enemys;
+
+        private SpawnHandle _spawnHandle;
 
         public abstract void TakeDamage(DamageInfo info);
 
@@ -51,17 +52,12 @@ namespace ZiercCode.Old.Enemy
 
         protected void Start()
         {
-            Init();
+            MoveComponent.SetMoveSpeed(Attribute.moveSpeed);
+            attackCheck.SetRadius(Attribute.attackRange);
         }
 
         public virtual void Init()
         {
-            MoveComponent.SetMoveSpeed(Attribute.moveSpeed);
-            attackCheck.SetRadius(Attribute.attackRange);
-            health.Dead += () =>
-            {
-                Dead();
-            };
         }
 
         protected virtual void Update()
@@ -80,34 +76,31 @@ namespace ZiercCode.Old.Enemy
             attackTarget = target;
         }
 
-        public virtual void Dead(bool dropItem = true)
+        public virtual void Dead()
         {
-        }
-
-        /// <summary>
-        /// 获取当前所有存活的敌人
-        /// </summary>
-        /// <returns>敌人链表</returns>
-        public static List<Enemy> GetEnemys()
-        {
-            return s_enemys;
-        }
-
-        /// <summary>
-        /// 销毁当前全部敌人实例
-        /// </summary>
-        public static void EnemyClear()
-        {
-            if (s_enemys == null || s_enemys.Count <= 0) return;
-            MyMath.ForeachFromLast(s_enemys, enemy =>
-            {
-                if (enemy != null && enemy.isActiveAndEnabled) enemy.Dead(false);
-            });
+            _spawnHandle.Release();
         }
 
         public virtual DamageInfo Attack()
         {
             return null;
+        }
+
+        public void SetSpawnHandle(SpawnHandle handle)
+        {
+            _spawnHandle = handle;
+        }
+
+        public void OnGet()
+        {
+            Init();
+            health.Init();
+            health.Dead += Dead;
+        }
+
+        public void OnRelease()
+        {
+            health.Dead -= Dead;
         }
     }
 }

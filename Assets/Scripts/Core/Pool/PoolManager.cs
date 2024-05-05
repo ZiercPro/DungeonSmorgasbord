@@ -78,6 +78,7 @@ namespace ZiercCode.Core.Pool
             ObjectPool<GameObject> newPool = new(() =>
                 {
                     GameObject newPoolObject = Instantiate(objectSo.prefab);
+                    newPoolObject.SetActive(false);
                     return newPoolObject;
                 }, GetFunc, poolObject => ReleaseFunc(objectSo, poolObject), DestroyFunc,
                 collectionCheck, objectSo.initSize, objectSo.maxSize);

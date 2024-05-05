@@ -25,7 +25,9 @@ namespace ZiercCode
         [Button("生成")]
         public void Spawn()
         {
-            _spawnHandles.Add(spawner.SpawnPoolObject(poolObjectSo));
+            SpawnHandle handle = spawner.SpawnPoolObject(poolObjectSo);
+            handle.GetObject();
+            _spawnHandles.Add(handle);
         }
 
         [Button("释放")]

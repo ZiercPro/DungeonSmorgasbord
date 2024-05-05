@@ -36,12 +36,11 @@ namespace ZiercCode.Old.Enemy
             attackCheck.SetRadius(Attribute.attackRange);
         }
 
-        public override void Dead(bool dropItem = true)
+        public override void Dead()
         {
             Instantiate(deadParticle, transform.position, Quaternion.identity);
             AudioPlayer.Instance.PlayAudioAsync(AudioName.EnemyDead4);
-            if (dropItem)
-                _canDropItems.DropItems();
+            _canDropItems.DropItems();
             base.Dead();
         }
 
