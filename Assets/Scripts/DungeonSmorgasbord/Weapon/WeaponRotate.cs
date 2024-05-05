@@ -7,7 +7,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
     /// <summary>
     /// 武器旋转组件，用于实现武器的旋转，瞄准鼠标位置
     /// </summary>
-    public class WeaponRotateComponent : MonoBehaviour
+    public class WeaponRotate : MonoBehaviour
     {
         /// <summary>
         /// 武器旋转锚点

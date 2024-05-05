@@ -3,7 +3,7 @@ using ZiercCode.DungeonSmorgasbord.Damage;
 
 namespace ZiercCode.DungeonSmorgasbord.ScriptObject
 {
-    [CreateAssetMenu(menuName = "ScriptObject/Attributes/Enemy", fileName = "Enemy")]
+    [CreateAssetMenu(menuName = "ScriptableObject/Attributes/Enemy", fileName = "Enemy")]
     public class EnemyAttributeSo : CreatureAttributesSo
     {
         /// <summary>

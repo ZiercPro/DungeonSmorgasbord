@@ -1,26 +1,25 @@
 using System.Collections;
 using UnityEngine;
-using ZiercCode.DungeonSmorgasbord.Damage;
 
 namespace ZiercCode.DungeonSmorgasbord.Component
 {
-    public class KnockBackFeedBack : MonoBehaviour
+    public class KnockBackFeedBack : CoroutineComponent
     {
         [SerializeField] private float backMoveTime = 0.15f;
-        private Coroutine _backMoveCoroutine;
         private Rigidbody2D _rb2d;
         private MoveComponent _moveC;
 
-        private void Awake()
+        private Coroutine _backMoveCoroutine;
+
+        private void Awake()  
         {
             _moveC = GetComponent<MoveComponent>();
             _rb2d = GetComponent<Rigidbody2D>();
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
-            if (_backMoveCoroutine != null)
-                StopCoroutine(_backMoveCoroutine);
+            base.OnDisable();
             _moveC.Stop();
         }
 
@@ -29,9 +28,11 @@ namespace ZiercCode.DungeonSmorgasbord.Component
             switch (_moveC == null)
             {
                 case true:
+                    if (!gameObject.activeInHierarchy) return;
                     _backMoveCoroutine = StartCoroutine(BackMove(startPosition, force));
                     break;
                 case false:
+                    if (!gameObject.activeInHierarchy) return;
                     _backMoveCoroutine = StartCoroutine(BackMoveWithMoveController(startPosition, force));
                     break;
             }

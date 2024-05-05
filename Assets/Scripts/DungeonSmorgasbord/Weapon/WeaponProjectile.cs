@@ -1,7 +1,7 @@
 ﻿using System.Timers;
 using UnityEngine;
 using ZiercCode.Core.Pool;
-using Timer = ZiercCode.Core.Extend.Timer;
+using Timer = ZiercCode.Core.Utilities.Timer;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
@@ -65,7 +65,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             _selfReleaseTimer = new Timer(lifeTime);
             _selfReleaseTimer.TimerTrigger += () =>
             {
-                PoolManager.Instance.ReleasePoolObject(GetWeaponDataSo().myName, gameObject);
+                //PoolManager.Instance.ReleasePoolObject(GetWeaponDataSo().myName, gameObject);
             };
             _selfReleaseTimer.StartTimer();
         }
@@ -76,7 +76,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         private void OnFly()
         {
             if (!_isFired) return;
-            //追踪
             _selfReleaseTimer.Tick();
         }
     }

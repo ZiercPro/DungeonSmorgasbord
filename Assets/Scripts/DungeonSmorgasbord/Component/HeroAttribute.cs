@@ -1,5 +1,6 @@
 using NaughtyAttributes;
 using ZiercCode.Core.Extend;
+using ZiercCode.Core.Utilities;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
 using ZiercCode.DungeonSmorgasbord.Weapon;
 

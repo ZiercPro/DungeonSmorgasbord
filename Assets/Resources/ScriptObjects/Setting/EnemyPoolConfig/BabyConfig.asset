@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2de2d959d94d0b04984211be57e125d5, type: 3}
-  m_Name: EnemyDataList
+  m_Script: {fileID: 11500000, guid: 1ab32b1809721f14f90d5eac8fc19bdc, type: 3}
+  m_Name: BabyConfig
   m_EditorClassIdentifier: 
-  enemyAttributeSoList:
-  - {fileID: 11400000, guid: 975e63cfc57ff5246ab12dee01abe5c2, type: 2}
-  - {fileID: 11400000, guid: 120a875949e2c2044a8b8a1101258a4f, type: 2}
+  enemyAttributeSo: {fileID: 11400000, guid: 975e63cfc57ff5246ab12dee01abe5c2, type: 2}
+  initSize: 10
+  maxSize: 30

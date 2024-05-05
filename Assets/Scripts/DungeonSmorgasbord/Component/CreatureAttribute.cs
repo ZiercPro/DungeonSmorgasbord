@@ -10,7 +10,7 @@ namespace ZiercCode.DungeonSmorgasbord.Component
     /// <typeparam name="T"></typeparam>
     public class CreatureAttribute<T> : MonoBehaviour where T : CreatureAttributesSo
     {
-        [SerializeField] protected T creatureAttributesBaseSo;
+        [field: SerializeField] public T creatureAttributesBaseSo { get; private set; }
         [Space] public float criticalChance;
         public float moveSpeed;
         public int maxHealth;

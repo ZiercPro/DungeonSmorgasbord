@@ -1,4 +1,4 @@
-﻿namespace ZiercCode.Core.System
+﻿namespace ZiercCode.Core.Utilities
 {
     /// <summary>
     /// 普通单例

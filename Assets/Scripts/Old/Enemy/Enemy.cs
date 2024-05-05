@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Core.Extend;
+using ZiercCode.Core.Pool;
+using ZiercCode.Core.Utilities;
 using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.Old.Component;
@@ -21,6 +22,7 @@ namespace ZiercCode.Old.Enemy
         public Health attackTarget { get; private set; }
 
         private static List<Enemy> s_enemys;
+
         public abstract void TakeDamage(DamageInfo info);
 
         protected void OnEnable()
@@ -46,9 +48,10 @@ namespace ZiercCode.Old.Enemy
             SetTarget(GameObject.FindGameObjectWithTag("Player").GetComponent<Health>());
         }
 
-        protected virtual void Start()
+        public virtual void Init()
         {
             MoveComponent.SetMoveSpeed(Attribute.moveSpeed);
+            attackCheck.SetRadius(Attribute.attackRange);
             health.Dead += () =>
             {
                 Dead();
@@ -73,7 +76,7 @@ namespace ZiercCode.Old.Enemy
 
         public virtual void Dead(bool dropItem = true)
         {
-            Destroy(gameObject);
+           
         }
 
         /// <summary>
@@ -91,7 +94,7 @@ namespace ZiercCode.Old.Enemy
         public static void EnemyClear()
         {
             if (s_enemys == null || s_enemys.Count <= 0) return;
-            MyMath.ForeachChangeListAvailable(s_enemys, enemy =>
+            MyMath.ForeachFromLast(s_enemys, enemy =>
             {
                 if (enemy != null && enemy.isActiveAndEnabled) enemy.Dead(false);
             });

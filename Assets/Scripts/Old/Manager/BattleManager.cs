@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
 using ZiercCode.Core.Extend;
-using ZiercCode.Core.System;
+using ZiercCode.Core.Utilities;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
 using ZiercCode.Old.Audio;
 using ZiercCode.Old.Enemy;
@@ -33,7 +33,6 @@ namespace ZiercCode.Old.Manager
         public UnityEvent onBattleEnd;
 
         [SerializeField] private GameObject enemySpawnerTemp;
-        [SerializeField] private EnemyDataListSo enemyDataListSo;
         [SerializeField] private BattleDifficultyDataSo difficultyDataSo;
 
         /// <summary>
@@ -68,7 +67,7 @@ namespace ZiercCode.Old.Manager
 
         private void Start()
         {
-            _enemyNumHash = new int[enemyDataListSo.enemyAttributeSoList.Count];
+            //_enemyNumHash = new int[enemyPoolDataListSo.enemyPoolDataSoList.Count];
             OnLevelChange?.Invoke(_currentLevel);
         }
 
@@ -163,25 +162,26 @@ namespace ZiercCode.Old.Manager
         {
             int dif = difficulty;
 
-            _enemyNumHash = new int[enemyDataListSo.enemyAttributeSoList.Count];
+            //_enemyNumHash = new int[enemyPoolDataListSo.enemyPoolDataSoList.Count];
 
             while (dif > 0)
             {
                 for (int i = 0; i < _enemyNumHash.Length; i++)
                 {
-                    int temp = enemyDataListSo.enemyAttributeSoList[i].difficulty;
-                    dif -= temp;
-                    _enemyNumHash[i]++;
+                    // int temp = enemyPoolDataListSo.enemyPoolDataSoList[i].difficulty;
+                    // dif -= temp;
+                    // _enemyNumHash[i]++;
                 }
             }
         }
 
+        //TODO: 敌人生成
         //实例化怪物出生圈
         private void GetSpawner(int index, Vector2 pos)
         {
             GameObject newSpawner = Instantiate(enemySpawnerTemp, pos, Quaternion.identity);
             EnemySpawner_RedCircle es = newSpawner.GetComponent<EnemySpawner_RedCircle>();
-            es.enemyTemp = enemyDataListSo.enemyAttributeSoList[index].instance;
+            // es.enemyTemp = enemyPoolDataListSo.enemyPoolDataSoList[index].prefab;
         }
 
         private void SpawnEnemy()

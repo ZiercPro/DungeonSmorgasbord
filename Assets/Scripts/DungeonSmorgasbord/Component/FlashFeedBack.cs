@@ -1,17 +1,17 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 namespace ZiercCode.DungeonSmorgasbord.Component
 {
-    public class FlashFeedBack : MonoBehaviour
+    public class FlashFeedBack : CoroutineComponent
     {
         private Material DefaultMaterial; //默认
-        
+
         [SerializeField] private Material flashMaterial; //闪烁材质 
         [SerializeField] private SpriteRenderer characterS;
-
         [SerializeField] private float maintainTime = 0.1f;
+
+        private Coroutine _flashCoroutine;
 
         private void Awake()
         {
@@ -20,8 +20,9 @@ namespace ZiercCode.DungeonSmorgasbord.Component
 
         public void Flash()
         {
+            if (!gameObject.activeInHierarchy) return;
             characterS.material = flashMaterial;
-            StartCoroutine(FlashTimer());
+            _flashCoroutine = StartCoroutine(FlashTimer());
         }
 
         IEnumerator FlashTimer()

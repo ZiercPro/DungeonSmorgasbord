@@ -16,7 +16,6 @@ namespace ZiercCode.Old.Enemy
         public BabyMoveState moveState { get; private set; }
 
         private CanDropItems _canDropItems;
-        private KnockBackFeedBack _knockBackFeedBack;
         private ScaleShakeFeedBack _scaleShakeFeedBack;
         private FlashFeedBack _flashFeedBack;
 
@@ -26,16 +25,14 @@ namespace ZiercCode.Old.Enemy
             idleState = new BabyIdleState(this, stateMachine, this);
             moveState = new BabyMoveState(this, stateMachine, this);
             _canDropItems = GetComponent<CanDropItems>();
-            _knockBackFeedBack = GetComponent<KnockBackFeedBack>();
             _scaleShakeFeedBack = GetComponent<ScaleShakeFeedBack>();
             _flashFeedBack = GetComponent<FlashFeedBack>();
         }
 
-        protected override void Start()
+        public override void Init()
         {
-            base.Start();
+            base.Init();
             stateMachine.Initialize(idleState);
-            attackCheck.SetRadius(Attribute.attackRange);
         }
 
         public override void Dead(bool dropItem = true)
@@ -44,7 +41,7 @@ namespace ZiercCode.Old.Enemy
             AudioPlayer.Instance.PlayAudioAsync(AudioName.EnemyDead3);
             if (dropItem)
                 _canDropItems.DropItems();
-            Destroy(gameObject);
+            base.Dead();
         }
 
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ZiercCode.Core.System
+namespace ZiercCode.Core.Utilities
 {
     /// <summary>
     /// unity组件单例 场景转换时会被销毁

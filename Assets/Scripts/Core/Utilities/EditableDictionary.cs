@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
+using System.Collections.Generic;
 
-namespace ZiercCode.Core.Extend
+namespace ZiercCode.Core.Utilities
 {
     /// <summary>
     /// 可编辑物品字典
@@ -13,6 +14,36 @@ namespace ZiercCode.Core.Extend
     public class EditableDictionary<TKey, TObject>
     {
         [SerializeField] private List<EditableDictionaryItem<TKey, TObject>> dictionaryList;
+
+        /// <summary>
+        /// 可编辑物品，用于在可编辑字典中储存
+        /// </summary>
+        /// <typeparam name="TK">键值</typeparam>
+        /// <typeparam name="TO">值</typeparam>
+        [Serializable]
+        private class EditableDictionaryItem<TK, TO>
+        {
+#if UNITY_EDITOR
+            //只用来在检视界面显示
+            [ReadOnly, SerializeField, AllowNesting, ShowIf("HaveInspectorName")]
+            private string _inspectorName;
+
+            //是否有检视界面名称
+            private bool HaveInspectorName => _inspectorName != null;
+
+#endif
+            public TKey keyValue;
+            public TO objectValue;
+
+            public EditableDictionaryItem(TKey keyValue, TO objectValue, string itemName = null)
+            {
+#if UNITY_EDITOR
+                _inspectorName = itemName;
+#endif
+                this.keyValue = keyValue;
+                this.objectValue = objectValue;
+            }
+        }
 
         public int Count => dictionaryList?.Count ?? 0;
 
@@ -133,7 +164,7 @@ namespace ZiercCode.Core.Extend
         /// 获取物品
         /// </summary>
         /// <param name="keyValue">物品键值</param>
-        /// <returns></returns>
+        /// <returns>若存在则返回结果，若不存在则返回默认值</returns>
         public TObject Get(TKey keyValue)
         {
             if (dictionaryList == null || dictionaryList.Count == 0)

@@ -1,11 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Core.Extend;
-using ZiercCode.Old.Helper;
+using ZiercCode.Core.Utilities;
 
 namespace ZiercCode.Old.DroppedItem
 {
-
     public class DroppedItem : MonoBehaviour
     {
         public int num;
@@ -29,7 +27,7 @@ namespace ZiercCode.Old.DroppedItem
         {
             if (_items == null || _items.Count == 0) return;
             _isClearing = true;
-            MyMath.ForeachChangeListAvailable(_items, item =>
+            MyMath.ForeachFromLast(_items, item =>
             {
                 if (item != null)
                 {

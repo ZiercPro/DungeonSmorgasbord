@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ZiercCode.Old.Component.Hero
+namespace ZiercCode.DungeonSmorgasbord.Extend
 {
     public class InteractHandler : MonoBehaviour
     {

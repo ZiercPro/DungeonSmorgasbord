@@ -1,5 +1,6 @@
 using UnityEngine;
 using ZiercCode.Core.Extend;
+using ZiercCode.Core.Utilities;
 using ZiercCode.DungeonSmorgasbord.Weapon;
 
 namespace ZiercCode.DungeonSmorgasbord.ScriptObject
@@ -7,7 +8,7 @@ namespace ZiercCode.DungeonSmorgasbord.ScriptObject
     /// <summary>
     /// 英雄属性 
     /// </summary>
-    [CreateAssetMenu(menuName = "ScriptObject/Attributes/Hero", fileName = "Hero")]
+    [CreateAssetMenu(menuName = "ScriptableObject/Attributes/Hero", fileName = "Hero")]
     public class HeroAttributeSo : CreatureAttributesSo
     {
         /// <summary>

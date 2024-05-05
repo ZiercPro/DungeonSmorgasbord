@@ -85,9 +85,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 
             public void Init()
             {
-                _projectilePool = PoolManager.Instance.CreatePool(projectileDataSo.myName, CreateFunction, GetFunction,
-                    ReleaseFunction,
-                    DestroyFunction, false, poolInitSize, poolMaxSize);
             }
 
             public GameObject CreateFunction()
@@ -104,7 +101,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 
             public void ReleaseFunction(GameObject gameObject)
             {
-                PoolManager.Instance.DefaultReleaseFunc(projectileDataSo.myName, gameObject);
+                //PoolManager.Instance.ReleaseFunc(projectileDataSo.myName, gameObject);
             }
 
             public void DestroyFunction(GameObject gameObject)
@@ -118,8 +115,8 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             public void CreateProjectile(WeaponBase fireWeapon)
             {
                 //获取新的射弹实例
-                ProjectileInstance = PoolManager.Instance.GetPoolObject(projectileDataSo.myName, projectilePosition,
-                    Quaternion.identity);
+                // ProjectileInstance = PoolManager.Instance.GetPoolObject(projectileDataSo.myName, projectilePosition,
+                //     Quaternion.identity);
                 //初始化新的射弹
                 WeaponProjectile weaponProjectile = ProjectileInstance.GetComponent<WeaponProjectile>();
                 weaponProjectile.Init(fireWeapon.GetWeaponUserBase());

@@ -7,7 +7,7 @@ namespace ZiercCode.DungeonSmorgasbord.ScriptObject
     /// <summary>
     /// 武器数据
     /// </summary>
-    [CreateAssetMenu(fileName = "weaponDataSo", menuName = "ScriptObject/weaponDataSo")]
+    [CreateAssetMenu(fileName = "weaponDataSo", menuName = "ScriptableObject/weaponDataSo")]
     public class WeaponDataSo : ScriptableObject
     {
         /// <summary>

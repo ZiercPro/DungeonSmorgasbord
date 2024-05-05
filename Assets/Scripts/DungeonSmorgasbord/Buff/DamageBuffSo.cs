@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
-using ZiercCode.Core.Pool;
 using ZiercCode.DungeonSmorgasbord.Damage;
 
 namespace ZiercCode.DungeonSmorgasbord.Buff
 {
-    [CreateAssetMenu(fileName = "DamageBuff", menuName = "ScriptObject/Buff/DamageBuff")]
+    [CreateAssetMenu(fileName = "DamageBuff", menuName = "ScriptableObject/Buff/DamageBuff")]
     public class DamageBuffSo : BuffBaseSo
     {
         public int damage;
@@ -27,8 +26,8 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
 
         public override void InActive()
         {
-            base.InActive();
             _damageInfo = null;
+            base.InActive();
         }
     }
 }

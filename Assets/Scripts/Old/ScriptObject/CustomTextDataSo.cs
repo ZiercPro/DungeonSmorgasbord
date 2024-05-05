@@ -1,5 +1,6 @@
 using UnityEngine;
 using ZiercCode.Core.Extend;
+using ZiercCode.Core.Utilities;
 using ZiercCode.Old.Helper;
 
 namespace ZiercCode.Old.ScriptObject
@@ -7,7 +8,7 @@ namespace ZiercCode.Old.ScriptObject
     /// <summary>
     /// 自定义文本数据
     /// </summary>
-    [CreateAssetMenu(menuName = "ScriptObject/CustomTextData", fileName = "CustomTextData")]
+    [CreateAssetMenu(menuName = "ScriptableObject/CustomTextData", fileName = "CustomTextData")]
     public class CustomTextDataSo : ScriptableObject
     {
         [SerializeField] private TextAsset customTextTableFile;

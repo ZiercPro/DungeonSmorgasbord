@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 using ZiercCode.Core.Extend;
+using ZiercCode.Core.Utilities;
 using ZiercCode.Old.Helper;
 
 namespace ZiercCode.Old.ScriptObject
 {
-    [CreateAssetMenu(menuName = "ScriptObject/BattleDifficulty", fileName = "BattleDifficulty")]
+    [CreateAssetMenu(menuName = "ScriptableObject/BattleDifficulty", fileName = "BattleDifficulty")]
     public class BattleDifficultyDataSo : ScriptableObject
     {
         [SerializeField] private TextAsset difDataFile;

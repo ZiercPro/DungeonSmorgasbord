@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb1345f53f04b24a8b6d62249f2e4d2, type: 3}
   m_Name: Enemy_BigMouth
   m_EditorClassIdentifier: 
-  instance: {fileID: 8472406070026422316, guid: 8bb4383f80ae3fa46bb1b7bc97b2ef13, type: 3}
+  prefab: {fileID: 8472406070026422316, guid: 8bb4383f80ae3fa46bb1b7bc97b2ef13, type: 3}
   myName: BigMouth
   maxHealth: 20
   moveSpeed: 3

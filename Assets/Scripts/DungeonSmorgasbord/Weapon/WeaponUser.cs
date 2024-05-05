@@ -5,10 +5,10 @@ using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
-    public class WeaponUserComponent : MonoBehaviour
+    public class WeaponUser : MonoBehaviour
     {
         [SerializeField] private WeaponDataSo weaponDataSo;
-        private WeaponRotateComponent _weaponRotateComponent;
+        private WeaponRotate _weaponRotate;
         private IWeaponUserBase _weaponUserBase;
         private IWeaponBase _weaponBase;
 
@@ -16,7 +16,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 
         private void Awake()
         {
-            _weaponRotateComponent = GetComponent<WeaponRotateComponent>();
+            _weaponRotate = GetComponent<WeaponRotate>();
             _weaponUserBase = GetComponent<IWeaponUserBase>();
         }
 
@@ -49,9 +49,9 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             WeaponBase weaponBase = weaponInstance.GetComponent<WeaponBase>();
             _weaponBase = weaponBase;
             weaponBase.Init(_weaponUserBase);
-            if (!_weaponRotateComponent) return null;
-            _weaponRotateComponent.SetWeapon(weaponTransform, weaponRenderer);
-            return viewPosition => _weaponRotateComponent.WeaponRotateTo(viewPosition);
+            if (!_weaponRotate) return null;
+            _weaponRotate.SetWeapon(weaponTransform, weaponRenderer);
+            return viewPosition => _weaponRotate.WeaponRotateTo(viewPosition);
         }
 
         public void OnLeftButtonPressStarted()

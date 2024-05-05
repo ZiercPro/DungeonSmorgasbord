@@ -1,13 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using ZiercCode.Old.Component.Hero;
 using ZiercCode.Old.UI;
 
-namespace ZiercCode.Old.Environment
+namespace ZiercCode.DungeonSmorgasbord.Extend
 {
     [RequireComponent(typeof(CircleCollider2D))]
-    public class Interactable : MonoBehaviour
+    public class Interactive : MonoBehaviour
     {
         [SerializeField] private GameObject buttonUITemp;
         [SerializeField] private UnityEvent onActive;

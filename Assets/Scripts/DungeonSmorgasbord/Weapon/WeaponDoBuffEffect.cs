@@ -11,13 +11,13 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         [SerializeField] private WeaponBase weaponBase;
         [SerializeField] private BuffBaseSo buffBaseSo;
 
-        [SerializeField] private bool canHurtSelf;
+        [SerializeField] private bool canEffectSelf;
 
         public void DoBuffEffect(Collider2D c2D)
         {
             if (c2D.TryGetComponent(out BuffEffective buffEffective))
             {
-                if (!canHurtSelf)
+                if (!canEffectSelf)
                     if (weaponBase.GetWeaponUserBase().GetWeaponUserTransform().GetComponent<BuffEffective>() ==
                         buffEffective)
                         return;

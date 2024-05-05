@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Core.Extend;
+using ZiercCode.Core.Utilities;
 
 namespace ZiercCode.DungeonSmorgasbord.Buff
 {
@@ -9,16 +8,18 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
     {
         private List<BuffBaseSo> _buffBases;
 
-        private void Awake()
+
+        private void OnEnable()
         {
             _buffBases = new List<BuffBaseSo>();
+            _buffBases.Clear();
         }
 
         private void Update()
         {
             if (_buffBases.Count > 0)
             {
-                MyMath.ForeachChangeListAvailable(_buffBases, buff =>
+                MyMath.ForeachFromLast(_buffBases, buff =>
                 {
                     buff.BuffTimeUpdate();
                     if (!buff.Enable)
@@ -30,7 +31,7 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
             }
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             if (_buffBases.Count > 0)
             {
@@ -38,8 +39,6 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
                 {
                     buff.InActive();
                 }
-
-                _buffBases.Clear();
             }
         }
 
@@ -56,7 +55,7 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
                 }
             }
 
-
+            //添加新的buff
             BuffBaseSo buffBaseSoIns = Instantiate(buffBaseSo);
             _buffBases.Add(buffBaseSoIns);
             buffBaseSoIns.Init(this);

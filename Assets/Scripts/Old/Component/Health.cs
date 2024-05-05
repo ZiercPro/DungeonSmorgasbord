@@ -58,7 +58,13 @@ namespace ZiercCode.Old.Component
 
         private void Start()
         {
-            this._maxHealth = creatureAttributesSo.maxHealth;
+            Init();
+        }
+
+        public void Init()
+        {
+            IsDead = false;
+            _maxHealth = creatureAttributesSo.maxHealth;
             _currentHealth = _maxHealth;
             if (_maxHealth <= 0 || _currentHealth <= 0)
             {
@@ -144,6 +150,7 @@ namespace ZiercCode.Old.Component
         {
             IsDead = true;
             Dead?.Invoke();
+            Dead = null;
         }
     }
 }

@@ -5,13 +5,13 @@ namespace ZiercCode.DungeonSmorgasbord.ScriptObject
     /// <summary>
     /// 储存游戏对象基本的数据
     /// </summary>
-    [CreateAssetMenu(menuName = "ScriptObject/Attributes/BaseAttributes", fileName = "BaseAttributes")]
+    [CreateAssetMenu(menuName = "ScriptableObject/Attributes/BaseAttributes", fileName = "BaseAttributes")]
     public class CreatureAttributesSo : ScriptableObject
     {
         /// <summary>
         /// 属性持有者预制件
         /// </summary>
-        public GameObject instance;
+        public GameObject prefab;
 
         /// <summary>
         /// 持有者名称

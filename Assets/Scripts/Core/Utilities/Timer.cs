@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ZiercCode.Core.Extend
+namespace ZiercCode.Core.Utilities
 {
     /// <summary>
     /// 一个简单的计时器

@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace ZiercCode.Core.Extend
+namespace ZiercCode.Core.Utilities
 {
     /// <summary>
     /// 自己的数学类，用来进行数值的处理
@@ -156,7 +157,7 @@ namespace ZiercCode.Core.Extend
         /// <param name="list">操作链表</param>
         /// <param name="action">操作</param>
         /// <typeparam name="T">链表储存对象</typeparam>
-        public static void ForeachChangeListAvailable<T>(List<T> list, Action<T> action)
+        public static void ForeachFromLast<T>(IList<T> list, Action<T> action)
         {
             if (list == null || list.Count <= 0)
             {

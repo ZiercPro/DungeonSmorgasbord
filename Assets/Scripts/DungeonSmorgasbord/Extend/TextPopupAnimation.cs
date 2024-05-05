@@ -2,6 +2,7 @@ using DG.Tweening;
 using System;
 using TMPro;
 using UnityEngine;
+using ZiercCode.Core.Pool;
 using Random = UnityEngine.Random;
 
 namespace ZiercCode.DungeonSmorgasbord.Extend
@@ -21,7 +22,7 @@ namespace ZiercCode.DungeonSmorgasbord.Extend
         /// <summary>
         /// 弹出文本
         /// </summary>
-        public void Popup(Action<GameObject> releaseFunc)
+        public void Popup(Action releaseFunc)
         {
             _sortingID++;
             textMeshPro.sortingOrder = _sortingID;
@@ -38,7 +39,7 @@ namespace ZiercCode.DungeonSmorgasbord.Extend
             rectTransform.DOAnchorPos(endPos, moveDuration).SetEase(Ease.InSine).OnComplete(() =>
                 rectTransform.DOShakePosition(duration, 0.2f).OnComplete(() =>
                     textMeshPro.DOFade(0f, duration).From(textMeshPro.color)
-                        .OnComplete(() => releaseFunc?.Invoke(gameObject))));
+                        .OnComplete(() => releaseFunc?.Invoke())));
         }
     }
 }

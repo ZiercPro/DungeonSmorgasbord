@@ -1,12 +1,13 @@
 using UnityEngine;
 using ZiercCode.Core.Extend;
+using ZiercCode.Core.Utilities;
 
 namespace ZiercCode.Old.ScriptObject
 {
     /// <summary>
     /// 储存语言对应编号
     /// </summary>
-    [CreateAssetMenu(menuName = "ScriptObject/LocalID", fileName = "LocalID")]
+    [CreateAssetMenu(menuName = "ScriptableObject/LocalID", fileName = "LocalID")]
     public class LocalsDataSo : ScriptableObject
     {
         [field: SerializeField] public TextAsset LanguageIndexData { get; private set; }

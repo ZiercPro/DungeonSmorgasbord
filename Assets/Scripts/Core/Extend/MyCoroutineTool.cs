@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ZiercCode.Core.System;
+using ZiercCode.Core.Utilities;
 
 namespace ZiercCode.Core.Extend
 {
@@ -38,8 +38,8 @@ namespace ZiercCode.Core.Extend
         /// </summary>
         public void StopMyCor(Coroutine cor)
         {
-            _myCoroutines.Remove(cor);
             StopCoroutine(cor);
+            _myCoroutines.Remove(cor);
         }
 
         /// <summary>
@@ -47,8 +47,9 @@ namespace ZiercCode.Core.Extend
         /// </summary>
         public void StopAllCor()
         {
+            StopAllCoroutines();
             if (_myCoroutines != null && _myCoroutines.Count > 0)
-                MyMath.ForeachChangeListAvailable(_myCoroutines, StopCoroutine);
+                MyMath.ForeachFromLast(_myCoroutines, StopCoroutine);
         }
     }
 }

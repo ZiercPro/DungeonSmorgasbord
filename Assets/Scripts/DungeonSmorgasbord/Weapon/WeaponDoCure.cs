@@ -7,6 +7,9 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
     /// </summary>
     public class WeaponDoCure : MonoBehaviour
     {
-        
+        /// <summary>
+        /// 武器数据
+        /// </summary>
+        [SerializeField] private WeaponBase weapon;
     }
 }

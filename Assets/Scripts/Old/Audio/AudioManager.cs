@@ -21,7 +21,7 @@ namespace ZiercCode.Old.Audio
         private Dictionary<AudioBase, AudioClip> _audioClipDictionary;
 
         /// <summary>
-        /// 储存已经创建好的audiosource
+        /// 储存已经创建好的audioSource
         /// </summary>
         private Dictionary<AudioBase, AudioSource> _audioSourceDictionary;
 
@@ -33,20 +33,18 @@ namespace ZiercCode.Old.Audio
         }
 
         /// <summary>
-        /// 通过audiobase异步创建新的音频
+        /// 通过audioBase异步创建新的音频
         /// </summary>
         /// <param name="audioBase"></param>
         /// <returns></returns>
         public async Task<AudioSource> GetAudioSourceAsync(AudioBase audioBase)
         {
             if (!_audioParent) _audioParent = FindAudiosParent();
-            AudioClip newClip = null;
-            AudioSource result = null;
 
-            if (CheckAudioSourceDictionary(audioBase, out result))
+            if (CheckAudioSourceDictionary(audioBase, out AudioSource result))
                 return result;
 
-            if (CheckAudioClipDictionary(audioBase, out newClip))
+            if (CheckAudioClipDictionary(audioBase, out AudioClip newClip))
             {
                 result = CreateNewAudioSource(audioBase, newClip, _audioParent);
                 return result;
@@ -82,57 +80,6 @@ namespace ZiercCode.Old.Audio
 
             return false;
         }
-
-        // /// <summary>
-        // /// 通过audiobase创建新的音频
-        // /// </summary>
-        // /// <param name="audioBase"></param>
-        // /// <returns></returns>
-        // [Obsolete]
-        // public AudioSource GetAudioSource(AudioBase audioBase)
-        // {
-        //     AudioClip newClip = null;
-        //     AsyncOperationHandle<AudioClip> asyncOperationHandle;
-        //     if (audioClipsDictionary.ContainsKey(audioBase.AudioType))
-        //         newClip = audioClipsDictionary[audioBase.AudioType];
-        //     else
-        //     {
-        //         asyncOperationHandle = Addressables.LoadAssetAsync<AudioClip>(audioBase.AudioType.Path);
-        //         asyncOperationHandle.Completed += handle =>
-        //         {
-        //             AudioClip prefab = handle.Result;
-        //             newClip = Object.Instantiate(prefab);
-        //             Addressables.Release(asyncOperationHandle);
-        //         };
-        //
-        //         asyncOperationHandle.WaitForCompletion();
-        //
-        //         audioClipsDictionary.Add(audioBase.AudioType, newClip);
-        //     }
-        //
-        //     if (!newClip)
-        //     {
-        //         Debug.LogError($"资源 {audioBase.AudioType.name} 加载失败");
-        //         return null;
-        //     }
-        //
-        //     if (audioSourceDictionary.ContainsKey(audioBase.AudioType))
-        //     {
-        //         if (!audioSourceDictionary[audioBase.AudioType])
-        //         {
-        //             audioSourceDictionary[audioBase.AudioType] =
-        //                 CreateNewAudioSource(audioBase, newClip, _audioParent);
-        //         }
-        //
-        //         return audioSourceDictionary[audioBase.AudioType];
-        //     }
-        //
-        //     AudioSource newComponent = CreateNewAudioSource(audioBase, newClip, _audioParent);
-        //
-        //     audioSourceDictionary.Add(audioBase.AudioType, newComponent);
-        //
-        //     return newComponent;
-        // }
 
         //检查是否已经加载了clip
         private bool CheckAudioClipDictionary(AudioBase audioBase, out AudioClip audioClip)

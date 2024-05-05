@@ -7,10 +7,10 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
     public class WeaponBase : MonoBehaviour, IWeaponBase
     {
         [SerializeField] private WeaponDataSo weaponDataSo;
-        [SerializeField, ShowIf("haveInput")] private WeaponInputHandler weaponInputHandler;
         [SerializeField] private bool haveInput;
-        private IWeaponUserBase _weaponUserBase;
+        [SerializeField, ShowIf("haveInput")] private WeaponInputHandler weaponInputHandler;
 
+        private IWeaponUserBase _weaponUserBase;
 
         /// <summary>
         /// 武器初始化，使用武器前必须初始化

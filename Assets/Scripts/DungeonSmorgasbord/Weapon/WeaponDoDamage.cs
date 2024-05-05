@@ -1,9 +1,8 @@
 ﻿using NaughtyAttributes;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using ZiercCode.Core.Extend;
+using ZiercCode.Core.Utilities;
 using ZiercCode.DungeonSmorgasbord.Damage;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
@@ -78,7 +77,9 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <returns></returns>
         private DamageInfo GetDamageInfo()
         {
-            int damageAmount = weapon.GetWeaponDataSo().Damage;
+            int damageAmount = (int)(weapon.GetWeaponDataSo().Damage *
+                                     weapon.GetWeaponUserBase().GetWeaponDamageRate()[
+                                         weapon.GetWeaponDataSo().WeaponType]);
             if (MyMath.ChanceToBool(weapon.GetWeaponUserBase().GetCriticalChance()))
                 damageAmount *= 2;
 

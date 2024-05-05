@@ -1,7 +1,7 @@
 ﻿using NaughtyAttributes;
 using UnityEngine;
-using ZiercCode.Core.Extend;
 using ZiercCode.Core.Pool;
+using ZiercCode.Core.Utilities;
 
 namespace ZiercCode.DungeonSmorgasbord.Buff
 {
@@ -29,6 +29,7 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         /// 是否可叠加
         /// </summary>
         public bool addAble;
+
 
         /// <summary>
         /// 是否有粒子效果
@@ -94,7 +95,7 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
 
         private void ReleaseFunc(GameObject particle)
         {
-            PoolManager.Instance.DefaultReleaseFunc(particle.name, particle);
+            //   PoolManager.Instance.ReleaseFunc(particlePrefab.name, particle);
         }
 
         private void DestroyFunc(GameObject particle)
@@ -104,20 +105,22 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
 
         public virtual void Init(BuffEffective buffEffective)
         {
+            Enable = true;
+            BuffEffective = buffEffective;
             //粒子效果初始化
             if (haveParticle)
             {
-                PoolManager.Instance.CreatePool(particlePrefab.name, CreateFunc, GetFunc, ReleaseFunc, DestroyFunc,
-                    false, particlePoolInitSize, particlePoolMaxSize);
-                _particleInstance = PoolManager.Instance.GetPoolObject(particlePrefab.name, buffEffective.transform);
+                //  PoolManager.Instance.CreatePool(particlePrefab.name, CreateFunc, GetFunc, ReleaseFunc, DestroyFunc,
+                // false, particlePoolInitSize, particlePoolMaxSize);
+                // _particleInstance = PoolManager.Instance.GetPoolObject(particlePrefab.name);
             }
 
-            BuffEffective = buffEffective;
             _enableTimer = new Timer(duration);
             _activeTimer = new Timer(effectInternal);
-            Enable = true;
+
             _enableTimer.TimerTrigger += () => { Enable = false; };
             _activeTimer.TimerTrigger += Active;
+
             _enableTimer.StartTimer();
         }
 
@@ -125,23 +128,28 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         {
             _enableTimer.Tick();
             _activeTimer.Tick();
+            _particleInstance.transform.position = BuffEffective.transform.position;
         }
 
 
         public virtual void Active()
         {
+            if (_activeTimer == null) return;
             _activeTimer.StartTimer();
         }
 
         public virtual void InActive()
         {
-            _enableTimer = null;
+            _activeTimer.StopTimer();
+            _enableTimer.StopTimer();
             _activeTimer = null;
-            PoolManager.Instance.ReleasePoolObject(particlePrefab.name, _particleInstance);
+            _enableTimer = null;
+            // PoolManager.Instance.ReleasePoolObject(particlePrefab.name, _particleInstance);
         }
 
         public void ReSetDuration()
         {
+            if (_enableTimer == null) return;
             _enableTimer.StartTimer();
         }
     }

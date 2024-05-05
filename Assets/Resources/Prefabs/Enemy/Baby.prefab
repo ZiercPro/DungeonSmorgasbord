@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 2128747106723904120}
   - component: {fileID: 2177417096687788655}
   - component: {fileID: 3520796321833682881}
+  - component: {fileID: 7851767141937854372}
   m_Layer: 6
   m_Name: Baby
   m_TagString: Untagged
@@ -200,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932b357a591b79e44bf9090780f6848f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb2D: {fileID: 2990257174180385413}
 --- !u!114 &2241906935849456536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70d6c9f8ac07c6468bcd1adaefd3a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creatureAttributesSo: {fileID: 11400000, guid: 975e63cfc57ff5246ab12dee01abe5c2, type: 2}
 --- !u!210 &2782844309975292074
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -250,7 +253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backMoveTime: 0.15
-  force: 50
 --- !u!114 &8182654456024282727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,8 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feeac0b2bf5dfab42b1c5edaa3ac0c55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flashMaterial: {fileID: 0}
-  defaultMaterial: {fileID: 0}
+  flashMaterial: {fileID: 2100000, guid: 90914f556d1fc594399acad960bee107, type: 2}
   characterS: {fileID: 4520229708370242629}
   maintainTime: 0.1
 --- !u!114 &2516324243222191819
@@ -294,11 +295,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6c641725bb4a70bd0725e5fe57f674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureAttributesBaseSo: {fileID: 11400000, guid: 975e63cfc57ff5246ab12dee01abe5c2, type: 2}
+  <creatureAttributesBaseSo>k__BackingField: {fileID: 11400000, guid: 975e63cfc57ff5246ab12dee01abe5c2, type: 2}
   criticalChance: 0
   moveSpeed: 4
   maxHealth: 6
-  damageType: 1
+  damageType: 0
   attackSpeed: 2
   attackRange: 0.3
   damageAmount: 2
@@ -336,6 +337,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 4520229708370242629}
   defaultRight: 1
+--- !u!114 &7851767141937854372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149073930474505641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2161287d0193244a59b78c557d6502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6365258972828138985
 GameObject:
   m_ObjectHideFlags: 0
