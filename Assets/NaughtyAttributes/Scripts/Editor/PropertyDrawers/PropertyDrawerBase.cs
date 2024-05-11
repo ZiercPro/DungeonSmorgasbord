@@ -1,7 +1,12 @@
-﻿using UnityEditor;
+﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
+using NaughtyAttributes.Scripts.Core.ValidatorAttributes;
+using NaughtyAttributes.Scripts.Editor.PropertyDrawers_SpecialCase;
+using NaughtyAttributes.Scripts.Editor.PropertyValidators;
+using NaughtyAttributes.Scripts.Editor.Utility;
+using UnityEditor;
 using UnityEngine;
 
-namespace NaughtyAttributes.Editor
+namespace NaughtyAttributes.Scripts.Editor.PropertyDrawers
 {
     public abstract class PropertyDrawerBase : PropertyDrawer
     {

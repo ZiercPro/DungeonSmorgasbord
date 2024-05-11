@@ -1,8 +1,10 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes.Scripts.Editor.Utility;
 using System;
+using UnityEditor;
+using UnityEngine;
 
-namespace NaughtyAttributes.Editor
+namespace NaughtyAttributes.Scripts.Editor.PropertyDrawers
 {
     [CustomPropertyDrawer(typeof(EnumFlagsAttribute))]
     public class EnumFlagsPropertyDrawer : PropertyDrawerBase

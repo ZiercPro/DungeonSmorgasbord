@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using ImmersiveVrToolsCommon.Runtime.Logging;
+﻿using ImmersiveVrToolsCommon.Runtime.Logging;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
-namespace FastScriptReload.Editor.Compilation.CodeRewriting
+namespace FastScriptReload.Scripts.Editor.Compilation.CodeRewriting
 {
 	class CreateNewFieldInitMethodRewriter: FastScriptReloadCodeRewriterBase {
 		private readonly Dictionary<string, List<string>> _typeToNewFieldDeclarations;

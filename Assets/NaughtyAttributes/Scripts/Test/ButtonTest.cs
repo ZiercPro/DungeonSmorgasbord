@@ -1,7 +1,8 @@
+using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
 using System.Collections;
 using UnityEngine;
 
-namespace NaughtyAttributes.Test
+namespace NaughtyAttributes.Scripts.Test
 {
     public class ButtonTest : MonoBehaviour
     {

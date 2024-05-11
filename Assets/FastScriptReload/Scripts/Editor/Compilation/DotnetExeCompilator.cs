@@ -1,4 +1,9 @@
-﻿using System;
+﻿using FastScriptReload.Scripts.Editor.AssemblyPostProcess;
+using ImmersiveVRTools.Editor.Common.Cache;
+using ImmersiveVRTools.Editor.Common.Utilities;
+using ImmersiveVRTools.Runtime.Common;
+using ImmersiveVrToolsCommon.Runtime.Logging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -8,15 +13,9 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
-using FastScriptReload.Editor.AssemblyPostProcess;
-using HarmonyLib;
-using ImmersiveVRTools.Editor.Common.Cache;
-using ImmersiveVRTools.Editor.Common.Utilities;
-using ImmersiveVRTools.Runtime.Common;
-using ImmersiveVrToolsCommon.Runtime.Logging;
 using UnityEditor;
 
-namespace FastScriptReload.Editor.Compilation
+namespace FastScriptReload.Scripts.Editor.Compilation
 {
     [InitializeOnLoad]
     public class DotnetExeDynamicCompilation: DynamicCompilationBase

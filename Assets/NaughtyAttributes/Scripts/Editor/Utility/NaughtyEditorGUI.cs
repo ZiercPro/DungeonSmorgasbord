@@ -1,13 +1,16 @@
+using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
+using NaughtyAttributes.Scripts.Core.ValidatorAttributes;
+using NaughtyAttributes.Scripts.Editor.PropertyDrawers_SpecialCase;
+using NaughtyAttributes.Scripts.Editor.PropertyValidators;
 using System;
 using System.Collections;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
-using UnityEditor.Experimental.SceneManagement;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace NaughtyAttributes.Editor
+namespace NaughtyAttributes.Scripts.Editor.Utility
 {
     public static class NaughtyEditorGUI
     {

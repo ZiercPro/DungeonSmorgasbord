@@ -1,11 +1,13 @@
-﻿using UnityEngine;
-using UnityEditor;
-using System.Collections;
-using System.Reflection;
+﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes.Scripts.Editor.Utility;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using UnityEditor;
+using UnityEngine;
 
-namespace NaughtyAttributes.Editor
+namespace NaughtyAttributes.Scripts.Editor.PropertyDrawers
 {
     [CustomPropertyDrawer(typeof(DropdownAttribute))]
     public class DropdownPropertyDrawer : PropertyDrawerBase

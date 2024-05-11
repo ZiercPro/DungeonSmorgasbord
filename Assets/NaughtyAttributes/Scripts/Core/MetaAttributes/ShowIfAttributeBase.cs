@@ -1,6 +1,7 @@
-﻿using System;
+﻿using NaughtyAttributes.Scripts.Core.Utility;
+using System;
 
-namespace NaughtyAttributes
+namespace NaughtyAttributes.Scripts.Core.MetaAttributes
 {
     public class ShowIfAttributeBase : MetaAttribute
     {

@@ -8,7 +8,6 @@ using ZiercCode.DungeonSmorgasbord.Weapon;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Hero;
 using ZiercCode.Old.FeedBack;
-using ZiercCode.Old.Manager;
 
 namespace ZiercCode.Old.Hero
 {
@@ -47,7 +46,7 @@ namespace ZiercCode.Old.Hero
         private void Start()
         {
             CoinPack.Init(0);
-            _moveComponent.SetMoveSpeed(_attribute.moveSpeed);
+            _moveComponent.SetMoveSpeed(_attribute.AttributesData.moveSpeed);
             _heroInputManager.SetHeroControl(true);
             InitWeapon();
             _heroInputManager.DashButtonPressedPerformed += _dashComponent.Dash;
@@ -79,12 +78,12 @@ namespace ZiercCode.Old.Hero
 
         public void TakeDamage(DamageInfo info)
         {
+            if (_health.IsDead) return;
             int healthValue = _health.GetCurrentHealth() - info.damageAmount;
             _health.SetCurrentHealth(healthValue, Health.HealthChangeType.Damage);
             //听觉反馈
 
             //视觉反馈
-            TextPopupSpawner.Instance.InitPopupText(transform, Color.red, "-" + info.damageAmount);
             _cameraShakeFeedback.StartShake();
             _animationHandler.ActiveAnimationFunc(1);
         }
@@ -92,20 +91,21 @@ namespace ZiercCode.Old.Hero
 
         public void Dead()
         {
-            _animationHandler.ActiveAnimationFunc(0);
-            _knockBackFeedBack.enabled = false;
             _heroInputManager.SetHeroControl(false);
+            _knockBackFeedBack.enabled = false;
             _moveComponent.Stop();
+            
+            _animationHandler.ActiveAnimationFunc(0);
         }
 
         public Dictionary<WeaponType, float> GetWeaponDamageRate()
         {
-            return _attribute.weaponDamageRate.ToDictionary();
+            return _attribute.AttributesData.weaponDamageRate.ToDictionary();
         }
 
         public float GetCriticalChance()
         {
-            return _attribute.criticalChance;
+            return _attribute.AttributesData.criticalChance;
         }
 
         public Transform GetWeaponUserTransform()

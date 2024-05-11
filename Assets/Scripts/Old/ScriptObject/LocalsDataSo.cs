@@ -10,16 +10,16 @@ namespace ZiercCode.Old.ScriptObject
     [CreateAssetMenu(menuName = "ScriptableObject/LocalID", fileName = "LocalID")]
     public class LocalsDataSo : ScriptableObject
     {
-        [field: SerializeField] public TextAsset LanguageIndexData { get; private set; }
+        [SerializeField] private TextAsset languageIndexData;
         [field: SerializeField] public EditableDictionary<string, int> LocalsIDTable { get; private set; }
 
 
         private void OnValidate()
         {
-            if (LanguageIndexData == null) return;
+            if (languageIndexData == null) return;
 
             LocalsIDTable = new EditableDictionary<string, int>();
-            string[] lines = LanguageIndexData.text.Split('\n');
+            string[] lines = languageIndexData.text.Split('\n');
             for (int i = 0; i < lines.Length - 1; i++)
             {
                 string[] rows = lines[i].Split(',');

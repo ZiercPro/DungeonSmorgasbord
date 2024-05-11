@@ -1,8 +1,8 @@
-﻿using System;
+﻿using ImmersiveVRTools.Editor.Common.WelcomeScreen.PreferenceDefinition;
+using System;
 using System.Collections.Generic;
-using ImmersiveVRTools.Editor.Common.WelcomeScreen.PreferenceDefinition;
 
-namespace FastScriptReload.Editor
+namespace FastScriptReload.Scripts.Editor
 {
     [Serializable]
     public class FileWatcherSetupEntry: JsonObjectListSerializable<FileWatcherSetupEntry>

@@ -1,10 +1,11 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using System;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System;
+using UnityEditor;
+using UnityEngine;
 
-namespace NaughtyAttributes.Editor
+namespace NaughtyAttributes.Scripts.Editor.PropertyDrawers
 {
     [CustomPropertyDrawer(typeof(SceneAttribute))]
     public class ScenePropertyDrawer : PropertyDrawerBase

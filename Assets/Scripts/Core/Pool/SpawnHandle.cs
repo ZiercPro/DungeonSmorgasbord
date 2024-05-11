@@ -32,8 +32,8 @@ namespace ZiercCode.Core.Pool
             if (_poolObjectSo.haveIPoolObject)
                 if (_poolObject.TryGetComponent(out IPoolObject iPoolObject))
                 {
-                    iPoolObject.OnGet();
                     iPoolObject.SetSpawnHandle(this);
+                    iPoolObject.OnGet();
                 }
 
             return _poolObject;

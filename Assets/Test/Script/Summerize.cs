@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZiercCode.Test
+namespace ZiercCode.Test.Script
 {
     public class Summerize : MonoBehaviour
     {

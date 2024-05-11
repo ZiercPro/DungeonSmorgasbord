@@ -1,4 +1,5 @@
 ﻿using NaughtyAttributes;
+using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
 using ZiercCode.Core.Pool;
 using ZiercCode.Core.Utilities;

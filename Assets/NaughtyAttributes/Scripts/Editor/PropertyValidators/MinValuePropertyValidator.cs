@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes.Scripts.Core.ValidatorAttributes;
+using NaughtyAttributes.Scripts.Editor.Utility;
 using UnityEditor;
+using UnityEngine;
 
-namespace NaughtyAttributes.Editor
+namespace NaughtyAttributes.Scripts.Editor.PropertyValidators
 {
     public class MinValuePropertyValidator : PropertyValidatorBase
     {

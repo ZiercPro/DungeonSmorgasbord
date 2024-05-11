@@ -1,10 +1,10 @@
-﻿using System.IO;
+﻿using Mono.Cecil;
+using System.IO;
 using System.Reflection;
-using Mono.Cecil;
 using UnityEditor;
 using UnityEngine;
 
-namespace FastScriptReload.Editor.AssemblyPostProcess
+namespace FastScriptReload.Scripts.Editor.AssemblyPostProcess
 {
     [InitializeOnLoad]
     public static class AddInternalsVisibleToForAllUserAssembliesPostProcess 

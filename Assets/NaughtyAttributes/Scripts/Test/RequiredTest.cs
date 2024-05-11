@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes.Scripts.Core.ValidatorAttributes;
+using UnityEngine;
 
-namespace NaughtyAttributes.Test
+namespace NaughtyAttributes.Scripts.Test
 {
     public class RequiredTest : MonoBehaviour
     {

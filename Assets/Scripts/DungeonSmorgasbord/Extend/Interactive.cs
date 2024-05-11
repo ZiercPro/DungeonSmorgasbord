@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using ZiercCode.Old.UI;
+using ZiercCode.DungeonSmorgasbord.UI;
 
 namespace ZiercCode.DungeonSmorgasbord.Extend
 {

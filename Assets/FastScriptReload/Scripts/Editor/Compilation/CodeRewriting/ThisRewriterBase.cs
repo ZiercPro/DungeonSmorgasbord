@@ -1,10 +1,10 @@
-﻿using System.Linq;
-using ImmersiveVrToolsCommon.Runtime.Logging;
+﻿using ImmersiveVrToolsCommon.Runtime.Logging;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Linq;
 
-namespace FastScriptReload.Editor.Compilation.CodeRewriting
+namespace FastScriptReload.Scripts.Editor.Compilation.CodeRewriting
 {
     abstract class ThisRewriterBase : FastScriptReloadCodeRewriterBase
     {

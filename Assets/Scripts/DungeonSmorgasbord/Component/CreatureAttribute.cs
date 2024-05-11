@@ -1,4 +1,7 @@
 using NaughtyAttributes;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes.Scripts.Core.MetaAttributes;
+using System;
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
@@ -10,21 +13,14 @@ namespace ZiercCode.DungeonSmorgasbord.Component
     /// <typeparam name="T"></typeparam>
     public class CreatureAttribute<T> : MonoBehaviour where T : CreatureAttributesSo
     {
-        [field: SerializeField] public T creatureAttributesBaseSo { get; private set; }
-        [Space] public float criticalChance;
-        public float moveSpeed;
-        public int maxHealth;
+        [SerializeField, Expandable] protected T creatureAttributesBaseSo;
 
-        public virtual void ResetData()
-        {
-            moveSpeed = creatureAttributesBaseSo.moveSpeed;
-            maxHealth = creatureAttributesBaseSo.maxHealth;
-            criticalChance = creatureAttributesBaseSo.criticalChance;
-        }
+        [NonSerialized] public T AttributesData;
 
-        protected void OnValidate()
+        private void Awake()
         {
-            ResetData();
+            AttributesData = Instantiate(creatureAttributesBaseSo);
+            
         }
     }
 }

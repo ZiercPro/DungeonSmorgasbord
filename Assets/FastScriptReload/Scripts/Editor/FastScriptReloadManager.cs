@@ -1,20 +1,20 @@
+using FastScriptReload.Scripts.Editor.Compilation;
+using FastScriptReload.Scripts.Editor.Compilation.ScriptGenerationOverrides;
+using FastScriptReload.Scripts.Runtime;
+using ImmersiveVRTools.Editor.Common.Utilities;
+using ImmersiveVRTools.Runtime.Common;
+using ImmersiveVrToolsCommon.Runtime.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FastScriptReload.Editor.Compilation;
-using FastScriptReload.Editor.Compilation.ScriptGenerationOverrides;
-using FastScriptReload.Runtime;
-using ImmersiveVRTools.Editor.Common.Utilities;
-using ImmersiveVRTools.Runtime.Common;
-using ImmersiveVrToolsCommon.Runtime.Logging;
 using UnityEditor;
 using UnityEditor.Compilation;
 using UnityEngine;
 
-namespace FastScriptReload.Editor
+namespace FastScriptReload.Scripts.Editor
 {
     [InitializeOnLoad]
     [PreventHotReload]

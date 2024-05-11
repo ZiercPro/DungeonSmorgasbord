@@ -1,7 +1,8 @@
-using UnityEngine;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using System.Collections.Generic;
+using UnityEngine;
 
-namespace NaughtyAttributes.Test
+namespace NaughtyAttributes.Scripts.Test
 {
     public class DropdownTest : MonoBehaviour
     {

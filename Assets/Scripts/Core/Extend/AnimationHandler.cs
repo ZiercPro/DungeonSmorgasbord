@@ -1,4 +1,6 @@
 ﻿using NaughtyAttributes;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

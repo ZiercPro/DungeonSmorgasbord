@@ -1,12 +1,9 @@
-using NaughtyAttributes;
-using System;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using ZiercCode.Core.Pool;
 
-
-namespace ZiercCode
+namespace ZiercCode.Test.Script
 {
 #if UNITY_EDITOR
     public class SpawnerTest : MonoBehaviour
@@ -26,8 +23,9 @@ namespace ZiercCode
         public void Spawn()
         {
             SpawnHandle handle = spawner.SpawnPoolObject(poolObjectSo);
-            handle.GetObject();
-            _spawnHandles.Add(handle);
+            GameObject newG = handle.GetObject();
+            if (!_spawnHandles.Contains(handle))
+                _spawnHandles.Add(handle);
         }
 
         [Button("释放")]

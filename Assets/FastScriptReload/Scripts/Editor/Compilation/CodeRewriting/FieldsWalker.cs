@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Microsoft.CodeAnalysis.CSharp;
+﻿using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace FastScriptReload.Editor.Compilation.CodeRewriting
+namespace FastScriptReload.Scripts.Editor.Compilation.CodeRewriting
 {
     class FieldsWalker : CSharpSyntaxWalker {
         private readonly Dictionary<string, List<NewFieldDeclaration>> _typeNameToFieldDeclarations = new Dictionary<string, List<NewFieldDeclaration>>();

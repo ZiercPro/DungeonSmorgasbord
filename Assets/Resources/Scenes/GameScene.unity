@@ -17338,6 +17338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1841950319306474154}
   - component: {fileID: 6227416174773843714}
+  - component: {fileID: 6227416174773843715}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -18347,8 +18348,23 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   enemySpawnerTemp: {fileID: 2766421769593891088, guid: 5291e1fb03b8e3241a5c97cc94f380a4, type: 3}
-  enemyDataListSo: {fileID: 11400000, guid: 5a17ff0790a39204d8d8f5d0363ff378, type: 2}
-  difficultyDataSo: {fileID: 11400000, guid: 6ffd4458bc3bfb6438470260f59f5ced, type: 2}
+  dataSo: {fileID: 11400000, guid: 6ffd4458bc3bfb6438470260f59f5ced, type: 2}
+--- !u!114 &6227416174773843715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3969010827760665461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c4a05ff69e45f7a9e5d5523155f719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolObjects:
+  - {fileID: 11400000, guid: 647213d0be966ea4ba71ec0f8a92f157, type: 2}
+  - {fileID: 11400000, guid: 216c32761d3c15e4b8d217b3ac20f311, type: 2}
+  - {fileID: 11400000, guid: d18ad6ec739d59745837e1855819eae7, type: 2}
 --- !u!1 &6269616256313221734
 GameObject:
   m_ObjectHideFlags: 0
@@ -19596,7 +19612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78960f3edf3db5468d9c3066a4940e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePopupTemp: {fileID: 6821048630080651813, guid: 3f195225bba8b314fa8f5ac87f59d542, type: 3}
+  intPopupTemp: {fileID: 0}
+  spawner: {fileID: 0}
 --- !u!4 &9135189549744604693
 Transform:
   m_ObjectHideFlags: 0

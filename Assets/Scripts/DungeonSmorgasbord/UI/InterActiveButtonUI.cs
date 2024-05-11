@@ -2,7 +2,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-namespace ZiercCode.Old.UI
+namespace ZiercCode.DungeonSmorgasbord.UI
 {
     /// <summary>
     /// 互动物品的互动按钮UI

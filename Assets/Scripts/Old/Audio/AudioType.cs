@@ -1,4 +1,6 @@
 using NaughtyAttributes;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
 
 namespace ZiercCode.Old.Audio

@@ -1,6 +1,8 @@
+using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
 
-namespace NaughtyAttributes.Test
+namespace NaughtyAttributes.Scripts.Test
 {
     public class ReadOnlyTest : MonoBehaviour
     {

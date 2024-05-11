@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using NaughtyAttributes;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using System.Collections.Generic;
 
 namespace ZiercCode.Core.Pool

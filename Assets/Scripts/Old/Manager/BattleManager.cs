@@ -1,14 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
-using ZiercCode.Core.Extend;
+using ZiercCode.Core.Pool;
 using ZiercCode.Core.Utilities;
-using ZiercCode.DungeonSmorgasbord.ScriptObject;
 using ZiercCode.Old.Audio;
-using ZiercCode.Old.Enemy;
 using ZiercCode.Old.ScriptObject;
 
 namespace ZiercCode.Old.Manager
@@ -32,8 +27,8 @@ namespace ZiercCode.Old.Manager
         public UnityEvent onBattleStart;
         public UnityEvent onBattleEnd;
 
-        [SerializeField] private GameObject enemySpawnerTemp;
-        [SerializeField] private BattleDifficultyDataSo difficultyDataSo;
+        [SerializeField] private PoolObjectSo redCircle;
+        [SerializeField] private BattleDataSo dataSo;
 
         /// <summary>
         /// 当前波次
@@ -89,7 +84,7 @@ namespace ZiercCode.Old.Manager
         private void LevelUp()
         {
             _currentLevel++;
-            _spawnInterval = difficultyDataSo.intervalOfLevel[_currentLevel];
+            _spawnInterval = dataSo.battleData[_currentLevel].waveInterval;
             OnLevelChange?.Invoke(_currentLevel);
         }
 
@@ -117,7 +112,7 @@ namespace ZiercCode.Old.Manager
         {
             if (_currentState != BattleState.LevelIng) return;
             onBattleStart?.Invoke();
-            SpawnEnemy();
+            //  SpawnEnemy();
             DroppedItem.DroppedItem.ClearAllItem();
             AudioPlayer.Instance.PlayAudioAsync(AudioName.BattleBgmNormal);
         }
@@ -152,74 +147,11 @@ namespace ZiercCode.Old.Manager
             //...
         }
 
-        #region Enemy
-
-        /// <summary>
-        /// 获取每种敌人对应的数量
-        /// </summary>
-        /// <param name="difficulty">难度值</param>
-        private void GetNumOfEnemy(int difficulty)
-        {
-            int dif = difficulty;
-
-            //_enemyNumHash = new int[enemyPoolDataListSo.enemyPoolDataSoList.Count];
-
-            while (dif > 0)
-            {
-                for (int i = 0; i < _enemyNumHash.Length; i++)
-                {
-                    // int temp = enemyPoolDataListSo.enemyPoolDataSoList[i].difficulty;
-                    // dif -= temp;
-                    // _enemyNumHash[i]++;
-                }
-            }
-        }
-
-        //TODO: 敌人生成
-        //实例化怪物出生圈
-        private void GetSpawner(int index, Vector2 pos)
-        {
-            GameObject newSpawner = Instantiate(enemySpawnerTemp, pos, Quaternion.identity);
-            EnemySpawner_RedCircle es = newSpawner.GetComponent<EnemySpawner_RedCircle>();
-            // es.enemyTemp = enemyPoolDataListSo.enemyPoolDataSoList[index].prefab;
-        }
-
-        private void SpawnEnemy()
-        {
-            StartCoroutine(EnemySpawnCoroutine());
-        }
-
-        IEnumerator EnemySpawnCoroutine()
-        {
-            yield return null;
-            _currentDifficulty = difficultyDataSo.DifficultyPerLevel[_currentLevel];
-            GetNumOfEnemy(_currentDifficulty);
-
-            int wave = difficultyDataSo.waveNumPerLevel[_currentLevel];
-            while (wave > 0)
-            {
-                wave--;
-                for (int i = 0; i < _enemyNumHash.Length; i++)
-                {
-                    for (int j = 0; j < _enemyNumHash[i]; j++)
-                    {
-                        GetSpawner(i, MyMath.GetRandomPos(_range));
-                    }
-                }
-
-                yield return new WaitForSeconds(_spawnInterval);
-            }
-
-            _currentState = BattleState.LevelIng;
-        }
-
-        #endregion
-
 
         private bool IsWaveDone()
         {
-            if (EnemySpawner_RedCircle.GetSpawner() == null || EnemySpawner_RedCircle.GetSpawner().Count > 0)
-                return false;
+            // if (SpawnerRedCircle.GetSpawner() == null || SpawnerRedCircle.GetSpawner().Count > 0)
+            return false;
             //if (Enemy.Enemy.GetEnemys() == null || Enemy.Enemy.GetEnemys().Count > 0) return false;
             return true;
         }

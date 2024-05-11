@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef946d3d64e9f348897dbba63d7d1f3, type: 3}
   m_Name: Hero_Lewis
   m_EditorClassIdentifier: 
-  instance: {fileID: 3299815134350897790, guid: ce53025bd3484424d93af6eed027b4ae, type: 3}
+  prefab: {fileID: 3299815134350897790, guid: ce53025bd3484424d93af6eed027b4ae, type: 3}
   myName: Lewis
   maxHealth: 10
   moveSpeed: 6

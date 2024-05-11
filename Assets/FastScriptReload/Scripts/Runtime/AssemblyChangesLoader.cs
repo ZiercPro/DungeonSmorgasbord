@@ -1,19 +1,18 @@
 ﻿#if UNITY_EDITOR || LiveScriptReload_Enabled
 
+using HarmonyLib;
+using ImmersiveVRTools.Runtime.Common;
+using ImmersiveVRTools.Runtime.Common.Extensions;
+using ImmersiveVrToolsCommon.Runtime.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
-using HarmonyLib;
-using ImmersiveVRTools.Runtime.Common;
-using ImmersiveVRTools.Runtime.Common.Extensions;
-using ImmersiveVrToolsCommon.Runtime.Logging;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
-namespace FastScriptReload.Runtime
+namespace FastScriptReload.Scripts.Runtime
 {
     [PreventHotReload]
 #if UNITY_EDITOR

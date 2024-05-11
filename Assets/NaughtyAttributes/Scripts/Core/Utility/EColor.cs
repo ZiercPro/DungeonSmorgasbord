@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace NaughtyAttributes
+namespace NaughtyAttributes.Scripts.Core.Utility
 {
     public enum EColor
     {

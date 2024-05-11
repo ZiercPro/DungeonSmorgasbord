@@ -1,8 +1,10 @@
-using UnityEditor;
-using System.Reflection;
+using NaughtyAttributes.Scripts.Core.ValidatorAttributes;
+using NaughtyAttributes.Scripts.Editor.Utility;
 using System;
+using System.Reflection;
+using UnityEditor;
 
-namespace NaughtyAttributes.Editor
+namespace NaughtyAttributes.Scripts.Editor.PropertyValidators
 {
     public class ValidateInputPropertyValidator : PropertyValidatorBase
     {

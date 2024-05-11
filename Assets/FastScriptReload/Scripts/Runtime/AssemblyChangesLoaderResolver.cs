@@ -1,11 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using ImmersiveVRTools.Runtime.Common.Utilities;
+﻿#if UNITY_EDITOR || LiveScriptReload_Enabled
 
-#if UNITY_EDITOR || LiveScriptReload_Enabled
-
-namespace FastScriptReload.Runtime
+namespace FastScriptReload.Scripts.Runtime
 {
     public class AssemblyChangesLoaderResolver
     {

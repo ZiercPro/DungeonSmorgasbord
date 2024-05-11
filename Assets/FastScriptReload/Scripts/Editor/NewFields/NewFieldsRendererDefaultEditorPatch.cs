@@ -1,14 +1,13 @@
-using System;
-using System.Collections.Generic;
-using FastScriptReload.Editor.Compilation.CodeRewriting;
-using FastScriptReload.Runtime;
+using FastScriptReload.Scripts.Editor.Compilation.CodeRewriting;
 using FastScriptReload.Scripts.Runtime;
 using HarmonyLib;
 using ImmersiveVRTools.Editor.Common.Utilities;
+using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace FastScriptReload.Editor.NewFields
+namespace FastScriptReload.Scripts.Editor.NewFields
 {
     [InitializeOnLoad]
     public class NewFieldsRendererDefaultEditorPatch

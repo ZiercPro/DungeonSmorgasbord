@@ -1,23 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using FastScriptReload.Editor.Compilation;
-using FastScriptReload.Editor.Compilation.ScriptGenerationOverrides;
-using FastScriptReload.Runtime;
+﻿using FastScriptReload.Scripts.Editor.Compilation;
+using FastScriptReload.Scripts.Editor.Compilation.ScriptGenerationOverrides;
+using FastScriptReload.Scripts.Runtime;
 using ImmersiveVRTools.Editor.Common.Utilities;
 using ImmersiveVRTools.Editor.Common.WelcomeScreen;
 using ImmersiveVRTools.Editor.Common.WelcomeScreen.GuiElements;
 using ImmersiveVRTools.Editor.Common.WelcomeScreen.PreferenceDefinition;
 using ImmersiveVRTools.Editor.Common.WelcomeScreen.Utilities;
 using ImmersiveVrToolsCommon.Runtime.Logging;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.Compilation;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace FastScriptReload.Editor
+namespace FastScriptReload.Scripts.Editor
 {
     public class FastScriptReloadWelcomeScreen : ProductWelcomeScreenBase 
     {

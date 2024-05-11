@@ -133,7 +133,7 @@ MonoBehaviour:
   - {x: 0.35, y: 0.3, z: 0}
   m_ShapePathHash: -1093780895
   m_Mesh: {fileID: 0}
-  m_InstanceId: 41682
+  m_InstanceId: 38932
   m_LocalBounds:
     m_Center: {x: 0, y: 0.90000004, z: 0}
     m_Extent: {x: 0.35, y: 0.6, z: 0}
@@ -431,14 +431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6c641725bb4a70bd0725e5fe57f674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <creatureAttributesBaseSo>k__BackingField: {fileID: 11400000, guid: 120a875949e2c2044a8b8a1101258a4f, type: 2}
-  criticalChance: 0
-  moveSpeed: 3
-  maxHealth: 20
-  damageType: 0
-  attackSpeed: 1.2
-  attackRange: 0.6
-  damageAmount: 1
+  creatureAttributesBaseSo: {fileID: 11400000, guid: 120a875949e2c2044a8b8a1101258a4f, type: 2}
 --- !u!114 &1293876698643740071
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using FastScriptReload.Runtime;
+﻿using FastScriptReload.Scripts.Runtime;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Collections.Generic;
 
-namespace FastScriptReload.Editor.Compilation.CodeRewriting
+namespace FastScriptReload.Scripts.Editor.Compilation.CodeRewriting
 {
     class HotReloadCompliantRewriter : FastScriptReloadCodeRewriterBase
     {

@@ -1,7 +1,7 @@
 ﻿using ImmersiveVrToolsCommon.Runtime.Logging;
 using UnityEngine;
 
-namespace FastScriptReload.Runtime
+namespace FastScriptReload.Scripts.Runtime
 {
 #if UNITY_EDITOR
     [UnityEditor.InitializeOnLoad]

@@ -155,9 +155,11 @@ namespace ZiercCode.Core.Pool
             ObjectPool<GameObject> objectPool = GetPool(objectSo);
             if (objectPool != null)
                 return objectPool.Get();
-
-            Debug.LogError($"{objectSo}无对象池");
-            return null;
+            else
+            {
+                objectPool = CreatePool(objectSo, false);
+                return objectPool.Get();
+            }
         }
 
         /// <summary>

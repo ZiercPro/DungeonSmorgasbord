@@ -1,7 +1,7 @@
 using UnityEngine;
 using ZiercCode.Old.Component;
 
-namespace ZiercCode.Test
+namespace ZiercCode.Test.Script
 {
     public class HealthTest : MonoBehaviour
     {

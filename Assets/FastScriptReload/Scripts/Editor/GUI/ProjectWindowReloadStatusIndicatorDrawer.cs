@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using ImmersiveVRTools.Editor.Common.Utilities;
+﻿using ImmersiveVRTools.Editor.Common.Utilities;
 using ImmersiveVRTools.Runtime.Common;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace FastScriptReload.Editor.GUI
+namespace FastScriptReload.Scripts.Editor.GUI
 {
     [InitializeOnLoad]
     public class ProjectWindowReloadStatusIndicatorDrawer

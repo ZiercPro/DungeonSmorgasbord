@@ -14,6 +14,7 @@
 
         /// <summary>
         /// 设置生成处理器
+        /// 方便自己处理释放
         /// </summary>
         public void SetSpawnHandle(SpawnHandle handle);
     }

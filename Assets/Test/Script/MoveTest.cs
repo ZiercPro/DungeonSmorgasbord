@@ -1,9 +1,7 @@
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.Component;
-using ZiercCode.Old.Component;
-using ZiercCode.Old.Hero;
 
-namespace ZiercCode.Test
+namespace ZiercCode.Test.Script
 {
 
     public class MoveTest : MonoBehaviour

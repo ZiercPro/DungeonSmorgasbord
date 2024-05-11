@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FastScriptReload.Examples
+namespace ZiercCode.FastScriptReload.Samples.Basic.Scripts
 {
     using static Mathf;
     

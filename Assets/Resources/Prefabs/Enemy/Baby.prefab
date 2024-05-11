@@ -239,6 +239,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078ee863e17cb6b458a90de5efe39f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoFlipComponent: {fileID: 3520796321833682881}
+  scaleShakeFeedBack: {fileID: 2516324243222191819}
+  enemyAttackCheck: {fileID: 3657935060950998291}
+  moveComponent: {fileID: 7097685445367053004}
+  flashFeedBack: {fileID: 8182654456024282727}
+  canDropItems: {fileID: 2177417096687788655}
+  attribute: {fileID: 2128747106723904120}
+  animator: {fileID: 521005485728210266}
+  health: {fileID: 2241906935849456536}
   deadParticle: {fileID: 1953027942559269116, guid: 1990e80f29563844ca7c74fc70b92377, type: 3}
 --- !u!114 &374477211409069075
 MonoBehaviour:
@@ -295,14 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6c641725bb4a70bd0725e5fe57f674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <creatureAttributesBaseSo>k__BackingField: {fileID: 11400000, guid: 975e63cfc57ff5246ab12dee01abe5c2, type: 2}
-  criticalChance: 0
-  moveSpeed: 4
-  maxHealth: 6
-  damageType: 0
-  attackSpeed: 2
-  attackRange: 0.3
-  damageAmount: 2
+  creatureAttributesBaseSo: {fileID: 11400000, guid: 975e63cfc57ff5246ab12dee01abe5c2, type: 2}
 --- !u!114 &2177417096687788655
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -237,9 +237,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Player
-  radius: 1.5
-  force: 2
-  _entityCollider2D: {fileID: 8956199110796041990}
+  radius: 2.5
+  forceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 75
+      inSlope: -2.9283686
+      outSlope: -2.9283686
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.04701661
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.1738304
+      outSlope: -0.1738304
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.12617034
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  entityCollider2D: {fileID: 8956199110796041990}
+  rigidbody2D: {fileID: 8209068306881884882}
 --- !u!114 &4654945825972880980
 MonoBehaviour:
   m_ObjectHideFlags: 0

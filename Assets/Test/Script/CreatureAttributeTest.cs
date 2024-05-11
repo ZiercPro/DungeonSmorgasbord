@@ -1,18 +1,19 @@
-
+using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
 using UnityEngine;
+using ZiercCode.DungeonSmorgasbord.Component;
 
-namespace ZiercCode.Test
+namespace ZiercCode.Test.Script
 {
     public class CreatureAttributeTest : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
-        {
-        }
+#if UNITY_EDITOR
+        [SerializeField] private HeroAttribute attribute;
 
-        // Update is called once per frame
-        void Update()
+        [Button("测试")]
+        public void Add()
         {
+            attribute.AttributesData.criticalChance += 0.1f;
         }
+#endif
     }
 }

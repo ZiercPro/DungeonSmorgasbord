@@ -1,6 +1,7 @@
-﻿using System;
+﻿using NaughtyAttributes.Scripts.Core.Utility;
+using System;
 
-namespace NaughtyAttributes
+namespace NaughtyAttributes.Scripts.Core.MetaAttributes
 {
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public class HideIfAttribute : ShowIfAttributeBase

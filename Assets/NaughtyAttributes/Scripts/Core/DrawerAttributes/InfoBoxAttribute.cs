@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NaughtyAttributes
+namespace NaughtyAttributes.Scripts.Core.DrawerAttributes
 {
     public enum EInfoBoxType
     {

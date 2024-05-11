@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba9406c817d4447b3a45ce5cdec1557, type: 3}
+  m_Name: Spawner_RedCircle
+  m_EditorClassIdentifier: 
+  poolName: "\u7EA2\u6CD5\u9635"
+  prefab: {fileID: 2766421769593891088, guid: 5291e1fb03b8e3241a5c97cc94f380a4, type: 3}
+  haveIPoolObject: 1
+  initSize: 30
+  maxSize: 60

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace ZiercCode.Test
+namespace ZiercCode.Test.Script
 {
     
 public class AddressableLoader : MonoBehaviour

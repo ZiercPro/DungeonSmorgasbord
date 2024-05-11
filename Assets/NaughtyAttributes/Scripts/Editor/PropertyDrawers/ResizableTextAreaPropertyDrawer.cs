@@ -1,9 +1,10 @@
-﻿using UnityEngine;
-using UnityEditor;
-using System.Text.RegularExpressions;
+﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using System;
+using System.Text.RegularExpressions;
+using UnityEditor;
+using UnityEngine;
 
-namespace NaughtyAttributes.Editor
+namespace NaughtyAttributes.Scripts.Editor.PropertyDrawers
 {
     [CustomPropertyDrawer(typeof(ResizableTextAreaAttribute))]
     public class ResizableTextAreaPropertyDrawer : PropertyDrawerBase

@@ -17,7 +17,7 @@ MonoBehaviour:
   maxHealth: 20
   moveSpeed: 3
   criticalChance: 0
-  difficulty: 1
+  difficulty: 3
   damageAmount: 1
   damageType: 0
   attackSpeed: 1.2

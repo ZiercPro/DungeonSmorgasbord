@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace NaughtyAttributes
+﻿namespace NaughtyAttributes.Scripts.Core
 {
     public interface INaughtyAttribute
     {

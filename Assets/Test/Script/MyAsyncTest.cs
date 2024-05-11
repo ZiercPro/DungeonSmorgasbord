@@ -1,10 +1,9 @@
-using NaughtyAttributes;
-using System;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
 using System.Threading.Tasks;
 using UnityEngine;
 using ZiercCode.Old.Audio;
 
-namespace ZiercCode.Test
+namespace ZiercCode.Test.Script
 {
     public class MyAsyncTest : MonoBehaviour
     {
