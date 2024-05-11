@@ -84,12 +84,13 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             public void CreateProjectile(WeaponBase fireWeapon, PoolObjectSpawner spawner)
             {
                 SpawnHandle handle =
-                    spawner.SpawnPoolObject(projectilePoolObjectSo, projectilePosition, Quaternion.identity);
+                    spawner.SpawnPoolObjectWithAutoRelease(projectilePoolObjectSo, projectilePosition,
+                        Quaternion.identity, 5f);
                 // 获取新的射弹实例
                 ProjectileInstance = handle.GetObject();
                 //初始化新的射弹
                 WeaponProjectile weaponProjectile = ProjectileInstance.GetComponent<WeaponProjectile>();
-                weaponProjectile.Init(fireWeapon.GetWeaponUserBase(), handle);
+                weaponProjectile.Init(fireWeapon.GetWeaponUserBase());
 
                 //设置方向
                 ProjectileInstance.transform.localEulerAngles = new Vector3(0, 0,

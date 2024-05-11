@@ -11,8 +11,9 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
 {
     public abstract class Enemy : MonoBehaviour, IDamageable, IPoolObject
     {
-        [SerializeField] protected ScaleShakeFeedBack scaleShakeFeedBack;
+        [Header("组件")] [SerializeField] protected ScaleShakeFeedBack scaleShakeFeedBack;
         [SerializeField] protected AutoFlipComponent autoFlipComponent;
+        [SerializeField] protected PoolObjectSpawner poolObjectSpawner;
         [SerializeField] protected EnemyAttackCheck enemyAttackCheck;
         [SerializeField] protected MoveComponent moveComponent;
         [SerializeField] protected FlashFeedBack flashFeedBack;

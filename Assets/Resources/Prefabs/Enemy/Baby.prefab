@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 2177417096687788655}
   - component: {fileID: 3520796321833682881}
   - component: {fileID: 7851767141937854372}
+  - component: {fileID: 6783609801577545275}
   m_Layer: 6
   m_Name: Baby
   m_TagString: Untagged
@@ -239,8 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078ee863e17cb6b458a90de5efe39f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  autoFlipComponent: {fileID: 3520796321833682881}
   scaleShakeFeedBack: {fileID: 2516324243222191819}
+  autoFlipComponent: {fileID: 3520796321833682881}
+  poolObjectSpawner: {fileID: 6783609801577545275}
   enemyAttackCheck: {fileID: 3657935060950998291}
   moveComponent: {fileID: 7097685445367053004}
   flashFeedBack: {fileID: 8182654456024282727}
@@ -248,7 +250,7 @@ MonoBehaviour:
   attribute: {fileID: 2128747106723904120}
   animator: {fileID: 521005485728210266}
   health: {fileID: 2241906935849456536}
-  deadParticle: {fileID: 1953027942559269116, guid: 1990e80f29563844ca7c74fc70b92377, type: 3}
+  deadParticle: {fileID: 11400000, guid: 414adbb9f494f7a40b24cd11ce4caba8, type: 2}
 --- !u!114 &374477211409069075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +353,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe2161287d0193244a59b78c557d6502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6783609801577545275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3149073930474505641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c4a05ff69e45f7a9e5d5523155f719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolObjects:
+  - {fileID: 11400000, guid: 414adbb9f494f7a40b24cd11ce4caba8, type: 2}
 --- !u!1 &6365258972828138985
 GameObject:
   m_ObjectHideFlags: 0

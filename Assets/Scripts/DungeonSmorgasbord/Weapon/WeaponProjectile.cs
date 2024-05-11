@@ -1,7 +1,5 @@
-﻿using System.Timers;
-using UnityEngine;
+﻿using UnityEngine;
 using ZiercCode.Core.Pool;
-using Timer = ZiercCode.Core.Utilities.Timer;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
@@ -23,11 +21,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         [SerializeField] private float lifeTime = 5f;
 
         /// <summary>
-        /// 自我释放计时器
-        /// </summary>
-        private Timer _selfReleaseTimer;
-
-        /// <summary>
         /// 发射方向
         /// </summary>
         private Vector3 _direction;
@@ -42,15 +35,10 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// </summary>
         private Transform _target;
 
-        /// <summary>
-        /// 生成处理类
-        /// </summary>
-        private SpawnHandle _spawnHandle;
 
-        public void Init(IWeaponUserBase weaponUserBase, SpawnHandle spawnHandle)
+        public override void Init(IWeaponUserBase weaponUserBase)
         {
             base.Init(weaponUserBase);
-            _spawnHandle = spawnHandle;
             rigidBody2D.isKinematic = true;
         }
 
@@ -68,12 +56,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             Vector3 fireSpeed = transform.right.normalized * speed;
             rigidBody2D.velocity = fireSpeed;
             _isFired = true;
-            _selfReleaseTimer = new Timer(lifeTime);
-            _selfReleaseTimer.TimerTrigger += () =>
-            {
-                _spawnHandle.Release();
-            };
-            _selfReleaseTimer.StartTimer();
         }
 
         /// <summary>
@@ -82,7 +64,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         private void OnFly()
         {
             if (!_isFired) return;
-            _selfReleaseTimer.Tick();
         }
     }
 }

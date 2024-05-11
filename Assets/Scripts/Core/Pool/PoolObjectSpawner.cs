@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using NaughtyAttributes;
-using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using UnityEngine;
 using System.Collections.Generic;
 
 namespace ZiercCode.Core.Pool
@@ -14,6 +13,7 @@ namespace ZiercCode.Core.Pool
 
         private Dictionary<GameObject, SpawnHandle> _handlerDictionary;
 
+
         private void Awake()
         {
             CreatePools();
@@ -24,20 +24,32 @@ namespace ZiercCode.Core.Pool
         /// <summary>
         /// 生成对象
         /// </summary>
-        /// <param name="poolObjectSo"></param>
+        /// <param name="poolObjectSo">池对象数据</param>
         /// <returns></returns>
         public SpawnHandle SpawnPoolObject(PoolObjectSo poolObjectSo)
         {
             GameObject result = PoolManager.Instance.GetPoolObject(poolObjectSo);
-
             return GetHandler(poolObjectSo, result);
+        }
+
+        /// <summary>
+        /// 生成对象
+        /// </summary>
+        /// <param name="poolObjectSo">池对象数据</param>
+        /// <param name="liveTime">存活时间</param>
+        /// <returns></returns>
+        public SpawnHandle SpawnPoolObjectWithAutoRelease(PoolObjectSo poolObjectSo, float liveTime)
+        {
+            SpawnHandle handle = SpawnPoolObject(poolObjectSo);
+            PoolManager.Instance.AddToAutoRelease(handle, liveTime);
+            return handle;
         }
 
 
         /// <summary>
         /// 生成对象
         /// </summary>
-        /// <param name="poolObjectSo"></param>
+        /// <param name="poolObjectSo">池对象数据</param>
         /// <param name="parent">父物体</param>
         /// <returns></returns>
         public SpawnHandle SpawnPoolObject(PoolObjectSo poolObjectSo, Transform parent)
@@ -50,7 +62,47 @@ namespace ZiercCode.Core.Pool
         /// <summary>
         /// 生成对象
         /// </summary>
-        /// <param name="poolObjectSo"></param>
+        /// <param name="poolObjectSo">池对象数据</param>
+        /// <param name="position">位置</param>
+        /// <returns></returns>
+        public SpawnHandle SpawnPoolObject(PoolObjectSo poolObjectSo, Vector3 position)
+        {
+            GameObject result = PoolManager.Instance.GetPoolObject(poolObjectSo, position);
+
+            return GetHandler(poolObjectSo, result);
+        }
+
+
+        /// <summary>
+        /// 生成对象，且自动销毁
+        /// </summary>
+        /// <param name="poolObjectSo">池对象数据</param>
+        /// <param name="parent">父物体</param>
+        /// <param name="liveTime">存活时间</param>
+        public SpawnHandle SpawnPoolObjectWithAutoRelease(PoolObjectSo poolObjectSo, Transform parent, float liveTime)
+        {
+            SpawnHandle handle = SpawnPoolObject(poolObjectSo, parent);
+            PoolManager.Instance.AddToAutoRelease(handle, liveTime);
+            return handle;
+        }
+
+        /// <summary>
+        /// 生成对象，且自动销毁
+        /// </summary>
+        /// <param name="poolObjectSo">池对象数据</param>
+        /// <param name="position">位置</param>
+        /// <param name="liveTime">存活时间</param>
+        public SpawnHandle SpawnPoolObjectWithAutoRelease(PoolObjectSo poolObjectSo, Vector3 position, float liveTime)
+        {
+            SpawnHandle handle = SpawnPoolObject(poolObjectSo, position);
+            PoolManager.Instance.AddToAutoRelease(handle, liveTime);
+            return handle;
+        }
+
+        /// <summary>
+        /// 生成对象
+        /// </summary>
+        /// <param name="poolObjectSo">池对象数据</param>
         /// <param name="parent">父物体</param>
         /// <param name="quaternion">角度</param>
         /// <returns></returns>
@@ -59,6 +111,53 @@ namespace ZiercCode.Core.Pool
             GameObject result = PoolManager.Instance.GetPoolObject(poolObjectSo, parent, quaternion);
 
             return GetHandler(poolObjectSo, result);
+        }
+
+
+        /// <summary>
+        /// 生成对象
+        /// </summary>
+        /// <param name="poolObjectSo">池对象数据</param>
+        /// <param name="position">位置</param>
+        /// <param name="quaternion">角度</param>
+        /// <returns></returns>
+        public SpawnHandle SpawnPoolObject(PoolObjectSo poolObjectSo, Vector3 position, Quaternion quaternion)
+        {
+            GameObject result = PoolManager.Instance.GetPoolObject(poolObjectSo, position, quaternion);
+
+            return GetHandler(poolObjectSo, result);
+        }
+
+        /// <summary>
+        /// 生成对象，且自动销毁
+        /// </summary>
+        /// <param name="poolObjectSo">池对象数据</param>
+        /// <param name="parent">父物体</param>
+        /// <param name="quaternion">初始旋转角</param>
+        /// <param name="liveTime">存活时间</param>
+        public SpawnHandle SpawnPoolObjectWithAutoRelease(PoolObjectSo poolObjectSo, Transform parent,
+            Quaternion quaternion,
+            float liveTime)
+        {
+            SpawnHandle handle = SpawnPoolObject(poolObjectSo, parent, quaternion);
+            PoolManager.Instance.AddToAutoRelease(handle, liveTime);
+            return handle;
+        }
+
+        /// <summary>
+        /// 生成对象，且自动销毁
+        /// </summary>
+        /// <param name="poolObjectSo">池对象数据</param>
+        /// <param name="position">位置</param>
+        /// <param name="quaternion">旋转角</param>
+        /// <param name="liveTime">存活时间</param>
+        public SpawnHandle SpawnPoolObjectWithAutoRelease(PoolObjectSo poolObjectSo, Vector3 position,
+            Quaternion quaternion,
+            float liveTime)
+        {
+            SpawnHandle handle = SpawnPoolObject(poolObjectSo, position, quaternion);
+            PoolManager.Instance.AddToAutoRelease(handle, liveTime);
+            return handle;
         }
 
         /// <summary>

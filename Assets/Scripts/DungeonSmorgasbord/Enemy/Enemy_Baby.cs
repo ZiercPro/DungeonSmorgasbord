@@ -1,4 +1,5 @@
 using UnityEngine;
+using ZiercCode.Core.Pool;
 using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.Old.Audio;
@@ -8,7 +9,8 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
 {
     public class Enemy_Baby : Enemy
     {
-        [SerializeField] private GameObject deadParticle;
+        [Header("粒子效果"), Space] [SerializeField]
+        private PoolObjectSo deadParticle;
 
         private EnemyIdleStateBase _enemyIdleStateBase;
         private EnemyChaseStateBase _enemyChaseStateBase;
@@ -31,8 +33,8 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
 
         public override void Attack(Transform target)
         {
-            if(!CanAttack)return;
-            
+            if (!CanAttack) return;
+
             base.Attack(target);
             //弹出文本
             TextPopupSpawner.Instance.InitPopupText(target, Color.red, -attribute.AttributesData.damageAmount);
@@ -43,7 +45,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
 
         public override void Dead()
         {
-            Instantiate(deadParticle, transform.position, Quaternion.identity);
+            poolObjectSpawner.SpawnPoolObjectWithAutoRelease(deadParticle, transform.position, 5f);
             AudioPlayer.Instance.PlayAudioAsync(AudioName.EnemyDead3);
             base.Dead();
         }

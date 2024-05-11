@@ -45,7 +45,8 @@ namespace ZiercCode.Core.Pool
                 if (_poolObject.TryGetComponent(out IPoolObject iPoolObject))
                     iPoolObject.OnRelease();
 
-            _pool.Release(_poolObject);
+            if (_poolObject)
+                _pool.Release(_poolObject);
         }
     }
 }

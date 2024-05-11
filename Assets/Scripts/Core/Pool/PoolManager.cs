@@ -34,6 +34,16 @@ namespace ZiercCode.Core.Pool
         private Dictionary<PoolObjectSo, GameObject> _poolObjectParents;
 
         /// <summary>
+        /// 正在更新的自动释放器
+        /// </summary>
+        private List<AutoReleaseHandle> _onUpdateList;
+
+        /// <summary>
+        /// 已经释放的自动释放器
+        /// </summary>
+        private List<AutoReleaseHandle> _removedList;
+
+        /// <summary>
         /// 所有对象池实例的父类
         /// </summary>
         private GameObject _poolsContainer;
@@ -44,10 +54,38 @@ namespace ZiercCode.Core.Pool
             _pools = new Dictionary<PoolObjectSo, ObjectPool<GameObject>>();
             _poolObjectParents = new Dictionary<PoolObjectSo, GameObject>();
             _poolsContainer = new GameObject("Pools");
+            _onUpdateList = new List<AutoReleaseHandle>();
+            _removedList = new List<AutoReleaseHandle>();
+        }
+
+
+        private void Update()
+        {
+            if (_onUpdateList.Count == 0) return;
+            MyMath.ForeachFromLast(_onUpdateList, autoRelease =>
+            {
+                if (autoRelease.IsReleased())
+                {
+                    _removedList.Add(autoRelease);
+                    _onUpdateList.Remove(autoRelease);
+                }
+                else
+                {
+                    autoRelease.Update();
+                }
+            });
         }
 
         private void OnDestroy()
         {
+            foreach (var autoRelease in _onUpdateList)
+            {
+                autoRelease.Release();
+            }
+
+            _onUpdateList.Clear();
+            _removedList.Clear();
+
             //清空所有池对象
             foreach (var pool in _pools)
             {
@@ -137,6 +175,27 @@ namespace ZiercCode.Core.Pool
         }
 
         /// <summary>
+        /// 添加到自动释放器中
+        /// </summary>
+        /// <param name="handle">生成处理类</param>
+        /// <param name="liveTime">存活时间</param>
+        public void AddToAutoRelease(SpawnHandle handle, float liveTime)
+        {
+            AutoReleaseHandle releaseHandle;
+            if (_removedList.Count > 0)
+            {
+                releaseHandle = _removedList[^1];
+                _removedList.Remove(releaseHandle);
+                releaseHandle.Reset(handle, liveTime);
+            }
+            else
+                releaseHandle = new AutoReleaseHandle(handle, liveTime);
+
+            _onUpdateList.Add(releaseHandle);
+        }
+
+
+        /// <summary>
         /// 获取对象池储存器实例
         /// </summary>
         /// <returns></returns>
@@ -162,6 +221,7 @@ namespace ZiercCode.Core.Pool
             }
         }
 
+
         /// <summary>
         /// 获取指定对象
         /// </summary>
@@ -175,6 +235,23 @@ namespace ZiercCode.Core.Pool
             if (!poolObject) return null;
 
             poolObject.transform.position = position;
+            return poolObject;
+        }
+
+        /// <summary>
+        /// 获取指定对象
+        /// </summary>
+        /// <param name="objectSo">对象数据</param>
+        /// <param name="position">对象生成位置</param>
+        /// <param name="quaternion">初始旋转角</param>
+        /// <returns></returns>
+        public GameObject GetPoolObject(PoolObjectSo objectSo, Vector3 position, Quaternion quaternion)
+        {
+            GameObject poolObject = GetPoolObject(objectSo, position);
+
+            if (!poolObject) return null;
+
+            poolObject.transform.localRotation = quaternion;
             return poolObject;
         }
 
