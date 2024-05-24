@@ -5,7 +5,6 @@ using ZiercCode.Old.Component.Hero;
 
 namespace ZiercCode.Old.DroppedItem
 {
-
     public class DroppedCoin : DroppedItem
     {
         private void GetItem(CoinPack pack)
@@ -20,7 +19,7 @@ namespace ZiercCode.Old.DroppedItem
             if (other.CompareTag("Player"))
             {
                 GetItem(other.GetComponent<Hero.Hero>().CoinPack);
-                TextPopupSpawner.Instance.InitPopupText(other.transform, Color.yellow, "+" + num);
+                TextPopupSpawner.Instance.InitPopupText(other.transform.position, Color.yellow, "+" + num);
                 num = 0;
                 Destroy(gameObject);
             }

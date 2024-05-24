@@ -14,7 +14,7 @@ namespace ZiercCode.DungeonSmorgasbord.Item
         [Header("磁力曲线")] [SerializeField] private AnimationCurve forceCurve;
 
         [SerializeField] private Collider2D entityCollider2D;
-        [SerializeField] private Rigidbody2D rigidbody2D;
+        [SerializeField] private Rigidbody2D r2D;
 
         private Transform _targetTransform;
         private bool _getTarget;
@@ -61,7 +61,7 @@ namespace ZiercCode.DungeonSmorgasbord.Item
             float distance = Vector3.Distance(myPosition, targetPosition);
             float distanceRate = distance / radius;
 
-            rigidbody2D.AddForce(forceDir * GetForceByCurve(distanceRate), ForceMode2D.Force);
+            r2D.AddForce(forceDir * GetForceByCurve(distanceRate), ForceMode2D.Force);
         }
 
         private void FixedUpdate()

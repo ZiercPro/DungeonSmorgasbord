@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: FireBall
   m_EditorClassIdentifier: 
   myName: "\u706B\u6CD5\u7403"
+  canDoDamage: 1
   Damage: 2
   DamageType: 1
   WeaponType: 2
   prefab: {fileID: 1924614913807550534, guid: 94acaf71a013e894d9acdcb7ced8c487, type: 3}
+  useAble: 0

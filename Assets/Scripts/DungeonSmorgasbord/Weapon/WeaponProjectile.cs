@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using ZiercCode.Core.Pool;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
@@ -14,11 +13,6 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// 刚体
         /// </summary>
         [SerializeField] private Rigidbody2D rigidBody2D;
-
-        /// <summary>
-        /// 生命时长
-        /// </summary>
-        [SerializeField] private float lifeTime = 5f;
 
         /// <summary>
         /// 发射方向

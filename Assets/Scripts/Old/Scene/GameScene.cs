@@ -29,7 +29,7 @@ namespace ZiercCode.Old.Scene
         {
             AudioPlayer.Instance.ClearAudioCache();
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            BattleManager.Instance.onBattleEnd.RemoveAllListeners();
+            // BattleManager.Instance.onBattleEnd.RemoveAllListeners();
         }
 
 

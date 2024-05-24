@@ -1,178 +1,164 @@
+using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 using ZiercCode.Core.Pool;
 using ZiercCode.Core.Utilities;
-using ZiercCode.Old.Audio;
 using ZiercCode.Old.ScriptObject;
 
 namespace ZiercCode.Old.Manager
 {
     public class BattleManager : USingletonComponentDestroy<BattleManager>
     {
+        [SerializeField] private PoolObjectSo redCircle;
+        [SerializeField, Expandable] private BattleDataSo battleData;
+        [SerializeField] private PoolObjectSpawner poolObjectSpawner;
+
+        [Header("范围")] [SerializeField] private Vector2 spawnSize = new Vector2(8, 5);
+        [SerializeField] private Vector2 spawnCenter = Vector2.zero;
+        [SerializeField] private Color GizmosColor;
+
+        private List<GameObject> _enemyS;
+
         /// <summary>
         /// 战斗模式状态
         /// </summary>
-        private enum BattleState
+        public enum BattleState
         {
             BattleBefore, //战斗开始之前
-            LevelBefore, //波次开始之前
-            LevelIng, //波次进行
-            LevelAfter, //波次结束
+            BattleIng, //波次进行
             Card, //选择奖励卡
             BattleEnd //战斗结束
         }
 
-        public event Action<int> OnLevelChange;
-        public UnityEvent onBattleStart;
-        public UnityEvent onBattleEnd;
-
-        [SerializeField] private PoolObjectSo redCircle;
-        [SerializeField] private BattleDataSo dataSo;
-
-        /// <summary>
-        /// 当前波次
-        /// </summary>
-        private int _currentLevel = 1;
-
-        /// <summary>
-        /// 单波生成敌怪间隔，由配置文件决定，游戏运行时实时读取
-        /// </summary>
-        private float _spawnInterval = 0f;
-
-        /// <summary>
-        /// 敌怪生成范围
-        /// </summary>
-        private Vector2 _range = new Vector2(8, 5);
-
-        /// <summary>
-        /// 单波每种敌怪对应生成数量的哈希表
-        /// </summary>
-        private int[] _enemyNumHash;
-
-        /// <summary>
-        /// 当前波次总体难度，用来决定不同敌怪生成的数量
-        /// </summary>
-        private int _currentDifficulty = 0;
-
         /// <summary>
         /// 当前战斗状态
         /// </summary>
-        private BattleState _currentState = BattleState.BattleBefore;
+        private BattleState _currentState;
+
+        /// <summary>
+        /// 当前层数
+        /// </summary>
+        private int _currentLevel;
+
+        /// <summary>
+        /// 战斗状态改变
+        /// </summary>
+        public event Action<BattleState> OnBattleStateChange;
+
+        /// <summary>
+        /// 波次改变
+        /// </summary>
+        public event Action<int> OnBattleLevelChange;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _enemyS = new List<GameObject>();
+        }
 
         private void Start()
         {
-            //_enemyNumHash = new int[enemyPoolDataListSo.enemyPoolDataSoList.Count];
-            OnLevelChange?.Invoke(_currentLevel);
+            //刚进入游戏 战斗状态更新 同时也广播一下当前的战斗状态
+            ChangeState(BattleState.BattleBefore);
+            //波次更新  同时也广播一下当前的波次
+            ChangeLevel(1);
         }
+
+        private void Update()
+        {
+            //如果在战斗状态 那检测战斗是否结束
+            if (_currentState == BattleState.BattleIng)
+            {
+                if (CheckBattleFinish())
+                {
+                    //如果战斗结束 则进入奖励卡状态
+                    ChangeState(BattleState.Card);
+                }
+            }
+        }
+
+        /// <summary>
+        /// 战斗入口
+        /// </summary>
+        [Button("开始战斗")]
+        public void StartBattle()
+        {
+            SpawnEnemy();
+            ChangeState(BattleState.BattleIng);
+        }
+
+        /// <summary>
+        /// 生成敌人
+        /// </summary>
+        private void SpawnEnemy()
+        {
+            foreach (var enemyAndNum in battleData.battleDataList[_currentLevel - 1].enemyToSpawn)
+            {
+                for (int i = 0; i < enemyAndNum.num; i++)
+                {
+                    SpawnHandle handle = poolObjectSpawner.SpawnPoolObject(enemyAndNum.enemyAttributeSo.poolObjectSo,
+                        MyMath.GetRandomPos(spawnCenter, spawnSize));
+                    _enemyS.Add(handle.GetObject());
+                }
+            }
+        }
+
+        private bool CheckBattleFinish()
+        {
+            bool battleFinish = true;
+
+            if (_enemyS is { Count: > 0 })
+            {
+                foreach (var enemy in _enemyS)
+                {
+                    if (enemy.activeInHierarchy)
+                    {
+                        battleFinish = false;
+                        break;
+                    }
+                }
+            }
+
+            return battleFinish;
+        }
+
 
         /// <summary>
         /// 改变状态
         /// </summary>
-        /// <param name="state"></param>
+        /// <param name="state">要进入的状态</param>
         private void ChangeState(BattleState state)
         {
             if (_currentState != state)
                 _currentState = state;
             else
                 Debug.LogWarning($"已经处于状态{state}");
+
+            Debug.Log($"当前状态：{_currentState}");
+
+            OnBattleStateChange?.Invoke(state);
         }
 
         /// <summary>
-        /// 波次数++，设置敌人生成间隔
+        /// 改变波次
         /// </summary>
-        private void LevelUp()
+        /// <param name="level">目标波次</param>
+        private void ChangeLevel(int level)
         {
-            _currentLevel++;
-            _spawnInterval = dataSo.battleData[_currentLevel].waveInterval;
-            OnLevelChange?.Invoke(_currentLevel);
-        }
-
-        /// <summary>
-        /// 波次开始之前调用
-        /// </summary>
-        private void BeforeLevelStart()
-        {
-            _currentState = BattleState.BattleBefore;
-            Debug.Log("当前状态为:" + _currentState);
-        }
-
-        /// <summary>
-        /// 波次结束之后调用
-        /// </summary>
-        private void AfterLevelEnd()
-        {
-            _currentState = BattleState.LevelAfter;
-        }
-
-        /// <summary>
-        /// 波次开始
-        /// </summary>
-        private void LevelStart()
-        {
-            if (_currentState != BattleState.LevelIng) return;
-            onBattleStart?.Invoke();
-            //  SpawnEnemy();
-            DroppedItem.DroppedItem.ClearAllItem();
-            AudioPlayer.Instance.PlayAudioAsync(AudioName.BattleBgmNormal);
-        }
-
-        /// <summary>
-        /// 战斗结束
-        /// </summary>
-        private void LevelEnd()
-        {
-            _currentState = BattleState.LevelBefore;
-            LevelUp();
-            onBattleEnd?.Invoke();
-            AfterLevelEnd();
-        }
-
-        /// <summary>
-        /// 战斗结束
-        /// </summary>
-        private void BattleEnd()
-        {
-        }
-
-        /// <summary>
-        ///玩家死亡 
-        /// </summary>
-        private void PlayerDead()
-        {
-            //战斗结束之前要做的事情
-            //...
-            BattleEnd();
-            //战斗结束之后要做的事情
-            //...
+            _currentLevel = level;
+            OnBattleLevelChange?.Invoke(_currentLevel);
         }
 
 
-        private bool IsWaveDone()
+#if UNITY_EDITOR
+        public void OnDrawGizmos()
         {
-            // if (SpawnerRedCircle.GetSpawner() == null || SpawnerRedCircle.GetSpawner().Count > 0)
-            return false;
-            //if (Enemy.Enemy.GetEnemys() == null || Enemy.Enemy.GetEnemys().Count > 0) return false;
-            return true;
+            Gizmos.color = GizmosColor;
+            Gizmos.DrawCube(spawnCenter, spawnSize);
         }
-
-
-        /// <summary>
-        /// 波次数重置
-        /// </summary>
-        public void LevelReset()
-        {
-            _currentLevel = 1;
-            OnLevelChange?.Invoke(_currentLevel);
-        }
-
-        /// <summary>
-        /// 战斗入口
-        /// </summary>
-        public void BattleEntry()
-        {
-            BeforeLevelStart();
-            LevelStart();
-        }
+#endif
     }
 }

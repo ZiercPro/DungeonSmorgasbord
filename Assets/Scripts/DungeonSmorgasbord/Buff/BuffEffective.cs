@@ -8,7 +8,6 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
     {
         private List<BuffBaseSo> _buffBases;
 
-
         private void OnEnable()
         {
             _buffBases = new List<BuffBaseSo>();
@@ -32,6 +31,14 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         }
 
         private void OnDisable()
+        {
+            ClearAllBuff();
+        }
+
+        /// <summary>
+        /// 清除所有buff
+        /// </summary>
+        public void ClearAllBuff()
         {
             if (_buffBases.Count > 0)
             {
@@ -62,7 +69,6 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
             //添加新的buff
             _buffBases.Add(buffBaseSo);
             buffBaseSo.Init(this);
-            buffBaseSo.Active();
         }
     }
 }

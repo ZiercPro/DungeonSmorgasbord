@@ -20,3 +20,4 @@ MonoBehaviour:
   <particlePoolSo>k__BackingField: {fileID: 11400000, guid: 8ffc32b885e682e42a9f2ffedeb39c2b, type: 2}
   damage: 1
   damageType: 1
+  damageTextColor: {r: 0, g: 1, b: 0.47058824, a: 1}

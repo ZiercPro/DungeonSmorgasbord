@@ -1,5 +1,6 @@
 ﻿using NaughtyAttributes;
 using NaughtyAttributes.Scripts.Core.MetaAttributes;
+using System;
 using UnityEngine;
 using ZiercCode.Core.Pool;
 using ZiercCode.Core.Utilities;
@@ -49,6 +50,17 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         /// </summary>
         public bool Enable { get; protected set; }
 
+
+        /// <summary>
+        /// buff持有者的位置
+        /// </summary>
+        protected Vector3 BuffHolderPosition;
+
+        /// <summary>
+        /// buff效果持有者的位置
+        /// </summary>
+        private BuffEffective _buffEffective;
+
         /// <summary>
         /// 有效计时器
         /// </summary>
@@ -59,10 +71,6 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         /// </summary>
         private Timer _activeTimer;
 
-        /// <summary>
-        /// buff效果持有者
-        /// </summary>
-        private BuffEffective _buffEffective;
 
         /// <summary>
         /// 粒子生成处理器
@@ -86,16 +94,25 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
             _activeTimer.TimerTrigger += Active;
 
             _enableTimer.StartTimer();
+            _activeTimer.StartTimer();
         }
 
         public void BuffTimeUpdate()
         {
             if (HaveParticle)
-                _particleSpawnHandle.GetObject().transform.position = _buffEffective.transform.position;
+            {
+                BuffHolderPosition = _buffEffective.transform.position;
+                _particleSpawnHandle.GetObject().transform.position = BuffHolderPosition;
+            }
+
             _enableTimer.Tick();
             _activeTimer.Tick();
         }
 
+        private void OnDestroy()
+        {
+            InActive();
+        }
 
         public virtual void Active()
         {
@@ -123,11 +140,6 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         public void SetSpawnHandle(SpawnHandle handle)
         {
             _particleSpawnHandle = handle;
-        }
-
-        protected BuffEffective GetBuffHolder()
-        {
-            return _buffEffective;
         }
     }
 }

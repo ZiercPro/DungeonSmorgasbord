@@ -12,13 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb1345f53f04b24a8b6d62249f2e4d2, type: 3}
   m_Name: Enemy_BigMouth
   m_EditorClassIdentifier: 
+  spawnType: 1
+  poolObjectSo: {fileID: 11400000, guid: 216c32761d3c15e4b8d217b3ac20f311, type: 2}
   prefab: {fileID: 8472406070026422316, guid: 8bb4383f80ae3fa46bb1b7bc97b2ef13, type: 3}
   myName: BigMouth
   maxHealth: 20
   moveSpeed: 3
   criticalChance: 0
   difficulty: 3
+  useWeapon: 0
   damageAmount: 1
   damageType: 0
+  weaponDamageRate:
+    dictionaryList: []
   attackSpeed: 1.2
   attackRange: 0.6

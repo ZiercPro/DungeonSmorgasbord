@@ -30,27 +30,21 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// </summary>
         [SerializeField] private AutoFlipComponent autoFlipComponent;
 
-        /// <summary>
-        /// 是否可以更换武器
-        /// </summary>
-        [SerializeField, Tooltip("是否可以更换武器")] private bool canChangeWeapon;
 
         /// <summary>
         /// 武器渲染组件
         /// </summary>
-        [SerializeField, HideIf("canChangeWeapon")]
         private SpriteRenderer weaponRenderer;
 
         /// <summary>
         /// 武器transform
         /// </summary>
-        [SerializeField, HideIf("canChangeWeapon")]
         private Transform weaponTransform;
 
         /// <summary>
         /// 是否能旋转，用于武器切换时使用，因为需要调用设置方法，不能直接禁用组件
         /// </summary>
-        [SerializeField] private bool canRotate;
+        [ReadOnly,SerializeField] private bool canRotate;
 
 
         /// <summary>

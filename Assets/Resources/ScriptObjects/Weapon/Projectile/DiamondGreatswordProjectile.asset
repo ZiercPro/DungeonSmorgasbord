@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: DiamondGreatswordProjectile
   m_EditorClassIdentifier: 
   myName: "\u94BB\u77F3\u5927\u5251\u5B50\u5F39"
+  canDoDamage: 1
   Damage: 2
   DamageType: 1
   WeaponType: 1
   prefab: {fileID: 3750903395687166601, guid: 25d32d231bee2f144a0947fa449af0e5, type: 3}
+  useAble: 0

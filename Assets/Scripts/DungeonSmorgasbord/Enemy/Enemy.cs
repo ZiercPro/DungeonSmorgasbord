@@ -1,6 +1,6 @@
 using UnityEngine;
 using ZiercCode.Core.Pool;
-using ZiercCode.Core.Utilities;
+using ZiercCode.DungeonSmorgasbord.Buff;
 using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.DungeonSmorgasbord.Item;
@@ -17,6 +17,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         [SerializeField] protected EnemyAttackCheck enemyAttackCheck;
         [SerializeField] protected MoveComponent moveComponent;
         [SerializeField] protected FlashFeedBack flashFeedBack;
+        [SerializeField] protected BuffEffective buffEffective;
         [SerializeField] protected CanDropItems canDropItems;
         [SerializeField] protected EnemyAttribute attribute;
         [SerializeField] protected Animator animator;
@@ -27,13 +28,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         protected Health TargetHealth;
 
         private SpawnHandle _spawnHandle;
-        private Timer _attackTimer;
 
-        /// <summary>
-        /// 是否可以攻击
-        /// 因为虚方法在子类只是调用，无法阻止子类覆写的方法继续执行
-        /// </summary>
-        protected bool CanAttack = true;
 
         public virtual void TakeDamage(DamageInfo info)
         {
@@ -55,32 +50,26 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             moveComponent.SetMoveSpeed(attribute.AttributesData.moveSpeed);
             enemyAttackCheck.SetRadius(attribute.AttributesData.attackRange);
 
-            _attackTimer = new Timer(1 / attribute.AttributesData.attackSpeed);
-            _attackTimer.TimerTrigger += () => CanAttack = true;
-
             SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
         }
 
         public virtual void Init()
         {
+            StateMachine.SetStartState(GetEnemyIdleState());
+            enemyAttackCheck.SetRadius(attribute.AttributesData.attackRange);
             health.Init();
             health.Dead += Dead;
         }
 
-        public virtual void Attack(Transform target)
-        {
-            CanAttack = false;
-            _attackTimer.StartTimer();
-            IDamageable damageable = target.GetComponent<IDamageable>();
-            DamageInfo damageInfo = new DamageInfo(attribute.AttributesData.damageAmount,
-                attribute.AttributesData.damageType, transform);
-            damageable.TakeDamage(damageInfo);
-        }
+        /// <summary>
+        /// 对目标造成伤害时调用
+        /// </summary>
+        /// <param name="target"></param>
+        public abstract void OnAttack(Transform target);
 
         protected virtual void Update()
         {
             StateMachine.currentState.FrameUpdate();
-            _attackTimer.Tick();
         }
 
         protected virtual void FixedUpdate()
@@ -119,6 +108,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
 
         public virtual void Dead()
         {
+            buffEffective.ClearAllBuff();
             canDropItems.DropItems();
             _spawnHandle.Release();
         }

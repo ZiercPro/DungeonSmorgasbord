@@ -264,8 +264,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDataSo: {fileID: 11400000, guid: 6ceea18110757f14f8632f24e90e8a03, type: 2}
-  weaponInputHandler: {fileID: 3267839835858478400}
   haveInput: 1
+  weaponInputHandler: {fileID: 3267839835858478400}
 --- !u!114 &3267839835858478400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 1274364151649758601}
+  damageTextColor: {r: 0, g: 0.8235294, b: 1, a: 1}
   doSingleDamage: 0
   doSingleDamageToSameTarget: 0
   canHurtSelf: 0

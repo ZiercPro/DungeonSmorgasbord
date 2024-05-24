@@ -75,12 +75,12 @@ namespace ZiercCode.DungeonSmorgasbord.UI
                     args.CurrentHealth.ToString();
             };
 
-            BattleManager.Instance.OnLevelChange += _levelUpdateAction;
+            // BattleManager.Instance.OnLevelChange += _levelUpdateAction;
             GameManager.playerTrans.GetComponent<Old.Hero.Hero>().CoinPack.CoinChanged += _coinUpdateAction;
             UITool.GetComponentInChildrenUI<TextMeshProUGUI>("FPS").enabled =
                 DataManager.SettingsData.FPSOn;
         }
-        
+
         public override void OnResume()
         {
             base.OnResume();
@@ -92,7 +92,7 @@ namespace ZiercCode.DungeonSmorgasbord.UI
         {
             base.OnExit();
             GameManager.playerTrans.GetComponent<Old.Hero.Hero>().CoinPack.CoinChanged -= _coinUpdateAction;
-            BattleManager.Instance.OnLevelChange -= _levelUpdateAction;
+            // BattleManager.Instance.OnLevelChange -= _levelUpdateAction;
             UIManager.DestroyUI(UIType);
         }
     }

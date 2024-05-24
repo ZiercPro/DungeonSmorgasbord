@@ -15,12 +15,17 @@ namespace ZiercCode.DungeonSmorgasbord.Component
     {
         [SerializeField, Expandable] protected T creatureAttributesBaseSo;
 
-        [NonSerialized] public T AttributesData;
+        private T _attributesSo;
 
-        private void Awake()
+        public T AttributesData
         {
-            AttributesData = Instantiate(creatureAttributesBaseSo);
-            
+            get
+            {
+                if (_attributesSo == null)
+                    _attributesSo = Instantiate(creatureAttributesBaseSo);
+
+                return _attributesSo;
+            }
         }
     }
 }

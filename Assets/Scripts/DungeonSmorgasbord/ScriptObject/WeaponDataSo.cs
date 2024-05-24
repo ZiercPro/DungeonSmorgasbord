@@ -1,3 +1,4 @@
+using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.DungeonSmorgasbord.Weapon;
@@ -16,14 +17,19 @@ namespace ZiercCode.DungeonSmorgasbord.ScriptObject
         public string myName;
 
         /// <summary>
+        /// 可以造成伤害
+        /// </summary>
+        public bool canDoDamage;
+
+        /// <summary>
         /// 伤害数值
         /// </summary>
-        public int Damage;
+        [ShowIf("canDoDamage")] public int Damage;
 
         /// <summary>
         /// 伤害类型
         /// </summary>
-        public DamageType DamageType;
+        [ShowIf("canDoDamage")] public DamageType DamageType;
 
         /// <summary>
         /// 武器类型

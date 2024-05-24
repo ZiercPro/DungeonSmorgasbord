@@ -226,7 +226,12 @@ Transform:
   - {fileID: 373536628}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &212399505
+--- !u!50 &252026637 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6433465752049301718, guid: ce53025bd3484424d93af6eed027b4ae, type: 3}
+  m_PrefabInstance: {fileID: 1137464006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &294244598
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -234,37 +239,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 212399507}
-  - component: {fileID: 212399506}
-  - component: {fileID: 212399508}
+  - component: {fileID: 294244599}
+  - component: {fileID: 294244600}
+  - component: {fileID: 294244601}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BattleManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &212399506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 212399505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4180de035a4772e4abd046073e47ffe3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolObjectSo: {fileID: 11400000, guid: 647213d0be966ea4ba71ec0f8a92f157, type: 2}
-  spawner: {fileID: 212399508}
---- !u!4 &212399507
+--- !u!4 &294244599
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 212399505}
+  m_GameObject: {fileID: 294244598}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -273,13 +264,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &212399508
+--- !u!114 &294244600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 212399505}
+  m_GameObject: {fileID: 294244598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388ad2a16a90bf2468643179afd32c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redCircle: {fileID: 11400000, guid: d18ad6ec739d59745837e1855819eae7, type: 2}
+  battleData: {fileID: 11400000, guid: 6ffd4458bc3bfb6438470260f59f5ced, type: 2}
+  poolObjectSpawner: {fileID: 294244601}
+  spawnSize: {x: 18, y: 10}
+  spawnCenter: {x: 0, y: 0}
+  GizmosColor: {r: 1, g: 0, b: 0, a: 0.27450982}
+--- !u!114 &294244601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294244598}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8c4a05ff69e45f7a9e5d5523155f719, type: 3}
@@ -287,11 +296,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolObjects:
   - {fileID: 11400000, guid: 647213d0be966ea4ba71ec0f8a92f157, type: 2}
---- !u!50 &252026637 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 6433465752049301718, guid: ce53025bd3484424d93af6eed027b4ae, type: 3}
-  m_PrefabInstance: {fileID: 1137464006}
-  m_PrefabAsset: {fileID: 0}
+  - {fileID: 11400000, guid: 216c32761d3c15e4b8d217b3ac20f311, type: 2}
+  - {fileID: 11400000, guid: 6d8275c8b06990f41b09fd37f94f43c5, type: 2}
 --- !u!1 &324111292
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,7 +864,7 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!43 &863290912
+--- !u!43 &886779334
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1123,6 +1129,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4605838071213516601, guid: ce53025bd3484424d93af6eed027b4ae, type: 3}
+      propertyPath: useSpeedCurve
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5616014303212438530, guid: ce53025bd3484424d93af6eed027b4ae, type: 3}
       propertyPath: rb2D
       value: 
@@ -1195,6 +1205,10 @@ PrefabInstance:
       propertyPath: weaponDataSo
       value: 
       objectReference: {fileID: 11400000, guid: fb11603dbc5487c47a97fed7c1fadb45, type: 2}
+    - target: {fileID: 6874231262188466895, guid: ce53025bd3484424d93af6eed027b4ae, type: 3}
+      propertyPath: weaponRotate
+      value: 
+      objectReference: {fileID: 2083907355}
     - target: {fileID: 8962218401074913994, guid: ce53025bd3484424d93af6eed027b4ae, type: 3}
       propertyPath: weaponDataSo
       value: 
@@ -1850,6 +1864,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &2083907355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2022308064305852640, guid: ce53025bd3484424d93af6eed027b4ae, type: 3}
+  m_PrefabInstance: {fileID: 1137464006}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec659d78a14ed1642b65a076b8449f81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1871,4 +1896,4 @@ SceneRoots:
   - {fileID: 1176290869}
   - {fileID: 1263371239}
   - {fileID: 514374499}
-  - {fileID: 212399507}
+  - {fileID: 294244599}

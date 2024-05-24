@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 7097391299916840660}
+  damageTextColor: {r: 0, g: 1, b: 0.47058824, a: 1}
   doSingleDamage: 0
   doSingleDamageToSameTarget: 1
   canHurtSelf: 0

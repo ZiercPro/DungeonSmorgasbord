@@ -145,9 +145,9 @@ namespace ZiercCode.Core.Utilities
         /// </summary>
         /// <param name="range">范围包含从-range到range</param>
         /// <returns></returns>
-        public static Vector2 GetRandomPos(Vector2 range)
+        public static Vector2 GetRandomPos(Vector2 center, Vector2 range)
         {
-            return new Vector2(GetRandom(-range.x, range.x), GetRandom(-range.y, range.y));
+            return new Vector2(center.x + GetRandom(-range.x, range.x), center.y + GetRandom(-range.y, range.y));
         }
 
 

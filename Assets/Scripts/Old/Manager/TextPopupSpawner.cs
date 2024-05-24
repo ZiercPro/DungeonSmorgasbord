@@ -11,20 +11,19 @@ namespace ZiercCode.Old.Manager
         [SerializeField] private PoolObjectSo intPopupTemp;
         [SerializeField] private PoolObjectSpawner spawner;
 
-        public GameObject InitPopupText(Transform position, Color textColor, int amount)
+        public void InitPopupText(Vector3 startPosition, Color textColor, int amount)
         {
-            return InitPopupText(position, textColor, amount.ToString());
+            InitPopupText(startPosition, textColor, amount.ToString());
         }
 
-        public GameObject InitPopupText(Transform position, Color textColor, string text)
+        public void InitPopupText(Vector3 startPosition, Color textColor, string text)
         {
-            SpawnHandle handle = spawner.SpawnPoolObject(intPopupTemp, position, Quaternion.identity);
+            SpawnHandle handle = spawner.SpawnPoolObject(intPopupTemp, startPosition, Quaternion.identity);
             GameObject obj = handle.GetObject();
             obj.GetComponent<TextMeshPro>().color = textColor;
             obj.GetComponent<TextMeshPro>().text = text;
             obj.GetComponent<TextPopupAnimation>()
                 .Popup(() => handle.Release());
-            return obj;
         }
     }
 }

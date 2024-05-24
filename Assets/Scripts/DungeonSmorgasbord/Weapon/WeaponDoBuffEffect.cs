@@ -25,9 +25,11 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
                         return;
 
                 BuffBaseSo buffInstance = Instantiate(buffBaseSo);
+                
                 if (buffInstance.HaveParticle)
                 {
-                    SpawnHandle handle = poolObjectSpawner.SpawnPoolObject(buffInstance.particlePoolSo);
+                    SpawnHandle handle =
+                        poolObjectSpawner.SpawnPoolObject(buffInstance.particlePoolSo);
                     buffInstance.SetSpawnHandle(handle);
                 }
 

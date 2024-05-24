@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Arrow
   m_EditorClassIdentifier: 
   myName: "\u6728\u7BAD"
+  canDoDamage: 1
   Damage: 1
   DamageType: 0
   WeaponType: 1

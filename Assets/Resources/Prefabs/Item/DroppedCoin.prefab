@@ -263,7 +263,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   entityCollider2D: {fileID: 8956199110796041990}
-  rigidbody2D: {fileID: 8209068306881884882}
+  r2D: {fileID: 8209068306881884882}
 --- !u!114 &4654945825972880980
 MonoBehaviour:
   m_ObjectHideFlags: 0

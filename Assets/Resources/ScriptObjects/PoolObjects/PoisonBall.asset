@@ -16,4 +16,4 @@ MonoBehaviour:
   prefab: {fileID: 1924614913807550534, guid: 7ba3801ab2e4e904883804523e4a0880, type: 3}
   haveIPoolObject: 0
   initSize: 20
-  maxSize: 50
+  maxSize: 200

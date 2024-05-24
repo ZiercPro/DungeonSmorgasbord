@@ -19,23 +19,14 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             base.Awake();
             _enemyIdleStateBase =
                 new EnemyIdleNoMove(this, StateMachine, animator, moveComponent);
-            _enemyChaseStateBase = new EnemyChaseWithAttack(this, StateMachine, animator, autoFlipComponent,
-                moveComponent, enemyAttackCheck);
+            _enemyChaseStateBase = new EnemyChaseToTargetWithAttack(this, StateMachine, animator, autoFlipComponent,
+                moveComponent, enemyAttackCheck, attribute);
         }
 
-        public override void Init()
+        public override void OnAttack(Transform target)
         {
-            base.Init();
-            StateMachine.SetStartState(_enemyIdleStateBase);
-            enemyAttackCheck.SetRadius(attribute.AttributesData.attackRange);
-        }
-
-        public override void Attack(Transform target)
-        {
-            if (!CanAttack) return;
-            base.Attack(target);
             //弹出文本
-            TextPopupSpawner.Instance.InitPopupText(target, Color.red, -attribute.AttributesData.damageAmount);
+            TextPopupSpawner.Instance.InitPopupText(target.position, Color.red, -attribute.AttributesData.damageAmount);
             //击退
             KnockBackFeedBack knockBackFeedBack = GetComponent<KnockBackFeedBack>();
             knockBackFeedBack.StartBackMove(transform, 0.5f);

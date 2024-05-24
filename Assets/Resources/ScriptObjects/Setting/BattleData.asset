@@ -12,8 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62950adaa810fa141bee597758f77c4f, type: 3}
   m_Name: BattleData
   m_EditorClassIdentifier: 
-  battleData:
+  battleDataList:
   - {fileID: 11400000, guid: ad1191810db114f48b000a32498e31b0, type: 2}
-  - {fileID: 11400000, guid: 12215a25f26034d4e97444ee0eae6240, type: 2}
-  - {fileID: 11400000, guid: 402a67c22b6a69942b456081e2dd4519, type: 2}
-  - {fileID: 11400000, guid: f152ae2f3e025944da4f771f01a769c3, type: 2}

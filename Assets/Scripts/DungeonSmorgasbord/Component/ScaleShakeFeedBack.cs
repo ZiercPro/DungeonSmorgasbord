@@ -6,8 +6,8 @@ namespace ZiercCode.DungeonSmorgasbord.Component
     public class ScaleShakeFeedBack : MonoBehaviour
     {
         [SerializeField] private Transform animatorTransform;
-        [SerializeField] private float duration = 1f;
-        [SerializeField] private float strength = 1f;
+        [SerializeField] private float duration = 0.8f;
+        [SerializeField] private float strength = 0.6f;
 
 
         private Tweener _shakeTweener;

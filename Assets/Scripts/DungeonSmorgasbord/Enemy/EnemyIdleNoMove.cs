@@ -9,7 +9,9 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
     public class EnemyIdleNoMove : EnemyIdleStateBase
     {
         private MoveComponent _moveComponent;
-        public EnemyIdleNoMove(Enemy enemyBase, EnemyStateMachine stateMachine, Animator animator , MoveComponent moveComponent) : base(enemyBase, stateMachine, animator)
+
+        public EnemyIdleNoMove(Enemy enemyBase, EnemyStateMachine stateMachine, Animator animator,
+            MoveComponent moveComponent) : base(enemyBase, stateMachine, animator)
         {
             _moveComponent = moveComponent;
         }

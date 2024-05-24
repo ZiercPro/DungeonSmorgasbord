@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode.Core.Extend;
+using ZiercCode.DungeonSmorgasbord.Buff;
 using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.DungeonSmorgasbord.Extend;
@@ -13,7 +14,8 @@ namespace ZiercCode.Old.Hero
 {
     public class Hero : MonoBehaviour, IDamageable, IWeaponUserBase
     {
-        private WeaponUser _weaponUser;
+        private BuffEffective _buffEffective;
+        private WeaponUserHelper _weaponUserHelper;
         private CameraShakeFeedback _cameraShakeFeedback;
         private KnockBackFeedBack _knockBackFeedBack;
         private AutoFlipComponent _autoFlipComponent;
@@ -31,7 +33,8 @@ namespace ZiercCode.Old.Hero
         {
             CoinPack = new CoinPack();
             _health = GetComponent<Health>();
-            _weaponUser = GetComponent<WeaponUser>();
+            _buffEffective = GetComponent<BuffEffective>();
+            _weaponUserHelper = GetComponent<WeaponUserHelper>();
             _moveComponent = GetComponent<MoveComponent>();
             _dashComponent = GetComponent<DashComponent>();
             _attribute = GetComponent<HeroAttribute>();
@@ -66,14 +69,15 @@ namespace ZiercCode.Old.Hero
 
         private void InitWeapon()
         {
-            _heroInputManager.MousePositionChanging += _weaponUser.SetWeapon();
-            _heroInputManager.MouseLeftClickStarted += _weaponUser.OnLeftButtonPressStarted;
-            _heroInputManager.MouseLeftClickCanceled += _weaponUser.OnLeftButtonPressCanceled;
-            _heroInputManager.MouseLeftClickPerformed += _weaponUser.OnLeftButtonPressed;
-            _heroInputManager.MouseRightClickStarted += _weaponUser.OnRightButtonPressStarted;
-            _heroInputManager.MouseRightClickPerformed += _weaponUser.OnRightButtonPressed;
-            _heroInputManager.MouseRightClickCanceled += _weaponUser.OnRightButtonPressCanceled;
-            _heroInputManager.MousePositionChanging += _weaponUser.OnViewPositionChange;
+            _weaponUserHelper.SetWeapon();
+            _heroInputManager.MousePositionChanging += _weaponUserHelper.SetWeaponRotate();
+            _heroInputManager.MouseLeftClickStarted += _weaponUserHelper.OnLeftButtonPressStarted;
+            _heroInputManager.MouseLeftClickCanceled += _weaponUserHelper.OnLeftButtonPressCanceled;
+            _heroInputManager.MouseLeftClickPerformed += _weaponUserHelper.OnLeftButtonPressed;
+            _heroInputManager.MouseRightClickStarted += _weaponUserHelper.OnRightButtonPressStarted;
+            _heroInputManager.MouseRightClickPerformed += _weaponUserHelper.OnRightButtonPressed;
+            _heroInputManager.MouseRightClickCanceled += _weaponUserHelper.OnRightButtonPressCanceled;
+            _heroInputManager.MousePositionChanging += _weaponUserHelper.OnViewPositionChange;
         }
 
         public void TakeDamage(DamageInfo info)
@@ -93,8 +97,9 @@ namespace ZiercCode.Old.Hero
         {
             _heroInputManager.SetHeroControl(false);
             _knockBackFeedBack.enabled = false;
+            _buffEffective.ClearAllBuff();
             _moveComponent.Stop();
-            
+
             _animationHandler.ActiveAnimationFunc(0);
         }
 

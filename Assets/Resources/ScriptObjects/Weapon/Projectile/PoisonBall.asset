@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: PoisonBall
   m_EditorClassIdentifier: 
   myName: "\u6BD2\u6CD5\u7403"
+  canDoDamage: 1
   Damage: 1
   DamageType: 1
-  WeaponType: 1
+  WeaponType: 2
   prefab: {fileID: 1924614913807550534, guid: 7ba3801ab2e4e904883804523e4a0880, type: 3}
+  useAble: 0

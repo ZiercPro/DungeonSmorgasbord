@@ -9,6 +9,7 @@ namespace ZiercCode.Core.Utilities
 {
     /// <summary>
     /// 可编辑物品字典
+    /// 不动态修改
     /// </summary>
     /// <typeparam name="TKey">键值</typeparam>
     /// <typeparam name="TObject">值</typeparam>
@@ -16,6 +17,8 @@ namespace ZiercCode.Core.Utilities
     public class EditableDictionary<TKey, TObject>
     {
         [SerializeField] private List<EditableDictionaryItem<TKey, TObject>> dictionaryList;
+
+        private Dictionary<TKey, TObject> _dictionary;
 
         /// <summary>
         /// 可编辑物品，用于在可编辑字典中储存
@@ -52,6 +55,7 @@ namespace ZiercCode.Core.Utilities
         public EditableDictionary()
         {
             dictionaryList = new();
+            _dictionary = new();
         }
 
         /// <summary>
@@ -60,13 +64,15 @@ namespace ZiercCode.Core.Utilities
         /// <returns></returns>
         public Dictionary<TKey, TObject> ToDictionary()
         {
-            Dictionary<TKey, TObject> result = new();
-            foreach (var item in dictionaryList)
+            if (_dictionary.Count == 0)
             {
-                result.Add(item.keyValue, item.objectValue);
+                foreach (var item in dictionaryList)
+                {
+                    _dictionary.Add(item.keyValue, item.objectValue);
+                }
             }
 
-            return result;
+            return _dictionary;
         }
 
         /// <summary>

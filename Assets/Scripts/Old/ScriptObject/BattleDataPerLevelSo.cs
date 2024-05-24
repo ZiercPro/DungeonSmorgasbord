@@ -1,8 +1,7 @@
-using NaughtyAttributes;
 using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using NaughtyAttributes.Scripts.Core.ValidatorAttributes;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
@@ -15,14 +14,9 @@ namespace ZiercCode.Old.ScriptObject
     public class BattleDataPerLevelSo : ScriptableObject
     {
         /// <summary>
-        /// 要生成那些敌人
+        /// 要生成的敌人
         /// </summary>
-        [Expandable] public EnemyAttributeSo[] enemyToSpawn;
-
-        /// <summary>
-        /// 难度
-        /// </summary>
-        public int totalDifficulty;
+        public EnemyAndNum[] enemyToSpawn;
 
         /// <summary>
         /// 波次
@@ -35,5 +29,12 @@ namespace ZiercCode.Old.ScriptObject
         /// 波次间隔
         /// </summary>
         [ShowIf("_showWaveInternal")] public int waveInterval;
+
+        [Serializable]
+        public struct EnemyAndNum
+        {
+            public EnemyAttributeSo enemyAttributeSo;
+            public int num;
+        }
     }
 }

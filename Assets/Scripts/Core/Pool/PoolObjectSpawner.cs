@@ -13,7 +13,6 @@ namespace ZiercCode.Core.Pool
 
         private Dictionary<GameObject, SpawnHandle> _handlerDictionary;
 
-
         private void Awake()
         {
             CreatePools();

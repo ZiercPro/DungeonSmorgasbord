@@ -1,4 +1,3 @@
-using NaughtyAttributes;
 using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;

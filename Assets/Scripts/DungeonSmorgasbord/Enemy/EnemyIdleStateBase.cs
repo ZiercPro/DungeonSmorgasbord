@@ -3,7 +3,8 @@
 namespace ZiercCode.DungeonSmorgasbord.Enemy
 {
     /// <summary>
-    /// 静息状态
+    /// 静息状态基类
+    /// 只进行动画处理 并自动转换到追击状态
     /// </summary>
     public abstract class EnemyIdleStateBase : EnemyState
     {

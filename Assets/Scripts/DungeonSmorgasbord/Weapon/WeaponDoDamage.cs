@@ -1,10 +1,10 @@
-﻿using NaughtyAttributes;
-using NaughtyAttributes.Scripts.Core.MetaAttributes;
+﻿using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using ZiercCode.Core.Utilities;
 using ZiercCode.DungeonSmorgasbord.Damage;
+using ZiercCode.Old.Manager;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
@@ -17,6 +17,11 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// 武器数据
         /// </summary>
         [SerializeField] private WeaponBase weapon;
+
+        /// <summary>
+        /// 伤害数字颜色
+        /// </summary>
+        [SerializeField] private Color damageTextColor;
 
         /// <summary>
         /// 只造成一次伤害
@@ -50,7 +55,10 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             _haveDamagedTarget = new List<Collider2D>();
         }
 
-
+        /// <summary>
+        /// 造成伤害
+        /// </summary>
+        /// <param name="c2d">目标碰撞体</param>
         public void DoDamage(Collider2D c2d)
         {
             if (!_canDoDamage) return;
@@ -66,6 +74,8 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 
                 damageable.TakeDamage(GetDamageInfo());
                 _haveDamagedTarget.Add(c2d);
+                TextPopupSpawner.Instance.InitPopupText(c2d.transform.position, damageTextColor,
+                    GetDamageInfo().damageAmount);
 
                 if (doSingleDamage)
                     _canDoDamage = false;

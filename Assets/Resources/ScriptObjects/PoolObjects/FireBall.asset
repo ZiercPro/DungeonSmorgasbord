@@ -15,5 +15,5 @@ MonoBehaviour:
   poolName: "\u706B\u7403"
   prefab: {fileID: 1924614913807550534, guid: 94acaf71a013e894d9acdcb7ced8c487, type: 3}
   haveIPoolObject: 0
-  initSize: 20
-  maxSize: 50
+  initSize: 50
+  maxSize: 200

@@ -12,6 +12,6 @@ namespace ZiercCode.Old.ScriptObject
         /// 战斗数据
         /// 储存所有层战斗数据
         /// </summary>
-        [Expandable] public BattleDataPerLevelSo[] battleData;
+        [Expandable] public BattleDataPerLevelSo[] battleDataList;
     }
 }

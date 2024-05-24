@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d42e324688db78428fdc68fdc229e0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  c2d: {fileID: 8305351811670310054}
 --- !u!1 &3149073930474505641
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,11 +247,12 @@ MonoBehaviour:
   enemyAttackCheck: {fileID: 3657935060950998291}
   moveComponent: {fileID: 7097685445367053004}
   flashFeedBack: {fileID: 8182654456024282727}
+  buffEffective: {fileID: 7851767141937854372}
   canDropItems: {fileID: 2177417096687788655}
   attribute: {fileID: 2128747106723904120}
   animator: {fileID: 521005485728210266}
   health: {fileID: 2241906935849456536}
-  deadParticle: {fileID: 11400000, guid: 414adbb9f494f7a40b24cd11ce4caba8, type: 2}
+  deadParticle: {fileID: 11400000, guid: 1cebb1856a3e7184e8c066267f980922, type: 2}
 --- !u!114 &374477211409069075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolObjects:
-  - {fileID: 11400000, guid: 414adbb9f494f7a40b24cd11ce4caba8, type: 2}
+  - {fileID: 11400000, guid: 1cebb1856a3e7184e8c066267f980922, type: 2}
 --- !u!1 &6365258972828138985
 GameObject:
   m_ObjectHideFlags: 0
