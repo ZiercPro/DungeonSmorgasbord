@@ -35,12 +35,12 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             CanAttack = true;
         }
 
-        public override void EntryState()
+        public override void OnEnter()
         {
             Animator.SetBool(_attack, true);
         }
 
-        public override void FrameUpdate()
+        public override void OnUpdate()
         {
             AttackCoolDownTimer.Tick();
             if (EnemyBase.GetTarget() && EnemyBase.TargetIsAlive() && !EnemyAttackCheck.isEnter)
@@ -55,7 +55,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             }
         }
 
-        public override void ExitState()
+        public override void OnExit()
         {
             Animator.SetBool(_attack, false);
             CanAttack = false;

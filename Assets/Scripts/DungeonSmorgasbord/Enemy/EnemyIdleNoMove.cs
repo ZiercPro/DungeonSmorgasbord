@@ -16,9 +16,9 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             _moveComponent = moveComponent;
         }
 
-        public override void EntryState()
+        public override void OnEnter()
         {
-            base.EntryState();
+            base.OnEnter();
             _moveComponent.Stop();
         }
         

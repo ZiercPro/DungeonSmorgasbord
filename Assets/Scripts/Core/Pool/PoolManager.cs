@@ -10,7 +10,7 @@ namespace ZiercCode.Core.Pool
     /// 对象池管理器
     /// 管理所有物品的对象池
     /// </summary>
-    public class PoolManager : USingletonComponentDestroy<PoolManager>
+    public class PoolManager : USingleton<PoolManager>
     {
         /// <summary>
         /// 默认初始值

@@ -15,12 +15,12 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         {
         }
 
-        public override void EntryState()
+        public override void OnEnter()
         {
             Animator.SetBool(_idle, true);
         }
 
-        public override void FrameUpdate()
+        public override void OnUpdate()
         {
             //寻找目标
             if (EnemyBase.GetTarget() && EnemyBase.TargetIsAlive())
@@ -30,7 +30,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             }
         }
 
-        public override void ExitState()
+        public override void OnExit()
         {
             Animator.SetBool(_idle, false);
         }

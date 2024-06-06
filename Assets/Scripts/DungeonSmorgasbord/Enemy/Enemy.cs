@@ -55,7 +55,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
 
         public virtual void Init()
         {
-            StateMachine.SetStartState(GetEnemyIdleState());
+            StateMachine.Initialize(GetEnemyIdleState());
             enemyAttackCheck.SetRadius(attribute.AttributesData.attackRange);
             health.Init();
             health.Dead += Dead;
@@ -69,12 +69,12 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
 
         protected virtual void Update()
         {
-            StateMachine.currentState.FrameUpdate();
+            StateMachine.CurrentState.OnUpdate();
         }
 
         protected virtual void FixedUpdate()
         {
-            StateMachine.currentState.PhysicsUpdate();
+            StateMachine.CurrentState.PhysicsUpdate();
         }
 
         public void SetTarget(Transform target)

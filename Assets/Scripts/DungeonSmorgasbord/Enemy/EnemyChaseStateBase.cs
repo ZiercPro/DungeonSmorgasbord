@@ -26,12 +26,12 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             MoveComponent = moveComponent;
         }
 
-        public override void EntryState()
+        public override void OnEnter()
         {
             Animator.SetBool(_running, true);
         }
 
-        public override void FrameUpdate()
+        public override void OnUpdate()
         {
             if (EnemyBase.GetTarget() && EnemyBase.TargetIsAlive())
             {
@@ -53,7 +53,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             }
         }
 
-        public override void ExitState()
+        public override void OnExit()
         {
             MoveComponent.Stop();
             Animator.SetBool(_running, false);

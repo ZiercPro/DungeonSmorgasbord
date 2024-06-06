@@ -11,11 +11,13 @@ namespace ZiercCode.Core.Extend
         //修饰用的字符
         [SerializeField] protected string sModifier = "-";
 
-        private TextMeshProUGUI _textMeshProUGUI;
+        //需要个性化的文本
+        [SerializeField] private TextMeshProUGUI textMeshProUGUI;
+
         private string _originalText; //初始文本
         private string _targetText; //目标文本
 
-        protected virtual void Awake()
+        protected void Start()
         {
             UpdateText();
         }
@@ -31,7 +33,7 @@ namespace ZiercCode.Core.Extend
         /// </summary>
         public virtual void Change()
         {
-            _textMeshProUGUI.text = _targetText;
+            textMeshProUGUI.text = _targetText;
         }
 
         /// <summary>
@@ -39,17 +41,17 @@ namespace ZiercCode.Core.Extend
         /// </summary>
         public virtual void Recover()
         {
-            _textMeshProUGUI.text = _originalText;
+            textMeshProUGUI.text = _originalText;
         }
-      
+
 
         /// <summary>
-        /// 手动更新组件初始文本和目标文本，语言切换时调用
+        /// 手动更新组件初始文本和目标文本，初始化时和语言切换时调用
         /// </summary>
         public virtual void UpdateText()
         {
-            _textMeshProUGUI = GetComponentInChildren<TextMeshProUGUI>(true);
-            _originalText = _textMeshProUGUI.text;
+            _originalText = textMeshProUGUI.text;
+
             if (_originalText.Contains(sModifier))
             {
                 string[] temp = _originalText.Split(sModifier);

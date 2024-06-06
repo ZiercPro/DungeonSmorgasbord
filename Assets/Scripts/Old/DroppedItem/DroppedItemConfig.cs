@@ -1,15 +1,10 @@
-using NaughtyAttributes;
 using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
-using ZiercCode.Core.Extend;
 using ZiercCode.Core.Utilities;
-using ZiercCode.Old.Helper;
 
 namespace ZiercCode.Old.DroppedItem
 {
-
-
     [System.Serializable]
     public class DroppedItemConfig
     {

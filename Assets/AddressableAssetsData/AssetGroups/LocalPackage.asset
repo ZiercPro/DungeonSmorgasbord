@@ -164,7 +164,26 @@ MonoBehaviour:
   - m_GUID: 8d8306ea3dd3cc3409fe549d2f6daaa0
     m_Address: Assets/Shader/Material/GlowEffect.mat
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Material
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 743f439b0893e2e4094b36d81130c412
+    m_Address: Assets/Test/Config/BuildInfo.txt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Config
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a86771bd91fb1241994911a1dc598a6
+    m_Address: Assets/Test/TestSqure.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Object
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a97c105638bdf8b4a8650670310a4cd3
+    m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Sprite-Lit-Default.mat
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Material
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 6c87a3fd160e34f40a92af209ccac1e5, type: 2}

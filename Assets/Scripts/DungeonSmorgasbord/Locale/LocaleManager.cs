@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
-using ZiercCode.Core.Extend;
 using ZiercCode.Core.Utilities;
 using ZiercCode.Old.Helper;
 using ZiercCode.Old.ScriptObject;
 
 namespace ZiercCode.DungeonSmorgasbord.Locale
 {
-    public class LocaleManager : USingletonComponentDontDestroy<LocaleManager>
+    public class LocaleManager : USingletonDontDestroyOnLoad<LocaleManager>
     {
         /// <summary>
         /// 自定义文本本地化数据
@@ -36,13 +35,13 @@ namespace ZiercCode.DungeonSmorgasbord.Locale
         /// </summary>
         /// <param name="itemId"></param>
         /// <returns>文本</returns>
-        public string GetLocaleText(int itemId)
+        public string GetLocaleText(string itemId)
         {
             int languageIDd = GetSelectedLanguageID();
             //寻找物品数据
             foreach (var customTextDataSo in customTextDataSoList)
             {
-                EditableDictionary<int, CustomTextTable> customTextDictionary =
+                EditableDictionary<string, CustomTextTable> customTextDictionary =
                     customTextDataSo.CustomTextDictionary;
                 if (customTextDictionary.Contain(itemId))
                 {

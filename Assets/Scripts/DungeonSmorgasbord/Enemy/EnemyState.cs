@@ -1,11 +1,12 @@
 using UnityEngine;
+using ZiercCode.Test.StateSystem;
 
 namespace ZiercCode.DungeonSmorgasbord.Enemy
 {
     /// <summary>
     /// 敌人状态基类
     /// </summary>
-    public class EnemyState
+    public class EnemyState : IState
     {
         protected Enemy EnemyBase;
         protected Animator Animator;
@@ -18,15 +19,17 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             Animator = animator;
         }
 
+        public virtual void OnCreate() { }
+
         /// <summary>
         /// 进入状态时调用
         /// </summary>
-        public virtual void EntryState() { }
+        public virtual void OnEnter() { }
 
         /// <summary>
         /// 帧更新
         /// </summary>
-        public virtual void FrameUpdate() { }
+        public virtual void OnUpdate() { }
 
         /// <summary>
         /// 物理帧更新
@@ -36,7 +39,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         /// <summary>
         /// 离开状态时调用
         /// </summary>
-        public virtual void ExitState() { }
+        public virtual void OnExit() { }
 
         /// <summary>
         /// 动画事件调用

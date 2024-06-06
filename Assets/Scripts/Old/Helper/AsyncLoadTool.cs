@@ -20,12 +20,12 @@ namespace ZiercCode.Old.Helper
         /// <param name="text">进度</param>
         /// <param name="newSceneState">场景状态</param>
         /// <param name="newSceneName">场景名</param>
-        public void AsyncLoad(Slider slider, TextMeshProUGUI text, SceneState newSceneState, string newSceneName)
+        public void AsyncLoad(Slider slider, TextMeshProUGUI text, ISceneState newSceneState, string newSceneName)
         {
             _loadingCoroutine = StartCoroutine(LoadScene(slider, text, newSceneState, newSceneName));
         }
 
-        private IEnumerator LoadScene(Slider slider, TextMeshProUGUI text, SceneState newSceneState,
+        private IEnumerator LoadScene(Slider slider, TextMeshProUGUI text, ISceneState newSceneState,
             string newSceneName)
         {
             float t = 0f;

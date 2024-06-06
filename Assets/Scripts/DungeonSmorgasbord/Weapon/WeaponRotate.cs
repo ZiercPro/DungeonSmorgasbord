@@ -1,4 +1,3 @@
-using NaughtyAttributes;
 using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.Component;
@@ -44,7 +43,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 是否能旋转，用于武器切换时使用，因为需要调用设置方法，不能直接禁用组件
         /// </summary>
-        [ReadOnly,SerializeField] private bool canRotate;
+        [ReadOnly, SerializeField] private bool canRotate;
 
 
         /// <summary>

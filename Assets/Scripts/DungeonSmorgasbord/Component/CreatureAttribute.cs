@@ -1,7 +1,4 @@
-using NaughtyAttributes;
 using NaughtyAttributes.Scripts.Core.DrawerAttributes;
-using NaughtyAttributes.Scripts.Core.MetaAttributes;
-using System;
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;
 

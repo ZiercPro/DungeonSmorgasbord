@@ -23,7 +23,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             _weaponRotateAction = _weaponUserHelper.SetWeaponRotate();
         }
 
-        public override void FrameUpdate()
+        public override void OnUpdate()
         {
             AttackCoolDownTimer.Tick();
 

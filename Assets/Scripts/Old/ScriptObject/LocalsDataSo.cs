@@ -1,5 +1,4 @@
 using UnityEngine;
-using ZiercCode.Core.Extend;
 using ZiercCode.Core.Utilities;
 
 namespace ZiercCode.Old.ScriptObject

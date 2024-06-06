@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   enemyToSpawn:
-  - {fileID: 11400000, guid: 120a875949e2c2044a8b8a1101258a4f, type: 2}
-  totalDifficulty: 10
+  - enemyAttributeSo: {fileID: 11400000, guid: 120a875949e2c2044a8b8a1101258a4f, type: 2}
+    num: 4
   waves: 1
   waveInterval: 0

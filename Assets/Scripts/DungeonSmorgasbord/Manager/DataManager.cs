@@ -5,28 +5,25 @@ namespace ZiercCode.DungeonSmorgasbord.Manager
     /// <summary>
     ///  全局数据管理
     /// </summary>
-    public class DataManager
+    public static class DataManager
     {
         /// <summary>
         /// 设置数据
         /// </summary>
         public static SettingsData SettingsData { get; private set; }
 
-        public DataManager()
+        public static void Initialize()
         {
-            if (SettingsData == null)
-                SettingsData = new SettingsData();
+            Load();
         }
 
-        public void Load()
+        private static void Load()
         {
             if (SettingsData.Load(out SettingsData result))
-            {
                 SettingsData = result;
-            }
         }
 
-        public void Save()
+        private static void Save()
         {
             SettingsData.Save();
         }

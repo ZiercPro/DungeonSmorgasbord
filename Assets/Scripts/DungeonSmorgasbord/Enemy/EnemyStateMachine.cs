@@ -1,30 +1,34 @@
+using ZiercCode.Test.StateSystem;
+
 namespace ZiercCode.DungeonSmorgasbord.Enemy
 {
     /// <summary>
     /// 敌人状态机，储存状态信息,控制状态的改变
     /// </summary>
-    public class EnemyStateMachine
+    public class EnemyStateMachine : IStateMachine<EnemyState>
     {
+        private EnemyState _currentState;
+
         /// <summary>
         /// 当前状态
         /// </summary>
-        public EnemyState currentState { get; private set; }
+        public EnemyState CurrentState => _currentState;
 
         /// <summary>
         /// 初始化状态
         /// </summary>
         /// <param name="startState">初始状态</param>
-        public void SetStartState(EnemyState startState)
+        public void Initialize(EnemyState startState)
         {
-            currentState = startState;
-            currentState.EntryState();
+            _currentState = startState;
+            CurrentState.OnEnter();
         }
 
         public void ChangeState(EnemyState targetState)
         {
-            currentState.ExitState();
-            currentState = targetState;
-            currentState.EntryState();
+            CurrentState.OnExit();
+            _currentState = targetState;
+            CurrentState.OnEnter();
         }
     }
 }

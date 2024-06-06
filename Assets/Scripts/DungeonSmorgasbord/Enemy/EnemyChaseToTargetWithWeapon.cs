@@ -23,9 +23,9 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             _weaponUserHelper = weaponUserHelper.SetWeaponRotate();
         }
 
-        public override void FrameUpdate()
+        public override void OnUpdate()
         {
-            base.FrameUpdate();
+            base.OnUpdate();
             _weaponUserHelper(EnemyBase.GetTarget().position);
         }
     }

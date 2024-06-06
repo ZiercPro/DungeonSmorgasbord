@@ -6,7 +6,7 @@ using ZiercCode.Old.Environment;
 namespace ZiercCode.Old.Manager
 {
 
-    public class ParallaxMoveManager : USingletonComponentDestroy<ParallaxMoveManager>
+    public class ParallaxMoveManager : USingleton<ParallaxMoveManager>
     {
         [SerializeField] private List<ParallaxMoveFeedBack> moveBackgrounds;
         [SerializeField] private GameObject optionTutorialTemp;

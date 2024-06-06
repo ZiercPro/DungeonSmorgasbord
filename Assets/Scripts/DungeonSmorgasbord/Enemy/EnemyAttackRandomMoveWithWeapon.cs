@@ -26,7 +26,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         }
 
 
-        public override void FrameUpdate()
+        public override void OnUpdate()
         {
             AttackCoolDownTimer.Tick();
 

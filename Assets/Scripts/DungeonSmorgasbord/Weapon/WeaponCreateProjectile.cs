@@ -1,5 +1,4 @@
-﻿using NaughtyAttributes;
-using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using System;
 using UnityEngine;
 using UnityEngine.Pool;

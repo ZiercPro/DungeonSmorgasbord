@@ -1,6 +1,5 @@
 using UnityEngine;
 using ZiercCode.Core.UI;
-using ZiercCode.DungeonSmorgasbord.UI;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Environment;
 using ZiercCode.Old.Hero;
@@ -57,7 +56,6 @@ namespace ZiercCode.Old.Manager
         public void SceneInit()
         {
             ParallaxMoveManager.Instance.BackGroundMove();
-            _panelManager.Push(new GamePanel());
         }
 
         //角色生成
@@ -80,7 +78,6 @@ namespace ZiercCode.Old.Manager
         {
             playerTrans.GetComponent<Health>().Dead += () =>
             {
-                _panelManager.Push(new DeadPanel());
                 DroppedItem.DroppedItem.ClearAllItem();
             };
         }

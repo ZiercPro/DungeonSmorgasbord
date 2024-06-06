@@ -6,7 +6,7 @@ using ZiercCode.DungeonSmorgasbord.Extend;
 
 namespace ZiercCode.Old.Manager
 {
-    public class TextPopupSpawner : USingletonComponentDestroy<TextPopupSpawner>
+    public class TextPopupSpawner : USingleton<TextPopupSpawner>
     {
         [SerializeField] private PoolObjectSo intPopupTemp;
         [SerializeField] private PoolObjectSpawner spawner;

@@ -26,7 +26,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             _canAttack = true;
         }
 
-        public override void FrameUpdate()
+        public override void OnUpdate()
         {
             _attackTimer.Tick();
 

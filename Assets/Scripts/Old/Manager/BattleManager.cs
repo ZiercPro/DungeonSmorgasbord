@@ -1,8 +1,8 @@
 using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
+using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using ZiercCode.Core.Pool;
 using ZiercCode.Core.Utilities;
@@ -10,7 +10,7 @@ using ZiercCode.Old.ScriptObject;
 
 namespace ZiercCode.Old.Manager
 {
-    public class BattleManager : USingletonComponentDestroy<BattleManager>
+    public class BattleManager : MonoBehaviour
     {
         [SerializeField] private PoolObjectSo redCircle;
         [SerializeField, Expandable] private BattleDataSo battleData;
@@ -29,7 +29,6 @@ namespace ZiercCode.Old.Manager
         {
             BattleBefore, //战斗开始之前
             BattleIng, //波次进行
-            Card, //选择奖励卡
             BattleEnd //战斗结束
         }
 
@@ -53,9 +52,8 @@ namespace ZiercCode.Old.Manager
         /// </summary>
         public event Action<int> OnBattleLevelChange;
 
-        protected override void Awake()
+        private void Awake()
         {
-            base.Awake();
             _enemyS = new List<GameObject>();
         }
 
@@ -75,19 +73,38 @@ namespace ZiercCode.Old.Manager
                 if (CheckBattleFinish())
                 {
                     //如果战斗结束 则进入奖励卡状态
-                    ChangeState(BattleState.Card);
+                    ChangeState(BattleState.BattleEnd);
                 }
             }
         }
 
+        [SerializeField] private bool debugMode;
+#if UNITY_EDITOR
         /// <summary>
         /// 战斗入口
         /// </summary>
-        [Button("开始战斗")]
+        [Button("开始战斗"), ShowIf("debugMode")]
+#endif
         public void StartBattle()
         {
             SpawnEnemy();
             ChangeState(BattleState.BattleIng);
+        }
+
+
+#if UNITY_EDITOR
+        /// <summary>
+        /// 进入下一层
+        /// </summary>
+        [Button("下一层"), ShowIf("debugMode")]
+#endif
+        public void MoveToNextLevel()
+        {
+            ChangeLevel(++_currentLevel);
+            if (_currentLevel <= battleData.battleDataList.Length)
+            {
+                StartBattle();
+            }
         }
 
         /// <summary>
@@ -106,6 +123,10 @@ namespace ZiercCode.Old.Manager
             }
         }
 
+        /// <summary>
+        /// 检测战斗是否结束
+        /// </summary>
+        /// <returns></returns>
         private bool CheckBattleFinish()
         {
             bool battleFinish = true;

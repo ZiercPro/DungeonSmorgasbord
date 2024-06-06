@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using ZiercCode.Core.Extend;
 using ZiercCode.Core.Utilities;
-using ZiercCode.Old.Helper;
 using ZiercCode.Old.ScriptObject;
 
 namespace ZiercCode.Old.Audio
@@ -11,7 +9,7 @@ namespace ZiercCode.Old.Audio
     /// <summary>
     /// 音效播放管理器 控制音频的播放、暂停和音量
     /// </summary>
-    public class AudioPlayer : USingletonComponentDontDestroy<AudioPlayer>
+    public class AudioPlayer : USingleton<AudioPlayer>
     {
         [SerializeField] private AudioListSo audioList;
         [Space] [SerializeField] private AudioMixer audioMixer;
@@ -92,9 +90,13 @@ namespace ZiercCode.Old.Audio
             }
         }
 
-        public bool ClearAudioCache()
+        /// <summary>
+        /// 清除已经加载的音频缓存
+        /// </summary>
+        /// <returns></returns>
+        public void ClearAudioCache()
         {
-            return _audioManager.RemoveAllAudios();
+            _audioManager.RemoveAllAudios();
         }
 
 
@@ -130,63 +132,6 @@ namespace ZiercCode.Old.Audio
             player.PlayOneShot(clip);
         }
 
-        #region 弃用
-
-////淡入淡出
-//public void PlayMusicWithFade(AudioClip music, float duration = 2f)
-//{
-//    StopAllCoroutines();
-//    float halfduration = duration / 2;
-//    StartCoroutine(FadeTransiton(music, halfduration));
-//}
-//IEnumerator FadeTransiton(AudioClip music, float duration)
-//{
-//    AudioSource player = GetCurrentPlayer();
-//    if (!player.isPlaying) player.Play();
-//    for (float i = 0; i < duration; i += Time.deltaTime)
-//    {
-//        player.volume = 1 - (i / duration);
-//        yield return null;
-//    }
-//    player.volume = 0f;
-//    player.clip = music;
-//    for (float i = 0; i < duration; i += Time.deltaTime)
-//    {
-//        player.volume = i / duration;
-//        yield return null;
-//    }
-//    player.volume = 1f;
-//}
-////交叉
-//public void PlayMusicWithCross(AudioClip music, float duration = 2f)
-//{
-//    StopAllCoroutines();
-//    float halfduration = duration / 2;
-//    StartCoroutine(CrossTransion(music, halfduration));
-//}
-//IEnumerator CrossTransion(AudioClip music, float duration)
-//{
-//    AudioSource currentPlayer = GetCurrentPlayer();
-//    AudioSource nextPlayer = GetAnotherPlayer();
-//    if (currentPlayer == null || nextPlayer == null) Debug.LogErrorFormat("player reference is null!");
-//    nextPlayer.clip = music;
-//    if (!currentPlayer.isPlaying) currentPlayer.Play();
-//    nextPlayer.volume = 0f;
-//    nextPlayer.Play();
-//    for (float i = 0; i < duration; i += Time.deltaTime)
-//    {
-//        currentPlayer.volume = 1 - (i / duration);
-//        nextPlayer.volume = i / duration;
-//        yield return null;
-//    }
-//    nextPlayer.volume = 1f;
-//    currentPlayer.volume = 0f;
-//    currentPlayer.Stop();
-//}
-
-        #endregion
-
-        #region SET VOLUME
 
         public void SetMusicVolume(float amount)
         {
@@ -207,7 +152,5 @@ namespace ZiercCode.Old.Audio
         {
             audioMixer.SetFloat("environmentVolume", amount);
         }
-
-        #endregion
     }
 }

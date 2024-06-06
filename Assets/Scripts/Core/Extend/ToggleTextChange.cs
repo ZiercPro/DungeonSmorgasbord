@@ -1,4 +1,5 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace ZiercCode.Core.Extend
 {
@@ -7,7 +8,8 @@ namespace ZiercCode.Core.Extend
     /// </summary>
     public class ToggleTextChange : UiTextChange
     {
-        
+        [SerializeField] private Toggle targetToggle;
+
         protected override void OnDisable()
         {
             base.OnDisable();
@@ -35,10 +37,7 @@ namespace ZiercCode.Core.Extend
         /// </summary>
         private void SwitchByToggleState()
         {
-            if (TryGetComponent(out Toggle tgl))
-            {
-                TextSwitch(tgl.isOn);
-            }
+            TextSwitch(targetToggle.isOn);
         }
     }
 }

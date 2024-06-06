@@ -12,14 +12,17 @@ namespace ZiercCode.Old.ScriptObject
     public class CustomTextDataSo : ScriptableObject
     {
         [SerializeField] private TextAsset customTextTableFile;
-        [field: SerializeField] public EditableDictionary<int, CustomTextTable> CustomTextDictionary { get; private set; }
+
+        [field: SerializeField]
+        public EditableDictionary<string, CustomTextTable> CustomTextDictionary { get; private set; }
 
 
         private void OnValidate()
         {
+#if UNITY_EDITOR
             if (customTextTableFile == null) return;
 
-            CustomTextDictionary = new EditableDictionary<int, CustomTextTable>();
+            CustomTextDictionary = new EditableDictionary<string, CustomTextTable>();
 
             string[] lines = customTextTableFile.text.Split('\n');
             for (int i = 1; i < lines.Length; i++)
@@ -28,8 +31,9 @@ namespace ZiercCode.Old.ScriptObject
                 CustomTextTable temp = new CustomTextTable();
                 temp.chinese = rows[1];
                 temp.english = rows[2];
-                CustomTextDictionary.Add(int.Parse(rows[0]), temp);
+                CustomTextDictionary.Add(rows[0], temp);
             }
+#endif
         }
     }
 }

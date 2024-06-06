@@ -8,7 +8,7 @@ namespace ZiercCode.Core.Extend
     /// <summary>
     /// 帮忙开启协程的单例
     /// </summary>
-    public class MyCoroutineTool : USingletonComponentDestroy<MyCoroutineTool>
+    public class MyCoroutineTool : USingleton<MyCoroutineTool>
     {
         private List<Coroutine> _myCoroutines;
 
