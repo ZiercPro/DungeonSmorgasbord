@@ -25,7 +25,6 @@ namespace ZiercCode.Test.Resources
         {
             if (_assetLabelReferences == null || _assetLabelReferences.Count == 0)
             {
-                Debug.LogWarning("没有设置要加载的资源!");
                 return;
             }
 

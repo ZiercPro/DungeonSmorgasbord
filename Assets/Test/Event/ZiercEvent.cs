@@ -62,7 +62,10 @@ namespace ZiercCode.Test.Event
         public static void RemoveListener(Type eventType, Action<IEventArgs> action)
         {
             int eventId = eventType.GetHashCode();
-            _eventListeners[eventId].Remove(action);
+            if (_eventListeners.ContainsKey(eventId))
+            {
+                _eventListeners[eventId].Remove(action);
+            }
         }
 
         /// <summary>
@@ -88,7 +91,10 @@ namespace ZiercCode.Test.Event
                 }
             }
 
-            ZiercReference.ReleaseReference(eventArgs);
+            IReference reference = eventArgs as IReference;
+
+            if (reference != null)
+                ZiercReference.ReleaseReference(reference);
         }
 
         /// <summary>

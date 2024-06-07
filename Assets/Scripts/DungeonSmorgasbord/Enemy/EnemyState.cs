@@ -6,30 +6,19 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
     /// <summary>
     /// 敌人状态基类
     /// </summary>
-    public class EnemyState : IState
+    public abstract class EnemyState : IState
     {
-        protected Enemy EnemyBase;
-        protected Animator Animator;
-        protected EnemyStateMachine StateMachine;
+        protected readonly Enemy EnemyBase;
+        protected readonly Animator Animator;
+        private readonly StateMachine _stateMachine;
+        public IStateMachine StateMachine => _stateMachine;
 
-        public EnemyState(Enemy enemyBase, EnemyStateMachine stateMachine, Animator animator)
+        public EnemyState(Enemy enemyBase, StateMachine stateMachine, Animator animator)
         {
             EnemyBase = enemyBase;
-            StateMachine = stateMachine;
+            _stateMachine = stateMachine;
             Animator = animator;
         }
-
-        public virtual void OnCreate() { }
-
-        /// <summary>
-        /// 进入状态时调用
-        /// </summary>
-        public virtual void OnEnter() { }
-
-        /// <summary>
-        /// 帧更新
-        /// </summary>
-        public virtual void OnUpdate() { }
 
         /// <summary>
         /// 物理帧更新
@@ -37,13 +26,16 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         public virtual void PhysicsUpdate() { }
 
         /// <summary>
-        /// 离开状态时调用
-        /// </summary>
-        public virtual void OnExit() { }
-
-        /// <summary>
         /// 动画事件调用
         /// </summary>
         public virtual void AnimationTriggerEvent() { }
+
+        public virtual void OnCreate(IStateMachine stateMachine) { }
+
+        public virtual void OnEnter() { }
+
+        public virtual void OnUpdate() { }
+
+        public virtual void OnExit() { }
     }
 }

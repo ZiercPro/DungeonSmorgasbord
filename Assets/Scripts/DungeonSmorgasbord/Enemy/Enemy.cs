@@ -6,6 +6,7 @@ using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.DungeonSmorgasbord.Item;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Enemy;
+using ZiercCode.Test.StateSystem;
 
 namespace ZiercCode.DungeonSmorgasbord.Enemy
 {
@@ -23,7 +24,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         [SerializeField] protected Animator animator;
         [SerializeField] protected Health health;
 
-        protected EnemyStateMachine StateMachine;
+        protected StateMachine StateMachine;
         protected Transform FollowTarget;
         protected Health TargetHealth;
 
@@ -42,7 +43,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
 
         protected virtual void Awake()
         {
-            StateMachine = new EnemyStateMachine();
+            StateMachine = new StateMachine();
         }
 
         protected virtual void Start()
@@ -50,13 +51,13 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             moveComponent.SetMoveSpeed(attribute.AttributesData.moveSpeed);
             enemyAttackCheck.SetRadius(attribute.AttributesData.attackRange);
 
+            enemyAttackCheck.SetRadius(attribute.AttributesData.attackRange);
+
             SetTarget(GameObject.FindGameObjectWithTag("Player").transform);
         }
 
         public virtual void Init()
         {
-            StateMachine.Initialize(GetEnemyIdleState());
-            enemyAttackCheck.SetRadius(attribute.AttributesData.attackRange);
             health.Init();
             health.Dead += Dead;
         }
@@ -74,7 +75,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
 
         protected virtual void FixedUpdate()
         {
-            StateMachine.CurrentState.PhysicsUpdate();
+            ((EnemyState)StateMachine.CurrentState).PhysicsUpdate();
         }
 
         public void SetTarget(Transform target)
@@ -86,6 +87,10 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             }
         }
 
+        /// <summary>
+        /// 获取目标transform
+        /// </summary>
+        /// <returns></returns>
         public Transform GetTarget()
         {
             return FollowTarget;
@@ -101,11 +106,6 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             return false;
         }
 
-        public abstract EnemyIdleStateBase GetEnemyIdleState();
-        public abstract EnemyChaseStateBase GetEnemyChaseState();
-        public abstract EnemyAttackStateBase GetEnemyAttackState();
-
-
         public virtual void Dead()
         {
             buffEffective.ClearAllBuff();
@@ -119,7 +119,6 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         {
             _spawnHandle = handle;
         }
-
 
         public void OnGet()
         {
