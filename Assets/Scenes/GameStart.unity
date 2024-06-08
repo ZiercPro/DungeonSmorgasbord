@@ -247,7 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e70db379914eaa44b98a6fb807b5d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _assetLabelReferences: []
+  _assetLabelReferences:
+  - m_LabelString: Audio
 --- !u!1 &622327101
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +293,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8db0af715e443bb65d547bd7fc8469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <LaunchProcedure>k__BackingField: GameLaunchProcedure
+  availableTypeFullNames:
+  - ZiercCode.GameResourceCheckProcedure
+  - ZiercCode.Test.Procedure.GameLaunchProcedure
+  launchProcedureFullName: ZiercCode.Test.Procedure.GameLaunchProcedure
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

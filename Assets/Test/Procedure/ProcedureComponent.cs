@@ -1,55 +1,26 @@
-﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
-using NaughtyAttributes.Scripts.Core.MetaAttributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System;
 using UnityEngine;
 using ZiercCode.Test.Base;
-using ZiercCode.Test.StateSystem;
-using ZiercCode.Test.Utility;
 
 namespace ZiercCode.Test.Procedure
 {
     public class ProcedureComponent : ZiercComponent
     {
-        private StateMachine _procedureMachine;
+        private StateMachine.StateMachine _procedureMachine;
 
-        private List<string> _availableTypeNames;
+        /// <summary>
+        /// 可使用流程类型全名
+        /// </summary>
+        [SerializeField] private string[] availableTypeFullNames = null;
 
-        private List<string> _availableTypeFullNames;
-
-        public List<string> AvailableTypeNames
-        {
-            get
-            {
-                if (_availableTypeNames == null) _availableTypeNames = new List<string>();
-                else _availableTypeNames.Clear();
-
-                if (_availableTypeFullNames == null) _availableTypeFullNames = new List<string>();
-                else _availableTypeFullNames.Clear();
-
-                Assembly main = Assembly.LoadFrom("Library/ScriptAssemblies/Assembly-Csharp.dll");
-                Type[] types = main.GetTypes();
-                foreach (var type in types)
-                {
-                    if (ZiercType.GetAbstractTypes(type).Any(i => i == typeof(ProcedureBase)))
-                    {
-                        _availableTypeNames.Add(type.Name);
-                        _availableTypeFullNames.Add(type.FullName);
-                    }
-                }
-
-                return _availableTypeNames;
-            }
-        }
-
-        [field: SerializeField, BoxGroup("AvailableProcedures"), Space, Dropdown("AvailableTypeNames")]
-        public string LaunchProcedure { get; private set; }
+        /// <summary>
+        /// 初始流程序号
+        /// </summary>
+        [SerializeField] private string launchProcedureFullName;
 
         private void Start()
         {
-            _procedureMachine = new StateMachine();
+            _procedureMachine = new StateMachine.StateMachine();
             InitializeProcedureMachine();
             RunProcedureMachine();
         }
@@ -60,22 +31,13 @@ namespace ZiercCode.Test.Procedure
                 _procedureMachine.CurrentState.OnUpdate();
         }
 
-        private string GetLaunchProcedureFullName()
-        {
-            for (int i = 0; i < _availableTypeNames.Count; i++)
-            {
-                if (string.Equals(_availableTypeNames[i], LaunchProcedure))
-                {
-                    return _availableTypeFullNames[i];
-                }
-            }
-
-            throw new NullReferenceException($"无法获取初始流程的全名");
-        }
 
         private Type GetLaunchProcedureType()
         {
-            string launchProcedureFullName = GetLaunchProcedureFullName();
+            if (string.IsNullOrEmpty(launchProcedureFullName))
+            {
+                throw new Exception("没有选择启动流程");
+            }
 
             Type type = Type.GetType(launchProcedureFullName);
             if (type == null)
@@ -93,9 +55,10 @@ namespace ZiercCode.Test.Procedure
 
         private void RunProcedureMachine()
         {
-            foreach (var fullName in _availableTypeFullNames)
+            foreach (var fullName in availableTypeFullNames)
             {
                 Type newType = Type.GetType(fullName);
+
                 if (newType == null)
                 {
                     throw new Exception($"无法获取类型{fullName}");

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ZiercCode
+namespace ZiercCode.Test.Reference
 {
     public static class ZiercReference
     {

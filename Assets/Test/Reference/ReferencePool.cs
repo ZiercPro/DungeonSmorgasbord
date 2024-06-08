@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ZiercCode
+namespace ZiercCode.Test.Reference
 {
     public class ReferencePool
     {

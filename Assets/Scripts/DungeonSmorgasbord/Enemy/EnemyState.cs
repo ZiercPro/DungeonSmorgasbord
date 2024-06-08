@@ -1,5 +1,5 @@
 using UnityEngine;
-using ZiercCode.Test.StateSystem;
+using ZiercCode.Test.StateMachine;
 
 namespace ZiercCode.DungeonSmorgasbord.Enemy
 {

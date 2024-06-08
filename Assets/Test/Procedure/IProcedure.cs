@@ -1,4 +1,4 @@
-﻿using ZiercCode.Test.StateSystem;
+﻿using ZiercCode.Test.StateMachine;
 
 namespace ZiercCode.Test.Procedure
 {

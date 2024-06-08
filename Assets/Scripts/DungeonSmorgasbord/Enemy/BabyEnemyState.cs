@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.Old.Component.Enemy;
-using ZiercCode.Test.StateSystem;
+using ZiercCode.Test.StateMachine;
 
 namespace ZiercCode.DungeonSmorgasbord.Enemy
 {

@@ -1,4 +1,4 @@
-﻿namespace ZiercCode.Test.StateSystem
+﻿namespace ZiercCode.Test.StateMachine
 {
     /// <summary>
     /// 状态接口

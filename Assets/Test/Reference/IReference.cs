@@ -1,4 +1,4 @@
-namespace ZiercCode
+namespace ZiercCode.Test.Reference
 {
     /// <summary>
     /// 引用对象接口 通过引用池获取实例的类都需要实现该接口

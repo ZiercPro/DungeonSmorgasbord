@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace ZiercCode.Test.StateSystem
+namespace ZiercCode.Test.StateMachine
 {
     public class StateMachine : IStateMachine
     {

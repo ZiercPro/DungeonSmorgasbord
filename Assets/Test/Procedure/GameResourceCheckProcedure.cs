@@ -1,7 +1,6 @@
 using UnityEngine;
-using ZiercCode.Test.Procedure;
 
-namespace ZiercCode
+namespace ZiercCode.Test.Procedure
 {
     public class GameResourceCheckProcedure : ProcedureBase
     {

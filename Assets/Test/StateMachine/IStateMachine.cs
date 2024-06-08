@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ZiercCode.Test.StateSystem
+namespace ZiercCode.Test.StateMachine
 {
     /// <summary>
     /// 状态机接口

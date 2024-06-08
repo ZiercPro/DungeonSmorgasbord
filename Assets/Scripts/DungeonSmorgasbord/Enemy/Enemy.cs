@@ -6,7 +6,7 @@ using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.DungeonSmorgasbord.Item;
 using ZiercCode.Old.Component;
 using ZiercCode.Old.Component.Enemy;
-using ZiercCode.Test.StateSystem;
+using ZiercCode.Test.StateMachine;
 
 namespace ZiercCode.DungeonSmorgasbord.Enemy
 {

@@ -23,7 +23,7 @@
     flex-grow: 1;
     margin-top: 5px;
     margin-bottom: 5px;
-    background-color: rgba(91, 91, 91, 0.36);
+    background-color: rgba(40, 40, 40, 0.59);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;

@@ -2,7 +2,6 @@
 using RMC.Core.Architectures.Mini.Controller;
 using ZiercCode.DungeonSmorgasbord.Locale;
 using ZiercCode.Old.Audio;
-using ZiercCode.Test.ObserverValue;
 
 namespace ZiercCode.Test.MVC
 {
