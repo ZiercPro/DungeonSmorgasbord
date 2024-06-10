@@ -34,6 +34,7 @@ namespace ZiercCode.Test.Procedure
 
         private Type GetLaunchProcedureType()
         {
+            Debug.Log(launchProcedureFullName);
             if (string.IsNullOrEmpty(launchProcedureFullName))
             {
                 throw new Exception("没有选择启动流程");

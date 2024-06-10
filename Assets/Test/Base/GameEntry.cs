@@ -6,16 +6,16 @@ namespace ZiercCode.Test.Base
 {
     public static class GameEntry
     {
-        private static readonly Dictionary<Type, ZiercComponent> ZiercComponents = new Dictionary<Type, ZiercComponent>();
+        private static readonly Dictionary<Type, ZiercComponent> ZiercComponents =
+            new Dictionary<Type, ZiercComponent>();
 
-
-        public static ZiercComponent GetComponent<T>() where T : ZiercComponent
+        public static T GetComponent<T>() where T : ZiercComponent
         {
             Type type = typeof(T);
 
             if (ZiercComponents.TryGetValue(type, out ZiercComponent component))
             {
-                return component;
+                return (T)component;
             }
             else
             {

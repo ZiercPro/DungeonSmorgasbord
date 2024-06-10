@@ -22,7 +22,6 @@ namespace ZiercCode.Core.Pool
         /// </summary>
         private const int DEFAULT_MAX_SIZE = 500;
 
-
         /// <summary>
         /// 储存所有的对象池
         /// </summary>
@@ -57,7 +56,6 @@ namespace ZiercCode.Core.Pool
             _onUpdateList = new List<AutoReleaseHandle>();
             _removedList = new List<AutoReleaseHandle>();
         }
-
 
         private void Update()
         {

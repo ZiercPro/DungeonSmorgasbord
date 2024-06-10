@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
+using ZiercCode.Test.Resources;
 using ZiercCode.Test.StateMachine;
 
 namespace ZiercCode.Test.Procedure
 {
     public class GameLaunchProcedure : ProcedureBase
     {
+        private ResourceComponent _resourceComponent;
+
         public override void OnCreate(IStateMachine stateMachine)
         {
             base.OnCreate(stateMachine);
-            Debug.Log("launch procedure created");
         }
 
         public override void OnEnter()
@@ -18,7 +20,7 @@ namespace ZiercCode.Test.Procedure
 
         public override void OnUpdate()
         {
-            StateMachine.ChangeState<GameResourceCheckProcedure>();
+            StateMachine.ChangeState<GamePreloadProcedure>();
         }
 
         public override void OnExit()

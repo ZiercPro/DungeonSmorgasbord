@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using ZiercCode.Old.Component;
-using ZiercCode.Old.Component.Hero;
 
 namespace ZiercCode.Old.Card
 {

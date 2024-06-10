@@ -53,6 +53,12 @@ namespace ZiercCode.Test.Editor
         {
             _launchProcedureFullNameIndex = _availableProcedureNames.IndexOf(@event.newValue);
 
+            if (_launchProcedureFullNameIndex < 0)
+            {
+                Debug.LogError($"无法找到该流程：{@event.newValue}");
+                return;
+            }
+
             _launchProcedureFullName.stringValue = _availableProcedureFullNames
                 .GetArrayElementAtIndex(_launchProcedureFullNameIndex).stringValue;
 

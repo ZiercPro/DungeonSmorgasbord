@@ -1,39 +1,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using ZiercCode.Test.Base;
+using ZiercCode.Test.ObjectPool;
 
 namespace ZiercCode.Test.Resources
 {
-    public class ResourceComponent : MonoBehaviour
+    public class ResourceComponent : ZiercComponent
     {
-        /// <summary>
-        /// 要加载的资源标签
-        /// </summary>
-        [Header("要加载的资源标签")] [SerializeField] private List<AssetLabelReference> _assetLabelReferences;
+        private bool _isInitialized;
 
-        private void Awake()
-        {
-            InitializeResource();
-        }
+        private AsyncOperationHandle<IList<Object>> _resourcesHandle;
+        public bool IsInitialized => _isInitialized;
+
+        [SerializeField] private List<string> loadAssetLabels;
+
 
         public void InitializeResource()
         {
-            LoadAllAssetsFromAssetLabel();
+            if (!_isInitialized)
+            {
+                LoadAllAssetsFromAssetLabel();
+            }
+            else
+            {
+                Debug.LogWarning("资源已经实例化!");
+            }
+        }
+
+        public void Release()
+        {
+            Addressables.Release(_resourcesHandle);
         }
 
         private void LoadAllAssetsFromAssetLabel()
         {
-            if (_assetLabelReferences == null || _assetLabelReferences.Count == 0)
+            if (loadAssetLabels == null || loadAssetLabels.Count == 0)
             {
                 return;
             }
 
-            foreach (var labelReference in _assetLabelReferences)
+            foreach (var labelReference in loadAssetLabels)
             {
-                Addressables.LoadAssetsAsync<Object>(labelReference, OnAssetLoaded);
+                Addressables.LoadAssetsAsync<Object>(labelReference, OnAssetLoaded).Completed += OnAssetsLoadCompleted;
             }
         }
-
 
         private void OnAssetLoaded(Object obj)
         {
@@ -43,8 +55,15 @@ namespace ZiercCode.Test.Resources
                 return;
             }
 
-            Debug.Log(obj.name);
-            //todo 注册到对象池
+            Debug.Log($"加载资源 | {obj.name}");
+
+            ZiercPool.Register(obj.name, obj);
+        }
+
+        private void OnAssetsLoadCompleted(AsyncOperationHandle<IList<Object>> handle)
+        {
+            _resourcesHandle = handle;
+            _isInitialized = true;
         }
     }
 }
