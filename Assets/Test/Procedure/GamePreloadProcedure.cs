@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
+using ZiercCode.DungeonSmorgasbord.Manager;
 using ZiercCode.Test.Base;
-using ZiercCode.Test.ObjectPool;
 using ZiercCode.Test.Resources;
 
 namespace ZiercCode.Test.Procedure
@@ -17,6 +18,10 @@ namespace ZiercCode.Test.Procedure
 
             _resourceComponent = GameEntry.GetComponent<ResourceComponent>();
             _resourceComponent.InitializeResource();
+
+            DataManager.Initialize();
+
+            DOTween.Init();
         }
 
         public override void OnUpdate()
@@ -24,8 +29,7 @@ namespace ZiercCode.Test.Procedure
             base.OnUpdate();
             if (_resourceComponent.IsInitialized)
             {
-                Debug.Log(ZiercPool.Get("TestSquare"));
-                StateMachine.ChangeState<GameMainMenuProcedure>();
+                StateMachine.ChangeState<GameChangingSceneProcedure>();
             }
         }
 

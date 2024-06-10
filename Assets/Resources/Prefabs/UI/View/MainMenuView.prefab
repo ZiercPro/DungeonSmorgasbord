@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4831461836865969547}
   - component: {fileID: 6822813332868879704}
-  - component: {fileID: 8591989182884255498}
   - component: {fileID: 5127944718558881536}
+  - component: {fileID: 8339554659204162165}
   - component: {fileID: 1574345049968606605}
   - component: {fileID: 4714203376415904030}
   - component: {fileID: 3360036933013476869}
@@ -56,18 +56,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeStrength: 0.5
   shakeDuration: 0.5
---- !u!114 &8591989182884255498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969084192852645761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e08b57010c84a74688f5e77e3ba524e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5127944718558881536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +70,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sModifier: '-'
   textMeshProUGUI: {fileID: 566108828554829323}
+--- !u!114 &8339554659204162165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969084192852645761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e08b57010c84a74688f5e77e3ba524e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1574345049968606605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,8 +123,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 8591989182884255498}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+        - m_Target: {fileID: 8339554659204162165}
+          m_TargetAssemblyTypeName: ZiercCode.Old.Helper.UISoundsHelper, Assembly-CSharp
           m_MethodName: ButtonEnter
           m_Mode: 1
           m_Arguments:
@@ -155,8 +155,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8591989182884255498}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+        - m_Target: {fileID: 8339554659204162165}
+          m_TargetAssemblyTypeName: ZiercCode.Old.Helper.UISoundsHelper, Assembly-CSharp
           m_MethodName: ButtonClick
           m_Mode: 1
           m_Arguments:
@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 6080738793751473759}
   - component: {fileID: 3790788426722183979}
   - component: {fileID: 1558871187061252456}
-  - component: {fileID: 3692093544589991835}
+  - component: {fileID: 2055018541856828426}
   - component: {fileID: 7972050042722184731}
   - component: {fileID: 7269807394570231822}
   - component: {fileID: 1677674744459038606}
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeStrength: 0.5
   shakeDuration: 0.5
---- !u!114 &3692093544589991835
+--- !u!114 &2055018541856828426
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -514,8 +514,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 3692093544589991835}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+        - m_Target: {fileID: 2055018541856828426}
+          m_TargetAssemblyTypeName: ZiercCode.Old.Helper.UISoundsHelper, Assembly-CSharp
           m_MethodName: ButtonEnter
           m_Mode: 1
           m_Arguments:
@@ -546,8 +546,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3692093544589991835}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+        - m_Target: {fileID: 2055018541856828426}
+          m_TargetAssemblyTypeName: ZiercCode.Old.Helper.UISoundsHelper, Assembly-CSharp
           m_MethodName: ButtonClick
           m_Mode: 1
           m_Arguments:
@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 5163311322146614438}
   - component: {fileID: 675637156007398626}
   - component: {fileID: 1268959705445201577}
-  - component: {fileID: 8570590313181945627}
+  - component: {fileID: 3107080983856103417}
   - component: {fileID: 8067004563235803009}
   - component: {fileID: 2410328346511704622}
   - component: {fileID: 2625587570291157744}
@@ -1083,7 +1083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeStrength: 0.5
   shakeDuration: 0.5
---- !u!114 &8570590313181945627
+--- !u!114 &3107080983856103417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1136,8 +1136,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 8570590313181945627}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+        - m_Target: {fileID: 3107080983856103417}
+          m_TargetAssemblyTypeName: ZiercCode.Old.Helper.UISoundsHelper, Assembly-CSharp
           m_MethodName: ButtonEnter
           m_Mode: 1
           m_Arguments:
@@ -1168,8 +1168,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8570590313181945627}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
+        - m_Target: {fileID: 3107080983856103417}
+          m_TargetAssemblyTypeName: ZiercCode.Old.Helper.UISoundsHelper, Assembly-CSharp
           m_MethodName: ButtonClick
           m_Mode: 1
           m_Arguments:

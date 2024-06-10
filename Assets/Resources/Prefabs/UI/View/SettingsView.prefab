@@ -85,7 +85,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7638265837482223254}
   - component: {fileID: 6444682180330549972}
-  - component: {fileID: 6780182901302723758}
   - component: {fileID: 6456027250981192097}
   m_Layer: 5
   m_Name: SFXSlider
@@ -167,18 +166,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6780182901302723758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 423733988079237310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e08b57010c84a74688f5e77e3ba524e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6456027250981192097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,35 +182,11 @@ MonoBehaviour:
   - eventID: 0
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6780182901302723758}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6780182901302723758}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!1 &771329199804045898
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +492,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3688231191194302563}
   - component: {fileID: 5216491069794056264}
-  - component: {fileID: 3396387821840299229}
   - component: {fileID: 4998512293902330025}
   m_Layer: 5
   m_Name: EnvironmentSlider
@@ -611,18 +573,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3396387821840299229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481005863058440369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e08b57010c84a74688f5e77e3ba524e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4998512293902330025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,35 +589,11 @@ MonoBehaviour:
   - eventID: 0
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3396387821840299229}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3396387821840299229}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!1 &1755772179269863617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,7 +1100,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4955117254216117915}
   - component: {fileID: 5060840820750386670}
-  - component: {fileID: 6726325305798756668}
   - component: {fileID: 4955219430736995410}
   m_Layer: 5
   m_Name: MusicSlider
@@ -1256,18 +1181,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &6726325305798756668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2965692532825418145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e08b57010c84a74688f5e77e3ba524e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4955219430736995410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1284,35 +1197,11 @@ MonoBehaviour:
   - eventID: 0
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6726325305798756668}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6726325305798756668}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!1 &3127599447429484942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,7 +1213,6 @@ GameObject:
   - component: {fileID: 8953077149150530335}
   - component: {fileID: 4721576095465022382}
   - component: {fileID: 6869315652290809590}
-  - component: {fileID: 4243572262379540700}
   - component: {fileID: 5137063873219565249}
   - component: {fileID: 923864171099380583}
   - component: {fileID: 606901699890094771}
@@ -1429,18 +1317,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeStrength: 0.5
   shakeDuration: 0.5
---- !u!114 &4243572262379540700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3127599447429484942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e08b57010c84a74688f5e77e3ba524e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5137063873219565249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1458,18 +1334,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 4243572262379540700}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 6869315652290809590}
           m_TargetAssemblyTypeName: ButtonShake, Assembly-CSharp
           m_MethodName: Shake
@@ -1485,19 +1349,7 @@ MonoBehaviour:
   - eventID: 4
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 4243572262379540700}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!114 &923864171099380583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3115,7 +2967,6 @@ GameObject:
   - component: {fileID: 3854061362482011894}
   - component: {fileID: 722681377090608684}
   - component: {fileID: 8786413880395159290}
-  - component: {fileID: 2261486107479647132}
   - component: {fileID: 90721523425766506}
   - component: {fileID: 4423991247971166826}
   m_Layer: 5
@@ -3217,18 +3068,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeStrength: 0.5
   shakeDuration: 0.5
---- !u!114 &2261486107479647132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5609037687923480754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e08b57010c84a74688f5e77e3ba524e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &90721523425766506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3258,18 +3097,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 2261486107479647132}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 722681377090608684}
           m_TargetAssemblyTypeName: TextChange, Assembly-CSharp
           m_MethodName: Change
@@ -3285,19 +3112,7 @@ MonoBehaviour:
   - eventID: 4
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2261486107479647132}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - eventID: 1
     callback:
       m_PersistentCalls:
@@ -3376,7 +3191,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5879270528161146618}
   - component: {fileID: 6298374212062464639}
-  - component: {fileID: 3414251753444980929}
   - component: {fileID: 5523046586846987074}
   - component: {fileID: 2300699145844300578}
   - component: {fileID: 1816033459168338040}
@@ -3422,18 +3236,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeStrength: 0.5
   shakeDuration: 0.5
---- !u!114 &3414251753444980929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6051060067378836711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e08b57010c84a74688f5e77e3ba524e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5523046586846987074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3450,19 +3252,7 @@ MonoBehaviour:
   - eventID: 4
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 3414251753444980929}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -3470,18 +3260,6 @@ MonoBehaviour:
         - m_Target: {fileID: 6298374212062464639}
           m_TargetAssemblyTypeName: ButtonShake, Assembly-CSharp
           m_MethodName: Shake
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 3414251753444980929}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4724,7 +4502,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6079810100949566949}
   - component: {fileID: 1500293970196518308}
-  - component: {fileID: 7697990949019807785}
   - component: {fileID: 342858516402074952}
   m_Layer: 5
   m_Name: MasterSlider
@@ -4806,18 +4583,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7697990949019807785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8155917741775551777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e08b57010c84a74688f5e77e3ba524e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &342858516402074952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4834,35 +4599,11 @@ MonoBehaviour:
   - eventID: 0
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7697990949019807785}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   - eventID: 2
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7697990949019807785}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!1 &8239601749552161205
 GameObject:
   m_ObjectHideFlags: 0
@@ -4910,7 +4651,6 @@ GameObject:
   - component: {fileID: 4816963185424476431}
   - component: {fileID: 8914350766758091863}
   - component: {fileID: 5718151407723653341}
-  - component: {fileID: 1093920392341699867}
   - component: {fileID: 1654071233569239366}
   - component: {fileID: 743689062825071863}
   - component: {fileID: 1783764148712815189}
@@ -5015,18 +4755,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeStrength: 0.5
   shakeDuration: 0.5
---- !u!114 &1093920392341699867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8330670587148788680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e08b57010c84a74688f5e77e3ba524e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1654071233569239366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5056,34 +4784,10 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 1093920392341699867}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 4
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1093920392341699867}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!114 &743689062825071863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5332,7 +5036,6 @@ GameObject:
   - component: {fileID: 6565235494401377628}
   - component: {fileID: 2157166952413552129}
   - component: {fileID: 5134424976291395457}
-  - component: {fileID: 7417081538084449494}
   - component: {fileID: 5011514995937615001}
   - component: {fileID: 4556359749628247328}
   - component: {fileID: 2270428373393271470}
@@ -5437,18 +5140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeStrength: 0.5
   shakeDuration: 0.5
---- !u!114 &7417081538084449494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8417784288360249740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e08b57010c84a74688f5e77e3ba524e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5011514995937615001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5466,18 +5157,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7417081538084449494}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonEnter
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 5134424976291395457}
           m_TargetAssemblyTypeName: ButtonShake, Assembly-CSharp
           m_MethodName: Shake
@@ -5493,19 +5172,7 @@ MonoBehaviour:
   - eventID: 4
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7417081538084449494}
-          m_TargetAssemblyTypeName: UISounds, Assembly-CSharp
-          m_MethodName: ButtonClick
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!114 &4556359749628247328
 MonoBehaviour:
   m_ObjectHideFlags: 0

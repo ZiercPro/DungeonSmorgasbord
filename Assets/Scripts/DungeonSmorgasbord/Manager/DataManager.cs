@@ -10,7 +10,7 @@ namespace ZiercCode.DungeonSmorgasbord.Manager
         /// <summary>
         /// 设置数据
         /// </summary>
-        public static SettingsData SettingsData { get; private set; }
+        public static SettingsData SettingsData { get; private set; } = new SettingsData();
 
         public static void Initialize()
         {

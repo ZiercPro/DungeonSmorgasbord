@@ -17,7 +17,7 @@ namespace ZiercCode.Old.Scene
 
         public override void DoOnSceneLoaded()
         {
-            AudioPlayer.Instance.PlayAudioAsync(AudioName.IdleBgm);
+            AudioPlayer.Instance.PlayAudio(AudioName.IdleBgm);
         }
     }
 }

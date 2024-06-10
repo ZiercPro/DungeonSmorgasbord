@@ -19,7 +19,7 @@ MonoBehaviour:
       objectValue:
         <AudioType>k__BackingField:
           <Name>k__BackingField: BattleBgm_normal
-          <Path>k__BackingField: Assets/Resources_moved/Audio/Music/BattleBgm_normal.wav
+          <Path>k__BackingField: Assets/Res/Audio/Music/BattleBgm_normal.wav
         volume: 1
         <isLoop>k__BackingField: 1
         <isPlayAwake>k__BackingField: 0
@@ -29,9 +29,9 @@ MonoBehaviour:
       objectValue:
         <AudioType>k__BackingField:
           <Name>k__BackingField: IdleBgm
-          <Path>k__BackingField: Assets/Resources_moved/Audio/Music/IdleBgm.wav
+          <Path>k__BackingField: Assets/Res/Audio/Music/IdleBgm.wav
         volume: 1
-        <isLoop>k__BackingField: 1
+        <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
         <outputGroup>k__BackingField: {fileID: -3317887495917381630, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
     - _inspectorName: MenuBgm
@@ -39,17 +39,27 @@ MonoBehaviour:
       objectValue:
         <AudioType>k__BackingField:
           <Name>k__BackingField: MenuBgm
-          <Path>k__BackingField: Assets/Resources_moved/Audio/Music/MenuBgm.wav
+          <Path>k__BackingField: Assets/Res/Audio/Music/MenuBgm.wav
         volume: 1
-        <isLoop>k__BackingField: 1
+        <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
         <outputGroup>k__BackingField: {fileID: -3317887495917381630, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - _inspectorName: FireBall
+      keyValue: 22
+      objectValue:
+        <AudioType>k__BackingField:
+          <Name>k__BackingField: FireBall
+          <Path>k__BackingField: Assets/Res/Audio/Self/FireBall.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
     - _inspectorName: BabySpawn1
       keyValue: 10
       objectValue:
         <AudioType>k__BackingField:
           <Name>k__BackingField: BabySpawn1
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Enemy/BabySpawn1.mp3
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Enemy/BabySpawn1.mp3
         volume: 1
         <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
@@ -59,7 +69,7 @@ MonoBehaviour:
       objectValue:
         <AudioType>k__BackingField:
           <Name>k__BackingField: BigMouthSpawn1
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Enemy/BigMouthSpawn1.mp3
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Enemy/BigMouthSpawn1.mp3
         volume: 1
         <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
@@ -69,7 +79,7 @@ MonoBehaviour:
       objectValue:
         <AudioType>k__BackingField:
           <Name>k__BackingField: EnemyDead1
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Enemy/EnemyDead1.wav
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Enemy/EnemyDead1.wav
         volume: 1
         <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
@@ -79,7 +89,7 @@ MonoBehaviour:
       objectValue:
         <AudioType>k__BackingField:
           <Name>k__BackingField: EnemyDead2
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Enemy/EnemyDead2.wav
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Enemy/EnemyDead2.wav
         volume: 1
         <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
@@ -89,7 +99,7 @@ MonoBehaviour:
       objectValue:
         <AudioType>k__BackingField:
           <Name>k__BackingField: EnemyDead3
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Enemy/EnemyDead3.wav
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Enemy/EnemyDead3.wav
         volume: 1
         <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
@@ -99,7 +109,7 @@ MonoBehaviour:
       objectValue:
         <AudioType>k__BackingField:
           <Name>k__BackingField: EnemyDead4
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Enemy/EnemyDead4.wav
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Enemy/EnemyDead4.wav
         volume: 1
         <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
@@ -109,107 +119,7 @@ MonoBehaviour:
       objectValue:
         <AudioType>k__BackingField:
           <Name>k__BackingField: CoinCollected
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Item/CoinCollected.wav
-        volume: 1
-        <isLoop>k__BackingField: 0
-        <isPlayAwake>k__BackingField: 0
-        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-    - _inspectorName: CardClick
-      keyValue: 7
-      objectValue:
-        <AudioType>k__BackingField:
-          <Name>k__BackingField: CardClick
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Other/CardClick.wav
-        volume: 1
-        <isLoop>k__BackingField: 0
-        <isPlayAwake>k__BackingField: 0
-        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-    - _inspectorName: CardEnter
-      keyValue: 6
-      objectValue:
-        <AudioType>k__BackingField:
-          <Name>k__BackingField: CardEnter
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Other/CardEnter.wav
-        volume: 1
-        <isLoop>k__BackingField: 0
-        <isPlayAwake>k__BackingField: 0
-        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-    - _inspectorName: Explosion1
-      keyValue: 12
-      objectValue:
-        <AudioType>k__BackingField:
-          <Name>k__BackingField: Explosion1
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Other/Explosion1.wav
-        volume: 1
-        <isLoop>k__BackingField: 0
-        <isPlayAwake>k__BackingField: 0
-        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-    - _inspectorName: Interactive1
-      keyValue: 11
-      objectValue:
-        <AudioType>k__BackingField:
-          <Name>k__BackingField: Interactive1
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Other/Interactive1.wav
-        volume: 1
-        <isLoop>k__BackingField: 0
-        <isPlayAwake>k__BackingField: 0
-        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-    - _inspectorName: WeaponWave1
-      keyValue: 8
-      objectValue:
-        <AudioType>k__BackingField:
-          <Name>k__BackingField: WeaponWave1
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave1.mp3
-        volume: 1
-        <isLoop>k__BackingField: 0
-        <isPlayAwake>k__BackingField: 0
-        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-    - _inspectorName: WeaponWave2
-      keyValue: 18
-      objectValue:
-        <AudioType>k__BackingField:
-          <Name>k__BackingField: WeaponWave2
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave2.flac
-        volume: 1
-        <isLoop>k__BackingField: 0
-        <isPlayAwake>k__BackingField: 0
-        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-    - _inspectorName: WeaponWave3
-      keyValue: 19
-      objectValue:
-        <AudioType>k__BackingField:
-          <Name>k__BackingField: WeaponWave3
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave3.wav
-        volume: 1
-        <isLoop>k__BackingField: 0
-        <isPlayAwake>k__BackingField: 0
-        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-    - _inspectorName: WeaponWave4
-      keyValue: 20
-      objectValue:
-        <AudioType>k__BackingField:
-          <Name>k__BackingField: WeaponWave4
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave4.wav
-        volume: 1
-        <isLoop>k__BackingField: 0
-        <isPlayAwake>k__BackingField: 0
-        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-    - _inspectorName: WeaponWave5
-      keyValue: 21
-      objectValue:
-        <AudioType>k__BackingField:
-          <Name>k__BackingField: WeaponWave5
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave5.wav
-        volume: 1
-        <isLoop>k__BackingField: 0
-        <isPlayAwake>k__BackingField: 0
-        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-    - _inspectorName: ButtonEnter1
-      keyValue: 5
-      objectValue:
-        <AudioType>k__BackingField:
-          <Name>k__BackingField: ButtonEnter1
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Other/ButtonEnter1.wav
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Item/CoinCollected.wav
         volume: 1
         <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
@@ -219,19 +129,109 @@ MonoBehaviour:
       objectValue:
         <AudioType>k__BackingField:
           <Name>k__BackingField: ButtonClick1
-          <Path>k__BackingField: Assets/Resources_moved/Audio/SFX/Other/ButtonClick1.wav
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Other/ButtonClick1.wav
         volume: 1
         <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
         <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-    - _inspectorName: FireBall
-      keyValue: 22
+    - _inspectorName: ButtonEnter1
+      keyValue: 5
       objectValue:
         <AudioType>k__BackingField:
-          <Name>k__BackingField: FireBall
-          <Path>k__BackingField: Assets/Resources_moved/Audio/Self/FireBall.wav
+          <Name>k__BackingField: ButtonEnter1
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Other/ButtonEnter1.wav
         volume: 1
         <isLoop>k__BackingField: 0
         <isPlayAwake>k__BackingField: 0
         <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
-  toCreateAudioBase: {fileID: 8300000, guid: df9b647e7fe8490428dc9b9bb885527f, type: 3}
+    - _inspectorName: CardClick
+      keyValue: 7
+      objectValue:
+        <AudioType>k__BackingField:
+          <Name>k__BackingField: CardClick
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Other/CardClick.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - _inspectorName: CardEnter
+      keyValue: 6
+      objectValue:
+        <AudioType>k__BackingField:
+          <Name>k__BackingField: CardEnter
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Other/CardEnter.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - _inspectorName: Explosion1
+      keyValue: 12
+      objectValue:
+        <AudioType>k__BackingField:
+          <Name>k__BackingField: Explosion1
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Other/Explosion1.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: 0}
+    - _inspectorName: Interactive1
+      keyValue: 11
+      objectValue:
+        <AudioType>k__BackingField:
+          <Name>k__BackingField: Interactive1
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Other/Interactive1.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: 0}
+    - _inspectorName: WeaponWave1
+      keyValue: 8
+      objectValue:
+        <AudioType>k__BackingField:
+          <Name>k__BackingField: WeaponWave1
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Weapon/WeaponWave1.mp3
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: 0}
+    - _inspectorName: WeaponWave2
+      keyValue: 18
+      objectValue:
+        <AudioType>k__BackingField:
+          <Name>k__BackingField: WeaponWave2
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Weapon/WeaponWave2.flac
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: 0}
+    - _inspectorName: WeaponWave3
+      keyValue: 19
+      objectValue:
+        <AudioType>k__BackingField:
+          <Name>k__BackingField: WeaponWave3
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Weapon/WeaponWave3.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: 0}
+    - _inspectorName: WeaponWave4
+      keyValue: 20
+      objectValue:
+        <AudioType>k__BackingField:
+          <Name>k__BackingField: WeaponWave4
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Weapon/WeaponWave4.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+    - _inspectorName: WeaponWave5
+      keyValue: 21
+      objectValue:
+        <AudioType>k__BackingField:
+          <Name>k__BackingField: WeaponWave5
+          <Path>k__BackingField: Assets/Res/Audio/SFX/Weapon/WeaponWave5.wav
+        volume: 1
+        <isLoop>k__BackingField: 0
+        <isPlayAwake>k__BackingField: 0
+        <outputGroup>k__BackingField: {fileID: -590338117987278053, guid: 5bd04bed0698bbe44acdf1369dd8e1de, type: 2}
+  toCreateAudioBase: {fileID: 0}

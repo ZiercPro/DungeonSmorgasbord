@@ -46,6 +46,7 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: f4a0b4bf5ebe61243a1a47400b55d3d1, type: 2}
   - {fileID: 11400000, guid: c750964a5bc4317438fb54df7ea7c92a, type: 2}
+  - {fileID: 11400000, guid: b2f1012ca6c03844ca64faa9ddb32550, type: 2}
   - {fileID: 11400000, guid: f15fe5bd6f2cee948a6741ef732e89e5, type: 2}
   - {fileID: 11400000, guid: bd8986b14c31c77468e44766979945e8, type: 2}
   - {fileID: 11400000, guid: 6688f902229537f4f83992e48e4466a1, type: 2}
@@ -67,9 +68,9 @@ MonoBehaviour:
       - m_Id: 06b15143a0d294440b5ab6885c88f59f
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
       - m_Id: 077e14bebe47c714399004026cb8653c
-        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+        m_Value: D:\AddessablePackages\Dun
       - m_Id: 520a237d5cfd0c247932e36cedd197df
-        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+        m_Value: D:\AddessablePackages\Dun
       - m_Id: 6b73ed05e1efcf64ea79d8151384f73e
         m_Value: ServerData/[BuildTarget]
       - m_Id: 6592f327258b31d4e956549eac7638d9
@@ -93,15 +94,10 @@ MonoBehaviour:
     m_ProfileVersion: 1
   m_LabelTable:
     m_LabelNames:
-    - default
     - Locale
-    - Locale-zh-Hans
     - Locale-en
     - Preload
     - Audio
-    - Config
-    - Material
-    - Object
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: b089508d83950024e9391ba26acab9ff, type: 2}

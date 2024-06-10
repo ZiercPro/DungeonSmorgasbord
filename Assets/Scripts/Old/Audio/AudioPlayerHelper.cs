@@ -17,7 +17,7 @@ namespace ZiercCode.Old.Audio
         public void PlayAudio(int audioNameIndex)
         {
             if (!_canPlay) return;
-            AudioPlayer.Instance.PlayAudioAsync(audioNames[audioNameIndex]);
+            AudioPlayer.Instance.PlayAudio(audioNames[audioNameIndex]);
         }
 
         public void PlayAudioRandom()

@@ -1,6 +1,7 @@
 using RMC.Core.Architectures.Mini.Context;
 using UnityEngine;
 using ZiercCode.Core.Utilities;
+using ZiercCode.Test.Reference;
 
 namespace ZiercCode.Test.MVC
 {
@@ -40,6 +41,8 @@ namespace ZiercCode.Test.MVC
 
             _settingsController.Initialize(_context);
             _mainMenuController.Initialize(_context);
+
+            _context.CommandManager.InvokeCommand(ZiercReference.GetReference<EnterMainMenuCommand>());
         }
     }
 }

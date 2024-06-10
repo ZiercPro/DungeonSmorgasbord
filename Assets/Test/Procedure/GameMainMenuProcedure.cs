@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using ZiercCode.Old.Audio;
+using ZiercCode.Test.Scene;
 
 namespace ZiercCode.Test.Procedure
 {
@@ -7,7 +9,12 @@ namespace ZiercCode.Test.Procedure
         public override void OnEnter()
         {
             base.OnEnter();
-            Debug.Log("enter mainMenu");
+
+            Debug.Log("enter mainMenu!");
+
+            ZiercScene.LoadScene("MainMenuScene");
+
+            AudioPlayer.Instance.PlayAudio(AudioName.MenuBgm);
         }
 
         public override void OnUpdate()

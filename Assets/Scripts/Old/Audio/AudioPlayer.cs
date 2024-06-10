@@ -30,15 +30,17 @@ namespace ZiercCode.Old.Audio
             _audioDic = audioList.AudioEditableDictionary.ToDictionary();
         }
 
+
         /// <summary>
         /// 异步播放音频
         /// </summary>
         /// <param name="audioName">音频名称</param>
-        public async void PlayAudioAsync(AudioName audioName)
+        public void PlayAudio(AudioName audioName)
         {
             AudioBase audioBase = _audioDic[audioName];
 
-            AudioSource player = await _audioManager.GetAudioSourceAsync(audioBase);
+            AudioSource player = _audioManager.GetAudioSource(audioBase);
+
             if (player)
             {
                 if (audioBase.outputGroup == sfx)
@@ -67,17 +69,17 @@ namespace ZiercCode.Old.Audio
         {
             int length = audioNames.Count;
             int temp = MyMath.GetRandom(0, length);
-            PlayAudioAsync(audioNames[temp]);
+            PlayAudio(audioNames[temp]);
         }
 
         /// <summary>
         /// 异步停止播发音频
         /// </summary>
         /// <param name="audioName">音频名称</param>
-        public async void StopAudioAsync(AudioName audioName)
+        public void StopAudio(AudioName audioName)
         {
             AudioBase audioBase = _audioDic[audioName];
-            AudioSource player = await _audioManager.GetAudioSourceAsync(audioBase);
+            AudioSource player = _audioManager.GetAudioSource(audioBase);
             if (player)
             {
                 if (audioBase == _currentMusic)
@@ -100,9 +102,9 @@ namespace ZiercCode.Old.Audio
         }
 
 
-        private async void StopAudioAsync(AudioBase audioBase)
+        private void StopAudio(AudioBase audioBase)
         {
-            AudioSource player = await _audioManager.GetAudioSourceAsync(audioBase);
+            AudioSource player = _audioManager.GetAudioSource(audioBase);
             if (player)
             {
                 if (audioBase == _currentMusic)
@@ -119,7 +121,7 @@ namespace ZiercCode.Old.Audio
         private void PlayMusic(AudioSource player)
         {
             if (_isMusicPlaying)
-                StopAudioAsync(_currentMusic);
+                StopAudio(_currentMusic);
 
             if (!player.isPlaying)
                 player.Play();

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using ZiercCode.Test.ObjectPool;
 using Object = UnityEngine.Object;
 
 namespace ZiercCode.Old.Audio
@@ -32,12 +33,7 @@ namespace ZiercCode.Old.Audio
             _audioSourceDictionary = new Dictionary<AudioBase, AudioSource>();
         }
 
-        /// <summary>
-        /// 通过audioBase异步创建新的音频
-        /// </summary>
-        /// <param name="audioBase"></param>
-        /// <returns></returns>
-        public async Task<AudioSource> GetAudioSourceAsync(AudioBase audioBase)
+        public AudioSource GetAudioSource(AudioBase audioBase)
         {
             if (!_audioParent) _audioParent = FindAudiosParent();
 
@@ -50,22 +46,18 @@ namespace ZiercCode.Old.Audio
                 return result;
             }
 
-            AsyncOperationHandle<AudioClip> asyncOperationHandle =
-                Addressables.LoadAssetAsync<AudioClip>(audioBase.AudioType.Path);
-            asyncOperationHandle.Completed += handle =>
+            newClip = ZiercPool.Get(audioBase.AudioType.Name) as AudioClip;
+
+            if (newClip != null)
             {
-                if (asyncOperationHandle.Status == AsyncOperationStatus.Succeeded)
-                {
-                    newClip = Object.Instantiate(handle.Result);
-                    _audioClipDictionary.TryAdd(audioBase, newClip);
-                }
-                else
-                    Debug.LogError("加载失败!");
-            };
-
-            await asyncOperationHandle.Task;
-
-            return CreateNewAudioSource(audioBase, newClip, _audioParent);
+                _audioClipDictionary.TryAdd(audioBase, newClip);
+                return CreateNewAudioSource(audioBase, newClip, _audioParent);
+            }
+            else
+            {
+                Debug.LogError($"无法获取音频资源{audioBase.AudioType.Name}");
+                return null;
+            }
         }
 
         public bool RemoveAllAudios()

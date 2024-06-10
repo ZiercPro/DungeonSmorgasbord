@@ -36,6 +36,11 @@ namespace ZiercCode
 
         private void OnLabelToggleValueChange(ChangeEvent<bool> eventArgs)
         {
+            RefreshAssetLabels();
+        }
+
+        private void RefreshAssetLabels()
+        {
             _loadAssetLabels.ClearArray();
 
             int index = 0;
@@ -66,12 +71,15 @@ namespace ZiercCode
 
             foreach (var label in referenceLabels)
             {
-                Toggle newT = new Toggle(label);
+                Toggle newT = new Toggle();
+                newT.text = "  " + label;
                 newT.viewDataKey = label;
                 newT.RegisterCallback<ChangeEvent<bool>>(OnLabelToggleValueChange);
                 _assetToggles.Add(label, newT);
                 assetLabel.Add(newT);
             }
+
+            RefreshAssetLabels();
         }
     }
 }

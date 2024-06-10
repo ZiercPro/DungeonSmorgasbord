@@ -141,7 +141,7 @@ namespace ZiercCode.Core.Utilities
         {
             if (dictionaryList == null)
                 Debug.LogError("链表不存在!");
-            if (dictionaryList.Count == 0)
+            if (dictionaryList.Count > 0)
                 dictionaryList.Clear();
         }
 

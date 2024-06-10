@@ -38,6 +38,7 @@ namespace ZiercCode.Test.Resources
         {
             if (loadAssetLabels == null || loadAssetLabels.Count == 0)
             {
+                _isInitialized = true;
                 return;
             }
 
