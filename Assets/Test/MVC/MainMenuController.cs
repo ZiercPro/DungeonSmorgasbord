@@ -1,7 +1,11 @@
 using RMC.Core.Architectures.Mini.Context;
 using RMC.Core.Architectures.Mini.Controller;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using ZiercCode.Test.Event;
+using ZiercCode.Test.Procedure;
+using ZiercCode.Test.RuntimeData;
 
 namespace ZiercCode.Test.MVC
 {
@@ -32,6 +36,12 @@ namespace ZiercCode.Test.MVC
         private void OnStartButtonPressed()
         {
             Debug.Log("start button pressed");
+            //设置需要加载的资源
+            GlobalData.nextAssetsLabels = new();
+            GlobalData.nextAssetsLabels.Add(new List<string>() { "GameScene" });
+            //广播事件
+            ZiercEvent.Invoke(
+                new ChangeSceneEvent.StartChangeSceneEvent() { NextSceneProcedureType = typeof(GamePlayProcedure) });
         }
 
         private void OnSettingsButtonPressed()

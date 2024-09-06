@@ -1,8 +1,12 @@
+using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 using ZiercCode.Test.Base;
+using Object = UnityEngine.Object;
 
 namespace ZiercCode.Test.Resources
 {
@@ -32,13 +36,20 @@ namespace ZiercCode.Test.Resources
             Addressables.Release(handle);
         }
 
-        public AsyncOperationHandle<IList<Object>> LoadAssets(string label)
+        public AsyncOperationHandle<IList<Object>> LoadAssets(object key, Action<Object> callback)
         {
-            AsyncOperationHandle<IList<Object>> handle = Addressables.LoadAssetsAsync<Object>(label, null);
+            AsyncOperationHandle<IList<Object>> handle = Addressables.LoadAssetsAsync<Object>(key, callback);
             _loadedAssetsHandles.Add(handle);
             return handle;
         }
 
+        public AsyncOperationHandle<IList<Object>> LoadAssets(List<string> key, Action<Object> callback,
+            Addressables.MergeMode mode)
+        {
+            AsyncOperationHandle<IList<Object>> handle = Addressables.LoadAssetsAsync<Object>(key, callback, mode);
+            _loadedAssetsHandles.Add(handle);
+            return handle;
+        }
 
         public void UnloadAssets(string label)
         {
@@ -61,8 +72,15 @@ namespace ZiercCode.Test.Resources
 
         public void ReleaseAllLoadedAssets()
         {
+            if (_loadedAssetsHandles.Count == 0) return;
+
             foreach (var handle in _loadedAssetsHandles)
             {
+                foreach (var obj in handle.Result)
+                {
+                    Debug.Log(obj.name);
+                }
+
                 Addressables.Release(handle);
             }
         }

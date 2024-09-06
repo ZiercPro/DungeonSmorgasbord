@@ -8,27 +8,27 @@ namespace ZiercCode.Test.Config
         /// <summary>
         /// 设置数据存储地址
         /// </summary>
-        public const  string SETTING_DATA_PATH = "/settings.json";
+        public const string SETTING_DATA_PATH = "/settings.json";
 
         /// <summary>
         /// 主音量
         /// </summary>
-        [Range(-70, 5)] public float MasterVolume;
+        [Range(-50, 15)] public float MasterVolume;
 
         /// <summary>
         /// 音乐音量
         /// </summary>
-        [Range(-60, 10)] public float MusicVolume;
+        [Range(-50, 15)] public float MusicVolume;
 
         /// <summary>
         /// 音效
         /// </summary>
-        [Range(-60, 10)] public float SfxVolume;
+        [Range(-50, 15)] public float SfxVolume;
 
         /// <summary>
         /// 环境音量
         /// </summary>
-        [Range(-40, 20)] public float EnvironmentVolume;
+        [Range(-50, 15)] public float EnvironmentVolume;
 
         /// <summary>
         /// 是否显示fps

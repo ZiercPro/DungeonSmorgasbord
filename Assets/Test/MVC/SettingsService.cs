@@ -17,7 +17,7 @@ namespace ZiercCode.Test.MVC
         public void Load()
         {
             SettingsModel settingsModel = Context.ModelLocator.GetItem<SettingsModel>();
-            
+
             _settings = _jsonService.LoadData<Settings>(Settings.SETTING_DATA_PATH, false);
 
             settingsModel.FpsToggle.Value = _settings.FPSOn;
@@ -30,6 +30,15 @@ namespace ZiercCode.Test.MVC
 
         public void Save()
         {
+            SettingsModel settingsModel = Context.ModelLocator.GetItem<SettingsModel>();
+
+            _settings.FPSOn = settingsModel.FpsToggle.Value;
+            _settings.Language = settingsModel.LanguageEnum.Value;
+            _settings.MasterVolume = settingsModel.MasterVolume.Value;
+            _settings.MusicVolume = settingsModel.MusicVolume.Value;
+            _settings.SfxVolume = settingsModel.SfxVolume.Value;
+            _settings.EnvironmentVolume = settingsModel.EnvironmentVolume.Value;
+
             _jsonService.SaveData(Settings.SETTING_DATA_PATH, _settings, false);
         }
     }

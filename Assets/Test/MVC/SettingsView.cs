@@ -21,6 +21,7 @@ namespace ZiercCode.Test.MVC
         [SerializeField] private RectTransform languageSettings;
 
         [SerializeField] private Button backButton;
+        [SerializeField] private Button saveButton;
 
         [SerializeField] private Slider masterVolume;
         [SerializeField] private Slider musicVolume;
@@ -33,6 +34,7 @@ namespace ZiercCode.Test.MVC
 
 
         public Button BackButton => backButton;
+        public Button SaveButton => saveButton;
 
         public Toggle VolumePanelToggle => volumePanelToggle;
         public Toggle OtherPanelToggle => otherPanelToggle;

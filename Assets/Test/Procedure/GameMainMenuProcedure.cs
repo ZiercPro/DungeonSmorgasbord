@@ -1,33 +1,53 @@
-﻿using System.Collections;
+﻿using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using ZiercCode.Old.Audio;
-using ZiercCode.Test.Base;
-using ZiercCode.Test.Resources;
+using ZiercCode.Test.Event;
+using ZiercCode.Test.RuntimeData;
 using ZiercCode.Test.Scene;
+using ZiercCode.Test.StateMachine;
 
 namespace ZiercCode.Test.Procedure
 {
     public class GameMainMenuProcedure : ProcedureBase
     {
-        AsyncOperation loadingOperation;
+        EventGroup eventGroup;
 
-        // ReSharper disable Unity.PerformanceAnalysis
+        public override void OnCreate(IStateMachine stateMachine)
+        {
+            base.OnCreate(stateMachine);
+            eventGroup = new EventGroup();
+        }
+
         public override void OnEnter()
         {
             base.OnEnter();
 
             Debug.Log("进入主菜单");
+            eventGroup.AddListener<ChangeSceneEvent.StartChangeSceneEvent>(OnStartGame);
 
-            ResourceComponent resourceComponent = GameEntry.GetComponent<ResourceComponent>();
-
-            loadingOperation = ZiercScene.LoadScene("MainMenuScene");
+            ZiercScene.LoadScene("MainMenuScene");
             AudioPlayer.Instance.PlayMusic("MenuBgm");
         }
 
         public override void OnUpdate()
         {
             base.OnUpdate();
+        }
+
+        public void OnStartGame(IEventArgs args)
+        {
+            if (args is ChangeSceneEvent.StartChangeSceneEvent a)
+            {
+                //设置下一个场景
+                GlobalData.nextSceneProcedureType = a.NextSceneProcedureType;
+
+                StateMachine.ChangeState<GamePreloadProcedure>();
+            }
+        }
+
+        public override void OnExit()
+        {
+            eventGroup.RemoveAllListener();
         }
     }
 }

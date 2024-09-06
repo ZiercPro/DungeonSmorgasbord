@@ -36,5 +36,7 @@ namespace ZiercCode.Test.Base
 
             ZiercComponents.Add(type, component);
         }
+        
+        
     }
 }

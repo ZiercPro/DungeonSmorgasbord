@@ -27,6 +27,7 @@ namespace ZiercCode.Test.MVC
                 base.Initialize(context);
 
                 _settingsView.BackButton.onClick.AddListener(OnBackButtonPressed);
+                _settingsView.SaveButton.onClick.AddListener(OnSaveButtonPressed);
 
                 _settingsModel.MasterVolume.AddListener(Model_OnMasterVolumeChange);
                 _settingsModel.MusicVolume.AddListener(Model_OnMusicVolumeChange);
@@ -36,6 +37,7 @@ namespace ZiercCode.Test.MVC
                 _settingsModel.OtherPanelToggle.AddListener(Model_OnOtherToggleChange);
                 _settingsModel.LanguagePanelToggle.AddListener(Model_OnLanguageToggleChange);
                 _settingsModel.LanguageEnum.AddListener(Model_OnLanguageEnumChange);
+                _settingsModel.FpsToggle.AddListener(Model_OnFpsToggleChange);
 
 
                 _settingsView.VolumePanelToggle.onValueChanged.AddListener(View_OnVolumeTogglePressed);
@@ -46,6 +48,7 @@ namespace ZiercCode.Test.MVC
                 _settingsView.SfxVolume.onValueChanged.AddListener(View_OnSfxVolumeChange);
                 _settingsView.EnvironmentVolume.onValueChanged.AddListener(View_OnEnvironmentVolumeChange);
                 _settingsView.LanguageDropDown.onValueChanged.AddListener(View_OnLanguageEnumChange);
+                _settingsView.Fps.onValueChanged.AddListener(View_OnFpsChange);
 
 
                 Context.CommandManager.AddCommandListener<EnterSettingsCommand>(OnEnterSettingsCommand);
@@ -73,6 +76,11 @@ namespace ZiercCode.Test.MVC
             Context.CommandManager.InvokeCommand(new EnterMainMenuCommand());
         }
 
+        private void OnSaveButtonPressed()
+        {
+            _settingsService.Save();
+        }
+
         private void HideView()
         {
             _settingsView.CanvasGroup.blocksRaycasts = false;
@@ -98,6 +106,11 @@ namespace ZiercCode.Test.MVC
             _settingsView.VolumePanel.gameObject.SetActive(true);
             _settingsView.OtherPanel.gameObject.SetActive(false);
             _settingsView.LanguagePanel.gameObject.SetActive(false);
+        }
+
+        private void Model_OnFpsToggleChange(bool s)
+        {
+            _settingsView.Fps.isOn = s;
         }
 
         private void Model_OnVolumeToggleChange(bool s)
@@ -178,6 +191,11 @@ namespace ZiercCode.Test.MVC
         private void View_OnLanguageEnumChange(int languageIndex)
         {
             _settingsModel.LanguageEnum.Value = (LanguageEnum)languageIndex;
+        }
+
+        private void View_OnFpsChange(bool s)
+        {
+            _settingsModel.FpsToggle.Value = s;
         }
     }
 }

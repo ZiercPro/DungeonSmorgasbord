@@ -59,7 +59,7 @@ namespace ZiercCode.Core.Data
                 catch (Exception e)
                 {
                     Debug.LogError($"无法加载：{e.Message};{e.StackTrace}");
-                    throw e; //重新抛出 方便调用方法出问题时 进行处理 提示玩家等等
+                    throw; //重新抛出 方便调用方法出问题时 进行处理 提示玩家等等
                 }
             }
         }
