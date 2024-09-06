@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: LocalPackage
+  m_Name: DefaultGroup
   m_EditorClassIdentifier: 
-  m_GroupName: LocalPackage
+  m_GroupName: DefaultGroup
   m_Data:
     m_SerializedData: []
   m_GUID: 44358f3b38755eb4ab6191d9495eb630
@@ -22,60 +22,70 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42a6e4e230cce4646953a0dd33a9d75a
     m_Address: IdleBgm
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 00379ff33019bab4c9495c70aa3c3ff7
     m_Address: MenuBgm
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - MainMenuScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: df9b647e7fe8490428dc9b9bb885527f
     m_Address: FireBall
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a20c1f2fd4d44c4d9a6fabbec93be20
     m_Address: BabySpawn1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 31572d31fe9bc4d4d909f5a91c767e4a
     m_Address: BigMouthSpawn1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ebb03b2b009894845b81a64051a5c698
     m_Address: EnemyDead3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e26b12344a8fdd2439361d014323be33
     m_Address: EnemyDead4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fcf77559b4c484b4bb499c9a95c32e21
     m_Address: EnemyDead2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ddd16025d5ef32249bf91ac485f99fd8
     m_Address: EnemyDead1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c3abf82673cafc45a9b133fbb7097d1
     m_Address: Magma_1
@@ -88,78 +98,93 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83734dbdd5244c44287d0a854ad8c187
     m_Address: CoinCollected
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e49874f19fdb7114bbf776cb9e5f53c0
     m_Address: ButtonEnter1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - MainMenuScene
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b72c076bc17ec0044942b0d0c4a2b662
     m_Address: Explosion1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5d099c7a40edb844a583ee1693ea567
     m_Address: CardClick
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6c37a87a1e05c0418ce0605b46401d8
     m_Address: CardEnter
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f32d8d60f197f204ba10bab042d4cf87
     m_Address: ButtonClick1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - MainMenuScene
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7cd703bfb101f4489fce92b8bbf68e1
     m_Address: Interactive1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d5c1fdf2ebec994aa8bb83d142e547b
     m_Address: WeaponWave5
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 866a3b5722d21f641b7ff221d1ce69f4
     m_Address: WeaponWave1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 956ebc4fcb8f7d9489eef78c3eb276d6
     m_Address: WeaponWave3
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c24227c8da7de9d4692f04e09dfa37cc
     m_Address: WeaponWave4
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: deb8ab151394e1649bd1410202309ba1
     m_Address: WeaponWave2
     m_ReadOnly: 0
     m_SerializedLabels:
     - Audio
+    - GameScene
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 6c87a3fd160e34f40a92af209ccac1e5, type: 2}

@@ -3,68 +3,68 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using ZiercCode.Test.Base;
-using ZiercCode.Test.ObjectPool;
 
 namespace ZiercCode.Test.Resources
 {
+    /// <summary>
+    /// 资源组件，进行资源和场景的批量管理
+    /// </summary>
     public class ResourceComponent : ZiercComponent
     {
         private bool _isInitialized;
-
-        private AsyncOperationHandle<IList<Object>> _resourcesHandle;
         public bool IsInitialized => _isInitialized;
 
-        [SerializeField] private List<string> loadAssetLabels;
+        private List<AsyncOperationHandle<IList<Object>>> _loadedAssetsHandles;
 
+        public AsyncOperationHandle<Object> LoadAsset(string key)
+        {
+            AsyncOperationHandle<Object> handle = Addressables.LoadAssetAsync<Object>(key);
+            return handle;
+        }
+
+        public void UnloadAsset(string key)
+        {
+            Addressables.Release(key);
+        }
+
+        public void UnloadAsset(AsyncOperationHandle handle)
+        {
+            Addressables.Release(handle);
+        }
+
+        public AsyncOperationHandle<IList<Object>> LoadAssets(string label)
+        {
+            AsyncOperationHandle<IList<Object>> handle = Addressables.LoadAssetsAsync<Object>(label, null);
+            _loadedAssetsHandles.Add(handle);
+            return handle;
+        }
+
+
+        public void UnloadAssets(string label)
+        {
+            Addressables.Release(label);
+        }
+
+        public void UnloadAssets(AsyncOperationHandle<IList<Object>> handle)
+        {
+            Addressables.Release(handle);
+        }
 
         public void InitializeResource()
         {
             if (!_isInitialized)
             {
-                LoadAllAssetsFromAssetLabel();
-            }
-            else
-            {
-                Debug.LogWarning("资源已经实例化!");
-            }
-        }
-
-        public void Release()
-        {
-            Addressables.Release(_resourcesHandle);
-        }
-
-        private void LoadAllAssetsFromAssetLabel()
-        {
-            if (loadAssetLabels == null || loadAssetLabels.Count == 0)
-            {
+                _loadedAssetsHandles = new List<AsyncOperationHandle<IList<Object>>>();
                 _isInitialized = true;
-                return;
-            }
-
-            foreach (var labelReference in loadAssetLabels)
-            {
-                Addressables.LoadAssetsAsync<Object>(labelReference, OnAssetLoaded).Completed += OnAssetsLoadCompleted;
             }
         }
 
-        private void OnAssetLoaded(Object obj)
+        public void ReleaseAllLoadedAssets()
         {
-            if (obj == null)
+            foreach (var handle in _loadedAssetsHandles)
             {
-                Debug.LogError("资源加载失败!");
-                return;
+                Addressables.Release(handle);
             }
-
-            Debug.Log($"加载资源 | {obj.name}");
-
-            ZiercPool.Register(obj.name, obj);
-        }
-
-        private void OnAssetsLoadCompleted(AsyncOperationHandle<IList<Object>> handle)
-        {
-            _resourcesHandle = handle;
-            _isInitialized = true;
         }
     }
 }

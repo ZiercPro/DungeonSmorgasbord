@@ -12,27 +12,27 @@ namespace ZiercCode.Old.Helper
         //private bool playing = false;
         public void ButtonClick()
         {
-            AudioPlayer.Instance.PlayAudio(AudioName.ButtonClick1);
+            AudioPlayer.Instance.PlaySfx("ButtonClick1");
         }
 
         public void ButtonEnter()
         {
-            AudioPlayer.Instance.PlayAudio(AudioName.ButtonEnter1);
+            AudioPlayer.Instance.PlaySfx("ButtonEnter1");
         }
 
         public void CardClick()
         {
-            AudioPlayer.Instance.PlayAudio(AudioName.CardClick1);
+            AudioPlayer.Instance.PlaySfx("CardClick1");
         }
 
         public void CardEnter()
         {
-            AudioPlayer.Instance.PlayAudio(AudioName.CardEnter1);
+            AudioPlayer.Instance.PlaySfx("CardEnter1");
         }
 
         public void Interact()
         {
-            AudioPlayer.Instance.PlayAudio(AudioName.Interactive1);
+            AudioPlayer.Instance.PlaySfx("Interactive1");
         }
     }
 }

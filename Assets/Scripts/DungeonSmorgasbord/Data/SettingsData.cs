@@ -10,9 +10,9 @@ namespace ZiercCode.DungeonSmorgasbord.Data
     /// </summary>
     public class SettingsData : IDataStore<SettingsData>
     {
-       /// <summary>
-       /// 相对地址
-       /// </summary>
+        /// <summary>
+        /// 相对地址
+        /// </summary>
         private const string SETTING_DATA_PATH = "/settings.json";
 
         /// <summary>
@@ -81,24 +81,27 @@ namespace ZiercCode.DungeonSmorgasbord.Data
         public void Save()
         {
             if (_jsonDataService.SaveData(SETTING_DATA_PATH, this, false))
-                Debug.Log("Settings saved!");
+                Debug.Log("设置保存");
             else
-                Debug.LogError("Settings can not save!");
+                Debug.LogError("设置无法保存");
         }
 
-        public bool Load(out SettingsData data)
+        public void Load(out SettingsData data)
         {
-            try
+            data = _jsonDataService.LoadData<SettingsData>(SETTING_DATA_PATH, false);
+
+            if (data == null)
             {
-                data = _jsonDataService.LoadData<SettingsData>(SETTING_DATA_PATH, false);
-                Debug.Log("Settings loading complete!");
-                return true;
+                Debug.LogWarning("无法加载设置文件，将会重新生成设置文件");
+                data = new();
+                _jsonDataService.SaveData(SETTING_DATA_PATH, data, false);
             }
-            catch (Exception e)
+            else
             {
-                Debug.LogError($"Can not load settings data due to:{e.Message};{e.StackTrace}");
-                data = null;
-                return false;
+                Debug.Log("设置加载完成");
+            }
+
+            {
             }
         }
     }

@@ -9,7 +9,7 @@ namespace ZiercCode.Old.Scene
 
         public override void OnExit()
         {
-            AudioPlayer.Instance.ClearAudioCache();
+            //  AudioPlayer.Instance.ClearAudioCache();
             SceneManager.sceneLoaded -= OnSceneLoaded;
             // BattleManager.Instance.onBattleEnd.RemoveAllListeners();
         }
@@ -17,7 +17,7 @@ namespace ZiercCode.Old.Scene
 
         public override void DoOnSceneLoaded()
         {
-            AudioPlayer.Instance.PlayAudio(AudioName.IdleBgm);
+            //AudioPlayer.Instance.PlayAudio(AudioName.IdleBgm);
         }
     }
 }

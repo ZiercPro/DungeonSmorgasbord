@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
 namespace ZiercCode.Test.Scene
@@ -8,23 +11,37 @@ namespace ZiercCode.Test.Scene
     {
         private static readonly Dictionary<string, UnityEngine.SceneManagement.Scene> _activeScene =
             new Dictionary<string, UnityEngine.SceneManagement.Scene>();
+
         public static int ActiveSceneCount => _activeScene.Count;
 
-        public static void LoadScene(string sceneName, LoadSceneMode loadSceneMode = LoadSceneMode.Additive)
+        public static AsyncOperationHandle<SceneInstance> LoadSceneAsset(string sceneName)
         {
-            AsyncOperation load = SceneManager.LoadSceneAsync(sceneName, loadSceneMode);
+            AsyncOperationHandle<SceneInstance> handle = Addressables.LoadSceneAsync(sceneName);
+            return handle;
+        }
+
+        public static void UnloadScene(SceneInstance scene)
+        {
+            Addressables.UnloadSceneAsync(scene);
+        }
+
+        public static AsyncOperation LoadScene(string sceneName)
+        {
+            AsyncOperation load = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
             load.completed += op =>
             {
                 UnityEngine.SceneManagement.Scene newS = SceneManager.GetSceneByName(sceneName);
                 _activeScene.Add(sceneName, newS);
             };
+            return load;
         }
 
-        public static void UnLoadScene(string sceneName)
+        public static AsyncOperation UnLoadScene(string sceneName)
         {
+            AsyncOperation unLoad;
             if (_activeScene.ContainsKey(sceneName))
             {
-                AsyncOperation unLoad = SceneManager.UnloadSceneAsync(sceneName);
+                unLoad = SceneManager.UnloadSceneAsync(sceneName);
                 unLoad.completed += op =>
                 {
                     _activeScene.Remove(sceneName);
@@ -32,8 +49,11 @@ namespace ZiercCode.Test.Scene
             }
             else
             {
+                unLoad = null;
                 Debug.LogWarning($"场景{sceneName}未加载!");
             }
+
+            return unLoad;
         }
 
         public static void UnloadAllActiveScene()

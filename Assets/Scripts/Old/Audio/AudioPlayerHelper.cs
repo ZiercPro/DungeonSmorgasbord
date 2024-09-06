@@ -1,39 +1,17 @@
-﻿using System;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ZiercCode.Old.Audio
 {
     public class AudioPlayerHelper : MonoBehaviour
     {
-        [SerializeField] private AudioName[] audioNames;
-        private bool _canPlay;
-
-        public void OnEnable()
+        public void PlaySfx(string audioName)
         {
-            _canPlay = true;
+            AudioPlayer.Instance.PlaySfx(audioName);
         }
 
-        public void PlayAudio(int audioNameIndex)
+        public void PlayMusic(string audioName)
         {
-            if (!_canPlay) return;
-            AudioPlayer.Instance.PlayAudio(audioNames[audioNameIndex]);
-        }
-
-        public void PlayAudioRandom()
-        {
-            if (!_canPlay) return;
-            AudioPlayer.Instance.PlayAudiosRandomAsync(audioNames.ToList());
-        }
-
-        public void Enable()
-        {
-            _canPlay = true;
-        }
-
-        public void Disable()
-        {
-            _canPlay = false;
+            AudioPlayer.Instance.PlayMusic(audioName);
         }
     }
 }

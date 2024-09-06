@@ -34,7 +34,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         public override void Dead()
         {
             poolObjectSpawner.SpawnPoolObjectWithAutoRelease(deadParticle, transform.position, 5f);
-            AudioPlayer.Instance.PlayAudio(AudioName.EnemyDead4);
+            AudioPlayer.Instance.PlaySfx("EnemyDead4");
             base.Dead();
         }
     }

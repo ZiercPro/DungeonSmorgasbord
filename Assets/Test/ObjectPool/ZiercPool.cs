@@ -31,5 +31,17 @@ namespace ZiercCode.Test.ObjectPool
             Debug.LogWarning($"{objName}还未注册对象池");
             return null;
         }
+
+        public static void Release(string objName, Object obj)
+        {
+            if (Pools.TryGetValue(objName, out ObjectPool pool))
+            {
+                pool.Release(obj);
+            }
+            else
+            {
+                Debug.LogWarning($"{objName}还未注册对象池");
+            }
+        }
     }
 }

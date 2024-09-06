@@ -5,174 +5,93 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd36c1ef-bee6-41a4-b2ce-922eadf5c2c5" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/RemovePackage.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/RemovePackage.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/RemovePackage_BundledAssetGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/RemovePackage_BundledAssetGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/RemovePackage_ContentUpdateGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/RemovePackage_ContentUpdateGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/Music.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/Music/BattleBgm_normal.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/Music/BattleBgm_normal.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/Music/IdleBgm.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/Music/IdleBgm.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/Music/MenuBgm.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/Music/MenuBgm.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Enemy.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Enemy/BabySpawn1.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Enemy/BabySpawn1.mp3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Enemy/BigMouthSpawn1.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Enemy/BigMouthSpawn1.mp3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Enemy/EnemyDead1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Enemy/EnemyDead1.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Enemy/EnemyDead2.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Enemy/EnemyDead2.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Enemy/EnemyDead3.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Enemy/EnemyDead3.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Enemy/EnemyDead4.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Enemy/EnemyDead4.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Environment.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Environment/Magma_1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Environment/Magma_1.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Environment/WaterFall_1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Environment/WaterFall_1.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Hero.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Item.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Item/CoinCollected.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Item/CoinCollected.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Other.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Other/ButtonClick1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Other/ButtonClick1.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Other/ButtonEnter1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Other/ButtonEnter1.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Other/CardClick.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Other/CardClick.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Other/CardEnter.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Other/CardEnter.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Other/Explosion1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Other/Explosion1.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Other/Interactive1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Other/Interactive1.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Weapon.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Weapon/WeaponWave1.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Weapon/WeaponWave1.mp3.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Weapon/WeaponWave2.flac" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Weapon/WeaponWave2.flac.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Weapon/WeaponWave3.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Weapon/WeaponWave3.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Weapon/WeaponWave4.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Weapon/WeaponWave4.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Weapon/WeaponWave5.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/SFX/Weapon/WeaponWave5.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/Self.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/Self/FireBall.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Res/Audio/Self/FireBall.wav.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/Command.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GameChangingSceneProcedure.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GameChangingSceneProcedure.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/Scene.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/Scene/ZiercScene.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/Scene/ZiercScene.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/DefaultGroup.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/DefaultGroup.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/DefaultGroup_BundledAssetGroupSchema.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/DefaultGroup_BundledAssetGroupSchema.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/DefaultGroup_ContentUpdateGroupSchema.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/DefaultGroup_ContentUpdateGroupSchema.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Manager/DataComponent.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/Config/Settings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/Config/Settings.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/PathFinding/PathFindingTest.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/PathFinding/PathFindingTest.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/RuntimeData.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/RuntimeData/GlobalData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/RuntimeData/GlobalData.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.plastic/plastic.changes" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.changes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.plastic/plastic.changes" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.wktree" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.wktree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/LocalPackage.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/LocalPackage.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/LocalPackage.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/LocalPackage.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-Chinese (Simplified) (zh-Hans).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-Chinese (Simplified) (zh-Hans).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-English (en).asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Localization-String-Tables-English (en).asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/RemovePackage.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/RemovePackage.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_BundledAssetGroupSchema.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_BundledAssetGroupSchema.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_ContentUpdateGroupSchema.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Default Local Group_ContentUpdateGroupSchema.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/LocalPackage_BundledAssetGroupSchema.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/LocalPackage_BundledAssetGroupSchema.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/LocalPackage_ContentUpdateGroupSchema.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/LocalPackage_ContentUpdateGroupSchema.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/RemovePackage_BundledAssetGroupSchema.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/RemovePackage_BundledAssetGroupSchema.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/RemovePackage_ContentUpdateGroupSchema.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/RemovePackage_ContentUpdateGroupSchema.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LocalSetting/Tables/StringTable Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LocalSetting/Tables/StringTable Shared Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LocalSetting/Tables/StringTable_en.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LocalSetting/Tables/StringTable_en.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LocalSetting/Tables/StringTable_zh-Hans.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LocalSetting/Tables/StringTable_zh-Hans.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleAudio.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleAudio.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleEPOOutline.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleEPOOutline.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics2D.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModulePhysics2D.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleSprite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleSprite.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUnityVersion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUnityVersion.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Demigiant/DOTween/Modules/DOTweenModuleUtils.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/DOTweenSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/MainMenuView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/MainMenuView.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/SettingsView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/SettingsView.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Setting/AudioList.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Setting/AudioList.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/Music.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/Music/BattleBgm_normal.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/Music/BattleBgm_normal.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/Music/IdleBgm.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/Music/IdleBgm.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/Music/MenuBgm.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/Music/MenuBgm.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Enemy.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Enemy/BabySpawn1.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Enemy/BabySpawn1.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Enemy/BigMouthSpawn1.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Enemy/BigMouthSpawn1.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Enemy/EnemyDead1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Enemy/EnemyDead1.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Enemy/EnemyDead2.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Enemy/EnemyDead2.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Enemy/EnemyDead3.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Enemy/EnemyDead3.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Enemy/EnemyDead4.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Enemy/EnemyDead4.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Environment.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Environment/Magma_1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Environment/Magma_1.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Environment/WaterFall_1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Environment/WaterFall_1.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Hero.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Item.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Item/CoinCollected.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Item/CoinCollected.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Other.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Other/ButtonClick1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Other/ButtonClick1.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Other/ButtonEnter1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Other/ButtonEnter1.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Other/CardClick.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Other/CardClick.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Other/CardEnter.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Other/CardEnter.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Other/Explosion1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Other/Explosion1.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Other/Interactive1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Other/Interactive1.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Weapon.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave1.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave1.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave2.flac" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave2.flac.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave3.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave3.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave4.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave4.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave5.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/SFX/Weapon/WeaponWave5.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/Self.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/Self/FireBall.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources_moved/Audio/Self/FireBall.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Plugins.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Plugins/DOTweenSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Plugins/DOTweenSettings.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameStart.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameStart.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LoadingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LoadingScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenuScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenuScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Utilities/EditableDictionary.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Utilities/EditableDictionary.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Data/IDataStore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Data/IDataStore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Data/JsonDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Data/JsonDataService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Data/SettingsData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Data/SettingsData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Enemy/BabyEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Enemy/BabyEnemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Enemy/BigMouseEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Enemy/BigMouseEnemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Manager/DataManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Manager/DataManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Extend/TextPopupAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Extend/TextPopupAnimation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Manager/DataManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Manager/DataManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/Manager/DataComponent.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Audio/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Audio/AudioManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Audio/AudioPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Audio/AudioPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Audio/AudioPlayerHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Audio/AudioPlayerHelper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/DroppedItem/DroppedCoin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/DroppedItem/DroppedCoin.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Helper/UISoundsHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Helper/UISoundsHelper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Scene/GameScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Scene/GameScene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Editor/ProcedureComponentInspector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Editor/ProcedureComponentInspector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Editor/ResourceComponentInspector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Editor/ResourceComponentInspector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/EnterMainMenuCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/Command/EnterMainMenuCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/EnterMainMenuCommand.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/Command/EnterMainMenuCommand.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/EnterSettingsCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/Command/EnterSettingsCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/EnterSettingsCommand.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/Command/EnterSettingsCommand.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/UiMini.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/UiMini.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Scene/LoadingScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Scene/LoadingScene.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Scene/MainMenuScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Scene/MainMenuScene.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/Editor/ResourceComponentInspector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/Editor/ResourceComponentInspector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/SettingsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/SettingsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/ObjectPool/ZiercPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/ObjectPool/ZiercPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/Procedure/GameChangingSceneProcedure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GameChangingSceneProcedure.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/Procedure/GameLaunchProcedure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GameLaunchProcedure.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/Procedure/GameMainMenuProcedure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GameMainMenuProcedure.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/Procedure/GamePreloadProcedure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GamePreloadProcedure.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/Procedure/GameResourceCheckProcedure.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/Procedure/GameResourceCheckProcedure.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/Resources/ResourceComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Resources/ResourceComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/Scene/ZiercScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Scene/ZiercScene.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,68 +102,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ef0191b30684937a869061138f38973572e20/25/11f5a9e6/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/0a/3226f947/UnhandledExceptionHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/24/180aece3/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/27/6f995139/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/34/deba0458/ScriptableObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/85/62083887/AudioType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/8f/2e39e7ba/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/9f/3dcdfa5d/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/a1/ee6ebc20/Application.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/a5/acee35ce/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/ae/a9fdafb4/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/c7/3c863802/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/df/4aea1c36/Camera.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/ea/239a6b99/LightProbes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/fb/935b49b9/ObjectPool`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42c0b04153ed45d482d71c98ca5741123c00/b2/128edd0b/NativeInputSystem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/44c555c8e7704b01b3778d8db4ae902827800/62/8b85531d/Animator.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4bcf7fea78174bc093803aefb9e9d8a05c800/06/f23aab96/IResourceManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4bcf7fea78174bc093803aefb9e9d8a05c800/6c/cde8b621/ProcedureBase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4bcf7fea78174bc093803aefb9e9d8a05c800/a0/d43ff07d/GameFrameworkEntry.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4bcf7fea78174bc093803aefb9e9d8a05c800/aa/05be7958/IFsm`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4bcf7fea78174bc093803aefb9e9d8a05c800/d2/f43b052b/IProcedureManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4bcf7fea78174bc093803aefb9e9d8a05c800/da/04a51443/Fsm`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/38/09b67314/IDisposable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/5a/367e60f2/IDictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/97/ceda2952/IEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/b0/8c5aaaad/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/d8/df88ea71/IList`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/e2/e6e5235d/Action`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/09/286865b8/TypeCache.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/11/0ebe2ab7/BuildPipelineInterfaces.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/1d/f008c5fa/PhysicsDebugDraw.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/5a/3a9da500/SceneView.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/68/3290bc2b/EditorGUILayout.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/96/f87b9d1e/Lightmapping.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/a3/631fecba/EditorWindow.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/bc/f6d82297/SerializedProperty.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/bf/512d20c5/Editor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/e9/308800a6/EditorPrefs.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7aeb7d7a52d04045b8a1c734633fa93194f600/f7/704b13a4/HostView.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/18/5b5e88f5/RuntimeType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/2b/82a1c8a0/HashHelpers.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/3b/0ee76bdd/SynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/4b/56f61d6f/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/4f/a535c2b3/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/65/7cb84ed6/IntPtr.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/6a/2fb10e2f/EqualityComparer`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/6c/d292b9ac/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/80/5419af21/List`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/90/190223d3/ArrayList.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/97/31db2e00/Thread.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/c9/bbf27d0d/Type.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/cd/a409714f/UnhandledExceptionEventArgs.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/db/708a26cb/AsyncVoidMethodBuilder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/f0/908b248d/Int32.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/834b2ded5dad441e8c7a4287897d63c746ac00/f2/db34379d/RuntimeTypeHandle.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8b1a93c5e29f437aa98690274253187910200/70/d716597c/AudioMixer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ccd50d4d0a8d48d2b2e3375fbcee285f175a00/d5/70f9858d/VisualElement.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cffc46fa8b1e4ee1a0e1b35a8d9980612d400/dd/0efb1f99/GUILayout.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fcc0bbf6bf4e430c91d4aa05736fc5c62ac00/9d/661a600e/ShortcutExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/21/9067b170/Object.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/c3/c5e0c2dd/Dictionary`2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/fa/e097f83e/Boolean.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/Extend/AnimationHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/UI/BasePanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DungeonSmorgasbord/ScriptObject/WeaponDataSo.cs" root0="FORCE_HIGHLIGHTING" />
@@ -269,6 +129,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.19/Runtime/AddressablesImpl.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.19/Runtime/AssetLabelReference.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.19/Runtime/ResourceManager/AsyncOperations/AsyncOperationHandle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.19/Runtime/ResourceManager/ResourceProviders/ISceneProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.19/Runtime/ResourceManager/Util/DelegateList.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.19/Runtime/ResourceManager/Util/MonoBehaviourCallbackHooks.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.9.7/Runtime/Behaviours/CinemachineVirtualCamera.cs" root0="SKIP_HIGHLIGHTING" />
@@ -324,18 +185,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
     &quot;附加到 Unity 编辑器.附加到 Unity 编辑器.executor&quot;: &quot;Debug&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\LJTX\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\LJTX\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\LJTX\\AppData\\Local\\Symbols\\src&quot;
-    ]
   }
 }</component>
   <component name="RunManager" selected="附加到 Unity 编辑器.附加到 Unity 编辑器">
     <configuration name="启动 Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.13f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\UnityEditors\2022.3.13f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;D:\UnityProjects\Dungeon smorgasbord&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\UnityProjects\Dungeon smorgasbord" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -351,7 +205,7 @@
       <method v="2" />
     </configuration>
     <configuration name="单元测试(批处理模式)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.13f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\UnityEditors\2022.3.13f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;D:\UnityProjects\Dungeon smorgasbord&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\UnityProjects\Dungeon smorgasbord" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -564,7 +418,20 @@
       <workItem from="1717919861824" duration="4799000" />
       <workItem from="1717939086925" duration="6061000" />
       <workItem from="1717983318560" duration="2928000" />
-      <workItem from="1717990223639" duration="8143000" />
+      <workItem from="1717990223639" duration="8332000" />
+      <workItem from="1718018216343" duration="4362000" />
+      <workItem from="1718195356729" duration="2641000" />
+      <workItem from="1718763712366" duration="1563000" />
+      <workItem from="1718777899027" duration="257000" />
+      <workItem from="1725274030426" duration="810000" />
+      <workItem from="1725367900947" duration="7938000" />
+      <workItem from="1725432710984" duration="3490000" />
+      <workItem from="1725517618012" duration="2307000" />
+      <workItem from="1725536095015" duration="9666000" />
+      <workItem from="1725550737728" duration="3617000" />
+      <workItem from="1725605997829" duration="110000" />
+      <workItem from="1725606118132" duration="32000" />
+      <workItem from="1725606237571" duration="2925000" />
     </task>
     <servers />
   </component>
@@ -573,9 +440,15 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/Assets/Scripts" />
     </ignored-roots>

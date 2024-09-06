@@ -6,7 +6,6 @@
     /// <typeparam name="T">具体数据类型</typeparam>
     public interface IDataStore<T> where T : IDataStore<T>
     {
-
         /// <summary>
         /// 保存数据
         /// </summary>
@@ -17,6 +16,6 @@
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool Load(out T data);
+        public void Load(out T data);
     }
 }

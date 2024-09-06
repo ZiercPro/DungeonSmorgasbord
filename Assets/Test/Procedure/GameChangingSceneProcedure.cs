@@ -1,31 +1,34 @@
 using UnityEngine;
 using ZiercCode.Test.Procedure;
+using ZiercCode.Test.RuntimeData;
 using ZiercCode.Test.Scene;
 
 namespace ZiercCode
 {
     public class GameChangingSceneProcedure : ProcedureBase
     {
+        AsyncOperation loadingOperation;
+
         public override void OnEnter()
         {
             base.OnEnter();
 
-            Debug.Log("enter scene changing!");
+            Debug.Log("进入场景转换流程");
 
             //卸载所有场景
             ZiercScene.UnloadAllActiveScene();
 
             //进入加载场景
-            ZiercScene.LoadScene("LoadingScene");
+            loadingOperation = ZiercScene.LoadScene("LoadingScene");
         }
 
         public override void OnUpdate()
         {
             base.OnUpdate();
 
-            if (ZiercScene.ActiveSceneCount == 1)
+            if (loadingOperation.isDone)
             {
-                StateMachine.ChangeState<GameMainMenuProcedure>();
+                StateMachine.ChangeState(GlobalData.nextSceneProcedureType);
             }
         }
 

@@ -14,7 +14,7 @@ namespace ZiercCode.Old.Scene
         public override void OnExit()
         {
             SceneManager.sceneLoaded -= OnSceneLoaded;
-            AudioPlayer.Instance.ClearAudioCache();
+            //AudioPlayer.Instance.ClearAudioCache();
             _panelManager.PopAll();
         }
     }

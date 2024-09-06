@@ -1,6 +1,7 @@
 using Newtonsoft.Json;
 using System;
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 namespace ZiercCode.Core.Data
@@ -18,22 +19,23 @@ namespace ZiercCode.Core.Data
             {
                 if (File.Exists(path))
                 {
-                    Debug.Log("File exists!Deleting old file and writing a new file to replace it");
+                    Debug.Log("文件存在，将创建新的文件覆盖原文件！");
                     File.Delete(path);
                 }
                 else
                 {
-                    Debug.Log("Writing file for the first time!");
+                    Debug.Log("第一次创建文件！");
                 }
 
                 using FileStream fileStream = File.Create(path); //使用using可以自动释放资源 不需要在finally中手动释放filestream
                 fileStream.Close();
+                AssetDatabase.Refresh(); //刷新
                 File.WriteAllText(path, JsonConvert.SerializeObject(data));
                 return true;
             }
             catch (Exception e)
             {
-                Debug.LogError($"Unable to save data due to: {e.Message};{e.StackTrace}");
+                Debug.LogError($"无法保存：{e.Message};{e.StackTrace}");
                 return false;
             }
         }
@@ -44,8 +46,8 @@ namespace ZiercCode.Core.Data
 
             if (!File.Exists(path))
             {
-                Debug.LogError($"Can not find file {path}!");
-                throw new FileNotFoundException();
+                Debug.LogWarning($"无法找到文件：{path}！");
+                return default;
             }
             else
             {
@@ -56,7 +58,7 @@ namespace ZiercCode.Core.Data
                 }
                 catch (Exception e)
                 {
-                    Debug.LogError($"Can not load data due to: {e.Message};{e.StackTrace}");
+                    Debug.LogError($"无法加载：{e.Message};{e.StackTrace}");
                     throw e; //重新抛出 方便调用方法出问题时 进行处理 提示玩家等等
                 }
             }

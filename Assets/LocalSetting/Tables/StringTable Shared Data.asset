@@ -143,6 +143,10 @@ MonoBehaviour:
     m_Key: ReStartButton
     m_Metadata:
       m_Items: []
+  - m_Id: 83299286768947200
+    m_Key: LanguageSelector
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 44358f3b38755eb4ab6191d9495eb630
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 84e51bbb3f5641261c8376ce8d3277db
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -46,8 +46,6 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: f4a0b4bf5ebe61243a1a47400b55d3d1, type: 2}
   - {fileID: 11400000, guid: c750964a5bc4317438fb54df7ea7c92a, type: 2}
-  - {fileID: 11400000, guid: b2f1012ca6c03844ca64faa9ddb32550, type: 2}
-  - {fileID: 11400000, guid: f15fe5bd6f2cee948a6741ef732e89e5, type: 2}
   - {fileID: 11400000, guid: bd8986b14c31c77468e44766979945e8, type: 2}
   - {fileID: 11400000, guid: 6688f902229537f4f83992e48e4466a1, type: 2}
   - {fileID: 11400000, guid: 92462281f82621747a132573cd0085ab, type: 2}
@@ -94,10 +92,12 @@ MonoBehaviour:
     m_ProfileVersion: 1
   m_LabelTable:
     m_LabelNames:
-    - Locale
-    - Locale-en
-    - Preload
     - Audio
+    - MainMenuScene
+    - LoadingScene
+    - GameScene
+    - MyScene
+    - Locale
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: b089508d83950024e9391ba26acab9ff, type: 2}

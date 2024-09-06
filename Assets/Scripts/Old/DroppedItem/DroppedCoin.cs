@@ -10,7 +10,7 @@ namespace ZiercCode.Old.DroppedItem
         private void GetItem(CoinPack pack)
         {
             pack.GetCoins(num);
-            AudioPlayer.Instance.PlayAudio(AudioName.CoinCollected);
+            AudioPlayer.Instance.PlaySfx("CoinCollected", transform.position);
             base.GetItem();
         }
 
