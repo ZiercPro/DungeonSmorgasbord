@@ -378,19 +378,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b18a7f17b13ba94dac3d8a4d6fefd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startButton: {fileID: 4714203376415904030}
-  settingsButton: {fileID: 7269807394570231822}
-  quitButton: {fileID: 2410328346511704622}
-  canvasGroup: {fileID: 4089740285010390371}
-  onStartButtonPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onSettingsButtonPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  onQuitButtonPressed:
-    m_PersistentCalls:
-      m_Calls: []
+  <StartButton>k__BackingField: {fileID: 4714203376415904030}
+  <SettingButton>k__BackingField: {fileID: 7269807394570231822}
+  <QuitButton>k__BackingField: {fileID: 2410328346511704622}
+  <CanvasGroup>k__BackingField: {fileID: 4089740285010390371}
 --- !u!1 &5379682372406007499
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,7 +743,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 17
+  m_fontStyle: 19
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -977,7 +968,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 17
+  m_fontStyle: 19
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1374,7 +1365,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 17
+  m_fontStyle: 19
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

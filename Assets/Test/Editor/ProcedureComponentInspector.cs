@@ -16,11 +16,13 @@ namespace ZiercCode.Test.Editor
         [SerializeField] private VisualTreeAsset treeAsset;
 
         private DropdownField _launchProcedure;
+        private List<Type> _availableProcedureTypes; //储存所有得到的流程类型
         private List<string> _availableProcedureNames; //显示名称缩写
 
         private int _launchProcedureFullNameIndex;
         private SerializedProperty _availableProcedureFullNames; //组件字段
         private SerializedProperty _launchProcedureFullName; //组件字段
+
 
         private void OnEnable()
         {
@@ -32,6 +34,7 @@ namespace ZiercCode.Test.Editor
         {
             serializedObject.Update();
 
+            RefreshAvailableProcedure();
             RefreshAvailableProcedureNameToggles();
             RefreshAvailableProcedureNames();
 
@@ -43,6 +46,8 @@ namespace ZiercCode.Test.Editor
             _launchProcedure.choices = _availableProcedureNames;
 
             _launchProcedure.RegisterCallback<ChangeEvent<string>>(OnLaunchProcedureSelected);
+
+            serializedObject.ApplyModifiedProperties();
 
             return root;
         }
@@ -68,16 +73,9 @@ namespace ZiercCode.Test.Editor
             if (_availableProcedureNames == null) _availableProcedureNames = new List<string>();
             else _availableProcedureNames.Clear();
 
-            Assembly main = Assembly.LoadFrom("Library/ScriptAssemblies/Assembly-Csharp.dll");
-            Type[] types = main.GetTypes();
-
-
-            foreach (var type in types)
+            foreach (var type in _availableProcedureTypes)
             {
-                if (ZiercType.GetAbstractTypes(type).Any(i => i == typeof(ProcedureBase)))
-                {
-                    _availableProcedureNames.Add(type.Name);
-                }
+                _availableProcedureNames.Add(type.Name);
             }
         }
 
@@ -85,22 +83,33 @@ namespace ZiercCode.Test.Editor
         {
             _availableProcedureFullNames.ClearArray();
 
+            int index = 0;
+
+            foreach (var type in _availableProcedureTypes)
+            {
+                _availableProcedureFullNames.InsertArrayElementAtIndex(index);
+                _availableProcedureFullNames.GetArrayElementAtIndex(index).stringValue = type.FullName;
+                index++;
+            }
+
+            serializedObject.ApplyModifiedProperties();
+        }
+
+        private void RefreshAvailableProcedure()
+        {
+            if (_availableProcedureTypes == null) _availableProcedureTypes = new List<Type>();
+            else _availableProcedureTypes.Clear();
+
             Assembly main = Assembly.LoadFrom("Library/ScriptAssemblies/Assembly-Csharp.dll");
             Type[] types = main.GetTypes();
-
-            int index = 0;
 
             foreach (var type in types)
             {
                 if (ZiercType.GetAbstractTypes(type).Any(i => i == typeof(ProcedureBase)))
                 {
-                    _availableProcedureFullNames.InsertArrayElementAtIndex(index);
-                    _availableProcedureFullNames.GetArrayElementAtIndex(index).stringValue = type.FullName;
-                    index++;
+                    _availableProcedureTypes.Add(type);
                 }
             }
-
-            serializedObject.ApplyModifiedProperties();
         }
     }
 }

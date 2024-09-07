@@ -296,9 +296,10 @@ MonoBehaviour:
   availableTypeFullNames:
   - ZiercCode.GameChangingSceneProcedure
   - ZiercCode.Test.Procedure.GameLaunchProcedure
+  - ZiercCode.Test.Procedure.GameLoadingProcedure
   - ZiercCode.Test.Procedure.GameMainMenuProcedure
   - ZiercCode.Test.Procedure.GamePlayProcedure
-  - ZiercCode.Test.Procedure.GamePreloadProcedure
+  - ZiercCode.Test.Procedure.GamePreloadAssetsProcedure
   launchProcedureFullName: ZiercCode.Test.Procedure.GameLaunchProcedure
 --- !u!1 &758286623
 GameObject:

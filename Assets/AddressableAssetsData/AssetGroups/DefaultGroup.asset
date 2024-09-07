@@ -186,6 +186,24 @@ MonoBehaviour:
     - Audio
     - GameScene
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e25ebbdc7d8daed45927a9610b9b5930
+    m_Address: MainMenuScene
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MyScene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ab63583822166c43b55cb6dfba9a67a
+    m_Address: LoadingScene
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MyScene
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c9cfa26abfee488c85f1582747f6a02
+    m_Address: GameScene
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MyScene
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 6c87a3fd160e34f40a92af209ccac1e5, type: 2}
   m_SchemaSet:

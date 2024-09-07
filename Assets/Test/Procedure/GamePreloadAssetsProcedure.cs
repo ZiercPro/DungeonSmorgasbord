@@ -9,7 +9,7 @@ using ZiercCode.Test.StateMachine;
 
 namespace ZiercCode.Test.Procedure
 {
-    public class GamePreloadProcedure : ProcedureBase
+    public class GamePreloadAssetsProcedure : ProcedureBase
     {
         private List<AsyncOperationHandle> _handles;
         private float startMoment;
@@ -47,7 +47,7 @@ namespace ZiercCode.Test.Procedure
 
             if (IsPreloadDone())
             {
-                StateMachine.ChangeState<GameChangingSceneProcedure>();
+                StateMachine.ChangeState<GameLoadingProcedure>();
             }
         }
 

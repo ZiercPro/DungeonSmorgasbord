@@ -39,6 +39,7 @@ namespace ZiercCode.Test.Procedure
             Addressables.InitializeAsync();
 
             //设置场景
+            GlobalData.nextSceneName = "MainMenuScene";
             GlobalData.nextSceneProcedureType = typeof(GameMainMenuProcedure);
             //设置加载的资源
             GlobalData.nextAssetsLabels = new List<List<string>>();
@@ -49,7 +50,7 @@ namespace ZiercCode.Test.Procedure
         {
             if (_resourceComponent.IsInitialized)
             {
-                StateMachine.ChangeState<GamePreloadProcedure>();
+                StateMachine.ChangeState<GameChangingSceneProcedure>();
             }
         }
 

@@ -146,6 +146,14 @@ MonoBehaviour:
     m_Localized: Save
     m_Metadata:
       m_Items: []
+  - m_Id: 83805139079008256
+    m_Localized: 'Element: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83805454624886784
+    m_Localized: 'CurrentPosition: {0}'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

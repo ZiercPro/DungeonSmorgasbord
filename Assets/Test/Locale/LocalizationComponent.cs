@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
@@ -14,7 +15,7 @@ namespace ZiercCode.Test.Locale
         /// <summary>
         /// 自定义文本本地化数据
         /// </summary>
-        [SerializeField] private List<CustomTextDataSo> customTextDataSoList;
+        [SerializeField, Expandable] private List<CustomTextDataSo> customTextDataSoList;
 
         private Dictionary<string, CustomTextTable> _customTextData;
 

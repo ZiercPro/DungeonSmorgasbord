@@ -2,11 +2,12 @@
 
 namespace ZiercCode.Test.Event
 {
-    public class ChangeSceneEvent
+    public class SceneEvent
     {
-        public class StartChangeSceneEvent : IEventArgs
+        public class ChangeSceneEvent : IEventArgs
         {
             public Type NextSceneProcedureType;
+            public string NextSceneName;
         }
     }
 }

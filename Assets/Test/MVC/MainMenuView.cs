@@ -1,24 +1,16 @@
 using RMC.Core.Architectures.Mini.Context;
 using RMC.Core.Architectures.Mini.View;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace ZiercCode.Test.MVC
 {
     public class MainMenuView : MonoBehaviour, IView
     {
-        [SerializeField] private Button startButton;
-        [SerializeField] private Button settingsButton;
-        [SerializeField] private Button quitButton;
-
-        [SerializeField] private CanvasGroup canvasGroup;
-
-        public UnityEvent onStartButtonPressed;
-        public UnityEvent onSettingsButtonPressed;
-        public UnityEvent onQuitButtonPressed;
-
-        public CanvasGroup CanvasGroup => canvasGroup;
+        [field: SerializeField] public Button StartButton { get; private set; }
+        [field: SerializeField] public Button SettingButton { get; private set; }
+        [field: SerializeField] public Button QuitButton { get; private set; }
+        [field: SerializeField] public CanvasGroup CanvasGroup { get; private set; }
 
         public void RequireIsInitialized()
         {
@@ -40,31 +32,31 @@ namespace ZiercCode.Test.MVC
             {
                 _context = context;
 
-                onStartButtonPressed = new UnityEvent();
-                onSettingsButtonPressed = new UnityEvent();
-                onQuitButtonPressed = new UnityEvent();
+                // onStartButtonPressed = new UnityEvent();
+                // onSettingsButtonPressed = new UnityEvent();
+                // onQuitButtonPressed = new UnityEvent();
 
-                startButton.onClick.AddListener(PressStartButton);
-                settingsButton.onClick.AddListener(PressSettingsButton);
-                quitButton.onClick.AddListener(PressQuitButton);
+                // startButton.onClick.AddListener(PressStartButton);
+                // settingsButton.onClick.AddListener(PressSettingsButton);
+                // quitButton.onClick.AddListener(PressQuitButton);
 
                 _isInitialized = true;
             }
         }
-
-        private void PressStartButton()
-        {
-            onStartButtonPressed?.Invoke();
-        }
-
-        private void PressSettingsButton()
-        {
-            onSettingsButtonPressed?.Invoke();
-        }
-
-        private void PressQuitButton()
-        {
-            onQuitButtonPressed?.Invoke();
-        }
+        //
+        // private void PressStartButton()
+        // {
+        //     onStartButtonPressed?.Invoke();
+        // }
+        //
+        // private void PressSettingsButton()
+        // {
+        //     onSettingsButtonPressed?.Invoke();
+        // }
+        //
+        // private void PressQuitButton()
+        // {
+        //     onQuitButtonPressed?.Invoke();
+        // }
     }
 }

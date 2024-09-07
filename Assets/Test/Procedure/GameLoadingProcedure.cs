@@ -1,12 +1,11 @@
-using UnityEngine;
-using UnityEngine.ResourceManagement.AsyncOperations;
+﻿using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
-using ZiercCode.Test.Procedure;
+using ZiercCode.Test.RuntimeData;
 using ZiercCode.Test.Scene;
 
-namespace ZiercCode
+namespace ZiercCode.Test.Procedure
 {
-    public class GameChangingSceneProcedure : ProcedureBase
+    public class GameLoadingProcedure : ProcedureBase
     {
         private AsyncOperationHandle<SceneInstance> _loadingOperation;
 
@@ -14,13 +13,8 @@ namespace ZiercCode
         {
             base.OnEnter();
 
-            Debug.Log("进入场景转换流程");
-
-            //卸载所有场景
-            ZiercScene.UnloadAllActiveScene();
-
-            //进入加载场景
-            _loadingOperation = ZiercScene.LoadScene("LoadingScene");
+            //加载目标场景
+            _loadingOperation = ZiercScene.LoadScene(GlobalData.nextSceneName);
         }
 
         public override void OnUpdate()
@@ -29,13 +23,16 @@ namespace ZiercCode
 
             if (_loadingOperation.IsDone)
             {
-                StateMachine.ChangeState<GamePreloadAssetsProcedure>();
+                StateMachine.ChangeState(GlobalData.nextSceneProcedureType);
             }
         }
 
         public override void OnExit()
         {
             base.OnExit();
+
+            //卸载加载场景
+            ZiercScene.UnloadScene("LoadingScene");
         }
     }
 }

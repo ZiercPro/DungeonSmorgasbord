@@ -47,7 +47,7 @@ namespace ZiercCode.Test.MVC
                 _settingsView.MusicVolume.onValueChanged.AddListener(View_OnMusicVolumeChange);
                 _settingsView.SfxVolume.onValueChanged.AddListener(View_OnSfxVolumeChange);
                 _settingsView.EnvironmentVolume.onValueChanged.AddListener(View_OnEnvironmentVolumeChange);
-                _settingsView.LanguageDropDown.onValueChanged.AddListener(View_OnLanguageEnumChange);
+                _settingsView.LanguageDropdown.onValueChanged.AddListener(View_OnLanguageEnumChange);
                 _settingsView.Fps.onValueChanged.AddListener(View_OnFpsChange);
 
 
@@ -103,9 +103,9 @@ namespace ZiercCode.Test.MVC
             _settingsModel.OtherPanelToggle.Value = false;
             _settingsModel.LanguagePanelToggle.Value = false;
 
-            _settingsView.VolumePanel.gameObject.SetActive(true);
-            _settingsView.OtherPanel.gameObject.SetActive(false);
-            _settingsView.LanguagePanel.gameObject.SetActive(false);
+            _settingsView.VolumeSettings.gameObject.SetActive(true);
+            _settingsView.OtherSettings.gameObject.SetActive(false);
+            _settingsView.LanguageSettings.gameObject.SetActive(false);
         }
 
         private void Model_OnFpsToggleChange(bool s)
@@ -115,17 +115,17 @@ namespace ZiercCode.Test.MVC
 
         private void Model_OnVolumeToggleChange(bool s)
         {
-            _settingsView.VolumePanel.gameObject.SetActive(s);
+            _settingsView.VolumeSettings.gameObject.SetActive(s);
         }
 
         private void Model_OnOtherToggleChange(bool s)
         {
-            _settingsView.OtherPanel.gameObject.SetActive(s);
+            _settingsView.OtherSettings.gameObject.SetActive(s);
         }
 
         private void Model_OnLanguageToggleChange(bool s)
         {
-            _settingsView.LanguagePanel.gameObject.SetActive(s);
+            _settingsView.LanguageSettings.gameObject.SetActive(s);
         }
 
         private void View_OnVolumeTogglePressed(bool s)

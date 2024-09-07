@@ -12,7 +12,6 @@ namespace ZiercCode.Test.Procedure
 
             Debug.Log("进入游戏场景");
 
-            ZiercScene.LoadScene("GameScene");
             AudioPlayer.Instance.PlayMusic("IdleBgm");
         }
 

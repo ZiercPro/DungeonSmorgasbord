@@ -76,11 +76,6 @@ namespace ZiercCode.Test.Resources
 
             foreach (var handle in _loadedAssetsHandles)
             {
-                foreach (var obj in handle.Result)
-                {
-                    Debug.Log(obj.name);
-                }
-
                 Addressables.Release(handle);
             }
         }

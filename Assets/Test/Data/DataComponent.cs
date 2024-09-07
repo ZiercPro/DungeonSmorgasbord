@@ -24,7 +24,7 @@ namespace ZiercCode.Test.Data
             catch (Exception e)
             {
                 _jsonDataService.SaveData(Settings.SETTING_DATA_PATH, new Settings(), false);
-                Debug.LogWarning("无法获取设置数据，将重新生成");
+                Debug.LogWarning($"无法获取设置数据，将重新生成。{e.Message},{e.StackTrace}");
             }
         }
     }

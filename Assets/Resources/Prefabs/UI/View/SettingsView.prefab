@@ -2228,7 +2228,7 @@ RectTransform:
   m_Father: {fileID: 3940576479240577415}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 25.000002, y: 0}
   m_SizeDelta: {x: 69.99999, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2460,21 +2460,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3979ed1e5c6c4e07bcc3a6ed0a2e0078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 643821050206997684}
-  volumePanelToggle: {fileID: 8914350766758091863}
-  otherPanelToggle: {fileID: 2157166952413552129}
-  languagePanelToggle: {fileID: 4721576095465022382}
-  volumeSettings: {fileID: 6323613917241795940}
-  otherSettings: {fileID: 444332717771174564}
-  languageSettings: {fileID: 8792044018108416718}
-  backButton: {fileID: 3854061362482011894}
-  saveButton: {fileID: 493444367927381561}
-  masterVolume: {fileID: 1500293970196518308}
-  musicVolume: {fileID: 5060840820750386670}
-  sfxVolume: {fileID: 6444682180330549972}
-  environmentVolume: {fileID: 5216491069794056264}
-  fps: {fileID: 2300699145844300578}
-  languageDropdown: {fileID: 3814660113190396963}
+  <CanvasGroup>k__BackingField: {fileID: 643821050206997684}
+  <VolumePanelToggle>k__BackingField: {fileID: 8914350766758091863}
+  <OtherPanelToggle>k__BackingField: {fileID: 2157166952413552129}
+  <LanguagePanelToggle>k__BackingField: {fileID: 4721576095465022382}
+  <VolumeSettings>k__BackingField: {fileID: 6323613917241795940}
+  <OtherSettings>k__BackingField: {fileID: 444332717771174564}
+  <LanguageSettings>k__BackingField: {fileID: 8792044018108416718}
+  <BackButton>k__BackingField: {fileID: 3854061362482011894}
+  <SaveButton>k__BackingField: {fileID: 493444367927381561}
+  <MasterVolume>k__BackingField: {fileID: 1500293970196518308}
+  <MusicVolume>k__BackingField: {fileID: 5060840820750386670}
+  <SfxVolume>k__BackingField: {fileID: 6444682180330549972}
+  <EnvironmentVolume>k__BackingField: {fileID: 5216491069794056264}
+  <Fps>k__BackingField: {fileID: 2300699145844300578}
+  <LanguageDropdown>k__BackingField: {fileID: 3814660113190396963}
 --- !u!1 &4499660734490103804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2568,7 +2568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7336403850414449196
 RectTransform:
   m_ObjectHideFlags: 0

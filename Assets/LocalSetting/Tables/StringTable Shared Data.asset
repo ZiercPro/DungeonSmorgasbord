@@ -151,6 +151,14 @@ MonoBehaviour:
     m_Key: SaveButton
     m_Metadata:
       m_Items: []
+  - m_Id: 83805139079008256
+    m_Key: Element
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83805454624886784
+    m_Key: CurrentPosition
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

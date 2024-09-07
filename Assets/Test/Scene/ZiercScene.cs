@@ -9,34 +9,29 @@ namespace ZiercCode.Test.Scene
 {
     public static class ZiercScene
     {
-        private static readonly Dictionary<string, UnityEngine.SceneManagement.Scene> _activeScene =
-            new Dictionary<string, UnityEngine.SceneManagement.Scene>();
+        private static readonly Dictionary<string, SceneInstance> _activeScene =
+            new Dictionary<string, SceneInstance>();
 
         public static int ActiveSceneCount => _activeScene.Count;
-
-        public static AsyncOperationHandle<SceneInstance> LoadSceneAsset(string sceneName)
-        {
-            AsyncOperationHandle<SceneInstance> handle = Addressables.LoadSceneAsync(sceneName);
-            return handle;
-        }
 
         public static void UnloadScene(SceneInstance scene)
         {
             Addressables.UnloadSceneAsync(scene);
         }
 
-        public static AsyncOperation LoadScene(string sceneName)
+        public static AsyncOperationHandle<SceneInstance> LoadScene(string sceneName)
         {
-            AsyncOperation load = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-            load.completed += op =>
+            AsyncOperationHandle<SceneInstance> loadOperation =
+                Addressables.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+            loadOperation.Completed += op =>
             {
-                UnityEngine.SceneManagement.Scene newS = SceneManager.GetSceneByName(sceneName);
-                _activeScene.Add(sceneName, newS);
+                _activeScene.Add(sceneName, op.Result);
             };
-            return load;
+
+            return loadOperation;
         }
 
-        public static AsyncOperation UnLoadScene(string sceneName)
+        public static AsyncOperation UnloadScene(string sceneName)
         {
             AsyncOperation unLoad;
             if (_activeScene.ContainsKey(sceneName))
@@ -62,7 +57,7 @@ namespace ZiercCode.Test.Scene
             {
                 foreach (var kv in _activeScene)
                 {
-                    UnLoadScene(kv.Key);
+                    UnloadScene(kv.Value);
                 }
             }
         }

@@ -10,50 +10,27 @@ namespace ZiercCode.Test.MVC
 {
     public class SettingsView : MonoBehaviour, IView
     {
-        [SerializeField] private CanvasGroup canvasGroup;
+        [field: SerializeField] public CanvasGroup CanvasGroup { get; private set; }
 
-        [SerializeField] private Toggle volumePanelToggle;
-        [SerializeField] private Toggle otherPanelToggle;
-        [SerializeField] private Toggle languagePanelToggle;
+        [field: SerializeField] public Toggle VolumePanelToggle { get; private set; }
+        [field: SerializeField] public Toggle OtherPanelToggle { get; private set; }
+        [field: SerializeField] public Toggle LanguagePanelToggle { get; private set; }
 
-        [SerializeField] private RectTransform volumeSettings;
-        [SerializeField] private RectTransform otherSettings;
-        [SerializeField] private RectTransform languageSettings;
+        [field: SerializeField] public RectTransform VolumeSettings { get; private set; }
+        [field: SerializeField] public RectTransform OtherSettings { get; private set; }
+        [field: SerializeField] public RectTransform LanguageSettings { get; private set; }
 
-        [SerializeField] private Button backButton;
-        [SerializeField] private Button saveButton;
+        [field: SerializeField] public Button BackButton { get; private set; }
+        [field: SerializeField] public Button SaveButton { get; private set; }
 
-        [SerializeField] private Slider masterVolume;
-        [SerializeField] private Slider musicVolume;
-        [SerializeField] private Slider sfxVolume;
-        [SerializeField] private Slider environmentVolume;
+        [field: SerializeField] public Slider MasterVolume { get; private set; }
+        [field: SerializeField] public Slider MusicVolume { get; private set; }
+        [field: SerializeField] public Slider SfxVolume { get; private set; }
+        [field: SerializeField] public Slider EnvironmentVolume { get; private set; }
 
-        [SerializeField] private Toggle fps;
+        [field: SerializeField] public Toggle Fps { get; private set; }
 
-        [SerializeField] private TMP_Dropdown languageDropdown;
-
-
-        public Button BackButton => backButton;
-        public Button SaveButton => saveButton;
-
-        public Toggle VolumePanelToggle => volumePanelToggle;
-        public Toggle OtherPanelToggle => otherPanelToggle;
-        public Toggle LanguagePanelToggle => languagePanelToggle;
-
-        public Toggle Fps => fps;
-
-        public TMP_Dropdown LanguageDropDown => languageDropdown;
-
-        public RectTransform VolumePanel => volumeSettings;
-        public RectTransform OtherPanel => otherSettings;
-        public RectTransform LanguagePanel => languageSettings;
-
-        public Slider MasterVolume => masterVolume;
-        public Slider MusicVolume => musicVolume;
-        public Slider SfxVolume => sfxVolume;
-        public Slider EnvironmentVolume => environmentVolume;
-
-        public CanvasGroup CanvasGroup => canvasGroup;
+        [field: SerializeField] public TMP_Dropdown LanguageDropdown { get; private set; }
 
         public void RequireIsInitialized()
         {
@@ -92,15 +69,15 @@ namespace ZiercCode.Test.MVC
 
         private void OnFpsToggleChange(bool s)
         {
-            fps.isOn = s;
+            Fps.isOn = s;
         }
 
         private void OnLanguageChange(LanguageEnum languageEnum)
         {
             int languageIndex = (int)languageEnum;
-            if (languageDropdown.options.Count > languageIndex)
+            if (LanguageDropdown.options.Count > languageIndex)
             {
-                languageDropdown.value = languageIndex;
+                LanguageDropdown.value = languageIndex;
             }
             else
             {
@@ -110,37 +87,37 @@ namespace ZiercCode.Test.MVC
 
         private void OnMasterVolumeChange(float value)
         {
-            masterVolume.value = value;
+            MasterVolume.value = value;
         }
 
         private void OnMusicVolumeChange(float value)
         {
-            musicVolume.value = value;
+            MusicVolume.value = value;
         }
 
         private void OnSfxVolumeChange(float value)
         {
-            sfxVolume.value = value;
+            SfxVolume.value = value;
         }
 
         private void OnEnvironmentVolumeChange(float value)
         {
-            environmentVolume.value = value;
+            EnvironmentVolume.value = value;
         }
 
         private void OnVolumeToggleChange(bool s)
         {
-            volumePanelToggle.isOn = s;
+            VolumePanelToggle.isOn = s;
         }
 
         private void OnOtherToggleChange(bool s)
         {
-            otherPanelToggle.isOn = s;
+            OtherPanelToggle.isOn = s;
         }
 
         private void OnLanguageToggleChange(bool s)
         {
-            languagePanelToggle.isOn = s;
+            LanguagePanelToggle.isOn = s;
         }
     }
 }

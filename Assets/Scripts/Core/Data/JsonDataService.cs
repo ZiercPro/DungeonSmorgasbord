@@ -29,7 +29,6 @@ namespace ZiercCode.Core.Data
 
                 using FileStream fileStream = File.Create(path); //使用using可以自动释放资源 不需要在finally中手动释放filestream
                 fileStream.Close();
-                AssetDatabase.Refresh(); //刷新
                 File.WriteAllText(path, JsonConvert.SerializeObject(data));
                 return true;
             }
