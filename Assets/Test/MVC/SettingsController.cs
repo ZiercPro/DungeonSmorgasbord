@@ -1,23 +1,19 @@
 ﻿using RMC.Core.Architectures.Mini.Context;
 using RMC.Core.Architectures.Mini.Controller;
+using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.Locale;
 using ZiercCode.Old.Audio;
+using ZiercCode.Test.Base;
+using ZiercCode.Test.Locale;
 
 namespace ZiercCode.Test.MVC
 {
     public class SettingsController : BaseController<SettingsModel, SettingsView, SettingsService>
     {
-        private readonly SettingsView _settingsView;
-        private readonly SettingsModel _settingsModel;
-        private readonly SettingsService _settingsService;
-
         public SettingsController(SettingsModel settingsModel,
             SettingsView settingsView,
             SettingsService settingsService) : base(settingsModel, settingsView, settingsService)
         {
-            _settingsView = settingsView;
-            _settingsModel = settingsModel;
-            _settingsService = settingsService;
         }
 
         public override void Initialize(IContext context)
@@ -26,121 +22,177 @@ namespace ZiercCode.Test.MVC
             {
                 base.Initialize(context);
 
-                _settingsView.BackButton.onClick.AddListener(OnBackButtonPressed);
-                _settingsView.SaveButton.onClick.AddListener(OnSaveButtonPressed);
+                _view.BackButton.onClick.AddListener(OnBackButtonPressed);
+                _view.SaveButton.onClick.AddListener(OnSaveButtonPressed);
 
-                _settingsModel.MasterVolume.AddListener(Model_OnMasterVolumeChange);
-                _settingsModel.MusicVolume.AddListener(Model_OnMusicVolumeChange);
-                _settingsModel.SfxVolume.AddListener(Model_OnSfxVolumeChange);
-                _settingsModel.EnvironmentVolume.AddListener(Model_OnEnvironmentVolumeChange);
-                _settingsModel.VolumePanelToggle.AddListener(Model_OnVolumeToggleChange);
-                _settingsModel.OtherPanelToggle.AddListener(Model_OnOtherToggleChange);
-                _settingsModel.LanguagePanelToggle.AddListener(Model_OnLanguageToggleChange);
-                _settingsModel.LanguageEnum.AddListener(Model_OnLanguageEnumChange);
-                _settingsModel.FpsToggle.AddListener(Model_OnFpsToggleChange);
+                _view.settingsChanged.AddListener(Model_OnSettingsValueStateChange);
 
-
-                _settingsView.VolumePanelToggle.onValueChanged.AddListener(View_OnVolumeTogglePressed);
-                _settingsView.OtherPanelToggle.onValueChanged.AddListener(View_OnOtherTogglePressed);
-                _settingsView.LanguagePanelToggle.onValueChanged.AddListener(View_OnLanguageTogglePressed);
-                _settingsView.MasterVolume.onValueChanged.AddListener(View_OnMasterVolumeChange);
-                _settingsView.MusicVolume.onValueChanged.AddListener(View_OnMusicVolumeChange);
-                _settingsView.SfxVolume.onValueChanged.AddListener(View_OnSfxVolumeChange);
-                _settingsView.EnvironmentVolume.onValueChanged.AddListener(View_OnEnvironmentVolumeChange);
-                _settingsView.LanguageDropdown.onValueChanged.AddListener(View_OnLanguageEnumChange);
-                _settingsView.Fps.onValueChanged.AddListener(View_OnFpsChange);
+                _model.MasterVolume.AddListener(Model_OnMasterVolumeChange);
+                _model.MusicVolume.AddListener(Model_OnMusicVolumeChange);
+                _model.SfxVolume.AddListener(Model_OnSfxVolumeChange);
+                _model.EnvironmentVolume.AddListener(Model_OnEnvironmentVolumeChange);
+                _model.VolumePanelToggle.AddListener(Model_OnVolumeToggleChange);
+                _model.OtherPanelToggle.AddListener(Model_OnOtherToggleChange);
+                _model.LanguagePanelToggle.AddListener(Model_OnLanguageToggleChange);
+                _model.LanguageEnum.AddListener(Model_OnLanguageEnumChange);
+                _model.FpsToggle.AddListener(Model_OnFpsToggleChange);
 
 
-                Context.CommandManager.AddCommandListener<EnterSettingsCommand>(OnEnterSettingsCommand);
-                Context.CommandManager.AddCommandListener<EnterMainMenuCommand>(OnEnterMainMenuCommand);
+                _view.VolumePanelToggle.onValueChanged.AddListener(View_OnVolumeTogglePressed);
+                _view.OtherPanelToggle.onValueChanged.AddListener(View_OnOtherTogglePressed);
+                _view.LanguagePanelToggle.onValueChanged.AddListener(View_OnLanguageTogglePressed);
+                _view.MasterVolume.onValueChanged.AddListener(View_OnMasterVolumeChange);
+                _view.MusicVolume.onValueChanged.AddListener(View_OnMusicVolumeChange);
+                _view.SfxVolume.onValueChanged.AddListener(View_OnSfxVolumeChange);
+                _view.EnvironmentVolume.onValueChanged.AddListener(View_OnEnvironmentVolumeChange);
+                _view.LanguageDropdown.onValueChanged.AddListener(View_OnLanguageEnumChange);
+                _view.Fps.onValueChanged.AddListener(View_OnFpsChange);
 
-                _settingsService.Load();
+
+                Context.CommandManager.AddCommandListener<OpenSettingsCommand>(OnEnterSettingsCommand);
+                Context.CommandManager.AddCommandListener<OpenMainMenuCommand>(OnEnterMainMenuCommand);
             }
         }
 
-        private void OnEnterSettingsCommand(EnterSettingsCommand enterSettingsCommand)
+        private void OnEnterSettingsCommand(OpenSettingsCommand openSettingsCommand)
         {
             ShowView();
+
+            Enable();
 
             InitializeChildView();
         }
 
-        private void OnEnterMainMenuCommand(EnterMainMenuCommand enterMainMenuCommand)
+        private void OnEnterMainMenuCommand(OpenMainMenuCommand openMainMenuCommand)
         {
+            Disable();
             HideView();
         }
 
         private void OnBackButtonPressed()
         {
-            HideView();
-            Context.CommandManager.InvokeCommand(new EnterMainMenuCommand());
+            if (!_view.settingsChanged.Value)
+            {
+                Disable();
+                HideView();
+                Context.CommandManager.InvokeCommand(new OpenMainMenuCommand());
+            }
+            else
+            {
+                string message = GameEntry.GetComponent<LocalizationComponent>().GetText("100");
+
+                void ConfirmAction()
+                {
+                    _service.Save();
+                    Context.CommandManager.InvokeCommand(new OpenMainMenuCommand());
+                }
+
+                void CancelAction()
+                {
+                    Enable();
+                }
+
+                //弹窗提示没有保存
+                Context.CommandManager.InvokeCommand(new OpenCheckBoxCommand()
+                {
+                    Message = message, ConfirmCallback = ConfirmAction, CancelCallback = CancelAction
+                });
+
+                Debug.Log("没有保存设置");
+                //禁用界面
+                Disable();
+            }
         }
 
         private void OnSaveButtonPressed()
         {
-            _settingsService.Save();
+            _service.Save();
+        }
+
+        private void Enable()
+        {
+            _view.CanvasGroup.blocksRaycasts = true;
+            _view.CanvasGroup.interactable = true;
+            _view.CanvasGroup.alpha = 1;
+        }
+
+        private void Disable()
+        {
+            _view.CanvasGroup.blocksRaycasts = false;
+            _view.CanvasGroup.interactable = false;
+            _view.CanvasGroup.alpha = 0.3f;
         }
 
         private void HideView()
         {
-            _settingsView.CanvasGroup.blocksRaycasts = false;
-            _settingsView.CanvasGroup.interactable = false;
-            _settingsView.CanvasGroup.alpha = 0;
-            _settingsView.gameObject.SetActive(false);
+            _view.gameObject.SetActive(false);
         }
 
         private void ShowView()
         {
-            _settingsView.gameObject.SetActive(true);
-            _settingsView.CanvasGroup.blocksRaycasts = true;
-            _settingsView.CanvasGroup.interactable = true;
-            _settingsView.CanvasGroup.alpha = 1;
+            _view.gameObject.SetActive(true);
         }
 
         private void InitializeChildView()
         {
-            _settingsModel.VolumePanelToggle.Value = true;
-            _settingsModel.OtherPanelToggle.Value = false;
-            _settingsModel.LanguagePanelToggle.Value = false;
+            _model.VolumePanelToggle.Value = true;
+            _model.OtherPanelToggle.Value = false;
+            _model.LanguagePanelToggle.Value = false;
 
-            _settingsView.VolumeSettings.gameObject.SetActive(true);
-            _settingsView.OtherSettings.gameObject.SetActive(false);
-            _settingsView.LanguageSettings.gameObject.SetActive(false);
+            _view.VolumeSettings.gameObject.SetActive(true);
+            _view.OtherSettings.gameObject.SetActive(false);
+            _view.LanguageSettings.gameObject.SetActive(false);
+
+            _service.Load();
+        }
+
+        private void Model_OnSettingsValueStateChange(bool s)
+        {
+            if (s)
+            {
+                //启用保存按钮
+                Debug.Log("设置修改");
+            }
+            else
+            {
+                //禁用保存按钮
+                Debug.Log("设置保存");
+            }
         }
 
         private void Model_OnFpsToggleChange(bool s)
         {
-            _settingsView.Fps.isOn = s;
+            _view.Fps.isOn = s;
         }
 
         private void Model_OnVolumeToggleChange(bool s)
         {
-            _settingsView.VolumeSettings.gameObject.SetActive(s);
+            _view.VolumeSettings.gameObject.SetActive(s);
         }
 
         private void Model_OnOtherToggleChange(bool s)
         {
-            _settingsView.OtherSettings.gameObject.SetActive(s);
+            _view.OtherSettings.gameObject.SetActive(s);
         }
 
         private void Model_OnLanguageToggleChange(bool s)
         {
-            _settingsView.LanguageSettings.gameObject.SetActive(s);
+            _view.LanguageSettings.gameObject.SetActive(s);
         }
 
         private void View_OnVolumeTogglePressed(bool s)
         {
-            _settingsModel.VolumePanelToggle.Value = s;
+            _model.VolumePanelToggle.Value = s;
         }
 
         private void View_OnOtherTogglePressed(bool s)
         {
-            _settingsModel.OtherPanelToggle.Value = s;
+            _model.OtherPanelToggle.Value = s;
         }
 
         private void View_OnLanguageTogglePressed(bool s)
         {
-            _settingsModel.LanguagePanelToggle.Value = s;
+            _model.LanguagePanelToggle.Value = s;
         }
 
         private void Model_OnMasterVolumeChange(float value)
@@ -165,37 +217,37 @@ namespace ZiercCode.Test.MVC
 
         private void View_OnMasterVolumeChange(float value)
         {
-            _settingsModel.MasterVolume.Value = value;
+            _model.MasterVolume.Value = value;
         }
 
         private void View_OnMusicVolumeChange(float value)
         {
-            _settingsModel.MusicVolume.Value = value;
+            _model.MusicVolume.Value = value;
         }
 
         private void View_OnSfxVolumeChange(float value)
         {
-            _settingsModel.SfxVolume.Value = value;
+            _model.SfxVolume.Value = value;
         }
 
         private void View_OnEnvironmentVolumeChange(float value)
         {
-            _settingsModel.EnvironmentVolume.Value = value;
+            _model.EnvironmentVolume.Value = value;
         }
 
         private void Model_OnLanguageEnumChange(LanguageEnum languageEnum)
         {
-            LocaleManager.Instance.SetLanguage(languageEnum);
+            GameEntry.GetComponent<LocalizationComponent>().SetLanguage(languageEnum);
         }
 
         private void View_OnLanguageEnumChange(int languageIndex)
         {
-            _settingsModel.LanguageEnum.Value = (LanguageEnum)languageIndex;
+            _model.LanguageEnum.Value = (LanguageEnum)languageIndex;
         }
 
         private void View_OnFpsChange(bool s)
         {
-            _settingsModel.FpsToggle.Value = s;
+            _model.FpsToggle.Value = s;
         }
     }
 }

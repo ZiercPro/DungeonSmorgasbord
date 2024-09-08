@@ -205,6 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customTextDataSoList:
   - {fileID: 11400000, guid: aa98dd51a48a7b043987d09e4f57de92, type: 2}
+  - {fileID: 11400000, guid: 93b9262f8cc4e6a4b82fee8a1033c2aa, type: 2}
 --- !u!1 &365952386
 GameObject:
   m_ObjectHideFlags: 0

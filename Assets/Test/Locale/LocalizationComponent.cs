@@ -56,8 +56,6 @@ namespace ZiercCode.Test.Locale
         /// <returns>文本</returns>
         public string GetText(string itemId)
         {
-            int languageIDd = GetSelectedLanguageID();
-
             if (_customTextData.TryGetValue(itemId, out CustomTextTable customT))
             {
                 switch (_currentLanguage)

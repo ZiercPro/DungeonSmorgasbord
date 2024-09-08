@@ -5,61 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd36c1ef-bee6-41a4-b2ce-922eadf5c2c5" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.plastic/plastic.changes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/GameView.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/GameView.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/UIMini.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/UIMini.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/GameController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/GameController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/GameModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/GameModel.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/GameView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/GameView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GameLoadingProcedure.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GameLoadingProcedure.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/CheckBox.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/CheckBox.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Setting/MessageTextTable.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Setting/MessageTextTable.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/CheckBoxController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/CheckBoxController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/CheckBoxModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/CheckBoxModel.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/CheckBoxView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/CheckBoxView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Test/MVC/Command/OpenCheckBoxCommand.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Dungeon smorgasbord/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.plastic/plastic.wktree" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.wktree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/DefaultGroup.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/DefaultGroup.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Font/TMP/LanaPixel SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Font/TMP/LanaPixel SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Graphics/UI/Health&amp;Stamina/Silver/Border.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/UI/Health&amp;Stamina/Silver/Border.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/Panel/GameMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/Panel/GameMenu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LocalSetting/Tables/StringTable Shared Data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LocalSetting/Tables/StringTable Shared Data.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LocalSetting/Tables/StringTable_en.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LocalSetting/Tables/StringTable_en.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/LocalSetting/Tables/StringTable_zh-Hans.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/LocalSetting/Tables/StringTable_zh-Hans.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/MainMenuView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/MainMenuView.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/SettingsView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/SettingsView.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/UIMini.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/UI/View/UIMini.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Setting/CardTextTable.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/ScriptObjects/Setting/CardTextTable.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameStart.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameStart.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LoadingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LoadingScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenuScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenuScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Data/JsonDataService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Data/JsonDataService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Config.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Config/ConfigComponent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Config/ConfigComponent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/Helper/FPSCalculator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/Helper/FPSCalculator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Old/ScriptObject/CustomTextDataSo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Old/ScriptObject/CustomTextDataSo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/Data/DataComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Data/DataComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Editor/ProcedureComponentInspector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Editor/ProcedureComponentInspector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Event/ChangeSceneEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Event/SceneEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Event/ChangeSceneEvent.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Event/SceneEvent.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/Data/Settings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Data/Settings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/Locale/LocalizationComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Locale/LocalizationComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/Command/EnterGameCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/Command/OpenCheckBoxCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/Command/EnterGameCommand.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/Command/EnterMainMenuCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/Command/OpenMainMenuCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/Command/EnterMainMenuCommand.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/Command/OpenMainMenuCommand.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/Command/EnterSettingsCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/Command/OpenSettingsCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/Command/EnterSettingsCommand.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/Command/OpenSettingsCommand.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/GameController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/GameView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/GameView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/MainMenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/MainMenuController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/MainMenuView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/MainMenuView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/SettingsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/SettingsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/SettingsModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/SettingsModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/SettingsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/SettingsService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/SettingsView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/SettingsView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/MVC/UiMini.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/MVC/UiMini.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/ObserverValue.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/ObserverValue/ObserverValue.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Utility/ObserverValue.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/ObserverValue/ObserverValue.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Utility/ObserverValue.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Procedure/GameChangingSceneProcedure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GameChangingSceneProcedure.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Test/Procedure/GameLaunchProcedure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GameLaunchProcedure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Procedure/GameMainMenuProcedure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GameMainMenuProcedure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Procedure/GamePlayProcedure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GamePlayProcedure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Procedure/GamePreloadProcedure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GamePreloadAssetsProcedure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Procedure/GamePreloadProcedure.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Procedure/GamePreloadAssetsProcedure.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Resources/ResourceComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Resources/ResourceComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/RuntimeData/GlobalData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/RuntimeData/GlobalData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Scene/ZiercScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Test/Scene/ZiercScene.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Utility/ZiercJsonService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Test/Utility/ZiercJsonService.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +60,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/06/c0447a73/UnityEvent`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/30adf90198bc4c4b83910c6fb1877998174000/21/9067b170/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/c3/c5e0c2dd/Dictionary`2.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/fa/e097f83e/Boolean.cs" root0="FORCE_HIGHLIGHTING" />
@@ -90,6 +81,8 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.rmc.rmc-mini-mvcs@211f18e09b/RMC Mini MVCS/Runtime/RMC/Core/Architectures/Mini/Controller/BaseController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.rmc.rmc-mini-mvcs@211f18e09b/RMC Mini MVCS/Runtime/RMC/Core/Architectures/Mini/Controller/Commands/BaseCompoundExecutableCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.rmc.rmc-mini-mvcs@211f18e09b/RMC Mini MVCS/Runtime/RMC/Core/Architectures/Mini/Controller/Commands/ICommandManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.rmc.rmc-mini-mvcs@211f18e09b/RMC Mini MVCS/Runtime/RMC/Core/Architectures/Mini/Model/BaseModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.rmc.rmc-mini-mvcs@211f18e09b/RMC Mini MVCS/Runtime/RMC/Core/Architectures/Mini/Model/IModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.rmc.rmc-mini-mvcs@211f18e09b/RMC Mini MVCS/Runtime/RMC/Core/Architectures/Mini/Service/BaseService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.rmc.rmc-mini-mvcs@211f18e09b/RMC Mini MVCS/Runtime/RMC/Core/Architectures/Mini/View/IView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.addressables@1.21.19/Editor/Settings/AddressableAssetEntry.cs" root0="SKIP_HIGHLIGHTING" />
@@ -405,7 +398,8 @@
       <workItem from="1725606237571" duration="4738000" />
       <workItem from="1725628816066" duration="9610000" />
       <workItem from="1725676287763" duration="9668000" />
-      <workItem from="1725724379108" duration="4358000" />
+      <workItem from="1725724379108" duration="4963000" />
+      <workItem from="1725762551628" duration="14251000" />
     </task>
     <servers />
   </component>

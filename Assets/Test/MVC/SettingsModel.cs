@@ -1,4 +1,5 @@
 ﻿using RMC.Core.Architectures.Mini.Model;
+using UnityEngine.Events;
 using ZiercCode.DungeonSmorgasbord.Locale;
 using ZiercCode.Test.ObserverValue;
 
@@ -19,6 +20,7 @@ namespace ZiercCode.Test.MVC
         public readonly ObserverValue<float> SfxVolume;
         public readonly ObserverValue<float> EnvironmentVolume;
 
+
         public SettingsModel()
         {
             FpsToggle = new ObserverValue<bool>(false);
@@ -32,6 +34,10 @@ namespace ZiercCode.Test.MVC
             MusicVolume = new ObserverValue<float>(0f);
             SfxVolume = new ObserverValue<float>(0f);
             EnvironmentVolume = new ObserverValue<float>(0f);
+            
         }
+
+      
+        
     }
 }

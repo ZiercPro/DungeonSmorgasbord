@@ -3,7 +3,7 @@ using ZiercCode.Test.Reference;
 
 namespace ZiercCode.Test.MVC
 {
-    public class EnterSettingsCommand : ICommand, IReference
+    public class OpenMainMenuCommand : ICommand, IReference
     {
         public void OnSpawn()
         {

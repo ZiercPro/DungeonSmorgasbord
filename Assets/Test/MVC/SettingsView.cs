@@ -3,45 +3,64 @@ using RMC.Core.Architectures.Mini.View;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using ZiercCode.DungeonSmorgasbord.Locale;
+using ZiercCode.Test.ObserverValue;
 
 namespace ZiercCode.Test.MVC
 {
     public class SettingsView : MonoBehaviour, IView
     {
-        [field: SerializeField] public CanvasGroup CanvasGroup { get; private set; }
+        public ObserverValue<bool> settingsChanged;
+        public bool IsInitialized => _isInitialize;
+        public IContext Context => _context;
 
+        private bool _isInitialize;
+        private IContext _context;
+
+        [field: SerializeField] public CanvasGroup CanvasGroup { get; private set; }
         [field: SerializeField] public Toggle VolumePanelToggle { get; private set; }
         [field: SerializeField] public Toggle OtherPanelToggle { get; private set; }
         [field: SerializeField] public Toggle LanguagePanelToggle { get; private set; }
-
         [field: SerializeField] public RectTransform VolumeSettings { get; private set; }
         [field: SerializeField] public RectTransform OtherSettings { get; private set; }
         [field: SerializeField] public RectTransform LanguageSettings { get; private set; }
-
         [field: SerializeField] public Button BackButton { get; private set; }
         [field: SerializeField] public Button SaveButton { get; private set; }
-
         [field: SerializeField] public Slider MasterVolume { get; private set; }
         [field: SerializeField] public Slider MusicVolume { get; private set; }
         [field: SerializeField] public Slider SfxVolume { get; private set; }
         [field: SerializeField] public Slider EnvironmentVolume { get; private set; }
-
         [field: SerializeField] public Toggle Fps { get; private set; }
-
         [field: SerializeField] public TMP_Dropdown LanguageDropdown { get; private set; }
+
 
         public void RequireIsInitialized()
         {
             if (_isInitialize) Debug.LogWarning($"{name}需要实例化");
         }
 
-        public bool IsInitialized => _isInitialize;
-        public IContext Context => _context;
+        private void OnEnable()
+        {
+            MasterVolume.onValueChanged.AddListener(OnAnyValueChange);
+            MusicVolume.onValueChanged.AddListener(OnAnyValueChange);
+            SfxVolume.onValueChanged.AddListener(OnAnyValueChange);
+            EnvironmentVolume.onValueChanged.AddListener(OnAnyValueChange);
+            Fps.onValueChanged.AddListener(OnAnyValueChange);
+            LanguageDropdown.onValueChanged.AddListener(OnAnyValueChange);
+        }
 
-        private bool _isInitialize;
-        private IContext _context;
+        private void OnDisable()
+        {
+            MasterVolume.onValueChanged.RemoveListener(OnAnyValueChange);
+            MusicVolume.onValueChanged.RemoveListener(OnAnyValueChange);
+            SfxVolume.onValueChanged.RemoveListener(OnAnyValueChange);
+            EnvironmentVolume.onValueChanged.RemoveListener(OnAnyValueChange);
+            Fps.onValueChanged.RemoveListener(OnAnyValueChange);
+            LanguageDropdown.onValueChanged.RemoveListener(OnAnyValueChange);
+        }
+
 
         public void Initialize(IContext context)
         {
@@ -50,6 +69,8 @@ namespace ZiercCode.Test.MVC
                 _context = context;
 
                 SettingsModel settingsModel = _context.ModelLocator.GetItem<SettingsModel>();
+
+                settingsChanged = new ObserverValue<bool>(false);
 
                 settingsModel.VolumePanelToggle.AddListener(OnVolumeToggleChange);
                 settingsModel.OtherPanelToggle.AddListener(OnOtherToggleChange);
@@ -65,6 +86,11 @@ namespace ZiercCode.Test.MVC
 
                 _isInitialize = true;
             }
+        }
+
+        private void OnAnyValueChange<T>(T value)
+        {
+            settingsChanged.Value = true;
         }
 
         private void OnFpsToggleChange(bool s)

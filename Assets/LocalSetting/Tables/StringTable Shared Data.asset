@@ -159,6 +159,18 @@ MonoBehaviour:
     m_Key: CurrentPosition
     m_Metadata:
       m_Items: []
+  - m_Id: 83966633410301952
+    m_Key: ConfirmButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83966780244496384
+    m_Key: CancelButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83977305930076160
+    m_Key: Message
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

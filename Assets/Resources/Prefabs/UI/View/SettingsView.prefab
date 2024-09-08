@@ -1163,8 +1163,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1580,7 +1580,6 @@ GameObject:
   - component: {fileID: 8792250978596181452}
   - component: {fileID: 493444367927381561}
   - component: {fileID: 1309271960957136981}
-  - component: {fileID: 3289233438874283177}
   - component: {fileID: 8803852352204520985}
   - component: {fileID: 5522967146050813186}
   - component: {fileID: 7507868755187689011}
@@ -1669,20 +1668,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sModifier: '-'
   textMeshProUGUI: {fileID: 339202619135998626}
---- !u!114 &3289233438874283177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3289060299355318491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f249fbb983a4642b301e90c0319873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeStrength: 0.5
-  shakeDuration: 0.5
 --- !u!114 &8803852352204520985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1700,9 +1685,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 3289233438874283177}
-          m_TargetAssemblyTypeName: ButtonShake, Assembly-CSharp
-          m_MethodName: Shake
+        - m_Target: {fileID: 1309271960957136981}
+          m_TargetAssemblyTypeName: ZiercCode.Core.Extend.UiTextChange, Assembly-CSharp
+          m_MethodName: Change
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2460,6 +2445,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3979ed1e5c6c4e07bcc3a6ed0a2e0078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settingsChanged:
+    value: 0
+    onValueChange:
+      m_PersistentCalls:
+        m_Calls: []
   <CanvasGroup>k__BackingField: {fileID: 643821050206997684}
   <VolumePanelToggle>k__BackingField: {fileID: 8914350766758091863}
   <OtherPanelToggle>k__BackingField: {fileID: 2157166952413552129}
@@ -2918,8 +2908,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3242,8 +3232,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3370,7 +3360,6 @@ GameObject:
   - component: {fileID: 506406997850913039}
   - component: {fileID: 3854061362482011894}
   - component: {fileID: 722681377090608684}
-  - component: {fileID: 8786413880395159290}
   - component: {fileID: 90721523425766506}
   - component: {fileID: 4423991247971166826}
   - component: {fileID: 1176635264834726031}
@@ -3459,20 +3448,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sModifier: '-'
   textMeshProUGUI: {fileID: 4727533268022542333}
---- !u!114 &8786413880395159290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5609037687923480754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f249fbb983a4642b301e90c0319873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeStrength: 0.5
-  shakeDuration: 0.5
 --- !u!114 &90721523425766506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3490,9 +3465,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 8786413880395159290}
-          m_TargetAssemblyTypeName: ButtonShake, Assembly-CSharp
-          m_MethodName: Shake
+        - m_Target: {fileID: 4501671264976031037}
+          m_TargetAssemblyTypeName: ZiercCode.Old.Helper.UISoundsHelper, Assembly-CSharp
+          m_MethodName: ButtonEnter
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3502,9 +3477,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 4501671264976031037}
-          m_TargetAssemblyTypeName: ZiercCode.Old.Helper.UISoundsHelper, Assembly-CSharp
-          m_MethodName: ButtonEnter
+        - m_Target: {fileID: 722681377090608684}
+          m_TargetAssemblyTypeName: ZiercCode.Core.Extend.UiTextChange, Assembly-CSharp
+          m_MethodName: Change
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -4212,8 +4187,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4346,8 +4321,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4480,8 +4455,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4614,8 +4589,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4937,8 +4912,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5625,8 +5600,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6047,8 +6022,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6295,8 +6270,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6519,8 +6494,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

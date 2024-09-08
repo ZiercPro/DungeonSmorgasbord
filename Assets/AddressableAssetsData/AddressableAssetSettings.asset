@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 44358f3b38755eb4ab6191d9495eb630
   m_currentHash:
     serializedVersion: 2
-    Hash: 84e51bbb3f5641261c8376ce8d3277db
+    Hash: a89dd95988a40c9a037c83eb3a725f4c
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -98,6 +98,8 @@ MonoBehaviour:
     - GameScene
     - MyScene
     - Locale
+    - Locale-zh-Hans
+    - Locale-en
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: b089508d83950024e9391ba26acab9ff, type: 2}

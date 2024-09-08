@@ -11,11 +11,8 @@ namespace ZiercCode.Test.MVC
 {
     public class MainMenuController : BaseController<Null, MainMenuView, Null>
     {
-        private readonly MainMenuView _mainMenuView;
-
-        public MainMenuController(MainMenuView mainMenuView) : base(null, mainMenuView, null)
+        public MainMenuController(MainMenuView view) : base(null, view, null)
         {
-            _mainMenuView = mainMenuView;
         }
 
         public override void Initialize(IContext context)
@@ -24,12 +21,12 @@ namespace ZiercCode.Test.MVC
             {
                 base.Initialize(context);
 
-                Context.CommandManager.AddCommandListener<EnterMainMenuCommand>(OnEnterMainMenuCommand);
-                Context.CommandManager.AddCommandListener<EnterSettingsCommand>(OnEnterSettingsCommand);
+                Context.CommandManager.AddCommandListener<OpenMainMenuCommand>(OnEnterMainMenuCommand);
+                Context.CommandManager.AddCommandListener<OpenSettingsCommand>(OnEnterSettingsCommand);
 
-                _mainMenuView.StartButton.onClick.AddListener(OnStartButtonPressed);
-                _mainMenuView.SettingButton.onClick.AddListener(OnSettingsButtonPressed);
-                _mainMenuView.QuitButton.onClick.AddListener(OnQuitButtonPressed);
+                _view.StartButton.onClick.AddListener(OnStartButtonPressed);
+                _view.SettingButton.onClick.AddListener(OnSettingsButtonPressed);
+                _view.QuitButton.onClick.AddListener(OnQuitButtonPressed);
             }
         }
 
@@ -48,7 +45,7 @@ namespace ZiercCode.Test.MVC
 
         private void OnSettingsButtonPressed()
         {
-            Context.CommandManager.InvokeCommand(new EnterSettingsCommand());
+            Context.CommandManager.InvokeCommand(new OpenSettingsCommand());
         }
 
         private void OnQuitButtonPressed()
@@ -56,30 +53,30 @@ namespace ZiercCode.Test.MVC
             Debug.Log("quit button pressed");
         }
 
-        private void OnEnterMainMenuCommand(EnterMainMenuCommand enterMainMenuCommand)
+        private void OnEnterMainMenuCommand(OpenMainMenuCommand openMainMenuCommand)
         {
             ShowView();
         }
 
-        private void OnEnterSettingsCommand(EnterSettingsCommand enterSettingsCommand)
+        private void OnEnterSettingsCommand(OpenSettingsCommand openSettingsCommand)
         {
             HideView();
         }
 
         private void HideView()
         {
-            _mainMenuView.CanvasGroup.blocksRaycasts = false;
-            _mainMenuView.CanvasGroup.interactable = false;
-            _mainMenuView.CanvasGroup.alpha = 0f;
-            _mainMenuView.gameObject.SetActive(false);
+            _view.CanvasGroup.blocksRaycasts = false;
+            _view.CanvasGroup.interactable = false;
+            _view.CanvasGroup.alpha = 0f;
+            _view.gameObject.SetActive(false);
         }
 
         private void ShowView()
         {
-            _mainMenuView.gameObject.SetActive(true);
-            _mainMenuView.CanvasGroup.blocksRaycasts = true;
-            _mainMenuView.CanvasGroup.interactable = true;
-            _mainMenuView.CanvasGroup.alpha = 1f;
+            _view.gameObject.SetActive(true);
+            _view.CanvasGroup.blocksRaycasts = true;
+            _view.CanvasGroup.interactable = true;
+            _view.CanvasGroup.alpha = 1f;
         }
     }
 }

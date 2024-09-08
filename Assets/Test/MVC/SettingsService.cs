@@ -1,6 +1,6 @@
 ﻿using RMC.Core.Architectures.Mini.Service;
 using ZiercCode.Core.Data;
-using ZiercCode.Test.Config;
+using ZiercCode.Test.Data;
 
 namespace ZiercCode.Test.MVC
 {
@@ -8,10 +8,12 @@ namespace ZiercCode.Test.MVC
     {
         private Settings _settings;
         private readonly IDataService _jsonService;
+        private readonly SettingsView _settingsView;
 
-        public SettingsService()
+        public SettingsService(SettingsView view)
         {
             _jsonService = new JsonDataService();
+            _settingsView = view;
         }
 
         public void Load()
@@ -31,7 +33,6 @@ namespace ZiercCode.Test.MVC
         public void Save()
         {
             SettingsModel settingsModel = Context.ModelLocator.GetItem<SettingsModel>();
-
             _settings.FPSOn = settingsModel.FpsToggle.Value;
             _settings.Language = settingsModel.LanguageEnum.Value;
             _settings.MasterVolume = settingsModel.MasterVolume.Value;
@@ -40,6 +41,8 @@ namespace ZiercCode.Test.MVC
             _settings.EnvironmentVolume = settingsModel.EnvironmentVolume.Value;
 
             _jsonService.SaveData(Settings.SETTING_DATA_PATH, _settings, false);
+
+            _settingsView.settingsChanged.Value = false;
         }
     }
 }

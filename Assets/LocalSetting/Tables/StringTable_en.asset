@@ -154,6 +154,18 @@ MonoBehaviour:
     m_Localized: 'CurrentPosition: {0}'
     m_Metadata:
       m_Items: []
+  - m_Id: 83966633410301952
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83966780244496384
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 83977305930076160
+    m_Localized: '{0}'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

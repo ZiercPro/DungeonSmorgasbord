@@ -12,36 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e3bcd31409d5340b0610634bd1e5b2, type: 3}
   m_Name: CardTextTable
   m_EditorClassIdentifier: 
+  loadFromFile: 1
   customTextTableFile: {fileID: 4900000, guid: df53ce0e22062d8489344450003d3a3e, type: 3}
-  <CustomTextTable>k__BackingField:
-    dicList:
+  <CustomTextDictionary>k__BackingField:
+    dictionaryList:
     - _inspectorName: 
       keyValue: 1000
       objectValue:
-        Chinese: "\u8FD1\u6218\u653B\u51FB\u4F24\u5BB3+6%"
-        English: "Melee attack damage+6%\r"
+        chinese: "\u8FD1\u6218\u653B\u51FB\u4F24\u5BB3+6%"
+        english: "Melee attack damage+6%\r"
     - _inspectorName: 
       keyValue: 1001
       objectValue:
-        Chinese: "\u8FDC\u7A0B\u653B\u51FB\u4F24\u5BB3+6%"
-        English: "Remotely attack damage+6%\r"
+        chinese: "\u8FDC\u7A0B\u653B\u51FB\u4F24\u5BB3+6%"
+        english: "Remotely attack damage+6%\r"
     - _inspectorName: 
       keyValue: 1002
       objectValue:
-        Chinese: "\u79FB\u52A8\u901F\u5EA6+2%"
-        English: "Move Speed+2%\r"
+        chinese: "\u79FB\u52A8\u901F\u5EA6+2%"
+        english: "Move Speed+2%\r"
     - _inspectorName: 
       keyValue: 1003
       objectValue:
-        Chinese: "\u6700\u5927\u751F\u547D\u503C+2"
-        English: "Max Health+2\r"
+        chinese: "\u6700\u5927\u751F\u547D\u503C+2"
+        english: "Max Health+2\r"
     - _inspectorName: 
       keyValue: 1004
       objectValue:
-        Chinese: "\u66B4\u51FB\u51E0\u7387+4%"
-        English: "Critical hit chance+4%\r"
+        chinese: "\u66B4\u51FB\u51E0\u7387+4%"
+        english: "Critical hit chance+4%\r"
     - _inspectorName: 
       keyValue: 1005
       objectValue:
-        Chinese: "\u9B54\u6CD5\u653B\u51FB\u4F24\u5BB3+6%"
-        English: Magic attack damage +6%
+        chinese: "\u9B54\u6CD5\u653B\u51FB\u4F24\u5BB3+6%"
+        english: Magic attack damage +6%

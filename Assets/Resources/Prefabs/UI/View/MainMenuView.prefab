@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4831461836865969547}
-  - component: {fileID: 6822813332868879704}
   - component: {fileID: 5127944718558881536}
   - component: {fileID: 8339554659204162165}
   - component: {fileID: 1574345049968606605}
@@ -42,20 +41,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 200}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6822813332868879704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969084192852645761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f249fbb983a4642b301e90c0319873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeStrength: 0.5
-  shakeDuration: 0.5
 --- !u!114 &5127944718558881536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,18 +84,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6822813332868879704}
-          m_TargetAssemblyTypeName: ButtonShake, Assembly-CSharp
-          m_MethodName: Shake
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 5127944718558881536}
           m_TargetAssemblyTypeName: ZiercCode.Core.Extend.UiTextChange, Assembly-CSharp
           m_MethodName: Change
@@ -392,7 +365,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6080738793751473759}
   - component: {fileID: 3790788426722183979}
-  - component: {fileID: 1558871187061252456}
   - component: {fileID: 2055018541856828426}
   - component: {fileID: 7972050042722184731}
   - component: {fileID: 7269807394570231822}
@@ -438,20 +410,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sModifier: '-'
   textMeshProUGUI: {fileID: 7961286973430406800}
---- !u!114 &1558871187061252456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5379682372406007499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f249fbb983a4642b301e90c0319873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeStrength: 0.5
-  shakeDuration: 0.5
 --- !u!114 &2055018541856828426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,18 +442,6 @@ MonoBehaviour:
         - m_Target: {fileID: 3790788426722183979}
           m_TargetAssemblyTypeName: TextChange, Assembly-CSharp
           m_MethodName: Change
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1558871187061252456}
-          m_TargetAssemblyTypeName: ButtonShake, Assembly-CSharp
-          m_MethodName: Shake
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -737,8 +683,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -962,8 +908,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1014,7 +960,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5163311322146614438}
   - component: {fileID: 675637156007398626}
-  - component: {fileID: 1268959705445201577}
   - component: {fileID: 3107080983856103417}
   - component: {fileID: 8067004563235803009}
   - component: {fileID: 2410328346511704622}
@@ -1060,20 +1005,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sModifier: '-'
   textMeshProUGUI: {fileID: 259911331763934763}
---- !u!114 &1268959705445201577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7659740762124840147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f249fbb983a4642b301e90c0319873, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeStrength: 0.5
-  shakeDuration: 0.5
 --- !u!114 &3107080983856103417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,18 +1037,6 @@ MonoBehaviour:
         - m_Target: {fileID: 675637156007398626}
           m_TargetAssemblyTypeName: TextChange, Assembly-CSharp
           m_MethodName: Change
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1268959705445201577}
-          m_TargetAssemblyTypeName: ButtonShake, Assembly-CSharp
-          m_MethodName: Shake
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1359,8 +1278,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 70
+  m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -32,31 +32,8 @@ namespace ZiercCode.Test.MVC
             {
                 _context = context;
 
-                // onStartButtonPressed = new UnityEvent();
-                // onSettingsButtonPressed = new UnityEvent();
-                // onQuitButtonPressed = new UnityEvent();
-
-                // startButton.onClick.AddListener(PressStartButton);
-                // settingsButton.onClick.AddListener(PressSettingsButton);
-                // quitButton.onClick.AddListener(PressQuitButton);
-
                 _isInitialized = true;
             }
         }
-        //
-        // private void PressStartButton()
-        // {
-        //     onStartButtonPressed?.Invoke();
-        // }
-        //
-        // private void PressSettingsButton()
-        // {
-        //     onSettingsButtonPressed?.Invoke();
-        // }
-        //
-        // private void PressQuitButton()
-        // {
-        //     onQuitButtonPressed?.Invoke();
-        // }
     }
 }

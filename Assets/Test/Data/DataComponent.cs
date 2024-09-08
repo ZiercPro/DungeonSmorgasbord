@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using ZiercCode.Core.Data;
 using ZiercCode.Test.Base;
-using ZiercCode.Test.Config;
 
 namespace ZiercCode.Test.Data
 {

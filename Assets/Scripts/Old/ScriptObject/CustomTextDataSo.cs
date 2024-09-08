@@ -1,3 +1,4 @@
+using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
 using ZiercCode.Core.Extend;
 using ZiercCode.Core.Utilities;
@@ -11,15 +12,18 @@ namespace ZiercCode.Old.ScriptObject
     [CreateAssetMenu(menuName = "ScriptableObject/CustomTextData", fileName = "CustomTextData")]
     public class CustomTextDataSo : ScriptableObject
     {
-        [SerializeField] private TextAsset customTextTableFile;
+        [SerializeField] private bool loadFromFile;
+
+        [SerializeField, ShowIf("loadFromFile")]
+        private TextAsset customTextTableFile;
 
         [field: SerializeField]
         public EditableDictionary<string, CustomTextTable> CustomTextDictionary { get; private set; }
 
-
         private void OnValidate()
         {
 #if UNITY_EDITOR
+            if (!loadFromFile) return;
             if (customTextTableFile == null) return;
 
             CustomTextDictionary = new EditableDictionary<string, CustomTextTable>();

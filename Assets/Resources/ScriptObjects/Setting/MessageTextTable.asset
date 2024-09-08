@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e3bcd31409d5340b0610634bd1e5b2, type: 3}
+  m_Name: MessageTextTable
+  m_EditorClassIdentifier: 
+  loadFromFile: 0
+  customTextTableFile: {fileID: 0}
+  <CustomTextDictionary>k__BackingField:
+    dictionaryList:
+    - _inspectorName: 
+      keyValue: 100
+      objectValue:
+        chinese: "\u6CA1\u6709\u4FDD\u5B58\u8BBE\u7F6E\uFF0C\u662F\u5426\u4FDD\u5B58"
+        english: The settings are not saved. Do you want to save them?
