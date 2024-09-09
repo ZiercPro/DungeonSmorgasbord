@@ -12,12 +12,22 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         [Header("粒子效果"), Space] [SerializeField]
         private PoolObjectSo deadParticle;
 
+        private BabyEnemyState.Idle _idleState;
+        private BabyEnemyState.Chase _chaseState;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _idleState = new BabyEnemyState.Idle(this, StateMachine, animator, moveComponent);
+            _chaseState = new BabyEnemyState.Chase(this, StateMachine, animator, moveComponent, enemyAttackCheck);
+        }
+
         protected override void Start()
         {
             base.Start();
 
-            StateMachine.AddState<BabyEnemyState.Idle>();
-            StateMachine.AddState<BabyEnemyState.Chase>();
+            StateMachine.AddState(_idleState);
+            StateMachine.AddState(_chaseState);
 
             StateMachine.Run<BabyEnemyState.Idle>();
         }

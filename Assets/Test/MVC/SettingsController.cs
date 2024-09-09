@@ -5,6 +5,7 @@ using ZiercCode.DungeonSmorgasbord.Locale;
 using ZiercCode.Old.Audio;
 using ZiercCode.Test.Base;
 using ZiercCode.Test.Locale;
+using ZiercCode.Test.Reference;
 
 namespace ZiercCode.Test.MVC
 {
@@ -23,7 +24,7 @@ namespace ZiercCode.Test.MVC
                 base.Initialize(context);
 
                 _view.BackButton.onClick.AddListener(OnBackButtonPressed);
-                _view.SaveButton.onClick.AddListener(OnSaveButtonPressed);
+                _view.ApplyButton.onClick.AddListener(OnApplyButtonPressed);
 
                 _view.settingsChanged.AddListener(Model_OnSettingsValueStateChange);
 
@@ -51,31 +52,26 @@ namespace ZiercCode.Test.MVC
 
                 Context.CommandManager.AddCommandListener<OpenSettingsCommand>(OnEnterSettingsCommand);
                 Context.CommandManager.AddCommandListener<OpenMainMenuCommand>(OnEnterMainMenuCommand);
+
+                _service.Load();
             }
         }
 
         private void OnEnterSettingsCommand(OpenSettingsCommand openSettingsCommand)
         {
-            ShowView();
-
-            Enable();
-
-            InitializeChildView();
+            Enter();
         }
 
         private void OnEnterMainMenuCommand(OpenMainMenuCommand openMainMenuCommand)
         {
-            Disable();
-            HideView();
+            Exit();
         }
 
         private void OnBackButtonPressed()
         {
             if (!_view.settingsChanged.Value)
             {
-                Disable();
-                HideView();
-                Context.CommandManager.InvokeCommand(new OpenMainMenuCommand());
+                Context.CommandManager.InvokeCommand(ZiercReference.GetReference<OpenMainMenuCommand>());
             }
             else
             {
@@ -83,30 +79,32 @@ namespace ZiercCode.Test.MVC
 
                 void ConfirmAction()
                 {
-                    _service.Save();
-                    Context.CommandManager.InvokeCommand(new OpenMainMenuCommand());
+                    Context.CommandManager.InvokeCommand(ZiercReference.GetReference<OpenMainMenuCommand>());
                 }
 
                 void CancelAction()
                 {
-                    Enable();
+                    _service.Load();
+                    Context.CommandManager.InvokeCommand(ZiercReference.GetReference<OpenMainMenuCommand>());
                 }
 
-                //弹窗提示没有保存
-                Context.CommandManager.InvokeCommand(new OpenCheckBoxCommand()
-                {
-                    Message = message, ConfirmCallback = ConfirmAction, CancelCallback = CancelAction
-                });
+                OpenCheckBoxCommand openCheckBoxCommand = ZiercReference.GetReference<OpenCheckBoxCommand>();
+                openCheckBoxCommand.Message = message;
+                openCheckBoxCommand.ConfirmCallback = ConfirmAction;
+                openCheckBoxCommand.CancelCallback = CancelAction;
 
-                Debug.Log("没有保存设置");
+                //弹窗提示没有保存
+                Context.CommandManager.InvokeCommand(openCheckBoxCommand);
+
                 //禁用界面
                 Disable();
             }
         }
 
-        private void OnSaveButtonPressed()
+        private void OnApplyButtonPressed()
         {
             _service.Save();
+            _view.settingsChanged.Value = false;
         }
 
         private void Enable()
@@ -133,6 +131,23 @@ namespace ZiercCode.Test.MVC
             _view.gameObject.SetActive(true);
         }
 
+        private void Enter()
+        {
+            ShowView();
+            Enable();
+            InitializeChildView();
+
+            _view.settingsChanged.Value = false;
+            _view.ApplyButton.gameObject.SetActive(false);
+        }
+
+        private void Exit()
+        {
+            _service.Save();
+            Disable();
+            HideView();
+        }
+
         private void InitializeChildView()
         {
             _model.VolumePanelToggle.Value = true;
@@ -142,22 +157,11 @@ namespace ZiercCode.Test.MVC
             _view.VolumeSettings.gameObject.SetActive(true);
             _view.OtherSettings.gameObject.SetActive(false);
             _view.LanguageSettings.gameObject.SetActive(false);
-
-            _service.Load();
         }
 
         private void Model_OnSettingsValueStateChange(bool s)
         {
-            if (s)
-            {
-                //启用保存按钮
-                Debug.Log("设置修改");
-            }
-            else
-            {
-                //禁用保存按钮
-                Debug.Log("设置保存");
-            }
+            _view.ApplyButton.gameObject.SetActive(s);
         }
 
         private void Model_OnFpsToggleChange(bool s)

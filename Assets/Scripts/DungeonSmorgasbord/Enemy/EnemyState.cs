@@ -1,4 +1,5 @@
 using UnityEngine;
+using ZiercCode.Test.Reference;
 using ZiercCode.Test.StateMachine;
 
 namespace ZiercCode.DungeonSmorgasbord.Enemy
@@ -6,7 +7,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
     /// <summary>
     /// 敌人状态基类
     /// </summary>
-    public abstract class EnemyState : IState
+    public abstract class EnemyState : IState, IReference
     {
         protected readonly Enemy EnemyBase;
         protected readonly Animator Animator;
@@ -37,5 +38,9 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         public virtual void OnUpdate() { }
 
         public virtual void OnExit() { }
+
+        public void OnSpawn()
+        {
+        }
     }
 }

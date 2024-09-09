@@ -9,11 +9,10 @@ namespace ZiercCode.Old.Scene
     /// </summary>
     public class MainMenuScene : BaseSceneState
     {
-        private readonly string _sceneName = "MainMenuScene";
 
         private PanelManager _panelManager;
 
-        //todo 重写
+     
         public override void OnExit()
         {
             base.OnExit();

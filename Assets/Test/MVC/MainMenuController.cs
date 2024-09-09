@@ -3,8 +3,11 @@ using RMC.Core.Architectures.Mini.Controller;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using ZiercCode.Test.Base;
 using ZiercCode.Test.Event;
+using ZiercCode.Test.Locale;
 using ZiercCode.Test.Procedure;
+using ZiercCode.Test.Reference;
 using ZiercCode.Test.RuntimeData;
 
 namespace ZiercCode.Test.MVC
@@ -45,38 +48,68 @@ namespace ZiercCode.Test.MVC
 
         private void OnSettingsButtonPressed()
         {
-            Context.CommandManager.InvokeCommand(new OpenSettingsCommand());
+            Context.CommandManager.InvokeCommand(ZiercReference.GetReference<OpenSettingsCommand>());
         }
 
         private void OnQuitButtonPressed()
         {
-            Debug.Log("quit button pressed");
+            string message = GameEntry.GetComponent<LocalizationComponent>().GetText("101");
+
+            void ConfirmQuit()
+            {
+                Enable();
+            }
+
+            void CancelQuit()
+            {
+                Enable();
+            }
+
+            OpenCheckBoxCommand openCheckBoxCommand = ZiercReference.GetReference<OpenCheckBoxCommand>();
+            openCheckBoxCommand.Message = message;
+            openCheckBoxCommand.ConfirmCallback = ConfirmQuit;
+            openCheckBoxCommand.CancelCallback = CancelQuit;
+
+            Context.CommandManager.InvokeCommand(openCheckBoxCommand);
+
+
+            Disable();
         }
 
         private void OnEnterMainMenuCommand(OpenMainMenuCommand openMainMenuCommand)
         {
             ShowView();
+            Enable();
         }
 
         private void OnEnterSettingsCommand(OpenSettingsCommand openSettingsCommand)
         {
+            Disable();
             HideView();
         }
 
         private void HideView()
         {
-            _view.CanvasGroup.blocksRaycasts = false;
-            _view.CanvasGroup.interactable = false;
-            _view.CanvasGroup.alpha = 0f;
             _view.gameObject.SetActive(false);
         }
 
         private void ShowView()
         {
             _view.gameObject.SetActive(true);
+        }
+
+        private void Enable()
+        {
             _view.CanvasGroup.blocksRaycasts = true;
             _view.CanvasGroup.interactable = true;
             _view.CanvasGroup.alpha = 1f;
+        }
+
+        private void Disable()
+        {
+            _view.CanvasGroup.blocksRaycasts = false;
+            _view.CanvasGroup.interactable = false;
+            _view.CanvasGroup.alpha = 0.3f;
         }
     }
 }

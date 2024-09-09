@@ -1,6 +1,9 @@
 ﻿using RMC.Core.Architectures.Mini.Service;
 using ZiercCode.Core.Data;
+using ZiercCode.Test.Base;
+using ZiercCode.Test.Config;
 using ZiercCode.Test.Data;
+using ZiercCode.Test.Locale;
 
 namespace ZiercCode.Test.MVC
 {
@@ -16,23 +19,24 @@ namespace ZiercCode.Test.MVC
             _settingsView = view;
         }
 
+        //从文件中加载设置数据
         public void Load()
         {
-            SettingsModel settingsModel = Context.ModelLocator.GetItem<SettingsModel>();
-
             _settings = _jsonService.LoadData<Settings>(Settings.SETTING_DATA_PATH, false);
 
-            settingsModel.FpsToggle.Value = _settings.FPSOn;
-            settingsModel.LanguageEnum.Value = _settings.Language;
-            settingsModel.MasterVolume.Value = _settings.MasterVolume;
-            settingsModel.MusicVolume.Value = _settings.MusicVolume;
-            settingsModel.SfxVolume.Value = _settings.SfxVolume;
-            settingsModel.EnvironmentVolume.Value = _settings.EnvironmentVolume;
+            _settingsView.Fps.isOn = _settings.FPSOn;
+            _settingsView.LanguageDropdown.value = (int)_settings.Language;
+            _settingsView.MasterVolume.value = _settings.MasterVolume;
+            _settingsView.MusicVolume.value = _settings.MusicVolume;
+            _settingsView.SfxVolume.value = _settings.SfxVolume;
+            _settingsView.EnvironmentVolume.value = _settings.EnvironmentVolume;
         }
 
+        //将model数据写入文件
         public void Save()
         {
             SettingsModel settingsModel = Context.ModelLocator.GetItem<SettingsModel>();
+
             _settings.FPSOn = settingsModel.FpsToggle.Value;
             _settings.Language = settingsModel.LanguageEnum.Value;
             _settings.MasterVolume = settingsModel.MasterVolume.Value;
@@ -41,8 +45,6 @@ namespace ZiercCode.Test.MVC
             _settings.EnvironmentVolume = settingsModel.EnvironmentVolume.Value;
 
             _jsonService.SaveData(Settings.SETTING_DATA_PATH, _settings, false);
-
-            _settingsView.settingsChanged.Value = false;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace ZiercCode.Core.Data
     {
         public bool SaveData<T>(string relativePath, T data, bool encrypted)
         {
-            string path = Application.persistentDataPath + relativePath;
+            string path = Environment.CurrentDirectory + relativePath;
 
             try
             {
@@ -41,7 +41,7 @@ namespace ZiercCode.Core.Data
 
         public T LoadData<T>(string relativePath, bool encrypted)
         {
-            string path = Application.persistentDataPath + relativePath;
+            string path = Environment.CurrentDirectory + relativePath;
 
             if (!File.Exists(path))
             {

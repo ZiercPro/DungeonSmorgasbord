@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.Locale;
 
-namespace ZiercCode.Test.Data
+namespace ZiercCode.Test.Config
 {
     public struct Settings
     {

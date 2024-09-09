@@ -13,8 +13,7 @@ namespace ZiercCode.Old.Audio
     /// </summary>
     public class AudioPlayer : USingleton<AudioPlayer>
     {
-        [SerializeField] private AudioListSo audioList;
-        [Space] [SerializeField] private AudioMixer audioMixer;
+        [SerializeField] private AudioMixer audioMixer;
         [SerializeField] private AudioMixerGroup music;
         [SerializeField] private AudioMixerGroup sfx;
         [SerializeField] private AudioMixerGroup environment;

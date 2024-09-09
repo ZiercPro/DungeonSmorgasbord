@@ -9,7 +9,7 @@ namespace ZiercCode.Core.Data
         /// 保存数据
         /// </summary>
         /// <typeparam name="T">保存的数据类型</typeparam>
-        /// <param name="relativePath">相对路径</param>
+        /// <param name="relativePath"></param>
         /// <param name="data">数据对象</param>
         /// <param name="encrypted">是否加密</param>
         public bool SaveData<T>(string relativePath, T data, bool encrypted);

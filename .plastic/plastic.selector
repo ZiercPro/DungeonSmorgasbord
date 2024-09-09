@@ -1,3 +1,4 @@
-rep "Dungeon smorgasbord@3042957340-qq-com@cloud.cn"
+repository "Dungeon smorgasbord@tj_3042957340_qq_com@cloud.cn"
   path "/"
-    smartbranch "/main"                                                                                                                                                                                           
+    br "/main"
+    co "/main"

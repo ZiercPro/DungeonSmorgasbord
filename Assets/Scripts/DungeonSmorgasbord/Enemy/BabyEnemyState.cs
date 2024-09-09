@@ -10,14 +10,12 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         public class Idle : EnemyState
         {
             private readonly int _idle = Animator.StringToHash("idle");
-            private EnemyAttackCheck _enemyAttackCheck;
-            private MoveComponent _moveComponent;
+            private readonly MoveComponent _moveComponent;
 
             public Idle(Enemy enemyBase, StateMachine stateMachine, Animator animator,
-                EnemyAttackCheck enemyAttackCheck, MoveComponent moveComponent) : base(enemyBase,
+                MoveComponent moveComponent) : base(enemyBase,
                 stateMachine, animator)
             {
-                _enemyAttackCheck = enemyAttackCheck;
                 _moveComponent = moveComponent;
             }
 
@@ -34,10 +32,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
                 {
                     //如果寻找到目标且目标存活 则根据情况 进入追击、攻击或逃离的状态
 
-                    if (_enemyAttackCheck.isEnter)
-                    {
-                        StateMachine.ChangeState<BabyEnemyState.Chase>();
-                    }
+                    StateMachine.ChangeState<Chase>();
                 }
             }
 
@@ -49,29 +44,46 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
 
         public class Chase : EnemyState
         {
-            private EnemyAttackCheck _enemyAttackCheck;
-            private MoveComponent _moveComponent;
+            private readonly int _running = Animator.StringToHash("running");
+            private readonly EnemyAttackCheck _enemyAttackCheck;
+            private readonly MoveComponent _moveComponent;
+            private Vector2 _moveDir;
 
             public Chase(Enemy enemyBase, StateMachine stateMachine, Animator animator,
                 MoveComponent moveComponent, EnemyAttackCheck enemyAttackCheck) : base(enemyBase,
                 stateMachine, animator)
             {
                 _moveComponent = moveComponent;
+                _enemyAttackCheck = enemyAttackCheck;
             }
 
             public override void OnEnter()
             {
+                Animator.SetBool(_running, true);
             }
 
             public override void OnUpdate()
             {
-                if (_enemyAttackCheck.isEnter)
+                if (EnemyBase.GetTarget() && EnemyBase.TargetIsAlive())
                 {
+                    _moveDir = (EnemyBase.GetTarget().position - EnemyBase.transform.position).normalized;
+                    _moveComponent.Move(_moveDir);
+
+                    if (_enemyAttackCheck.isEnter)
+                    {
+                        EnemyBase.OnAttack(EnemyBase.GetTarget());
+                    }
+                }
+                else
+                {
+                    StateMachine.ChangeState<Chase>();
                 }
             }
 
             public override void OnExit()
             {
+                _moveComponent.Stop();
+                Animator.SetBool(_running, false);
             }
         }
     }

@@ -3,7 +3,6 @@ using RMC.Core.Architectures.Mini.View;
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using ZiercCode.DungeonSmorgasbord.Locale;
 using ZiercCode.Test.ObserverValue;
@@ -27,7 +26,7 @@ namespace ZiercCode.Test.MVC
         [field: SerializeField] public RectTransform OtherSettings { get; private set; }
         [field: SerializeField] public RectTransform LanguageSettings { get; private set; }
         [field: SerializeField] public Button BackButton { get; private set; }
-        [field: SerializeField] public Button SaveButton { get; private set; }
+        [field: SerializeField] public Button ApplyButton { get; private set; }
         [field: SerializeField] public Slider MasterVolume { get; private set; }
         [field: SerializeField] public Slider MusicVolume { get; private set; }
         [field: SerializeField] public Slider SfxVolume { get; private set; }

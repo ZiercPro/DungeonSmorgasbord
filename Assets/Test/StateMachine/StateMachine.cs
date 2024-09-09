@@ -46,6 +46,8 @@ namespace ZiercCode.Test.StateMachine
         /// <param name="stateType">状态实例</param>
         public void AddState(Type stateType)
         {
+            Debug.Log(stateType);
+
             IState newState = Activator.CreateInstance(stateType) as IState;
 
             if (newState == null)
@@ -60,6 +62,23 @@ namespace ZiercCode.Test.StateMachine
             }
 
             newState.OnCreate(this);
+        }
+
+        /// <summary>
+        /// 添加状态
+        /// </summary>
+        /// <param name="state">状态实例</param>
+        public void AddState(IState state)
+        {
+            Type type = state.GetType();
+
+            if (!_states.TryAdd(type, state))
+            {
+                Debug.LogWarning($"已添加状态{type.Name}");
+                return;
+            }
+
+            state.OnCreate(this);
         }
 
         /// <summary>

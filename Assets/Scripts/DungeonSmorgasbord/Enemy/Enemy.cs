@@ -71,6 +71,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         protected virtual void Update()
         {
             StateMachine.CurrentState.OnUpdate();
+            autoFlipComponent.FaceTo(FollowTarget.position);
         }
 
         protected virtual void FixedUpdate()
