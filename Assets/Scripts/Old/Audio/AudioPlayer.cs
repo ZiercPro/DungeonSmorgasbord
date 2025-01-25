@@ -3,13 +3,13 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.Audio;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using ZiercCode.Core.Utilities;
-using ZiercCode.Old.ScriptObject;
 using ZiercCode.Test.ObjectPool;
 
 namespace ZiercCode.Old.Audio
 {
     /// <summary>
-    /// 音效播放管理器 控制音频的播放、暂停和音量
+    /// 控制音频的播放、暂停和音量
+    /// 这个组件需要在编辑器中配置，并且放在不可销毁场景中，所以继承的USingleton
     /// </summary>
     public class AudioPlayer : USingleton<AudioPlayer>
     {
@@ -17,16 +17,14 @@ namespace ZiercCode.Old.Audio
         [SerializeField] private AudioMixerGroup music;
         [SerializeField] private AudioMixerGroup sfx;
         [SerializeField] private AudioMixerGroup environment;
-        [Space] [SerializeField] private AudioSource musicPlayer;
-        [Space] [SerializeField] private AudioSource sfxPlayer;
+        [Space][SerializeField] private AudioSource musicPlayer;
+        [Space][SerializeField] private AudioSource sfxPlayer;
 
-        private AudioBase _currentMusic;
-        private bool _isMusicPlaying;
+        private bool _isMusicPlaying;//用于切换音乐 一次只能有一首背景音乐播放
 
-        protected override void Awake()
+        public void Init()
         {
-            base.Awake();
-            ZiercPool.Register("sfxPlayer", sfxPlayer);
+            ZiercPool.Register("sfxPlayer", sfxPlayer);//在对象池中注册音效播放器 因为游戏中需要大量创建
         }
 
         public void PlayMusic(string audioName)
@@ -87,124 +85,30 @@ namespace ZiercCode.Old.Audio
             }
         }
 
-        /// <summary>
-        /// 异步播放音频
-        /// </summary>
-        /// <param name="audioName">音频名称</param>
-        // public void PlayAudio(AudioName audioName)
-        // {
-        //     AudioBase audioBase = _audioDic[audioName];
-        //
-        //     AudioSource player = _audioManager.GetAudioSource(audioBase);
-        //
-        //     if (player)
-        //     {
-        //         if (audioBase.outputGroup == sfx)
-        //             PlaySfx(player, player.clip);
-        //         else
-        //         {
-        //             PlayMusic(player);
-        //             if (audioBase.outputGroup == music)
-        //             {
-        //                 _currentMusic = audioBase;
-        //                 _isMusicPlaying = true;
-        //             }
-        //         }
-        //     }
-        //     else
-        //     {
-        //         Debug.LogWarning($"音频{audioBase.AudioType.Name}组件获取失败!");
-        //     }
-        // }
-        //
-        // /// <summary>
-        // /// 异步随机播放音频
-        // /// </summary>
-        // /// <param name="audioNames">音频名称链表</param>
-        // public void PlayAudiosRandomAsync(List<AudioName> audioNames)
-        // {
-        //     int length = audioNames.Count;
-        //     int temp = MyMath.GetRandom(0, length);
-        //     PlayAudio(audioNames[temp]);
-        // }
-        //
-        // /// <summary>
-        // /// 异步停止播发音频
-        // /// </summary>
-        // /// <param name="audioName">音频名称</param>
-        // public void StopAudio(AudioName audioName)
-        // {
-        //     AudioBase audioBase = _audioDic[audioName];
-        //     AudioSource player = _audioManager.GetAudioSource(audioBase);
-        //     if (player)
-        //     {
-        //         if (audioBase == _currentMusic)
-        //             _isMusicPlaying = false;
-        //         player.Stop();
-        //     }
-        //     else
-        //     {
-        //         Debug.LogWarning($"音频{audioBase.AudioType.Name}组件缺失或被销毁!");
-        //     }
-        // }
-        //
-        // /// <summary>
-        // /// 清除已经加载的音频缓存
-        // /// </summary>
-        // /// <returns></returns>
-        // public void ClearAudioCache()
-        // {
-        //     _audioManager.RemoveAllAudios();
-        // }
-        // private void StopAudio(AudioBase audioBase)
-        // {
-        //     AudioSource player = _audioManager.GetAudioSource(audioBase);
-        //     if (player)
-        //     {
-        //         if (audioBase == _currentMusic)
-        //             _isMusicPlaying = false;
-        //         player.Stop();
-        //     }
-        //     else
-        //     {
-        //         Debug.LogWarning($"音频{audioBase.AudioType.Name}组件缺失或被销毁!");
-        //     }
-        // }
-        //
-        //
-        // private void PlayMusic(AudioSource player)
-        // {
-        //     if (_isMusicPlaying)
-        //         StopAudio(_currentMusic);
-        //
-        //     if (!player.isPlaying)
-        //         player.Play();
-        //     else
-        //         Debug.LogWarning($"{player.name}is already playing");
-        // }
-        //
-        // private void PlaySfx(AudioSource player, AudioClip clip)
-        // {
-        //     player.PlayOneShot(clip);
-        // }
+        #region 设置音量
         public void SetMusicVolume(float amount)
         {
-            audioMixer.SetFloat("musicVolume", amount);
+            string musicName = "musicVolume";
+            audioMixer.SetFloat(musicName, amount);
         }
 
         public void SetSfxVolume(float amount)
         {
-            audioMixer.SetFloat("sfxVolume", amount);
+            string sfxName = "sfxVolume";
+            audioMixer.SetFloat(sfxName, amount);
         }
 
         public void SetMasterVolume(float amount)
         {
-            audioMixer.SetFloat("masterVolume", amount);
+            string masterName = "masterVolume";
+            audioMixer.SetFloat(masterName, amount);
         }
 
         public void SetEnvironmentVolume(float amount)
         {
-            audioMixer.SetFloat("environmentVolume", amount);
+            string envName = "environmentVolume";
+            audioMixer.SetFloat(envName, amount);
         }
+        #endregion
     }
 }

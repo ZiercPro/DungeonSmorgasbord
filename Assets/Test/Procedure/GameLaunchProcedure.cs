@@ -1,5 +1,4 @@
-﻿using DG.Tweening;
-using System;
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -50,11 +49,9 @@ namespace ZiercCode.Test.Procedure
             //设置场景
             GlobalData.nextSceneName = "MainMenuScene";
             GlobalData.nextSceneProcedureType = typeof(GameMainMenuProcedure);
-            //设置加载的资源
+            //todo设置加载的资源 这个不需要
             GlobalData.nextAssetsLabels = new List<List<string>>();
             GlobalData.nextAssetsLabels.Add(new List<string> { "MainMenuScene" });
-
-            // Debug.Log(Environment.CurrentDirectory);
         }
 
         public override void OnUpdate()

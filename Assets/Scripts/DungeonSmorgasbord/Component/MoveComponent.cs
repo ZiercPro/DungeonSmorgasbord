@@ -39,20 +39,9 @@ namespace ZiercCode.DungeonSmorgasbord.Component
             return _moveSpeed;
         }
 
-        private void OnEnable()
-        {
-            Enable();
-        }
-
-        private void OnDisable()
-        {
-            Stop();
-            Disable();
-        }
 
         public void Move(Vector2 moveDir)
         {
-            if (!_canMove) return;
             rb2D.velocity = moveDir * _moveSpeed;
         }
 
@@ -68,31 +57,6 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         public void ChangeSpeed(Func<float, float> operation)
         {
             _moveSpeed = operation.Invoke(_moveSpeed);
-        }
-
-        /// <summary>
-        /// 允许移动
-        /// </summary>
-        public void Enable()
-        {
-            _canMove = true;
-        }
-
-        /// <summary>
-        /// 禁止移动
-        /// </summary>
-        public void Disable()
-        {
-            _canMove = false;
-        }
-
-        /// <summary>
-        /// 获取是否可以移动
-        /// </summary>
-        /// <returns></returns>
-        public bool CanMove()
-        {
-            return _canMove;
         }
     }
 }

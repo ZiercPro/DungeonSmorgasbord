@@ -7,7 +7,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
     /// <summary>
     /// 敌人状态基类
     /// </summary>
-    public abstract class EnemyState : IState, IReference
+    public abstract class EnemyState : IState
     {
         protected readonly Enemy EnemyBase;
         protected readonly Animator Animator;
@@ -38,9 +38,5 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         public virtual void OnUpdate() { }
 
         public virtual void OnExit() { }
-
-        public void OnSpawn()
-        {
-        }
     }
 }

@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceLocations;
 using ZiercCode.Test.Base;
 using Object = UnityEngine.Object;
 
@@ -12,6 +9,7 @@ namespace ZiercCode.Test.Resources
 {
     /// <summary>
     /// 资源组件，进行资源和场景的批量管理
+    /// 这个组件不需要
     /// </summary>
     public class ResourceComponent : ZiercComponent
     {

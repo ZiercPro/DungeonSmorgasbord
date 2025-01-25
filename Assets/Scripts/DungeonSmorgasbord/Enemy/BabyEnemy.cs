@@ -18,7 +18,7 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         protected override void Awake()
         {
             base.Awake();
-            _idleState = new BabyEnemyState.Idle(this, StateMachine, animator, moveComponent);
+            _idleState = new BabyEnemyState.Idle(this, StateMachine, animator, "idle", moveComponent);
             _chaseState = new BabyEnemyState.Chase(this, StateMachine, animator, moveComponent, enemyAttackCheck);
         }
 
@@ -51,8 +51,6 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         public override void TakeDamage(DamageInfo info)
         {
             base.TakeDamage(info);
-            scaleShakeFeedBack.StartShake();
-            flashFeedBack.Flash();
         }
     }
 }

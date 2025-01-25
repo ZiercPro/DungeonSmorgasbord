@@ -1,5 +1,5 @@
-﻿using RMC.Core.Architectures.Mini.Context;
-using RMC.Core.Architectures.Mini.View;
+using RMC.Mini;
+using RMC.Mini.View;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -88,6 +88,11 @@ namespace ZiercCode.Test.MVC
         private void OnResultValueChange(int x)
         {
             resultInputField.text = x.ToString();
+        }
+
+        public void Dispose()
+        {
+            //todo
         }
     }
 }

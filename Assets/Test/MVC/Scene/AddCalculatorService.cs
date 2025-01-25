@@ -1,4 +1,4 @@
-﻿using RMC.Core.Architectures.Mini.Service;
+using RMC.Mini.Service;
 
 namespace ZiercCode.Test.MVC.Scene
 {

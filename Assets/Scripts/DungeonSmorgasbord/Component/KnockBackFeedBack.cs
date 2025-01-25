@@ -48,11 +48,12 @@ namespace ZiercCode.DungeonSmorgasbord.Component
 
         private IEnumerator BackMoveWithMoveController(Transform attackerTransform, float force)
         {
-            _moveC.Disable();
+            _moveC.enabled = false;
+            _moveC.Stop();
             Vector2 backMoveDir = (transform.position - attackerTransform.position).normalized;
             _rb2d.AddForce(backMoveDir * force, ForceMode2D.Impulse);
             yield return new WaitForSeconds(backMoveTime);
-            _moveC.Enable();
+            _moveC.enabled = true;
         }
     }
 }

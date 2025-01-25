@@ -1,5 +1,5 @@
-﻿using RMC.Core.Architectures.Mini.Context;
-using RMC.Core.Architectures.Mini.View;
+using RMC.Mini;
+using RMC.Mini.View;
 using System;
 using TMPro;
 using UnityEngine;
@@ -143,6 +143,11 @@ namespace ZiercCode.Test.MVC
         private void OnLanguageToggleChange(bool s)
         {
             LanguagePanelToggle.isOn = s;
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }

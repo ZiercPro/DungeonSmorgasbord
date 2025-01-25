@@ -1,5 +1,4 @@
 using ZiercCode.DungeonSmorgasbord.Component;
-using ZiercCode.Old.Hero;
 using ZiercCode.Old.Manager;
 
 namespace ZiercCode.Core.UI

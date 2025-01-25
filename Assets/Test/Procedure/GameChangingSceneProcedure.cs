@@ -29,7 +29,7 @@ namespace ZiercCode
 
             if (_loadingOperation.IsDone)
             {
-                StateMachine.ChangeState<GamePreloadAssetsProcedure>();
+                StateMachine.ChangeState<GamePreloadAssetsProcedure>();//todo 不需要这个流程
             }
         }
 

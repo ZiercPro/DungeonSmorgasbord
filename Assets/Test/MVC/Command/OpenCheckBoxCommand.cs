@@ -1,4 +1,4 @@
-﻿using RMC.Core.Architectures.Mini.Controller.Commands;
+using RMC.Mini.Controller.Commands;
 using System;
 using ZiercCode.Test.Reference;
 

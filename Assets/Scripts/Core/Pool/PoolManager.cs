@@ -15,7 +15,7 @@ namespace ZiercCode.Core.Pool
         /// <summary>
         /// 默认初始值
         /// </summary>
-        private const int DEFAULT_INIT_SIZE = 1;
+        private const int DEFAULT_INIT_SIZE = 10;
 
         /// <summary>
         /// 默认最大值

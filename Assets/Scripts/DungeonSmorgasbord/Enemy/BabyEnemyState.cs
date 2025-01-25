@@ -9,14 +9,15 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
     {
         public class Idle : EnemyState
         {
-            private readonly int _idle = Animator.StringToHash("idle");
+            private readonly int _idle;
             private readonly MoveComponent _moveComponent;
 
-            public Idle(Enemy enemyBase, StateMachine stateMachine, Animator animator,
+            public Idle(Enemy enemyBase, StateMachine stateMachine, Animator animator, string idleAnimationPara,
                 MoveComponent moveComponent) : base(enemyBase,
                 stateMachine, animator)
             {
                 _moveComponent = moveComponent;
+                _idle = Animator.StringToHash(idleAnimationPara);
             }
 
             public override void OnEnter()

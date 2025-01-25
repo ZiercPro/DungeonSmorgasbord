@@ -1,5 +1,5 @@
-using RMC.Core.Architectures.Mini.Context;
-using RMC.Core.Architectures.Mini.Controller;
+using RMC.Mini;
+using RMC.Mini.Controller;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -35,6 +35,10 @@ namespace ZiercCode.Test.MVC
 
         private void OnStartButtonPressed()
         {
+            //todo:临时逻辑 暂时阻断进入游戏场景
+            Debug.LogWarning("不允许进入游戏");
+            return;
+
             //设置需要加载的资源
             GlobalData.nextAssetsLabels = new();
             GlobalData.nextAssetsLabels.Add(new List<string>() { "GameScene" });
@@ -42,7 +46,8 @@ namespace ZiercCode.Test.MVC
             ZiercEvent.Invoke(
                 new SceneEvent.ChangeSceneEvent()
                 {
-                    NextSceneProcedureType = typeof(GamePlayProcedure), NextSceneName = "GameScene"
+                    NextSceneProcedureType = typeof(GamePlayProcedure),
+                    NextSceneName = "GameScene"
                 });
         }
 

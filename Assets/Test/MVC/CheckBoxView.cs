@@ -1,5 +1,5 @@
-﻿using RMC.Core.Architectures.Mini.Context;
-using RMC.Core.Architectures.Mini.View;
+using RMC.Mini;
+using RMC.Mini.View;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +28,11 @@ namespace ZiercCode.Test.MVC
             {
                 Debug.LogWarning("CheckBox需要初始化");
             }
+        }
+
+        public void Dispose()
+        {
+            //todo
         }
 
         private bool _isInitialized;

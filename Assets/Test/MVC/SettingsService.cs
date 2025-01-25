@@ -1,4 +1,4 @@
-﻿using RMC.Core.Architectures.Mini.Service;
+using RMC.Mini.Service;
 using ZiercCode.Core.Data;
 using ZiercCode.Test.Base;
 using ZiercCode.Test.Config;

@@ -11,12 +11,21 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
         [Header("粒子效果"), Space] [SerializeField]
         private PoolObjectSo deadParticle;
 
+        private BigMouseEnemyState.Idle idleState;
+        private BigMouseEnemyState.Chase chaseState;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            idleState = new BigMouseEnemyState.Idle(this, StateMachine, animator, "idle");
+            chaseState = new BigMouseEnemyState.Chase(this, StateMachine, animator, "running", moveComponent);
+        }
+
         protected override void Start()
         {
             base.Start();
-
-            StateMachine.AddState<BigMouseEnemyState.Idle>();
-            StateMachine.AddState<BigMouseEnemyState.Chase>();
+            StateMachine.AddState(idleState);
+            StateMachine.AddState(chaseState);
 
             StateMachine.Run<BigMouseEnemyState.Idle>();
         }
@@ -29,7 +38,6 @@ namespace ZiercCode.DungeonSmorgasbord.Enemy
             KnockBackFeedBack knockBackFeedBack = GetComponent<KnockBackFeedBack>();
             knockBackFeedBack.StartBackMove(transform, 0.5f);
         }
-
 
         public override void Dead()
         {

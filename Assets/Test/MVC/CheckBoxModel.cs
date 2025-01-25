@@ -1,4 +1,4 @@
-﻿using RMC.Core.Architectures.Mini.Model;
+using RMC.Mini.Model;
 using System;
 using ZiercCode.Test.ObserverValue;
 

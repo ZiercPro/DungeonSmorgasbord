@@ -1,5 +1,5 @@
-﻿using RMC.Core.Architectures.Mini.Context;
-using RMC.Core.Architectures.Mini.Controller;
+using RMC.Mini;
+using RMC.Mini.Controller;
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.Locale;
 using ZiercCode.Old.Audio;

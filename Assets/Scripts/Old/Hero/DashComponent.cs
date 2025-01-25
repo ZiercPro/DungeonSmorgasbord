@@ -2,9 +2,7 @@ using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 using ZiercCode.DungeonSmorgasbord.Component;
-using ZiercCode.Old.Component;
 
 namespace ZiercCode.Old.Hero
 {
@@ -58,7 +56,8 @@ namespace ZiercCode.Old.Hero
         private IEnumerator Dashing(Vector2 dashDir)
         {
             dashStarted?.Invoke();
-            _moveC.Disable();
+            _moveC.enabled = false;
+            _moveC.Stop();
             for (float i = 0; i < dashTime; i += Time.deltaTime)
             {
                 dashing?.Invoke();
@@ -69,7 +68,7 @@ namespace ZiercCode.Old.Hero
             }
 
             dashEnded?.Invoke();
-            _moveC.Enable();
+            _moveC.enabled = true;
             yield return new WaitForSeconds(dashCoolDown);
             _isDashLocked = false;
         }

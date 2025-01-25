@@ -1,4 +1,4 @@
-﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -61,12 +61,12 @@ namespace ZiercCode.Test.Locale
                 switch (_currentLanguage)
                 {
                     case LanguageEnum.Chinese:
-                        return customT.chinese;
+                    return customT.chinese;
                     case LanguageEnum.English:
-                        return customT.english;
+                    return customT.english;
                     default:
-                        Debug.LogError("当前语言不支持"); //默认返回中文
-                        return customT.chinese;
+                    Debug.LogError("当前语言不支持"); //默认返回中文
+                    return customT.chinese;
                 }
             }
 

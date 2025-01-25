@@ -1,4 +1,4 @@
-﻿using RMC.Core.Architectures.Mini.Model;
+using RMC.Mini.Model;
 
 namespace ZiercCode.Test.MVC
 {
@@ -7,7 +7,7 @@ namespace ZiercCode.Test.MVC
 
         public GameModel()
         {
-            
+
         }
     }
 }

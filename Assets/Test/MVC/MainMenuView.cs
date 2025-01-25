@@ -1,5 +1,5 @@
-using RMC.Core.Architectures.Mini.Context;
-using RMC.Core.Architectures.Mini.View;
+using RMC.Mini;
+using RMC.Mini.View;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,6 +34,11 @@ namespace ZiercCode.Test.MVC
 
                 _isInitialized = true;
             }
+        }
+
+        public void Dispose()
+        {
+            //todo
         }
     }
 }

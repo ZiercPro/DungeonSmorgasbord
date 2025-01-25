@@ -1,4 +1,3 @@
 repository "Dungeon smorgasbord@tj_3042957340_qq_com@cloud.cn"
   path "/"
-    br "/main"
-    co "/main"
+    smartbranch "/main/精简项目"

@@ -1,5 +1,5 @@
-﻿using RMC.Core.Architectures.Mini.Context;
-using RMC.Core.Architectures.Mini.View;
+using RMC.Mini;
+using RMC.Mini.View;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,6 +33,10 @@ namespace ZiercCode.Test.MVC
             if (!_isInitialized) Debug.LogWarning("GameView 需要初始化");
         }
 
+        public void Dispose()
+        {
+            //todo
+        }
 
         private bool _isInitialized;
         private IContext _context;

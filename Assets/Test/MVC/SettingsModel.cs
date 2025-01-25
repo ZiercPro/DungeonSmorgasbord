@@ -1,4 +1,4 @@
-﻿using RMC.Core.Architectures.Mini.Model;
+using RMC.Mini.Model;
 using UnityEngine.Events;
 using ZiercCode.DungeonSmorgasbord.Locale;
 using ZiercCode.Test.ObserverValue;

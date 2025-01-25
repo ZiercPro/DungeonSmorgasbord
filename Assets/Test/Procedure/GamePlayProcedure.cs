@@ -1,6 +1,5 @@
-﻿using UnityEngine;
+using UnityEngine;
 using ZiercCode.Old.Audio;
-using ZiercCode.Test.Scene;
 
 namespace ZiercCode.Test.Procedure
 {
