@@ -1,7 +1,7 @@
 ﻿using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
 using ZiercCode.Core.Pool;
-using ZiercCode.Core.Utilities;
+using ZiercCode.Utilities;
 
 namespace ZiercCode.DungeonSmorgasbord.Buff
 {

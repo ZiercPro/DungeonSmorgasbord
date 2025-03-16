@@ -16,6 +16,11 @@ namespace ZiercCode.DungeonSmorgasbord.Extend
         [SerializeField] private RectTransform rectTransform;
         [SerializeField] private TextMeshPro textMeshPro;
 
+        [SerializeField] private Vector2 xMoveRange; //水平移动范围
+        [SerializeField] private Vector2 yMoveRange; //垂直移动范围
+
+        [SerializeField] private Vector2 rotateRange; //旋转范围
+
         private static int _sortingID = 0; //图层顺序
 
         /// <summary>
@@ -26,12 +31,10 @@ namespace ZiercCode.DungeonSmorgasbord.Extend
             _sortingID++;
             textMeshPro.sortingOrder = _sortingID;
             rectTransform.SetParent(null);
-            float xMin = -1f; //x移动区间最小
-            float xMax = 1f; //x移动区间最大
-            float yMin = 2f; //y移动区间最小
-            float yMax = 3f; //y移动区间最大
-            float xDistance = Random.Range(xMin, xMax);
-            float yDistance = Random.Range(xDistance + yMin, xDistance + yMax);
+            rectTransform.rotation = Quaternion.identity;
+            rectTransform.Rotate(rectTransform.forward, Random.Range(rotateRange.x, rotateRange.y));
+            float xDistance = Random.Range(xMoveRange.x, xMoveRange.y);
+            float yDistance = Random.Range(yMoveRange.x, yMoveRange.y);
             Vector2 startPos = rectTransform.anchoredPosition;
             Vector2 endPos = new Vector2(startPos.x + xDistance, startPos.y + yDistance);
             //动画

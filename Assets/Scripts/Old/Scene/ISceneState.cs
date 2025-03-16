@@ -1,5 +1,3 @@
-using UnityEngine.SceneManagement;
-
 namespace ZiercCode.Old.Scene
 {
     /// <summary>

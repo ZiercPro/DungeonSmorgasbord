@@ -1,7 +1,6 @@
-using RMC.Mini;
+﻿using RMC.Mini;
 using RMC.Mini.Controller;
 using Unity.VisualScripting;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 namespace ZiercCode.Test.MVC
 {

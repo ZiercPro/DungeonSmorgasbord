@@ -15,10 +15,10 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_Data:
     m_SerializedData: []
-  m_GUID: 2b6d0598ac24fdd498eb5853b2fb637d
+  m_GUID: e6346565f75020c42982a565ff027765
   m_SerializeEntries:
-  - m_GUID: 299efb233a5ba1545b93e30c01bfda40
-    m_Address: Assets/LocalSetting/Tables/StringTable Shared Data.asset
+  - m_GUID: c12f8ae11b9ff344a9de6f99cb935bbe
+    m_Address: Assets/Locale/DungeonLocalizationStringTable Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

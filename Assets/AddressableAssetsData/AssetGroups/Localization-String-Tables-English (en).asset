@@ -15,13 +15,14 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-English (en)
   m_Data:
     m_SerializedData: []
-  m_GUID: 6cec6c64a8606aa4c824fbde985484de
+  m_GUID: 24948bdf241a13f4caa83e8f0119b147
   m_SerializeEntries:
-  - m_GUID: 70960e31fb495d14abec0ddb7838a63a
-    m_Address: StringTable_en
+  - m_GUID: 157fff605ff517e4e9bee5854bb47a53
+    m_Address: DungeonLocalizationStringTable_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 6c87a3fd160e34f40a92af209ccac1e5, type: 2}

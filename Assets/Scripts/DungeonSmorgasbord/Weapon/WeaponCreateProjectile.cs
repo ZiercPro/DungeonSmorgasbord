@@ -1,9 +1,7 @@
 ﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using System;
 using UnityEngine;
-using UnityEngine.Pool;
 using ZiercCode.Core.Pool;
-using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {

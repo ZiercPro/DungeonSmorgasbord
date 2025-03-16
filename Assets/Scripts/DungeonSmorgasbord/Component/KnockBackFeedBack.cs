@@ -6,27 +6,27 @@ namespace ZiercCode.DungeonSmorgasbord.Component
     public class KnockBackFeedBack : MonoBehaviour
     {
         [SerializeField] private float backMoveTime = 0.15f;
-        private Rigidbody2D _rb2d;
-        private MoveComponent _moveC;
+        [SerializeField] private Rigidbody2D rb2d;
+        [SerializeField] private MoveComponent moveC;
 
         private Coroutine _backMoveCoroutine;
 
-        private void Awake()
-        {
-            _moveC = GetComponent<MoveComponent>();
-            _rb2d = GetComponent<Rigidbody2D>();
-        }
+        // private void Awake()
+        // {
+        //     moveC = GetComponent<MoveComponent>();
+        //     rb2d = GetComponent<Rigidbody2D>();
+        // }
 
         private void OnDisable()
         {
             if (_backMoveCoroutine != null)
                 StopCoroutine(_backMoveCoroutine);
-            _moveC.Stop();
+            moveC.Stop();
         }
 
         public void StartBackMove(Transform startPosition, float force)
         {
-            switch (_moveC == null)
+            switch (moveC == null)
             {
                 case true:
                     if (!gameObject.activeInHierarchy) return;
@@ -42,18 +42,18 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         private IEnumerator BackMove(Transform attackerTransform, float force)
         {
             Vector2 backMoveDir = (transform.position - attackerTransform.position).normalized;
-            _rb2d.AddForce(backMoveDir * force, ForceMode2D.Impulse);
+            rb2d.AddForce(backMoveDir * force, ForceMode2D.Impulse);
             yield return new WaitForSeconds(backMoveTime);
         }
 
         private IEnumerator BackMoveWithMoveController(Transform attackerTransform, float force)
         {
-            _moveC.enabled = false;
-            _moveC.Stop();
+            moveC.enabled = false;
+            moveC.Stop();
             Vector2 backMoveDir = (transform.position - attackerTransform.position).normalized;
-            _rb2d.AddForce(backMoveDir * force, ForceMode2D.Impulse);
+            rb2d.AddForce(backMoveDir * force, ForceMode2D.Impulse);
             yield return new WaitForSeconds(backMoveTime);
-            _moveC.enabled = true;
+            moveC.enabled = true;
         }
     }
 }

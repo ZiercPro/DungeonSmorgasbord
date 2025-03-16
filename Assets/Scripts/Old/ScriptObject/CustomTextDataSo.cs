@@ -1,8 +1,7 @@
 using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
-using ZiercCode.Core.Extend;
-using ZiercCode.Core.Utilities;
 using ZiercCode.Old.Helper;
+using ZiercCode.Utilities;
 
 namespace ZiercCode.Old.ScriptObject
 {

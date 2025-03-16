@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: DungeonLocalizationStringTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: DungeonLocalizationStringTable
+  m_TableCollectionNameGuidString: c12f8ae11b9ff344a9de6f99cb935bbe
+  m_Entries:
+  - m_Id: 262580834304
+    m_Key: MainMenuStartButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 545637634048
+    m_Key: MainMenuSettingsButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 617976795136
+    m_Key: MainMenuQuitButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1095728992256
+    m_Key: SettingsMasterVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1246967205888
+    m_Key: SettingsMusicVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1321579679744
+    m_Key: SettingsSFXVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1423773896704
+    m_Key: SettingsEnvironmentVolume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1531823362048
+    m_Key: SettingsBackButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1668876439552
+    m_Key: SettingsApplyButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1761675415552
+    m_Key: SettingsVolumeToggle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1854201761792
+    m_Key: SettingsOtherToggle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1858458980352
+    m_Key: SettingsLanguageToggle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2060716707840
+    m_Key: SettingsFPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9332893257728
+    m_Key: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21258314551296
+    m_Key: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21304137322496
+    m_Key: Cancel
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1026101931543625770
+  references:
+    version: 2
+    RefIds:
+    - rid: 1026101931543625770
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1741848201071

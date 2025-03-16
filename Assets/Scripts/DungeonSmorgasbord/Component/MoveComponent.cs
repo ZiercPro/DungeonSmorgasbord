@@ -22,23 +22,14 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         private bool _canMove;
 
         /// <summary>
-        /// 设置移动速度
+        /// 移动速度属性
         /// </summary>
-        /// <param name="moveSpeed">移动速度</param>
-        public void SetMoveSpeed(float moveSpeed)
+        public float MoveSpeed
         {
-            _moveSpeed = moveSpeed;
+            get => _moveSpeed;
+            set => _moveSpeed = value;
         }
-
-        /// <summary>
-        /// 获取移动速度
-        /// </summary>
-        /// <returns></returns>
-        public float GetMoveSpeed()
-        {
-            return _moveSpeed;
-        }
-
+        public Vector2 CurrentVelocity => rb2D.velocity;
 
         public void Move(Vector2 moveDir)
         {

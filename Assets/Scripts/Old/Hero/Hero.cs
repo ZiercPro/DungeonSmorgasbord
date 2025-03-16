@@ -48,7 +48,7 @@ namespace ZiercCode.Old.Hero
         private void Start()
         {
             CoinPack.Init(0);
-            _moveComponent.SetMoveSpeed(_attribute.AttributesData.moveSpeed);
+            _moveComponent.MoveSpeed = _attribute.AttributesData.moveSpeed;
             _heroInputManager.SetHeroControl(true);
             InitWeapon();
             _heroInputManager.DashButtonPressedPerformed += _dashComponent.Dash;

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - VirtualCamera
   - Item
+  - Hit
   layers:
   - Default
   - TransparentFX
@@ -46,11 +47,14 @@ TagManager:
   - name: BackGround
     uniqueID: 2187904195
     locked: 0
-  - name: Ground
+  - name: SceneGround
     uniqueID: 3326102633
     locked: 0
-  - name: Wall
+  - name: SceneWall
     uniqueID: 3739508289
+    locked: 0
+  - name: SceneObject
+    uniqueID: 842197
     locked: 0
   - name: Object
     uniqueID: 404507155

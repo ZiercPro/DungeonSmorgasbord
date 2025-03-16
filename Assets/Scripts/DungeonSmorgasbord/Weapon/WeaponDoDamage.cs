@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using ZiercCode.Core.Utilities;
 using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.Old.Manager;
+using ZiercCode.Utilities;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {

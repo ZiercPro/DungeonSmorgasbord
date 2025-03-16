@@ -15,13 +15,14 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Chinese (Simplified) (zh-Hans)
   m_Data:
     m_SerializedData: []
-  m_GUID: d9d49acd7f545bc40a05c9c5863d6a99
+  m_GUID: 444f76782dadc5447ba035c03e6c3826
   m_SerializeEntries:
-  - m_GUID: 2b04db116b0ffb843bc999dde45c8e54
-    m_Address: StringTable_zh-Hans
+  - m_GUID: 5aa3caa256bb81e4f9b282e38b3d4a1a
+    m_Address: DungeonLocalizationStringTable_zh-Hans
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-zh-Hans
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 6c87a3fd160e34f40a92af209ccac1e5, type: 2}

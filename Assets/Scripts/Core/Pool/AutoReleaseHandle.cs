@@ -1,4 +1,4 @@
-﻿using ZiercCode.Core.Utilities;
+﻿using ZiercCode.Utilities;
 
 namespace ZiercCode.Core.Pool
 {

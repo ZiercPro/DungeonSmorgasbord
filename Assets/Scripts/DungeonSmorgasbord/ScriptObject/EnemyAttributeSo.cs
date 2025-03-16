@@ -1,8 +1,8 @@
 using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
-using ZiercCode.Core.Utilities;
 using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.DungeonSmorgasbord.Weapon;
+using ZiercCode.Utilities;
 
 namespace ZiercCode.DungeonSmorgasbord.ScriptObject
 {

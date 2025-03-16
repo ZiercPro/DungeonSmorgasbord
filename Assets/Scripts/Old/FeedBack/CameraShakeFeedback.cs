@@ -10,6 +10,8 @@ namespace ZiercCode.Old.FeedBack
         [SerializeField] private float frequence = 1f; //频率
         [SerializeField] private float duration = 0.2f; //持续时间
 
+        [SerializeField] private NoiseSettings noiseSettings; //抖动噪声设置
+
         private CinemachineVirtualCamera _virtualCamera;
 
         private void Awake()
@@ -26,6 +28,11 @@ namespace ZiercCode.Old.FeedBack
         {
             CinemachineBasicMultiChannelPerlin perlinChannel =
                 _virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            if (!perlinChannel)
+                perlinChannel = _virtualCamera.AddCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+
+            perlinChannel.m_NoiseProfile = noiseSettings;
+
             perlinChannel.m_AmplitudeGain = intensity;
             perlinChannel.m_FrequencyGain = frequence;
             for (float i = 0; i < duration; i += Time.deltaTime)

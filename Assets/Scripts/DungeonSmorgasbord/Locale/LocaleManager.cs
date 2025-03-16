@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
-using ZiercCode.Core.Utilities;
 using ZiercCode.Old.Helper;
 using ZiercCode.Old.ScriptObject;
+using ZiercCode.Utilities;
 
 namespace ZiercCode.DungeonSmorgasbord.Locale
 {
-    public class LocaleManager : USingletonDontDestroyOnLoad<LocaleManager>
+    public class LocaleManager : USingleton<LocaleManager>
     {
         /// <summary>
         /// 自定义文本本地化数据

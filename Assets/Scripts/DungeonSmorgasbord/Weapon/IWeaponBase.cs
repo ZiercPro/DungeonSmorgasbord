@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using ZiercCode.DungeonSmorgasbord.ScriptObject;
 
 namespace ZiercCode.DungeonSmorgasbord.Weapon
 {

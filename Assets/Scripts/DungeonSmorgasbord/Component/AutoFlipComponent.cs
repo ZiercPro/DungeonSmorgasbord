@@ -6,30 +6,24 @@ namespace ZiercCode.DungeonSmorgasbord.Component
     {
         [SerializeField] private SpriteRenderer spriteRenderer;
 
-        [Tooltip("材质是否默认面向右边")] [SerializeField]
-        private bool defaultRight = true;
+        [SerializeField] private bool isFacingRight = true;
 
-        public bool IsFacingRight { get; private set; }
-
-        private void Start()
-        {
-            IsFacingRight = defaultRight;
-        }
+        public bool IsFacingRight => isFacingRight;
 
         private void Flip()
         {
-            IsFacingRight = !IsFacingRight;
+            isFacingRight = !isFacingRight;
             spriteRenderer.flipX = !spriteRenderer.flipX;
         }
 
         public void FaceTo(Vector2 viewPos)
         {
             float faceX = (viewPos - (Vector2)transform.position).x;
-            if (faceX < 0 && IsFacingRight)
+            if (faceX < 0 && isFacingRight)
             {
                 Flip();
             }
-            else if (faceX > 0 && !IsFacingRight)
+            else if (faceX > 0 && !isFacingRight)
             {
                 Flip();
             }

@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
-using ZiercCode.Core.Data;
 using ZiercCode.DungeonSmorgasbord.Locale;
+using ZiercCode.Utilities.Data;
 
 namespace ZiercCode.DungeonSmorgasbord.Data
 {

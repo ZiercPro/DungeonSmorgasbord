@@ -15,16 +15,16 @@ MonoBehaviour:
   m_GroupName: Localization-Locales
   m_Data:
     m_SerializedData: []
-  m_GUID: ff0af1c184467e841906f6714c5bafe2
+  m_GUID: dce469573e4207c439b79131d3f4403c
   m_SerializeEntries:
-  - m_GUID: 1bb2796229d45c24bab4b4e5b5e85ae5
-    m_Address: Chinese (Simplified) (zh-Hans)
+  - m_GUID: 1a758b7c5cb18ee40805096f042f869f
+    m_Address: English (en)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e9360902db7306a4d96a5d0c9cae6ecc
-    m_Address: English (en)
+  - m_GUID: e88a0bd9e228f314886dd64b883f7be9
+    m_Address: Chinese (Simplified) (zh-Hans)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale
