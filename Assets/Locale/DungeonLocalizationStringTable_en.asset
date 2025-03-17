@@ -82,6 +82,14 @@ MonoBehaviour:
     m_Localized: No
     m_Metadata:
       m_Items: []
+  - m_Id: 1595082894053376
+    m_Localized: ContinueGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1595357415444480
+    m_Localized: MainMenu
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

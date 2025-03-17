@@ -11,14 +11,9 @@ namespace ZiercCode._DungeonGame.UI.Settings
 {
     public class SettingsView : MonoBehaviour, IView
     {
-        public ObserverValue<bool> settingsChanged;
-        public bool IsInitialized => _isInitialize;
-        public IContext Context => _context;
 
-        private bool _isInitialize;
-        private IContext _context;
 
-        [field: SerializeField] public CanvasGroup CanvasGroup { get; private set; }
+        [field: SerializeField] public CanvasGroupUser CanvasGroupUser { get; private set; }
         [field: SerializeField] public Toggle VolumePanelToggle { get; private set; }
         [field: SerializeField] public Toggle OtherPanelToggle { get; private set; }
         [field: SerializeField] public Toggle LanguagePanelToggle { get; private set; }
@@ -34,6 +29,13 @@ namespace ZiercCode._DungeonGame.UI.Settings
         [field: SerializeField] public Toggle Fps { get; private set; }
         [field: SerializeField] public TMP_Dropdown LanguageDropdown { get; private set; }
 
+        
+        public ObserverValue<bool> settingsChanged;
+        public bool IsInitialized => _isInitialize;
+        public IContext Context => _context;
+
+        private bool _isInitialize;
+        private IContext _context;
 
         public void RequireIsInitialized()
         {

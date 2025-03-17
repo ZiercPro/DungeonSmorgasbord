@@ -149,7 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995e3a7f266d0c441851cee3b018f490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  caster: {fileID: 1098191888544928940}
   shadow2D: {fileID: 6841024327016997862}
   virtualGravity: 9.81
   updateGravity: 1
@@ -207,6 +206,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  groundVelocity: {x: 0, y: 0}
 --- !u!114 &4103885259188609038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 95a629ed38b1d3448a73199e602657f9, type: 3}
   - {fileID: 8300000, guid: 5c2c62fd201283940824d1c7ccab32b2, type: 3}
   - {fileID: 8300000, guid: 013766e01e668e144adff90546ead08c, type: 3}
-  fakeHeight: {fileID: 9017829520826746632}
+  fakeHeightTransform: {fileID: 9017829520826746632}
   colliderSize: {x: 0.25, y: 0.1}
   spriteRenderer: {fileID: 1295297491271196365}
   stayTime: 3

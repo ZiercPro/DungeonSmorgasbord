@@ -17,11 +17,11 @@ namespace ZiercCode.Old.Environment
 
 
         private Coroutine _backMoveCoroutine;
-        private UnityEngine.Camera _mainCamera;
+        private Camera _mainCamera;
         private Vector2 _startPos;
         private bool _canMove;
 
-        public void OnMove(UnityEngine.Camera parent)
+        public void OnMove(Camera parent)
         {
             _startPos = objectInstance.position;
             _mainCamera = parent;

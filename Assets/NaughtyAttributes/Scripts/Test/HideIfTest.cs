@@ -37,7 +37,7 @@ namespace NaughtyAttributes.Scripts.Test
         public HideIfNest1 nest1;
     }
 
-    [System.Serializable]
+    [Serializable]
     public class HideIfNest1
     {
         public bool hide1;
@@ -72,7 +72,7 @@ namespace NaughtyAttributes.Scripts.Test
         public HideIfNest2 nest2;
     }
 
-    [System.Serializable]
+    [Serializable]
     public class HideIfNest2
     {
         public bool hide1;

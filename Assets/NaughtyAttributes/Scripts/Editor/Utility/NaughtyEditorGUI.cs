@@ -350,7 +350,7 @@ namespace NaughtyAttributes.Scripts.Editor.Utility
                 {
                     EditorGUILayout.EnumPopup(label, (Enum)value);
                 }
-                else if (valueType.BaseType == typeof(System.Reflection.TypeInfo))
+                else if (valueType.BaseType == typeof(TypeInfo))
                 {
                     EditorGUILayout.TextField(label, value.ToString());
                 }

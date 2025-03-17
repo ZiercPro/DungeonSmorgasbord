@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 3686438886867594739}
   - component: {fileID: 6020847556477262960}
   - component: {fileID: 5279640323014593979}
-  - component: {fileID: 6256341642177243558}
   m_Layer: 0
   m_Name: Weapon_LuGerGun
   m_TagString: Untagged
@@ -288,22 +287,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ac9d503cca8c73e4890c362b387ba6d2, type: 3}
   duration: 0.1
   strength: 0.2
---- !u!114 &6256341642177243558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5508061223323651510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d08d96fd68039af44a4f02843696133b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  intensity: 1
-  frequence: 1
-  duration: 0.2
-  noiseSettings: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
 --- !u!1 &7505324245040865533
 GameObject:
   m_ObjectHideFlags: 0

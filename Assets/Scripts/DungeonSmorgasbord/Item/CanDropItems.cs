@@ -35,7 +35,7 @@ namespace ZiercCode.DungeonSmorgasbord.Item
         {
             foreach (DroppedItemConfig item in droppedItems)
             {
-                item.InstantiateItem(this.transform, burstForce);
+                item.InstantiateItem(transform, burstForce);
             }
         }
 

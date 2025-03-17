@@ -26,8 +26,8 @@ namespace NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase
 
         public ButtonAttribute(string text = null, EButtonEnableMode enabledMode = EButtonEnableMode.Always)
         {
-            this.Text = text;
-            this.SelectedEnableMode = enabledMode;
+            Text = text;
+            SelectedEnableMode = enabledMode;
         }
     }
 }

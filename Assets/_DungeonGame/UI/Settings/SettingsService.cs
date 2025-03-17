@@ -13,7 +13,7 @@ namespace ZiercCode._DungeonGame.UI.Settings
             _settingsView = view;
         }
 
-        //从文件中加载设置数据
+        //从文件中加载设置数据 同步到视图？ 应该是同步到model
         public void Load()
         {
             _gameSettings = ConfigComponent.Instance.GameSettings;

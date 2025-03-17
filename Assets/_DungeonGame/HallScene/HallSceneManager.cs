@@ -10,6 +10,8 @@ namespace ZiercCode._DungeonGame.HallScene
         [SerializeField] private CameraLerpToPointer virtualCamera;
         [SerializeField] private PlayerSpawner playerSpawner;
 
+        [SerializeField] private SceneChangeEffect.SceneChangeEffect sceneChangeEffect;
+
         private EventsGroup _eventsGroup = new EventsGroup();
 
         private void OnEnable()
@@ -25,7 +27,7 @@ namespace ZiercCode._DungeonGame.HallScene
         private void Start()
         {
             virtualCamera.SetCameraTarget(playerSpawner.SpawnPlayer().transform);
-           // AudioPlayer.Instance.PlayEnvironmentSfx("Audio_Environment_Hall_0");
+            // AudioPlayer.Instance.PlayEnvironmentSfx("Audio_Environment_Hall_0");
         }
 
         private void OnPlayerSpawned(IEventArgs args)
@@ -37,6 +39,10 @@ namespace ZiercCode._DungeonGame.HallScene
         public void EnterGame()
         {
             SceneComponent.Instance.LoadScene("Scene_CrimsonVault", true);
+        }
+
+        public void EnterTestRoom()
+        {
         }
     }
 }

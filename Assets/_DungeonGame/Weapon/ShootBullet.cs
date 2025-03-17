@@ -37,9 +37,9 @@ namespace ZiercCode._DungeonGame.Weapon
 
         private void OnDisable()
         {
-            _playerInputAction.HeroControl.Disable();
             //_playerInputAction.HeroControl.MouseClickLeft.started -= Shoot;
             //_playerInputAction.HeroControl.MouseClickLeft.performed -= Shoot;
+            _playerInputAction.HeroControl.Disable();
         }
 
         private void Update()
@@ -56,7 +56,7 @@ namespace ZiercCode._DungeonGame.Weapon
                 newBullet.transform.position = firePoint.position;
                 newBullet.transform.rotation = firePoint.rotation;
 
-                FakeHeight.FakeHeight fakeheight = newBullet.GetComponent<FakeHeight.FakeHeight>();
+                FakeHeight.FakeHeightTransform fakeheight = newBullet.GetComponent<FakeHeight.FakeHeightTransform>();
                 fakeheight.Init(firePoint.right * bulletOriginalSpeed, 0f, true, 0f, .5f);
                 OnShoot.Invoke();
 
@@ -78,7 +78,7 @@ namespace ZiercCode._DungeonGame.Weapon
                 newBullet.transform.position = firePoint.position;
                 newBullet.transform.rotation = firePoint.rotation;
 
-                FakeHeight.FakeHeight fakeheight = newBullet.GetComponent<FakeHeight.FakeHeight>();
+                FakeHeight.FakeHeightTransform fakeheight = newBullet.GetComponent<FakeHeight.FakeHeightTransform>();
                 fakeheight.Init(firePoint.right * bulletOriginalSpeed, 0f, true, 0f, .5f);
                 OnShoot.Invoke();
 

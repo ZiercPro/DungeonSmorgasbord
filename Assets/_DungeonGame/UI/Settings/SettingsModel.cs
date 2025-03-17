@@ -19,6 +19,8 @@ namespace ZiercCode._DungeonGame.UI.Settings
         public readonly ObserverValue<float> SfxVolume;
         public readonly ObserverValue<float> EnvironmentVolume;
 
+        //public readonly ObserverValue<GameSettings> GameSettings;
+
 
         public SettingsModel()
         {
@@ -33,10 +35,8 @@ namespace ZiercCode._DungeonGame.UI.Settings
             MusicVolume = new ObserverValue<float>(0f);
             SfxVolume = new ObserverValue<float>(0f);
             EnvironmentVolume = new ObserverValue<float>(0f);
-            
-        }
 
-      
-        
+            //GameSettings = new ObserverValue<GameSettings>();
+        }
     }
 }

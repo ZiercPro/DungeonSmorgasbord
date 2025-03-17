@@ -47,7 +47,6 @@ namespace ZiercCode._DungeonGame.UI.Settings
                 _view.Fps.onValueChanged.AddListener(View_OnFpsChange);
 
                 Context.CommandManager.AddCommandListener<OpenSettingsCommand>(OnEnterSettingsCommand);
-                Context.CommandManager.AddCommandListener<OpenMainMenuCommand>(OnEnterMainMenuCommand);
 
                 _service.Load();
             }
@@ -55,12 +54,14 @@ namespace ZiercCode._DungeonGame.UI.Settings
 
         private void OnEnterSettingsCommand(OpenSettingsCommand openSettingsCommand)
         {
-            Enter();
-        }
+            _view.gameObject.SetActive(true);
+            _view.CanvasGroupUser.Enable();
 
-        private void OnEnterMainMenuCommand(OpenMainMenuCommand openMainMenuCommand)
-        {
-            Exit();
+            InitializeChildView();
+
+            //重置设置状态
+            _view.settingsChanged.Value = false;
+            _view.ApplyButton.gameObject.SetActive(false);
         }
 
         private void OnBackButtonPressed()
@@ -68,6 +69,9 @@ namespace ZiercCode._DungeonGame.UI.Settings
             if (!_view.settingsChanged.Value)
             {
                 Context.CommandManager.InvokeCommand(new OpenMainMenuCommand());
+                //禁用界面
+                _view.CanvasGroupUser.Disable();
+                _view.gameObject.SetActive(false);
             }
             else
             {
@@ -76,25 +80,30 @@ namespace ZiercCode._DungeonGame.UI.Settings
                 void ConfirmAction()
                 {
                     Context.CommandManager.InvokeCommand(new OpenMainMenuCommand());
+                    //禁用界面
+                    _view.CanvasGroupUser.Disable();
+                    _view.gameObject.SetActive(false);
                 }
 
                 void CancelAction()
                 {
                     _service.Load();
                     Context.CommandManager.InvokeCommand(new OpenMainMenuCommand());
+                    //禁用界面
+                    _view.CanvasGroupUser.Disable();
+                    _view.gameObject.SetActive(false);
                 }
 
-                OpenCheckBoxCommand openCheckBoxCommand = new OpenCheckBoxCommand();
+                OpenCheckBoxCommand openCheckBoxCommand = new();
                 openCheckBoxCommand.Message = message;
                 openCheckBoxCommand.ConfirmCallback = ConfirmAction;
                 openCheckBoxCommand.CancelCallback = CancelAction;
 
                 //弹窗提示没有保存
                 Context.CommandManager.InvokeCommand(openCheckBoxCommand);
-
-                //禁用界面
-                Disable();
             }
+
+          
         }
 
         private void OnApplyButtonPressed()
@@ -103,48 +112,7 @@ namespace ZiercCode._DungeonGame.UI.Settings
             _view.settingsChanged.Value = false;
         }
 
-        private void Enable()
-        {
-            _view.CanvasGroup.blocksRaycasts = true;
-            _view.CanvasGroup.interactable = true;
-            _view.CanvasGroup.alpha = 1;
-        }
-
-        private void Disable()
-        {
-            _view.CanvasGroup.blocksRaycasts = false;
-            _view.CanvasGroup.interactable = false;
-            _view.CanvasGroup.alpha = 0.3f;
-        }
-
-        private void HideView()
-        {
-            _view.gameObject.SetActive(false);
-        }
-
-        private void ShowView()
-        {
-            _view.gameObject.SetActive(true);
-        }
-
-        private void Enter()
-        {
-            ShowView();
-            Enable();
-            InitializeChildView();
-
-            _view.settingsChanged.Value = false;
-            _view.ApplyButton.gameObject.SetActive(false);
-        }
-
-        private void Exit()
-        {
-            _service.Save();
-            Disable();
-            HideView();
-        }
-
-        private void InitializeChildView()
+        private void InitializeChildView() //初始化子视图（Toggles
         {
             _model.VolumePanelToggle.Value = true;
             _model.OtherPanelToggle.Value = false;

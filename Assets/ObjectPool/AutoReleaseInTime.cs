@@ -3,9 +3,10 @@ using ZiercCode.ObjectPool;
 
 namespace ZiercCode._DungeonGame.Weapon.Weapon_LuGerGun
 {
-    public class SplitBullet : MonoBehaviour //子弹碎片
+    public class AutoReleaseInTime : MonoBehaviour //定时自动释放 用于对象池物品
     {
-        [SerializeField] private float stayTime = 2f;
+        [SerializeField] private string poolName; //对象池名
+        [SerializeField] private float stayTime = 2f; //存活时间
 
         private float _stayTimer;
 
@@ -27,7 +28,7 @@ namespace ZiercCode._DungeonGame.Weapon.Weapon_LuGerGun
             }
             else
             {
-                PoolManager.Instance.Release("splitBullet", gameObject);
+                PoolManager.Instance.Release(poolName, gameObject);
             }
         }
     }

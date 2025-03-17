@@ -6,10 +6,10 @@ using Random = UnityEngine.Random;
 
 namespace ZiercCode._DungeonGame.Weapon.Weapon_LuGerGun
 {
-    public class BulletShell : MonoBehaviour
+    public class BulletShell : MonoBehaviour //弹壳
     {
         [SerializeField] private AudioClip[] shellDrop; //弹壳掉落的音效
-        [SerializeField] private FakeHeight.FakeHeight fakeHeight;
+        [SerializeField] private FakeHeight.FakeHeightTransform fakeHeightTransform;
         [SerializeField] private Vector2 colliderSize;
 
         [SerializeField] private SpriteRenderer spriteRenderer;
@@ -66,7 +66,7 @@ namespace ZiercCode._DungeonGame.Weapon.Weapon_LuGerGun
         {
             if (_rangeDetect.DetectInBox(transform.position, colliderSize, transform.rotation.eulerAngles.z))
             {
-                fakeHeight.StopGroundMove();
+                fakeHeightTransform.StopGroundMove();
             }
         }
 

@@ -42,7 +42,7 @@ namespace ZiercCode._DungeonGame.Weapon.Weapon_LuGerGun
             shell.transform.position = shellCasePoint.position;
             shell.transform.rotation = quaternion.identity;
 
-            shell.GetComponent<FakeHeight.FakeHeight>()
+            shell.GetComponent<FakeHeight.FakeHeightTransform>()
                 .Init(Random.insideUnitCircle * Random.Range(shellGroundVRange.x, shellGroundVRange.y),
                     Random.Range(shellVerticalVRange.x, shellVerticalVRange.y),
                     true, Random.Range(shellRotateVRange.x, shellRotateVRange.y));

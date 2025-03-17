@@ -85,7 +85,7 @@ namespace ZiercCode.PathFinding
                 _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 PathNode blockNode = _pathFinding.GridBase.GetGridObject(_mousePosition);
                 blockNode.IsActive = false;
-                GameObject newBlock = Object.Instantiate(blockCube,
+                GameObject newBlock = Instantiate(blockCube,
                     _pathFinding.GridBase.GetWorldPosition(blockNode.X, blockNode.Y) +
                     (Vector3.right + Vector3.up) * (_pathFinding.GridBase.CellSize * 0.5f), Quaternion.identity);
                 newBlock.transform.localScale = new Vector3(_pathFinding.GridBase.CellSize, _pathFinding.GridBase.CellSize,

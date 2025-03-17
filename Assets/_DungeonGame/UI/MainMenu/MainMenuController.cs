@@ -25,21 +25,24 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
                 _view.SettingButton.onClick.AddListener(OnSettingsButtonPressed);
                 _view.QuitButton.onClick.AddListener(OnQuitButtonPressed);
 
-                Context.CommandManager.AddCommandListener<OpenSettingsCommand>(OnEnterSettingsCommand);
-                Context.CommandManager.AddCommandListener<OpenMainMenuCommand>(OnEnterMainMenuCommand);
+                Context.CommandManager.AddCommandListener<OpenMainMenuCommand>(OpenMainMenuCommand);
             }
         }
 
+        //按下开始游戏 通过事件通知
         private void OnStartButtonPressed()
         {
             EventBus.Invoke(new SceneEvent.ChangeSceneEvent { NextSceneName = "Scene_Hall" });
         }
 
+        //按下设置 禁用自身
         private void OnSettingsButtonPressed()
         {
+            _view.CanvasGroupUser.Disable(0.3f);
             Context.CommandManager.InvokeCommand(new OpenSettingsCommand());
         }
 
+        //按下退出 先禁用主菜单 并弹出确认对话框
         private void OnQuitButtonPressed()
         {
             string message = LocalizationComponent.Instance.GetText("Warning_ExitGame");
@@ -55,53 +58,23 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
 
             void CancelQuit()
             {
-                Enable();
+                _view.CanvasGroupUser.Enable();
             }
 
-            OpenCheckBoxCommand openCheckBoxCommand = new OpenCheckBoxCommand();
+            OpenCheckBoxCommand openCheckBoxCommand = new();
             openCheckBoxCommand.Message = message;
             openCheckBoxCommand.ConfirmCallback = ConfirmQuit;
             openCheckBoxCommand.CancelCallback = CancelQuit;
 
             Context.CommandManager.InvokeCommand(openCheckBoxCommand);
 
-            Disable();
+            _view.CanvasGroupUser.Disable(0.3f);
         }
 
-        private void OnEnterMainMenuCommand(OpenMainMenuCommand openMainMenuCommand)
-        {
-            ShowView();
-            Enable();
-        }
-
-        private void OnEnterSettingsCommand(OpenSettingsCommand openSettingsCommand)
-        {
-            Disable();
-            HideView();
-        }
-
-        private void HideView()
-        {
-            _view.gameObject.SetActive(false);
-        }
-
-        private void ShowView()
+        private void OpenMainMenuCommand(OpenMainMenuCommand openMainMenuCommand)
         {
             _view.gameObject.SetActive(true);
-        }
-
-        private void Enable()
-        {
-            _view.CanvasGroup.blocksRaycasts = true;
-            _view.CanvasGroup.interactable = true;
-            _view.CanvasGroup.alpha = 1f;
-        }
-
-        private void Disable()
-        {
-            _view.CanvasGroup.blocksRaycasts = false;
-            _view.CanvasGroup.interactable = false;
-            _view.CanvasGroup.alpha = 0.3f;
+            _view.CanvasGroupUser.Enable();
         }
     }
 }

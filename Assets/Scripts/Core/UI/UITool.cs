@@ -22,7 +22,7 @@ namespace ZiercCode.Core.UI
         /// </summary>
         /// <typeparam name="T">组件类型</typeparam>
         /// <returns></returns>
-        public T GetOrAddComponent<T>() where T : UnityEngine.Component
+        public T GetOrAddComponent<T>() where T : Component
         {
             T result = thisPanel.GetComponent<T>();
 
@@ -61,7 +61,7 @@ namespace ZiercCode.Core.UI
         /// <param name="name">子对象名称</param>
         /// <param name="findDisabled">是否查找已被禁用的组件，默认为true</param>
         /// <returns></returns>
-        public T GetComponentInChildrenUI<T>(string name, bool findDisabled = true) where T : UnityEngine.Component
+        public T GetComponentInChildrenUI<T>(string name, bool findDisabled = true) where T : Component
         {
             GameObject child = FindChildGameObject(name);
 

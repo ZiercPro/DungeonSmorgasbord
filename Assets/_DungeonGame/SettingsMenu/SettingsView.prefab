@@ -2302,6 +2302,7 @@ GameObject:
   - component: {fileID: 3847718456027440260}
   - component: {fileID: 1965282327849069023}
   - component: {fileID: 4722460430368722636}
+  - component: {fileID: 7612182796150199618}
   m_Layer: 5
   m_Name: SettingsView
   m_TagString: Untagged
@@ -2365,7 +2366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 16
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 2560, y: 1440}
   m_ScreenMatchMode: 0
@@ -2404,12 +2405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3979ed1e5c6c4e07bcc3a6ed0a2e0078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsChanged:
-    value: 0
-    onValueChange:
-      m_PersistentCalls:
-        m_Calls: []
-  <CanvasGroup>k__BackingField: {fileID: 643821050206997684}
+  <CanvasGroupUser>k__BackingField: {fileID: 7612182796150199618}
   <VolumePanelToggle>k__BackingField: {fileID: 8914350766758091863}
   <OtherPanelToggle>k__BackingField: {fileID: 2157166952413552129}
   <LanguagePanelToggle>k__BackingField: {fileID: 4721576095465022382}
@@ -2424,6 +2420,24 @@ MonoBehaviour:
   <EnvironmentVolume>k__BackingField: {fileID: 5216491069794056264}
   <Fps>k__BackingField: {fileID: 2300699145844300578}
   <LanguageDropdown>k__BackingField: {fileID: 3814660113190396963}
+  settingsChanged:
+    value: 0
+    onValueChange:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &7612182796150199618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4418342381405259307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fa9b32f8cd96d4fbfd8025afe4498c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 643821050206997684}
 --- !u!1 &4499660734490103804
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,7 +37,7 @@ namespace NaughtyAttributes.Scripts.Test
         public DisableIfNest1 nest1;
     }
 
-    [System.Serializable]
+    [Serializable]
     public class DisableIfNest1
     {
         public bool disable1;
@@ -72,7 +72,7 @@ namespace NaughtyAttributes.Scripts.Test
         public DisableIfNest2 nest2;
     }
 
-    [System.Serializable]
+    [Serializable]
     public class DisableIfNest2
     {
         public bool disable1;
@@ -105,7 +105,7 @@ namespace NaughtyAttributes.Scripts.Test
         public Vector2 disableIfEnumFlagMulti;
     }
 
-    [System.Serializable]
+    [Serializable]
     public enum DisableIfEnum
     {
         Case0,

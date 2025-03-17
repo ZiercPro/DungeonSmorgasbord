@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ZiercCode._DungeonGame.Weapon.Weapon_LuGerGun
 {
-    public class ShootFlash : MonoBehaviour
+    public class GunFireFlash : MonoBehaviour //枪类武器的开火枪口火焰效果
     {
         [SerializeField] private Transform flash;
         [SerializeField] private float flashDuration;

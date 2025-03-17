@@ -22,6 +22,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 307d84975c8c7f543842e311e1a709dc
+    m_Address: Audio_SFX_Pickup_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 397f887ca5a702240b4c9338fe65fb9c
+    m_Address: Audio_SFX_PickUp_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6480ca29b08b08946b30df19881dc6e6
     m_Address: Audio_Environment_Hall_0
     m_ReadOnly: 0

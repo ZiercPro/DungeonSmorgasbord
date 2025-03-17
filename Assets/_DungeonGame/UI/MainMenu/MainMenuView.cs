@@ -10,15 +10,7 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
         [field: SerializeField] public Button StartButton { get; private set; }
         [field: SerializeField] public Button SettingButton { get; private set; }
         [field: SerializeField] public Button QuitButton { get; private set; }
-        [field: SerializeField] public CanvasGroup CanvasGroup { get; private set; }
-
-        public void RequireIsInitialized()
-        {
-            if (!_isInitialized)
-            {
-                Debug.LogWarning($"{name}需要初始化");
-            }
-        }
+        [field: SerializeField] public CanvasGroupUser CanvasGroupUser { get; private set; }
 
         public bool IsInitialized => _isInitialized;
         public IContext Context => _context;
@@ -26,6 +18,10 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
         private bool _isInitialized;
         private IContext _context;
 
+        public void RequireIsInitialized()
+        {
+        }
+        
         public void Initialize(IContext context)
         {
             if (!_isInitialized)
@@ -38,7 +34,6 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
 
         public void Dispose()
         {
-            //todo
         }
     }
 }

@@ -755,7 +755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6605436920950317684, guid: 4360ab054b8a56448ac1efad766b3afe, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7698366867080200597, guid: 4360ab054b8a56448ac1efad766b3afe, type: 3}
       propertyPath: m_LocalScale.x
