@@ -26,21 +26,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_DungeonGame/Scene_Loading.unity
     guid: 8ab63583822166c43b55cb6dfba9a67a
-  - enabled: 1
-    path: Assets/Samples/RMC Mini MVCS/2.2.8/RMC Mini MVCS - 2. Advanced Examples/Examples/Example01_ConfiguratorMini/Scenes/Scene01_Menu.unity
-    guid: 89e7a8277547afc40aadec559fd35af7
-  - enabled: 1
-    path: Assets/Samples/RMC Mini MVCS/2.2.8/RMC Mini MVCS - 2. Advanced Examples/Examples/Example01_ConfiguratorMini/Scenes/Scene02_CustomizeCharacter.unity
-    guid: 11adab1c03f108544a396a159532d1b9
-  - enabled: 1
-    path: Assets/Samples/RMC Mini MVCS/2.2.8/RMC Mini MVCS - 2. Advanced Examples/Examples/Example01_ConfiguratorMini/Scenes/Scene03_CustomizeEnvironment.unity
-    guid: e30d213c707b11541a3568e4e1233fef
-  - enabled: 1
-    path: Assets/Samples/RMC Mini MVCS/2.2.8/RMC Mini MVCS - 2. Advanced Examples/Examples/Example01_ConfiguratorMini/Scenes/Scene04_Game.unity
-    guid: dff540296227fa445bc019833930f2e3
-  - enabled: 1
-    path: Assets/Samples/RMC Mini MVCS/2.2.8/RMC Mini MVCS - 2. Advanced Examples/Examples/Example01_ConfiguratorMini/Scenes/Scene05_DeveloperConsole.unity
-    guid: a672da0354421b94b88743edc5daa7a1
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: ecd2ce6a9885acc4389c7a51028dbb47, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 65a7be2ba047ae94a9c8c143d300887d, type: 2}

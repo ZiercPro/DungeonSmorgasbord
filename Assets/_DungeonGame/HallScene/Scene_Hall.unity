@@ -9844,6 +9844,10 @@ PrefabInstance:
       propertyPath: autoFlipComponent
       value: 
       objectReference: {fileID: 498007505}
+    - target: {fileID: 8216982353129430907, guid: 2e4d9fa777196f147a3d2bba247c86f2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8348070486033000875, guid: 2e4d9fa777196f147a3d2bba247c86f2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
