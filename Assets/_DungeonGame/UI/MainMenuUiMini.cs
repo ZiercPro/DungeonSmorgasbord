@@ -1,9 +1,10 @@
 ﻿using RMC.Mini;
 using UnityEngine;
+using ZiercCode._DungeonGame.UI.CheckBox;
+using ZiercCode._DungeonGame.UI.MainMenu;
 using ZiercCode._DungeonGame.UI.Settings;
-using ZiercCode.Test.MVC;
 
-namespace ZiercCode._DungeonGame.UI.MainMenu
+namespace ZiercCode._DungeonGame.UI
 {
     public class MainMenuUiMini : MonoBehaviour
     {
@@ -19,49 +20,52 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
         private CheckBoxModel _checkBoxModel;
 
         private SettingsService _settingsService;
+        private MainMenuService _mainMenuService;
+        private CheckBoxService _checkBoxService;
 
         private IContext _context;
 
-        private PlayerInputAction _playerInputAction;
-
-        private void OnEnable()
+        private void OnDestroy()
         {
-            _playerInputAction.UI.Enable();
-        }
+            _mainMenuController.Dispose();
+            _settingsController.Dispose();
+            _checkBoxController.Dispose();
 
-        private void OnDisable()
-        {
-            _playerInputAction.UI.Disable();
+            _settingsService.Dispose();
+            _mainMenuService.Dispose();
+            _checkBoxService.Dispose();
         }
 
         private void Awake()
         {
-            _playerInputAction = new PlayerInputAction();
-
             _context = new Context();
             //model
-            _checkBoxModel = new CheckBoxModel();
             _settingsModel = new SettingsModel();
+            _checkBoxModel = new CheckBoxModel();
 
             //service
-            _settingsService = new SettingsService(settingsView);
+            _settingsService = new SettingsService();
+            _mainMenuService = new MainMenuService();
+            _checkBoxService = new CheckBoxService();
 
             //controller
             _settingsController = new(_settingsModel, settingsView, _settingsService);
-            _checkBoxController = new CheckBoxController(_checkBoxModel, checkBoxView);
-            _mainMenuController = new(mainMenuView);
+            _checkBoxController = new(_checkBoxModel, checkBoxView, _checkBoxService);
+            _mainMenuController = new(mainMenuView, _mainMenuService);
         }
 
         private void Start()
         {
-            _settingsModel.Initialize(_context);
             _checkBoxModel.Initialize(_context);
+            _settingsModel.Initialize(_context);
+
+            _settingsService.Initialize(_context);
+            _checkBoxService.Initialize(_context);
+            _mainMenuService.Initialize(_context);
 
             mainMenuView.Initialize(_context);
             settingsView.Initialize(_context);
             checkBoxView.Initialize(_context);
-
-            _settingsService.Initialize(_context);
 
             _settingsController.Initialize(_context);
             _mainMenuController.Initialize(_context);

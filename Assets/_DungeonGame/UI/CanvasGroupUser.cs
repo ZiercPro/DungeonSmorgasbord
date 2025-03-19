@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZiercCode
+namespace ZiercCode._DungeonGame.UI
 {
     public class CanvasGroupUser : MonoBehaviour // 通过CanvasGroup组件 禁用视图
     {

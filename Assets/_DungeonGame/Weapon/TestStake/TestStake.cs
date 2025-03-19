@@ -3,7 +3,7 @@ using ZiercCode._DungeonGame.Juice;
 using ZiercCode.DungeonSmorgasbord.Component;
 using ZiercCode.DungeonSmorgasbord.Damage;
 
-namespace ZiercCode
+namespace ZiercCode._DungeonGame.Weapon.TestStake
 {
     public class TestStake : MonoBehaviour, IHitAble, IDamageable
     {

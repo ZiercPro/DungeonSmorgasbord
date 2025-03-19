@@ -1,10 +1,9 @@
 using DG.Tweening;
-using System;
 using UnityEngine;
 using ZiercCode._DungeonGame.HallScene;
 using ZiercCode.Audio;
 
-namespace ZiercCode
+namespace ZiercCode._DungeonGame.Juice
 {
     public class PickUpItem : MonoBehaviour //可以拾取的物品
     {

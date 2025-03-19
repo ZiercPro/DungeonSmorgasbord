@@ -1,9 +1,8 @@
-﻿using RMC.Mini;
+﻿using RMC.Core.Observables;
+using RMC.Mini;
 using RMC.Mini.Controller;
-using ZiercCode._DungeonGame.UI.MainMenu;
-using ZiercCode.Audio;
-using ZiercCode.DungeonSmorgasbord.Locale;
-using ZiercCode.Locale;
+using System;
+using UnityEngine.Events;
 
 namespace ZiercCode._DungeonGame.UI.Settings
 {
@@ -24,198 +23,108 @@ namespace ZiercCode._DungeonGame.UI.Settings
                 _view.BackButton.onClick.AddListener(OnBackButtonPressed);
                 _view.ApplyButton.onClick.AddListener(OnApplyButtonPressed);
 
-                _view.settingsChanged.AddListener(Model_OnSettingsValueStateChange);
+                //数据视图绑定//
+                BindData(_model.MasterVolume, _view.MasterVolume.SetValueWithoutNotify,
+                    _view.MasterVolume.onValueChanged);
+                BindData(_model.EnvironmentVolume, _view.EnvironmentVolume.SetValueWithoutNotify,
+                    _view.EnvironmentVolume.onValueChanged);
+                BindData(_model.MusicVolume, _view.MusicVolume.SetValueWithoutNotify,
+                    _view.MusicVolume.onValueChanged);
+                BindData(_model.SfxVolume, _view.SfxVolume.SetValueWithoutNotify, _view.SfxVolume.onValueChanged);
 
-                _model.MasterVolume.AddListener(Model_OnMasterVolumeChange);
-                _model.MusicVolume.AddListener(Model_OnMusicVolumeChange);
-                _model.SfxVolume.AddListener(Model_OnSfxVolumeChange);
-                _model.EnvironmentVolume.AddListener(Model_OnEnvironmentVolumeChange);
-                _model.VolumePanelToggle.AddListener(Model_OnVolumeToggleChange);
-                _model.OtherPanelToggle.AddListener(Model_OnOtherToggleChange);
-                _model.LanguagePanelToggle.AddListener(Model_OnLanguageToggleChange);
-                _model.LanguageEnum.AddListener(Model_OnLanguageEnumChange);
-                _model.FpsToggle.AddListener(Model_OnFpsToggleChange);
+                BindData(_model.FpsOn, _view.Fps.SetIsOnWithoutNotify, _view.Fps.onValueChanged);
 
-                _view.VolumePanelToggle.onValueChanged.AddListener(View_OnVolumeTogglePressed);
-                _view.OtherPanelToggle.onValueChanged.AddListener(View_OnOtherTogglePressed);
-                _view.LanguagePanelToggle.onValueChanged.AddListener(View_OnLanguageTogglePressed);
-                _view.MasterVolume.onValueChanged.AddListener(View_OnMasterVolumeChange);
-                _view.MusicVolume.onValueChanged.AddListener(View_OnMusicVolumeChange);
-                _view.SfxVolume.onValueChanged.AddListener(View_OnSfxVolumeChange);
-                _view.EnvironmentVolume.onValueChanged.AddListener(View_OnEnvironmentVolumeChange);
-                _view.LanguageDropdown.onValueChanged.AddListener(View_OnLanguageEnumChange);
-                _view.Fps.onValueChanged.AddListener(View_OnFpsChange);
+                BindData(_model.Language, _view.LanguageDropdown.SetValueWithoutNotify,
+                    _view.LanguageDropdown.onValueChanged);
 
-                Context.CommandManager.AddCommandListener<OpenSettingsCommand>(OnEnterSettingsCommand);
 
-                _service.Load();
+                //数据逻辑绑定//
+                BindData(_model.MasterVolume, a => _service.UpdateAudioVolume(_model), null);
+                BindData(_model.MusicVolume, a => _service.UpdateAudioVolume(_model), null);
+                BindData(_model.EnvironmentVolume, a => _service.UpdateAudioVolume(_model), null);
+                BindData(_model.SfxVolume, a => _service.UpdateAudioVolume(_model), null);
+                BindData(_model.Language, _service.UpdateLanguage, null);
+
+                //todo fps显示
+
+                Context.CommandManager.AddCommandListener<OpenSettingsCommand>(OnOpenSettingsCommand);
+
+                _service.OnBackInput.AddListener(OnBackButtonPressed);
+
+                _service.LoadGameSettings();
             }
         }
 
-        private void OnEnterSettingsCommand(OpenSettingsCommand openSettingsCommand)
+        //model和view数据绑定 也可以进行逻辑绑定
+        private void BindData<T>(Observable<T> modelData, Action<T> callBack, UnityEvent<T> viewData)
         {
+            //model变化改变view 但是不会广播值改变事件
+            modelData.OnValueChanged.AddListener((pre, cur) => callBack?.Invoke(cur));
+            //view变化改变model
+            viewData?.AddListener(v =>
+            {
+                modelData.Value = v;
+                _model.SettingChanged = true;
+                _view.ApplyButton.gameObject.SetActive(true);
+            });
+        }
+
+        private void OnOpenSettingsCommand(OpenSettingsCommand openSettingsCommand)
+        {
+            _service.SetUIInput(true);
+
             _view.gameObject.SetActive(true);
-            _view.CanvasGroupUser.Enable();
 
-            InitializeChildView();
+            _view.SettingsViewGroupUser.Enable();
 
-            //重置设置状态
-            _view.settingsChanged.Value = false;
+            //重置设置修改状态
+            _model.SettingChanged = false;
             _view.ApplyButton.gameObject.SetActive(false);
+
+            _view.InitSubView();
         }
 
         private void OnBackButtonPressed()
         {
-            if (!_view.settingsChanged.Value)
+            _service.SetUIInput(false);
+            _view.SettingsViewGroupUser.Disable();
+
+            if (!_model.SettingChanged)
             {
-                Context.CommandManager.InvokeCommand(new OpenMainMenuCommand());
+                Context.CommandManager.InvokeCommand(new ExitSettingsCommand());
                 //禁用界面
-                _view.CanvasGroupUser.Disable();
                 _view.gameObject.SetActive(false);
             }
             else
             {
-                string message = LocalizationComponent.Instance.GetText("Warning_SaveSettings");
+                string message = _service.GetLocaleString("Warning_SaveSettings");
 
                 void ConfirmAction()
                 {
-                    Context.CommandManager.InvokeCommand(new OpenMainMenuCommand());
-                    //禁用界面
-                    _view.CanvasGroupUser.Disable();
+                    Context.CommandManager.InvokeCommand(new ExitSettingsCommand());
                     _view.gameObject.SetActive(false);
                 }
 
                 void CancelAction()
                 {
-                    _service.Load();
-                    Context.CommandManager.InvokeCommand(new OpenMainMenuCommand());
-                    //禁用界面
-                    _view.CanvasGroupUser.Disable();
+                    _service.LoadGameSettings();
+                    Context.CommandManager.InvokeCommand(new ExitSettingsCommand());
                     _view.gameObject.SetActive(false);
                 }
 
-                OpenCheckBoxCommand openCheckBoxCommand = new();
-                openCheckBoxCommand.Message = message;
-                openCheckBoxCommand.ConfirmCallback = ConfirmAction;
-                openCheckBoxCommand.CancelCallback = CancelAction;
-
                 //弹窗提示没有保存
-                Context.CommandManager.InvokeCommand(openCheckBoxCommand);
+                Context.CommandManager.InvokeCommand(new OpenCheckBoxCommand
+                {
+                    Message = message, ConfirmCallback = ConfirmAction, CancelCallback = CancelAction
+                });
             }
-
-          
         }
 
         private void OnApplyButtonPressed()
         {
-            _service.Save();
-            _view.settingsChanged.Value = false;
-        }
-
-        private void InitializeChildView() //初始化子视图（Toggles
-        {
-            _model.VolumePanelToggle.Value = true;
-            _model.OtherPanelToggle.Value = false;
-            _model.LanguagePanelToggle.Value = false;
-
-            _view.VolumeSettings.gameObject.SetActive(true);
-            _view.OtherSettings.gameObject.SetActive(false);
-            _view.LanguageSettings.gameObject.SetActive(false);
-        }
-
-        private void Model_OnSettingsValueStateChange(bool s)
-        {
-            _view.ApplyButton.gameObject.SetActive(s);
-        }
-
-        private void Model_OnFpsToggleChange(bool s)
-        {
-            _view.Fps.isOn = s;
-        }
-
-        private void Model_OnVolumeToggleChange(bool s)
-        {
-            _view.VolumeSettings.gameObject.SetActive(s);
-        }
-
-        private void Model_OnOtherToggleChange(bool s)
-        {
-            _view.OtherSettings.gameObject.SetActive(s);
-        }
-
-        private void Model_OnLanguageToggleChange(bool s)
-        {
-            _view.LanguageSettings.gameObject.SetActive(s);
-        }
-
-        private void View_OnVolumeTogglePressed(bool s)
-        {
-            _model.VolumePanelToggle.Value = s;
-        }
-
-        private void View_OnOtherTogglePressed(bool s)
-        {
-            _model.OtherPanelToggle.Value = s;
-        }
-
-        private void View_OnLanguageTogglePressed(bool s)
-        {
-            _model.LanguagePanelToggle.Value = s;
-        }
-
-        private void Model_OnMasterVolumeChange(float value)
-        {
-            AudioPlayer.Instance.SetMasterVolume(value);
-        }
-
-        private void Model_OnMusicVolumeChange(float value)
-        {
-            AudioPlayer.Instance.SetMusicVolume(value);
-        }
-
-        private void Model_OnSfxVolumeChange(float value)
-        {
-            AudioPlayer.Instance.SetSfxVolume(value);
-        }
-
-        private void Model_OnEnvironmentVolumeChange(float value)
-        {
-            AudioPlayer.Instance.SetEnvironmentVolume(value);
-        }
-
-        private void View_OnMasterVolumeChange(float value)
-        {
-            _model.MasterVolume.Value = value;
-        }
-
-        private void View_OnMusicVolumeChange(float value)
-        {
-            _model.MusicVolume.Value = value;
-        }
-
-        private void View_OnSfxVolumeChange(float value)
-        {
-            _model.SfxVolume.Value = value;
-        }
-
-        private void View_OnEnvironmentVolumeChange(float value)
-        {
-            _model.EnvironmentVolume.Value = value;
-        }
-
-        private void Model_OnLanguageEnumChange(LanguageEnum languageEnum)
-        {
-            LocalizationComponent.Instance.SetLanguage(languageEnum);
-        }
-
-        private void View_OnLanguageEnumChange(int languageIndex)
-        {
-            _model.LanguageEnum.Value = (LanguageEnum)languageIndex;
-        }
-
-        private void View_OnFpsChange(bool s)
-        {
-            _model.FpsToggle.Value = s;
+            _service.SaveGameSettings();
+            _model.SettingChanged = false;
+            _view.ApplyButton.gameObject.SetActive(false);
         }
     }
 }

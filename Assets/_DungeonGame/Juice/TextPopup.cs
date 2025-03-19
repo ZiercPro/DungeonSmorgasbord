@@ -4,7 +4,7 @@ using ZiercCode.DungeonSmorgasbord.Extend;
 using ZiercCode.ObjectPool;
 using ZiercCode.Utilities;
 
-namespace ZiercCode
+namespace ZiercCode._DungeonGame.Juice
 {
     public class TextPopup : USingleton<TextPopup>
     {

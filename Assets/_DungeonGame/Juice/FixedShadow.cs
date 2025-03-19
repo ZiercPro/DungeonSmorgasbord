@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZiercCode
+namespace ZiercCode._DungeonGame.Juice
 {
     public class FixedShadow : MonoBehaviour //预制影子
     {

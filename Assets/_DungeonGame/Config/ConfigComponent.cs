@@ -19,9 +19,9 @@ namespace ZiercCode._DungeonGame.Config
             _gameSettings = _jsonDataService.LoadData<GameSettings>(GameSettings.SETTING_DATA_PATH, false);
         }
 
-        public void SaveGameSettings(GameSettings gameSettings)
+        public void SaveGameSettings(GameSettings settings)
         {
-            _gameSettings = gameSettings;
+            _gameSettings = settings;
             _jsonDataService.SaveData(GameSettings.SETTING_DATA_PATH, _gameSettings, false);
         }
     }

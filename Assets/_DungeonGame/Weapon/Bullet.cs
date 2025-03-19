@@ -1,5 +1,6 @@
 using UnityEngine;
 using ZiercCode._DungeonGame.HallScene;
+using ZiercCode._DungeonGame.Weapon.TestStake;
 using ZiercCode.DungeonSmorgasbord.Damage;
 using ZiercCode.FakeHeight;
 using ZiercCode.ObjectPool;
@@ -119,7 +120,7 @@ namespace ZiercCode._DungeonGame.Weapon
         private void TrackTarget()
         {
             if (!_target)
-                _target = FindObjectOfType<TestStake>().transform;
+                _target = FindObjectOfType<TestStake.TestStake>().transform;
 
 
             Vector2 targetDir = (_target.position - transform.position).normalized;

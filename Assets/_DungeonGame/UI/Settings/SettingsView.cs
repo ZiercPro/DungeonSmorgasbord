@@ -1,25 +1,28 @@
 ﻿using RMC.Mini;
 using RMC.Mini.View;
-using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using ZiercCode.DungeonSmorgasbord.Locale;
-using ZiercCode.Utilities;
 
 namespace ZiercCode._DungeonGame.UI.Settings
 {
     public class SettingsView : MonoBehaviour, IView
     {
+        //子页面切换器
+        [SerializeField] private Toggle volumeViewToggle;
+        [SerializeField] private Toggle otherViewToggle;
+        [SerializeField] private Toggle languageViewToggle;
 
+        //子页面
+        [SerializeField] private CanvasGroupUser volumeViewGroupUser;
+        [SerializeField] private CanvasGroupUser otherViewGroupUser;
+        [SerializeField] private CanvasGroupUser languageViewGroupUser;
 
-        [field: SerializeField] public CanvasGroupUser CanvasGroupUser { get; private set; }
-        [field: SerializeField] public Toggle VolumePanelToggle { get; private set; }
-        [field: SerializeField] public Toggle OtherPanelToggle { get; private set; }
-        [field: SerializeField] public Toggle LanguagePanelToggle { get; private set; }
-        [field: SerializeField] public RectTransform VolumeSettings { get; private set; }
-        [field: SerializeField] public RectTransform OtherSettings { get; private set; }
-        [field: SerializeField] public RectTransform LanguageSettings { get; private set; }
+        private Dictionary<Toggle, CanvasGroupUser>
+            _toggleViewBind = new Dictionary<Toggle, CanvasGroupUser>(); //toggle和子页面的绑定关系
+
+        [field: SerializeField] public CanvasGroupUser SettingsViewGroupUser { get; private set; }
         [field: SerializeField] public Button BackButton { get; private set; }
         [field: SerializeField] public Button ApplyButton { get; private set; }
         [field: SerializeField] public Slider MasterVolume { get; private set; }
@@ -29,8 +32,6 @@ namespace ZiercCode._DungeonGame.UI.Settings
         [field: SerializeField] public Toggle Fps { get; private set; }
         [field: SerializeField] public TMP_Dropdown LanguageDropdown { get; private set; }
 
-        
-        public ObserverValue<bool> settingsChanged;
         public bool IsInitialized => _isInitialize;
         public IContext Context => _context;
 
@@ -39,29 +40,7 @@ namespace ZiercCode._DungeonGame.UI.Settings
 
         public void RequireIsInitialized()
         {
-            if (_isInitialize) Debug.LogWarning($"{name}需要实例化");
         }
-
-        private void OnEnable()
-        {
-            MasterVolume.onValueChanged.AddListener(OnAnyValueChange);
-            MusicVolume.onValueChanged.AddListener(OnAnyValueChange);
-            SfxVolume.onValueChanged.AddListener(OnAnyValueChange);
-            EnvironmentVolume.onValueChanged.AddListener(OnAnyValueChange);
-            Fps.onValueChanged.AddListener(OnAnyValueChange);
-            LanguageDropdown.onValueChanged.AddListener(OnAnyValueChange);
-        }
-
-        private void OnDisable()
-        {
-            MasterVolume.onValueChanged.RemoveListener(OnAnyValueChange);
-            MusicVolume.onValueChanged.RemoveListener(OnAnyValueChange);
-            SfxVolume.onValueChanged.RemoveListener(OnAnyValueChange);
-            EnvironmentVolume.onValueChanged.RemoveListener(OnAnyValueChange);
-            Fps.onValueChanged.RemoveListener(OnAnyValueChange);
-            LanguageDropdown.onValueChanged.RemoveListener(OnAnyValueChange);
-        }
-
 
         public void Initialize(IContext context)
         {
@@ -69,87 +48,37 @@ namespace ZiercCode._DungeonGame.UI.Settings
             {
                 _context = context;
 
-                SettingsModel settingsModel = _context.ModelLocator.GetItem<SettingsModel>();
-
-                settingsChanged = new ObserverValue<bool>(false);
-
-                settingsModel.VolumePanelToggle.AddListener(OnVolumeToggleChange);
-                settingsModel.OtherPanelToggle.AddListener(OnOtherToggleChange);
-                settingsModel.LanguagePanelToggle.AddListener(OnLanguageToggleChange);
-
-                settingsModel.FpsToggle.AddListener(OnFpsToggleChange);
-                settingsModel.LanguageEnum.AddListener(OnLanguageChange);
-
-                settingsModel.MasterVolume.AddListener(OnMasterVolumeChange);
-                settingsModel.MusicVolume.AddListener(OnMusicVolumeChange);
-                settingsModel.SfxVolume.AddListener(OnSfxVolumeChange);
-                settingsModel.EnvironmentVolume.AddListener(OnEnvironmentVolumeChange);
-
                 _isInitialize = true;
+
+                //绑定toggle和子页面
+                _toggleViewBind.Add(volumeViewToggle, volumeViewGroupUser);
+                _toggleViewBind.Add(otherViewToggle, otherViewGroupUser);
+                _toggleViewBind.Add(languageViewToggle, languageViewGroupUser);
+
+                //初始化toggle页面切换事件
+                foreach (var bind in _toggleViewBind)
+                {
+                    bind.Key.onValueChanged.AddListener(v =>
+                    {
+                        if (v)
+                            bind.Value.Enable();
+                        else bind.Value.Disable();
+                    });
+                }
             }
         }
 
-        private void OnAnyValueChange<T>(T value)
+        //初始化子页面 只需要激活需要激活的页面 其他页面自动关闭
+        public void InitSubView()
         {
-            settingsChanged.Value = true;
-        }
-
-        private void OnFpsToggleChange(bool s)
-        {
-            Fps.isOn = s;
-        }
-
-        private void OnLanguageChange(LanguageEnum languageEnum)
-        {
-            int languageIndex = (int)languageEnum;
-            if (LanguageDropdown.options.Count > languageIndex)
-            {
-                LanguageDropdown.value = languageIndex;
-            }
-            else
-            {
-                throw new Exception($"超出枚举{typeof(LanguageEnum)}范围");
-            }
-        }
-
-        private void OnMasterVolumeChange(float value)
-        {
-            MasterVolume.value = value;
-        }
-
-        private void OnMusicVolumeChange(float value)
-        {
-            MusicVolume.value = value;
-        }
-
-        private void OnSfxVolumeChange(float value)
-        {
-            SfxVolume.value = value;
-        }
-
-        private void OnEnvironmentVolumeChange(float value)
-        {
-            EnvironmentVolume.value = value;
-        }
-
-        private void OnVolumeToggleChange(bool s)
-        {
-            VolumePanelToggle.isOn = s;
-        }
-
-        private void OnOtherToggleChange(bool s)
-        {
-            OtherPanelToggle.isOn = s;
-        }
-
-        private void OnLanguageToggleChange(bool s)
-        {
-            LanguagePanelToggle.isOn = s;
+            volumeViewToggle.isOn = true;
+            volumeViewGroupUser.Enable();
+            otherViewGroupUser.Disable();
+            languageViewGroupUser.Disable();
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
         }
     }
 }

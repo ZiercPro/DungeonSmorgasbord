@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZiercCode._DungeonGame.GameFlow
+namespace ZiercCode._DungeonGame.GameEntry
 {
     public class GameExit : MonoBehaviour
     {

@@ -1,17 +1,13 @@
 ﻿using RMC.Mini;
 using RMC.Mini.Controller;
 using Unity.VisualScripting;
-using UnityEditor;
-using UnityEngine;
-using ZiercCode._DungeonGame.UI.Settings;
-using ZiercCode.Locale;
-using EventBus = ZiercCode.Event.EventBus;
+
 
 namespace ZiercCode._DungeonGame.UI.MainMenu
 {
-    public class MainMenuController : BaseController<Null, MainMenuView, Null>
+    public class MainMenuController : BaseController<Null, MainMenuView, MainMenuService>
     {
-        public MainMenuController(MainMenuView view) : base(null, view, null)
+        public MainMenuController(MainMenuView view, MainMenuService service) : base(null, view, service)
         {
         }
 
@@ -25,19 +21,22 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
                 _view.SettingButton.onClick.AddListener(OnSettingsButtonPressed);
                 _view.QuitButton.onClick.AddListener(OnQuitButtonPressed);
 
-                Context.CommandManager.AddCommandListener<OpenMainMenuCommand>(OpenMainMenuCommand);
+                Context.CommandManager.AddCommandListener<ExitSettingsCommand>(ExitSettingsCommandCallBack);
+
+                _service.OnBackInput.AddListener(OnQuitButtonPressed); //回退快捷键
             }
         }
 
         //按下开始游戏 通过事件通知
         private void OnStartButtonPressed()
         {
-            EventBus.Invoke(new SceneEvent.ChangeSceneEvent { NextSceneName = "Scene_Hall" });
+            _service.LoadScene("Scene_Hall");
         }
 
         //按下设置 禁用自身
         private void OnSettingsButtonPressed()
         {
+            _service.SetUIInput(false);
             _view.CanvasGroupUser.Disable(0.3f);
             Context.CommandManager.InvokeCommand(new OpenSettingsCommand());
         }
@@ -45,15 +44,11 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
         //按下退出 先禁用主菜单 并弹出确认对话框
         private void OnQuitButtonPressed()
         {
-            string message = LocalizationComponent.Instance.GetText("Warning_ExitGame");
+            string message = _service.GetLocaleString("Warning_ExitGame");
 
             void ConfirmQuit()
             {
-#if UNITY_EDITOR
-
-                EditorApplication.ExitPlaymode();
-#endif
-                Application.Quit();
+                _service.QuitGame();
             }
 
             void CancelQuit()
@@ -61,18 +56,17 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
                 _view.CanvasGroupUser.Enable();
             }
 
-            OpenCheckBoxCommand openCheckBoxCommand = new();
-            openCheckBoxCommand.Message = message;
-            openCheckBoxCommand.ConfirmCallback = ConfirmQuit;
-            openCheckBoxCommand.CancelCallback = CancelQuit;
-
-            Context.CommandManager.InvokeCommand(openCheckBoxCommand);
+            Context.CommandManager.InvokeCommand(new OpenCheckBoxCommand
+            {
+                Message = message, ConfirmCallback = ConfirmQuit, CancelCallback = CancelQuit
+            });
 
             _view.CanvasGroupUser.Disable(0.3f);
         }
 
-        private void OpenMainMenuCommand(OpenMainMenuCommand openMainMenuCommand)
+        private void ExitSettingsCommandCallBack(ExitSettingsCommand openMainMenuCommand)
         {
+            _service.SetUIInput(true);
             _view.gameObject.SetActive(true);
             _view.CanvasGroupUser.Enable();
         }

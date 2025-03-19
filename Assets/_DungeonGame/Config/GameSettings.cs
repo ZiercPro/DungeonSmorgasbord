@@ -38,6 +38,6 @@ namespace ZiercCode._DungeonGame.Config
         /// <summary>
         /// 默认语言
         /// </summary>
-        public LanguageEnum Language;
+        public int Language;
     }
 }

@@ -2,7 +2,8 @@
 
 namespace ZiercCode._DungeonGame.UI
 {
-    public class OpenSettingsCommand : ICommand
+    public class ExitSettingsCommand : ICommand
     {
+        
     }
 }

@@ -1,42 +1,27 @@
-﻿using RMC.Mini.Model;
-using ZiercCode.DungeonSmorgasbord.Locale;
-using ZiercCode.Utilities;
+﻿using RMC.Core.Observables;
+using RMC.Mini.Model;
 
 namespace ZiercCode._DungeonGame.UI.Settings
 {
     public class SettingsModel : BaseModel
     {
-        public readonly ObserverValue<bool> FpsToggle;
+        public bool SettingChanged; //设置是否修改
 
-        public readonly ObserverValue<bool> VolumePanelToggle;
-        public readonly ObserverValue<bool> OtherPanelToggle;
-        public readonly ObserverValue<bool> LanguagePanelToggle;
-
-        public readonly ObserverValue<LanguageEnum> LanguageEnum;
-
-        public readonly ObserverValue<float> MasterVolume;
-        public readonly ObserverValue<float> MusicVolume;
-        public readonly ObserverValue<float> SfxVolume;
-        public readonly ObserverValue<float> EnvironmentVolume;
-
-        //public readonly ObserverValue<GameSettings> GameSettings;
-
+        public Observable<float> MasterVolume; //主音量
+        public Observable<float> MusicVolume; //音乐音量
+        public Observable<float> EnvironmentVolume; //环境音量
+        public Observable<float> SfxVolume; //音效音量
+        public Observable<bool> FpsOn; //开启fpx显示
+        public Observable<int> Language; //语言
 
         public SettingsModel()
         {
-            FpsToggle = new ObserverValue<bool>(false);
-            VolumePanelToggle = new ObserverValue<bool>(false);
-            OtherPanelToggle = new ObserverValue<bool>(false);
-            LanguagePanelToggle = new ObserverValue<bool>(false);
-
-            LanguageEnum = new ObserverValue<LanguageEnum>(DungeonSmorgasbord.Locale.LanguageEnum.Chinese);
-
-            MasterVolume = new ObserverValue<float>(0f);
-            MusicVolume = new ObserverValue<float>(0f);
-            SfxVolume = new ObserverValue<float>(0f);
-            EnvironmentVolume = new ObserverValue<float>(0f);
-
-            //GameSettings = new ObserverValue<GameSettings>();
+            MasterVolume = new Observable<float>();
+            EnvironmentVolume = new Observable<float>();
+            MusicVolume = new Observable<float>();
+            SfxVolume = new Observable<float>();
+            FpsOn = new Observable<bool>();
+            Language = new Observable<int>();
         }
     }
 }

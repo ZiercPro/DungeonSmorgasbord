@@ -35,7 +35,6 @@ namespace ZiercCode.Test.MVC
 
         public void Dispose()
         {
-            //todo
         }
 
         private bool _isInitialized;

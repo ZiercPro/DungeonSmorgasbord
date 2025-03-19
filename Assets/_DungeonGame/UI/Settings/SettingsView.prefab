@@ -2405,13 +2405,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3979ed1e5c6c4e07bcc3a6ed0a2e0078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CanvasGroupUser>k__BackingField: {fileID: 7612182796150199618}
-  <VolumePanelToggle>k__BackingField: {fileID: 8914350766758091863}
-  <OtherPanelToggle>k__BackingField: {fileID: 2157166952413552129}
-  <LanguagePanelToggle>k__BackingField: {fileID: 4721576095465022382}
-  <VolumeSettings>k__BackingField: {fileID: 6323613917241795940}
-  <OtherSettings>k__BackingField: {fileID: 444332717771174564}
-  <LanguageSettings>k__BackingField: {fileID: 8792044018108416718}
+  volumeViewToggle: {fileID: 8914350766758091863}
+  otherViewToggle: {fileID: 2157166952413552129}
+  languageViewToggle: {fileID: 4721576095465022382}
+  volumeViewGroupUser: {fileID: 2573936095287976697}
+  otherViewGroupUser: {fileID: 8760567471346934517}
+  languageViewGroupUser: {fileID: 5108211407590106811}
+  <SettingsViewGroupUser>k__BackingField: {fileID: 7612182796150199618}
   <BackButton>k__BackingField: {fileID: 3854061362482011894}
   <ApplyButton>k__BackingField: {fileID: 493444367927381561}
   <MasterVolume>k__BackingField: {fileID: 1500293970196518308}
@@ -2420,11 +2420,6 @@ MonoBehaviour:
   <EnvironmentVolume>k__BackingField: {fileID: 5216491069794056264}
   <Fps>k__BackingField: {fileID: 2300699145844300578}
   <LanguageDropdown>k__BackingField: {fileID: 3814660113190396963}
-  settingsChanged:
-    value: 0
-    onValueChange:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!114 &7612182796150199618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2970,6 +2965,8 @@ GameObject:
   - component: {fileID: 444332717771174564}
   - component: {fileID: 3565774331876786141}
   - component: {fileID: 212420269249362292}
+  - component: {fileID: 2681708462860624866}
+  - component: {fileID: 8760567471346934517}
   m_Layer: 5
   m_Name: OtherSettings
   m_TagString: Untagged
@@ -3035,6 +3032,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &2681708462860624866
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407371648060182542}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &8760567471346934517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5407371648060182542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fa9b32f8cd96d4fbfd8025afe4498c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 2681708462860624866}
 --- !u!1 &5440666077482813272
 GameObject:
   m_ObjectHideFlags: 0
@@ -5013,6 +5035,8 @@ GameObject:
   - component: {fileID: 6323613917241795940}
   - component: {fileID: 4532263008316066013}
   - component: {fileID: 4008629456011629077}
+  - component: {fileID: 7811731853417324734}
+  - component: {fileID: 2573936095287976697}
   m_Layer: 5
   m_Name: VolumeSettings
   m_TagString: Untagged
@@ -5081,6 +5105,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &7811731853417324734
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7883631866908429340}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &2573936095287976697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7883631866908429340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fa9b32f8cd96d4fbfd8025afe4498c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 7811731853417324734}
 --- !u!1 &8155917741775551777
 GameObject:
   m_ObjectHideFlags: 0
@@ -6609,6 +6658,8 @@ GameObject:
   - component: {fileID: 8792044018108416718}
   - component: {fileID: 543766766388882125}
   - component: {fileID: 5857847567478459526}
+  - component: {fileID: 1019139540813179781}
+  - component: {fileID: 5108211407590106811}
   m_Layer: 5
   m_Name: LanguageSettings
   m_TagString: Untagged
@@ -6674,3 +6725,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &1019139540813179781
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202966852703943758}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &5108211407590106811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202966852703943758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fa9b32f8cd96d4fbfd8025afe4498c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1019139540813179781}

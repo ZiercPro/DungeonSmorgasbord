@@ -3,7 +3,7 @@ using RMC.Mini.View;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ZiercCode
+namespace ZiercCode._DungeonGame.UI.PauseMenu
 {
     public class PauseView : MonoBehaviour, IView //暂停界面
     {

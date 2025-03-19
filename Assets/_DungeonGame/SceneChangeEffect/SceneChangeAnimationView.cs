@@ -2,7 +2,7 @@ using RMC.Mini;
 using RMC.Mini.View;
 using UnityEngine;
 
-namespace ZiercCode
+namespace ZiercCode._DungeonGame.SceneChangeEffect
 {
     public class SceneChangeAnimationView : MonoBehaviour, IView
     {

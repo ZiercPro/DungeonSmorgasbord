@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -36,15 +37,23 @@ namespace ZiercCode.Locale
             load.WaitForCompletion();
         }
 
+        public void SetLanguage(int language)
+        {
+            bool isValid = Enum.IsDefined(typeof(LanguageEnum), language); //确保输入有效
+            if (!isValid) //如果无效 则默认设置为中文
+                SetLanguage(LanguageEnum.Chinese);
+            else SetLanguage((LanguageEnum)language);
+        }
+
         /// <summary>
         /// 设置游戏语言
         /// </summary>
         /// <param name="language"></param>
         /// <returns>设置语言协程</returns>
-        public Coroutine SetLanguage(LanguageEnum language)
+        public void SetLanguage(LanguageEnum language)
         {
             _currentLanguage = language;
-            return StartCoroutine(SetLocal(language));
+            StartCoroutine(SetLocal(language));
         }
 
         /// <summary>
@@ -63,7 +72,7 @@ namespace ZiercCode.Locale
                     case LanguageEnum.English:
                         return customT.english;
                     default:
-                        Debug.LogError("当前语言不支持"); //默认返回中文
+                        Debug.LogWarning("找不到该语言"); //默认返回中文
                         return customT.chinese;
                 }
             }

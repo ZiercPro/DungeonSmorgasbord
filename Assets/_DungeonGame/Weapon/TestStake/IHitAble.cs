@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ZiercCode
+namespace ZiercCode._DungeonGame.Weapon.TestStake
 {
     public interface IHitAble
     {
