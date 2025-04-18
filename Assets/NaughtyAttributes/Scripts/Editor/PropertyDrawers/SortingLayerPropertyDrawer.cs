@@ -1,4 +1,4 @@
-﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using System;
 using System.Reflection;
 using UnityEditor;
@@ -27,15 +27,15 @@ namespace NaughtyAttributes.Scripts.Editor.PropertyDrawers
             switch (property.propertyType)
             {
                 case SerializedPropertyType.String:
-                    DrawPropertyForString(rect, property, label, GetLayers());
-                    break;
+                DrawPropertyForString(rect, property, label, GetLayers());
+                break;
                 case SerializedPropertyType.Integer:
-                    DrawPropertyForInt(rect, property, label, GetLayers());
-                    break;
+                DrawPropertyForInt(rect, property, label, GetLayers());
+                break;
                 default:
-                    string message = string.Format(TypeWarningMessage, property.name);
-                    DrawDefaultPropertyAndHelpBox(rect, property, message, MessageType.Warning);
-                    break;
+                string message = string.Format(TypeWarningMessage, property.name);
+                DrawDefaultPropertyAndHelpBox(rect, property, message, MessageType.Warning);
+                break;
             }
 
             EditorGUI.EndProperty();

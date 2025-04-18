@@ -1,4 +1,4 @@
-﻿using RMC.Core.Observables;
+using RMC.Core.Observables;
 using RMC.Mini;
 using RMC.Mini.Controller;
 using System;
@@ -44,8 +44,7 @@ namespace ZiercCode._DungeonGame.UI.Settings
                 BindData(_model.EnvironmentVolume, a => _service.UpdateAudioVolume(_model), null);
                 BindData(_model.SfxVolume, a => _service.UpdateAudioVolume(_model), null);
                 BindData(_model.Language, _service.UpdateLanguage, null);
-
-                //todo fps显示
+                BindData(_model.FpsOn, a => _service.UpdateFPSShower(a), null);
 
                 Context.CommandManager.AddCommandListener<OpenSettingsCommand>(OnOpenSettingsCommand);
 
@@ -53,6 +52,16 @@ namespace ZiercCode._DungeonGame.UI.Settings
 
                 _service.LoadGameSettings();
             }
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+
+            _view.BackButton.onClick.RemoveListener(OnBackButtonPressed);
+            _view.ApplyButton.onClick.RemoveListener(OnApplyButtonPressed);
+
+            _service.OnBackInput.RemoveListener(OnBackButtonPressed);
         }
 
         //model和view数据绑定 也可以进行逻辑绑定
@@ -65,7 +74,7 @@ namespace ZiercCode._DungeonGame.UI.Settings
             {
                 modelData.Value = v;
                 _model.SettingChanged = true;
-                _view.ApplyButton.gameObject.SetActive(true);
+                _view.ApplyButton.interactable = true;
             });
         }
 
@@ -79,7 +88,7 @@ namespace ZiercCode._DungeonGame.UI.Settings
 
             //重置设置修改状态
             _model.SettingChanged = false;
-            _view.ApplyButton.gameObject.SetActive(false);
+            _view.ApplyButton.interactable = false;
 
             _view.InitSubView();
         }
@@ -92,8 +101,8 @@ namespace ZiercCode._DungeonGame.UI.Settings
             if (!_model.SettingChanged)
             {
                 Context.CommandManager.InvokeCommand(new ExitSettingsCommand());
-                //禁用界面
-                _view.gameObject.SetActive(false);
+                // //禁用界面
+                // _view.gameObject.SetActive(false);
             }
             else
             {
@@ -102,14 +111,14 @@ namespace ZiercCode._DungeonGame.UI.Settings
                 void ConfirmAction()
                 {
                     Context.CommandManager.InvokeCommand(new ExitSettingsCommand());
-                    _view.gameObject.SetActive(false);
+                    // _view.gameObject.SetActive(false);
                 }
 
                 void CancelAction()
                 {
                     _service.LoadGameSettings();
                     Context.CommandManager.InvokeCommand(new ExitSettingsCommand());
-                    _view.gameObject.SetActive(false);
+                    //_view.gameObject.SetActive(false);
                 }
 
                 //弹窗提示没有保存
@@ -124,7 +133,7 @@ namespace ZiercCode._DungeonGame.UI.Settings
         {
             _service.SaveGameSettings();
             _model.SettingChanged = false;
-            _view.ApplyButton.gameObject.SetActive(false);
+            _view.ApplyButton.interactable = false;
         }
     }
 }

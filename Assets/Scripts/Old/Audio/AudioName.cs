@@ -29,73 +29,73 @@ namespace ZiercCode.Old.Audio
         WeaponWave5,
         FireBall
     }
-//
-// public idleBgm = "Audio/8Bit Music Album - 051321/IdleBgm";
-//
-// public AudioBase buttonClick =
-//     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Liquid/Click"), 1, false, false,
-//         AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase buttonEnter =
-//     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Crispy/Enter"), 1, false, false,
-//         AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase cardEnter =
-//     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Plastic/CardEnter"), 1, false, false,
-//         AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase cardClick =
-//     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Plastic/CardClick"), 1, false, false,
-//         AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase weaponWave_1 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_1"), 1, false, false,
-//     AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase bigMouthSpawn_1 = new AudioBase(new AudioType("Audio/Fantasy Sfx/Mp3/Dragon_Growl_00"), 1,
-//     false, false, AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase babySpawn_1 = new AudioBase(new AudioType("Audio/Fantasy Sfx/Mp3/Goblin_01"), 1, false,
-//     false, AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase interactive_1 =
-//     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Liquid/active_1"), 1, false, false,
-//         AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase explosion_1 = new AudioBase(new AudioType("Audio/Self/explosion_1"), 1, false, false,
-//     AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase enemyDead_1 =
-//     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Crispy/enemydead_1"), 1, false, false,
-//         AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase enemyDead_2 =
-//     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Liquid/enemydead_2"), 1, false, false,
-//         AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase enemyDead_3 =
-//     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Pop/enemydead_3"), 1, false, false,
-//         AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase enemyDead_4 =
-//     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Pop/enemydead_4"), 1, false, false,
-//         AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase coinCollected = new AudioBase(new AudioType("Audio/Item/CoinCollected"), 1, false, false,
-//     AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase weaponWave_2 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_2"), 1, false, false,
-//     AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase weaponWave_3 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_3"), 1, false, false,
-//     AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase weaponWave_4 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_4"), 1, false, false,
-//     AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase weaponWave_5 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_5"), 1, false, false,
-//     AudioPlayerManager.Instance.SFX);
-//
-// public AudioBase battleBgm_normal = new AudioBase(new AudioType("Audio/8Bit Music Album - 051321/BattleBgm_normal"),
-//     1, true, false,
-//     AudioPlayerManager.Instance.Music);
+    //
+    // public idleBgm = "Audio/8Bit Music Album - 051321/IdleBgm";
+    //
+    // public AudioBase buttonClick =
+    //     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Liquid/Click"), 1, false, false,
+    //         AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase buttonEnter =
+    //     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Crispy/Enter"), 1, false, false,
+    //         AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase cardEnter =
+    //     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Plastic/CardEnter"), 1, false, false,
+    //         AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase cardClick =
+    //     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Plastic/CardClick"), 1, false, false,
+    //         AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase weaponWave_1 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_1"), 1, false, false,
+    //     AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase bigMouthSpawn_1 = new AudioBase(new AudioType("Audio/Fantasy Sfx/Mp3/Dragon_Growl_00"), 1,
+    //     false, false, AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase babySpawn_1 = new AudioBase(new AudioType("Audio/Fantasy Sfx/Mp3/Goblin_01"), 1, false,
+    //     false, AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase interactive_1 =
+    //     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Liquid/active_1"), 1, false, false,
+    //         AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase explosion_1 = new AudioBase(new AudioType("Audio/Self/explosion_1"), 1, false, false,
+    //     AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase enemyDead_1 =
+    //     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Crispy/enemydead_1"), 1, false, false,
+    //         AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase enemyDead_2 =
+    //     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Liquid/enemydead_2"), 1, false, false,
+    //         AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase enemyDead_3 =
+    //     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Pop/enemydead_3"), 1, false, false,
+    //         AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase enemyDead_4 =
+    //     new AudioBase(new AudioType("Audio/Free UI Click Sound Effects Pack/AUDIO/Pop/enemydead_4"), 1, false, false,
+    //         AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase coinCollected = new AudioBase(new AudioType("Audio/Item/CoinCollected"), 1, false, false,
+    //     AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase weaponWave_2 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_2"), 1, false, false,
+    //     AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase weaponWave_3 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_3"), 1, false, false,
+    //     AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase weaponWave_4 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_4"), 1, false, false,
+    //     AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase weaponWave_5 = new AudioBase(new AudioType("Audio/WeaponBase/weaponWave_5"), 1, false, false,
+    //     AudioPlayerManager.Instance.SFX);
+    //
+    // public AudioBase battleBgm_normal = new AudioBase(new AudioType("Audio/8Bit Music Album - 051321/BattleBgm_normal"),
+    //     1, true, false,
+    //     AudioPlayerManager.Instance.Music);
 }

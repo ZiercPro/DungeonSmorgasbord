@@ -5,7 +5,9 @@ namespace ZiercCode._DungeonGame.Seed
 {
     public class SeedTest : MonoBehaviour
     {
-        [SerializeField] private string seed;
+        [SerializeField]
+        private string seed;
+
         private System.Random _random;
 
         [Button("生成10个数字")]

@@ -104,7 +104,7 @@ namespace ZiercCode.Old.Hero
 
         public Dictionary<WeaponType, float> GetWeaponDamageRate()
         {
-            return _attribute.AttributesData.weaponDamageRate.ToDictionary();
+            return _attribute.AttributesData.weaponDamageRate.ToDictionary;
         }
 
         public float GetCriticalChance()

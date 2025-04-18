@@ -1,15 +1,20 @@
 using UnityEngine;
 using UnityEngine.Events;
+using ZiercCode.Management;
 
 namespace ZiercCode.FakeHeight
 {
     [RequireComponent(typeof(Shadow2D))]
-    public class FakeHeightTransform : MonoBehaviour
+    public class FakeHeightTransform : PauseBehaviour
     {
-        [SerializeField] private Shadow2D shadow2D;
+        [SerializeField]
+        private Shadow2D shadow2D;
 
-        [SerializeField] private float virtualGravity; //模拟重力加速度
-        [SerializeField] private bool updateGravity; //更新重力
+        [SerializeField]
+        private float virtualGravity; //模拟重力加速度
+
+        [SerializeField]
+        private bool updateGravity; //更新重力
 
         public UnityEvent onGrounded; //当物体接触地面时调用
         public UnityEvent onFirstGrounded; //第一次接触地面时调用
@@ -18,7 +23,7 @@ namespace ZiercCode.FakeHeight
         private float _verticalVelocity;
         private float _rotationVelocity;
 
-        private float _lastVerticalVelocity; //记录上一次初始化时的垂直速度
+        private float _verticalVelocityOnInit; //记录初始化时的垂直速度 不随时间变化
 
         private bool _isGrounded;
         private bool _isFirstGrounded; //是否是初次接触地面
@@ -29,7 +34,7 @@ namespace ZiercCode.FakeHeight
             _isFirstGrounded = isFirstGround;
             groundVelocity = gV;
             _verticalVelocity = vV;
-            _lastVerticalVelocity = vV;
+            _verticalVelocityOnInit = vV;
             _rotationVelocity = rV;
 
             //设置初始高度
@@ -78,7 +83,7 @@ namespace ZiercCode.FakeHeight
             }
         }
 
-        private void Update()
+        protected override void PauseUpdate()
         {
             UpdateGroundPosition();
             UpdateVerticalPosition();
@@ -100,7 +105,7 @@ namespace ZiercCode.FakeHeight
         //碰到地面时弹起
         public void Bounce(float division)
         {
-            Init(groundVelocity, _lastVerticalVelocity / division, false, _rotationVelocity);
+            Init(groundVelocity, _verticalVelocityOnInit / division, false, _rotationVelocity);
         }
 
         public void StopGroundMove()

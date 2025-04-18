@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 namespace ZiercCode.Utilities
@@ -71,6 +71,6 @@ namespace ZiercCode.Utilities
                 TimerTrigger?.Invoke();
             }
         }
-        
+
     }
 }

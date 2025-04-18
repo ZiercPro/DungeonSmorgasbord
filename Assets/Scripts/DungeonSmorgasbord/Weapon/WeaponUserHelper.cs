@@ -1,4 +1,4 @@
-﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
 using System;
 using UnityEngine;
 using ZiercCode.DungeonSmorgasbord.ScriptObject;

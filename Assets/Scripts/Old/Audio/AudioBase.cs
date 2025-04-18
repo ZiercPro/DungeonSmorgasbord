@@ -18,7 +18,7 @@ namespace ZiercCode.Old.Audio
         /// <summary>
         /// 音频音量 默认为1
         /// </summary>
-        [field: SerializeField] [Range(0, 1)] public float volume = 1;
+        [field: SerializeField][Range(0, 1)] public float volume = 1;
 
         /// <summary>
         /// 是否循环

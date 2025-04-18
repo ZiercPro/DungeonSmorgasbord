@@ -80,6 +80,15 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""a6926e69-e0d4-47ab-84fd-d8661d58878c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -109,7 +118,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""ba5deef7-a1bf-4f2d-b650-d9f44cb472cc"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Hold"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";KeyBoard"",
                     ""action"": ""MouseClickLeft"",
@@ -247,6 +256,17 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
                     ""action"": ""MouseClickRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac37592e-c3b4-4d07-8b45-f322a3b0f66c"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";KeyBoard"",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -332,6 +352,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         m_HeroControl_MouseClickLeft = m_HeroControl.FindAction("MouseClickLeft", throwIfNotFound: true);
         m_HeroControl_Dash = m_HeroControl.FindAction("Dash", throwIfNotFound: true);
         m_HeroControl_Interact = m_HeroControl.FindAction("Interact", throwIfNotFound: true);
+        m_HeroControl_Reload = m_HeroControl.FindAction("Reload", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Back = m_UI.FindAction("Back", throwIfNotFound: true);
@@ -409,6 +430,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_HeroControl_MouseClickLeft;
     private readonly InputAction m_HeroControl_Dash;
     private readonly InputAction m_HeroControl_Interact;
+    private readonly InputAction m_HeroControl_Reload;
     public struct HeroControlActions
     {
         private @PlayerInputAction m_Wrapper;
@@ -419,6 +441,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         public InputAction @MouseClickLeft => m_Wrapper.m_HeroControl_MouseClickLeft;
         public InputAction @Dash => m_Wrapper.m_HeroControl_Dash;
         public InputAction @Interact => m_Wrapper.m_HeroControl_Interact;
+        public InputAction @Reload => m_Wrapper.m_HeroControl_Reload;
         public InputActionMap Get() { return m_Wrapper.m_HeroControl; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -446,6 +469,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Reload.started += instance.OnReload;
+            @Reload.performed += instance.OnReload;
+            @Reload.canceled += instance.OnReload;
         }
 
         private void UnregisterCallbacks(IHeroControlActions instance)
@@ -468,6 +494,9 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Reload.started -= instance.OnReload;
+            @Reload.performed -= instance.OnReload;
+            @Reload.canceled -= instance.OnReload;
         }
 
         public void RemoveCallbacks(IHeroControlActions instance)
@@ -565,6 +594,7 @@ public partial class @PlayerInputAction: IInputActionCollection2, IDisposable
         void OnMouseClickLeft(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

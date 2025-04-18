@@ -1,4 +1,4 @@
-﻿using RMC.Mini;
+using RMC.Mini;
 using RMC.Mini.Controller;
 using Unity.VisualScripting;
 
@@ -25,6 +25,17 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
 
                 _service.OnBackInput.AddListener(OnQuitButtonPressed); //回退快捷键
             }
+        }
+
+        public override void Dispose()
+        {
+            base.Dispose();
+
+            _view.StartButton.onClick.RemoveListener(OnStartButtonPressed);
+            _view.SettingButton.onClick.RemoveListener(OnSettingsButtonPressed);
+            _view.QuitButton.onClick.RemoveListener(OnQuitButtonPressed);
+
+            _service.OnBackInput.RemoveListener(OnQuitButtonPressed);
         }
 
         //按下开始游戏 通过事件通知
@@ -67,7 +78,7 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
         private void ExitSettingsCommandCallBack(ExitSettingsCommand openMainMenuCommand)
         {
             _service.SetUIInput(true);
-            _view.gameObject.SetActive(true);
+            //_view.gameObject.SetActive(true);
             _view.CanvasGroupUser.Enable();
         }
     }

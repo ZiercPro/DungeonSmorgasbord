@@ -1,4 +1,4 @@
-﻿namespace ZiercCode._DungeonGame.HallScene
+namespace ZiercCode._DungeonGame.HallScene
 {
     //可开关接口
     public interface IOpenClose

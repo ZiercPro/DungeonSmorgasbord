@@ -6,16 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_DungeonGame/GameEntry/GameEntry.unity
+    path: Assets/_DungeonGame/_Scene/Scene_GameEntry.unity
     guid: 4d798d7b94571784597961f4e7b6ed45
   - enabled: 1
-    path: Assets/_DungeonGame/MainMenu/Scene_MainMenu.unity
+    path: Assets/_DungeonGame/_Scene/Scene_MainMenu.unity
     guid: e25ebbdc7d8daed45927a9610b9b5930
   - enabled: 1
-    path: Assets/_DungeonGame/HallScene/Scene_Hall.unity
+    path: Assets/_DungeonGame/_Scene/Scene_Hall.unity
     guid: f413ef36d7ad1674e8d47601c28ca631
-  - enabled: 0
-    path: Assets/_DungeonGame/CrimsonVault/Scene_CrimsonVault.unity
+  - enabled: 1
+    path: Assets/_DungeonGame/_Scene/Scene_TestRoom.unity
+    guid: c2cf9083a51299f4faab55d3a6c97a3e
+  - enabled: 1
+    path: Assets/_DungeonGame/_Scene/Scene_CrimsonVault.unity
     guid: fe40513b7f3a2e943a106bcc9780a0ee
   - enabled: 0
     path: Assets/_DungeonGame/Weapon/WeaponTest.unity
@@ -24,7 +27,7 @@ EditorBuildSettings:
     path: Assets/AddressableTest/AddressableTest.unity
     guid: f88a0ea61c9dbe544b48435dac0008d4
   - enabled: 0
-    path: Assets/_DungeonGame/Scene_Loading.unity
+    path: Assets/_DungeonGame/_Scene/Scene_Loading.unity
     guid: 8ab63583822166c43b55cb6dfba9a67a
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: ecd2ce6a9885acc4389c7a51028dbb47, type: 2}

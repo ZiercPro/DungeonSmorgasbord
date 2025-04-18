@@ -110,15 +110,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pixel_icons_by_oceansdream_0
+      name: LuGerPistol
       rect:
         serializedVersion: 2
         x: 0
         y: 122
         width: 24
         height: 19
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0, y: 0.8}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -425,15 +425,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixel_icons_by_oceansdream_15
+      name: BugKingLaserGun
       rect:
         serializedVersion: 2
         x: 74
         y: 72
         width: 22
         height: 21
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.15945296, y: 0.30071804}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -446,15 +446,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixel_icons_by_oceansdream_16
+      name: FlameThrower
       rect:
         serializedVersion: 2
         x: 98
         y: 74
         width: 21
         height: 21
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.1, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -530,15 +530,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixel_icons_by_oceansdream_20
+      name: SIGSG550Rifle
       rect:
         serializedVersion: 2
         x: 49
         y: 50
         width: 23
         height: 21
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.33557013, y: 0.707347}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -876,20 +876,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pixel_icons_by_oceansdream_0: 677286992
+      BugKingLaserGun: -74877608
+      FlameThrower: 2059061337
+      LuGerPistol: 677286992
+      SIGSG550Rifle: -193346235
       pixel_icons_by_oceansdream_1: 1363122852
       pixel_icons_by_oceansdream_10: -1912757817
       pixel_icons_by_oceansdream_11: -1195998666
       pixel_icons_by_oceansdream_12: 188420767
       pixel_icons_by_oceansdream_13: 374132830
       pixel_icons_by_oceansdream_14: 1795562668
-      pixel_icons_by_oceansdream_15: -74877608
-      pixel_icons_by_oceansdream_16: 2059061337
       pixel_icons_by_oceansdream_17: 1170050851
       pixel_icons_by_oceansdream_18: -1068210371
       pixel_icons_by_oceansdream_19: -1156262066
       pixel_icons_by_oceansdream_2: 1566443813
-      pixel_icons_by_oceansdream_20: -193346235
       pixel_icons_by_oceansdream_21: -720456290
       pixel_icons_by_oceansdream_22: -936896075
       pixel_icons_by_oceansdream_23: -2032840728

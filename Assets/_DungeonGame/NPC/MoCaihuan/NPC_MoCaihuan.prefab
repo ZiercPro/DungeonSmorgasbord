@@ -266,7 +266,7 @@ MonoBehaviour:
   autoFlipComponent: {fileID: 7062572556547621777}
   navMeshAgent: {fileID: 5749251486403419981}
   animator: {fileID: 6741943609133371214}
-  textBubble: {fileID: 5371777314095157286}
+  emojiBubble: {fileID: 5371777314095157286}
 --- !u!114 &8021653015792561636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,6 +494,46 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5347320369599445391, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+      propertyPath: bubbles.keyList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347320369599445391, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+      propertyPath: bubbles.keyList.Array.data[0]
+      value: heart
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347320369599445391, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+      propertyPath: bubbles.keyList.Array.data[1]
+      value: point
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347320369599445391, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+      propertyPath: bubbles.objectList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347320369599445391, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+      propertyPath: bubbles.objectList.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347320369599445391, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+      propertyPath: bubbles.dictionaryList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347320369599445391, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+      propertyPath: bubbles.dictionaryList.Array.data[0].keyValue
+      value: heart
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347320369599445391, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+      propertyPath: bubbles.dictionaryList.Array.data[1].keyValue
+      value: point
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347320369599445391, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+      propertyPath: bubbles.dictionaryList.Array.data[0].objectValue
+      value: 
+      objectReference: {fileID: 3516102532485283811}
+    - target: {fileID: 5347320369599445391, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+      propertyPath: bubbles.dictionaryList.Array.data[1].objectValue
+      value: 
+      objectReference: {fileID: 1248540909471199123}
     - target: {fileID: 7585823611005268148, guid: edfe3b30c7937a541a95064d54071681, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -554,11 +594,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: TextBubble
       objectReference: {fileID: 0}
+    - target: {fileID: 8264537840015472338, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785856613172835797, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+--- !u!1 &1248540909471199123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1291031011820914234, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+  m_PrefabInstance: {fileID: 52104253498173865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3516102532485283811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3491037470045853258, guid: edfe3b30c7937a541a95064d54071681, type: 3}
+  m_PrefabInstance: {fileID: 52104253498173865}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5371777314095157286 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5347320369599445391, guid: edfe3b30c7937a541a95064d54071681, type: 3}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9067766321965820836}
-  - component: {fileID: 7095020531523498629}
+  - component: {fileID: 701462659088716056}
   - component: {fileID: 6817454334559694778}
   - component: {fileID: 7969488290419868128}
   - component: {fileID: 469491487700477726}
@@ -38,7 +38,7 @@ Transform:
   - {fileID: 8540334845458768010}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7095020531523498629
+--- !u!114 &701462659088716056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,11 +50,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66c29acb2ccf3b643893741936be0334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectRadius: 3.5
-  enterRange: {x: 3, y: 2.1}
+  collisionBox: {x: 0, y: 0}
   onPlayerEnter:
     m_PersistentCalls:
       m_Calls: []
+  openDetectRadius: 0
 --- !u!114 &6817454334559694778
 MonoBehaviour:
   m_ObjectHideFlags: 0

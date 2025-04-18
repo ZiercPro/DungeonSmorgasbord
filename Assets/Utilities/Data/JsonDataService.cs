@@ -38,26 +38,29 @@ namespace ZiercCode.Utilities.Data
             }
         }
 
-        public T LoadData<T>(string relativePath, bool encrypted)
+        public bool LoadData<T>(string relativePath, out T outData, bool encrypted)
         {
             string path = Environment.CurrentDirectory + relativePath;
 
             if (!File.Exists(path))
             {
                 Debug.LogWarning($"无法找到文件：{path}！");
-                return default;
+                outData = default;
+                return false;
             }
             else
             {
                 try
                 {
                     T data = JsonConvert.DeserializeObject<T>(File.ReadAllText(path));
-                    return data;
+                    outData = data;
+                    return true;
                 }
                 catch (Exception e)
                 {
                     Debug.LogError($"无法加载：{e.Message};{e.StackTrace}");
-                    throw; //重新抛出 方便调用方法出问题时 进行处理 提示玩家等等
+                    outData = default;
+                    return false;
                 }
             }
         }

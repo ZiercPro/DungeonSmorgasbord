@@ -3,12 +3,16 @@ using UnityEngine;
 
 namespace ZiercCode.GameTools_2D
 {
-    public class CameraLerpToPointer : MonoBehaviour //让摄像机在玩家与鼠标之间的位置
+    public class CameraLerpToPointer : MonoBehaviour //让摄像机在目标与鼠标之间的位置
     {
-        [SerializeField] private Camera mainCamera;
-        [SerializeField] private Transform cameraTarget;
+        [SerializeField]
+        private Camera mainCamera;
 
-        [SerializeField, Range(0f, 1f)] private float toPointerRate; //摄像机倾向鼠标位置的程度 0-1
+        [SerializeField]
+        private Transform cameraTarget; //目标
+
+        [SerializeField, Range(0f, 1f)]
+        private float toPointerRate; //摄像机倾向鼠标位置的程度 0-1
 
         private Transform _cameraFollow; //摄像机真正跟随的目标
         private PlayerInputAction _playerInputAction;
@@ -36,7 +40,7 @@ namespace ZiercCode.GameTools_2D
             GetComponent<CinemachineVirtualCamera>().m_LookAt = _cameraFollow;
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             UpdateCameraFollower();
         }

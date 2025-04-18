@@ -5,7 +5,8 @@ namespace ZiercCode._DungeonGame.SceneChangeEffect
 {
     public class FunctionTest : MonoBehaviour
     {
-        [SerializeField] private KeyCode pressKey;
+        [SerializeField]
+        private KeyCode pressKey;
 
         public UnityEvent onKeyPressed;
 

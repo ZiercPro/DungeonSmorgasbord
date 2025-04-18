@@ -1,5 +1,6 @@
 ﻿using RMC.Mini;
 using RMC.Mini.Controller;
+using ZiercCode._DungeonGame._Scripts;
 
 namespace ZiercCode._DungeonGame.UI.PauseMenu
 {
@@ -25,9 +26,20 @@ namespace ZiercCode._DungeonGame.UI.PauseMenu
             }
         }
 
+        public override void Dispose()
+        {
+            base.Dispose();
+
+            _view.ContinueButton.onClick.RemoveListener(OnContinueButtonPressed);
+            _view.SettingsButton.onClick.RemoveListener(OnSettingsButtonPressed);
+            _view.MainMenuButton.onClick.RemoveListener(OnMainMenuButtonPressed);
+
+            _service.OnBackInput.RemoveListener(OnBackInput);
+        }
+
         private void OnBackInput()
         {
-            if (_model.IsPause)
+            if (_service.IsGamePaused())
             {
                 OnContinueButtonPressed();
             }
@@ -35,7 +47,7 @@ namespace ZiercCode._DungeonGame.UI.PauseMenu
             {
                 _view.gameObject.SetActive(true);
                 _view.CanvasGroupUser.Enable();
-                _service.SetTimeScale(0f);
+                _service.PauseGame();
             }
         }
 
@@ -43,8 +55,8 @@ namespace ZiercCode._DungeonGame.UI.PauseMenu
         private void OnContinueButtonPressed()
         {
             _view.CanvasGroupUser.Disable();
-            _view.gameObject.SetActive(false);
-            _service.SetTimeScale(1f);
+            // _view.gameObject.SetActive(false);
+            _service.ResumeGame();
         }
 
         //按下设置按钮 当前界面颜色变淡 并禁用该界面
@@ -65,7 +77,7 @@ namespace ZiercCode._DungeonGame.UI.PauseMenu
         private void ExitSettingsCommandCallback(ExitSettingsCommand command)
         {
             _service.SetUIInput(true);
-            _view.gameObject.SetActive(true);
+            //_view.gameObject.SetActive(true);
             _view.CanvasGroupUser.Enable();
         }
     }

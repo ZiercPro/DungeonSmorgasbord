@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
-using ZiercCode.Old.Helper;
 using ZiercCode.Old.ScriptObject;
 using ZiercCode.Utilities;
 
@@ -13,7 +12,8 @@ namespace ZiercCode.DungeonSmorgasbord.Locale
         /// <summary>
         /// 自定义文本本地化数据
         /// </summary>
-        [SerializeField] private List<CustomTextDataSo> customTextDataSoList;
+        [SerializeField]
+        private List<CustomTextDataSo> customTextDataSoList;
 
         /// <summary>
         /// 当前所选语言
@@ -37,27 +37,27 @@ namespace ZiercCode.DungeonSmorgasbord.Locale
         /// <returns>文本</returns>
         public string GetLocaleText(string itemId)
         {
-            int languageIDd = GetSelectedLanguageID();
-            //寻找物品数据
-            foreach (var customTextDataSo in customTextDataSoList)
-            {
-                EditableDictionary<string, CustomTextTable> customTextDictionary =
-                    customTextDataSo.CustomTextDictionary;
-                if (customTextDictionary.Contain(itemId))
-                {
-                    switch (_currentLanguage)
-                    {
-                        case LanguageEnum.Chinese:
-                            return customTextDictionary[itemId].chinese;
-                        case LanguageEnum.English:
-                            return customTextDictionary[itemId].english;
-                        default:
-                            Debug.LogError("当前语言不存在");
-                            break;
-                    }
-                }
-            }
-
+            // int languageIDd = GetSelectedLanguageID();
+            // //寻找物品数据
+            // foreach (var customTextDataSo in customTextDataSoList)
+            // {
+            //     EditableDictionary<string, CustomTextTable> customTextDictionary =
+            //         customTextDataSo.CustomTextDictionary;
+            //     if (customTextDictionary.Contain(itemId))
+            //     {
+            //         switch (_currentLanguage)
+            //         {
+            //             case LanguageEnum.Chinese:
+            //             return customTextDictionary[itemId].chinese;
+            //             case LanguageEnum.English:
+            //             return customTextDictionary[itemId].english;
+            //             default:
+            //             Debug.LogError("当前语言不存在");
+            //             break;
+            //         }
+            //     }
+            // }
+            //
             Debug.LogError("无法获取文本!");
             return null;
         }

@@ -2,12 +2,15 @@ using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using ZiercCode._DungeonGame._Scripts;
 
 namespace ZiercCode._DungeonGame.Room
 {
     public class RandomRoom : MonoBehaviour //随机房间列表生成
     {
-        [SerializeField, Expandable] private RoomGenerateConfig roomGenerateConfig; //所有可能生成的房间信息 so数据
+        [SerializeField]
+        [Expandable]
+        private RoomGenerateConfig roomGenerateConfig; //所有可能生成的房间信息 so数据
 
         private List<RoomInfo> _allRoomInfo; //所有可能生成的房间
         private RoomInfo[] _roomList; //生成的房间列表
@@ -15,11 +18,11 @@ namespace ZiercCode._DungeonGame.Room
 
         private RandomGenerator _randomGenerator; //随机数生成器
 
-        public void Initialize(string seed)//每次生成之前调用
+        public void Initialize(string seed) //每次生成之前调用
         {
             _roomListLengthRange = roomGenerateConfig.roomLengthRange;
             _allRoomInfo = roomGenerateConfig.roomInfos;
-            _randomGenerator = new(seed);
+            _randomGenerator = new RandomGenerator(seed);
         }
 
         //房间的信息
@@ -27,9 +30,15 @@ namespace ZiercCode._DungeonGame.Room
         public struct RoomInfo
         {
             public bool isMustSpawn; //是否必须生成 是则至少生成一个
-            [Min(0)] public int maxNum; //最大生成数量 如果是0 则说明没有限制 只要是在配置中的房间都有可能生成 所以不存在0
+
+            [Min(0)]
+            public int maxNum; //最大生成数量 如果是0 则说明没有限制 只要是在配置中的房间都有可能生成 所以不存在0
+
             public bool canBeReplacedAtLast; //在最后进行检查时是否可以被优化掉
-            [Range(0, 100)] public int spawnWeight; //生成权重 为了适配种子 使用整型
+
+            [Range(0, 100)]
+            public int spawnWeight; //生成权重 为了适配种子 使用整型
+
             public RoomType myType; //自己的类型 唯一
             public RoomType previousType; //前一个房间的类型
             public RoomType nextType; //后一个房间的类型
@@ -54,8 +63,8 @@ namespace ZiercCode._DungeonGame.Room
             int roomListLength = _randomGenerator.Next(_roomListLengthRange.x, _roomListLengthRange.y); //房间长度
 
             _roomList = new RoomInfo[roomListLength]; //房间列表
-            
-            Dictionary<RoomType, int> numRecord = new Dictionary<RoomType, int>(); //记录目前每种类型生成的数量
+
+            Dictionary<RoomType, int> numRecord = new(); //记录目前每种类型生成的数量
 
             //填充列表的头和尾部
             for (int i = 0; i < _allRoomInfo.Count; i++)
@@ -73,11 +82,14 @@ namespace ZiercCode._DungeonGame.Room
                 }
 
                 if (_roomList[0].myType != RoomType.None &&
-                    _roomList[roomListLength - 1].myType != RoomType.None) break;
+                    _roomList[roomListLength - 1].myType != RoomType.None)
+                {
+                    break;
+                }
             }
 
-            List<RoomInfo> candidates = new List<RoomInfo>(); //存储可能生成的房间
-            
+            List<RoomInfo> candidates = new(); //存储可能生成的房间
+
             //中部 从前往后生成
             for (int i = 1; i < roomListLength - 1; i++)
             {
@@ -102,7 +114,9 @@ namespace ZiercCode._DungeonGame.Room
                 for (int j = 0; j < candidates.Count; j++)
                 {
                     if (candidates[j].previousType == RoomType.Empty || candidates[j].nextType == RoomType.Empty)
+                    {
                         candidates.RemoveAt(j);
+                    }
                 }
 
                 //通过后面的房间筛选一次
@@ -111,7 +125,9 @@ namespace ZiercCode._DungeonGame.Room
                     for (int j = candidates.Count - 1; j >= 0; j--)
                     {
                         if (!_roomList[i + 1].previousType.HasFlag(candidates[j].myType))
+                        {
                             candidates.RemoveAt(j); //如果后面的房间要求的前一个节点中不包含候选类型或者本身前后不能有房间 则移除该候选 
+                        }
                     }
                 }
 
@@ -158,18 +174,25 @@ namespace ZiercCode._DungeonGame.Room
         //确保生成的房间列表中包含必须生成的房间
         private void CheckMustSpawnRoomList(ref RoomInfo[] roomList)
         {
-            List<RoomInfo> mustSpawnRooms = new List<RoomInfo>(); //存储必须添加的房间
+            List<RoomInfo> mustSpawnRooms = new(); //存储必须添加的房间
 
             for (int i = 0; i < _allRoomInfo.Count; i++)
+            {
                 if (_allRoomInfo[i].isMustSpawn)
+                {
                     mustSpawnRooms.Add(_allRoomInfo[i]);
+                }
+            }
 
             //如果当前房间列表中已经包含了需要生成的房间 则从mustSpawnRooms移除
             for (int i = 0; i < roomList.Length; i++)
             {
                 for (int j = mustSpawnRooms.Count - 1; j >= 0; j--)
                 {
-                    if (mustSpawnRooms[j].myType == roomList[i].myType) mustSpawnRooms.RemoveAt(j);
+                    if (mustSpawnRooms[j].myType == roomList[i].myType)
+                    {
+                        mustSpawnRooms.RemoveAt(j);
+                    }
                 }
             }
 
@@ -217,7 +240,7 @@ namespace ZiercCode._DungeonGame.Room
         private void AddToRoomList(ref RoomInfo[] roomList, ref List<RoomInfo> candidates, in int currentIndex)
         {
             int totalWeight = 0;
-            foreach (var room in candidates)
+            foreach (RoomInfo room in candidates)
             {
                 totalWeight += room.spawnWeight; //计算总权值
             }

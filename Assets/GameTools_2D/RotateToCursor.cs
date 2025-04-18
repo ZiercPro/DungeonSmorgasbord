@@ -1,18 +1,24 @@
 using UnityEngine;
+using ZiercCode.Management;
 
 namespace ZiercCode.GameTools_2D
 {
     //本身转向鼠标
-    public class RotateToCursor : MonoBehaviour
+    public class RotateToCursor : PauseBehaviour
     {
         [SerializeField] private float rotateRate = 10f;
 
         private PlayerInputAction _playerInputAction;
 
-        private Vector2 _pointPosition;
+        private Vector2 _pointScreenPosition;
         private Vector2 _pointWorldPosition;
 
         private Camera _mainCamera;
+
+        private void OnEnable()
+        {
+            _playerInputAction.HeroControl.Enable();
+        }
 
         private void OnDisable()
         {
@@ -26,16 +32,16 @@ namespace ZiercCode.GameTools_2D
 
         private void Start()
         {
-            _playerInputAction.HeroControl.Enable();
             _mainCamera = Camera.main;
         }
 
-        private void Update()
+        protected override void PauseUpdate()
         {
             if (_mainCamera)
             {
-                _pointPosition = _playerInputAction.HeroControl.PointerPosition.ReadValue<Vector2>();
-                _pointWorldPosition = _mainCamera.ScreenToWorldPoint(_pointPosition);
+                _pointScreenPosition = _playerInputAction.HeroControl.PointerPosition.ReadValue<Vector2>();
+
+                _pointWorldPosition = _mainCamera.ScreenToWorldPoint(_pointScreenPosition);
 
                 Vector2 direction = (_pointWorldPosition - (Vector2)transform.position).normalized;
 

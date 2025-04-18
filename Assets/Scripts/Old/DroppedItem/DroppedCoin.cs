@@ -1,7 +1,6 @@
 using UnityEngine;
-using ZiercCode.Audio;
-using ZiercCode.Old.Manager;
 using ZiercCode.Old.Component.Hero;
+using ZiercCode.Old.Manager;
 
 namespace ZiercCode.Old.DroppedItem
 {
@@ -10,7 +9,7 @@ namespace ZiercCode.Old.DroppedItem
         private void GetItem(CoinPack pack)
         {
             pack.GetCoins(num);
-            AudioPlayer.Instance.PlaySfx("CoinCollected", transform.position);
+            //AudioPlayer.Instance.PlaySfx("CoinCollected", transform.position);
             base.GetItem();
         }
 

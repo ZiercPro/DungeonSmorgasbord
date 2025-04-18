@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using ZiercCode.ObjectPool;
 
-namespace ZiercCode._DungeonGame.Weapon.Weapon_LuGerGun
+namespace ZiercCode.ObjectPool
 {
     public class AutoReleaseInTime : MonoBehaviour //定时自动释放 用于对象池物品
     {

@@ -10,7 +10,7 @@ namespace ZiercCode.Old.Scene
 
         private PanelManager _panelManager;
 
-     
+
         public override void OnExit()
         {
             base.OnExit();

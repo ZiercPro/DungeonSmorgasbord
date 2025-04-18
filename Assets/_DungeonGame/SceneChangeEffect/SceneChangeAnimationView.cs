@@ -13,12 +13,10 @@ namespace ZiercCode._DungeonGame.SceneChangeEffect
 
         public void Initialize(IContext context)
         {
-            
         }
 
         public void RequireIsInitialized()
         {
-            
         }
 
         public bool IsInitialized { get; }

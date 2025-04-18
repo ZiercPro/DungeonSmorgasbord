@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using ZiercCode._DungeonGame._Scripts;
 using ZiercCode.Locale;
 
 namespace ZiercCode._DungeonGame.UI.MainMenu
@@ -39,8 +40,13 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
         public void SetUIInput(bool value)
         {
             if (value)
+            {
                 _playerInputAction.UI.Enable();
-            else _playerInputAction.UI.Disable();
+            }
+            else
+            {
+                _playerInputAction.UI.Disable();
+            }
         }
 
         private void BackInput(InputAction.CallbackContext context)

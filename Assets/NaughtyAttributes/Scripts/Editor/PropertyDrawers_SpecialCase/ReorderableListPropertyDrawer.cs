@@ -1,4 +1,4 @@
-﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
 using NaughtyAttributes.Scripts.Editor.Utility;
 using System.Collections.Generic;
 using UnityEditor;
@@ -157,45 +157,45 @@ namespace NaughtyAttributes.Scripts.Editor.PropertyDrawers_SpecialCase
             switch (currentEvent.type)
             {
                 case EventType.DragExited:
-                    if (GUI.enabled)
-                    {
-                        HandleUtility.Repaint();
-                    }
+                if (GUI.enabled)
+                {
+                    HandleUtility.Repaint();
+                }
 
-                    break;
+                break;
 
                 case EventType.DragUpdated:
                 case EventType.DragPerform:
-                    if (rect.Contains(currentEvent.mousePosition) && GUI.enabled)
+                if (rect.Contains(currentEvent.mousePosition) && GUI.enabled)
+                {
+                    // Check each single object, so we can add multiple objects in a single drag.
+                    bool didAcceptDrag = false;
+                    Object[] references = DragAndDrop.objectReferences;
+                    foreach (Object obj in references)
                     {
-                        // Check each single object, so we can add multiple objects in a single drag.
-                        bool didAcceptDrag = false;
-                        Object[] references = DragAndDrop.objectReferences;
-                        foreach (Object obj in references)
+                        Object assignableObject = GetAssignableObject(obj, list);
+                        if (assignableObject != null)
                         {
-                            Object assignableObject = GetAssignableObject(obj, list);
-                            if (assignableObject != null)
+                            DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
+                            if (currentEvent.type == EventType.DragPerform)
                             {
-                                DragAndDrop.visualMode = DragAndDropVisualMode.Copy;
-                                if (currentEvent.type == EventType.DragPerform)
-                                {
-                                    list.serializedProperty.arraySize++;
-                                    int arrayEnd = list.serializedProperty.arraySize - 1;
-                                    list.serializedProperty.GetArrayElementAtIndex(arrayEnd).objectReferenceValue = assignableObject;
-                                    didAcceptDrag = true;
-                                }
+                                list.serializedProperty.arraySize++;
+                                int arrayEnd = list.serializedProperty.arraySize - 1;
+                                list.serializedProperty.GetArrayElementAtIndex(arrayEnd).objectReferenceValue = assignableObject;
+                                didAcceptDrag = true;
                             }
-                        }
-
-                        if (didAcceptDrag)
-                        {
-                            GUI.changed = true;
-                            DragAndDrop.AcceptDrag();
-                            usedEvent = true;
                         }
                     }
 
-                    break;
+                    if (didAcceptDrag)
+                    {
+                        GUI.changed = true;
+                        DragAndDrop.AcceptDrag();
+                        usedEvent = true;
+                    }
+                }
+
+                break;
             }
 
             if (usedEvent)

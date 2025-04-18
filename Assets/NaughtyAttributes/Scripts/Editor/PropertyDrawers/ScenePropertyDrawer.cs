@@ -1,4 +1,4 @@
-﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using System;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -41,15 +41,15 @@ namespace NaughtyAttributes.Scripts.Editor.PropertyDrawers
             switch (property.propertyType)
             {
                 case SerializedPropertyType.String:
-                    DrawPropertyForString(rect, property, label, scenes, sceneOptions);
-                    break;
+                DrawPropertyForString(rect, property, label, scenes, sceneOptions);
+                break;
                 case SerializedPropertyType.Integer:
-                    DrawPropertyForInt(rect, property, label, sceneOptions);
-                    break;
+                DrawPropertyForInt(rect, property, label, sceneOptions);
+                break;
                 default:
-                    string message = string.Format(TypeWarningMessage, property.name);
-                    DrawDefaultPropertyAndHelpBox(rect, property, message, MessageType.Warning);
-                    break;
+                string message = string.Format(TypeWarningMessage, property.name);
+                DrawDefaultPropertyAndHelpBox(rect, property, message, MessageType.Warning);
+                break;
             }
 
             EditorGUI.EndProperty();

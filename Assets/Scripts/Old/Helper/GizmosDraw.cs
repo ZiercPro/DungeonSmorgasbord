@@ -5,7 +5,7 @@ namespace ZiercCode.Old.Helper
 {
     public class GizmosDraw : MonoBehaviour
     {
-        [Header("Static")] [Space] public float radius;
+        [Header("Static")][Space] public float radius;
         public Color color;
         public Transform Pos;
 

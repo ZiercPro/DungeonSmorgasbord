@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -68,12 +68,12 @@ namespace ZiercCode.Locale
                 switch (_currentLanguage)
                 {
                     case LanguageEnum.Chinese:
-                        return customT.chinese;
+                    return customT.chinese;
                     case LanguageEnum.English:
-                        return customT.english;
+                    return customT.english;
                     default:
-                        Debug.LogWarning("找不到该语言"); //默认返回中文
-                        return customT.chinese;
+                    Debug.LogWarning("找不到该语言"); //默认返回中文
+                    return customT.chinese;
                 }
             }
 

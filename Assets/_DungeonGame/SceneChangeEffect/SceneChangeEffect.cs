@@ -5,7 +5,8 @@ namespace ZiercCode._DungeonGame.SceneChangeEffect
 {
     public class SceneChangeEffect : MonoBehaviour
     {
-        [SerializeField] private Animator animator;
+        [SerializeField]
+        private Animator animator;
 
         [Button("测试")]
         public void Change()

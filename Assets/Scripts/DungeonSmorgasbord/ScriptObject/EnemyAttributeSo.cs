@@ -1,6 +1,6 @@
 using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
-using ZiercCode.DungeonSmorgasbord.Damage;
+using ZiercCode._DungeonGame._Scripts.AttackSystem;
 using ZiercCode.DungeonSmorgasbord.Weapon;
 using ZiercCode.Utilities;
 

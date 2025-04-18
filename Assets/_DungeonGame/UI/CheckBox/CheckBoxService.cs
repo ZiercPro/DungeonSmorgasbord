@@ -1,4 +1,4 @@
-﻿using RMC.Mini;
+using RMC.Mini;
 using RMC.Mini.Service;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -38,12 +38,17 @@ namespace ZiercCode._DungeonGame.UI.CheckBox
         {
             OnBackInput?.Invoke();
         }
-        
+
         public void SetUIInput(bool value)
         {
             if (value)
+            {
                 _playerInputAction.UI.Enable();
-            else _playerInputAction.UI.Disable();
+            }
+            else
+            {
+                _playerInputAction.UI.Disable();
+            }
         }
     }
 }

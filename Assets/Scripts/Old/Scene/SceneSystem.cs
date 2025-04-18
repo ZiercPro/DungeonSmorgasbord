@@ -3,7 +3,7 @@ namespace ZiercCode.Old.Scene
     /// <summary>
     /// 场景管理系统
     /// </summary>
-    public class SceneSystem 
+    public class SceneSystem
     {
         /// <summary>
         /// 当前运行的场景

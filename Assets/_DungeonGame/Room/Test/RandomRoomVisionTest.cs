@@ -7,13 +7,22 @@ namespace ZiercCode._DungeonGame.Room.Test
 {
     public class RandomRoomVisionTest : MonoBehaviour //通过text显示得到的随机房间列表
     {
-        [SerializeField] private GameObject textMeshProPrefab;
-        [SerializeField] private RandomRoom randomRoomBuilder; //随机房间生成器
-        [SerializeField] private float roomInterval; //房间之间的间隔
-        [SerializeField] private string roomSeed; //房间种子
-        [SerializeField] private Vector2Int seedLengthRange; //房间种子
+        [SerializeField]
+        private GameObject textMeshProPrefab;
 
-        private List<GameObject> _roomTextList = new List<GameObject>();
+        [SerializeField]
+        private RandomRoom randomRoomBuilder; //随机房间生成器
+
+        [SerializeField]
+        private float roomInterval; //房间之间的间隔
+
+        [SerializeField]
+        private string roomSeed; //房间种子
+
+        [SerializeField]
+        private Vector2Int seedLengthRange; //房间种子
+
+        private List<GameObject> _roomTextList = new();
 
         [Button("生成随机房间")]
         private void Test()
@@ -41,7 +50,7 @@ namespace ZiercCode._DungeonGame.Room.Test
         [Button("生成随机种子")]
         private void GetRandomSeed()
         {
-            RandomSeedGenerator randomSeedGenerator = new RandomSeedGenerator();
+            RandomSeedGenerator randomSeedGenerator = new();
             roomSeed = randomSeedGenerator.GetRandomSeed(seedLengthRange.x, seedLengthRange.y);
         }
 

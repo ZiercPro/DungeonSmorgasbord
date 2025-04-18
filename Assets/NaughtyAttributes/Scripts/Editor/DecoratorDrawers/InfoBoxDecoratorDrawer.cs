@@ -1,4 +1,4 @@
-﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using NaughtyAttributes.Scripts.Editor.Utility;
 using UnityEditor;
 using UnityEngine;
@@ -43,16 +43,16 @@ namespace NaughtyAttributes.Scripts.Editor.DecoratorDrawers
             switch (infoBoxType)
             {
                 case EInfoBoxType.Normal:
-                    messageType = MessageType.Info;
-                    break;
+                messageType = MessageType.Info;
+                break;
 
                 case EInfoBoxType.Warning:
-                    messageType = MessageType.Warning;
-                    break;
+                messageType = MessageType.Warning;
+                break;
 
                 case EInfoBoxType.Error:
-                    messageType = MessageType.Error;
-                    break;
+                messageType = MessageType.Error;
+                break;
             }
 
             NaughtyEditorGUI.HelpBox(rect, infoText, messageType);

@@ -1,5 +1,4 @@
 using RMC.Mini;
-using System;
 using UnityEngine;
 using ZiercCode._DungeonGame.UI.CheckBox;
 using ZiercCode._DungeonGame.UI.PauseMenu;
@@ -9,9 +8,14 @@ namespace ZiercCode._DungeonGame.UI
 {
     public class HallUiMini : MonoBehaviour
     {
-        [SerializeField] private PauseView pauseView;
-        [SerializeField] private SettingsView settingsView;
-        [SerializeField] private CheckBoxView checkBoxView;
+        [SerializeField]
+        private PauseView pauseView;
+
+        [SerializeField]
+        private SettingsView settingsView;
+
+        [SerializeField]
+        private CheckBoxView checkBoxView;
 
         private PauseModel _pauseModel;
         private SettingsModel _settingsModel;

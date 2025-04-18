@@ -6,13 +6,27 @@ namespace ZiercCode._DungeonGame.Player
 {
     public class PlayerSpawner : MonoBehaviour
     {
-        public GameObject SpawnPlayer()
+        public GameObject SpawnPlayer(string playerName)
         {
-            AsyncOperationHandle<GameObject> load = Addressables.LoadAssetAsync<GameObject>("Player_Gawain");
+            AsyncOperationHandle<GameObject> load = Addressables.LoadAssetAsync<GameObject>(playerName);
             load.WaitForCompletion();
             GameObject player = Instantiate(load.Result);
+            load.Release();
             player.transform.position = transform.position;
             return player;
+        }
+
+        public GameObject SpawnPlayerWithWeapon(string playerName, string weaponName)
+        {
+            GameObject newPlayer = SpawnPlayer(playerName);
+
+            AsyncOperationHandle<GameObject> load = Addressables.LoadAssetAsync<GameObject>(weaponName);
+            load.WaitForCompletion();
+            GameObject newWeapon = Instantiate(load.Result);
+            load.Release();
+            newPlayer.GetComponent<Player_Base>().SetWeapon(newWeapon.transform);
+
+            return newPlayer;
         }
     }
 }

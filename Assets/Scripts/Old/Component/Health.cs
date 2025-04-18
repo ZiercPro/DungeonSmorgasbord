@@ -83,7 +83,9 @@ namespace ZiercCode.Old.Component
             _currentHealth = value;
             HealthChanged?.Invoke(new HealthChangeEventArgs
             {
-                CurrentHealth = _currentHealth, MaxHealth = _maxHealth, HealthChangeType = healthChangeType
+                CurrentHealth = _currentHealth,
+                MaxHealth = _maxHealth,
+                HealthChangeType = healthChangeType
             });
             HealthCheck();
         }
@@ -107,7 +109,9 @@ namespace ZiercCode.Old.Component
             _maxHealth = value;
             HealthChanged?.Invoke(new HealthChangeEventArgs
             {
-                CurrentHealth = _currentHealth, MaxHealth = _maxHealth, HealthChangeType = healthChangeType
+                CurrentHealth = _currentHealth,
+                MaxHealth = _maxHealth,
+                HealthChangeType = healthChangeType
             });
             HealthCheck();
         }

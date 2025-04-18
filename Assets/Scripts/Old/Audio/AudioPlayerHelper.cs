@@ -7,7 +7,7 @@ namespace ZiercCode.Old.Audio
     {
         public void PlaySfx(string audioName)
         {
-            AudioPlayer.Instance.PlaySfx(audioName);
+            // AudioPlayer.Instance.PlaySfx(audioName);
         }
 
         public void PlayMusic(string audioName)

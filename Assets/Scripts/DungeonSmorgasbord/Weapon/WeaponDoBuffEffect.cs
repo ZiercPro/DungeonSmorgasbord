@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using ZiercCode.Core.Pool;
 using ZiercCode.DungeonSmorgasbord.Buff;
 
@@ -25,7 +25,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
                         return;
 
                 BuffBaseSo buffInstance = Instantiate(buffBaseSo);
-                
+
                 if (buffInstance.HaveParticle)
                 {
                     SpawnHandle handle =

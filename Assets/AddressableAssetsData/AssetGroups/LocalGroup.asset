@@ -22,8 +22,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20379777d41b8254584cb08c5833299c
+    m_Address: Weapon_LuGerPistol
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 307d84975c8c7f543842e311e1a709dc
     m_Address: Audio_SFX_Pickup_0
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35ea4f4a79663ce4f826ab8f98498f7e
+    m_Address: Weapon_SIGSG550Rifle
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -37,11 +47,26 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a216484321634b49bee9d94df3f3030
+    m_Address: Weapon_BugKingLaserGun
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74d6466eada88ca418707cdc18fb28dd
     m_Address: CheckBoxTextTable
     m_ReadOnly: 0
     m_SerializedLabels:
     - CustomTextTable
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2e06372dbca79b4680f67abf7f1206a
+    m_Address: Projectile_Flame
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa3a8cda1ba981446b81fdb5ce125bb6
+    m_Address: Weapon_FlameThrower
+    m_ReadOnly: 0
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: df53ce0e22062d8489344450003d3a3e
     m_Address: CardTextTable

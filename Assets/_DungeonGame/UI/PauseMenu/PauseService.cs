@@ -1,8 +1,8 @@
 ﻿using RMC.Mini;
 using RMC.Mini.Service;
-using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using ZiercCode.Management;
 
 namespace ZiercCode._DungeonGame.UI.PauseMenu
 {
@@ -39,16 +39,31 @@ namespace ZiercCode._DungeonGame.UI.PauseMenu
             OnBackInput?.Invoke();
         }
 
-        public void SetTimeScale(float timeScale)
+        public bool IsGamePaused()
         {
-            Time.timeScale = timeScale;
+            return GameState.Instance.IsPaused;
         }
-        
+
+        public void PauseGame()
+        {
+            GameState.Instance.PauseGame();
+        }
+
+        public void ResumeGame()
+        {
+            GameState.Instance.ResumeGame();
+        }
+
         public void SetUIInput(bool value)
         {
             if (value)
+            {
                 _playerInputAction.UI.Enable();
-            else _playerInputAction.UI.Disable();
+            }
+            else
+            {
+                _playerInputAction.UI.Disable();
+            }
         }
     }
 }

@@ -59,7 +59,7 @@ namespace ZiercCode._DungeonGame.UI.CheckBox
 
             _service.SetUIInput(false);
             _view.CanvasGroupUser.Disable();
-            _view.gameObject.SetActive(false);
+            //_view.gameObject.SetActive(false);
         }
 
         private void OnConfirmButtonClicked()
@@ -68,7 +68,7 @@ namespace ZiercCode._DungeonGame.UI.CheckBox
 
             _service.SetUIInput(false);
             _view.CanvasGroupUser.Disable();
-            _view.gameObject.SetActive(false);
+            // _view.gameObject.SetActive(false);
         }
     }
 }

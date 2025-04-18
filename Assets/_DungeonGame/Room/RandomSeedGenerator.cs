@@ -11,7 +11,7 @@ namespace ZiercCode._DungeonGame.Room
         {
             int seedLenght = Random.Range(minLenght, maxLenght);
 
-            StringBuilder seed = new StringBuilder();
+            StringBuilder seed = new();
 
             for (int i = 0; i < seedLenght; i++)
             {
@@ -25,13 +25,21 @@ namespace ZiercCode._DungeonGame.Room
         private int ToAscii(int value)
         {
             if (value is >= 0 and <= 9)
+            {
                 value += '0';
+            }
             else if (value is >= 10 and <= 35)
+            {
                 value += 'A' - 10;
+            }
             else if (value is >= 36 and <= 61)
+            {
                 value += 'a' - 36;
+            }
             else
+            {
                 throw new Exception("数字范围错误");
+            }
 
             return value;
         }

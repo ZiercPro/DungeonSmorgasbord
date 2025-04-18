@@ -2,7 +2,6 @@ using UnityEditor;
 using UnityEngine;
 using ZiercCode.Old.Audio;
 using ZiercCode.Utilities;
-using AudioType = ZiercCode.Old.Audio.AudioType;
 using Object = UnityEngine.Object;
 
 namespace ZiercCode.Old.ScriptObject
@@ -18,26 +17,26 @@ namespace ZiercCode.Old.ScriptObject
 
         public void Delete()
         {
-            if (audioEditableDictionary is { Count: > 0 })
-            {
-                int last = audioEditableDictionary.Count - 1;
-                audioEditableDictionary.RemoveAt(last);
-            }
+            // if (audioEditableDictionary is { Count: > 0 })
+            // {
+            //     int last = audioEditableDictionary.Count - 1;
+            //     audioEditableDictionary.RemoveAt(last);
+            // }
         }
 
         public void Clear()
         {
-            audioEditableDictionary?.Clear();
+            //audioEditableDictionary?.Clear();
         }
 
         public void AutoConfig()
         {
-            if (!toCreateAudioBase) return;
-            if (audioEditableDictionary == null) audioEditableDictionary = new();
-            AudioBase newAudioBase =
-                new AudioBase(new AudioType(GetPrefabPath(toCreateAudioBase)), 1, false, false,
-                   null);
-            audioEditableDictionary.Add(AudioName.None, newAudioBase, newAudioBase.AudioType.Name);
+            // if (!toCreateAudioBase) return;
+            // if (audioEditableDictionary == null) audioEditableDictionary = new();
+            // AudioBase newAudioBase =
+            //     new AudioBase(new AudioType(GetPrefabPath(toCreateAudioBase)), 1, false, false,
+            //        null);
+            // audioEditableDictionary.Add(AudioName.None, newAudioBase, newAudioBase.AudioType.Name);
         }
 
         public void ReSetConfig()

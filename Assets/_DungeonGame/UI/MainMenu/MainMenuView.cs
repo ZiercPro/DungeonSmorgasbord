@@ -7,10 +7,17 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
 {
     public class MainMenuView : MonoBehaviour, IView
     {
-        [field: SerializeField] public Button StartButton { get; private set; }
-        [field: SerializeField] public Button SettingButton { get; private set; }
-        [field: SerializeField] public Button QuitButton { get; private set; }
-        [field: SerializeField] public CanvasGroupUser CanvasGroupUser { get; private set; }
+        [field: SerializeField]
+        public Button StartButton { get; private set; }
+
+        [field: SerializeField]
+        public Button SettingButton { get; private set; }
+
+        [field: SerializeField]
+        public Button QuitButton { get; private set; }
+
+        [field: SerializeField]
+        public CanvasGroupUser CanvasGroupUser { get; private set; }
 
         public bool IsInitialized => _isInitialized;
         public IContext Context => _context;
@@ -21,7 +28,7 @@ namespace ZiercCode._DungeonGame.UI.MainMenu
         public void RequireIsInitialized()
         {
         }
-        
+
         public void Initialize(IContext context)
         {
             if (!_isInitialized)

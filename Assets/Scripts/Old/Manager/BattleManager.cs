@@ -16,7 +16,7 @@ namespace ZiercCode.Old.Manager
         [SerializeField, Expandable] private BattleDataSo battleData;
         [SerializeField] private PoolObjectSpawner poolObjectSpawner;
 
-        [Header("范围")] [SerializeField] private Vector2 spawnSize = new Vector2(8, 5);
+        [Header("范围")][SerializeField] private Vector2 spawnSize = new Vector2(8, 5);
         [SerializeField] private Vector2 spawnCenter = Vector2.zero;
         [SerializeField] private Color GizmosColor;
 

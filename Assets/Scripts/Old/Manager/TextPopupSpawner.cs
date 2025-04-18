@@ -8,8 +8,11 @@ namespace ZiercCode.Old.Manager
 {
     public class TextPopupSpawner : USingleton<TextPopupSpawner>
     {
-        [SerializeField] private PoolObjectSo intPopupTemp;
-        [SerializeField] private PoolObjectSpawner spawner;
+        [SerializeField]
+        private PoolObjectSo intPopupTemp;
+
+        [SerializeField]
+        private PoolObjectSpawner spawner;
 
         public void InitPopupText(Vector3 startPosition, Color textColor, int amount)
         {

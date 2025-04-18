@@ -1,4 +1,4 @@
-﻿using RMC.Mini;
+using RMC.Mini;
 using UnityEngine;
 using ZiercCode._DungeonGame.UI.CheckBox;
 using ZiercCode._DungeonGame.UI.MainMenu;
@@ -8,9 +8,15 @@ namespace ZiercCode._DungeonGame.UI
 {
     public class MainMenuUiMini : MonoBehaviour
     {
-        [Space] [SerializeField] private MainMenuView mainMenuView;
-        [SerializeField] private SettingsView settingsView;
-        [SerializeField] private CheckBoxView checkBoxView;
+        [Space]
+        [SerializeField]
+        private MainMenuView mainMenuView;
+
+        [SerializeField]
+        private SettingsView settingsView;
+
+        [SerializeField]
+        private CheckBoxView checkBoxView;
 
         private MainMenuController _mainMenuController;
         private SettingsController _settingsController;
@@ -49,9 +55,9 @@ namespace ZiercCode._DungeonGame.UI
             _checkBoxService = new CheckBoxService();
 
             //controller
-            _settingsController = new(_settingsModel, settingsView, _settingsService);
-            _checkBoxController = new(_checkBoxModel, checkBoxView, _checkBoxService);
-            _mainMenuController = new(mainMenuView, _mainMenuService);
+            _settingsController = new SettingsController(_settingsModel, settingsView, _settingsService);
+            _checkBoxController = new CheckBoxController(_checkBoxModel, checkBoxView, _checkBoxService);
+            _mainMenuController = new MainMenuController(mainMenuView, _mainMenuService);
         }
 
         private void Start()

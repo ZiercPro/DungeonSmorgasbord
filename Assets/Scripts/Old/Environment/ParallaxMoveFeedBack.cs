@@ -12,7 +12,9 @@ namespace ZiercCode.Old.Environment
     {
         [SerializeField] private Transform objectInstance;
 
-        [Tooltip("越小，离屏幕越近，越大,离屏幕越远")] [Range(0, 1)] [SerializeField]
+        [Tooltip("越小，离屏幕越近，越大,离屏幕越远")]
+        [Range(0, 1)]
+        [SerializeField]
         private float moveOffSet;
 
 

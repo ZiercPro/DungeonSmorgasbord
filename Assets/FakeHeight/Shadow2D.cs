@@ -1,9 +1,10 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using ZiercCode.Management;
 
 namespace ZiercCode.FakeHeight
 {
-    public class Shadow2D : MonoBehaviour //自动绘制2D阴影
+    public class Shadow2D : PauseBehaviour //自动绘制2D阴影
     {
         [SerializeField] private Material shadowMaterial; //用于使阴影为纯色
         [SerializeField] private Color shadowColor;
@@ -37,8 +38,7 @@ namespace ZiercCode.FakeHeight
             _shadowRenderer.sortingOrder = casterSpriteRenderer.sortingOrder - 1;
         }
 
-
-        private void LateUpdate()
+        protected override void PauseLateUpdate()
         {
             UpdateShadowSize();
             UpdateShadowRotation();

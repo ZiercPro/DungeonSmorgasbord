@@ -1,6 +1,6 @@
 using UnityEngine;
 using ZiercCode._DungeonGame.Room;
-using ZiercCode.Event;
+using ZiercCode.EventBusSystem;
 using ZiercCode.GameTools_2D;
 using ZiercCode.Utilities;
 
@@ -8,10 +8,14 @@ namespace ZiercCode._DungeonGame.CrimsonVault
 {
     public class CrimsonVaultSceneManager : MonoBehaviour
     {
-        [SerializeField] private RandomRoom roomBuilder;
-        [SerializeField] private CameraLerpToPointer cameraLerpToPointer;
+        [SerializeField]
+        private RandomRoom roomBuilder;
 
-        [SerializeField] private EditableDictionary<RandomRoom.RoomType, GameObject> roomDic;
+        [SerializeField]
+        private CameraLerpToPointer cameraLerpToPointer;
+
+        [SerializeField]
+        private EditableDictionary<RandomRoom.RoomType, GameObject> roomDic;
 
         private int _currentRoomIndex;
         private GameObject[] _roomInstances;
@@ -19,18 +23,18 @@ namespace ZiercCode._DungeonGame.CrimsonVault
         private Room.Room[] _roomManagers;
 
         private GameObject _player;
-
-        private EventsGroup _eventsGroup = new EventsGroup();
+        //todo
+        // private EventsGroup _eventsGroup = new EventsGroup();
 
         private void OnEnable()
         {
-            _eventsGroup.AddListener<PlayerEvent.PlayerSpawned>(OnPlayerSpawned);
-            _eventsGroup.AddListener<RoomEvent.EnterNextRoom>(OnEnterNextRoom);
+            //_eventsGroup.AddListener<PlayerEvent.PlayerSpawned>(OnPlayerSpawned);
+            // _eventsGroup.AddListener<RoomEvent.EnterNextRoom>(OnEnterNextRoom);
         }
 
         private void OnDisable()
         {
-            _eventsGroup.RemoveAllListener();
+            //_eventsGroup.RemoveAllListener();
         }
 
 
@@ -73,25 +77,29 @@ namespace ZiercCode._DungeonGame.CrimsonVault
         //初始化房间实例
         private void InitRoomInstance()
         {
-            if (_roomInfos == null) return;
+            if (_roomInfos == null)
+            {
+                return;
+            }
 
             for (int i = 0; i < _roomInfos.Length; i++)
             {
-                GameObject newRoom =
-                    Instantiate(roomDic[_roomInfos[i].myType], transform.position, Quaternion.identity);
-                newRoom.SetActive(false);
-                _roomManagers[i] = newRoom.GetComponent<Room.Room>();
-                _roomInstances[i] = newRoom;
+                //todo
+                // GameObject newRoom =
+                //     Instantiate(roomDic[_roomInfos[i].myType], transform.position, Quaternion.identity);
+                // newRoom.SetActive(false);
+                // _roomManagers[i] = newRoom.GetComponent<Room.Room>();
+                // _roomInstances[i] = newRoom;
             }
         }
 
         private void OnPlayerSpawned(IEventArgs args)
         {
-            if (args is PlayerEvent.PlayerSpawned playerSpawned)
-            {
-                cameraLerpToPointer.SetCameraTarget(playerSpawned.PlayerObject.transform);
-                _player = playerSpawned.PlayerObject;
-            }
+            //if (args is PlayerEvent.PlayerSpawned playerSpawned)
+            // {
+            // cameraLerpToPointer.SetCameraTarget(playerSpawned.PlayerObject.transform);
+            // _player = playerSpawned.PlayerObject;
+            //}
         }
 
         private void ActiveRoom()
@@ -101,14 +109,14 @@ namespace ZiercCode._DungeonGame.CrimsonVault
 
         private void OnEnterNextRoom(IEventArgs args)
         {
-            if (args is RoomEvent.EnterNextRoom)
-            {
-                _roomInstances[_currentRoomIndex].SetActive(false);
-                _currentRoomIndex++;
-                _roomInstances[_currentRoomIndex].SetActive(true);
-
-                _player.transform.position = _roomManagers[_currentRoomIndex].GetPlayerEnterPosition();
-            }
+            // if (args is RoomEvent.EnterNextRoom)
+            // {
+            //     _roomInstances[_currentRoomIndex].SetActive(false);
+            //     _currentRoomIndex++;
+            //     _roomInstances[_currentRoomIndex].SetActive(true);
+            //
+            //     _player.transform.position = _roomManagers[_currentRoomIndex].GetPlayerEnterPosition();
+            // }
         }
     }
 }

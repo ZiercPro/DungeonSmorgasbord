@@ -1,4 +1,4 @@
-﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes;
 using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using System;
 using System.Collections.Generic;
@@ -24,20 +24,20 @@ namespace ZiercCode.Core.Extend
             switch (animationsFunc[funcIndex].animationParameterType)
             {
                 case AnimationParameterType.Bool:
-                    animator.SetBool(animationsFunc[funcIndex].parameterName,
-                        animationsFunc[funcIndex].boolValue);
-                    break;
+                animator.SetBool(animationsFunc[funcIndex].parameterName,
+                    animationsFunc[funcIndex].boolValue);
+                break;
                 case AnimationParameterType.Float:
-                    animator.SetFloat(animationsFunc[funcIndex].parameterName,
-                        animationsFunc[funcIndex].floatValue);
-                    break;
+                animator.SetFloat(animationsFunc[funcIndex].parameterName,
+                    animationsFunc[funcIndex].floatValue);
+                break;
                 case AnimationParameterType.Trigger:
-                    animator.SetTrigger(animationsFunc[funcIndex].parameterName);
-                    break;
+                animator.SetTrigger(animationsFunc[funcIndex].parameterName);
+                break;
                 case AnimationParameterType.Int:
-                    animator.SetInteger(animationsFunc[funcIndex].parameterName,
-                        animationsFunc[funcIndex].intValue);
-                    break;
+                animator.SetInteger(animationsFunc[funcIndex].parameterName,
+                    animationsFunc[funcIndex].intValue);
+                break;
             }
         }
 

@@ -21,22 +21,22 @@ namespace ZiercCode.Old.ScriptObject
 
         private void OnValidate()
         {
-#if UNITY_EDITOR
-            if (!loadFromFile) return;
-            if (customTextTableFile == null) return;
-
-            CustomTextDictionary = new EditableDictionary<string, CustomTextTable>();
-
-            string[] lines = customTextTableFile.text.Split('\n');
-            for (int i = 1; i < lines.Length; i++)
-            {
-                string[] rows = lines[i].Split(',');
-                CustomTextTable temp = new CustomTextTable();
-                temp.chinese = rows[1];
-                temp.english = rows[2];
-                CustomTextDictionary.Add(rows[0], temp);
-            }
-#endif
+// #if UNITY_EDITOR
+//             if (!loadFromFile) return;
+//             if (customTextTableFile == null) return;
+//
+//             CustomTextDictionary = new EditableDictionary<string, CustomTextTable>();
+//
+//             string[] lines = customTextTableFile.text.Split('\n');
+//             for (int i = 1; i < lines.Length; i++)
+//             {
+//                 string[] rows = lines[i].Split(',');
+//                 CustomTextTable temp = new CustomTextTable();
+//                 temp.chinese = rows[1];
+//                 temp.english = rows[2];
+//                 CustomTextDictionary.Add(rows[0], temp);
+//             }
+// #endif
         }
     }
 }

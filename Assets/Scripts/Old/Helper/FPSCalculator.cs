@@ -19,7 +19,7 @@ namespace ZiercCode.Old.Helper
 
         private void Start()
         {
-            
+
         }
 
         private IEnumerator CalculateFPS()

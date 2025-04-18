@@ -1,4 +1,4 @@
-﻿using RMC.Mini;
+using RMC.Mini;
 using RMC.Mini.View;
 using System.Collections.Generic;
 using TMPro;
@@ -10,27 +10,54 @@ namespace ZiercCode._DungeonGame.UI.Settings
     public class SettingsView : MonoBehaviour, IView
     {
         //子页面切换器
-        [SerializeField] private Toggle volumeViewToggle;
-        [SerializeField] private Toggle otherViewToggle;
-        [SerializeField] private Toggle languageViewToggle;
+        [SerializeField]
+        private Toggle volumeViewToggle;
+
+        [SerializeField]
+        private Toggle otherViewToggle;
+
+        [SerializeField]
+        private Toggle languageViewToggle;
 
         //子页面
-        [SerializeField] private CanvasGroupUser volumeViewGroupUser;
-        [SerializeField] private CanvasGroupUser otherViewGroupUser;
-        [SerializeField] private CanvasGroupUser languageViewGroupUser;
+        [SerializeField]
+        private CanvasGroupUser volumeViewGroupUser;
+
+        [SerializeField]
+        private CanvasGroupUser otherViewGroupUser;
+
+        [SerializeField]
+        private CanvasGroupUser languageViewGroupUser;
 
         private Dictionary<Toggle, CanvasGroupUser>
-            _toggleViewBind = new Dictionary<Toggle, CanvasGroupUser>(); //toggle和子页面的绑定关系
+            _toggleViewBind = new(); //toggle和子页面的绑定关系
 
-        [field: SerializeField] public CanvasGroupUser SettingsViewGroupUser { get; private set; }
-        [field: SerializeField] public Button BackButton { get; private set; }
-        [field: SerializeField] public Button ApplyButton { get; private set; }
-        [field: SerializeField] public Slider MasterVolume { get; private set; }
-        [field: SerializeField] public Slider MusicVolume { get; private set; }
-        [field: SerializeField] public Slider SfxVolume { get; private set; }
-        [field: SerializeField] public Slider EnvironmentVolume { get; private set; }
-        [field: SerializeField] public Toggle Fps { get; private set; }
-        [field: SerializeField] public TMP_Dropdown LanguageDropdown { get; private set; }
+        [field: SerializeField]
+        public CanvasGroupUser SettingsViewGroupUser { get; private set; }
+
+        [field: SerializeField]
+        public Button BackButton { get; private set; }
+
+        [field: SerializeField]
+        public Button ApplyButton { get; private set; }
+
+        [field: SerializeField]
+        public Slider MasterVolume { get; private set; }
+
+        [field: SerializeField]
+        public Slider MusicVolume { get; private set; }
+
+        [field: SerializeField]
+        public Slider SfxVolume { get; private set; }
+
+        [field: SerializeField]
+        public Slider EnvironmentVolume { get; private set; }
+
+        [field: SerializeField]
+        public Toggle Fps { get; private set; }
+
+        [field: SerializeField]
+        public TMP_Dropdown LanguageDropdown { get; private set; }
 
         public bool IsInitialized => _isInitialize;
         public IContext Context => _context;
@@ -56,23 +83,28 @@ namespace ZiercCode._DungeonGame.UI.Settings
                 _toggleViewBind.Add(languageViewToggle, languageViewGroupUser);
 
                 //初始化toggle页面切换事件
-                foreach (var bind in _toggleViewBind)
+                foreach (KeyValuePair<Toggle, CanvasGroupUser> bind in _toggleViewBind)
                 {
                     bind.Key.onValueChanged.AddListener(v =>
                     {
                         if (v)
+                        {
                             bind.Value.Enable();
-                        else bind.Value.Disable();
+                        }
+                        else
+                        {
+                            bind.Value.Disable();
+                        }
                     });
                 }
             }
         }
 
-        //初始化子页面 只需要激活需要激活的页面 其他页面自动关闭
+        //初始化子页面
         public void InitSubView()
         {
             volumeViewToggle.isOn = true;
-            volumeViewGroupUser.Enable();
+            volumeViewGroupUser.Enable(); //虽然其他的toggle组件isOn会自动设置为false 但是不会触发onValueChanged事件disable其他页面 需要手动设置
             otherViewGroupUser.Disable();
             languageViewGroupUser.Disable();
         }

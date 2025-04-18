@@ -14,7 +14,8 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         {
             if (c2d.TryGetComponent(out KnockBackFeedBack knockBackFeedBack))
             {
-                knockBackFeedBack.StartBackMove(transform, force);
+                //todo 逻辑有问题 不过这个脚本也不用了
+                knockBackFeedBack.StartBackMove(transform.right, force);
             }
         }
     }

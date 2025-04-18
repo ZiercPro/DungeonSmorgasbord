@@ -6,10 +6,10 @@ namespace ZiercCode.DungeonSmorgasbord.Item
     [RequireComponent(typeof(Rigidbody2D))]
     public class MagneticEffect : MonoBehaviour
     {
-        [Header("目标Tag")] [SerializeField] private string targetTag;
-        [Header("磁力半径")] [SerializeField] private float radius = 1.5f;
+        [Header("目标Tag")][SerializeField] private string targetTag;
+        [Header("磁力半径")][SerializeField] private float radius = 1.5f;
 
-        [Header("磁力曲线")] [SerializeField] private AnimationCurve forceCurve;
+        [Header("磁力曲线")][SerializeField] private AnimationCurve forceCurve;
 
         [SerializeField] private Collider2D entityCollider2D;
         [SerializeField] private Rigidbody2D r2D;

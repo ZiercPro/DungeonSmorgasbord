@@ -23,6 +23,20 @@ namespace ZiercCode.Utilities
             return true;
         }
 
+
+        /// <summary>
+        /// 传入一个0-1之间的数 判断以这个概率是否实现
+        /// </summary>
+        /// <param name="chance"></param>
+        /// <returns></returns>
+        public static int ChanceToInt(float chance)
+        {
+            if (chance <= 0f) return 0;
+            float temp = Random.Range(0.0f, 1.0f);
+            if (temp > chance) return 0;
+            return 1;
+        }
+
         /// <summary>
         /// 两点间距离比较,性能消耗较小  小于等于range返回true 大于返回false
         /// </summary>

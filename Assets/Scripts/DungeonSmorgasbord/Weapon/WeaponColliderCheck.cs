@@ -10,12 +10,12 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
     public class WeaponColliderCheck : MonoBehaviour
     {
         [SerializeField] private Collider2D hitBox;
-        
-        
+
+
         public UnityEvent<Collider2D> triggerEntered;
         public UnityEvent<Collider2D> triggerExited;
         public UnityEvent<Collider2D> triggerStay;
-        
+
         public void Enable()
         {
             hitBox.enabled = true;

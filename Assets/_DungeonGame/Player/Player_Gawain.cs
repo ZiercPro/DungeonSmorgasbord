@@ -3,13 +3,19 @@ using ZiercCode.DungeonSmorgasbord.Component;
 
 namespace ZiercCode._DungeonGame.Player
 {
-    public class Player_Gawain : MonoBehaviour
+    public class Player_Gawain : Player_Base
     {
-        [SerializeField] private float moveSpeed;
+        [SerializeField]
+        private float moveSpeed;
 
-        [SerializeField] private Animator animator;
-        [SerializeField] private MoveComponent moveComponent;
-        [SerializeField] private AutoFlipComponent autoFlipComponent;
+        [SerializeField]
+        private Animator animator;
+
+        [SerializeField]
+        private MoveComponent moveComponent;
+
+        [SerializeField]
+        private AutoFlipComponent autoFlipComponent;
 
         private PlayerInputAction _playerInputAction;
 
@@ -19,8 +25,19 @@ namespace ZiercCode._DungeonGame.Player
 
         private float _idle2Time = 10f; //播放待机动画idle2需要等待的时间
 
+        //private EventsGroup _eventsGroup = new EventsGroup();
+
+
+        private void OnEnable()
+        {
+            _playerInputAction.HeroControl.Enable();
+            // _eventsGroup.AddListener<GameEvent.GamePause>(a => SetPlayerInput(false));
+            //_eventsGroup.AddListener<GameEvent.GameResume>(a => SetPlayerInput(true));
+        }
+
         private void OnDisable()
         {
+            //_eventsGroup.RemoveAllListener();
             _playerInputAction.HeroControl.Disable();
         }
 
@@ -31,18 +48,21 @@ namespace ZiercCode._DungeonGame.Player
 
         private void Start()
         {
-            _playerInputAction.HeroControl.Enable();
             moveComponent.MoveSpeed = moveSpeed;
         }
 
-        private void Update()
+        protected override void PauseUpdate()
         {
             //move
             _moveInput = _playerInputAction.HeroControl.Movement.ReadValue<Vector2>();
             moveComponent.Move(_moveInput);
 
             //flip
-            if (!_mainCamera) _mainCamera = Camera.main;
+            if (!_mainCamera)
+            {
+                _mainCamera = Camera.main;
+            }
+
             _mousePosition =
                 _mainCamera.ScreenToWorldPoint(_playerInputAction.HeroControl.PointerPosition.ReadValue<Vector2>());
             autoFlipComponent.FaceTo(_mousePosition);
@@ -65,5 +85,12 @@ namespace ZiercCode._DungeonGame.Player
                 _idle2Time = 10f;
             }
         }
+
+        // private void SetPlayerInput(bool value)
+        // {
+        //     if (value)
+        //         _playerInputAction.HeroControl.Enable();
+        //     else _playerInputAction.HeroControl.Disable();
+        // }
     }
 }

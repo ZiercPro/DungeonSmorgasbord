@@ -19,8 +19,9 @@ namespace ZiercCode.Utilities.Data
         /// </summary>
         /// <typeparam name="T">数据类型</typeparam>
         /// <param name="relativePath">相对路径</param>
+        /// <param name="outData">加载出的数据</param>
         /// <param name="encrypted">是否加密</param>
         /// <returns></returns>
-        public T LoadData<T>(string relativePath, bool encrypted);
+        public bool LoadData<T>(string relativePath, out T outData, bool encrypted);
     }
 }

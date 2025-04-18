@@ -8,10 +8,17 @@ namespace ZiercCode._DungeonGame.NPC
     //结合navmesh 实现实体随机移动
     public class RandomMoveWithNavMesh : MonoBehaviour
     {
-        [SerializeField] private NavMeshAgent navMeshAgent;
-        [SerializeField] private float range; //随机移动的范围 以npc自己为中心
-        [SerializeField] private float minWaitTime; //停止移动后的最小等待时间
-        [SerializeField] private float maxWaitTime; //停止移动后的最大等待时间
+        [SerializeField]
+        private NavMeshAgent navMeshAgent;
+
+        [SerializeField]
+        private float range; //随机移动的范围 以npc自己为中心
+
+        [SerializeField]
+        private float minWaitTime; //停止移动后的最小等待时间
+
+        [SerializeField]
+        private float maxWaitTime; //停止移动后的最大等待时间
 
         private Coroutine _randomMoveCoroutine;
 

@@ -4,7 +4,8 @@ namespace ZiercCode._DungeonGame.UI
 {
     public class CanvasGroupUser : MonoBehaviour // 通过CanvasGroup组件 禁用视图
     {
-        [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField]
+        private CanvasGroup canvasGroup;
 
         public void Enable(float alpha = 1f)
         {

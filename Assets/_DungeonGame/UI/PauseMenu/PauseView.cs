@@ -7,10 +7,17 @@ namespace ZiercCode._DungeonGame.UI.PauseMenu
 {
     public class PauseView : MonoBehaviour, IView //暂停界面
     {
-        [field: SerializeField] public Button ContinueButton { get; private set; }
-        [field: SerializeField] public Button SettingsButton { get; private set; }
-        [field: SerializeField] public Button MainMenuButton { get; private set; }
-        [field: SerializeField] public CanvasGroupUser CanvasGroupUser { get; private set; }
+        [field: SerializeField]
+        public Button ContinueButton { get; private set; }
+
+        [field: SerializeField]
+        public Button SettingsButton { get; private set; }
+
+        [field: SerializeField]
+        public Button MainMenuButton { get; private set; }
+
+        [field: SerializeField]
+        public CanvasGroupUser CanvasGroupUser { get; private set; }
 
         private bool _isInitialized;
         private IContext _context;

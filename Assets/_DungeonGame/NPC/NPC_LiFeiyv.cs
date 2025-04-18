@@ -5,10 +5,17 @@ namespace ZiercCode._DungeonGame.NPC
 {
     public class NPC_LiFeiyv : MonoBehaviour
     {
-        [SerializeField] private RandomMoveWithNavMesh randomMoveWithNavMesh;
-        [SerializeField] private AutoFlipComponent autoFlipComponent;
-        [SerializeField] private UnityEngine.AI.NavMeshAgent navMeshAgent;
-        [SerializeField] private Animator animator;
+        [SerializeField]
+        private RandomMoveWithNavMesh randomMoveWithNavMesh;
+
+        [SerializeField]
+        private AutoFlipComponent autoFlipComponent;
+
+        [SerializeField]
+        private UnityEngine.AI.NavMeshAgent navMeshAgent;
+
+        [SerializeField]
+        private Animator animator;
 
         private void Update()
         {

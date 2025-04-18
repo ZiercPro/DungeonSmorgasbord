@@ -369,14 +369,14 @@ namespace NaughtyAttributes.Scripts.Editor.Utility
             {
                 case MessageType.None:
                 case MessageType.Info:
-                    Debug.Log(message, context);
-                    break;
+                Debug.Log(message, context);
+                break;
                 case MessageType.Warning:
-                    Debug.LogWarning(message, context);
-                    break;
+                Debug.LogWarning(message, context);
+                break;
                 case MessageType.Error:
-                    Debug.LogError(message, context);
-                    break;
+                Debug.LogError(message, context);
+                break;
             }
         }
     }

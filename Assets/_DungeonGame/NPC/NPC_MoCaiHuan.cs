@@ -7,11 +7,20 @@ namespace ZiercCode._DungeonGame.NPC
 {
     public class NPC_MoCaiHuan : MonoBehaviour
     {
-        [SerializeField] private RandomMoveWithNavMesh randomMoveWithNavMesh;
-        [SerializeField] private AutoFlipComponent autoFlipComponent;
-        [SerializeField] private NavMeshAgent navMeshAgent;
-        [SerializeField] private Animator animator;
-        // [SerializeField] private TextBubble.TextBubble textBubble;
+        [SerializeField]
+        private RandomMoveWithNavMesh randomMoveWithNavMesh;
+
+        [SerializeField]
+        private AutoFlipComponent autoFlipComponent;
+
+        [SerializeField]
+        private NavMeshAgent navMeshAgent;
+
+        [SerializeField]
+        private Animator animator;
+
+        [SerializeField]
+        private TextBubble.EmojiBubble emojiBubble;
 
         private void Awake()
         {
@@ -33,7 +42,7 @@ namespace ZiercCode._DungeonGame.NPC
 
             autoFlipComponent.FaceTo(navMeshAgent.velocity + transform.position);
 
-            //ShowTextBubble();
+            ShowTextBubble();
         }
 
         //文本气泡
@@ -42,32 +51,32 @@ namespace ZiercCode._DungeonGame.NPC
         private bool _isShowingTextBubble;
         private string _showText;
 
-        // private void ShowTextBubble()
-        // {
-        //     if (_randomTextBubbleWaitTime > 0f)
-        //     {
-        //         _randomTextBubbleWaitTime -= Time.deltaTime;
-        //     }
-        //     else
-        //     {
-        //         if (!_isShowingTextBubble)
-        //         {
-        //             _showText = textBubble.ShowRandomTextBubble();
-        //             _isShowingTextBubble = true;
-        //         }
-        //
-        //         if (_randomTextBubbleShowTime > 0f)
-        //         {
-        //             _randomTextBubbleShowTime -= Time.deltaTime;
-        //         }
-        //         else
-        //         {
-        //             _randomTextBubbleShowTime = Random.Range(5f, 10f);
-        //             _randomTextBubbleWaitTime = Random.Range(5f, 20f);
-        //             textBubble.HideTextBubble(_showText);
-        //             _isShowingTextBubble = false;
-        //         }
-        //     }
-        // }
+        private void ShowTextBubble()
+        {
+            if (_randomTextBubbleWaitTime > 0f)
+            {
+                _randomTextBubbleWaitTime -= Time.deltaTime;
+            }
+            else
+            {
+                if (!_isShowingTextBubble)
+                {
+                    _showText = emojiBubble.ShowRandomTextBubble();
+                    _isShowingTextBubble = true;
+                }
+
+                if (_randomTextBubbleShowTime > 0f)
+                {
+                    _randomTextBubbleShowTime -= Time.deltaTime;
+                }
+                else
+                {
+                    _randomTextBubbleShowTime = Random.Range(1f, 5f);
+                    _randomTextBubbleWaitTime = Random.Range(1f, 5f);
+                    emojiBubble.HideTextBubble(_showText);
+                    _isShowingTextBubble = false;
+                }
+            }
+        }
     }
 }

@@ -1,10 +1,9 @@
-﻿using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
+using NaughtyAttributes.Scripts.Core.DrawerAttributes_SpecialCase;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode.Core.Extend;
 using ZiercCode.Utilities;
-using Object = UnityEngine.Object;
 
 namespace ZiercCode.PathFinding
 {
@@ -13,7 +12,9 @@ namespace ZiercCode.PathFinding
     {
         [SerializeField] private GameObject blockCube;
 
-        [Header("movable info")] [Space] [SerializeField]
+        [Header("movable info")]
+        [Space]
+        [SerializeField]
         private Rigidbody2D pathFindAI;
 
         [SerializeField] private float moveSpeed;
@@ -32,7 +33,7 @@ namespace ZiercCode.PathFinding
 
         private void Start()
         {
-           // AudioPlayerManager.Instance.PlayAudioAsync(AudioName.MenuBgm);
+            // AudioPlayerManager.Instance.PlayAudioAsync(AudioName.MenuBgm);
         }
 #if UNITY_EDITOR
         [Button("GridDebug")]

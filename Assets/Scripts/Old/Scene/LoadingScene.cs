@@ -5,9 +5,9 @@ namespace ZiercCode.Old.Scene
 {
     public class LoadingScene : BaseSceneState
     {
-     
+
         private PanelManager _panelManager;
-        
+
 
         public override void OnExit()
         {

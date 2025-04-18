@@ -1,7 +1,8 @@
-﻿using RMC.Mini;
+using RMC.Mini;
 using RMC.Mini.Service;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using ZiercCode._DungeonGame._Scripts;
 using ZiercCode._DungeonGame.Config;
 using ZiercCode.Audio;
 using ZiercCode.Locale;
@@ -91,16 +92,26 @@ namespace ZiercCode._DungeonGame.UI.Settings
             LocalizationComponent.Instance.SetLanguage(language);
         }
 
+        public void UpdateFPSShower(bool active)
+        {
+            FPSShower.Instance.SetFPS(active);
+        }
+
         public string GetLocaleString(string key)
         {
             return LocalizationComponent.Instance.GetText(key);
         }
-        
+
         public void SetUIInput(bool value)
         {
             if (value)
+            {
                 _playerInputAction.UI.Enable();
-            else _playerInputAction.UI.Disable();
+            }
+            else
+            {
+                _playerInputAction.UI.Disable();
+            }
         }
     }
 }

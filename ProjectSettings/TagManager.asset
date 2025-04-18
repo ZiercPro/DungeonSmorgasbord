@@ -47,13 +47,13 @@ TagManager:
   - name: BackGround
     uniqueID: 2187904195
     locked: 0
-  - name: SceneGround
+  - name: TileGround
     uniqueID: 3326102633
     locked: 0
-  - name: SceneWall
+  - name: TileWall
     uniqueID: 3739508289
     locked: 0
-  - name: SceneObject
+  - name: TileObject
     uniqueID: 842197
     locked: 0
   - name: Object

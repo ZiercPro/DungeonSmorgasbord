@@ -1,6 +1,6 @@
 using NaughtyAttributes.Scripts.Core.MetaAttributes;
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 using ZiercCode.DungeonSmorgasbord.Component;
 

@@ -8,17 +8,23 @@ namespace ZiercCode.Old.DroppedItem
     [System.Serializable]
     public class DroppedItemConfig
     {
-        [SerializeField] [Range(0, 100)] private int dropChance;
+        [SerializeField][Range(0, 100)] private int dropChance;
         [SerializeField] private GameObject droppedItemTemp;
         [SerializeField] private bool haveItemNumRange;
 
-        [HideIf("haveItemNumRange")] [AllowNesting] [SerializeField]
+        [HideIf("haveItemNumRange")]
+        [AllowNesting]
+        [SerializeField]
         private int itemNum;
 
-        [ShowIf("haveItemNumRange")] [AllowNesting] [SerializeField]
+        [ShowIf("haveItemNumRange")]
+        [AllowNesting]
+        [SerializeField]
         private int minNum;
 
-        [ShowIf("haveItemNumRange")] [AllowNesting] [SerializeField]
+        [ShowIf("haveItemNumRange")]
+        [AllowNesting]
+        [SerializeField]
         private int maxNum;
 
         /// <summary>

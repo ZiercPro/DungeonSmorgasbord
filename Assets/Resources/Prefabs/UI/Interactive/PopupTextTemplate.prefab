@@ -102,7 +102,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cd6047371fb83654eb4563f316bf8578, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -169,7 +169,7 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 103122540938242309}
   m_maskType: 0
 --- !u!114 &9176976951974497936
@@ -184,10 +184,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddaec410b60d2f14fab95ec4867488f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.5
-  moveDuration: 0.1
+  fadeDuration: 2
+  shakeDuration: 0.5
+  moveDuration: 0.2
   rectTransform: {fileID: 2674392707996889531}
   textMeshPro: {fileID: 6586735204136270714}
   xMoveRange: {x: -1, y: 1}
-  yMoveRange: {x: 0.5, y: 0.8}
+  yMoveRange: {x: -0.2, y: 0.2}
   rotateRange: {x: -15, y: 15}

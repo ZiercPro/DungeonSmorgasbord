@@ -24,8 +24,7 @@ namespace ZiercCode.ObjectPool
         //         }
         //     }
         // }
-
-        public void Register(string objName, Object rootObject, int min, int max)
+        public void Register(string objName, Object rootObject, int min, int max, bool check = false)
         {
             if (_pools.ContainsKey(objName))
             {
@@ -33,8 +32,11 @@ namespace ZiercCode.ObjectPool
                 return;
             }
 
-            ObjectPool newO = new ObjectPool(objName, rootObject, false, min, max);
+            ObjectPool newO = new ObjectPool(objName, rootObject, check, min, max);
+            newO.Release(newO.Get()); //初始化时实例化一个 防止卡顿
             _pools.Add(objName, newO);
+
+
             // UpdatePoolParents();
         }
 
@@ -47,20 +49,21 @@ namespace ZiercCode.ObjectPool
             }
 
             ObjectPool newO = new ObjectPool(objName, rootObject);
+            newO.Release(newO.Get()); //初始化时实例化一个 防止卡顿
             _pools.Add(objName, newO);
             //UpdatePoolParents();
         }
 
         public Object Get(string objName)
         {
-            if (_pools.ContainsKey(objName))
+            if (_pools.TryGetValue(objName, out ObjectPool pool))
             {
                 // if (obj.GameObject())
                 // {
                 //     obj.GameObject().transform.SetParent(_poolParents[objName]);
                 // }
 
-                return _pools[objName].Get();
+                return pool.Get();
             }
 
             Debug.LogWarning($"{objName}还未注册对象池");
@@ -77,6 +80,28 @@ namespace ZiercCode.ObjectPool
             {
                 Debug.LogWarning($"{objName}还未注册对象池");
             }
+        }
+
+        public void Dispose(string poolName, bool releasePool = true) //销毁对象池中的全部对象 是否移除对象池
+        {
+            if (_pools.TryGetValue(poolName, out ObjectPool pool))
+            {
+                pool.Dispose();
+            }
+
+            if (releasePool)
+                _pools.Remove(poolName);
+        }
+
+        public void DisposeAll(bool releasePool = true) //销毁所有对象池中的全部对象
+        {
+            foreach (var pool in _pools)
+            {
+                pool.Value.Dispose();
+            }
+
+            if (releasePool)
+                _pools.Clear();
         }
     }
 }
