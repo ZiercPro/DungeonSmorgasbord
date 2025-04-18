@@ -66,7 +66,7 @@
 
 - ![](./GameShot/PixPin_2025-04-18_12-39-56.png)
 - ![](./GameShot/PixPin_2025-04-18_12-40-22.png)
-- ![](./GameShot/PixPin_2025-04-18_12-40-40.png)
+- ![](./GameShot/PixPin_2025-04-18_13-02-20.png)
 - ![](./GameShot/PixPin_2025-04-18_12-42-25.png)
 - ![](./GameShot/PixPin_2025-04-18_12-45-30.png)
 
