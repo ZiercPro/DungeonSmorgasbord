@@ -10,7 +10,9 @@ namespace ZiercCode.DungeonSmorgasbord.Component
     /// <typeparam name="T"></typeparam>
     public class CreatureAttribute<T> : MonoBehaviour where T : CreatureAttributesSo
     {
-        [SerializeField, Expandable] protected T creatureAttributesBaseSo;
+        [SerializeField]
+        [Expandable]
+        protected T creatureAttributesBaseSo;
 
         private T _attributesSo;
 
@@ -19,7 +21,9 @@ namespace ZiercCode.DungeonSmorgasbord.Component
             get
             {
                 if (_attributesSo == null)
+                {
                     _attributesSo = Instantiate(creatureAttributesBaseSo);
+                }
 
                 return _attributesSo;
             }

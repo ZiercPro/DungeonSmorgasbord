@@ -85,7 +85,9 @@ namespace ZiercCode.Core.UI
         protected void BanPlayerInput()
         {
             if (GameManager.playerTrans)
+            {
                 GameManager.playerTrans.GetComponent<HeroInputManager>().enabled = false;
+            }
         }
 
         /// <summary>
@@ -94,7 +96,9 @@ namespace ZiercCode.Core.UI
         protected void ReleasePlayerInput()
         {
             if (GameManager.playerTrans)
+            {
                 GameManager.playerTrans.GetComponent<HeroInputManager>().enabled = true;
+            }
         }
     }
 }

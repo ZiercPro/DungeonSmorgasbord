@@ -9,10 +9,13 @@ namespace ZiercCode.Old.ScriptObject
     [CreateAssetMenu(menuName = "ScriptableObject/AudioList", fileName = "AudioList")]
     public class AudioListSo : ScriptableObject
     {
-        [SerializeField] private EditableDictionary<AudioName, AudioBase> audioEditableDictionary;
+        [SerializeField]
+        private EditableDictionary<AudioName, AudioBase> audioEditableDictionary;
+
         public EditableDictionary<AudioName, AudioBase> AudioEditableDictionary => audioEditableDictionary;
 
-        [field: SerializeField] private AudioClip toCreateAudioBase;
+        [field: SerializeField]
+        private AudioClip toCreateAudioBase;
 #if UNITY_EDITOR
 
         public void Delete()
@@ -41,7 +44,11 @@ namespace ZiercCode.Old.ScriptObject
 
         public void ReSetConfig()
         {
-            if (!toCreateAudioBase) return;
+            if (!toCreateAudioBase)
+            {
+                return;
+            }
+
             toCreateAudioBase = null;
         }
 

@@ -6,9 +6,15 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
     public class WeaponBase : MonoBehaviour, IWeaponBase
     {
-        [SerializeField] private WeaponDataSo weaponDataSo;
-        [SerializeField] private bool haveInput;
-        [SerializeField, ShowIf("haveInput")] private WeaponInputHandler weaponInputHandler;
+        [SerializeField]
+        private WeaponDataSo weaponDataSo;
+
+        [SerializeField]
+        private bool haveInput;
+
+        [SerializeField]
+        [ShowIf("haveInput")]
+        private WeaponInputHandler weaponInputHandler;
 
         private IWeaponUserBase _weaponUserBase;
 

@@ -58,6 +58,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - CustomTextTable
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e769db985941a94fa88ea9fe59ac443
+    m_Address: Weapon_NeedlePistol
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a2e06372dbca79b4680f67abf7f1206a
     m_Address: Projectile_Flame
     m_ReadOnly: 0

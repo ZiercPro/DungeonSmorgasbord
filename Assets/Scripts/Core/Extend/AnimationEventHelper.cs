@@ -8,7 +8,6 @@ namespace ZiercCode.Core.Extend
     /// </summary>
     public class AnimationEventHelper : MonoBehaviour
     {
-
         public UnityEvent animationStarted;
         public UnityEvent animationTriggeredStart;
         public UnityEvent animationTriggeredPerform;

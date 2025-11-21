@@ -10,10 +10,14 @@ namespace ZiercCode.Old.Audio
     [System.Serializable]
     public class AudioType
     {
-        [field: SerializeField, ReadOnly, AllowNesting]
+        [field: SerializeField]
+        [field: ReadOnly]
+        [field: AllowNesting]
         public string Name { get; private set; }
 
-        [field: SerializeField, ReadOnly, AllowNesting]
+        [field: SerializeField]
+        [field: ReadOnly]
+        [field: AllowNesting]
         public string Path { get; private set; }
 
         public AudioType(string path)

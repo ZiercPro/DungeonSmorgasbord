@@ -111,9 +111,8 @@ Shader "ZiercShader/ShadowShader"
 
             half4 CombinedShapeLightFragment(Varyings i) : SV_Target
             {
-                
                 const half4 main = half4(i.color.r, i.color.g,
-                                         i.color.b, SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv).a * i.color.a); //只需采样拿到透明通道信息
+                         i.color.b, SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.uv).a * i.color.a); //只需采样拿到透明通道信息
                 const half4 mask = SAMPLE_TEXTURE2D(_MaskTex, sampler_MaskTex, i.uv);
                 SurfaceData2D surfaceData;
                 InputData2D inputData;

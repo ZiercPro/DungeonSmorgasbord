@@ -9,8 +9,12 @@ namespace ZiercCode.DungeonSmorgasbord.Extend
     /// </summary>
     public class UiShake : MonoBehaviour
     {
-        [SerializeField] private float shakeStrength = 0.5f;
-        [SerializeField] private float shakeDuration = 0.5f;
+        [SerializeField]
+        private float shakeStrength = 0.5f;
+
+        [SerializeField]
+        private float shakeDuration = 0.5f;
+
         private bool isShaking;
 
         private void OnDestroy()
@@ -27,12 +31,16 @@ namespace ZiercCode.DungeonSmorgasbord.Extend
 
         public void Shake()
         {
-            if (isShaking) return;
+            if (isShaking)
+            {
+                return;
+            }
+
             isShaking = true;
             StartCoroutine(StartShake());
         }
 
-        IEnumerator StartShake()
+        private IEnumerator StartShake()
         {
             transform.DOShakePosition(shakeDuration, shakeStrength).SetUpdate(true);
             transform.DOShakeRotation(shakeDuration, shakeStrength).SetUpdate(true);

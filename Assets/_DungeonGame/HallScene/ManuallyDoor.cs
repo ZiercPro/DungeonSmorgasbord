@@ -16,7 +16,7 @@ namespace ZiercCode._DungeonGame.HallScene
             //临时逻辑
             if (Input.GetKeyDown(KeyCode.E))
             {
-                _isPlayerInRange = RangeDetector.DetectInCircleByTag("Player", transform.position, interactRadius);
+                _isPlayerInRange = RangeDetector.DetectInCircleByLayer(targetLayer, transform.position, interactRadius);
                 if (_isPlayerInRange)
                 {
                     Interact();

@@ -9,8 +9,10 @@ namespace ZiercCode.FakeHeight
     [RequireComponent(typeof(FakeHeightTransform))]
     public class FakeHeightCollision : MonoBehaviour
     {
+        public Vector2 colliderBox;
+
         [SerializeField]
-        private Vector2 colliderBox;
+        private LayerMask layerMask;
 
         private FakeHeightTransform fakeHeightTransform;
         private RangeDetector _rangeDetect = new(1);
@@ -32,7 +34,8 @@ namespace ZiercCode.FakeHeight
         //运动方向碰到碰撞体后停止移动
         private void CheckCollisions()
         {
-            if (_rangeDetect.DetectInBox(transform.position, colliderBox, transform.rotation.eulerAngles.z))
+            if (_rangeDetect.DetectInBoxByLayer(layerMask, transform.position, colliderBox,
+                    transform.rotation.eulerAngles.z))
             {
                 if (_rangeDetect.DetectInRay(transform.position,
                         fakeHeightTransform.groundVelocity, _rayDistance))

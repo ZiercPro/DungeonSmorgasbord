@@ -8,7 +8,9 @@ namespace ZiercCode.Old.Component.Enemy
     [RequireComponent(typeof(CircleCollider2D))]
     public class EnemyAttackCheck : MonoBehaviour
     {
-        [SerializeField] private CircleCollider2D c2d;
+        [SerializeField]
+        private CircleCollider2D c2d;
+
         public bool isEnter { get; private set; }
         public Collider2D collier { get; private set; }
 

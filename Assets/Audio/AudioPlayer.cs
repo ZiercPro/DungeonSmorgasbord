@@ -13,13 +13,22 @@ namespace ZiercCode.Audio
     public class AudioPlayer : USingleton<AudioPlayer>
     {
         //混音器 用于分别处理不同种类的音频
-        [SerializeField] private AudioMixer audioMixer;
-        [SerializeField] private AudioMixerGroup music;
-        [SerializeField] private AudioMixerGroup sfx;
-        [SerializeField] private AudioMixerGroup environment;
+        [SerializeField]
+        private AudioMixer audioMixer;
+
+        [SerializeField]
+        private AudioMixerGroup music;
+
+        [SerializeField]
+        private AudioMixerGroup sfx;
+
+        [SerializeField]
+        private AudioMixerGroup environment;
 
         //[Space] [SerializeField] private AudioSource environmentPlayer;
-        [Space][SerializeField] private AudioSource musicPlayer;
+        [Space]
+        [SerializeField]
+        private AudioSource musicPlayer;
         //[Space] [SerializeField] private AudioSource sfxPlayer;
 
         //private Dictionary<string, AudioClip> _loadedClips = new Dictionary<string, AudioClip>();
@@ -99,7 +108,10 @@ namespace ZiercCode.Audio
 
         public void StopMusic()
         {
-            if (!musicPlayer.isPlaying) return;
+            if (!musicPlayer.isPlaying)
+            {
+                return;
+            }
 
             musicPlayer.Stop();
         }
@@ -115,7 +127,10 @@ namespace ZiercCode.Audio
 
         public void PlaySfx(AudioSource player, AudioClip clip, float volume = 1f)
         {
-            if (!player) return;
+            if (!player)
+            {
+                return;
+            }
 
             player.outputAudioMixerGroup = sfx;
             player.volume = volume;

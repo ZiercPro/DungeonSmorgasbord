@@ -31,10 +31,15 @@ namespace ZiercCode.Old.Audio
 
         public AudioSource GetAudioSource(AudioBase audioBase)
         {
-            if (!_audioParent) _audioParent = FindAudiosParent();
+            if (!_audioParent)
+            {
+                _audioParent = FindAudiosParent();
+            }
 
             if (CheckAudioSourceDictionary(audioBase, out AudioSource result))
+            {
                 return result;
+            }
 
             if (CheckAudioClipDictionary(audioBase, out AudioClip newClip))
             {
@@ -61,7 +66,10 @@ namespace ZiercCode.Old.Audio
             if (_audioSourceDictionary != null)
             {
                 if (_audioSourceDictionary.Count == 0)
+                {
                     return true;
+                }
+
                 _audioSourceDictionary.Clear();
                 return true;
             }
@@ -73,11 +81,13 @@ namespace ZiercCode.Old.Audio
         private bool CheckAudioClipDictionary(AudioBase audioBase, out AudioClip audioClip)
         {
             if (_audioClipDictionary.TryGetValue(audioBase, out AudioClip value))
+            {
                 if (value)
                 {
                     audioClip = value;
                     return true;
                 }
+            }
 
             _audioClipDictionary.Remove(audioBase);
             audioClip = null;
@@ -107,7 +117,11 @@ namespace ZiercCode.Old.Audio
         private Transform FindAudiosParent()
         {
             GameObject parent = GameObject.Find("Audios");
-            if (!parent) parent = new GameObject("Audios");
+            if (!parent)
+            {
+                parent = new GameObject("Audios");
+            }
+
             return parent.transform;
         }
 
@@ -126,7 +140,9 @@ namespace ZiercCode.Old.Audio
             newComponent.outputAudioMixerGroup = audioBase.outputGroup;
 
             if (_audioSourceDictionary.TryAdd(audioBase, newComponent))
+            {
                 return newComponent;
+            }
 
             Object.Destroy(newAudioS);
             return _audioSourceDictionary[audioBase];

@@ -1,9 +1,10 @@
 using UnityEngine;
-using ZiercCode.Management;
+using ZiercCode._DungeonGame._Scripts.EntityClasses;
+using ZiercCode._DungeonGame._Scripts.WeaponClass;
 
 namespace ZiercCode._DungeonGame.Player
 {
-    public class Player_Base : PauseBehaviour
+    public abstract class Player_Base : Entity
     {
         [SerializeField]
         private Transform weaponPoint; //武器装备点
@@ -12,6 +13,7 @@ namespace ZiercCode._DungeonGame.Player
         {
             weaponTransform.SetParent(weaponPoint);
             weaponTransform.localPosition = Vector3.zero;
+            weaponTransform.GetComponent<BaseWeapon>().Init(this);
         }
     }
 }

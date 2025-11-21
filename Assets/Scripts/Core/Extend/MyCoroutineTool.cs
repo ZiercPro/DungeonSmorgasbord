@@ -49,7 +49,9 @@ namespace ZiercCode.Core.Extend
         {
             StopAllCoroutines();
             if (_myCoroutines != null && _myCoroutines.Count > 0)
+            {
                 MyMath.ForeachFromLast(_myCoroutines, StopCoroutine);
+            }
         }
     }
 }

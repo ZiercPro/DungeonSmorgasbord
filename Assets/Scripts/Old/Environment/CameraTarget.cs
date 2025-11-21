@@ -13,14 +13,18 @@ namespace ZiercCode.Old.Environment
         [SerializeField]
         private float threshold; //位移阈值
 
-        [SerializeField] private float moveSpeed;
+        [SerializeField]
+        private float moveSpeed;
 
-        [Header("Dynamic")][Space] private Vector2 pointerPos; //鼠标位置
+        [Header("Dynamic")]
+        [Space]
+        private Vector2 pointerPos; //鼠标位置
+
         private Vector2 newPos; //更新后的位置
         private Transform heroTransform; //英雄组件
         public bool Active { get; private set; }
 
-        IEnumerator UpDatePosition()
+        private IEnumerator UpDatePosition()
         {
             while (Active)
             {

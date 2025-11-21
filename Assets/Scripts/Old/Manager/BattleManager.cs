@@ -12,13 +12,25 @@ namespace ZiercCode.Old.Manager
 {
     public class BattleManager : MonoBehaviour
     {
-        [SerializeField] private PoolObjectSo redCircle;
-        [SerializeField, Expandable] private BattleDataSo battleData;
-        [SerializeField] private PoolObjectSpawner poolObjectSpawner;
+        [SerializeField]
+        private PoolObjectSo redCircle;
 
-        [Header("范围")][SerializeField] private Vector2 spawnSize = new Vector2(8, 5);
-        [SerializeField] private Vector2 spawnCenter = Vector2.zero;
-        [SerializeField] private Color GizmosColor;
+        [SerializeField]
+        [Expandable]
+        private BattleDataSo battleData;
+
+        [SerializeField]
+        private PoolObjectSpawner poolObjectSpawner;
+
+        [Header("范围")]
+        [SerializeField]
+        private Vector2 spawnSize = new(8, 5);
+
+        [SerializeField]
+        private Vector2 spawnCenter = Vector2.zero;
+
+        [SerializeField]
+        private Color GizmosColor;
 
         private List<GameObject> _enemyS;
 
@@ -78,12 +90,14 @@ namespace ZiercCode.Old.Manager
             }
         }
 
-        [SerializeField] private bool debugMode;
+        [SerializeField]
+        private bool debugMode;
 #if UNITY_EDITOR
         /// <summary>
         /// 战斗入口
         /// </summary>
-        [Button("开始战斗"), ShowIf("debugMode")]
+        [Button("开始战斗")]
+        [ShowIf("debugMode")]
 #endif
         public void StartBattle()
         {
@@ -96,7 +110,8 @@ namespace ZiercCode.Old.Manager
         /// <summary>
         /// 进入下一层
         /// </summary>
-        [Button("下一层"), ShowIf("debugMode")]
+        [Button("下一层")]
+        [ShowIf("debugMode")]
 #endif
         public void MoveToNextLevel()
         {
@@ -112,7 +127,8 @@ namespace ZiercCode.Old.Manager
         /// </summary>
         private void SpawnEnemy()
         {
-            foreach (var enemyAndNum in battleData.battleDataList[_currentLevel - 1].enemyToSpawn)
+            foreach (BattleDataPerLevelSo.EnemyAndNum enemyAndNum in battleData.battleDataList[_currentLevel - 1]
+                         .enemyToSpawn)
             {
                 for (int i = 0; i < enemyAndNum.num; i++)
                 {
@@ -133,7 +149,7 @@ namespace ZiercCode.Old.Manager
 
             if (_enemyS is { Count: > 0 })
             {
-                foreach (var enemy in _enemyS)
+                foreach (GameObject enemy in _enemyS)
                 {
                     if (enemy.activeInHierarchy)
                     {
@@ -154,9 +170,13 @@ namespace ZiercCode.Old.Manager
         private void ChangeState(BattleState state)
         {
             if (_currentState != state)
+            {
                 _currentState = state;
+            }
             else
+            {
                 Debug.LogWarning($"已经处于状态{state}");
+            }
 
             Debug.Log($"当前状态：{_currentState}");
 

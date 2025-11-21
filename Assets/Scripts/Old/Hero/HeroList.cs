@@ -1,5 +1,3 @@
-
-
 namespace ZiercCode.Old.Hero
 {
     /// <summary>

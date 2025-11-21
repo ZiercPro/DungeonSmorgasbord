@@ -43,7 +43,9 @@ namespace ZiercCode.Core.UI
         public BasePanel Push(BasePanel nextPanel)
         {
             if (_panelStack.Count > 0)
+            {
                 _curPanel.OnPause();
+            }
 
             _curPanel = nextPanel;
 

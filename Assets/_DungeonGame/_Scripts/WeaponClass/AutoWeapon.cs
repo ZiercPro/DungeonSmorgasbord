@@ -27,7 +27,7 @@ namespace ZiercCode._DungeonGame._Scripts.WeaponClass
                 if (PlayerInputAction.HeroControl.MouseClickLeft.ReadValue<float>() > 0f)
                 {
                     Fire();
-                    FireTimer = 1f / fireSpeed;
+                    FireTimer = 1f / shootSpeed;
                 }
             }
         }

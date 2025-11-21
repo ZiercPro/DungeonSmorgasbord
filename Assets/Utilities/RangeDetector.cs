@@ -21,6 +21,11 @@ namespace ZiercCode.Utilities
             return _detectColliders;
         }
 
+        public RaycastHit2D[] GetRayHits()
+        {
+            return _detectRay;
+        }
+
         public bool DetectInBox(Vector2 point, Vector2 boxRange, float angle = 0f)
         {
             ClearColliderResults();
@@ -97,7 +102,10 @@ namespace ZiercCode.Utilities
             {
                 for (int i = 0; i < _detectRay.Length; i++)
                 {
-                    if (_detectRay[i].collider && _detectRay[i].collider.CompareTag(tag)) return true;
+                    if (_detectRay[i].collider && _detectRay[i].collider.CompareTag(tag))
+                    {
+                        return true;
+                    }
                 }
             }
 

@@ -10,7 +10,7 @@ namespace ZiercCode.Core.UI
         /// <summary>
         /// 当前活动面板
         /// </summary>
-        GameObject thisPanel;
+        private GameObject thisPanel;
 
         public UITool(GameObject panel)
         {
@@ -47,7 +47,10 @@ namespace ZiercCode.Core.UI
 
             foreach (Transform transform in trans)
             {
-                if (transform.name == name) return transform.gameObject;
+                if (transform.name == name)
+                {
+                    return transform.gameObject;
+                }
             }
 
             Debug.LogWarning($"{thisPanel.name}中找不到名为{name}的子对象");

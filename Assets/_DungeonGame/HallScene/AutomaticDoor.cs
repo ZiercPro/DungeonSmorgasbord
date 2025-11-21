@@ -14,7 +14,7 @@ namespace ZiercCode._DungeonGame.HallScene
 
         protected override void FixedUpdate()
         {
-            _isPlayerInRange = RangeDetector.DetectInCircleByTag("Player", transform.position, openDetectRadius);
+            _isPlayerInRange = RangeDetector.DetectInCircleByLayer(targetLayer, transform.position, openDetectRadius);
             if (_isPlayerInRange && IOpenClose.IsClosed)
             {
                 IOpenClose.Open();

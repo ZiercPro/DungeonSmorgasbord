@@ -6,13 +6,23 @@ namespace ZiercCode.DungeonSmorgasbord.Item
     [RequireComponent(typeof(Rigidbody2D))]
     public class MagneticEffect : MonoBehaviour
     {
-        [Header("目标Tag")][SerializeField] private string targetTag;
-        [Header("磁力半径")][SerializeField] private float radius = 1.5f;
+        [Header("目标Tag")]
+        [SerializeField]
+        private string targetTag;
 
-        [Header("磁力曲线")][SerializeField] private AnimationCurve forceCurve;
+        [Header("磁力半径")]
+        [SerializeField]
+        private float radius = 1.5f;
 
-        [SerializeField] private Collider2D entityCollider2D;
-        [SerializeField] private Rigidbody2D r2D;
+        [Header("磁力曲线")]
+        [SerializeField]
+        private AnimationCurve forceCurve;
+
+        [SerializeField]
+        private Collider2D entityCollider2D;
+
+        [SerializeField]
+        private Rigidbody2D r2D;
 
         private Transform _targetTransform;
         private bool _getTarget;
@@ -53,7 +63,11 @@ namespace ZiercCode.DungeonSmorgasbord.Item
             Vector3 targetPosition = _targetTransform.position;
             Vector3 myPosition = transform.position;
             bool isInRadius = MyMath.CompareDistanceWithRange(myPosition, targetPosition, radius);
-            if (!isInRadius) return;
+            if (!isInRadius)
+            {
+                return;
+            }
+
             Vector2 forceDir = (targetPosition - myPosition).normalized;
 
             float distance = Vector3.Distance(myPosition, targetPosition);
@@ -65,9 +79,13 @@ namespace ZiercCode.DungeonSmorgasbord.Item
         private void FixedUpdate()
         {
             if (_getTarget)
+            {
                 Magnetize();
+            }
             else
+            {
                 DetectTarget();
+            }
         }
     }
 }

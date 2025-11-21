@@ -16,7 +16,11 @@ namespace ZiercCode.Utilities
             Type baseType = type.BaseType;
             while (baseType != null)
             {
-                if (baseType.IsAbstract) absTypes.Add(baseType);
+                if (baseType.IsAbstract)
+                {
+                    absTypes.Add(baseType);
+                }
+
                 baseType = baseType.BaseType;
             }
 

@@ -11,9 +11,12 @@ namespace ZiercCode.Core.Extend
     /// </summary>
     public class AnimationHandler : MonoBehaviour
     {
-        [SerializeField] private Animator animator;
+        [SerializeField]
+        private Animator animator;
 
-        [SerializeField, AllowNesting] private List<AnimationConfig> animationsFunc;
+        [SerializeField]
+        [AllowNesting]
+        private List<AnimationConfig> animationsFunc;
 
         /// <summary>
         /// 激活动画
@@ -24,20 +27,20 @@ namespace ZiercCode.Core.Extend
             switch (animationsFunc[funcIndex].animationParameterType)
             {
                 case AnimationParameterType.Bool:
-                animator.SetBool(animationsFunc[funcIndex].parameterName,
-                    animationsFunc[funcIndex].boolValue);
-                break;
+                    animator.SetBool(animationsFunc[funcIndex].parameterName,
+                        animationsFunc[funcIndex].boolValue);
+                    break;
                 case AnimationParameterType.Float:
-                animator.SetFloat(animationsFunc[funcIndex].parameterName,
-                    animationsFunc[funcIndex].floatValue);
-                break;
+                    animator.SetFloat(animationsFunc[funcIndex].parameterName,
+                        animationsFunc[funcIndex].floatValue);
+                    break;
                 case AnimationParameterType.Trigger:
-                animator.SetTrigger(animationsFunc[funcIndex].parameterName);
-                break;
+                    animator.SetTrigger(animationsFunc[funcIndex].parameterName);
+                    break;
                 case AnimationParameterType.Int:
-                animator.SetInteger(animationsFunc[funcIndex].parameterName,
-                    animationsFunc[funcIndex].intValue);
-                break;
+                    animator.SetInteger(animationsFunc[funcIndex].parameterName,
+                        animationsFunc[funcIndex].intValue);
+                    break;
             }
         }
 
@@ -69,13 +72,16 @@ namespace ZiercCode.Core.Extend
             /// </summary>
             public AnimationParameterType animationParameterType;
 
-            [ShowIf("animationParameterType", AnimationParameterType.Int), AllowNesting]
+            [ShowIf("animationParameterType", AnimationParameterType.Int)]
+            [AllowNesting]
             public int intValue;
 
-            [ShowIf("animationParameterType", AnimationParameterType.Bool), AllowNesting]
+            [ShowIf("animationParameterType", AnimationParameterType.Bool)]
+            [AllowNesting]
             public bool boolValue;
 
-            [ShowIf("animationParameterType", AnimationParameterType.Float), AllowNesting]
+            [ShowIf("animationParameterType", AnimationParameterType.Float)]
+            [AllowNesting]
             public float floatValue;
         }
     }

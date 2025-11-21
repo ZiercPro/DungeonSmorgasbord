@@ -11,15 +11,33 @@ namespace ZiercCode.Utilities
     public static class MyMath
     {
         /// <summary>
+        /// Bool转化为int
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns>true=>1 false=>0</returns>
+        public static int BoolToInt(bool value)
+        {
+            return value ? 1 : 0;
+        }
+
+        /// <summary>
         /// 传入一个0-1之间的数 判断以这个概率是否实现
         /// </summary>
         /// <param name="chance"></param>
         /// <returns></returns>
         public static bool ChanceToBool(float chance)
         {
-            if (chance <= 0f) return false;
+            if (chance <= 0f)
+            {
+                return false;
+            }
+
             float temp = Random.Range(0.0f, 1.0f);
-            if (temp > chance) return false;
+            if (temp > chance)
+            {
+                return false;
+            }
+
             return true;
         }
 
@@ -31,9 +49,17 @@ namespace ZiercCode.Utilities
         /// <returns></returns>
         public static int ChanceToInt(float chance)
         {
-            if (chance <= 0f) return 0;
+            if (chance <= 0f)
+            {
+                return 0;
+            }
+
             float temp = Random.Range(0.0f, 1.0f);
-            if (temp > chance) return 0;
+            if (temp > chance)
+            {
+                return 0;
+            }
+
             return 1;
         }
 
@@ -46,7 +72,11 @@ namespace ZiercCode.Utilities
         /// <returns></returns>
         public static bool CompareDistanceWithRange(Vector3 pos1, Vector3 pos2, float range)
         {
-            if ((pos1 - pos2).sqrMagnitude <= range * range) return true;
+            if ((pos1 - pos2).sqrMagnitude <= range * range)
+            {
+                return true;
+            }
+
             return false;
         }
 

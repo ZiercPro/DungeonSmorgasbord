@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 404507155
   m_SortingLayer: 5
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 116371351509058036, guid: 20ac34eb0480f9f4da4b43a10d007ec5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -95,10 +95,11 @@ GameObject:
   - component: {fileID: 6487203676952977189}
   - component: {fileID: 6841024327016997862}
   - component: {fileID: 9017829520826746632}
-  - component: {fileID: 4103885259188609038}
   - component: {fileID: 407394951240830089}
   - component: {fileID: -2479814738115071938}
   - component: {fileID: 8760875353411306848}
+  - component: {fileID: 634341006404885684}
+  - component: {fileID: 2528719921938707542}
   m_Layer: 0
   m_Name: Particle_ShellCase
   m_TagString: Untagged
@@ -136,10 +137,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowMaterial: {fileID: 2100000, guid: 8d3b7f235474c994cbda65a6ed88abd8, type: 2}
   shadowColor: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 0.627451}
-  shadowOffset: {x: 0.05, y: -0.05, z: 0}
+  shadowVisualOffset: {x: 0.05, y: -0.05, z: 0}
   shadowSizeChangeRate: 0.02
   casterTransform: {fileID: 1098191888544928940}
   casterSpriteRenderer: {fileID: 1295297491271196365}
+  updateShadowSize: 1
+  updateShadowSprite: 1
+  updateShadowRotation: 1
+  updateShadowAlpha: 1
+  updateShadowRelativePosition: 1
 --- !u!114 &9017829520826746632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995e3a7f266d0c441851cee3b018f490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shadow2D: {fileID: 6841024327016997862}
+  casterTransform: {fileID: 1098191888544928940}
   virtualGravity: 9.81
   updateGravity: 1
   onGrounded:
@@ -210,21 +216,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   groundVelocity: {x: 0, y: 0}
---- !u!114 &4103885259188609038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6237707180542336056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcc69011a0fef174d8117c54ec8b6b68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 1295297491271196365}
-  stayTime: 3
-  fadeTime: 1
+  verticalVelocity: 0
 --- !u!114 &407394951240830089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +230,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderBox: {x: 0.2, y: 0.08}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 272
 --- !u!114 &-2479814738115071938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,3 +349,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &634341006404885684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6237707180542336056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e11ed5314b844be6a8cdacd15b0dbaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolName: shellCase
+  stayTime: 2
+  spriteRenderer: {fileID: 1295297491271196365}
+  fadeTime: 1
+--- !u!210 &2528719921938707542
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6237707180542336056}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0

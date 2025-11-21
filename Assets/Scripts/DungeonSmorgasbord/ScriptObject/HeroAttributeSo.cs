@@ -13,7 +13,8 @@ namespace ZiercCode.DungeonSmorgasbord.ScriptObject
         /// <summary>
         /// 武器伤害率数据表
         /// </summary>
-        [SerializeField] private TextAsset weaponDamageDataFile;
+        [SerializeField]
+        private TextAsset weaponDamageDataFile;
 
         /// <summary>
         /// 武器伤害率字典

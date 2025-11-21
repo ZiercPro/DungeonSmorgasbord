@@ -16,10 +16,13 @@ namespace ZiercCode.Utilities
             get
             {
                 if (_instance == null)
+                {
                     _instance = FindAnyObjectByType<T>();
+                }
+
                 if (_instance == null)
                 {
-                    GameObject newG = new GameObject(typeof(T).Name);
+                    GameObject newG = new(typeof(T).Name);
                     _instance = newG.AddComponent<T>();
                 }
 

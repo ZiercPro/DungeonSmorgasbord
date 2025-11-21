@@ -17,7 +17,8 @@ namespace ZiercCode.PathFinding
 
         public PathFinding(int width, int height, float cellSize = 1f, Vector3 originPosition = default)
         {
-            _gridBase = new GridBase<PathNode>(width, height, cellSize, (g, x, y) => new PathNode(g, x, y), originPosition);
+            _gridBase = new GridBase<PathNode>(width, height, cellSize, (g, x, y) => new PathNode(g, x, y),
+                originPosition);
         }
 
         public List<Vector3> FindPath(Vector3 startPosition, Vector3 endPosition)
@@ -26,7 +27,10 @@ namespace ZiercCode.PathFinding
             PathNode endNode = _gridBase.GetGridObject(endPosition);
             List<PathNode> pathNodes = FindPath(startNode, endNode);
             if (pathNodes != null)
+            {
                 return PathNodeToVector3(pathNodes);
+            }
+
             return null;
         }
 
@@ -67,7 +71,11 @@ namespace ZiercCode.PathFinding
                 List<PathNode> neighbourList = GetNeighbourList(currentNode);
                 foreach (PathNode neighbourNode in neighbourList)
                 {
-                    if (_closeList.Contains(neighbourNode)) continue;
+                    if (_closeList.Contains(neighbourNode))
+                    {
+                        continue;
+                    }
+
                     if (!neighbourNode.IsActive)
                     {
                         _closeList.Add(neighbourNode);
@@ -83,7 +91,10 @@ namespace ZiercCode.PathFinding
                         neighbourNode.CalculateFCost();
                     }
 
-                    if (!_openList.Contains(neighbourNode)) _openList.Add(neighbourNode);
+                    if (!_openList.Contains(neighbourNode))
+                    {
+                        _openList.Add(neighbourNode);
+                    }
                 }
             }
 
@@ -94,10 +105,10 @@ namespace ZiercCode.PathFinding
         //将节点链表转换为坐标链表
         private List<Vector3> PathNodeToVector3(List<PathNode> pathNodes)
         {
-            List<Vector3> result = new List<Vector3>();
+            List<Vector3> result = new();
             if (pathNodes is not { Count: 0 })
             {
-                foreach (var pathNode in pathNodes)
+                foreach (PathNode pathNode in pathNodes)
                 {
                     Vector3 newV = _gridBase.GetWorldPosition(pathNode.X, pathNode.Y);
                     result.Add(newV);
@@ -110,29 +121,51 @@ namespace ZiercCode.PathFinding
         //获取所有相邻的节点
         private List<PathNode> GetNeighbourList(PathNode node)
         {
-            List<PathNode> result = new List<PathNode>();
+            List<PathNode> result = new();
             if (node.X - 1 >= 0)
             {
                 //左下
-                if (node.Y - 1 >= 0) result.Add(_gridBase.GetGridObject(node.X - 1, node.Y - 1));
+                if (node.Y - 1 >= 0)
+                {
+                    result.Add(_gridBase.GetGridObject(node.X - 1, node.Y - 1));
+                }
+
                 //左
                 result.Add(_gridBase.GetGridObject(node.X - 1, node.Y));
                 //左上
-                if (node.Y + 1 < _gridBase.Height) result.Add(_gridBase.GetGridObject(node.X - 1, node.Y + 1));
+                if (node.Y + 1 < _gridBase.Height)
+                {
+                    result.Add(_gridBase.GetGridObject(node.X - 1, node.Y + 1));
+                }
             }
 
             //下
-            if (node.Y - 1 >= 0) result.Add(_gridBase.GetGridObject(node.X, node.Y - 1));
+            if (node.Y - 1 >= 0)
+            {
+                result.Add(_gridBase.GetGridObject(node.X, node.Y - 1));
+            }
+
             //上
-            if (node.Y + 1 < _gridBase.Height) result.Add(_gridBase.GetGridObject(node.X, node.Y + 1));
+            if (node.Y + 1 < _gridBase.Height)
+            {
+                result.Add(_gridBase.GetGridObject(node.X, node.Y + 1));
+            }
+
             if (node.X + 1 < _gridBase.Width)
             {
                 //右下
-                if (node.Y - 1 >= 0) result.Add(_gridBase.GetGridObject(node.X + 1, node.Y - 1));
+                if (node.Y - 1 >= 0)
+                {
+                    result.Add(_gridBase.GetGridObject(node.X + 1, node.Y - 1));
+                }
+
                 //右
                 result.Add(_gridBase.GetGridObject(node.X + 1, node.Y));
                 //右上
-                if (node.Y + 1 < _gridBase.Height) result.Add(_gridBase.GetGridObject(node.X + 1, node.Y + 1));
+                if (node.Y + 1 < _gridBase.Height)
+                {
+                    result.Add(_gridBase.GetGridObject(node.X + 1, node.Y + 1));
+                }
             }
 
             return result;
@@ -141,7 +174,7 @@ namespace ZiercCode.PathFinding
         //计算最短路径
         private List<PathNode> CalculateFinalPath(PathNode endNode)
         {
-            List<PathNode> pathList = new List<PathNode>();
+            List<PathNode> pathList = new();
             PathNode currentNode = endNode;
             pathList.Add(endNode);
             while (currentNode.LastNode != null)
@@ -159,7 +192,7 @@ namespace ZiercCode.PathFinding
             int xDistance = Mathf.Abs(a.X - b.X);
             int yDistance = Mathf.Abs(a.Y - b.Y);
             int distance = Mathf.Abs(xDistance - yDistance);
-            return DEFAULT_DIAGONAL_COST * Mathf.Min(xDistance, yDistance) + DEFAULT_STRAIGHT_COST * distance;
+            return (DEFAULT_DIAGONAL_COST * Mathf.Min(xDistance, yDistance)) + (DEFAULT_STRAIGHT_COST * distance);
         }
 
         //计算最小的FCost

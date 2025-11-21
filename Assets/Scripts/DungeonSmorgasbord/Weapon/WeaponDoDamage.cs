@@ -16,28 +16,33 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 武器数据
         /// </summary>
-        [SerializeField] private WeaponBase weapon;
+        [SerializeField]
+        private WeaponBase weapon;
 
         /// <summary>
         /// 伤害数字颜色
         /// </summary>
-        [SerializeField] private Color damageTextColor;
+        [SerializeField]
+        private Color damageTextColor;
 
         /// <summary>
         /// 只造成一次伤害
         /// </summary>
-        [SerializeField] private bool doSingleDamage;
+        [SerializeField]
+        private bool doSingleDamage;
 
         /// <summary>
         ///是否同一目只造成一次伤害
         /// </summary>
-        [SerializeField, HideIf("doSingleDamage")]
+        [SerializeField]
+        [HideIf("doSingleDamage")]
         private bool doSingleDamageToSameTarget;
 
         /// <summary>
         /// 是否能伤害到武器持有者
         /// </summary>
-        [SerializeField] private bool canHurtSelf;
+        [SerializeField]
+        private bool canHurtSelf;
 
         /// <summary>
         /// 是否可以造成伤害
@@ -61,16 +66,25 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <param name="c2d">目标碰撞体</param>
         public void DoDamage(Collider2D c2d)
         {
-            if (!_canDoDamage) return;
+            if (!_canDoDamage)
+            {
+                return;
+            }
 
             if (doSingleDamageToSameTarget)
+            {
                 if (_haveDamagedTarget.Any(target => target == c2d))
+                {
                     return;
+                }
+            }
 
             if (c2d.TryGetComponent(out IDamageable damageable))
             {
                 if (!canHurtSelf && c2d.transform == weapon.GetWeaponUserBase().GetWeaponUserTransform())
+                {
                     return;
+                }
 
                 damageable.TakeDamage(GetDamageInfo());
                 _haveDamagedTarget.Add(c2d);
@@ -78,7 +92,9 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
                     GetDamageInfo().damageAmount);
 
                 if (doSingleDamage)
+                {
                     _canDoDamage = false;
+                }
             }
         }
 
@@ -92,7 +108,9 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
                                      weapon.GetWeaponUserBase().GetWeaponDamageRate()[
                                          weapon.GetWeaponDataSo().WeaponType]);
             if (MyMath.ChanceToBool(weapon.GetWeaponUserBase().GetCriticalChance()))
+            {
                 damageAmount *= 2;
+            }
 
             DamageInfo damageInfo = new(damageAmount, weapon.GetWeaponDataSo().DamageType,
                 weapon.GetWeaponUserBase().GetWeaponUserTransform());

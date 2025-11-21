@@ -24,12 +24,14 @@ namespace ZiercCode.DungeonSmorgasbord.ScriptObject
         /// <summary>
         /// 伤害数值
         /// </summary>
-        [ShowIf("canDoDamage")] public int Damage;
+        [ShowIf("canDoDamage")]
+        public int Damage;
 
         /// <summary>
         /// 伤害类型
         /// </summary>
-        [ShowIf("canDoDamage")] public DamageType DamageType;
+        [ShowIf("canDoDamage")]
+        public DamageType DamageType;
 
         /// <summary>
         /// 武器类型

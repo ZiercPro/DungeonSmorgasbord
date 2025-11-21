@@ -9,11 +9,20 @@ namespace ZiercCode.Test.MVC
 {
     public class AddCalculatorView : MonoBehaviour, IView
     {
-        [SerializeField] private TMP_InputField aInputField;
-        [SerializeField] private TMP_InputField bInputField;
-        [SerializeField] private TMP_InputField resultInputField;
-        [SerializeField] private Button addButton;
-        [SerializeField] private Button resetButton;
+        [SerializeField]
+        private TMP_InputField aInputField;
+
+        [SerializeField]
+        private TMP_InputField bInputField;
+
+        [SerializeField]
+        private TMP_InputField resultInputField;
+
+        [SerializeField]
+        private Button addButton;
+
+        [SerializeField]
+        private Button resetButton;
 
         public UnityEvent OnAddButtonPressed;
         public UnityEvent OnResetButtonPressed;
@@ -21,7 +30,9 @@ namespace ZiercCode.Test.MVC
         public void RequireIsInitialized()
         {
             if (!_isInitialize)
+            {
                 Debug.LogWarning($"{name}必须初始化");
+            }
         }
 
         public bool IsInitialized => _isInitialize;

@@ -6,17 +6,26 @@ namespace ZiercCode.Management
     {
         private void Update()
         {
-            if (!GameState.Instance.IsPaused) PauseUpdate();
+            if (!GameState.Instance.IsPaused)
+            {
+                PauseUpdate();
+            }
         }
 
         private void LateUpdate()
         {
-            if (!GameState.Instance.IsPaused) PauseLateUpdate();
+            if (!GameState.Instance.IsPaused)
+            {
+                PauseLateUpdate();
+            }
         }
 
         private void FixedUpdate()
         {
-            if (!GameState.Instance.IsPaused) PauseFixedUpdate();
+            if (!GameState.Instance.IsPaused)
+            {
+                PauseFixedUpdate();
+            }
         }
 
 

@@ -9,7 +9,9 @@ namespace ZiercCode.Core.Pool
     /// </summary>
     public class PoolObjectSpawner : MonoBehaviour
     {
-        [Expandable, SerializeField] private List<PoolObjectSo> poolObjects;
+        [Expandable]
+        [SerializeField]
+        private List<PoolObjectSo> poolObjects;
 
         private Dictionary<GameObject, SpawnHandle> _handlerDictionary;
 
@@ -191,8 +193,12 @@ namespace ZiercCode.Core.Pool
         /// </summary>
         private void CreatePools()
         {
-            if (poolObjects == null || poolObjects.Count <= 0) return;
-            foreach (var poolObject in poolObjects)
+            if (poolObjects == null || poolObjects.Count <= 0)
+            {
+                return;
+            }
+
+            foreach (PoolObjectSo poolObject in poolObjects)
             {
                 PoolManager.Instance.CreatePool(poolObject);
             }

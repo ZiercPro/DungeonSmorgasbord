@@ -8,9 +8,15 @@ namespace ZiercCode.Old.DroppedItem
     [System.Serializable]
     public class DroppedItemConfig
     {
-        [SerializeField][Range(0, 100)] private int dropChance;
-        [SerializeField] private GameObject droppedItemTemp;
-        [SerializeField] private bool haveItemNumRange;
+        [SerializeField]
+        [Range(0, 100)]
+        private int dropChance;
+
+        [SerializeField]
+        private GameObject droppedItemTemp;
+
+        [SerializeField]
+        private bool haveItemNumRange;
 
         [HideIf("haveItemNumRange")]
         [AllowNesting]
@@ -35,7 +41,11 @@ namespace ZiercCode.Old.DroppedItem
         public void InstantiateItem(Transform position, float bursForce)
         {
             bool willDrop = MyMath.ChanceToBool(dropChance / 100f);
-            if (!willDrop) return;
+            if (!willDrop)
+            {
+                return;
+            }
+
             Rigidbody2D r2d;
             if (haveItemNumRange)
             {

@@ -9,18 +9,26 @@ namespace ZiercCode.Old.Hero
     [RequireComponent(typeof(Rigidbody2D))]
     public class DashComponent : MonoBehaviour
     {
-        [SerializeField, Tooltip("是否使用速度曲线")] private bool useSpeedCurve;
+        [SerializeField]
+        [Tooltip("是否使用速度曲线")]
+        private bool useSpeedCurve;
 
-        [SerializeField, HideIf("useSpeedCurve")]
+        [SerializeField]
+        [HideIf("useSpeedCurve")]
         private float dashSpeed;
 
-        [SerializeField, ShowIf("useSpeedCurve")]
+        [SerializeField]
+        [ShowIf("useSpeedCurve")]
         private AnimationCurve dashSpeedCurve;
 
-        [SerializeField] private GameObject dashParticle;
+        [SerializeField]
+        private GameObject dashParticle;
 
-        [SerializeField] private float dashCoolDown = 1.0f;
-        [SerializeField] private float dashTime = 0.3f;
+        [SerializeField]
+        private float dashCoolDown = 1.0f;
+
+        [SerializeField]
+        private float dashTime = 0.3f;
 
         public UnityEvent dashStarted;
         public UnityEvent dashing;
@@ -40,7 +48,11 @@ namespace ZiercCode.Old.Hero
 
         public void Dash(Vector2 dashDirection)
         {
-            if (_isDashLocked) return;
+            if (_isDashLocked)
+            {
+                return;
+            }
+
             _isDashLocked = true;
             DashEffect();
             Vector2 directionNormalized = dashDirection.normalized;
@@ -62,7 +74,10 @@ namespace ZiercCode.Old.Hero
             {
                 dashing?.Invoke();
                 if (useSpeedCurve)
+                {
                     dashSpeed = dashSpeedCurve.Evaluate(i);
+                }
+
                 _rb.velocity = dashDir * dashSpeed;
                 yield return null;
             }

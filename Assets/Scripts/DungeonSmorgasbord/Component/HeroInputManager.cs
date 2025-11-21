@@ -96,9 +96,13 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         public void SetHeroControl(bool enable)
         {
             if (enable)
+            {
                 _playerInputAction.HeroControl.Enable();
+            }
             else
+            {
                 _playerInputAction.HeroControl.Disable();
+            }
         }
 
 

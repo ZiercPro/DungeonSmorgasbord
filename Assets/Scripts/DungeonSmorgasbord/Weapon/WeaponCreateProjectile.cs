@@ -13,24 +13,29 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 发射的武器
         /// </summary>
-        [SerializeField] private WeaponBase fireWeapon;
+        [SerializeField]
+        private WeaponBase fireWeapon;
 
         /// <summary>
         /// 对象生成器
         /// </summary>
-        [SerializeField] private PoolObjectSpawner spawner;
+        [SerializeField]
+        private PoolObjectSpawner spawner;
 
         /// <summary>
         /// 射弹总轨道
         /// 确认发射总方向
         /// </summary>
-        [SerializeField] private Transform projectileAimParent;
+        [SerializeField]
+        private Transform projectileAimParent;
 
 
         /// <summary>
         /// 射弹配置数组
         /// </summary>
-        [SerializeField, AllowNesting] private ProjectileConfig[] projectileConfigs;
+        [SerializeField]
+        [AllowNesting]
+        private ProjectileConfig[] projectileConfigs;
 
 
         /// <summary>
@@ -42,31 +47,37 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             /// <summary>
             /// 射弹对象池数据
             /// </summary>
-            [SerializeField] private PoolObjectSo projectilePoolObjectSo;
+            [SerializeField]
+            private PoolObjectSo projectilePoolObjectSo;
 
             /// <summary>
             /// 射弹轨道的transform
             /// 用于确认射弹生成的位置
             /// </summary>
-            [SerializeField] private Transform projectilePosition;
+            [SerializeField]
+            private Transform projectilePosition;
 
 
             /// <summary>
             /// 相对总方向的角度差
             /// </summary>
-            [SerializeField, Tooltip("相对瞄准方向的角度差值")]
+            [SerializeField]
+            [Tooltip("相对瞄准方向的角度差值")]
             private float fireAngelOffset;
 
             /// <summary>
             /// 没有发射时显示多少个射弹
             /// </summary>
-            [SerializeField, Tooltip("未发射前，是否显示")] private bool showBeforeFired;
+            [SerializeField]
+            [Tooltip("未发射前，是否显示")]
+            private bool showBeforeFired;
 
 
             /// <summary>
             /// 飞行速度
             /// </summary>
-            [SerializeField] private float flySpeed;
+            [SerializeField]
+            private float flySpeed;
 
 
             /// <summary>
@@ -102,7 +113,9 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
                 ProjectileInstance.transform.SetParent(null, true);
 
                 if (!showBeforeFired)
+                {
                     ProjectileInstance.SetActive(true);
+                }
 
                 ProjectileInstance.GetComponent<WeaponProjectile>()
                     .Fire(flySpeed);
@@ -125,7 +138,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         //创建射弹
         public void CreateProjectiles()
         {
-            foreach (var projectileConfig in projectileConfigs)
+            foreach (ProjectileConfig projectileConfig in projectileConfigs)
             {
                 projectileConfig.CreateProjectile(fireWeapon, spawner);
             }
@@ -137,7 +150,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// </summary>
         public void Fire()
         {
-            foreach (var projectileConfig in projectileConfigs)
+            foreach (ProjectileConfig projectileConfig in projectileConfigs)
             {
                 projectileConfig.Fire();
             }

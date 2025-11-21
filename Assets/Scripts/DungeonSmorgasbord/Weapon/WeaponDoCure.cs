@@ -10,6 +10,7 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 武器数据
         /// </summary>
-        [SerializeField] private WeaponBase weapon;
+        [SerializeField]
+        private WeaponBase weapon;
     }
 }

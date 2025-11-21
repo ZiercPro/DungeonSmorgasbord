@@ -8,7 +8,8 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 击退力
         /// </summary>
-        [SerializeField] private float force;
+        [SerializeField]
+        private float force;
 
         public void DoKnockBack(Collider2D c2d)
         {

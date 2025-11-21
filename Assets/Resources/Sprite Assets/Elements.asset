@@ -129,6 +129,30 @@ MonoBehaviour:
     m_Scale: 1
     m_Name: void
     m_HashCode: 4275316
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 9
+    m_Scale: 1
+    m_Name: heart
+    m_HashCode: 120098698
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 10
+    m_Scale: 1
+    m_Name: armor
+    m_HashCode: 119104707
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 11
+    m_Scale: 1
+    m_Name: speed
+    m_HashCode: 134764743
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 12
+    m_Scale: 1
+    m_Name: damageReduction
+    m_HashCode: -1750581486
   m_SpriteGlyphTable:
   - m_Index: 0
     m_Metrics:
@@ -274,5 +298,69 @@ MonoBehaviour:
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 632436147, guid: 5329dfb496995014bbe3d04ef4d57d74, type: 3}
+  - m_Index: 9
+    m_Metrics:
+      m_Width: 16
+      m_Height: 16
+      m_HorizontalBearingX: -8
+      m_HorizontalBearingY: 8
+      m_HorizontalAdvance: 16
+    m_GlyphRect:
+      m_X: 128
+      m_Y: 144
+      m_Width: 16
+      m_Height: 16
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 1309816298, guid: 5329dfb496995014bbe3d04ef4d57d74, type: 3}
+  - m_Index: 10
+    m_Metrics:
+      m_Width: 16
+      m_Height: 16
+      m_HorizontalBearingX: -8
+      m_HorizontalBearingY: 8
+      m_HorizontalAdvance: 16
+    m_GlyphRect:
+      m_X: 144
+      m_Y: 144
+      m_Width: 16
+      m_Height: 16
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -640895787, guid: 5329dfb496995014bbe3d04ef4d57d74, type: 3}
+  - m_Index: 11
+    m_Metrics:
+      m_Width: 16
+      m_Height: 16
+      m_HorizontalBearingX: -8
+      m_HorizontalBearingY: 8
+      m_HorizontalAdvance: 16
+    m_GlyphRect:
+      m_X: 0
+      m_Y: 128
+      m_Width: 16
+      m_Height: 16
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -2141353589, guid: 5329dfb496995014bbe3d04ef4d57d74, type: 3}
+  - m_Index: 12
+    m_Metrics:
+      m_Width: 16
+      m_Height: 16
+      m_HorizontalBearingX: -8
+      m_HorizontalBearingY: 8
+      m_HorizontalAdvance: 16
+    m_GlyphRect:
+      m_X: 16
+      m_Y: 128
+      m_Width: 16
+      m_Height: 16
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -1426755307, guid: 5329dfb496995014bbe3d04ef4d57d74, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []

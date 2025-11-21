@@ -1,7 +1,9 @@
 using DG.Tweening;
+using NaughtyAttributes.Scripts.Core.MetaAttributes;
 using UnityEngine;
 using ZiercCode._DungeonGame._Scripts.EventClasses;
 using ZiercCode.EventBusSystem;
+using ZiercCode.ObjectPool;
 using Random = UnityEngine.Random;
 
 namespace ZiercCode._DungeonGame._Scripts.WeaponComponent
@@ -18,15 +20,29 @@ namespace ZiercCode._DungeonGame._Scripts.WeaponComponent
         private GameObject flashTemplate;
 
         [SerializeField]
+        private string poolName;
+
+        [SerializeField]
+        private int poolMin;
+
+        [SerializeField]
+        private int poolMax;
+
+        [SerializeField]
         private Transform shootPoint;
 
         [SerializeField]
         private Vector2 scaleRange;
 
         [SerializeField]
-        private Vector2 rotateRange = new Vector2(0f, 90f);
+        private bool flashByShootSpeed; //由射击速度决定闪烁速度
 
-        private GameObject _flash;
+        [SerializeField]
+        [HideIf("flashByShootSpeed")]
+        private float fixedDuration;
+
+        [SerializeField]
+        private Vector2 rotateRange = new(0f, 90f);
 
         private float _flashDuration;
 
@@ -40,15 +56,15 @@ namespace ZiercCode._DungeonGame._Scripts.WeaponComponent
             EventsGroup.RemoveAllListener();
         }
 
+        protected void OnDestroy()
+        {
+            PoolManager.Instance.Dispose(poolName);
+        }
+
         protected override void Awake()
         {
             base.Awake();
-            _flash = Instantiate(flashTemplate, transform);
-            _flash.transform.position = shootPoint.position;
-            _flash.transform.rotation = Quaternion.identity;
-            SpriteRenderer flashSpriteRenderer = _flash.GetComponent<SpriteRenderer>();
-            flashSpriteRenderer.color = flashColor;
-            _flash.SetActive(false);
+            PoolManager.Instance.Register(poolName, flashTemplate, poolMin, poolMax);
         }
 
         public void OnFire(IEventArgs args)
@@ -65,13 +81,26 @@ namespace ZiercCode._DungeonGame._Scripts.WeaponComponent
         public void DoFlash()
         {
             //没法优化 因为要读取新的参数
-            _flash.SetActive(true);
-            _flashDuration = 1f / MyWeapon.fireSpeed;
-            _flash.transform.Rotate(_flash.transform.forward, Random.Range(rotateRange.x, rotateRange.y));
-            _flash.transform.DOScale(Random.Range(scaleRange.x, scaleRange.y), _flashDuration / 2f).SetEase(Ease.Flash)
+            GameObject flash = (GameObject)PoolManager.Instance.Get(poolName);
+            flash.transform.position = shootPoint.position;
+            flash.transform.rotation = Quaternion.identity;
+            flash.transform.localScale = Vector3.zero;
+            SpriteRenderer flashSpriteRenderer = flash.GetComponent<SpriteRenderer>();
+            flashSpriteRenderer.color = flashColor;
+            if (flashByShootSpeed)
+            {
+                _flashDuration = 1f / MyWeapon.shootSpeed;
+            }
+            else
+            {
+                _flashDuration = fixedDuration;
+            }
+
+            flash.transform.Rotate(flash.transform.forward, Random.Range(rotateRange.x, rotateRange.y));
+            flash.transform.DOScale(Random.Range(scaleRange.x, scaleRange.y), _flashDuration / 2f).SetEase(Ease.Flash)
                 .OnComplete(() =>
-                    _flash.transform.DOScale(0f, _flashDuration / 2f).SetEase(Ease.Flash)
-                        .OnComplete(() => _flash.gameObject.SetActive(false)));
+                    flash.transform.DOScale(0f, _flashDuration / 2f).SetEase(Ease.Flash)
+                        .OnComplete(() => PoolManager.Instance.Release(poolName, flash)));
         }
     }
 }

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
+using ZiercCode._DungeonGame._Scripts.Text;
 using ZiercCode.Core.Pool;
-using ZiercCode.DungeonSmorgasbord.Extend;
 using ZiercCode.Utilities;
 
 namespace ZiercCode.Old.Manager

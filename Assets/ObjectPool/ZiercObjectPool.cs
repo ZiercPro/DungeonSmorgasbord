@@ -16,7 +16,6 @@ namespace ZiercCode.ObjectPool
 
         public string ObjectName => _objName;
 
-
         public ObjectPool(string objName, Object rootObject, bool collectionCheck = false, int min = DEFAULT_MIN,
             int max = DEFAULT_MAX)
         {
@@ -43,7 +42,6 @@ namespace ZiercCode.ObjectPool
             {
                 throw new Exception($"{_objName}池为空!");
             }
-
 
             _objectPool.Release(obj);
         }

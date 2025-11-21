@@ -30,7 +30,7 @@ namespace ZiercCode.EventBusSystem
             Type type = typeof(TEvent);
             if (!_eventListeners.ContainsKey(type))
             {
-                List<Action<IEventArgs>> newActionList = new List<Action<IEventArgs>>();
+                List<Action<IEventArgs>> newActionList = new();
                 _eventListeners.Add(type, newActionList);
             }
 
@@ -64,7 +64,7 @@ namespace ZiercCode.EventBusSystem
         /// </summary>
         public void RemoveAllListener()
         {
-            foreach (var kv in _eventListeners)
+            foreach (KeyValuePair<Type, List<Action<IEventArgs>>> kv in _eventListeners)
             {
                 Type type = kv.Key;
 

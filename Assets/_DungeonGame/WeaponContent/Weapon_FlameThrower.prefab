@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 3662618929880636112}
   - component: {fileID: 5792504880812058480}
   - component: {fileID: 1730583730692618285}
+  - component: {fileID: 6441968079081897874}
+  - component: {fileID: 437094852083998897}
   m_Layer: 0
   m_Name: Weapon_FlameThrower
   m_TagString: Untagged
@@ -105,22 +107,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df31f421e684c479019d4db21b4ab89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponName: FlameThrower
   damage:
     dictionaryList:
     - keyValue: 1
       objectValue: 15
+    - keyValue: 3
+      objectValue: 0
+    - keyValue: 2
+      objectValue: 0
+    - keyValue: 5
+      objectValue: 0
+    - keyValue: 6
+      objectValue: 0
+    - keyValue: 4
+      objectValue: 0
+    - keyValue: 0
+      objectValue: 0
+    - keyValue: 7
+      objectValue: 0
   hitForce: 0
   criticalChance: 0.04
   criticalDamageRate: 0.02
   triggerChance: 0.15
   damageReductionByDistance: 0.53
   fireMode: 0
-  fireSpeed: 6.1
-  projectileMaxDistance: 5
+  shootSpeed: 5
+  shootDistance: 5
   magazineCapacity: 15
-  projectileCount: 0
+  currentMagazineCount: 0
   reloadTime: 3
-  accuracy: 0.97
+  accuracy: 1
   projectileNumPerShoot: 1
   projectileType: 1
   projectileSpeed: -1
@@ -131,7 +148,33 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7883752823033651676, guid: a2e06372dbca79b4680f67abf7f1206a, type: 3}
   firePoint: {fileID: 415154965876685456}
   isReloading: 0
+  myHolder: {fileID: 0}
   flameParticles: {fileID: 5693001726579758699, guid: fbb298c643ee2964fa230d99294cb99c, type: 3}
+--- !u!114 &6441968079081897874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4829506641010597909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f179225ad91452a8614025aeb1ff9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponInfoPrefab: {fileID: 6602493452020850031, guid: 50487acbcb8082a4e938b504bbc3cc24, type: 3}
+--- !u!210 &437094852083998897
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4829506641010597909}
+  m_Enabled: 1
+  m_SortingLayerID: 404507155
+  m_SortingLayer: 5
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &6487540659808489632
 GameObject:
   m_ObjectHideFlags: 0

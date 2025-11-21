@@ -40,7 +40,7 @@ namespace ZiercCode._DungeonGame._Scripts
 
         private void DestroyFunc(Object obj)
         {
-            Object.Destroy(obj);
+            Destroy(obj);
         }
     }
 }

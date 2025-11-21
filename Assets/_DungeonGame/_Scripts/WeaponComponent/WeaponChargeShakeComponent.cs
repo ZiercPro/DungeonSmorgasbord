@@ -16,7 +16,5 @@ namespace ZiercCode._DungeonGame._Scripts.WeaponComponent
 
             _weapon = (ChargeWeapon)MyWeapon;
         }
-        
-        
     }
 }

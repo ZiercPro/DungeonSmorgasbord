@@ -9,10 +9,12 @@ namespace ZiercCode.Core.Extend
     public class UiTextChange : MonoBehaviour
     {
         //修饰用的字符
-        [SerializeField] protected string sModifier = "-";
+        [SerializeField]
+        protected string sModifier = "-";
 
         //需要个性化的文本
-        [SerializeField] private TextMeshProUGUI textMeshProUGUI;
+        [SerializeField]
+        private TextMeshProUGUI textMeshProUGUI;
 
         private string _originalText; //初始文本
         private string _targetText; //目标文本

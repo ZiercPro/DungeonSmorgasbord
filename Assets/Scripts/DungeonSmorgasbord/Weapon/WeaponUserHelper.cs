@@ -7,8 +7,12 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 {
     public class WeaponUserHelper : MonoBehaviour
     {
-        [SerializeField] private WeaponDataSo weaponDataSo;
-        [SerializeField] private WeaponRotate weaponRotate;
+        [SerializeField]
+        private WeaponDataSo weaponDataSo;
+
+        [SerializeField]
+        private WeaponRotate weaponRotate;
+
         private IWeaponUserBase _weaponUserBase;
         private IWeaponBase _weaponBase;
 
@@ -50,7 +54,9 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
             _weaponBase = weaponBase;
             weaponBase.Init(_weaponUserBase);
             if (weaponRotate)
+            {
                 weaponRotate.SetWeapon(weaponTransform, weaponRenderer);
+            }
         }
 
         /// <summary>
@@ -60,7 +66,9 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         public Action<Vector2> SetWeaponRotate()
         {
             if (weaponRotate)
+            {
                 return viewPosition => weaponRotate.WeaponRotateTo(viewPosition);
+            }
             else
             {
                 Debug.LogWarning($"武器{weaponDataSo.name} 没有旋转");

@@ -4,26 +4,29 @@ namespace ZiercCode.ObjectPool
 {
     public class AutoReleaseInTime : MonoBehaviour //定时自动释放 用于对象池物品
     {
-        [SerializeField] private string poolName; //对象池名
-        [SerializeField] private float stayTime = 2f; //存活时间
+        [SerializeField]
+        protected string poolName; //对象池名
 
-        private float _stayTimer;
+        [SerializeField]
+        protected float stayTime = 2f; //存活时间
 
-        private void OnEnable()
+        protected float stayTimer;
+
+        protected virtual void OnEnable()
         {
-            _stayTimer = stayTime;
+            stayTimer = stayTime;
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             AutoRelease();
         }
 
         private void AutoRelease()
         {
-            if (_stayTimer > 0)
+            if (stayTimer > 0)
             {
-                _stayTimer -= Time.deltaTime;
+                stayTimer -= Time.deltaTime;
             }
             else
             {

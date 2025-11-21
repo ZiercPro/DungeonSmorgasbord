@@ -18,7 +18,9 @@ namespace ZiercCode.Locale
         // /// </summary>
         // [SerializeField, Expandable] private List<CustomTextDataSo> customTextDataSoList;
 
-        [SerializeField] private AssetLabelReference customTextTableLabel;
+        [SerializeField]
+        private AssetLabelReference customTextTableLabel;
+
         private Dictionary<string, CustomTextTable> _customTextTable;
 
         /// <summary>
@@ -28,7 +30,7 @@ namespace ZiercCode.Locale
 
         public void InitializeCustomText()
         {
-            _customTextTable = new();
+            _customTextTable = new Dictionary<string, CustomTextTable>();
 
             //加载配表文件 解析配表文件
             AsyncOperationHandle<IList<TextAsset>> load =
@@ -41,8 +43,13 @@ namespace ZiercCode.Locale
         {
             bool isValid = Enum.IsDefined(typeof(LanguageEnum), language); //确保输入有效
             if (!isValid) //如果无效 则默认设置为中文
+            {
                 SetLanguage(LanguageEnum.Chinese);
-            else SetLanguage((LanguageEnum)language);
+            }
+            else
+            {
+                SetLanguage((LanguageEnum)language);
+            }
         }
 
         /// <summary>
@@ -68,12 +75,12 @@ namespace ZiercCode.Locale
                 switch (_currentLanguage)
                 {
                     case LanguageEnum.Chinese:
-                    return customT.chinese;
+                        return customT.chinese;
                     case LanguageEnum.English:
-                    return customT.english;
+                        return customT.english;
                     default:
-                    Debug.LogWarning("找不到该语言"); //默认返回中文
-                    return customT.chinese;
+                        Debug.LogWarning("找不到该语言"); //默认返回中文
+                        return customT.chinese;
                 }
             }
 
@@ -122,7 +129,10 @@ namespace ZiercCode.Locale
         //解析自定义文本配表(csv
         private void ParseCustomTextTable(TextAsset customTextTableFile)
         {
-            if (!customTextTableFile) return;
+            if (!customTextTableFile)
+            {
+                return;
+            }
 
             string[] lines = customTextTableFile.text.Split('\n'); //将行通过换行分离
 
@@ -132,7 +142,7 @@ namespace ZiercCode.Locale
 
                 if (rows.Length > 2)
                 {
-                    CustomTextTable temp = new CustomTextTable { chinese = rows[1], english = rows[2] };
+                    CustomTextTable temp = new() { chinese = rows[1], english = rows[2] };
                     _customTextTable.Add(rows[0], temp);
                 }
             }

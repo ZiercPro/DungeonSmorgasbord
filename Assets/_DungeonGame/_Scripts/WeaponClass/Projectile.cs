@@ -1,61 +1,50 @@
 ﻿using UnityEngine;
-using ZiercCode.ObjectPool;
-using ZiercCode.Utilities;
+using ZiercCode.DungeonSmorgasbord.Component;
 
 namespace ZiercCode._DungeonGame._Scripts.WeaponClass
 {
     /// <summary>
-    /// 投射类射弹
+    /// 有射弹实体和飞行轨迹的射弹
     /// </summary>
     public abstract class Projectile : BaseProjectile
     {
+        [SerializeField]
+        protected SpriteRenderer mySpriteRenderer;
+
+        protected AutoFlipComponent HolderAutoFlipComponent;
+
         /// <summary>
         /// 当前移动的距离
         /// </summary>
         [HideInInspector]
         public float currentMoveDistance;
 
-        /// <summary>
-        /// 初始化时的位置
-        /// </summary>
-        protected Vector2 StartPosition;
-
-        /// <summary>
-        /// 初始大小
-        /// </summary>
-        protected Vector3 StartSize;
-
-        protected virtual void Awake()
+        public override void Init(BaseWeapon myWeapon)
         {
-            StartSize = transform.localScale;
+            base.Init(myWeapon);
+            SyncFlip();
+            currentMoveDistance = 0f;
         }
 
         protected override void PauseUpdate()
         {
             base.PauseUpdate();
-            DistanceRelease();
+            UpdateDistance();
         }
 
-        protected override void PauseFixedUpdate()
+        private void UpdateDistance()
         {
-            base.PauseFixedUpdate();
-            currentMoveDistance = Vector2.Distance(StartPosition, transform.position);
+            currentMoveDistance += myWeapon.projectileSpeed * Time.deltaTime;
         }
 
-        public override void Init(BaseWeapon myWeapon)
+        /// <summary>
+        /// 同步射弹翻转状态
+        /// </summary>
+        protected virtual void SyncFlip()
         {
-            base.Init(myWeapon);
-            currentMoveDistance = 0f;
-            StartPosition = transform.position;
-            transform.localScale = StartSize * myWeapon.projectileSize;
-        }
-
-
-        protected virtual void DistanceRelease()
-        {
-            if (!MyMath.CompareDistanceWithRange(StartPosition, transform.position, myWeapon.projectileMaxDistance))
+            if (!HolderAutoFlipComponent)
             {
-                PoolManager.Instance.Release(myWeapon.projectilePoolName, gameObject);
+                HolderAutoFlipComponent = myWeapon.myHolder.GetComponent<AutoFlipComponent>();
             }
         }
     }

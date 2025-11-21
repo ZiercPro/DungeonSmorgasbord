@@ -6,9 +6,6 @@ namespace ZiercCode._DungeonGame.Player
     public class Player_Gawain : Player_Base
     {
         [SerializeField]
-        private float moveSpeed;
-
-        [SerializeField]
         private Animator animator;
 
         [SerializeField]
@@ -24,8 +21,6 @@ namespace ZiercCode._DungeonGame.Player
         private Camera _mainCamera;
 
         private float _idle2Time = 10f; //播放待机动画idle2需要等待的时间
-
-        //private EventsGroup _eventsGroup = new EventsGroup();
 
 
         private void OnEnable()
@@ -46,8 +41,9 @@ namespace ZiercCode._DungeonGame.Player
             _playerInputAction = new PlayerInputAction();
         }
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             moveComponent.MoveSpeed = moveSpeed;
         }
 
@@ -86,11 +82,14 @@ namespace ZiercCode._DungeonGame.Player
             }
         }
 
-        // private void SetPlayerInput(bool value)
-        // {
-        //     if (value)
-        //         _playerInputAction.HeroControl.Enable();
-        //     else _playerInputAction.HeroControl.Disable();
-        // }
+        protected override void DeathCheck()
+        {
+            if (CurrentHealth <= 0 && !isDead)
+            {
+                isDead = true;
+                _playerInputAction.Disable();
+                moveComponent.Stop();
+            }
+        }
     }
 }

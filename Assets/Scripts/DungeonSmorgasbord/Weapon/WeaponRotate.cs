@@ -12,22 +12,26 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 武器旋转锚点
         /// </summary>
-        [SerializeField] private Transform rotationAnchorPosition;
+        [SerializeField]
+        private Transform rotationAnchorPosition;
 
         /// <summary>
         /// 武器固定锚点
         /// </summary>
-        [SerializeField] private Transform handPosition;
+        [SerializeField]
+        private Transform handPosition;
 
         /// <summary>
         /// 角色渲染组件
         /// </summary>
-        [SerializeField] private SpriteRenderer characterRenderer;
+        [SerializeField]
+        private SpriteRenderer characterRenderer;
 
         /// <summary>
         /// 自动翻转组件
         /// </summary>
-        [SerializeField] private AutoFlipComponent autoFlipComponent;
+        [SerializeField]
+        private AutoFlipComponent autoFlipComponent;
 
 
         /// <summary>
@@ -43,7 +47,9 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 是否能旋转，用于武器切换时使用，因为需要调用设置方法，不能直接禁用组件
         /// </summary>
-        [ReadOnly, SerializeField] private bool canRotate;
+        [ReadOnly]
+        [SerializeField]
+        private bool canRotate;
 
 
         /// <summary>
@@ -69,7 +75,11 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <param name="viewPos">目标位置</param>
         public void WeaponRotateTo(Vector2 viewPos)
         {
-            if (!canRotate) return;
+            if (!canRotate)
+            {
+                return;
+            }
+
             //指向指针
             Vector2 direction = viewPos - (Vector2)rotationAnchorPosition.position;
             rotationAnchorPosition.right = direction;
@@ -81,14 +91,23 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
 
             //翻转
             if (!autoFlipComponent.IsFacingRight)
+            {
                 handPosition.localScale = new Vector3(1, -1, 1);
+            }
             else if (autoFlipComponent.IsFacingRight)
+            {
                 handPosition.localScale = new Vector3(1, 1, 1);
+            }
 
             //图层
             if (rotationAnchorPosition.rotation.z > 0 && rotationAnchorPosition.rotation.z < 180)
+            {
                 weaponRenderer.sortingOrder = characterRenderer.sortingOrder - 1;
-            else weaponRenderer.sortingOrder = characterRenderer.sortingOrder + 1;
+            }
+            else
+            {
+                weaponRenderer.sortingOrder = characterRenderer.sortingOrder + 1;
+            }
         }
     }
 }

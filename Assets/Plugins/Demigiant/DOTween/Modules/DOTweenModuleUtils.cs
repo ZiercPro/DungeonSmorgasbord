@@ -1,12 +1,12 @@
 ﻿// Author: Daniele Giardini - http://www.demigiant.com
 // Created: 2018/07/13
 
-using System;
-using System.Reflection;
-using UnityEngine;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Core.PathCore;
 using DG.Tweening.Plugins.Options;
+using System;
+using System.Reflection;
+using UnityEngine;
 
 #pragma warning disable 1591
 namespace DG.Tweening
@@ -73,8 +73,8 @@ namespace DG.Tweening
         static void PlaymodeStateChanged(UnityEditor.PlayModeStateChange state)
 #endif
         {
-            if (DOTween.instance == null) return;
-            DOTween.instance.OnApplicationPause(UnityEditor.EditorApplication.isPaused);
+            if (DG.Tweening.DOTween.instance == null) return;
+            DG.Tweening.DOTween.instance.OnApplicationPause(UnityEditor.EditorApplication.isPaused);
         }
 #endif
 

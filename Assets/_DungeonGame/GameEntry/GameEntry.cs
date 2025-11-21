@@ -34,7 +34,6 @@ namespace ZiercCode._DungeonGame.GameEntry
 
             TextPopup.Instance.Init(); //伤害显示
 
-
             //加载配置//
             ConfigComponent.Instance.LoadGameSettings();
             ConfigComponent.Instance.LoadGameSave();

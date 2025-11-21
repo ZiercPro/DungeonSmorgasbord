@@ -7,6 +7,5 @@ namespace ZiercCode.ObjectPool
     /// </summary>
     public class AutoReleaseInCount : MonoBehaviour
     {
-        
     }
 }

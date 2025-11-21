@@ -11,9 +11,11 @@ namespace ZiercCode.Old.ScriptObject
     [CreateAssetMenu(menuName = "ScriptableObject/CustomTextData", fileName = "CustomTextData")]
     public class CustomTextDataSo : ScriptableObject
     {
-        [SerializeField] private bool loadFromFile;
+        [SerializeField]
+        private bool loadFromFile;
 
-        [SerializeField, ShowIf("loadFromFile")]
+        [SerializeField]
+        [ShowIf("loadFromFile")]
         private TextAsset customTextTableFile;
 
         [field: SerializeField]

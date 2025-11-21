@@ -5,10 +5,13 @@ using UnityEngine.Events;
 namespace ZiercCode.Utilities
 {
     [Serializable]
-    public class ObserverValue<T>//用于对mvc架构中的模型数据的变化进行监听
+    public class ObserverValue<T> //用于对mvc架构中的模型数据的变化进行监听
     {
-        [SerializeField] private T value;
-        [SerializeField] private UnityEvent<T> onValueChange;
+        [SerializeField]
+        private T value;
+
+        [SerializeField]
+        private UnityEvent<T> onValueChange;
 
         public T Value { get => value; set => Set(value); }
 
@@ -29,12 +32,18 @@ namespace ZiercCode.Utilities
 
         public void AddListener(UnityAction<T> action)
         {
-            if (action != null) onValueChange.AddListener(action);
+            if (action != null)
+            {
+                onValueChange.AddListener(action);
+            }
         }
 
         public void RemoveListener(UnityAction<T> action)
         {
-            if (action != null) onValueChange.RemoveListener(action);
+            if (action != null)
+            {
+                onValueChange.RemoveListener(action);
+            }
         }
 
         public void Dispose()

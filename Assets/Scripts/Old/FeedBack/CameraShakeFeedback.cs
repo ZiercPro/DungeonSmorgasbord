@@ -6,11 +6,17 @@ namespace ZiercCode.Old.FeedBack
 {
     public class CameraShakeFeedback : MonoBehaviour
     {
-        [SerializeField] private float intensity = 1f; //强度
-        [SerializeField] private float frequence = 1f; //频率
-        [SerializeField] private float duration = 0.2f; //持续时间
+        [SerializeField]
+        private float intensity = 1f; //强度
 
-        [SerializeField] private NoiseSettings noiseSettings; //抖动噪声设置
+        [SerializeField]
+        private float frequence = 1f; //频率
+
+        [SerializeField]
+        private float duration = 0.2f; //持续时间
+
+        [SerializeField]
+        private NoiseSettings noiseSettings; //抖动噪声设置
 
         private CinemachineVirtualCamera _virtualCamera;
 
@@ -29,7 +35,9 @@ namespace ZiercCode.Old.FeedBack
             CinemachineBasicMultiChannelPerlin perlinChannel =
                 _virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
             if (!perlinChannel)
+            {
                 perlinChannel = _virtualCamera.AddCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+            }
 
             perlinChannel.m_NoiseProfile = noiseSettings;
 

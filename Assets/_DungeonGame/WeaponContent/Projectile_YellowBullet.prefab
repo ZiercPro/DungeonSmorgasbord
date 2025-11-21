@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2313841071726380599}
   - component: {fileID: 1340957595437246473}
   - component: {fileID: 7791112937192504594}
+  - component: {fileID: 6150729522320016000}
   m_Layer: 0
   m_Name: Projectile_YellowBullet
   m_TagString: Untagged
@@ -133,10 +134,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shadowMaterial: {fileID: 2100000, guid: 8d3b7f235474c994cbda65a6ed88abd8, type: 2}
   shadowColor: {r: 0.0754717, g: 0.0754717, b: 0.0754717, a: 0.627451}
-  shadowOffset: {x: 0.1, y: -0.1, z: 0}
+  shadowVisualOffset: {x: 0, y: -0.5, z: 0}
   shadowSizeChangeRate: 0.02
   casterTransform: {fileID: 395993208359414217}
   casterSpriteRenderer: {fileID: 862795590083674452}
+  updateShadowSize: 1
+  updateShadowSprite: 1
+  updateShadowRotation: 1
+  updateShadowAlpha: 1
+  updateShadowRelativePosition: 1
 --- !u!114 &1340957595437246473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 995e3a7f266d0c441851cee3b018f490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shadow2D: {fileID: 2313841071726380599}
+  casterTransform: {fileID: 395993208359414217}
   virtualGravity: 9.81
   updateGravity: 0
   onGrounded:
@@ -159,6 +165,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   groundVelocity: {x: 0, y: 0}
+  verticalVelocity: 0
 --- !u!114 &7791112937192504594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myWeapon: {fileID: 0}
+  myTransform: {fileID: 395993208359414217}
+  mySpriteRenderer: {fileID: 862795590083674452}
   currentMoveDistance: 0
   collisionBox: {x: 0.35, y: 0.15}
   splitParticle: {fileID: 6237707180542336056, guid: 254e83b01089ac04b8f0f7e9acfec1ef, type: 3}
@@ -183,3 +192,15 @@ MonoBehaviour:
   splitParticlePoolName: splitPartical
   splitParticlePoolMinSize: 20
   splitParticlePoolMaxSize: 50
+--- !u!210 &6150729522320016000
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5651683871430002080}
+  m_Enabled: 1
+  m_SortingLayerID: 404507155
+  m_SortingLayer: 5
+  m_SortingOrder: 0
+  m_SortAtRoot: 0

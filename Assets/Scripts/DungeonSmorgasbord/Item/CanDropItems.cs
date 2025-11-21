@@ -10,8 +10,12 @@ namespace ZiercCode.DungeonSmorgasbord.Item
         [Button("Add")]
         private void AddDrop()
         {
-            if (droppedItems == null) droppedItems = new List<DroppedItemConfig>();
-            DroppedItemConfig newDrop = new DroppedItemConfig();
+            if (droppedItems == null)
+            {
+                droppedItems = new List<DroppedItemConfig>();
+            }
+
+            DroppedItemConfig newDrop = new();
             droppedItems.Add(newDrop);
         }
 
@@ -25,8 +29,11 @@ namespace ZiercCode.DungeonSmorgasbord.Item
             }
         }
 
-        [SerializeField] private float burstForce = 6f;
-        [SerializeField] private List<DroppedItemConfig> droppedItems;
+        [SerializeField]
+        private float burstForce = 6f;
+
+        [SerializeField]
+        private List<DroppedItemConfig> droppedItems;
 
         /// <summary>
         /// 生成掉落物

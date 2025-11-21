@@ -30,7 +30,11 @@ namespace ZiercCode._DungeonGame._Scripts
 
         private void Update()
         {
-            if (!_showFps) return;
+            if (!_showFps)
+            {
+                return;
+            }
+
             _updateTimer += Time.unscaledDeltaTime;
             _frameCount++;
 

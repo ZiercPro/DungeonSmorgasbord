@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using ZiercCode.DungeonSmorgasbord.Extend;
 using ZiercCode.ObjectPool;
 using ZiercCode.Utilities;
 
@@ -15,47 +15,86 @@ namespace ZiercCode._DungeonGame._Scripts.Text
         private GameObject popupPrefab;
 
         [SerializeField]
+        private string textPopupPoolName;
+
+        [SerializeField]
+        private int maxNum;
+
+        [SerializeField]
+        private int minNum;
+
+        [SerializeField]
+        private int maxActiveNum; //屏幕显示的最大text数量
+
+        [SerializeField]
         private Canvas canvas;
+
+        private LinkedList<GameObject> _unPooledTextPopupList = new(); //没有释放的文本
 
         private void OnEnable()
         {
-            SceneComponent.Instance.onSceneStartLoad.AddListener(ResetPool);
-            //_eventsGroup.AddListener<GameStateEvent.GamePause>(a => PoolManager.Instance.Dispose("textPopup", false));
+            SceneComponent.Instance.onSceneStartLoad.AddListener(OnSceneLoaded);
         }
 
         private void OnDisable()
         {
-            SceneComponent.Instance.onSceneStartLoad.RemoveListener(ResetPool);
-            //_eventsGroup.RemoveAllListener();
+            SceneComponent.Instance.onSceneStartLoad.RemoveListener(OnSceneLoaded);
         }
 
         public void Init()
         {
-            PoolManager.Instance.Register("textPopup", popupPrefab, 20, 300,true);
+            PoolManager.Instance.Register(textPopupPoolName, popupPrefab, minNum, maxNum, true);
         }
 
-        public void InitPopupText(Vector3 startPosition, Color textColor, int amount)
+        public void SpawnText(Vector3 startPosition, Color textColor, int amount)
         {
-            InitPopupText(startPosition, textColor, amount.ToString());
+            SpawnText(startPosition, textColor, amount.ToString());
         }
 
-        public void InitPopupText(Vector3 startPosition, Color textColor, string text)
+        public void SpawnText(Vector3 startPosition, Color textColor, string text)
         {
-            GameObject obj = (GameObject)PoolManager.Instance.Get("textPopup");
+            CheckTextMaxNum(); //优化
+            GameObject newText = (GameObject)PoolManager.Instance.Get(textPopupPoolName);
+            _unPooledTextPopupList.AddFirst(newText);
             Camera mainCamera = Camera.main;
             startPosition = mainCamera.WorldToScreenPoint(startPosition);
-            obj.transform.position = startPosition;
-            obj.transform.SetParent(canvas.transform);
-            obj.transform.SetAsLastSibling(); //调整在父物体的子物体列表中的顺序以确保渲染顺序
-            obj.GetComponent<TextMeshProUGUI>().color = textColor;
-            obj.GetComponent<TextMeshProUGUI>().SetText(text);
-            obj.GetComponent<TextPopupAnimation>()
-                .Popup(() => PoolManager.Instance.Release("textPopup", obj));
+            newText.transform.position = startPosition;
+            newText.transform.SetParent(canvas.transform);
+            newText.transform.SetAsLastSibling(); //调整在父物体的子物体列表中的顺序以确保渲染顺序
+            newText.GetComponent<TextMeshProUGUI>().color = textColor;
+            newText.GetComponent<TextMeshProUGUI>().SetText(text);
+            newText.GetComponent<TextPopupAnimation>()
+                .Popup(() =>
+                {
+                    PoolManager.Instance.Release(textPopupPoolName, newText);
+                    _unPooledTextPopupList.Remove(newText);
+                });
         }
 
-        private void ResetPool(string sceneName, AsyncOperation load)
+        private void OnSceneLoaded(string sceneName, AsyncOperation load)
         {
-            PoolManager.Instance.Dispose("textPopup", false);
+            CleanTextPool();
+        }
+
+        //清理对象池并释放所有未释放的文本
+        private void CleanTextPool()
+        {
+            while (_unPooledTextPopupList.First != null)
+            {
+                PoolManager.Instance.Release(textPopupPoolName, _unPooledTextPopupList.First.Value);
+                _unPooledTextPopupList.RemoveFirst();
+            }
+
+            PoolManager.Instance.Dispose(textPopupPoolName, false);
+        }
+
+        //检测文本存活数量是否超限
+        private void CheckTextMaxNum()
+        {
+            while (_unPooledTextPopupList.Count > maxActiveNum)
+            {
+                _unPooledTextPopupList.Last.Value.GetComponent<TextPopupAnimation>().CompleteAnimation();
+            }
         }
     }
 }

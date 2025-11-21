@@ -43,20 +43,16 @@ namespace ZiercCode._DungeonGame._Scripts.AttackSystem
                 }
 
                 //武器面板伤害（拷贝）
-                Dictionary<DamageType, float> allDamage =
-                    new Dictionary<DamageType, float>(weaponAttack.Weapon.damage.ToDictionary);
+                Dictionary<DamageType, float> allDamage = new(weaponAttack.Weapon.damage.ToDictionary);
 
                 //本次攻击是否能够暴击
                 int critical = MyMath.ChanceToInt(weaponAttack.Weapon.criticalChance);
 
                 //获取被攻击者的元素抗性 如果没有 则默认全部无抗性(0f)
                 Dictionary<DamageType, float> elementResistanceTable = GetStandardElementResistanceTable();
-                if (weaponAttack.Target.Transform.TryGetComponent(out IElementResistance elementResistance))
+                foreach (KeyValuePair<DamageType, float> kv in weaponAttack.Target.ElementResistanceTable.ToDictionary)
                 {
-                    foreach (var kv in elementResistance.ElementResistanceTable)
-                    {
-                        elementResistanceTable[kv.Key] = kv.Value;
-                    }
+                    elementResistanceTable[kv.Key] = kv.Value;
                 }
 
                 //分别计算每种元素伤害
@@ -64,25 +60,27 @@ namespace ZiercCode._DungeonGame._Scripts.AttackSystem
                 for (int i = 0; i < allTypes.Length; i++)
                 {
                     //暴击加成
-                    allDamage[allTypes[i]] *= 1 + critical * weaponAttack.Weapon.criticalDamageRate;
+                    allDamage[allTypes[i]] *= 1 + (critical * weaponAttack.Weapon.criticalDamageRate);
 
                     //射弹伤害衰减
                     if (weaponAttack.Projectile.myWeapon.projectileType == ProjectileType.Projectile)
                     {
                         allDamage[allTypes[i]] *= 1 - (((Projectile)weaponAttack.Projectile).currentMoveDistance /
-                            weaponAttack.Weapon.projectileMaxDistance * weaponAttack.Weapon.damageReductionByDistance);
+                            weaponAttack.Weapon.shootDistance * weaponAttack.Weapon.damageReductionByDistance);
                     }
 
                     //直接伤害减免、护甲、元素伤害减免
-                    allDamage[allTypes[i]] = allDamage[allTypes[i]] * (1f - weaponAttack.Target.DamageReduction) *
-                                             (1f - (weaponAttack.Target.Armor / (weaponAttack.Target.Armor + 100f))) *
+                    allDamage[allTypes[i]] = HandleAttackAbleDamage(weaponAttack.Target, allDamage[allTypes[i]]) *
                                              (1f - elementResistanceTable[allTypes[i]]);
                 }
 
                 //计算总伤害用于实际造成伤害和显示
                 float totalDamage = allDamage.Values.Sum();
 
-                if (totalDamage < 0f) totalDamage = 0f;
+                if (totalDamage < 0f)
+                {
+                    totalDamage = 0f;
+                }
 
                 weaponAttack.Target.CurrentHealth -= totalDamage;
 
@@ -95,7 +93,7 @@ namespace ZiercCode._DungeonGame._Scripts.AttackSystem
                     _damageText.Append(DamageTextTagCache.CriticalTagHead);
                 }
 
-                foreach (var kv in damageTypes)
+                foreach (KeyValuePair<DamageType, int> kv in damageTypes)
                 {
                     _damageText.Append(DamageTextTagCache.GetSpriteTag(kv.Key));
                 }
@@ -107,10 +105,23 @@ namespace ZiercCode._DungeonGame._Scripts.AttackSystem
                     _damageText.Append(DamageTextTagCache.CriticalTagEnd);
                 }
 
-                TextPopup.Instance.InitPopupText(weaponAttack.Target.Transform.position, Color.white,
+                TextPopup.Instance.SpawnText(weaponAttack.Target.Transform.position, Color.white,
                     _damageText.ToString());
             }
         }
+
+        /// <summary>
+        /// 计算被攻击者受到的伤害大小
+        /// </summary>
+        /// <param name="attackAble"></param>
+        /// <param name="startDamage"></param>
+        /// <returns></returns>
+        private float HandleAttackAbleDamage(in IAttackAble attackAble, in float startDamage)
+        {
+            return startDamage * (1f - attackAble.DamageReduction) *
+                   (1f - (attackAble.Armor / (attackAble.Armor + 100f)));
+        }
+
 
         //获取标准的元素抗性表
         private Dictionary<DamageType, float> GetStandardElementResistanceTable()

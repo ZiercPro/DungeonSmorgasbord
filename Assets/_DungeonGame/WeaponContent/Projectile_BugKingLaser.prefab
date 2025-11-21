@@ -41,7 +41,7 @@ LineRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5660987161319779007}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -146,6 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4470199866735134425}
   - component: {fileID: 7628878831100581739}
+  - component: {fileID: -5907629813625704642}
   m_Layer: 0
   m_Name: Projectile_BugKingLaser
   m_TagString: Untagged
@@ -182,4 +183,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myWeapon: {fileID: 0}
+  myTransform: {fileID: 5980632364945856084}
   lineRenderer: {fileID: 3592079184410383435}
+--- !u!210 &-5907629813625704642
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520141581209547437}
+  m_Enabled: 1
+  m_SortingLayerID: 404507155
+  m_SortingLayer: 5
+  m_SortingOrder: 0
+  m_SortAtRoot: 0

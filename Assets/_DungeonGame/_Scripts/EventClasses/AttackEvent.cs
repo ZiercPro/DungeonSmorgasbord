@@ -6,6 +6,15 @@ namespace ZiercCode._DungeonGame._Scripts.EventClasses
 {
     public class AttackEvent
     {
+        // public abstract class BaseAttack : IEventArgs
+        // {
+        //     /// <summary>
+        //     /// 本次攻击是否需要检查双方阵营
+        //     /// 默认为true
+        //     /// </summary>
+        //     public bool CheckFaction = true;
+        // }
+
         //武器攻击
         public class WeaponAttack : IEventArgs
         {

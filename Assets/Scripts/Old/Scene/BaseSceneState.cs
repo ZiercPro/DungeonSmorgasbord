@@ -16,7 +16,9 @@ namespace ZiercCode.Old.Scene
                 SceneManager.LoadSceneAsync(_sceneName);
             }
             else
+            {
                 DoOnSceneLoaded();
+            }
         }
 
         protected virtual void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode loadSceneMode)

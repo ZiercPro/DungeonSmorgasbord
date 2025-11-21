@@ -6,8 +6,13 @@ namespace ZiercCode.Old.Environment
     {
         private SpriteRenderer render;
         private Collider2D cd;
-        [SerializeField] private Sprite closedDoor;
-        [SerializeField] private Sprite openedDoor;
+
+        [SerializeField]
+        private Sprite closedDoor;
+
+        [SerializeField]
+        private Sprite openedDoor;
+
         private bool isClosed;
 
         private void Awake()

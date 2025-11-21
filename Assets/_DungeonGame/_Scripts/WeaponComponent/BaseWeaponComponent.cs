@@ -9,7 +9,7 @@ namespace ZiercCode._DungeonGame._Scripts.WeaponComponent
     {
         protected BaseWeapon MyWeapon;
 
-        protected EventsGroup EventsGroup = new EventsGroup();
+        protected EventsGroup EventsGroup = new();
 
         protected virtual void Awake()
         {

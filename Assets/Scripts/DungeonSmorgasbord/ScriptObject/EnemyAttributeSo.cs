@@ -22,17 +22,20 @@ namespace ZiercCode.DungeonSmorgasbord.ScriptObject
         /// <summary>
         /// 伤害
         /// </summary>
-        [HideIf("useWeapon")] public int damageAmount;
+        [HideIf("useWeapon")]
+        public int damageAmount;
 
         /// <summary>
         /// 伤害类型
         /// </summary>
-        [HideIf("useWeapon")] public DamageType damageType;
+        [HideIf("useWeapon")]
+        public DamageType damageType;
 
         /// <summary>
         /// 武器伤害率字典
         /// </summary>
-        [ShowIf("useWeapon")] public EditableDictionary<WeaponType, float> weaponDamageRate;
+        [ShowIf("useWeapon")]
+        public EditableDictionary<WeaponType, float> weaponDamageRate;
 
         /// <summary>
         /// 攻击速度

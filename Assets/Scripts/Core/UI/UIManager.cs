@@ -16,7 +16,9 @@ namespace ZiercCode.Core.UI
         public UIManager()
         {
             if (_uiDictionary == null)
+            {
                 _uiDictionary = new Dictionary<UIType, GameObject>();
+            }
         }
 
         /// <summary>
@@ -34,7 +36,9 @@ namespace ZiercCode.Core.UI
             }
 
             if (_uiDictionary.ContainsKey(type))
+            {
                 return _uiDictionary[type];
+            }
 
             GameObject ui = GameObject.Instantiate(Resources.Load<GameObject>(type.Path), parent.transform);
             ui.name = type.Name;

@@ -20,7 +20,8 @@ namespace ZiercCode.PathFinding.Grid
         public int Height => _height;
         public float CellSize => _cellSize;
 
-        public GridBase(int width, int height, float cellSize, Func<GridBase<TGridNode>, int, int, TGridNode> createGridObject,
+        public GridBase(int width, int height, float cellSize,
+            Func<GridBase<TGridNode>, int, int, TGridNode> createGridObject,
             Vector3 originPosition = default)
         {
             _width = width;
@@ -46,7 +47,7 @@ namespace ZiercCode.PathFinding.Grid
 
         public Vector3 GetWorldPosition(int x, int y)
         {
-            return new Vector3(x, y) * _cellSize + _originPosition;
+            return (new Vector3(x, y) * _cellSize) + _originPosition;
         }
 
         public void SetGridObject(Vector3 worldPosition, TGridNode value)
@@ -95,13 +96,17 @@ namespace ZiercCode.PathFinding.Grid
             {
                 for (int j = 0; j < _gridArray.GetLength(1); j++)
                 {
-                    if (debugObject) Object.Instantiate(debugObject, GetWorldPosition(i, j), Quaternion.identity);
+                    if (debugObject)
+                    {
+                        Object.Instantiate(debugObject, GetWorldPosition(i, j), Quaternion.identity);
+                    }
+
                     Debug.DrawLine(GetWorldPosition(i, j),
                         GetWorldPosition(i + 1, j), color,
-                        Single.PositiveInfinity);
+                        float.PositiveInfinity);
                     Debug.DrawLine(GetWorldPosition(i, j),
                         GetWorldPosition(i, j + 1), color,
-                        Single.PositiveInfinity);
+                        float.PositiveInfinity);
                 }
             }
         }

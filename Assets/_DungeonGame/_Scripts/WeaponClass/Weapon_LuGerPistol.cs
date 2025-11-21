@@ -1,4 +1,5 @@
 using UnityEngine;
+using ZiercCode._DungeonGame._Scripts.EventClasses;
 using ZiercCode.EventBusSystem;
 using ZiercCode.FakeHeight;
 using ZiercCode.ObjectPool;
@@ -24,7 +25,7 @@ namespace ZiercCode._DungeonGame._Scripts.WeaponClass
                 return;
             }
 
-            for (int i = 0; i < projectileNumPerShoot; i++)
+            for (int i = 0; i < GetProjectileNum(); i++)
             {
                 Quaternion rotation = GetShootRotation(firePoint.rotation);
 
@@ -37,14 +38,14 @@ namespace ZiercCode._DungeonGame._Scripts.WeaponClass
                 projectileWeaponLuGerPistol.Init(this);
 
                 FakeHeightTransform fakeHeight = newBullet.GetComponent<FakeHeightTransform>();
-                fakeHeight.Init(newBullet.transform.right * projectileSpeed, 0f, true, 0f, .5f);
+                fakeHeight.Init(newBullet.transform.right * projectileSpeed, 0f, true);
             }
 
-            projectileCount--;
+            currentMagazineCount--;
 
-            EventBus.Invoke(WeaponFiredArgs);
+            EventBus.Invoke(new WeaponEvent.WeaponFired { Weapon = this });
 
-            CheckProjectileCount();
+            CheckReload();
         }
     }
 }

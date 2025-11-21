@@ -59,9 +59,13 @@ namespace ZiercCode.Old.Hero
             _heroInputManager.MovementInputPerforming += moveDir =>
             {
                 if (moveDir.sqrMagnitude > 0)
+                {
                     _animationHandler.ActiveAnimationFunc(3);
+                }
                 else
+                {
                     _animationHandler.ActiveAnimationFunc(2);
+                }
             };
             _health.Dead += Dead;
         }
@@ -81,7 +85,11 @@ namespace ZiercCode.Old.Hero
 
         public void TakeDamage(DamageInfo info)
         {
-            if (_health.IsDead) return;
+            if (_health.IsDead)
+            {
+                return;
+            }
+
             int healthValue = _health.GetCurrentHealth() - info.damageAmount;
             _health.SetCurrentHealth(healthValue, Health.HealthChangeType.Damage);
             //听觉反馈

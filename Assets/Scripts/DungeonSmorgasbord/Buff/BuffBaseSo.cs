@@ -40,7 +40,8 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         /// <summary>
         /// 粒子对象池数据
         /// </summary>
-        [field: SerializeField, ShowIf("HaveParticle")]
+        [field: SerializeField]
+        [field: ShowIf("HaveParticle")]
         public PoolObjectSo particlePoolSo { get; protected set; }
 
         /// <summary>
@@ -80,7 +81,9 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
             _buffEffective = buffEffective;
 
             if (HaveParticle)
+            {
                 _particleSpawnHandle.GetObject();
+            }
 
 
             Enable = true;
@@ -114,15 +117,26 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
 
         public virtual void Active()
         {
-            if (_activeTimer == null) return;
+            if (_activeTimer == null)
+            {
+                return;
+            }
+
             _activeTimer.StartTimer();
         }
 
         public virtual void InActive()
         {
             if (HaveParticle)
+            {
                 _particleSpawnHandle.Release();
-            if (_activeTimer == null || _enableTimer == null) return;
+            }
+
+            if (_activeTimer == null || _enableTimer == null)
+            {
+                return;
+            }
+
             _activeTimer.StopTimer();
             _enableTimer.StopTimer();
             _activeTimer = null;
@@ -131,7 +145,11 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
 
         public void ReSetDuration()
         {
-            if (_enableTimer == null) return;
+            if (_enableTimer == null)
+            {
+                return;
+            }
+
             _enableTimer.StartTimer();
         }
 

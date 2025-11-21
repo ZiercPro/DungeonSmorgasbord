@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using ZiercCode._DungeonGame._Scripts.EventClasses;
+using ZiercCode.EventBusSystem;
 using ZiercCode.ObjectPool;
 
 namespace ZiercCode._DungeonGame._Scripts.WeaponClass
@@ -44,7 +46,7 @@ namespace ZiercCode._DungeonGame._Scripts.WeaponClass
             _flameParticles = Instantiate(flameParticles, transform).GetComponent<ParticleSystem>();
             _flameParticles.transform.position = firePoint.position;
 
-            _startFireDistance = projectileMaxDistance;
+            _startFireDistance = shootDistance;
             _flameStartScale = flameParticles.transform.localScale;
         }
 
@@ -52,7 +54,7 @@ namespace ZiercCode._DungeonGame._Scripts.WeaponClass
         private void SyncFlameParticles()
         {
             _flameParticles.transform.localScale = new Vector3(
-                _flameStartScale.x * projectileMaxDistance / _startFireDistance,
+                _flameStartScale.x * shootDistance / _startFireDistance,
                 _flameStartScale.y * projectileSize, _flameStartScale.z);
         }
 
@@ -76,13 +78,27 @@ namespace ZiercCode._DungeonGame._Scripts.WeaponClass
 
         protected override void Fire()
         {
-            GameObject flame = (GameObject)PoolManager.Instance.Get(projectilePoolName);
+            if (isReloading)
+            {
+                return;
+            }
 
-            flame.transform.position = firePoint.position;
-            flame.transform.rotation = GetShootRotation(firePoint.rotation);
+            for (int i = 0; i < GetProjectileNum(); i++)
+            {
+                GameObject flame = (GameObject)PoolManager.Instance.Get(projectilePoolName);
 
-            BaseProjectile flameProjectile = flame.GetComponent<BaseProjectile>();
-            flameProjectile.Init(this);
+                flame.transform.position = firePoint.position;
+                flame.transform.rotation = GetShootRotation(firePoint.rotation);
+
+                BaseProjectile flameProjectile = flame.GetComponent<BaseProjectile>();
+                flameProjectile.Init(this);
+            }
+
+            currentMagazineCount--;
+
+            EventBus.Invoke(new WeaponEvent.WeaponFired { Weapon = this });
+
+            CheckReload();
         }
     }
 }

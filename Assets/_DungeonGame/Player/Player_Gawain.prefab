@@ -47,9 +47,9 @@ GameObject:
   - component: {fileID: 4475964101410682553}
   - component: {fileID: 115372123053990356}
   - component: {fileID: 5487282084392484267}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player_Gawain
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 2
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -137,8 +137,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53329a7a89aaf8545ab5fd097ba04eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPoint: {fileID: 2504857720192922081}
   moveSpeed: 5
+  motionSpeed: 1
+  targetFaction:
+    serializedVersion: 2
+    m_Bits: 320
+  isDead: 0
+  <MaxHealth>k__BackingField: 0
+  <Armor>k__BackingField: 0
+  <DamageReduction>k__BackingField: 0
+  <ElementResistanceTable>k__BackingField:
+    dictionaryList: []
+  weaponPoint: {fileID: 2504857720192922081}
   animator: {fileID: 778577953614091709}
   moveComponent: {fileID: 7530845409053568826}
   autoFlipComponent: {fileID: 6011501096391699675}
@@ -215,7 +225,7 @@ MonoBehaviour:
   - {x: 0.3, y: 0.099999994, z: 0}
   m_ShapePathHash: 848074129
   m_Mesh: {fileID: 0}
-  m_InstanceId: 65794
+  m_InstanceId: 44154
   m_LocalBounds:
     m_Center: {x: 0, y: 0.275, z: 0}
     m_Extent: {x: 0.3, y: 0.17500001, z: 0}

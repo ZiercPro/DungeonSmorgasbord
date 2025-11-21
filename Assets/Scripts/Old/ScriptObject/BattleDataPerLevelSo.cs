@@ -20,14 +20,16 @@ namespace ZiercCode.Old.ScriptObject
         /// <summary>
         /// 波次
         /// </summary>
-        [MinValue(1)] public int waves;
+        [MinValue(1)]
+        public int waves;
 
         private bool _showWaveInternal => waves > 1;
 
         /// <summary>
         /// 波次间隔
         /// </summary>
-        [ShowIf("_showWaveInternal")] public int waveInterval;
+        [ShowIf("_showWaveInternal")]
+        public int waveInterval;
 
         [Serializable]
         public struct EnemyAndNum

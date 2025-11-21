@@ -10,7 +10,8 @@ namespace ZiercCode.Old.Environment
     [System.Serializable]
     public class ParallaxMoveFeedBack
     {
-        [SerializeField] private Transform objectInstance;
+        [SerializeField]
+        private Transform objectInstance;
 
         [Tooltip("越小，离屏幕越近，越大,离屏幕越远")]
         [Range(0, 1)]
@@ -38,7 +39,7 @@ namespace ZiercCode.Old.Environment
             MyCoroutineTool.Instance.StopMyCor(_backMoveCoroutine);
         }
 
-        IEnumerator Move()
+        private IEnumerator Move()
         {
             while (_canMove)
             {

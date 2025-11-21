@@ -10,6 +10,9 @@ namespace ZiercCode._DungeonGame.HallScene
         [SerializeField]
         private Vector2 collisionBox; //碰撞检测范围
 
+        [SerializeField]
+        protected LayerMask targetLayer;
+
         protected RangeDetector RangeDetector = new(5);
         protected IOpenClose IOpenClose;
         protected bool IsPlayerEnter;
@@ -32,13 +35,13 @@ namespace ZiercCode._DungeonGame.HallScene
         {
             if (!IOpenClose.IsClosed && !IsPlayerEnter)
             {
-                if (RangeDetector.DetectInBoxByTag("Player", transform.position, collisionBox))
+                if (RangeDetector.DetectInBoxByLayer(targetLayer, transform.position, collisionBox))
                 {
                     IsPlayerEnter = true;
                     onPlayerEnter?.Invoke();
                 }
             }
-            else if (IsPlayerEnter && !RangeDetector.DetectInBoxByTag("Player", transform.position, collisionBox))
+            else if (IsPlayerEnter && !RangeDetector.DetectInBoxByLayer(targetLayer, transform.position, collisionBox))
             {
                 IsPlayerEnter = false;
             }

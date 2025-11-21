@@ -5,6 +5,9 @@ using ZiercCode.Utilities;
 
 namespace ZiercCode._DungeonGame._Scripts
 {
+    /// <summary>
+    /// TODO 考虑使用TriggerArea替代
+    /// </summary>
     public class PickUpItem : MonoBehaviour //可以拾取的物品
     {
         [SerializeField]
@@ -28,6 +31,7 @@ namespace ZiercCode._DungeonGame._Scripts
 
         private void FixedUpdate()
         {
+            //TODO 改成通过layer检测
             if (_rangeDetect.DetectInCircleByTag("Player", transform.position, pickUpRadius) && !_bePicked)
             {
                 _bePicked = true;

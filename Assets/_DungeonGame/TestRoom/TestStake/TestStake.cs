@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using ZiercCode._DungeonGame._Scripts.AttackSystem;
 using ZiercCode._DungeonGame._Scripts.EventClasses;
@@ -33,7 +32,7 @@ namespace ZiercCode._DungeonGame.TestRoom.TestStake
             _eventsGroup.RemoveAllListener();
         }
 
-        public void GetWeaponAttack(IEventArgs args)
+        private void GetWeaponAttack(IEventArgs args)
         {
             if (args is AttackEvent.WeaponAttack weaponAttack)
             {
@@ -48,6 +47,8 @@ namespace ZiercCode._DungeonGame.TestRoom.TestStake
             }
         }
 
+        [field: SerializeField]
+        public float MaxHealth { get; set; }
 
         [field: SerializeField]
         public float CurrentHealth { get; set; }
@@ -58,11 +59,10 @@ namespace ZiercCode._DungeonGame.TestRoom.TestStake
         [field: SerializeField]
         public float DamageReduction { get; set; }
 
-        public Transform Transform => transform;
-
         [field: SerializeField]
-        private EditableDictionary<DamageType, float> elementResistanceTable;
+        public EditableDictionary<DamageType, float> ElementResistanceTable { get; set; }
 
-        public Dictionary<DamageType, float> ElementResistanceTable => elementResistanceTable.ToDictionary;
+        public LayerMask MyFaction => gameObject.layer;
+        public Transform Transform => transform;
     }
 }

@@ -8,7 +8,10 @@ namespace ZiercCode.Core.Extend
 
         private void Awake()
         {
-            if (dontDestroyOnLoad) DontDestroyOnLoad(this);
+            if (dontDestroyOnLoad)
+            {
+                DontDestroyOnLoad(this);
+            }
         }
     }
 }

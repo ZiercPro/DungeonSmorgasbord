@@ -5,7 +5,8 @@ namespace ZiercCode.Test.MVC
 {
     public class AddCalculatorTest : MonoBehaviour
     {
-        [SerializeField] private AddCalculatorView addCalculatorView;
+        [SerializeField]
+        private AddCalculatorView addCalculatorView;
 
         private IContext _context;
         private AddCalculatorModel _addCalculatorModel;

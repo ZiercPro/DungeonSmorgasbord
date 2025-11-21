@@ -4,14 +4,11 @@ using ZiercCode.Management;
 
 namespace ZiercCode.FakeHeight
 {
-    [RequireComponent(typeof(Shadow2D))]
     public class FakeHeightTransform : PauseBehaviour
     {
-        [SerializeField]
-        private Shadow2D shadow2D;
+        public Transform casterTransform;
 
-        [SerializeField]
-        private float virtualGravity; //模拟重力加速度
+        public float virtualGravity = 9.81f; //模拟重力加速度
 
         [SerializeField]
         private bool updateGravity; //更新重力
@@ -19,32 +16,35 @@ namespace ZiercCode.FakeHeight
         public UnityEvent onGrounded; //当物体接触地面时调用
         public UnityEvent onFirstGrounded; //第一次接触地面时调用
 
-        public Vector2 groundVelocity;
-        private float _verticalVelocity;
-        private float _rotationVelocity;
+        [HideInInspector]
+        public Vector2 groundVelocity; //平面速度
+
+        [HideInInspector]
+        public float verticalVelocity; //垂直速度
 
         private float _verticalVelocityOnInit; //记录初始化时的垂直速度 不随时间变化
+
+        private float _rotationVelocity; //旋转速度
 
         private bool _isGrounded;
         private bool _isFirstGrounded; //是否是初次接触地面
 
-        public void Init(Vector2 gV, float vV, bool isFirstGround, float rV = 0f, float startHeight = 0f)
+        public void Init(Vector2 gV, float vV, bool isFirstGround, float rV = 0f)
         {
             _isGrounded = false;
             _isFirstGrounded = isFirstGround;
             groundVelocity = gV;
-            _verticalVelocity = vV;
-            _verticalVelocityOnInit = vV;
+            _verticalVelocityOnInit = verticalVelocity = vV;
             _rotationVelocity = rV;
-
-            //设置初始高度
-            shadow2D.ShadowObjectTransform.position =
-                shadow2D.CasterTransform.position + shadow2D.ShadowOffset + new Vector3(0f, -startHeight, 0f);
         }
 
         private void UpdateGroundPosition() //更新水平位置
         {
-            if (groundVelocity == Vector2.zero) return; //如果速度减为零了 就不再更新
+            if (groundVelocity == Vector2.zero)
+            {
+                return; //如果速度减为零了 就不再更新
+            }
+
             transform.position += (Vector3)groundVelocity * Time.deltaTime; //本体和阴影一起运动
         }
 
@@ -52,8 +52,8 @@ namespace ZiercCode.FakeHeight
         {
             if (!_isGrounded && updateGravity) //更新本体y轴位置
             {
-                _verticalVelocity -= virtualGravity * Time.deltaTime;
-                shadow2D.CasterTransform.position += new Vector3(0f, _verticalVelocity, 0f) * Time.deltaTime;
+                verticalVelocity -= virtualGravity * Time.deltaTime;
+                casterTransform.position += new Vector3(0f, verticalVelocity, 0f) * Time.deltaTime;
             }
         }
 
@@ -62,14 +62,14 @@ namespace ZiercCode.FakeHeight
         {
             if (!_isGrounded && _rotationVelocity > 0f)
             {
-                shadow2D.CasterTransform.Rotate(shadow2D.CasterTransform.forward, _rotationVelocity * Time.deltaTime);
+                casterTransform.Rotate(-casterTransform.forward, _rotationVelocity * Time.deltaTime);
             }
         }
 
+        //检查是否触地
         private void CheckGrounded()
         {
-            if (shadow2D.CasterTransform.position.y + shadow2D.ShadowOffset.y <
-                shadow2D.ShadowObjectTransform.position.y && !_isGrounded)
+            if (casterTransform.position.y < transform.position.y && !_isGrounded)
             {
                 if (_isFirstGrounded)
                 {
@@ -78,7 +78,7 @@ namespace ZiercCode.FakeHeight
                 }
 
                 _isGrounded = true;
-                shadow2D.CasterTransform.position = shadow2D.ShadowObjectTransform.position - shadow2D.ShadowOffset;
+                casterTransform.position = transform.position;
                 onGrounded.Invoke();
             }
         }
@@ -90,6 +90,9 @@ namespace ZiercCode.FakeHeight
             UpdateRotation();
             CheckGrounded();
         }
+
+
+        //为触地时提供的方法////////
 
         //降低平面速度 用于在碰到地面时调用
         public void SlowDownGroundVelocity(float division)
@@ -115,7 +118,7 @@ namespace ZiercCode.FakeHeight
 
         public void StopVerticalMove()
         {
-            _verticalVelocity = 0f;
+            verticalVelocity = 0f;
         }
 
         public void StopRotate()

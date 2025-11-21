@@ -6,7 +6,9 @@ namespace ZiercCode.Old.Component
 {
     public class Health : MonoBehaviour
     {
-        [SerializeField] private CreatureAttributesSo creatureAttributesSo;
+        [SerializeField]
+        private CreatureAttributesSo creatureAttributesSo;
+
         public bool IsDead { get; private set; }
 
         private int _currentHealth;
@@ -83,9 +85,7 @@ namespace ZiercCode.Old.Component
             _currentHealth = value;
             HealthChanged?.Invoke(new HealthChangeEventArgs
             {
-                CurrentHealth = _currentHealth,
-                MaxHealth = _maxHealth,
-                HealthChangeType = healthChangeType
+                CurrentHealth = _currentHealth, MaxHealth = _maxHealth, HealthChangeType = healthChangeType
             });
             HealthCheck();
         }
@@ -109,9 +109,7 @@ namespace ZiercCode.Old.Component
             _maxHealth = value;
             HealthChanged?.Invoke(new HealthChangeEventArgs
             {
-                CurrentHealth = _currentHealth,
-                MaxHealth = _maxHealth,
-                HealthChangeType = healthChangeType
+                CurrentHealth = _currentHealth, MaxHealth = _maxHealth, HealthChangeType = healthChangeType
             });
             HealthCheck();
         }
@@ -130,7 +128,10 @@ namespace ZiercCode.Old.Component
         /// </summary>
         private void HealthCheck()
         {
-            if (IsDead) return;
+            if (IsDead)
+            {
+                return;
+            }
 
             if (_maxHealth <= 0)
             {

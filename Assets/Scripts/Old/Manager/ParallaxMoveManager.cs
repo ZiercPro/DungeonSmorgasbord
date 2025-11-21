@@ -5,16 +5,20 @@ using ZiercCode.Utilities;
 
 namespace ZiercCode.Old.Manager
 {
-
     public class ParallaxMoveManager : USingleton<ParallaxMoveManager>
     {
-        [SerializeField] private List<ParallaxMoveFeedBack> moveBackgrounds;
-        [SerializeField] private GameObject optionTutorialTemp;
-        [SerializeField] private Camera mainCamera;
+        [SerializeField]
+        private List<ParallaxMoveFeedBack> moveBackgrounds;
+
+        [SerializeField]
+        private GameObject optionTutorialTemp;
+
+        [SerializeField]
+        private Camera mainCamera;
 
         public void BackGroundMove()
         {
-            foreach (var feedback in moveBackgrounds)
+            foreach (ParallaxMoveFeedBack feedback in moveBackgrounds)
             {
                 feedback.OnMove(mainCamera);
             }
@@ -22,8 +26,12 @@ namespace ZiercCode.Old.Manager
 
         public void Add()
         {
-            if (moveBackgrounds == null) moveBackgrounds = new List<ParallaxMoveFeedBack>();
-            ParallaxMoveFeedBack newParallaxMoveFeedBack = new ParallaxMoveFeedBack();
+            if (moveBackgrounds == null)
+            {
+                moveBackgrounds = new List<ParallaxMoveFeedBack>();
+            }
+
+            ParallaxMoveFeedBack newParallaxMoveFeedBack = new();
             moveBackgrounds.Add(newParallaxMoveFeedBack);
         }
 

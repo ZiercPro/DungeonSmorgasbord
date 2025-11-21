@@ -5,7 +5,7 @@ namespace ZiercCode.Test.Reference
 {
     public static class ZiercReference
     {
-        private static readonly Dictionary<Type, ReferencePool> _referencePools = new Dictionary<Type, ReferencePool>();
+        private static readonly Dictionary<Type, ReferencePool> _referencePools = new();
 
         /// <summary>
         /// 引用池初始大小
@@ -25,7 +25,7 @@ namespace ZiercCode.Test.Reference
                 return (T)pool.Get();
             }
 
-            ReferencePool newPool = new ReferencePool(type, InitCapacity);
+            ReferencePool newPool = new(type, InitCapacity);
 
             _referencePools.Add(type, newPool);
 
@@ -46,7 +46,7 @@ namespace ZiercCode.Test.Reference
                 return;
             }
 
-            ReferencePool newPool = new ReferencePool(type, InitCapacity);
+            ReferencePool newPool = new(type, InitCapacity);
 
             _referencePools.Add(type, newPool);
 
@@ -58,7 +58,7 @@ namespace ZiercCode.Test.Reference
         /// </summary>
         public static void Clear()
         {
-            foreach (var referencePool in _referencePools)
+            foreach (KeyValuePair<Type, ReferencePool> referencePool in _referencePools)
             {
                 referencePool.Value.Clear();
             }

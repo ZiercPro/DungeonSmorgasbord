@@ -39,7 +39,7 @@ namespace ZiercCode._DungeonGame._Scripts.WeaponClass
             if (FireTimer <= 0f)
             {
                 Fire();
-                FireTimer = 1f / fireSpeed;
+                FireTimer = 1f / shootSpeed;
             }
         }
     }

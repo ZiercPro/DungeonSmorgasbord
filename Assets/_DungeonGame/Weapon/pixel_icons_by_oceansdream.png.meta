@@ -677,15 +677,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixel_icons_by_oceansdream_27
+      name: needle
       rect:
         serializedVersion: 2
         x: 74
         y: 25
         width: 21
         height: 21
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -880,6 +880,7 @@ TextureImporter:
       FlameThrower: 2059061337
       LuGerPistol: 677286992
       SIGSG550Rifle: -193346235
+      needle: -2147138848
       pixel_icons_by_oceansdream_1: 1363122852
       pixel_icons_by_oceansdream_10: -1912757817
       pixel_icons_by_oceansdream_11: -1195998666
@@ -896,7 +897,6 @@ TextureImporter:
       pixel_icons_by_oceansdream_24: -306698426
       pixel_icons_by_oceansdream_25: -1064455522
       pixel_icons_by_oceansdream_26: 1664168022
-      pixel_icons_by_oceansdream_27: -2147138848
       pixel_icons_by_oceansdream_28: -1925544988
       pixel_icons_by_oceansdream_29: -495221321
       pixel_icons_by_oceansdream_3: -1563504135

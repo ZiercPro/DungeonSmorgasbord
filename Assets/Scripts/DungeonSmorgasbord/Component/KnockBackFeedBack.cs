@@ -25,7 +25,10 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         private void OnDisable()
         {
             if (_backMoveCoroutine != null)
+            {
                 StopCoroutine(_backMoveCoroutine);
+            }
+
             moveC.Stop();
         }
 
@@ -34,11 +37,19 @@ namespace ZiercCode.DungeonSmorgasbord.Component
             switch (moveC == null)
             {
                 case true:
-                    if (!gameObject.activeInHierarchy) return;
+                    if (!gameObject.activeInHierarchy)
+                    {
+                        return;
+                    }
+
                     _backMoveCoroutine = StartCoroutine(BackMove(dir, force));
                     break;
                 case false:
-                    if (!gameObject.activeInHierarchy) return;
+                    if (!gameObject.activeInHierarchy)
+                    {
+                        return;
+                    }
+
                     _backMoveCoroutine = StartCoroutine(BackMoveWithMoveController(dir, force));
                     break;
             }

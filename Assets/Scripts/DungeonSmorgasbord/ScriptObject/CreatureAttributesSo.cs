@@ -27,7 +27,9 @@ namespace ZiercCode.DungeonSmorgasbord.ScriptObject
         /// <summary>
         /// 持有者名称
         /// </summary>
-        [Space, Header("属性")] public string myName;
+        [Space]
+        [Header("属性")]
+        public string myName;
 
         /// <summary>
         /// 最大生命值

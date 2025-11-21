@@ -22,13 +22,79 @@ namespace ZiercCode._DungeonGame.UI.WeaponInfo
         /// 子弹数量信息
         /// </summary>
         [field: SerializeField]
-        public TextMeshProUGUI ProjectileCountText { get; private set; }
+        public TextMeshProUGUI CurrentMagazineCountText { get; private set; }
 
         [field: SerializeField]
         public CanvasGroupUser CanvasGroupUser { get; private set; }
 
         [field: SerializeField]
         public ReloadAnimation ReloadAnimation { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI FireDamageText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI WoodDamageText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI IceDamageText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI VoiceDamageText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI ElectricDamageText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI PoisonDamageText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI WindDamageText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI VoidDamageText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI HitForceText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI CriticalChanceText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI CriticalDamageRateText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI TriggerChanceText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI DamageReductionByDistanceText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI ShootSpeedText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI ShootDistanceText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI MagazineCapacityText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI ReloadTimeText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI AccuracyText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI ProjectileNumPerShootText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI ProjectileSpeedText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI ProjectileSizeText { get; private set; }
+
+        [field: SerializeField]
+        public TextMeshProUGUI WeaponName { get; private set; }
 
         private bool _isInitialized;
         private IContext _context;
@@ -42,7 +108,7 @@ namespace ZiercCode._DungeonGame.UI.WeaponInfo
                 _context = context;
                 _isInitialized = true;
 
-                _projectileCountTextScale = ProjectileCountText.rectTransform.localScale.x;
+                _projectileCountTextScale = CurrentMagazineCountText.rectTransform.localScale.x;
             }
         }
 
@@ -55,11 +121,13 @@ namespace ZiercCode._DungeonGame.UI.WeaponInfo
         /// </summary>
         public void OnProjectileChanged()
         {
-            ProjectileCountText.rectTransform.DOScale(_projectileCountTextScale * projectileCountTextScaleShakeRate,
-                projectileCountTextScaleMagnifyDuration).SetEase(Ease.OutBounce).OnComplete(() => ProjectileCountText
-                .rectTransform
-                .DOScale(_projectileCountTextScale,
-                    projectileCountTextScaleShrinkDuration).SetEase(Ease.InFlash)
+            CurrentMagazineCountText.rectTransform.DOScale(
+                _projectileCountTextScale * projectileCountTextScaleShakeRate,
+                projectileCountTextScaleMagnifyDuration).SetEase(Ease.OutBounce).OnComplete(() =>
+                CurrentMagazineCountText
+                    .rectTransform
+                    .DOScale(_projectileCountTextScale,
+                        projectileCountTextScaleShrinkDuration).SetEase(Ease.InFlash)
             );
         }
 

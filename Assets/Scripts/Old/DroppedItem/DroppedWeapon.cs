@@ -4,9 +4,14 @@ namespace ZiercCode.Old.DroppedItem
 {
     public class DroppedWeapon : DroppedItem
     {
-        [SerializeField] private GameObject droppedItemTemp;
-        [SerializeField] private Transform animatorTransform;
-        [SerializeField] private float getRadius;
+        [SerializeField]
+        private GameObject droppedItemTemp;
+
+        [SerializeField]
+        private Transform animatorTransform;
+
+        [SerializeField]
+        private float getRadius;
 
         private GameObject itemInstance;
 

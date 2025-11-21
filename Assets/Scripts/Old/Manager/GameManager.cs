@@ -14,12 +14,14 @@ namespace ZiercCode.Old.Manager
         /// <summary>
         ///角色生成的位置
         /// </summary>
-        [SerializeField] private Transform heroSpawnPos;
+        [SerializeField]
+        private Transform heroSpawnPos;
 
         /// <summary>
         /// 相机目标组件
         /// </summary>
-        [SerializeField] private CameraTarget cameraT;
+        [SerializeField]
+        private CameraTarget cameraT;
 
         /// <summary>
         /// 面板管理器

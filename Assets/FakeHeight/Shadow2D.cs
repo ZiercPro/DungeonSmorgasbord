@@ -4,29 +4,57 @@ using ZiercCode.Management;
 
 namespace ZiercCode.FakeHeight
 {
-    public class Shadow2D : PauseBehaviour //自动绘制2D阴影
+    /// <summary>
+    /// 自动绘制2D阴影
+    /// </summary>
+    public class Shadow2D : PauseBehaviour
     {
-        [SerializeField] private Material shadowMaterial; //用于使阴影为纯色
-        [SerializeField] private Color shadowColor;
-        [SerializeField] private Vector3 shadowOffset = new Vector3(0.1f, -.1f, 0f); //阴影与物体的位置偏差
-        [SerializeField] private float shadowSizeChangeRate = .02f; //影子大小变化速率
+        [SerializeField]
+        private Material shadowMaterial; //用于使阴影为纯色
 
-        [SerializeField] private Transform casterTransform; //本体
-        [SerializeField] private SpriteRenderer casterSpriteRenderer;
+        [SerializeField]
+        private Color shadowColor;
+
+        [SerializeField]
+        private Vector3 shadowVisualOffset = new(0.05f, -.05f, 0f); //阴影与物体的位置视觉偏差 不影响触地判断
+
+        [SerializeField]
+        private float shadowSizeChangeRate = .02f; //影子大小随本体距离变化率
+
+        [SerializeField]
+        private Transform casterTransform; //本体
+
+        [SerializeField]
+        private SpriteRenderer casterSpriteRenderer;
+
+        [SerializeField]
+        private bool updateShadowSize = true;
+
+        [SerializeField]
+        private bool updateShadowSprite = true;
+
+        [SerializeField]
+        private bool updateShadowRotation = true;
+
+        [SerializeField]
+        private bool updateShadowAlpha = true;
+
+        [SerializeField]
+        private bool updateShadowRelativePosition = true;
+
 
         private SpriteRenderer _shadowRenderer;
         private Transform _shadowObjectTransform;
 
         public Transform ShadowObjectTransform => _shadowObjectTransform;
-        public Transform CasterTransform => casterTransform;
-        public Vector3 ShadowOffset => shadowOffset;
+        public Vector3 ShadowVisualOffset => shadowVisualOffset;
 
         private void Awake()
         {
             //初始化创建影子实例
             _shadowObjectTransform = new GameObject("shadow").transform;
             _shadowObjectTransform.parent = transform;
-            _shadowObjectTransform.localPosition = Vector3.zero + shadowOffset;
+            _shadowObjectTransform.localPosition = shadowVisualOffset;
             _shadowObjectTransform.localRotation = casterTransform.localRotation;
             _shadowObjectTransform.localScale = casterTransform.localScale;
 
@@ -43,34 +71,64 @@ namespace ZiercCode.FakeHeight
             UpdateShadowSize();
             UpdateShadowRotation();
             UpdateShadowSprite();
-            UpdateShadowColorAlpha();
+            UpdateShadowAlpha();
+            UpdateShadowRelativePosition();
         }
 
         //根据影子和实例之前的距离更新影子大小
         private void UpdateShadowSize()
         {
-            float disMu =
-                Vector3.SqrMagnitude(casterTransform.position -
-                                     _shadowObjectTransform.position); //计算影子和实体之间的距离 为了节省性能 不开方
+            if (!updateShadowSize)
+            {
+                return;
+            }
+
+            float disMu = casterTransform.position.y - transform.position.y;
             _shadowObjectTransform.localScale =
                 casterTransform.localScale * Mathf.Lerp(1f, 0f, disMu * shadowSizeChangeRate);
         }
 
         private void UpdateShadowSprite()
         {
+            if (!updateShadowSprite)
+            {
+                return;
+            }
+
             _shadowRenderer.sprite = casterSpriteRenderer.sprite;
             _shadowRenderer.flipX = casterSpriteRenderer.flipX;
+            _shadowRenderer.flipY = casterSpriteRenderer.flipY;
         }
 
         private void UpdateShadowRotation()
         {
+            if (!updateShadowRotation)
+            {
+                return;
+            }
+
             _shadowObjectTransform.localRotation = casterTransform.localRotation;
         }
 
-        private void UpdateShadowColorAlpha()
+        private void UpdateShadowAlpha()
         {
+            if (!updateShadowAlpha)
+            {
+                return;
+            }
+
             _shadowRenderer.color =
                 new Color(shadowColor.r, shadowColor.g, shadowColor.b, casterSpriteRenderer.color.a);
+        }
+
+        private void UpdateShadowRelativePosition()
+        {
+            if (!updateShadowRelativePosition)
+            {
+                return;
+            }
+
+            _shadowObjectTransform.position = transform.position + shadowVisualOffset;
         }
     }
 }

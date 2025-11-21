@@ -48,46 +48,47 @@ namespace ZiercCode._DungeonGame._Scripts.Editor
                 string[] rows = lines[i].Split(',');
                 if (rows[1].Equals("")) break;
 
-                string weaponName = rows[2];
-                GameObject weapon = AssetDatabase.LoadAssetAtPath<GameObject>($"{weaponPath}/{weaponName}.prefab");
+                string weaponPackageName = rows[3];
+                GameObject weapon = AssetDatabase.LoadAssetAtPath<GameObject>($"{weaponPath}/{weaponPackageName}.prefab");
                 if (!weapon) continue;
                 BaseWeapon baseWeapon = weapon.GetComponent<BaseWeapon>();
                 if (!baseWeapon) continue;
-                Debug.Log(weaponName);
+                Debug.Log(weaponPackageName);
+                baseWeapon.weaponName = rows[2];
                 //配置伤害
                 baseWeapon.damage.dictionaryList.Clear();
-                if (float.TryParse(rows[4], out float damage))
-                    baseWeapon.damage.dictionaryList.Add(
-                        new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
-                            DamageType.Fire, damage));
-                if (float.TryParse(rows[5], out damage))
-                    baseWeapon.damage.dictionaryList.Add(
-                        new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
-                            DamageType.Ice, damage));
-                if (float.TryParse(rows[6], out damage))
-                    baseWeapon.damage.dictionaryList.Add(
-                        new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
-                            DamageType.Wood, damage));
-                if (float.TryParse(rows[7], out damage))
-                    baseWeapon.damage.dictionaryList.Add(
-                        new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
-                            DamageType.Voice, damage));
-                if (float.TryParse(rows[8], out damage))
-                    baseWeapon.damage.dictionaryList.Add(
-                        new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
-                            DamageType.Electric, damage));
-                if (float.TryParse(rows[9], out damage))
-                    baseWeapon.damage.dictionaryList.Add(
-                        new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
-                            DamageType.Poison, damage));
-                if (float.TryParse(rows[10], out damage))
-                    baseWeapon.damage.dictionaryList.Add(
-                        new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
-                            DamageType.Wind, damage));
-                if (float.TryParse(rows[11], out damage))
-                    baseWeapon.damage.dictionaryList.Add(
-                        new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
-                            DamageType.Void, damage));
+                float.TryParse(rows[4], out float damage);
+                baseWeapon.damage.dictionaryList.Add(
+                    new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
+                        DamageType.Fire, damage));
+                float.TryParse(rows[5], out damage);
+                baseWeapon.damage.dictionaryList.Add(
+                    new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
+                        DamageType.Ice, damage));
+                float.TryParse(rows[6], out damage);
+                baseWeapon.damage.dictionaryList.Add(
+                    new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
+                        DamageType.Wood, damage));
+                float.TryParse(rows[7], out damage);
+                baseWeapon.damage.dictionaryList.Add(
+                    new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
+                        DamageType.Voice, damage));
+                float.TryParse(rows[8], out damage);
+                baseWeapon.damage.dictionaryList.Add(
+                    new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
+                        DamageType.Electric, damage));
+                float.TryParse(rows[9], out damage);
+                baseWeapon.damage.dictionaryList.Add(
+                    new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
+                        DamageType.Poison, damage));
+                float.TryParse(rows[10], out damage);
+                baseWeapon.damage.dictionaryList.Add(
+                    new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
+                        DamageType.Wind, damage));
+                float.TryParse(rows[11], out damage);
+                baseWeapon.damage.dictionaryList.Add(
+                    new EditableDictionary<DamageType, float>.EditableDictionaryItem<DamageType, float>(
+                        DamageType.Void, damage));
                 //击退
                 baseWeapon.hitForce = float.Parse(rows[12]);
                 //暴击率
@@ -99,9 +100,9 @@ namespace ZiercCode._DungeonGame._Scripts.Editor
                 //伤害衰减
                 baseWeapon.damageReductionByDistance = float.Parse(rows[16]);
                 //射速
-                baseWeapon.fireSpeed = float.Parse(rows[17]);
+                baseWeapon.shootSpeed = float.Parse(rows[17]);
                 //攻击距离
-                baseWeapon.projectileMaxDistance = float.Parse(rows[18]);
+                baseWeapon.shootDistance = float.Parse(rows[18]);
                 //弹匣容量
                 baseWeapon.magazineCapacity = int.Parse(rows[19]);
                 //装填时间

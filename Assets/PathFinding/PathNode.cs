@@ -1,6 +1,4 @@
-﻿
-
-using ZiercCode.PathFinding.Grid;
+﻿using ZiercCode.PathFinding.Grid;
 
 namespace ZiercCode.PathFinding
 {

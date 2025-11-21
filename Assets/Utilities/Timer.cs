@@ -63,7 +63,11 @@ namespace ZiercCode.Utilities
         public void Tick()
         {
             //如果没有启动 则不会计时
-            if (!_isActive) return;
+            if (!_isActive)
+            {
+                return;
+            }
+
             //一旦到达结束事件，停止计时
             if (Time.time >= _endTime)
             {
@@ -71,6 +75,5 @@ namespace ZiercCode.Utilities
                 TimerTrigger?.Invoke();
             }
         }
-
     }
 }

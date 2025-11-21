@@ -77,7 +77,7 @@ namespace ZiercCode._DungeonGame.HallScene
 
         private void EnterGame()
         {
-            SceneComponent.Instance.LoadScene("Scene_CrimsonVault", true);
+            // SceneComponent.Instance.LoadScene("Scene_CrimsonVault", true);
         }
 
         private void EnterTestRoom()

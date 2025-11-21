@@ -11,7 +11,8 @@ namespace ZiercCode.GameTools_2D
         [SerializeField]
         private Transform cameraTarget; //目标
 
-        [SerializeField, Range(0f, 1f)]
+        [SerializeField]
+        [Range(0f, 1f)]
         private float toPointerRate; //摄像机倾向鼠标位置的程度 0-1
 
         private Transform _cameraFollow; //摄像机真正跟随的目标
@@ -47,7 +48,10 @@ namespace ZiercCode.GameTools_2D
 
         private void UpdateCameraFollower()
         {
-            if (!cameraTarget) return;
+            if (!cameraTarget)
+            {
+                return;
+            }
 
             Vector2 pointPosition =
                 mainCamera.ScreenToWorldPoint(_playerInputAction.HeroControl.PointerPosition.ReadValue<Vector2>());

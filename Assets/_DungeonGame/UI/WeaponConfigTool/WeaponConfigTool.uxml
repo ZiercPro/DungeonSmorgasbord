@@ -1,7 +1,13 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="Background" style="flex-grow: 1; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; border-top-width: 10px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; background-color: rgb(58, 58, 58);">
-        <ui:TextField picking-mode="Ignore" label="ConfigFilePath" value="Assets/_DungeonGame/Config/WeaponConfig.csv" name="ConfigFilePath" tooltip="配置文件地址" view-data-key="ConfigFilePath" />
-        <ui:TextField picking-mode="Ignore" label="WeaponFilePath" value="Assets/_DungeonGame/WeaponContent" name="WeaponFilePath" tooltip="武器文件位置" view-data-key="WeaponFilePath" />
-        <ui:Button text="ReadConfig" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ReadConfig" tooltip="读取配置文件以配置武器预制体数据" />
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements"
+         xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements"
+         noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Background"
+                      style="flex-grow: 1; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; border-top-width: 10px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; background-color: rgb(58, 58, 58);">
+        <ui:TextField picking-mode="Ignore" label="ConfigFilePath" value="Assets/_DungeonGame/Config/WeaponConfig.csv"
+                      name="ConfigFilePath" tooltip="配置文件地址" view-data-key="ConfigFilePath"/>
+        <ui:TextField picking-mode="Ignore" label="WeaponFilePath" value="Assets/_DungeonGame/WeaponContent"
+                      name="WeaponFilePath" tooltip="武器文件位置" view-data-key="WeaponFilePath"/>
+        <ui:Button text="ReadConfig" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ReadConfig"
+                   tooltip="读取配置文件以配置武器预制体数据"/>
     </ui:VisualElement>
 </ui:UXML>

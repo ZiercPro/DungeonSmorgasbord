@@ -9,7 +9,8 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
     [RequireComponent(typeof(Collider2D))]
     public class WeaponColliderCheck : MonoBehaviour
     {
-        [SerializeField] private Collider2D hitBox;
+        [SerializeField]
+        private Collider2D hitBox;
 
 
         public UnityEvent<Collider2D> triggerEntered;

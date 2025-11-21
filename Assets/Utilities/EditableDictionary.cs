@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace ZiercCode.Utilities
 {
@@ -14,8 +15,8 @@ namespace ZiercCode.Utilities
     public class EditableDictionary<TKey, TObject>
     {
         /// <summary>
-        /// 这个暴露出来是为了编辑器中用代码配置
-        /// 运行时如果要用dic就不要使用这个，没有dic的效果
+        /// 这个暴露出来是为了编辑器状态时用代码配置
+        /// 运行时如果要用ToDictionary
         /// </summary>
         public List<EditableDictionaryItem<TKey, TObject>> dictionaryList;
 
@@ -31,7 +32,10 @@ namespace ZiercCode.Utilities
 
                     for (int i = 0; i < dictionaryList.Count; i++)
                     {
-                        _dictionary.Add(dictionaryList[i].keyValue, dictionaryList[i].objectValue);
+                        if (!_dictionary.TryAdd(dictionaryList[i].keyValue, dictionaryList[i].objectValue))
+                        {
+                            Debug.LogWarning($"存在相同的键值{dictionaryList[i].keyValue}，保留第一次添加的值");
+                        }
                     }
                 }
 
@@ -79,7 +83,7 @@ namespace ZiercCode.Utilities
 
         public EditableDictionary()
         {
-            dictionaryList = new();
+            dictionaryList = new List<EditableDictionaryItem<TKey, TObject>>();
         }
     }
 }

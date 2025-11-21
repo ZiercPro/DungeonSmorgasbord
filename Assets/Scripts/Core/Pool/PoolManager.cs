@@ -59,7 +59,11 @@ namespace ZiercCode.Core.Pool
 
         private void Update()
         {
-            if (_onUpdateList.Count == 0) return;
+            if (_onUpdateList.Count == 0)
+            {
+                return;
+            }
+
             MyMath.ForeachFromLast(_onUpdateList, autoRelease =>
             {
                 if (autoRelease.IsReleased())
@@ -76,7 +80,7 @@ namespace ZiercCode.Core.Pool
 
         private void OnDestroy()
         {
-            foreach (var autoRelease in _onUpdateList)
+            foreach (AutoReleaseHandle autoRelease in _onUpdateList)
             {
                 autoRelease.Release();
             }
@@ -85,7 +89,7 @@ namespace ZiercCode.Core.Pool
             _removedList.Clear();
 
             //清空所有池对象
-            foreach (var pool in _pools)
+            foreach (KeyValuePair<PoolObjectSo, ObjectPool<GameObject>> pool in _pools)
             {
                 pool.Value.Dispose();
             }
@@ -108,7 +112,9 @@ namespace ZiercCode.Core.Pool
         {
             ObjectPool<GameObject> result = GetPool(objectSo);
             if (result != null)
+            {
                 return result;
+            }
 
             //创建新的对象池
             ObjectPool<GameObject> newPool = new(() =>
@@ -147,7 +153,9 @@ namespace ZiercCode.Core.Pool
         {
             ObjectPool<GameObject> result = GetPool(objectSo);
             if (result != null)
+            {
                 return result;
+            }
 
             //创建新的对象池
             ObjectPool<GameObject> newPool = new(createFunc, onGet, onRelease, onDestroy,
@@ -187,7 +195,9 @@ namespace ZiercCode.Core.Pool
                 releaseHandle.Reset(handle, liveTime);
             }
             else
+            {
                 releaseHandle = new AutoReleaseHandle(handle, liveTime);
+            }
 
             _onUpdateList.Add(releaseHandle);
         }
@@ -211,7 +221,9 @@ namespace ZiercCode.Core.Pool
         {
             ObjectPool<GameObject> objectPool = GetPool(objectSo);
             if (objectPool != null)
+            {
                 return objectPool.Get();
+            }
             else
             {
                 objectPool = CreatePool(objectSo, false);
@@ -230,7 +242,10 @@ namespace ZiercCode.Core.Pool
         {
             GameObject poolObject = GetPoolObject(objectSo);
 
-            if (!poolObject) return null;
+            if (!poolObject)
+            {
+                return null;
+            }
 
             poolObject.transform.position = position;
             return poolObject;
@@ -247,7 +262,10 @@ namespace ZiercCode.Core.Pool
         {
             GameObject poolObject = GetPoolObject(objectSo, position);
 
-            if (!poolObject) return null;
+            if (!poolObject)
+            {
+                return null;
+            }
 
             poolObject.transform.localRotation = quaternion;
             return poolObject;
@@ -282,7 +300,9 @@ namespace ZiercCode.Core.Pool
         {
             GameObject result = GetPoolObject(objectSo, parentTransform);
             if (result)
+            {
                 result.transform.localRotation = quaternion;
+            }
 
             return result;
         }
@@ -296,7 +316,9 @@ namespace ZiercCode.Core.Pool
         {
             ObjectPool<GameObject> objectPool = GetPool(objectSo);
             if (objectPool != null)
+            {
                 objectPool.Release(objectToRelease);
+            }
         }
 
         /// <summary>

@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142db04bd920f8d4794c9cc58103e947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Scene_TestRoom
+  sceneName: Scene_MainMenu
 --- !u!1 &156571595
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 156571596}
   - component: {fileID: 156571597}
   m_Layer: 0
-  m_Name: GameFPSShower
+  m_Name: FPSShower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,6 +220,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpsText: {fileID: 1783717706}
   fpsUpdateInterval: 0.5
+--- !u!1 &170066022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 170066023}
+  - component: {fileID: 170066024}
+  m_Layer: 0
+  m_Name: BuffManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &170066023
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170066022}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1280, y: 720, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &170066024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170066022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a147b896d0804bddb01df2148ebed021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &181774833
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +450,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popupPrefab: {fileID: 2100090844570141681, guid: 5acac587af4cab74cad3c7970d574a76, type: 3}
+  textPopupPoolName: textPopup
+  maxNum: 100
+  minNum: 20
+  maxActiveNum: 35
   canvas: {fileID: 1319653975}
 --- !u!1 &976727484
 GameObject:
@@ -1015,3 +1063,4 @@ SceneRoots:
   - {fileID: 156571596}
   - {fileID: 819271455}
   - {fileID: 827248829}
+  - {fileID: 170066023}

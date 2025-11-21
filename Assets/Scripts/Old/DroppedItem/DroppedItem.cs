@@ -13,19 +13,31 @@ namespace ZiercCode.Old.DroppedItem
 
         protected void OnEnable()
         {
-            if (_items == null) _items = new List<DroppedItem>();
+            if (_items == null)
+            {
+                _items = new List<DroppedItem>();
+            }
+
             _items.Add(this);
         }
 
         public virtual void GetItem()
         {
-            if (_isClearing) return;
+            if (_isClearing)
+            {
+                return;
+            }
+
             _items.Remove(this);
         }
 
         public static void ClearAllItem()
         {
-            if (_items == null || _items.Count == 0) return;
+            if (_items == null || _items.Count == 0)
+            {
+                return;
+            }
+
             _isClearing = true;
             MyMath.ForeachFromLast(_items, item =>
             {

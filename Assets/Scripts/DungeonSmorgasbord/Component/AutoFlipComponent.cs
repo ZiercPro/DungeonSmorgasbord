@@ -4,9 +4,11 @@ namespace ZiercCode.DungeonSmorgasbord.Component
 {
     public class AutoFlipComponent : MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField]
+        private SpriteRenderer spriteRenderer;
 
-        [SerializeField] private bool isFacingRight = true;
+        [SerializeField]
+        private bool isFacingRight = true;
 
         public bool IsFacingRight => isFacingRight;
 

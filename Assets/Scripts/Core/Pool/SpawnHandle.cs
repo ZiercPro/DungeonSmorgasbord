@@ -30,11 +30,13 @@ namespace ZiercCode.Core.Pool
         public GameObject GetObject()
         {
             if (_poolObjectSo.haveIPoolObject)
+            {
                 if (_poolObject.TryGetComponent(out IPoolObject iPoolObject))
                 {
                     iPoolObject.SetSpawnHandle(this);
                     iPoolObject.OnGet();
                 }
+            }
 
             return _poolObject;
         }
@@ -42,11 +44,17 @@ namespace ZiercCode.Core.Pool
         public void Release()
         {
             if (_poolObjectSo.haveIPoolObject)
+            {
                 if (_poolObject.TryGetComponent(out IPoolObject iPoolObject))
+                {
                     iPoolObject.OnRelease();
+                }
+            }
 
             if (_poolObject)
+            {
                 _pool.Release(_poolObject);
+            }
         }
     }
 }

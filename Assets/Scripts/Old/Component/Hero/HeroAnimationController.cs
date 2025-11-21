@@ -7,7 +7,8 @@ namespace ZiercCode.Old.Component.Hero
     /// </summary>
     public class HeroAnimationController : MonoBehaviour
     {
-        [SerializeField] private Animator animator;
+        [SerializeField]
+        private Animator animator;
 
         public void MoveAnimation(Vector2 moveDir)
         {

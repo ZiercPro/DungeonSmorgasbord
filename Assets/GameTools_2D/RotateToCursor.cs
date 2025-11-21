@@ -6,7 +6,8 @@ namespace ZiercCode.GameTools_2D
     //本身转向鼠标
     public class RotateToCursor : PauseBehaviour
     {
-        [SerializeField] private float rotateRate = 10f;
+        [SerializeField]
+        private float rotateRate = 10f;
 
         private PlayerInputAction _playerInputAction;
 

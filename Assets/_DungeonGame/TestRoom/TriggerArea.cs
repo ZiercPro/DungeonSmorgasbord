@@ -12,6 +12,9 @@ namespace ZiercCode._DungeonGame.TestRoom
         [SerializeField]
         private Vector2 collisionBox;
 
+        [SerializeField]
+        private LayerMask targetLayer;
+
         private bool _isPlayerEnter; //玩家是否进入过
         private RangeDetector _rangeDetector = new(1);
 
@@ -23,7 +26,7 @@ namespace ZiercCode._DungeonGame.TestRoom
 
         private void FixedUpdate()
         {
-            bool detected = _rangeDetector.DetectInBoxByTag("Player", transform.position, collisionBox);
+            bool detected = _rangeDetector.DetectInBoxByLayer(targetLayer, transform.position, collisionBox);
             if (detected && !_isPlayerEnter)
             {
                 _isPlayerEnter = true;

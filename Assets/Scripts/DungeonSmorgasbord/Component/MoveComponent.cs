@@ -9,7 +9,8 @@ namespace ZiercCode.DungeonSmorgasbord.Component
         /// <summary>
         /// 刚体组件
         /// </summary>
-        [SerializeField] private Rigidbody2D rb2D;
+        [SerializeField]
+        private Rigidbody2D rb2D;
 
         /// <summary>
         /// 移动速度
@@ -29,6 +30,7 @@ namespace ZiercCode.DungeonSmorgasbord.Component
             get => _moveSpeed;
             set => _moveSpeed = value;
         }
+
         public Vector2 CurrentVelocity => rb2D.velocity;
 
         public void Move(Vector2 moveDir)

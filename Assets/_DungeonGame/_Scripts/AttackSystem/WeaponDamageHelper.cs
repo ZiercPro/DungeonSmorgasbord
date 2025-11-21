@@ -19,7 +19,7 @@ namespace ZiercCode._DungeonGame._Scripts.AttackSystem
         {
             float damage = 0;
 
-            foreach (var damageValue in weapon.damage.ToDictionary.Values)
+            foreach (float damageValue in weapon.damage.ToDictionary.Values)
             {
                 damage += damageValue;
             }
@@ -48,10 +48,15 @@ namespace ZiercCode._DungeonGame._Scripts.AttackSystem
             {
                 float random = Random.Range(0f, totalDamage);
 
-                foreach (var kv in weapon.damage.ToDictionary)
+                foreach (KeyValuePair<DamageType, float> kv in weapon.damage.ToDictionary)
                 {
+                    if (kv.Value <= 0f)
+                    {
+                        continue;
+                    }
+
                     random -= kv.Value;
-                    if (random <= 0) //刚好落在对应区间
+                    if (random <= 0f) //刚好落在对应区间
                     {
                         if (!result.TryAdd(kv.Key, 1))
                         {

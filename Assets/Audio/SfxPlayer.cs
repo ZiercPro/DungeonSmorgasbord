@@ -4,7 +4,8 @@ namespace ZiercCode.Audio
 {
     public class SfxPlayer : MonoBehaviour
     {
-        [SerializeField] private AudioSource audioSource;
+        [SerializeField]
+        private AudioSource audioSource;
 
         public void Play(string audioName)
         {

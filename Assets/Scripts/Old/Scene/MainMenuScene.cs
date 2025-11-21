@@ -7,7 +7,6 @@ namespace ZiercCode.Old.Scene
     /// </summary>
     public class MainMenuScene : BaseSceneState
     {
-
         private PanelManager _panelManager;
 
 

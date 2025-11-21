@@ -12,7 +12,8 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// <summary>
         /// 刚体
         /// </summary>
-        [SerializeField] private Rigidbody2D rigidBody2D;
+        [SerializeField]
+        private Rigidbody2D rigidBody2D;
 
         /// <summary>
         /// 发射方向
@@ -57,7 +58,10 @@ namespace ZiercCode.DungeonSmorgasbord.Weapon
         /// </summary>
         private void OnFly()
         {
-            if (!_isFired) return;
+            if (!_isFired)
+            {
+                return;
+            }
         }
     }
 }

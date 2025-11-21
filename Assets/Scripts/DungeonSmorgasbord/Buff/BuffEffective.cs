@@ -42,7 +42,7 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         {
             if (_buffBases.Count > 0)
             {
-                foreach (var buff in _buffBases)
+                foreach (BuffBaseSo buff in _buffBases)
                 {
                     buff.InActive();
                 }
@@ -52,7 +52,7 @@ namespace ZiercCode.DungeonSmorgasbord.Buff
         public void AddBuff(BuffBaseSo buffBaseSo)
         {
             //如果以及存在了相同的buff 看是否可叠加，可叠加则重置持续时间
-            foreach (var buff in _buffBases)
+            foreach (BuffBaseSo buff in _buffBases)
             {
                 if (buff.buffId == buffBaseSo.buffId)
                 {

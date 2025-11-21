@@ -1,6 +1,5 @@
 using RMC.Mini;
 using RMC.Mini.Controller;
-using System;
 using ZiercCode.Test.MVC.Scene;
 
 namespace ZiercCode.Test.MVC
@@ -30,12 +29,12 @@ namespace ZiercCode.Test.MVC
 
         private void View_OnAdd()
         {
-            if (Int32.TryParse(_addCalculatorView.GetAInputFieldText(), out int a))
+            if (int.TryParse(_addCalculatorView.GetAInputFieldText(), out int a))
             {
                 _addCalculatorModel.A.Value = a;
             }
 
-            if (Int32.TryParse(_addCalculatorView.GetBInputFieldText(), out int b))
+            if (int.TryParse(_addCalculatorView.GetBInputFieldText(), out int b))
             {
                 _addCalculatorModel.B.Value = b;
             }

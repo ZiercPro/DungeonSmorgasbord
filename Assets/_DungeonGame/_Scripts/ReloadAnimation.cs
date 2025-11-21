@@ -49,10 +49,15 @@ namespace ZiercCode._DungeonGame._Scripts
 
         public void PlayReloadAnimation(float duration)
         {
-            if (_isPlaying) return;
+            if (_isPlaying)
+            {
+                return;
+            }
 
             for (int i = 0; i < points.Length; i++)
+            {
                 points[i].color = Color.clear;
+            }
 
             animator.SetActive(true);
 

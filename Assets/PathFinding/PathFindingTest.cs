@@ -7,17 +7,19 @@ using ZiercCode.Utilities;
 
 namespace ZiercCode.PathFinding
 {
-
     public class PathFindingTest : MonoBehaviour
     {
-        [SerializeField] private GameObject blockCube;
+        [SerializeField]
+        private GameObject blockCube;
 
         [Header("movable info")]
         [Space]
         [SerializeField]
         private Rigidbody2D pathFindAI;
 
-        [SerializeField] private float moveSpeed;
+        [SerializeField]
+        private float moveSpeed;
+
         private PathFinding _pathFinding;
         private PathNode _startNode;
         private PathNode _endNode;
@@ -68,9 +70,9 @@ namespace ZiercCode.PathFinding
                     {
                         Debug.DrawLine(
                             _pathFinding.GridBase.GetWorldPosition(_pathNodes[i].X, _pathNodes[i].Y) +
-                            (Vector3.right + Vector3.up) * (_pathFinding.GridBase.CellSize * 0.5f),
+                            ((Vector3.right + Vector3.up) * (_pathFinding.GridBase.CellSize * 0.5f)),
                             _pathFinding.GridBase.GetWorldPosition(_pathNodes[i + 1].X, _pathNodes[i + 1].Y) +
-                            (Vector3.right + Vector3.up) * (_pathFinding.GridBase.CellSize * 0.5f), Color.green, 2f);
+                            ((Vector3.right + Vector3.up) * (_pathFinding.GridBase.CellSize * 0.5f)), Color.green, 2f);
                     }
                 }
             }
@@ -88,8 +90,9 @@ namespace ZiercCode.PathFinding
                 blockNode.IsActive = false;
                 GameObject newBlock = Instantiate(blockCube,
                     _pathFinding.GridBase.GetWorldPosition(blockNode.X, blockNode.Y) +
-                    (Vector3.right + Vector3.up) * (_pathFinding.GridBase.CellSize * 0.5f), Quaternion.identity);
-                newBlock.transform.localScale = new Vector3(_pathFinding.GridBase.CellSize, _pathFinding.GridBase.CellSize,
+                    ((Vector3.right + Vector3.up) * (_pathFinding.GridBase.CellSize * 0.5f)), Quaternion.identity);
+                newBlock.transform.localScale = new Vector3(_pathFinding.GridBase.CellSize,
+                    _pathFinding.GridBase.CellSize,
                     _pathFinding.GridBase.CellSize);
                 newBlock.SetActive(true);
             }
@@ -112,7 +115,7 @@ namespace ZiercCode.PathFinding
             MyCoroutineTool.Instance.StartCoroutine(TranslationCoroutine(path, targetRigid2d, speed, 0.1f));
         }
 
-        IEnumerator TranslationCoroutine(List<Vector3> path, Rigidbody2D targetRigid2d, float speed,
+        private IEnumerator TranslationCoroutine(List<Vector3> path, Rigidbody2D targetRigid2d, float speed,
             float nearestDistance)
         {
             yield return null;
@@ -124,7 +127,7 @@ namespace ZiercCode.PathFinding
             }
         }
 
-        IEnumerator MoveUnit(Rigidbody2D unit, Vector3 targetPostion, float speed, float nearestDistance)
+        private IEnumerator MoveUnit(Rigidbody2D unit, Vector3 targetPostion, float speed, float nearestDistance)
         {
             while (true)
             {

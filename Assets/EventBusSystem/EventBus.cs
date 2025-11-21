@@ -8,8 +8,7 @@ namespace ZiercCode.EventBusSystem
         /// <summary>
         /// 事件id监听字典
         /// </summary>
-        private static Dictionary<int, LinkedList<Action<IEventArgs>>> _eventListeners =
-            new Dictionary<int, LinkedList<Action<IEventArgs>>>();
+        private static Dictionary<int, LinkedList<Action<IEventArgs>>> _eventListeners = new();
 
         /// <summary>
         /// 添加监听
@@ -32,7 +31,7 @@ namespace ZiercCode.EventBusSystem
             int eventId = eventType.GetHashCode();
             if (!_eventListeners.ContainsKey(eventId))
             {
-                LinkedList<Action<IEventArgs>> newList = new LinkedList<Action<IEventArgs>>();
+                LinkedList<Action<IEventArgs>> newList = new();
                 _eventListeners.Add(eventId, newList);
             }
 
@@ -82,7 +81,7 @@ namespace ZiercCode.EventBusSystem
 
                 if (linkedList.Count > 0)
                 {
-                    var currentNode = linkedList.Last;
+                    LinkedListNode<Action<IEventArgs>> currentNode = linkedList.Last;
                     while (currentNode != null)
                     {
                         currentNode.Value.Invoke(eventArgs);
@@ -97,7 +96,7 @@ namespace ZiercCode.EventBusSystem
         /// </summary>
         public static void Clear()
         {
-            foreach (var kv in _eventListeners)
+            foreach (KeyValuePair<int, LinkedList<Action<IEventArgs>>> kv in _eventListeners)
             {
                 kv.Value.Clear();
             }

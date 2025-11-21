@@ -52,7 +52,10 @@ namespace ZiercCode._DungeonGame._Scripts.WeaponClass
 
         private void ReadPressTime()
         {
-            if (isPressFireButton) pressTime += Time.deltaTime;
+            if (isPressFireButton)
+            {
+                pressTime += Time.deltaTime;
+            }
         }
     }
 }
